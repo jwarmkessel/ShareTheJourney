@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CF2697E619EC3E4200525E19 /* APHContentsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CF2697DC19EC3E4200525E19 /* APHContentsViewController.m */; };
+		CF2697E719EC3E4200525E19 /* APHCustomTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = CF2697DE19EC3E4200525E19 /* APHCustomTextView.m */; };
+		CF2697E819EC3E4200525E19 /* APHMoodLogDictionaryKeys.m in Sources */ = {isa = PBXBuildFile; fileRef = CF2697E019EC3E4200525E19 /* APHMoodLogDictionaryKeys.m */; };
+		CF2697E919EC3E4200525E19 /* APHNotesContentsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CF2697E219EC3E4200525E19 /* APHNotesContentsTableViewCell.m */; };
+		CF2697EA19EC3E4200525E19 /* APHNotesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CF2697E419EC3E4200525E19 /* APHNotesViewController.m */; };
+		CF2697EB19EC3E4200525E19 /* APHNotesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CF2697E519EC3E4200525E19 /* APHNotesViewController.xib */; };
+		CF2697ED19EC513100525E19 /* APHContentsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CF2697EC19EC513100525E19 /* APHContentsViewController.xib */; };
+		CF2697F119EC536300525E19 /* APHNotesContentsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CF2697F019EC536300525E19 /* APHNotesContentsTableViewCell.xib */; };
 		F534B58919E4681E00C3C152 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F534B58819E4681E00C3C152 /* main.m */; };
 		F534B59419E4681E00C3C152 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F534B59319E4681E00C3C152 /* Images.xcassets */; };
 		F534B67C19E4689D00C3C152 /* NSString+CustomMethods.m in Sources */ = {isa = PBXBuildFile; fileRef = F534B5AF19E4689D00C3C152 /* NSString+CustomMethods.m */; };
@@ -179,6 +187,19 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		CF2697DB19EC3E4200525E19 /* APHContentsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = APHContentsViewController.h; path = DailyJournalControllers/APHContentsViewController.h; sourceTree = "<group>"; };
+		CF2697DC19EC3E4200525E19 /* APHContentsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = APHContentsViewController.m; path = DailyJournalControllers/APHContentsViewController.m; sourceTree = "<group>"; };
+		CF2697DD19EC3E4200525E19 /* APHCustomTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = APHCustomTextView.h; path = DailyJournalControllers/APHCustomTextView.h; sourceTree = "<group>"; };
+		CF2697DE19EC3E4200525E19 /* APHCustomTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = APHCustomTextView.m; path = DailyJournalControllers/APHCustomTextView.m; sourceTree = "<group>"; };
+		CF2697DF19EC3E4200525E19 /* APHMoodLogDictionaryKeys.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = APHMoodLogDictionaryKeys.h; path = DailyJournalControllers/APHMoodLogDictionaryKeys.h; sourceTree = "<group>"; };
+		CF2697E019EC3E4200525E19 /* APHMoodLogDictionaryKeys.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = APHMoodLogDictionaryKeys.m; path = DailyJournalControllers/APHMoodLogDictionaryKeys.m; sourceTree = "<group>"; };
+		CF2697E119EC3E4200525E19 /* APHNotesContentsTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = APHNotesContentsTableViewCell.h; path = DailyJournalControllers/APHNotesContentsTableViewCell.h; sourceTree = "<group>"; };
+		CF2697E219EC3E4200525E19 /* APHNotesContentsTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = APHNotesContentsTableViewCell.m; path = DailyJournalControllers/APHNotesContentsTableViewCell.m; sourceTree = "<group>"; };
+		CF2697E319EC3E4200525E19 /* APHNotesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = APHNotesViewController.h; path = DailyJournalControllers/APHNotesViewController.h; sourceTree = "<group>"; };
+		CF2697E419EC3E4200525E19 /* APHNotesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = APHNotesViewController.m; path = DailyJournalControllers/APHNotesViewController.m; sourceTree = "<group>"; };
+		CF2697E519EC3E4200525E19 /* APHNotesViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = APHNotesViewController.xib; path = DailyJournalControllers/APHNotesViewController.xib; sourceTree = "<group>"; };
+		CF2697EC19EC513100525E19 /* APHContentsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = APHContentsViewController.xib; sourceTree = "<group>"; };
+		CF2697F019EC536300525E19 /* APHNotesContentsTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = APHNotesContentsTableViewCell.xib; sourceTree = "<group>"; };
 		F534B58319E4681E00C3C152 /* BreastCancer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BreastCancer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F534B58719E4681E00C3C152 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F534B58819E4681E00C3C152 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -355,17 +376,17 @@
 		F534B66D19E4689D00C3C152 /* APHTracingObjectsOverviewViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = APHTracingObjectsOverviewViewController.xib; sourceTree = "<group>"; };
 		F534B66E19E4689D00C3C152 /* APHTracingObjectsTaskViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APHTracingObjectsTaskViewController.h; sourceTree = "<group>"; };
 		F534B66F19E4689D00C3C152 /* APHTracingObjectsTaskViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APHTracingObjectsTaskViewController.m; sourceTree = "<group>"; };
-		F534B67119E4689D00C3C152 /* APHWalkingIntroViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APHWalkingIntroViewController.h; sourceTree = "<group>"; };
-		F534B67219E4689D00C3C152 /* APHWalkingIntroViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APHWalkingIntroViewController.m; sourceTree = "<group>"; };
-		F534B67319E4689D00C3C152 /* APHWalkingIntroViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = APHWalkingIntroViewController.xib; sourceTree = "<group>"; };
+		F534B67119E4689D00C3C152 /* APHWalkingIntroViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = APHWalkingIntroViewController.h; path = WalkingControllers/APHWalkingIntroViewController.h; sourceTree = "<group>"; };
+		F534B67219E4689D00C3C152 /* APHWalkingIntroViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = APHWalkingIntroViewController.m; path = WalkingControllers/APHWalkingIntroViewController.m; sourceTree = "<group>"; };
+		F534B67319E4689D00C3C152 /* APHWalkingIntroViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = APHWalkingIntroViewController.xib; path = WalkingControllers/APHWalkingIntroViewController.xib; sourceTree = "<group>"; };
 		F534B67419E4689D00C3C152 /* APHWalkingResultsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APHWalkingResultsViewController.h; sourceTree = "<group>"; };
 		F534B67519E4689D00C3C152 /* APHWalkingResultsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APHWalkingResultsViewController.m; sourceTree = "<group>"; };
 		F534B67619E4689D00C3C152 /* APHWalkingResultsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = APHWalkingResultsViewController.xib; sourceTree = "<group>"; };
 		F534B67719E4689D00C3C152 /* APHWalkingStepsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APHWalkingStepsViewController.h; sourceTree = "<group>"; };
 		F534B67819E4689D00C3C152 /* APHWalkingStepsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APHWalkingStepsViewController.m; sourceTree = "<group>"; };
 		F534B67919E4689D00C3C152 /* APHWalkingStepsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = APHWalkingStepsViewController.xib; sourceTree = "<group>"; };
-		F534B67A19E4689D00C3C152 /* APHWalkingTaskViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APHWalkingTaskViewController.h; sourceTree = "<group>"; };
-		F534B67B19E4689D00C3C152 /* APHWalkingTaskViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APHWalkingTaskViewController.m; sourceTree = "<group>"; };
+		F534B67A19E4689D00C3C152 /* APHWalkingTaskViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = APHWalkingTaskViewController.h; path = WalkingControllers/APHWalkingTaskViewController.h; sourceTree = "<group>"; };
+		F534B67B19E4689D00C3C152 /* APHWalkingTaskViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = APHWalkingTaskViewController.m; path = WalkingControllers/APHWalkingTaskViewController.m; sourceTree = "<group>"; };
 		F534B6F419E468D400C3C152 /* BreastCancer.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = BreastCancer.entitlements; sourceTree = "<group>"; };
 		F534B6F519E468D400C3C152 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
 		F534B6F819E4696E00C3C152 /* APCAppleCore.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = APCAppleCore.xcodeproj; path = AppleCore/APCAppleCore/APCAppleCore.xcodeproj; sourceTree = SOURCE_ROOT; };
@@ -392,6 +413,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CF2697DA19EC3E0D00525E19 /* Daily Journal Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				F534B67A19E4689D00C3C152 /* APHWalkingTaskViewController.h */,
+				F534B67B19E4689D00C3C152 /* APHWalkingTaskViewController.m */,
+				F534B67119E4689D00C3C152 /* APHWalkingIntroViewController.h */,
+				F534B67219E4689D00C3C152 /* APHWalkingIntroViewController.m */,
+				F534B67319E4689D00C3C152 /* APHWalkingIntroViewController.xib */,
+				CF2697DB19EC3E4200525E19 /* APHContentsViewController.h */,
+				CF2697DC19EC3E4200525E19 /* APHContentsViewController.m */,
+				CF2697EC19EC513100525E19 /* APHContentsViewController.xib */,
+				CF2697E119EC3E4200525E19 /* APHNotesContentsTableViewCell.h */,
+				CF2697E219EC3E4200525E19 /* APHNotesContentsTableViewCell.m */,
+				CF2697F019EC536300525E19 /* APHNotesContentsTableViewCell.xib */,
+				CF2697E319EC3E4200525E19 /* APHNotesViewController.h */,
+				CF2697E419EC3E4200525E19 /* APHNotesViewController.m */,
+				CF2697E519EC3E4200525E19 /* APHNotesViewController.xib */,
+				CF2697DD19EC3E4200525E19 /* APHCustomTextView.h */,
+				CF2697DE19EC3E4200525E19 /* APHCustomTextView.m */,
+				CF2697DF19EC3E4200525E19 /* APHMoodLogDictionaryKeys.h */,
+				CF2697E019EC3E4200525E19 /* APHMoodLogDictionaryKeys.m */,
+			);
+			name = "Daily Journal Controllers";
+			sourceTree = "<group>";
+		};
 		F534B57A19E4681E00C3C152 = {
 			isa = PBXGroup;
 			children = (
@@ -656,6 +702,7 @@
 				F534B62E19E4689D00C3C152 /* SleepQualityControllers */,
 				F534B63419E4689D00C3C152 /* SpecialSurveyControllers */,
 				F534B66A19E4689D00C3C152 /* TracingObjectControllers */,
+				CF2697DA19EC3E0D00525E19 /* Daily Journal Controllers */,
 				F534B67019E4689D00C3C152 /* WalkingControllers */,
 			);
 			path = TasksAndSteps;
@@ -796,17 +843,12 @@
 		F534B67019E4689D00C3C152 /* WalkingControllers */ = {
 			isa = PBXGroup;
 			children = (
-				F534B67119E4689D00C3C152 /* APHWalkingIntroViewController.h */,
-				F534B67219E4689D00C3C152 /* APHWalkingIntroViewController.m */,
-				F534B67319E4689D00C3C152 /* APHWalkingIntroViewController.xib */,
 				F534B67419E4689D00C3C152 /* APHWalkingResultsViewController.h */,
 				F534B67519E4689D00C3C152 /* APHWalkingResultsViewController.m */,
 				F534B67619E4689D00C3C152 /* APHWalkingResultsViewController.xib */,
 				F534B67719E4689D00C3C152 /* APHWalkingStepsViewController.h */,
 				F534B67819E4689D00C3C152 /* APHWalkingStepsViewController.m */,
 				F534B67919E4689D00C3C152 /* APHWalkingStepsViewController.xib */,
-				F534B67A19E4689D00C3C152 /* APHWalkingTaskViewController.h */,
-				F534B67B19E4689D00C3C152 /* APHWalkingTaskViewController.m */,
 			);
 			path = WalkingControllers;
 			sourceTree = "<group>";
@@ -943,6 +985,7 @@
 				F534B6D719E4689D00C3C152 /* APHSurveyInputResponseViewController.xib in Resources */,
 				F534B68C19E4689D00C3C152 /* JSON_READ_ME in Resources */,
 				F534B68A19E4689D00C3C152 /* APCParameters.json in Resources */,
+				CF2697F119EC536300525E19 /* APHNotesContentsTableViewCell.xib in Resources */,
 				F534B6E119E4689D00C3C152 /* APHSurveyMultiChoiceViewController.xib in Resources */,
 				F534B6D119E4689D00C3C152 /* APHSurveyCompletionViewController.xib in Resources */,
 				F534B6C219E4689D00C3C152 /* APHPhonationIntroViewController.xib in Resources */,
@@ -979,7 +1022,9 @@
 				F534B6D319E4689D00C3C152 /* APHSurveyDateAndTimeViewController.xib in Resources */,
 				F534B6BF19E4689D00C3C152 /* APHChangedMedsOverviewViewController.xib in Resources */,
 				F534B69719E4689D00C3C152 /* walking.instructions.03@2x.png in Resources */,
+				CF2697ED19EC513100525E19 /* APHContentsViewController.xib in Resources */,
 				F534B6CA19E4689D00C3C152 /* APHMedsChangeMasterTableViewCell.xib in Resources */,
+				CF2697EB19EC3E4200525E19 /* APHNotesViewController.xib in Resources */,
 				F534B69E19E4689D00C3C152 /* APHActivities.storyboard in Resources */,
 				F534B69C19E4689D00C3C152 /* LaunchScreen.xib in Resources */,
 				F534B68F19E4689D00C3C152 /* phonation.instructions.01@2x.png in Resources */,
@@ -1012,6 +1057,7 @@
 				F534B6E019E4689D00C3C152 /* APHSurveyMultiChoiceViewController.m in Sources */,
 				F534B6C419E4689D00C3C152 /* APHSleepQualityOverviewViewController.m in Sources */,
 				F534B6BE19E4689D00C3C152 /* APHChangedMedsOverviewViewController.m in Sources */,
+				CF2697E919EC3E4200525E19 /* APHNotesContentsTableViewCell.m in Sources */,
 				F534B68519E4689D00C3C152 /* APHUserInfoCell.m in Sources */,
 				F534B6B919E4689D00C3C152 /* APHIntervalTappingStepsViewController.m in Sources */,
 				F534B6D819E4689D00C3C152 /* APHSurveyIntroViewController.m in Sources */,
@@ -1021,6 +1067,7 @@
 				F534B6C019E4689D00C3C152 /* APHChangedMedsTaskViewController.m in Sources */,
 				F534B6AA19E4689D00C3C152 /* APHLearnMasterViewController.m in Sources */,
 				F534B6A119E4689D00C3C152 /* APHDashboardViewController.m in Sources */,
+				CF2697E619EC3E4200525E19 /* APHContentsViewController.m in Sources */,
 				F534B6EF19E4689D00C3C152 /* APHWalkingResultsViewController.m in Sources */,
 				F534B6B119E4689D00C3C152 /* APHSettingsViewController.m in Sources */,
 				F534B69F19E4689D00C3C152 /* APHActivitiesViewController.m in Sources */,
@@ -1031,12 +1078,15 @@
 				F534B6CB19E4689D00C3C152 /* APHMedsChangeMasterViewController.m in Sources */,
 				F534B6A819E4689D00C3C152 /* APHLearnDetailViewController.m in Sources */,
 				F534B68019E4689D00C3C152 /* APHIntroVideoViewController.m in Sources */,
+				CF2697E819EC3E4200525E19 /* APHMoodLogDictionaryKeys.m in Sources */,
 				F534B6DE19E4689D00C3C152 /* APHSurveyMedsChangeDetailViewController.m in Sources */,
 				F534B6B719E4689D00C3C152 /* APHIntervalTappingResultsViewController.m in Sources */,
 				F534B67F19E4689D00C3C152 /* APHInclusionCriteriaViewController.m in Sources */,
 				F534B6ED19E4689D00C3C152 /* APHWalkingIntroViewController.m in Sources */,
 				F534B6EC19E4689D00C3C152 /* APHTracingObjectsTaskViewController.m in Sources */,
 				F534B68419E4689D00C3C152 /* APHStudyOverviewViewController.m in Sources */,
+				CF2697E719EC3E4200525E19 /* APHCustomTextView.m in Sources */,
+				CF2697EA19EC3E4200525E19 /* APHNotesViewController.m in Sources */,
 				F534B6C919E4689D00C3C152 /* APHMedsChangeMasterTableViewCell.m in Sources */,
 				F534B6D219E4689D00C3C152 /* APHSurveyDateAndTimeViewController.m in Sources */,
 				F534B6BD19E4689D00C3C152 /* APHIntervalTappingTaskViewController.m in Sources */,
