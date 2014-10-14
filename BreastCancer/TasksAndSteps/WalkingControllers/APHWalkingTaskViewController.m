@@ -9,19 +9,16 @@
 #import "APHWalkingTaskViewController.h"
 
 #import "APHWalkingIntroViewController.h"
-#import "APHWalkingStepsViewController.h"
-#import "APHWalkingResultsViewController.h"
+#import "APHContentsViewController.h"
+//#import "APHWalkingResultsViewController.h"
 #import <objc/message.h>
 
-static  NSString  *kWalkingStep101Key = @"Walking Step 101";
-static  NSString  *kWalkingStep102Key = @"Walking Step 102";
-static  NSString  *kWalkingStep103Key = @"Walking Step 103";
-static  NSString  *kWalkingStep104Key = @"Walking Step 104";
-static  NSString  *kWalkingStep105Key = @"Walking Step 105";
+static  NSString  *kWalkingStep101Key = @"Daily Journal Step 101";
+static  NSString  *kWalkingStep102Key = @"Daily Journal Step 102";
 
 @interface APHWalkingTaskViewController  ( )
 {
-    NSInteger _count;
+//    NSInteger _count;
 }
 
 @end
@@ -49,44 +46,10 @@ static  NSString  *kWalkingStep105Key = @"Walking Step 105";
         RKActiveStep* step = [[RKActiveStep alloc] initWithIdentifier:kWalkingStep102Key name:@"active step"];
         step.caption = NSLocalizedString(@"Walk out 20 Steps", @"");
         step.text = NSLocalizedString(@"Now please walk out 20 steps.", @"");
-        step.buzz = YES;
-        step.vibration = YES;
-        step.countDown = 20.0;
-        step.recorderConfigurations = @[ [[RKAccelerometerRecorderConfiguration alloc] initWithFrequency:100.0]];
-        [steps addObject:step];
-    }
-    {
-        RKActiveStep* step = [[RKActiveStep alloc] initWithIdentifier:kWalkingStep103Key name:@"active step"];
-        step.caption = NSLocalizedString(@"Turn around and walk back", @"");
-        step.text = NSLocalizedString(@"Now please turn 180 degrees, and walk back to your starting point.", @"");
-        step.buzz = YES;
-        step.vibration = YES;
-        step.countDown = 20.0;
-        step.recorderConfigurations = @[ [[RKAccelerometerRecorderConfiguration alloc] initWithFrequency:100.0]];
-        [steps addObject:step];
-    }
-    {
-        RKActiveStep* step = [[RKActiveStep alloc] initWithIdentifier:kWalkingStep104Key name:@"active step"];
-        step.caption = NSLocalizedString(@"Standing Still", @"");
-        step.text = NSLocalizedString(@"Now please stand still for 30 seconds.", @"");
-        step.buzz = YES;
-        step.vibration = YES;
-        step.countDown = 30.0;
-        step.recorderConfigurations = @[ [[RKAccelerometerRecorderConfiguration alloc] initWithFrequency:100.0]];
-        [steps addObject:step];
-    }
-    {
-        RKActiveStep* step = [[RKActiveStep alloc] initWithIdentifier:kWalkingStep105Key name:@"active step"];
-        step.caption = NSLocalizedString(@"Great Job!", @"");
-        step.text = NSLocalizedString(@"Your gait symptoms seem to appear mild."
-                    @"Insert easy to understand meaning of this interpretation here.", @"");
-        step.buzz = YES;
-        step.vibration = YES;
-        step.countDown = 0.0;
         [steps addObject:step];
     }
     
-    RKTask  *task = [[RKTask alloc] initWithName:@"Timed Walking Task" identifier:@"Timed Walking Task" steps:steps];
+    RKTask  *task = [[RKTask alloc] initWithName:@"Daily Journal Task" identifier:@"Daily Journal Task" steps:steps];
     
     return  task;
 }
@@ -95,7 +58,7 @@ static  NSString  *kWalkingStep105Key = @"Walking Step 105";
 {
     self = [super initWithTask:task taskInstanceUUID:taskInstanceUUID];
     if (self) {
-        _count = 0;
+//        _count = 0;
     }
     return self;
 }
@@ -123,23 +86,14 @@ static  NSString  *kWalkingStep105Key = @"Walking Step 105";
 - (RKStepViewController *)taskViewController:(RKTaskViewController *)taskViewController viewControllerForStep:(RKStep *)step
 {
     NSDictionary  *stepsToControllersMap = @{
-                                             kWalkingStep101Key : @[ [APHWalkingIntroViewController class], @(0) ],
-                                             kWalkingStep102Key : @[ [APHWalkingStepsViewController class], @(WalkingStepsPhaseWalkSomeDistance) ],
-                                             kWalkingStep103Key : @[ [APHWalkingStepsViewController class], @(WalkingStepsPhaseWalkBackToBase) ],
-                                             kWalkingStep104Key : @[ [APHWalkingStepsViewController class], @(WalkingStepsPhaseStandStill) ],
-                                             kWalkingStep105Key : @[ [APHWalkingResultsViewController  class], @(0) ],
+                                             kWalkingStep101Key : [APHWalkingIntroViewController class],
+                                             kWalkingStep102Key : [APHContentsViewController class]
                                            };
     
     RKStepViewController  *controller = nil;
     
-    NSArray  *descriptor = stepsToControllersMap[step.identifier];
-    
-    Class  classToCreate = descriptor[0];
-    NSUInteger  phase = [descriptor[1] unsignedIntegerValue];
+    Class  classToCreate = stepsToControllersMap[step.identifier];
     controller = [[classToCreate alloc] initWithStep:step];
-    if ([controller respondsToSelector:@selector(setWalkingPhase:)] == YES) {
-        ((APHWalkingStepsViewController *)controller).walkingPhase = (WalkingStepsPhase)phase;
-    }
     controller.delegate = self;
     return  controller;
 }
