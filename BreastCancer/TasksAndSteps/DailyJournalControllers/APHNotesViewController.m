@@ -25,8 +25,9 @@ static  NSCharacterSet  *whitespaceAndNewLineSet = nil;
 @property  (nonatomic, weak)  IBOutlet  UIToolbar            *toolshed;
 @property  (nonatomic, weak)            UIBarButtonItem      *counterDisplay;
 
-@property  (nonatomic, strong)          NSMutableDictionary  *noteModel;
-@property  (nonatomic, strong)          NSMutableArray       *modifications;
+@property  (nonatomic, strong)          NSMutableDictionary  *noteContentModel;
+@property  (nonatomic, strong)          NSMutableDictionary  *noteChangesModel;
+@property  (nonatomic, strong)          NSMutableArray       *noteModifications;
 
 @end
 
@@ -98,15 +99,15 @@ static  NSCharacterSet  *whitespaceAndNewLineSet = nil;
     if ([text length] != 0) {
         record = @{
                    APHMoodLogEditTimeStampKey : @(timestamp),
-                   APHMoodLogEditingTypeKey : @(TypingDirectionAdding),
+                   APHMoodLogEditingTypeKey : APHMoodLogEditingTypeAddingKey,
                    };
     } else {
         record = @{
                    APHMoodLogEditTimeStampKey : @(timestamp),
-                   APHMoodLogEditingTypeKey : @(TypingDirectionDeleting),
+                   APHMoodLogEditingTypeKey : APHMoodLogEditingTypeDeletingKey,
                    };
     }
-    [self.modifications addObject: record];
+    [self.noteModifications addObject: record];
     
     NSUInteger  count = [self countWords:self.scriptorium.text];
     [self displayWordCount:count];
@@ -125,22 +126,18 @@ static  NSCharacterSet  *whitespaceAndNewLineSet = nil;
 
 - (void)doneButtonTapped:(UIBarButtonItem *)sender
 {
-    [self.noteModel setObject:self.scriptorium.text forKey:APHMoodLogNoteTextKey];
-    [self.noteModel setObject:self.modifications forKey:APHMoodLogNoteModificationsKey];
+    [self.noteContentModel setObject:self.scriptorium.text forKey:APHMoodLogNoteTextKey];
+    
+    [self.noteChangesModel setObject:self.noteModifications forKey:APHMoodLogNoteModificationsKey];
     
     if (self.delegate != nil) {
-        [self.delegate controller:self notesDidCompleteWithNote:self.noteModel];
+        [self.delegate controller:self notesDidCompleteWithNote:self.noteContentModel andChanges:self.noteChangesModel];
     }
 }
 
 - (void)backBarButtonWasTapped:(UIBarButtonItem *)sender
 {
-    [self.noteModel setObject:self.scriptorium.text forKey:APHMoodLogNoteTextKey];
-    [self.noteModel setObject:self.modifications forKey:APHMoodLogNoteModificationsKey];
-    
-    if (self.delegate != nil) {
-        [self.delegate controller:self notesDidCompleteWithNote:self.noteModel];
-    }
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 #pragma  mark  -  View Controller Methods
@@ -151,17 +148,11 @@ static  NSCharacterSet  *whitespaceAndNewLineSet = nil;
     
     self.scriptorium.text = @"";
     self.navigationItem.title  = @"0";
-    self.modifications = [NSMutableArray array];
-    
-    self.noteModel = [NSMutableDictionary dictionary];
-    
-    NSTimeInterval  timestamp = [[NSDate date] timeIntervalSinceReferenceDate];
-    [self.noteModel setObject:@(timestamp) forKey:APHMoodLogNoteTimeStampKey];
     
     [[UIMenuController sharedMenuController] setMenuVisible:NO];
     
     UIBarButtonItem  *spacerleft = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
-    UIBarButtonItem  *titler = [[UIBarButtonItem alloc] initWithTitle:@"0000" style:UIBarButtonItemStylePlain target:nil action:nil];
+    UIBarButtonItem  *titler     = [[UIBarButtonItem alloc] initWithTitle:@"0000" style:UIBarButtonItemStylePlain target:nil action:nil];
     self.counterDisplay = titler;
     UIBarButtonItem  *spacerright = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
     
@@ -170,6 +161,16 @@ static  NSCharacterSet  *whitespaceAndNewLineSet = nil;
         UIBarButtonItem  *finisher = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(doneButtonTapped:)];
         
         self.toolshed.items = @[ cancellor, spacerleft, titler, spacerright, finisher ];
+        
+        NSTimeInterval  timestamp = [[NSDate date] timeIntervalSinceReferenceDate];
+        
+        self.noteContentModel = [NSMutableDictionary dictionary];
+        [self.noteContentModel setObject:@(timestamp) forKey:APHMoodLogNoteTimeStampKey];
+        
+        self.noteChangesModel = [NSMutableDictionary dictionary];
+        [self.noteChangesModel setObject:@(timestamp) forKey:APHMoodLogNoteTimeStampKey];
+        
+        self.noteModifications = [NSMutableArray array];
         
         [self displayWordCount:0];
         [self.scriptorium becomeFirstResponder];

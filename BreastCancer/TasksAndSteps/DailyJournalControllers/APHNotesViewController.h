@@ -16,7 +16,7 @@
 @required
 
 - (void)notesDidCancel:(APHNotesViewController *)controller;
-- (void)controller:(APHNotesViewController *)controller notesDidCompleteWithNote:(NSDictionary *)note;
+- (void)controller:(APHNotesViewController *)controller notesDidCompleteWithNote:(NSDictionary *)note  andChanges:(NSDictionary *)changes;
 
 @end
 
