@@ -1,6 +1,6 @@
 //
 //  APHIntervalTappingIntorViewController.m
-//  Parkinson
+//  BreastCancer
 //
 //  Created by Henry McGilton on 9/16/14.
 //  Copyright (c) 2014 Y Media Labs. All rights reserved.
@@ -63,7 +63,7 @@ static  NSString  *kIntroHeadingCaption = @"Tests for Bradykinesia";
     
     self.title = kViewControllerTitle;
     
-    NSArray  *introImageNames = @[ @"interval.instructions.01@2x", @"interval.instructions.02@2x", @"interval.instructions.03@2x", @"interval.instructions.04@2x" ];
+    NSArray  *introImageNames = @[ @"interval.instructions.01", @"interval.instructions.02", @"interval.instructions.03", @"interval.instructions.04" ];
     
     NSArray  *paragraphs = @[
                              @"For this task, please lay your phone on a flat surface to produce the most accurate results.",
