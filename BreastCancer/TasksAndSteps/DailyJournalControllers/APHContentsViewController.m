@@ -12,15 +12,23 @@
 
 #import "APHNotesContentsTableViewCell.h"
 
-static  NSString  *kNotesStoragePath = @"DailyMoodLogs.json";
+static  NSString  *kNotesContentStoragePath = @"DailyMoodLogsContent.json";
+static  NSString  *kNotesChangesStoragePath = @"DailyMoodLogsChanges.json";
 
 static  NSString  *kContentsTableViewCellIdentifier = @"APHNotesContentsTableViewCell";
 
+typedef  enum  _DailyLogType
+{
+    DailyLogTypeNotesContent,
+    DailyLogTypeNotesChanges
+}  DailyLogType;
+
 @interface APHContentsViewController  ( )  <UITableViewDataSource, UITableViewDelegate, APHNotesViewControllerDelegate>
 
-@property  (nonatomic, weak)  IBOutlet  UITableView  *tabulator;
+@property  (nonatomic, weak)  IBOutlet  UITableView     *tabulator;
 
-@property  (nonatomic, strong)          NSMutableArray  *dataModels;
+@property  (nonatomic, strong)          NSMutableArray  *contentObjects;
+@property  (nonatomic, strong)          NSMutableArray  *changesObjects;
 
 @end
 
@@ -28,39 +36,63 @@ static  NSString  *kContentsTableViewCellIdentifier = @"APHNotesContentsTableVie
 
 #pragma  mark  -  Temporary Store and Fetch Methods
 
-- (NSString *)filenameForDailyLogStorage
+- (NSString *)directoryForDailyLogStorage
 {
-    NSArray  *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSArray   *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString  *directoryPath = paths[0];
     
-    NSString  *notesPath = [directoryPath stringByAppendingPathComponent:kNotesStoragePath];
-    return  notesPath;
+    NSFileManager  *theDreadedManager = [NSFileManager defaultManager];
+    BOOL  isDirectory = NO;
+    BOOL  fileExists = [theDreadedManager fileExistsAtPath:directoryPath isDirectory:&isDirectory];
+    if (fileExists == NO) {
+        NSError  *error = nil;
+        BOOL  success = [theDreadedManager createDirectoryAtPath:directoryPath withIntermediateDirectories:YES attributes:nil error:&error];
+        if (success == NO) {
+            NSLog(@"Failed to create directory path at %@", directoryPath);
+        }
+    }
+    return  directoryPath;
 }
 
-- (NSDictionary *)fetchDataModels
+- (NSString *)filenameForDailyLogType:(DailyLogType)type
 {
-    NSString  *path = [self filenameForDailyLogStorage];
+    NSString  *storageDirectoryPath = [self directoryForDailyLogStorage];
+    
+    NSString  *filename = nil;
+    
+    if (type == DailyLogTypeNotesContent) {
+        filename = kNotesContentStoragePath;
+    } else {
+        filename = kNotesChangesStoragePath;
+    }
+    NSString  *completeFilePath = [storageDirectoryPath stringByAppendingPathComponent:filename];
+    return  completeFilePath;
+}
+
+- (NSDictionary *)fetchDataModelsForType:(DailyLogType)type
+{
+    NSString  *path = [self filenameForDailyLogType:type];
     NSData    *contents = [NSData dataWithContentsOfFile:path];
     
     id  object = nil;
     if (contents != nil) {
         NSError  *error = nil;
         object = [NSJSONSerialization JSONObjectWithData:contents options:0 error:&error];
-        
-        if ([object isMemberOfClass:[NSDictionary class]] == YES && error == nil) {
+        if (error != nil) {
+            NSLog(@"Unable to Read Jason Data: error = %@", error);
         }
     }
     return  object;
 }
 
-- (void)storeDataModels:(NSDictionary *)jsonObjects
+- (void)storeDataModelsForType:(DailyLogType)type  withDictionary:(NSDictionary *)jsonObjects
 {
     NSError  *error = nil;
     NSData   *data = [NSJSONSerialization dataWithJSONObject:jsonObjects options:0 error:&error];
     if (error != nil) {
-        NSLog(@"Unable to Write Jason Data");
+        NSLog(@"Unable to Write Jason Data: error = %@", error);
     } else {
-        NSString  *path = [self filenameForDailyLogStorage];
+        NSString  *path = [self filenameForDailyLogType:type];
         [data writeToFile:path atomically:YES];
     }
 }
@@ -72,11 +104,15 @@ static  NSString  *kContentsTableViewCellIdentifier = @"APHNotesContentsTableVie
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
-- (void)controller:(APHNotesViewController *)controller notesDidCompleteWithNote:(NSDictionary *)note
+- (void)controller:(APHNotesViewController *)controller notesDidCompleteWithNote:(NSDictionary *)note  andChanges:(NSDictionary *)changes
 {
-    [self.dataModels addObject:note];
-    NSDictionary  *collection = @{ @"items" : self.dataModels };
-    [self storeDataModels:collection];
+    [self.contentObjects addObject:note];
+    NSDictionary  *contentCollection = @{ @"items" : self.contentObjects };
+    [self storeDataModelsForType:DailyLogTypeNotesContent withDictionary:contentCollection];
+    
+    [self.changesObjects addObject:changes];
+    NSDictionary  *changesCollection = @{ @"items" : self.changesObjects };
+    [self storeDataModelsForType:DailyLogTypeNotesChanges withDictionary:changesCollection];
     
     [self.tabulator reloadData];
     
@@ -103,7 +139,7 @@ static  NSString  *kContentsTableViewCellIdentifier = @"APHNotesContentsTableVie
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return  [self.dataModels count];
+    return  [self.contentObjects count];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -113,7 +149,7 @@ static  NSString  *kContentsTableViewCellIdentifier = @"APHNotesContentsTableVie
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSDictionary  *model = self.dataModels[indexPath.row];
+    NSDictionary  *model = self.contentObjects[indexPath.row];
     
     APHNotesContentsTableViewCell  *cell = (APHNotesContentsTableViewCell *)[tableView dequeueReusableCellWithIdentifier:kContentsTableViewCellIdentifier];
     
@@ -134,7 +170,7 @@ static  NSString  *kContentsTableViewCellIdentifier = @"APHNotesContentsTableVie
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSDictionary  *model = self.dataModels[indexPath.row];
+    NSDictionary  *model = self.contentObjects[indexPath.row];
     APHNotesViewController  *stenographer = [[APHNotesViewController alloc] initWithNibName:nil bundle:nil];
     stenographer.delegate = self;
     stenographer.note = model;
@@ -151,12 +187,15 @@ static  NSString  *kContentsTableViewCellIdentifier = @"APHNotesContentsTableVie
     [self.tabulator registerNib:[UINib nibWithNibName:@"APHNotesContentsTableViewCell"
                                                bundle:[NSBundle mainBundle]] forCellReuseIdentifier:(NSString *)kContentsTableViewCellIdentifier];
     
-    NSDictionary  *modelsDictionary = [self fetchDataModels];
+    NSDictionary  *modelsDictionary = [self fetchDataModelsForType:DailyLogTypeNotesContent];
     if (modelsDictionary == nil) {
-        self.dataModels = [NSMutableArray array];
+        self.contentObjects = [NSMutableArray array];
+        self.changesObjects = [NSMutableArray array];
     } else {
-        NSArray  *models = modelsDictionary[@"items"];
-        self.dataModels = [models mutableCopy];
+        NSArray  *contentModels = modelsDictionary[@"items"];
+        self.contentObjects = [contentModels mutableCopy];
+        NSArray  *changesModels = modelsDictionary[@"items"];
+        self.changesObjects = [changesModels mutableCopy];
     }
 }
 
