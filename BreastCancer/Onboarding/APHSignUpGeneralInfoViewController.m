@@ -8,328 +8,321 @@
 
 #import "APHSignUpGeneralInfoViewController.h"
 #import "APHSignUpMedicalInfoViewController.h"
-#import "APHUserInfoCell.h"
 
 #define DEMO 0
 
 
-@interface APHSignUpGeneralInfoViewController ()
+@interface APHSignUpGeneralInfoViewController () <APCTermsAndConditionsViewControllerDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 
 @property (nonatomic, strong) APCPermissionsManager *permissionManager;
 @property (nonatomic) BOOL permissionGranted;
+@property (weak, nonatomic) IBOutlet APCPermissionButton *permissionButton;
+
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *nextBarButton;
+
+@property (nonatomic, strong) UIImage *profileImage;
 
 @end
 
 @implementation APHSignUpGeneralInfoViewController
 
 
-#pragma mark - Init
+#pragma mark - View Life Cycle
 
-- (instancetype)init
-{
-    self = [super init];
-    if (self) {
-        self.user = ((APCAppDelegate*) [UIApplication sharedApplication].delegate).dataSubstrate.currentUser;
-        self.itemsOrder = [NSMutableArray new];
-        
+- (void) viewDidLoad {
+    [super viewDidLoad];
+
+    [self setupNavigationItems];
+    [self prepareFields];
+    
+    self.permissionButton.unconfirmedTitle = NSLocalizedString(@"I agree to the Terms and Conditions", @"");
+    self.permissionButton.confirmedTitle = NSLocalizedString(@"I agree to the Terms and Conditions", @"");
+    self.permissionButton.attributed = NO;
+    self.permissionButton.alignment = kAPCPermissionButtonAlignmentLeft;
+    
+    self.permissionManager = [[APCPermissionsManager alloc] init];
+    
+    self.permissionGranted = [self.permissionManager isPermissionsGrantedForType:kSignUpPermissionsTypeHealthKit];
+    
+    if (!self.permissionGranted) {
+        [self.permissionManager requestForPermissionForType:kSignUpPermissionsTypeHealthKit withCompletion:^(BOOL granted, NSError *error) {
+            if (granted) {
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    self.permissionGranted = YES;
+                    [self prepareFields];
+                    [self.tableView reloadData];
+                });
+            }
+        }];
+    } else{
         [self prepareFields];
     }
-    return self;
 }
 
-- (void) prepareFields {
-    NSMutableArray *items = [NSMutableArray new];
-    NSMutableArray *itemsOrder = [NSMutableArray new];
+- (void)setupAppearance
+{
+    [super setupAppearance];
+}
+
+- (void)setupNavigationItems
+{
+    self.nextBarButton.enabled = NO;
+    
+//#if DEVELOPMENT
+    UIBarButtonItem *hiddenButton = [[UIBarButtonItem alloc] initWithTitle:@"   " style:UIBarButtonItemStylePlain target:self action:@selector(secretButton)];
+    
+    [self.navigationItem setRightBarButtonItems:@[self.nextBarButton, hiddenButton]];
+//#endif
+}
+
+- (void)prepareFields {
+    
+    [self.items removeAllObjects];
+    NSMutableArray *rowItems = [NSMutableArray new];
     
     {
         APCTableViewTextFieldItem *field = [APCTableViewTextFieldItem new];
-        field.style = UITableViewCellStyleValue1;
-        field.caption = NSLocalizedString(@"Username", @"");
-        field.placeholder = NSLocalizedString(@"Add Username", @"");
-        field.keyboardType = UIKeyboardTypeDefault;
+        field.caption = NSLocalizedString(@"Email", @"");
+        field.placeholder = NSLocalizedString(@"add email", @"");
+        field.keyboardType = UIKeyboardTypeEmailAddress;
         field.returnKeyType = UIReturnKeyNext;
         field.clearButtonMode = UITextFieldViewModeWhileEditing;
-        field.regularExpression = kAPCGeneralInfoItemUserNameRegEx;
-        field.identifier = NSStringFromClass([APCTableViewTextFieldItem class]);
+        field.identifier = kAPCTextFieldTableViewCellIdentifier;
+        field.style = UITableViewCellStyleValue1;
         
-        [items addObject:field];
-        [itemsOrder addObject:@(APCSignUpUserInfoItemUserName)];
+        APCTableViewRow *row = [APCTableViewRow new];
+        row.item = field;
+        row.itemType = kAPCUserInfoItemTypeEmail;
+        [rowItems addObject:row];
     }
     
     {
         APCTableViewTextFieldItem *field = [APCTableViewTextFieldItem new];
-        field.style = UITableViewCellStyleValue1;
         field.caption = NSLocalizedString(@"Password", @"");
-        field.placeholder = NSLocalizedString(@"Add Password", @"");
+        field.placeholder = NSLocalizedString(@"add password", @"");
         field.secure = YES;
         field.keyboardType = UIKeyboardTypeDefault;
         field.returnKeyType = UIReturnKeyNext;
         field.clearButtonMode = UITextFieldViewModeWhileEditing;
-        field.identifier = NSStringFromClass([APCTableViewTextFieldItem class]);
-        
-        [items addObject:field];
-        
-        [itemsOrder addObject:@(APCSignUpUserInfoItemPassword)];
-    }
-    
-    {
-        APCTableViewTextFieldItem *field = [APCTableViewTextFieldItem new];
+        field.identifier = kAPCTextFieldTableViewCellIdentifier;
         field.style = UITableViewCellStyleValue1;
-        field.caption = NSLocalizedString(@"Email", @"");
-        field.placeholder = NSLocalizedString(@"Add Email Address", @"");
-        field.keyboardType = UIKeyboardTypeEmailAddress;
-        field.returnKeyType = UIReturnKeyNext;
-        field.clearButtonMode = UITextFieldViewModeWhileEditing;
-        field.identifier = NSStringFromClass([APCTableViewTextFieldItem class]);
         
-        [items addObject:field];
-        
-        [itemsOrder addObject:@(APCSignUpUserInfoItemEmail)];
+        APCTableViewRow *row = [APCTableViewRow new];
+        row.item = field;
+        row.itemType = kAPCUserInfoItemTypePassword;
+        [rowItems addObject:row];
     }
     
     {
         APCTableViewDatePickerItem *field = [APCTableViewDatePickerItem new];
+        field.caption = NSLocalizedString(@"Birthdate", @"");
+        field.placeholder = NSLocalizedString(@"add birthdate", @"");
+        field.datePickerMode = UIDatePickerModeDate;
         field.style = UITableViewCellStyleValue1;
         field.selectionStyle = UITableViewCellSelectionStyleGray;
-        field.caption = NSLocalizedString(@"Birthdate", @"");
-        field.placeholder = NSLocalizedString(@"MMMM DD, YYYY", @"");
-        if (self.permissionGranted) {
+        field.identifier = kAPCDefaultTableViewCellIdentifier;
+        
+        NSCalendar * gregorian = [[NSCalendar alloc] initWithCalendarIdentifier: NSCalendarIdentifierGregorian];
+        NSDate * currentDate = [NSDate date];
+        NSDateComponents * comps = [[NSDateComponents alloc] init];
+        [comps setYear: -18];
+        NSDate * maxDate = [gregorian dateByAddingComponents: comps toDate: currentDate options: 0];
+        field.maximumDate = maxDate;
+        
+        if (self.permissionGranted && self.user.birthDate) {
             field.date = self.user.birthDate;
+            field.detailText = [field.date toStringWithFormat:field.dateFormat];
+            field.editable = NO;
+        } else{
+            field.date = maxDate;
         }
-        field.datePickerMode = UIDatePickerModeDate;
-        field.identifier = NSStringFromClass([APCTableViewDatePickerItem class]);
         
-        [items addObject:field];
-        
-        [itemsOrder addObject:@(APCSignUpUserInfoItemDateOfBirth)];
+        APCTableViewRow *row = [APCTableViewRow new];
+        row.item = field;
+        row.itemType = kAPCUserInfoItemTypeDateOfBirth;
+        [rowItems addObject:row];
     }
     
     {
         APCTableViewSegmentItem *field = [APCTableViewSegmentItem new];
         field.style = UITableViewCellStyleValue1;
         field.segments = [APCUser sexTypesInStringValue];
-        if (self.permissionGranted) {
+        field.identifier = kAPCSegmentedTableViewCellIdentifier;
+        
+        if (self.permissionGranted && self.user.biologicalSex) {
             field.selectedIndex = [APCUser stringIndexFromSexType:self.user.biologicalSex];
+            field.editable = NO;
         }
-        field.identifier = NSStringFromClass([APCTableViewSegmentItem class]);
         
-        [items addObject:field];
-        
-        [itemsOrder addObject:@(APCSignUpUserInfoItemGender)];
+        APCTableViewRow *row = [APCTableViewRow new];
+        row.item = field;
+        row.itemType = kAPCUserInfoItemTypeBiologicalSex;
+        [rowItems addObject:row];
     }
     
-    
-    self.items = items;
-    self.itemsOrder = itemsOrder;
+    APCTableViewSection *section = [APCTableViewSection new];
+    section.rows = [NSArray arrayWithArray:rowItems];
+    [self.items addObject:section];
 }
 
+#pragma mark - UITextFieldDelegate methods
 
-#pragma mark - View Life Cycle
-
-- (void) viewDidLoad {
-    [super viewDidLoad];
-    
-    [self addNavigationItems];
-    [self addHeaderView];
-    [self addFooterView];
-    [self setupProgressBar];
-    
-
-    //TODO: This permission request is temporary. Remove later.
-    self.permissionManager = [[APCPermissionsManager alloc] init];
-    [self.permissionManager requestForPermissionForType:kSignUpPermissionsTypeHealthKit withCompletion:^(BOOL granted, NSError *error) {
-        if (granted) {
-            dispatch_async(dispatch_get_main_queue(), ^{
-                self.permissionGranted = YES;
-                [self prepareFields];
-                [self.tableView reloadData];
-            });
-        }
-    }];
-
-}
-
-- (UIRectEdge)edgesForExtendedLayout
+- (BOOL) textFieldShouldReturn:(UITextField *)textField
 {
-    return UIRectEdgeNone;
-}
-
-#pragma mark - UI Methods
-
-- (void) addNavigationItems {
+    [super textFieldShouldReturn:textField];
     
-    UIBarButtonItem *nextBarButton = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Next", @"") style:UIBarButtonItemStylePlain target:self action:@selector(validateContent)];
-    nextBarButton.enabled = [self isContentValid:nil];
-    //TODO: Remove secret button for production
-    UIBarButtonItem *secretBarButton = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@" ", @"") style:UIBarButtonItemStylePlain target:self action:@selector(secretButton)];
-    self.navigationItem.rightBarButtonItems = @[nextBarButton, secretBarButton];
+    [self.nextBarButton setEnabled:[self isContentValid:nil]];
     
+    return YES;
 }
 
-- (void) setupProgressBar {
-    [self setStepNumber:1 title:NSLocalizedString(@"General Information", @"")];
-    self.stepProgressBar.rightLabel.text = NSLocalizedString(@"Mandatory", @"");
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
+{
+    return [super textField:textField shouldChangeCharactersInRange:range replacementString:string];
+}
+- (void)textFieldDidEndEditing:(UITextField *)textField
+{
+    [self.nextBarButton setEnabled:[self isContentValid:nil]];
 }
 
-- (void) addHeaderView {
-    [super addHeaderView];
+#pragma mark - APCPickerTableViewCellDelegate methods
+
+- (void)pickerTableViewCell:(APCPickerTableViewCell *)cell datePickerValueChanged:(NSDate *)date
+{
+    [super pickerTableViewCell:cell datePickerValueChanged:date];
+}
+
+- (void)pickerTableViewCell:(APCPickerTableViewCell *)cell pickerViewDidSelectIndices:(NSArray *)selectedIndices
+{
+    [super pickerTableViewCell:cell pickerViewDidSelectIndices:selectedIndices];
+}
+
+#pragma mark - APCTextFieldTableViewCellDelegate methods
+
+- (void)textFieldTableViewCellDidEndEditing:(APCTextFieldTableViewCell *)cell
+{
+    [super textFieldTableViewCellDidEndEditing:cell];
     
-    [self.profileImageButton setImage:[UIImage imageNamed:@"img_user_placeholder"] forState:UIControlStateNormal];
+    self.nextBarButton.enabled = [self isContentValid:nil];
 }
 
-- (void) addFooterView {
-    UILabel *label = [UILabel new];
-    label.frame = CGRectMake(0, 0, self.tableView.width, 44);
-    label.font = [UITableView footerFont];
-    label.textAlignment = NSTextAlignmentCenter;
-    label.textColor = [UITableView footerTextColor];
-    label.text = NSLocalizedString(@"All fields on this screen are required.", @"");
-    self.tableView.tableFooterView = label;
-}
-
-
-#pragma mark - APCConfigurableCell
-
-- (void) configurableCell:(APCUserInfoCell *)cell textValueChanged:(NSString *)text {
-    [super configurableCell:cell textValueChanged:text];
+- (void)textFieldTableViewCell:(APCTextFieldTableViewCell *)cell shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
+{
+    [super textFieldTableViewCell:cell shouldChangeCharactersInRange:range replacementString:string];
     
-    self.navigationItem.rightBarButtonItem.enabled = [self isContentValid:nil];
+    self.nextBarButton.enabled = [self isContentValid:nil];
+}
+
+- (void)textFieldTableViewCellDidReturn:(APCTextFieldTableViewCell *)cell
+{
+    [super textFieldTableViewCellDidReturn:cell];
     
     NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
     
-    APCTableViewTextFieldItem *item = self.items[indexPath.row];
-    if ([self.itemsOrder[indexPath.row] integerValue] == APCSignUpUserInfoItemPassword) {
-        if ([[(APCTableViewTextFieldItem *)item value] length] == 0) {
-            [UIAlertView showSimpleAlertWithTitle:NSLocalizedString(@"General Information", @"") message:NSLocalizedString(@"Please give a valid Password", @"")];
+    APCTableViewTextFieldItem *item = (APCTableViewTextFieldItem *)[self itemForIndexPath:indexPath];
+    APCTableViewItemType itemType = [self itemTypeForIndexPath:indexPath];
+    
+    if (itemType == kAPCUserInfoItemTypePassword) {
+        if (item.value.length == 0) {
+            UIAlertController *alert = [UIAlertController simpleAlertWithTitle:NSLocalizedString(@"General Information", @"") message:NSLocalizedString(@"Please give a valid Password", nil)];
+            [self presentViewController:alert animated:YES completion:nil];
         }
-        else if ([[(APCTableViewTextFieldItem *)item value] length] < 6) {
-            [UIAlertView showSimpleAlertWithTitle:NSLocalizedString(@"General Information", @"") message:NSLocalizedString(@"Password should be at least 6 characters", @"")];
+        else if (item.value.length < kAPCPasswordMinimumLength) {
+            UIAlertController *alert = [UIAlertController simpleAlertWithTitle:NSLocalizedString(@"General Information", @"") message:[NSString stringWithFormat:NSLocalizedString(@"Password should be at least %d characters", ), kAPCPasswordMinimumLength]];
+            [self presentViewController:alert animated:YES completion:nil];
         }
     }
-    else if ([self.itemsOrder[indexPath.row] integerValue] == APCSignUpUserInfoItemEmail) {
+    else if (itemType == kAPCUserInfoItemTypeEmail) {
         if (![item.value isValidForRegex:kAPCGeneralInfoItemEmailRegEx]) {
-            [UIAlertView showSimpleAlertWithTitle:NSLocalizedString(@"General Information", @"") message:NSLocalizedString(@"Please give a valid email address", @"")];
+            UIAlertController *alert = [UIAlertController simpleAlertWithTitle:NSLocalizedString(@"General Information", @"") message:@"Please give a valid email address"];
+            [self presentViewController:alert animated:YES completion:nil];
         }
-        
     }
-}
-
-- (void) configurableCell:(APCUserInfoCell *)cell switchValueChanged:(BOOL)isOn {
-    [super configurableCell:cell switchValueChanged:isOn];
     
-#if DEMO
-    self.navigationItem.rightBarButtonItem.enabled = YES;
-#else
-    self.navigationItem.rightBarButtonItem.enabled = [self isContentValid:nil];
-#endif
+    self.nextBarButton.enabled = [self isContentValid:nil];
+
 }
 
-- (void) configurableCell:(APCUserInfoCell *)cell segmentIndexChanged:(NSUInteger)index {
-    [super configurableCell:cell segmentIndexChanged:index];
-    
-#if DEMO
-    self.navigationItem.rightBarButtonItem.enabled = YES;
-#else
-    self.navigationItem.rightBarButtonItem.enabled = [self isContentValid:nil];
-#endif
+#pragma mark - APCSegmentedTableViewCellDelegate methods
+
+- (void)segmentedTableViewCell:(APCSegmentedTableViewCell *)cell didSelectSegmentAtIndex:(NSInteger)index
+{
+    [super segmentedTableViewCell:cell didSelectSegmentAtIndex:index];
 }
-
-- (void) configurableCell:(APCUserInfoCell *)cell dateValueChanged:(NSDate *)date {
-    [super configurableCell:cell dateValueChanged:date];
-    
-#if DEMO
-    self.navigationItem.rightBarButtonItem.enabled = YES;
-#else
-    self.navigationItem.rightBarButtonItem.enabled = [self isContentValid:nil];
-#endif
-}
-
-- (void) configurableCell:(APCUserInfoCell *)cell customPickerValueChanged:(NSArray *)selectedRowIndices {
-    [super configurableCell:cell customPickerValueChanged:selectedRowIndices];
-#if DEMO
-    self.navigationItem.rightBarButtonItem.enabled = YES;
-#else
-    self.navigationItem.rightBarButtonItem.enabled = [self isContentValid:nil];
-#endif
-}
-
-
-
-#pragma mark - Public Methods
-
-- (Class) cellClass {
-    return [APHUserInfoCell class];
-}
-
 
 #pragma mark - Private Methods
 
 - (BOOL) isContentValid:(NSString **)errorMessage {
 
-#if DEMO
-    return YES;
-#else
     BOOL isContentValid = [super isContentValid:errorMessage];
-    // If super returned false then we dont need to check any content further unnecessary,
-    // because if any one of the content is invalid then we are immediatly returing false
+
     if (isContentValid) {
-        for (int i = 0; i < self.itemsOrder.count; i++) {
-            NSNumber *order = self.itemsOrder[i];
+        
+        for (int j=0; j<self.items.count; j++) {
             
-            APCTableViewItem *item = self.items[i];
+            APCTableViewSection *section = self.items[j];
             
-            switch (order.integerValue) {
-                    //TODO: Enable it for production
-                    /*
-                case APCSignUpUserInfoItemUserName:
-                    isContentValid = [[(APCTableViewTextFieldItem *)item value] isValidForRegex:kAPCGeneralInfoItemUserNameRegEx];
-                    if (errorMessage) {
-                        *errorMessage = NSLocalizedString(@"Please give a valid Username", @"");
-                    }
-                    break;
-                     */
-                    
-                case APCSignUpUserInfoItemPassword:
-                    if ([[(APCTableViewTextFieldItem *)item value] length] == 0) {
-                        isContentValid = NO;
+            for (int i = 0; i < section.rows.count; i++) {
+                
+                APCTableViewRow *row = section.rows[i];
+                
+                APCTableViewItem *item = row.item;
+                APCTableViewItemType itemType = row.itemType;
+                
+                switch (itemType) {
+                        
+                    case kAPCUserInfoItemTypeEmail:
+                    {
+                        isContentValid = [[(APCTableViewTextFieldItem *)item value] isValidForRegex:kAPCGeneralInfoItemEmailRegEx];
                         
                         if (errorMessage) {
-                            *errorMessage = NSLocalizedString(@"Please give a valid Password", @"");
+                            *errorMessage = NSLocalizedString(@"Please enter a valid email address.", @"");
                         }
                     }
-                    else if ([[(APCTableViewTextFieldItem *)item value] length] < 6) {
-                        isContentValid = NO;
+                        break;
                         
-                        if (errorMessage) {
-                            *errorMessage = NSLocalizedString(@"Password should be at least 6 characters", @"");
+                    case kAPCUserInfoItemTypePassword:
+                    {
+                        if ([[(APCTableViewTextFieldItem *)item value] length] == 0) {
+                            isContentValid = NO;
+                            
+                            if (errorMessage) {
+                                *errorMessage = NSLocalizedString(@"Please enter a Password.", @"");
+                            }
+                        }
+                        else if ([[(APCTableViewTextFieldItem *)item value] length] < kAPCPasswordMinimumLength) {
+                            isContentValid = NO;
+                            
+                            if (errorMessage) {
+                                *errorMessage = [NSString stringWithFormat:NSLocalizedString(@"Password should be at least %d characters", ), kAPCPasswordMinimumLength];
+                            }
                         }
                     }
-                    break;
+                        break;
+                        
                     
-                case APCSignUpUserInfoItemEmail:
-                    isContentValid = [[(APCTableViewTextFieldItem *)item value] isValidForRegex:kAPCGeneralInfoItemEmailRegEx];
-                    
-                    if (errorMessage) {
-                        *errorMessage = NSLocalizedString(@"Please give a valid Email", @"");
-                    }
+                        
+                    default:
+                        //#warning ASSERT_MESSAGE Require
+                        NSAssert(itemType <= kAPCUserInfoItemTypeWakeUpTime, @"ASSER_MESSAGE");
+                        break;
+                }
+                
+                // If any of the content is not valid the break the for loop
+                // We doing this 'break' here because we cannot break a for loop inside switch-statements (switch already have break statement)
+                if (!isContentValid) {
                     break;
-                    
-                default:
-//#warning ASSERT_MESSAGE Require
-                    NSAssert(order.integerValue <= APCSignUpUserInfoItemWakeUpTime, @"ASSER_MESSAGE");
-                    break;
-            }
-            
-            // If any of the content is not valid the break the for loop
-            // We doing this 'break' here because we cannot break a for loop inside switch-statements (switch already have break statement)
-            if (!isContentValid) {
-                break;
+                }
             }
         }
+        
+    }
+    
+    if (isContentValid) {
+        isContentValid = self.permissionButton.isSelected;
     }
     
     return isContentValid;
-#endif
 }
 
 - (void) loadProfileValuesInModel {
@@ -337,33 +330,48 @@
     if (self.tableView.tableHeaderView) {
         self.user.firstName = self.firstNameTextField.text;
         self.user.lastName = self.lastNameTextField.text;
-    }
-    
-    for (int i = 0; i < self.itemsOrder.count; i++) {
-        NSNumber *order = self.itemsOrder[i];
         
-        APCTableViewItem *item = self.items[i];
-        
-        switch (order.integerValue) {
-            case APCSignUpUserInfoItemUserName:
-                self.user.userName = [(APCTableViewTextFieldItem *)item value];
-                break;
-                
-            case APCSignUpUserInfoItemPassword:
-                self.user.password = [(APCTableViewTextFieldItem *)item value];
-                break;
-                
-            case APCSignUpUserInfoItemEmail:
-                self.user.email = [(APCTableViewTextFieldItem *)item value];
-                break;
-                
-            default:
-            {
-                //Do nothing for some types as they are readonly attributes
-            }
-                break;
+        if (self.profileImage) {
+            self.user.profileImage = UIImageJPEGRepresentation(self.profileImage, 1.0);
         }
     }
+    
+    
+    for (int j=0; j<self.items.count; j++) {
+        
+        APCTableViewSection *section = self.items[j];
+        
+        for (int i = 0; i < section.rows.count; i++) {
+            
+            APCTableViewRow *row = section.rows[i];
+            
+            APCTableViewItem *item = row.item;
+            APCTableViewItemType itemType = row.itemType;
+            
+            switch (itemType) {
+                    
+                case kAPCUserInfoItemTypePassword:
+                    self.user.password = [(APCTableViewTextFieldItem *)item value];
+                    break;
+                    
+                case kAPCUserInfoItemTypeEmail:
+                    self.user.email = [(APCTableViewTextFieldItem *)item value];
+                    break;
+                    
+                case kAPCUserInfoItemTypeBiologicalSex:{
+                    self.user.biologicalSex = [APCUser sexTypeForIndex:((APCTableViewSegmentItem *)item).selectedIndex];
+                }
+                    break;
+                    
+                default:
+                {
+                    //Do nothing for some types as they are readonly attributes
+                }
+                    break;
+            }
+        }
+    }
+    
 }
 
 - (void) validateContent {
@@ -375,50 +383,151 @@
         [self next];
     }
     else {
-        [UIAlertView showSimpleAlertWithTitle:NSLocalizedString(@"General Information", @"") message:message];
+        UIAlertController *alert = [UIAlertController simpleAlertWithTitle:NSLocalizedString(@"General Information", @"") message:message];
+        [self presentViewController:alert animated:YES completion:nil];
     }
+}
+
+#pragma mark - APCTermsAndConditionsViewControllerDelegate methods
+
+- (void)termsAndConditionsViewControllerDidAgree
+{
+    [self.permissionButton setSelected:YES];
+    [self.navigationController dismissViewControllerAnimated:YES completion:^{
+        [self.nextBarButton setEnabled:[self isContentValid:nil]];
+    }];
+}
+
+- (void)termsAndConditionsViewControllerDidCancel
+{
+    [self.navigationController dismissViewControllerAnimated:YES completion:nil];
+}
+
+#pragma mark - UIImagePickerControllerDelegate
+
+- (void) imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
+    
+    UIImage *image = info[UIImagePickerControllerEditedImage];
+    if (!image) {
+        image = info[UIImagePickerControllerOriginalImage];
+    }
+    
+    self.profileImage = image;
+    
+    [self.profileImageButton setImage:image forState:UIControlStateNormal];
+    
+    [picker dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (void) imagePickerControllerDidCancel:(UIImagePickerController *)picker {
+    [picker dismissViewControllerAnimated:YES completion:nil];
+}
+
+#pragma mark - IBActions
+
+- (IBAction)termsAndConditions:(UIButton *)sender
+{
+    APCTermsAndConditionsViewController *termsViewController =  [[UIStoryboard storyboardWithName:@"APHOnboarding" bundle:nil] instantiateViewControllerWithIdentifier:@"TermsVC"];
+    termsViewController.delegate = self;
+    [self.navigationController presentViewController:termsViewController animated:YES completion:nil];
 }
 
 - (void) secretButton
 {
-    NSUInteger randomInteger = arc4random();
-    self.firstNameTextField.text = @"Test";
-    self.lastNameTextField.text = [NSString stringWithFormat:@"%@", @(randomInteger)];
+    self.firstNameTextField.text = @"John";
+    self.lastNameTextField.text = @"Appleseed";
     
-    for (int i = 0; i < self.itemsOrder.count; i++) {
-        NSNumber *order = self.itemsOrder[i];
+    NSUInteger randomInteger = arc4random();
+    
+    for (int j=0; j<self.items.count; j++) {
         
-        APCTableViewTextFieldItem *item = self.items[i];
+        APCTableViewSection *section = self.items[j];
         
-        switch (order.integerValue) {
-            case APCSignUpUserInfoItemUserName:
-                item.value = [NSString stringWithFormat:@"test_%@", @(randomInteger)];
-                break;
-                
-            case APCSignUpUserInfoItemPassword:
-                item.value = @"Password123";
-                break;
-                
-            case APCSignUpUserInfoItemEmail:
-                item.value = [NSString stringWithFormat:@"dhanush.balachandran+%@@ymedialabs.com", @(randomInteger)];
-                break;
-                
-            default:
-            {
-                //Do nothing for some types
+        for (int i = 0; i < section.rows.count; i++) {
+            
+            APCTableViewRow *row = section.rows[i];
+            
+            APCTableViewTextFieldItem *item = (APCTableViewTextFieldItem *)row.item;
+            APCTableViewItemType itemType = row.itemType;
+            
+            switch (itemType) {
+                case kAPCUserInfoItemTypePassword:
+                    item.value = @"Password123";
+                    break;
+                    
+                case kAPCUserInfoItemTypeEmail:
+                    item.value = [NSString stringWithFormat:@"dhanush.balachandran+%@@ymedialabs.com", @(randomInteger)];
+                    break;
+                    
+                default:
+                {
+                    //Do nothing for some types
+                }
+                    break;
             }
-                break;
         }
-        [self.tableView reloadData];
-        self.navigationItem.rightBarButtonItem.enabled = [self isContentValid:nil];
     }
+    
+    [self.tableView reloadData];
+    
+    [self.permissionButton setSelected:YES];
+    
+    [self.nextBarButton setEnabled:[self isContentValid:nil]];
 }
 
-- (void) next {
-    APHSignUpMedicalInfoViewController *medicalInfoViewController = [APHSignUpMedicalInfoViewController new];
-    medicalInfoViewController.user = self.user;
+- (IBAction)next
+{
+    NSString *error;
     
-    [self.navigationController pushViewController:medicalInfoViewController animated:YES];
+    if ([self isContentValid:&error]) {
+        
+        [self loadProfileValuesInModel];
+        
+        APHSignUpMedicalInfoViewController *medicalInfoViewController =  [[UIStoryboard storyboardWithName:@"APHOnboarding" bundle:nil] instantiateViewControllerWithIdentifier:@"SignUpMedicalInfoVC"];
+        medicalInfoViewController.user = self.user;
+        
+        [self.navigationController pushViewController:medicalInfoViewController animated:YES];
+    } else{
+        UIAlertController *alert = [UIAlertController simpleAlertWithTitle:NSLocalizedString(@"General Information", @"") message:error];
+        [self presentViewController:alert animated:YES completion:nil];
+    }
+    
+}
+
+- (IBAction)cancel:(id)sender
+{
+    
+}
+
+- (IBAction)changeProfileImage:(id)sender
+{
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+    UIAlertAction *cameraAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"Take Photo", nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+        UIImagePickerController *imagePickerController = [[UIImagePickerController alloc] init];
+        imagePickerController.editing = YES;
+        imagePickerController.sourceType = UIImagePickerControllerSourceTypeCamera;
+        imagePickerController.delegate = self;
+        [self presentViewController:imagePickerController animated:YES completion:nil];
+    }];
+    if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
+        [alertController addAction:cameraAction];
+    }
+    
+    UIAlertAction *libraryAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"Choose from Library", nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+        UIImagePickerController *imagePickerController = [[UIImagePickerController alloc] init];
+        imagePickerController.editing = YES;
+        imagePickerController.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+        imagePickerController.delegate = self;
+        [self presentViewController:imagePickerController animated:YES completion:nil];
+    }];
+    [alertController addAction:libraryAction];
+    
+    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"Cancel", nil) style:UIAlertActionStyleCancel handler:^(UIAlertAction *action) {
+        
+    }];
+    [alertController addAction:cancelAction];
+    
+    [self presentViewController:alertController animated:YES completion:nil];
 }
 
 @end

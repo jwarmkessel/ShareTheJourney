@@ -1,17 +1,13 @@
 //
-//  SettingsViewController.h
-//  APCAppleCore
+//  APHSettingsViewController.h
+//  CardioHealth
 //
-//  Created by Karthik Keyan on 9/2/14.
+//  Created by Ramsundar Shandilya on 11/1/14.
 //  Copyright (c) 2014 Y Media Labs. All rights reserved.
 //
 
 @import APCAppleCore;
 
-@class APCUser;
-
-@interface APHSettingsViewController : APCUserInfoViewController
-
-@property (nonatomic, strong) APCUser *user;
+@interface APHSettingsViewController : APCSettingsViewController
 
 @end
