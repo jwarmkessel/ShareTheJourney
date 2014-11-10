@@ -2,9 +2,9 @@
     "tasks": [
               {
               "taskTitle" : "Daily Journal",
-              "taskID": "APHTimedWalking-80F09109-265A-49C6-9C5D-765E49AAF5D9",
-              "taskType": "APHTimedWalking",
-              "taskClassName" : "APHWalkingTaskViewController"
+              "taskID": "APHDailyJournal-80F09109-265A-49C6-9C5D-765E49AAF5D9",
+              "taskType": "APHDailyJournal",
+              "taskClassName" : "APHDailyJournalTaskViewController"
               }
               ],
     "schedules": [
@@ -12,7 +12,7 @@
                   "type": "REPEATING",
                   "href": "applebreastcancer:",
                   "schedule": "1:2,4,6",
-                  "taskID": "APHTimedWalking-80F09109-265A-49C6-9C5D-765E49AAF5D9"
+                  "taskID": "APHDailyJournal-80F09109-265A-49C6-9C5D-765E49AAF5D9"
                   }
                   ]
 }

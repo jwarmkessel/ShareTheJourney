@@ -1,9 +1,9 @@
 //
 //  APHContentsViewController.m
-//  TestNotesApplication
+//  Breast Cancer
 //
 //  Created by Henry McGilton on 10/7/14.
-//  Copyright (c) 2014 Henry McGilton. All rights reserved.
+//  Copyright (c) 2014 Y Media Labs. All rights reserved.
 //
 
 #import "APHContentsViewController.h"
@@ -26,6 +26,7 @@ typedef  enum  _DailyLogType
 @interface APHContentsViewController  ( )  <UITableViewDataSource, UITableViewDelegate, APHNotesViewControllerDelegate>
 
 @property  (nonatomic, weak)  IBOutlet  UITableView     *tabulator;
+@property  (nonatomic, weak)  IBOutlet  UIButton        *enterDailyLog;
 
 @property  (nonatomic, strong)          NSMutableArray  *contentObjects;
 @property  (nonatomic, strong)          NSMutableArray  *changesObjects;
@@ -186,6 +187,8 @@ typedef  enum  _DailyLogType
     
     [self.tabulator registerNib:[UINib nibWithNibName:@"APHNotesContentsTableViewCell"
                                                bundle:[NSBundle mainBundle]] forCellReuseIdentifier:(NSString *)kContentsTableViewCellIdentifier];
+    
+    [self.enterDailyLog setBackgroundColor:[UIColor appPrimaryColor]];
     
     NSDictionary  *modelsDictionary = [self fetchDataModelsForType:DailyLogTypeNotesContent];
     if (modelsDictionary == nil) {
