@@ -6,7 +6,6 @@
 //  Copyright (c) 2014 Y Media Labs. All rights reserved.
 //
 
-#import "APHBreastCancerAppDelegate.h"
 #import "APHSignInViewController.h"
 
 @interface APHSignInViewController ()
@@ -17,18 +16,21 @@
 
 - (void) viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
-    
-    self.userHandleTextField.font = [UITableView textFieldFont];
-    self.userHandleTextField.textColor = [UITableView textFieldTextColor];
-    
-    self.passwordTextField.font = [UITableView textFieldFont];
-    self.passwordTextField.textColor = [UITableView textFieldTextColor];
+    // Do any additional setup after loading the view.    
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+#pragma mark - IBActions
+
+- (IBAction)forgotPassword
+{
+    APCForgotPasswordViewController *forgotPasswordViewController = [[UIStoryboard storyboardWithName:@"APHOnboarding" bundle:nil] instantiateViewControllerWithIdentifier:@"ForgotPasswordVC"];
+    [self.navigationController pushViewController:forgotPasswordViewController animated:YES];
+    
 }
 
 @end

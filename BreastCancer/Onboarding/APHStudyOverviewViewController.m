@@ -11,38 +11,27 @@
 #import "APHSignUpGeneralInfoViewController.h"
 #import "APHInclusionCriteriaViewController.h"
 
+
 static NSString * const kStudyOverviewCellIdentifier = @"kStudyOverviewCellIdentifier";
 
 @interface APHStudyOverviewViewController ()
-
-@property (nonatomic, strong) NSArray *studyDetailsArray;
 
 @end
 
 @implementation APHStudyOverviewViewController
 
-- (instancetype)init
-{
-    if (self = [super init]) {
-        [self prepareContent];
-    }
-    return self;
-}
-
-- (void)prepareContent
-{
-    _studyDetailsArray = [self studyDetailsFromJSONFile:@"StudyOverview"];
-}
-
 #pragma mark - Lifecycle
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
     
-    self.diseaseNameLabel.text = self.diseaseName;
-    self.logoImageView.image = [UIImage imageNamed:@"logo_research_institute"];
-    [self setupTable];
+    [self prepareContent];
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [self.navigationController setNavigationBarHidden:YES animated:YES];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -50,44 +39,57 @@ static NSString * const kStudyOverviewCellIdentifier = @"kStudyOverviewCellIdent
     // Dispose of any resources that can be recreated.
 }
 
-- (void)setupTable
+- (void)prepareContent
 {
-    self.tableView.delegate = self;
-    self.tableView.dataSource = self;
-    
-    [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:kStudyOverviewCellIdentifier];
-}
-
-#pragma mark - UITableViewDataSource methods
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-    return self.studyDetailsArray.count;
-}
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kStudyOverviewCellIdentifier forIndexPath:indexPath];
-    
-    APCStudyDetails *studyDetails = self.studyDetailsArray[indexPath.row];
-    
-    cell.textLabel.text = studyDetails.title;
-    cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    
-    return cell;
+    [self studyDetailsFromJSONFile:@"StudyOverview"];
 }
 
 #pragma mark - IBActions
 
 - (void)signInTapped:(id)sender
 {
-    APCSignInViewController *signInViewController = [[APHSignInViewController alloc] initWithNibName:@"APCSignInViewController" bundle:[NSBundle appleCoreBundle]];
+    APCForgotPasswordViewController *signInViewController = [[UIStoryboard storyboardWithName:@"APHOnboarding" bundle:nil] instantiateViewControllerWithIdentifier:@"SignInVC"];
     [self.navigationController pushViewController:signInViewController animated:YES];
 }
 
 - (void)signUpTapped:(id)sender
 {
-    [self.navigationController pushViewController:[APHInclusionCriteriaViewController new] animated:YES];
+    [self.navigationController pushViewController: [[UIStoryboard storyboardWithName:@"APHOnboarding" bundle:nil] instantiateViewControllerWithIdentifier:@"InclusionCriteriaVC"] animated:YES];
+}
+
+/*********************************************************************************/
+#pragma mark - Misc Fix
+/*********************************************************************************/
+-(void)viewDidLayoutSubviews
+{
+    [self.tableView setSeparatorInset:UIEdgeInsetsZero];
+    [self.tableView setLayoutMargins:UIEdgeInsetsZero];
+}
+
+#pragma mark - UITableViewDelegate methods
+
+-(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [cell setSeparatorInset:UIEdgeInsetsZero];
+    [cell setLayoutMargins:UIEdgeInsetsZero];
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [super tableView:tableView didSelectRowAtIndexPath:indexPath];
+    
+    APCTableViewStudyDetailsItem *studyDetails = [self itemForIndexPath:indexPath];
+    
+    if (indexPath.row == 3) {
+        APCShareViewController *shareViewController = [[UIStoryboard storyboardWithName:@"APHOnboarding" bundle:nil] instantiateViewControllerWithIdentifier:@"ShareVC"];
+        shareViewController.hidesOkayButton = YES;
+        [self.navigationController pushViewController:shareViewController animated:YES];
+        
+    } else {
+        APCStudyDetailsViewController *detailsViewController = [[UIStoryboard storyboardWithName:@"APHOnboarding" bundle:nil] instantiateViewControllerWithIdentifier:@"StudyDetailsVC"];
+        detailsViewController.studyDetails = studyDetails;
+        [self.navigationController pushViewController:detailsViewController animated:YES];
+    }
 }
 
 @end

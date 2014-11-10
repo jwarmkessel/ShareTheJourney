@@ -10,22 +10,8 @@
 #import "APHActivitiesViewController.h"
 
 /* Other Classes */
-#import "UIColor+Parkinson.h"
-#import "APHBreastCancerAppDelegate.h"
+#import "APHAppDelegate.h"
 
 @implementation APHActivitiesViewController
-
-- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
-{
-    UITableViewHeaderFooterView *headerView = (UITableViewHeaderFooterView*) [super tableView:tableView viewForHeaderInSection:section];
-    [headerView.contentView setBackgroundColor:[UIColor parkinsonLightGrayColor]];
-    return headerView;
-}
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    APCActivitiesTableViewCell * cell = (APCActivitiesTableViewCell*)[super tableView:tableView cellForRowAtIndexPath:indexPath];
-    return cell;
-}
 
 @end
