@@ -138,7 +138,7 @@ Sure</string>
                                                     </constraints>
                                                     <state key="normal" title="Yes"/>
                                                 </button>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Do you have Diabetes?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h3e-xE-3Rh">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Do you have Breast Cancer?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h3e-xE-3Rh">
                                                     <rect key="frame" x="8" y="15" width="304" height="20"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -868,6 +868,7 @@ Sure</string>
                         <outlet property="logoImageView" destination="2E2-Yo-FnM" id="wln-M9-73n"/>
                         <outlet property="messageLabel" destination="3fs-Sy-NwE" id="LIQ-CG-blt"/>
                         <outlet property="okayButton" destination="fGt-jE-Min" id="ajJ-sh-C8K"/>
+                        <outlet property="tableBottomConstraint" destination="W5M-DZ-xSc" id="NsG-F5-15J"/>
                         <outlet property="tableHeaderLabel" destination="v88-nG-H6D" id="SaC-lq-Dg7"/>
                         <outlet property="tableView" destination="Xb7-lQ-LjK" id="NJt-iF-guA"/>
                     </connections>
@@ -1876,8 +1877,8 @@ Sure</string>
     <resources>
         <image name="eligibility_doctor" width="133" height="168"/>
         <image name="eligibility_patient" width="220" height="104"/>
-        <image name="logo_disease" width="126" height="126"/>
-        <image name="logo_researchInstitute" width="361" height="74"/>
+        <image name="logo_disease" width="64" height="119"/>
+        <image name="logo_researchInstitute" width="570" height="212"/>
         <image name="profilePlaceholder" width="150" height="150"/>
         <image name="rulerpencil_icon" width="62" height="62"/>
         <image name="study_details_video" width="320" height="214"/>
