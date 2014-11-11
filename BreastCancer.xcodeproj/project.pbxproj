@@ -56,36 +56,16 @@
 		F534B67C19E4689D00C3C152 /* NSString+CustomMethods.m in Sources */ = {isa = PBXBuildFile; fileRef = F534B5AF19E4689D00C3C152 /* NSString+CustomMethods.m */; };
 		F534B67D19E4689D00C3C152 /* RKStep+Description.m in Sources */ = {isa = PBXBuildFile; fileRef = F534B5B119E4689D00C3C152 /* RKStep+Description.m */; };
 		F534B67E19E4689D00C3C152 /* UIColor+Parkinson.m in Sources */ = {isa = PBXBuildFile; fileRef = F534B5B319E4689D00C3C152 /* UIColor+Parkinson.m */; };
-		F534B68619E4689D00C3C152 /* interval.instructions.01@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F534B5C619E4689D00C3C152 /* interval.instructions.01@2x.png */; };
-		F534B68719E4689D00C3C152 /* interval.instructions.02@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F534B5C719E4689D00C3C152 /* interval.instructions.02@2x.png */; };
-		F534B68819E4689D00C3C152 /* interval.instructions.03@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F534B5C819E4689D00C3C152 /* interval.instructions.03@2x.png */; };
-		F534B68919E4689D00C3C152 /* interval.instructions.04@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F534B5C919E4689D00C3C152 /* interval.instructions.04@2x.png */; };
 		F534B68A19E4689D00C3C152 /* APCParameters.json in Resources */ = {isa = PBXBuildFile; fileRef = F534B5CB19E4689D00C3C152 /* APCParameters.json */; };
 		F534B68B19E4689D00C3C152 /* APHTasksAndSchedules.json in Resources */ = {isa = PBXBuildFile; fileRef = F534B5CC19E4689D00C3C152 /* APHTasksAndSchedules.json */; };
 		F534B68C19E4689D00C3C152 /* JSON_READ_ME in Resources */ = {isa = PBXBuildFile; fileRef = F534B5CD19E4689D00C3C152 /* JSON_READ_ME */; };
 		F534B68D19E4689D00C3C152 /* sleepSurvey.json in Resources */ = {isa = PBXBuildFile; fileRef = F534B5CE19E4689D00C3C152 /* sleepSurvey.json */; };
 		F534B68E19E4689D00C3C152 /* StudyOverview.json in Resources */ = {isa = PBXBuildFile; fileRef = F534B5CF19E4689D00C3C152 /* StudyOverview.json */; };
-		F534B68F19E4689D00C3C152 /* phonation.instructions.01@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F534B5D119E4689D00C3C152 /* phonation.instructions.01@2x.png */; };
-		F534B69019E4689D00C3C152 /* phonation.instructions.02@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F534B5D219E4689D00C3C152 /* phonation.instructions.02@2x.png */; };
-		F534B69119E4689D00C3C152 /* phonation.instructions.03@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F534B5D319E4689D00C3C152 /* phonation.instructions.03@2x.png */; };
-		F534B69219E4689D00C3C152 /* phonation.instructions.04@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F534B5D419E4689D00C3C152 /* phonation.instructions.04@2x.png */; };
-		F534B69319E4689D00C3C152 /* phonation.instructions.05@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F534B5D519E4689D00C3C152 /* phonation.instructions.05@2x.png */; };
-		F534B69519E4689D00C3C152 /* walking.instructions.01@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F534B5D919E4689D00C3C152 /* walking.instructions.01@2x.png */; };
-		F534B69619E4689D00C3C152 /* walking.instructions.02@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F534B5DA19E4689D00C3C152 /* walking.instructions.02@2x.png */; };
-		F534B69719E4689D00C3C152 /* walking.instructions.03@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F534B5DB19E4689D00C3C152 /* walking.instructions.03@2x.png */; };
-		F534B69819E4689D00C3C152 /* walking.instructions.04@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F534B5DC19E4689D00C3C152 /* walking.instructions.04@2x.png */; };
-		F534B69919E4689D00C3C152 /* walking.instructions.05@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F534B5DD19E4689D00C3C152 /* walking.instructions.05@2x.png */; };
 		F534B69A19E4689D00C3C152 /* APHDataSubstrate.m in Sources */ = {isa = PBXBuildFile; fileRef = F534B5E019E4689D00C3C152 /* APHDataSubstrate.m */; };
 		F534B69C19E4689D00C3C152 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = F534B5E319E4689D00C3C152 /* LaunchScreen.xib */; };
 		F534B69D19E4689D00C3C152 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F534B5E419E4689D00C3C152 /* Main.storyboard */; };
 		F534B69E19E4689D00C3C152 /* APHActivities.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F534B5E719E4689D00C3C152 /* APHActivities.storyboard */; };
 		F534B69F19E4689D00C3C152 /* APHActivitiesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F534B5E919E4689D00C3C152 /* APHActivitiesViewController.m */; };
-		F534B6BE19E4689D00C3C152 /* APHChangedMedsOverviewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F534B62419E4689D00C3C152 /* APHChangedMedsOverviewViewController.m */; };
-		F534B6BF19E4689D00C3C152 /* APHChangedMedsOverviewViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F534B62519E4689D00C3C152 /* APHChangedMedsOverviewViewController.xib */; };
-		F534B6C019E4689D00C3C152 /* APHChangedMedsTaskViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F534B62719E4689D00C3C152 /* APHChangedMedsTaskViewController.m */; };
-		F534B6C419E4689D00C3C152 /* APHSleepQualityOverviewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F534B63019E4689D00C3C152 /* APHSleepQualityOverviewViewController.m */; };
-		F534B6C519E4689D00C3C152 /* APHSleepQualityOverviewViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F534B63119E4689D00C3C152 /* APHSleepQualityOverviewViewController.xib */; };
-		F534B6C619E4689D00C3C152 /* APHSleepQualityTaskViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F534B63319E4689D00C3C152 /* APHSleepQualityTaskViewController.m */; };
 		F534B6F619E468D400C3C152 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F534B6F519E468D400C3C152 /* HealthKit.framework */; };
 		F534B70319E4697E00C3C152 /* APCAppleCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F534B6FE19E4696E00C3C152 /* APCAppleCore.framework */; };
 		F534B70419E4697E00C3C152 /* APCAppleCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F534B6FE19E4696E00C3C152 /* APCAppleCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -221,25 +201,11 @@
 		F534B5B119E4689D00C3C152 /* RKStep+Description.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "RKStep+Description.m"; sourceTree = "<group>"; };
 		F534B5B219E4689D00C3C152 /* UIColor+Parkinson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Parkinson.h"; sourceTree = "<group>"; };
 		F534B5B319E4689D00C3C152 /* UIColor+Parkinson.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Parkinson.m"; sourceTree = "<group>"; };
-		F534B5C619E4689D00C3C152 /* interval.instructions.01@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "interval.instructions.01@2x.png"; sourceTree = "<group>"; };
-		F534B5C719E4689D00C3C152 /* interval.instructions.02@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "interval.instructions.02@2x.png"; sourceTree = "<group>"; };
-		F534B5C819E4689D00C3C152 /* interval.instructions.03@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "interval.instructions.03@2x.png"; sourceTree = "<group>"; };
-		F534B5C919E4689D00C3C152 /* interval.instructions.04@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "interval.instructions.04@2x.png"; sourceTree = "<group>"; };
 		F534B5CB19E4689D00C3C152 /* APCParameters.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = APCParameters.json; sourceTree = "<group>"; };
 		F534B5CC19E4689D00C3C152 /* APHTasksAndSchedules.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = APHTasksAndSchedules.json; sourceTree = "<group>"; };
 		F534B5CD19E4689D00C3C152 /* JSON_READ_ME */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = JSON_READ_ME; sourceTree = "<group>"; };
 		F534B5CE19E4689D00C3C152 /* sleepSurvey.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = sleepSurvey.json; sourceTree = "<group>"; };
 		F534B5CF19E4689D00C3C152 /* StudyOverview.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = StudyOverview.json; sourceTree = "<group>"; };
-		F534B5D119E4689D00C3C152 /* phonation.instructions.01@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "phonation.instructions.01@2x.png"; sourceTree = "<group>"; };
-		F534B5D219E4689D00C3C152 /* phonation.instructions.02@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "phonation.instructions.02@2x.png"; sourceTree = "<group>"; };
-		F534B5D319E4689D00C3C152 /* phonation.instructions.03@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "phonation.instructions.03@2x.png"; sourceTree = "<group>"; };
-		F534B5D419E4689D00C3C152 /* phonation.instructions.04@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "phonation.instructions.04@2x.png"; sourceTree = "<group>"; };
-		F534B5D519E4689D00C3C152 /* phonation.instructions.05@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "phonation.instructions.05@2x.png"; sourceTree = "<group>"; };
-		F534B5D919E4689D00C3C152 /* walking.instructions.01@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "walking.instructions.01@2x.png"; sourceTree = "<group>"; };
-		F534B5DA19E4689D00C3C152 /* walking.instructions.02@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "walking.instructions.02@2x.png"; sourceTree = "<group>"; };
-		F534B5DB19E4689D00C3C152 /* walking.instructions.03@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "walking.instructions.03@2x.png"; sourceTree = "<group>"; };
-		F534B5DC19E4689D00C3C152 /* walking.instructions.04@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "walking.instructions.04@2x.png"; sourceTree = "<group>"; };
-		F534B5DD19E4689D00C3C152 /* walking.instructions.05@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "walking.instructions.05@2x.png"; sourceTree = "<group>"; };
 		F534B5DF19E4689D00C3C152 /* APHDataSubstrate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APHDataSubstrate.h; sourceTree = "<group>"; };
 		F534B5E019E4689D00C3C152 /* APHDataSubstrate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APHDataSubstrate.m; sourceTree = "<group>"; };
 		F534B5E319E4689D00C3C152 /* LaunchScreen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LaunchScreen.xib; sourceTree = "<group>"; };
@@ -247,16 +213,6 @@
 		F534B5E719E4689D00C3C152 /* APHActivities.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = APHActivities.storyboard; sourceTree = "<group>"; };
 		F534B5E819E4689D00C3C152 /* APHActivitiesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APHActivitiesViewController.h; sourceTree = "<group>"; };
 		F534B5E919E4689D00C3C152 /* APHActivitiesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APHActivitiesViewController.m; sourceTree = "<group>"; };
-		F534B62319E4689D00C3C152 /* APHChangedMedsOverviewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APHChangedMedsOverviewViewController.h; sourceTree = "<group>"; };
-		F534B62419E4689D00C3C152 /* APHChangedMedsOverviewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APHChangedMedsOverviewViewController.m; sourceTree = "<group>"; };
-		F534B62519E4689D00C3C152 /* APHChangedMedsOverviewViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = APHChangedMedsOverviewViewController.xib; sourceTree = "<group>"; };
-		F534B62619E4689D00C3C152 /* APHChangedMedsTaskViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APHChangedMedsTaskViewController.h; sourceTree = "<group>"; };
-		F534B62719E4689D00C3C152 /* APHChangedMedsTaskViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APHChangedMedsTaskViewController.m; sourceTree = "<group>"; };
-		F534B62F19E4689D00C3C152 /* APHSleepQualityOverviewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APHSleepQualityOverviewViewController.h; sourceTree = "<group>"; };
-		F534B63019E4689D00C3C152 /* APHSleepQualityOverviewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APHSleepQualityOverviewViewController.m; sourceTree = "<group>"; };
-		F534B63119E4689D00C3C152 /* APHSleepQualityOverviewViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = APHSleepQualityOverviewViewController.xib; sourceTree = "<group>"; };
-		F534B63219E4689D00C3C152 /* APHSleepQualityTaskViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APHSleepQualityTaskViewController.h; sourceTree = "<group>"; };
-		F534B63319E4689D00C3C152 /* APHSleepQualityTaskViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APHSleepQualityTaskViewController.m; sourceTree = "<group>"; };
 		F534B6F419E468D400C3C152 /* BreastCancer.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = BreastCancer.entitlements; sourceTree = "<group>"; };
 		F534B6F519E468D400C3C152 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
 		F534B6F819E4696E00C3C152 /* APCAppleCore.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = APCAppleCore.xcodeproj; path = AppleCore/APCAppleCore/APCAppleCore.xcodeproj; sourceTree = SOURCE_ROOT; };
@@ -468,24 +424,10 @@
 		F534B5C419E4689D00C3C152 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				F534B5C519E4689D00C3C152 /* IntervalTappingImages */,
 				F534B5CA19E4689D00C3C152 /* JSONs */,
-				F534B5D019E4689D00C3C152 /* PhonationImages */,
 				F534B5D619E4689D00C3C152 /* Videos */,
-				F534B5D819E4689D00C3C152 /* WalkingImages */,
 			);
 			path = Resources;
-			sourceTree = "<group>";
-		};
-		F534B5C519E4689D00C3C152 /* IntervalTappingImages */ = {
-			isa = PBXGroup;
-			children = (
-				F534B5C619E4689D00C3C152 /* interval.instructions.01@2x.png */,
-				F534B5C719E4689D00C3C152 /* interval.instructions.02@2x.png */,
-				F534B5C819E4689D00C3C152 /* interval.instructions.03@2x.png */,
-				F534B5C919E4689D00C3C152 /* interval.instructions.04@2x.png */,
-			);
-			path = IntervalTappingImages;
 			sourceTree = "<group>";
 		};
 		F534B5CA19E4689D00C3C152 /* JSONs */ = {
@@ -502,36 +444,12 @@
 			path = JSONs;
 			sourceTree = "<group>";
 		};
-		F534B5D019E4689D00C3C152 /* PhonationImages */ = {
-			isa = PBXGroup;
-			children = (
-				F534B5D119E4689D00C3C152 /* phonation.instructions.01@2x.png */,
-				F534B5D219E4689D00C3C152 /* phonation.instructions.02@2x.png */,
-				F534B5D319E4689D00C3C152 /* phonation.instructions.03@2x.png */,
-				F534B5D419E4689D00C3C152 /* phonation.instructions.04@2x.png */,
-				F534B5D519E4689D00C3C152 /* phonation.instructions.05@2x.png */,
-			);
-			path = PhonationImages;
-			sourceTree = "<group>";
-		};
 		F534B5D619E4689D00C3C152 /* Videos */ = {
 			isa = PBXGroup;
 			children = (
 				5B15DD711A118FF900BEA0D1 /* Intro.mp4 */,
 			);
 			path = Videos;
-			sourceTree = "<group>";
-		};
-		F534B5D819E4689D00C3C152 /* WalkingImages */ = {
-			isa = PBXGroup;
-			children = (
-				F534B5D919E4689D00C3C152 /* walking.instructions.01@2x.png */,
-				F534B5DA19E4689D00C3C152 /* walking.instructions.02@2x.png */,
-				F534B5DB19E4689D00C3C152 /* walking.instructions.03@2x.png */,
-				F534B5DC19E4689D00C3C152 /* walking.instructions.04@2x.png */,
-				F534B5DD19E4689D00C3C152 /* walking.instructions.05@2x.png */,
-			);
-			path = WalkingImages;
 			sourceTree = "<group>";
 		};
 		F534B5DE19E4689D00C3C152 /* Startup */ = {
@@ -573,36 +491,10 @@
 			children = (
 				CF5FAB3E19F95C630006CA71 /* APHIntroductionViewController.h */,
 				CF5FAB3F19F95C630006CA71 /* APHIntroductionViewController.m */,
-				F534B62219E4689D00C3C152 /* MedicationChangesControllers */,
-				F534B62E19E4689D00C3C152 /* SleepQualityControllers */,
 				CF2697DA19EC3E0D00525E19 /* Daily Journal Controllers */,
 				CF15F2511A116B9400D87570 /* Common */,
 			);
 			path = TasksAndSteps;
-			sourceTree = "<group>";
-		};
-		F534B62219E4689D00C3C152 /* MedicationChangesControllers */ = {
-			isa = PBXGroup;
-			children = (
-				F534B62319E4689D00C3C152 /* APHChangedMedsOverviewViewController.h */,
-				F534B62419E4689D00C3C152 /* APHChangedMedsOverviewViewController.m */,
-				F534B62519E4689D00C3C152 /* APHChangedMedsOverviewViewController.xib */,
-				F534B62619E4689D00C3C152 /* APHChangedMedsTaskViewController.h */,
-				F534B62719E4689D00C3C152 /* APHChangedMedsTaskViewController.m */,
-			);
-			path = MedicationChangesControllers;
-			sourceTree = "<group>";
-		};
-		F534B62E19E4689D00C3C152 /* SleepQualityControllers */ = {
-			isa = PBXGroup;
-			children = (
-				F534B62F19E4689D00C3C152 /* APHSleepQualityOverviewViewController.h */,
-				F534B63019E4689D00C3C152 /* APHSleepQualityOverviewViewController.m */,
-				F534B63119E4689D00C3C152 /* APHSleepQualityOverviewViewController.xib */,
-				F534B63219E4689D00C3C152 /* APHSleepQualityTaskViewController.h */,
-				F534B63319E4689D00C3C152 /* APHSleepQualityTaskViewController.m */,
-			);
-			path = SleepQualityControllers;
 			sourceTree = "<group>";
 		};
 		F534B6F719E4690400C3C152 /* Frameworks */ = {
@@ -718,44 +610,28 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F534B69319E4689D00C3C152 /* phonation.instructions.05@2x.png in Resources */,
-				F534B69919E4689D00C3C152 /* walking.instructions.05@2x.png in Resources */,
 				5B15DD721A118FF900BEA0D1 /* Intro.mp4 in Resources */,
 				5B15DCF51A114F7000BEA0D1 /* WithdrawStudy.json in Resources */,
 				5B15DD3E1A114F9000BEA0D1 /* APHOnboarding.storyboard in Resources */,
 				CF5FAB4319F95C8F0006CA71 /* APHContentsViewController.xib in Resources */,
-				F534B69019E4689D00C3C152 /* phonation.instructions.02@2x.png in Resources */,
 				F534B59419E4681E00C3C152 /* Images.xcassets in Resources */,
-				F534B69619E4689D00C3C152 /* walking.instructions.02@2x.png in Resources */,
-				F534B68819E4689D00C3C152 /* interval.instructions.03@2x.png in Resources */,
 				F534B68E19E4689D00C3C152 /* StudyOverview.json in Resources */,
 				F534B68C19E4689D00C3C152 /* JSON_READ_ME in Resources */,
 				F534B68A19E4689D00C3C152 /* APCParameters.json in Resources */,
 				F534B68B19E4689D00C3C152 /* APHTasksAndSchedules.json in Resources */,
-				F534B69819E4689D00C3C152 /* walking.instructions.04@2x.png in Resources */,
-				F534B68719E4689D00C3C152 /* interval.instructions.02@2x.png in Resources */,
 				F534B69D19E4689D00C3C152 /* Main.storyboard in Resources */,
 				CF5FAB4419F95C8F0006CA71 /* APHNotesContentsTableViewCell.xib in Resources */,
-				F534B68919E4689D00C3C152 /* interval.instructions.04@2x.png in Resources */,
-				F534B6C519E4689D00C3C152 /* APHSleepQualityOverviewViewController.xib in Resources */,
 				5B15DCF41A114F7000BEA0D1 /* Learn.json in Resources */,
-				F534B69119E4689D00C3C152 /* phonation.instructions.03@2x.png in Resources */,
-				F534B69519E4689D00C3C152 /* walking.instructions.01@2x.png in Resources */,
-				F534B69219E4689D00C3C152 /* phonation.instructions.04@2x.png in Resources */,
-				F534B68619E4689D00C3C152 /* interval.instructions.01@2x.png in Resources */,
 				F534B68D19E4689D00C3C152 /* sleepSurvey.json in Resources */,
 				5B15DD181A114F8100BEA0D1 /* APHEditSectionsViewController.xib in Resources */,
 				CF15F2561A116BC400D87570 /* APHCommonTaskSummaryViewController.xib in Resources */,
 				5B15DD151A114F8100BEA0D1 /* APHDashboard.storyboard in Resources */,
 				CF15F2501A116A5A00D87570 /* APHDailyJournalIntroViewController.xib in Resources */,
-				F534B6BF19E4689D00C3C152 /* APHChangedMedsOverviewViewController.xib in Resources */,
-				F534B69719E4689D00C3C152 /* walking.instructions.03@2x.png in Resources */,
 				5B15DD1C1A114F8100BEA0D1 /* APHLearn.storyboard in Resources */,
 				CF2697EB19EC3E4200525E19 /* APHNotesViewController.xib in Resources */,
 				F534B69E19E4689D00C3C152 /* APHActivities.storyboard in Resources */,
 				F534B69C19E4689D00C3C152 /* LaunchScreen.xib in Resources */,
 				5B15DD211A114F8100BEA0D1 /* APHProfile.storyboard in Resources */,
-				F534B68F19E4689D00C3C152 /* phonation.instructions.01@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -766,15 +642,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F534B6C619E4689D00C3C152 /* APHSleepQualityTaskViewController.m in Sources */,
-				F534B6C419E4689D00C3C152 /* APHSleepQualityOverviewViewController.m in Sources */,
-				F534B6BE19E4689D00C3C152 /* APHChangedMedsOverviewViewController.m in Sources */,
 				5B15DD3D1A114F9000BEA0D1 /* APHIntroVideoViewController.m in Sources */,
 				5B15DD161A114F8100BEA0D1 /* APHDashboardViewController.m in Sources */,
 				CF2697E919EC3E4200525E19 /* APHNotesContentsTableViewCell.m in Sources */,
 				5B15DD441A114F9000BEA0D1 /* APHStudyOverviewViewController.m in Sources */,
 				5B15DD3F1A114F9000BEA0D1 /* APHSignInViewController.m in Sources */,
-				F534B6C019E4689D00C3C152 /* APHChangedMedsTaskViewController.m in Sources */,
 				5B15DD3B1A114F9000BEA0D1 /* APHInclusionCriteriaViewController.m in Sources */,
 				CF2697E619EC3E4200525E19 /* APHContentsViewController.m in Sources */,
 				CF15F24F1A116A5A00D87570 /* APHDailyJournalIntroViewController.m in Sources */,
