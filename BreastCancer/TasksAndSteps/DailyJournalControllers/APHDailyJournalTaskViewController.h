@@ -10,6 +10,6 @@
 #import <Foundation/Foundation.h>
 #import <ResearchKit/ResearchKit.h>
 
-@interface APHDailyJournalTaskViewController : APCSetupTaskViewController
+@interface APHDailyJournalTaskViewController : APCBaseWithProgressTaskViewController
 
 @end

@@ -13,15 +13,11 @@
 #import "APHContentsViewController.h"
 #import "APHCommonTaskSummaryViewController.h"
 
-static  NSString  *MainStudyIdentifier = @"com.parkinsons.intervalTapping";
+static  NSString  *MainStudyIdentifier = @"com.breastcancer.dailyJournal";
 
 static  NSString  *kDailyJournalStep101 = @"DailyJournalStep101";
 static  NSString  *kDailyJournalStep102 = @"DailyJournalStep102";
 static  NSString  *kDailyJournalStep103 = @"DailyJournalStep103";
-
-static  NSString  *kTaskViewControllerTitle = @"Daily Journal";
-
-static  CGFloat  kAPCStepProgressBarHeight = 8.0;
 
 @interface APHDailyJournalTaskViewController  ( ) <NSObject>
 
@@ -38,22 +34,6 @@ static  CGFloat  kAPCStepProgressBarHeight = 8.0;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    CGRect  navigationBarFrame = self.navigationBar.frame;
-    CGRect  progressorFrame = CGRectMake(0.0, CGRectGetHeight(navigationBarFrame) - kAPCStepProgressBarHeight, CGRectGetWidth(navigationBarFrame), kAPCStepProgressBarHeight);
-    
-    APCStepProgressBar  *tempProgressor = [[APCStepProgressBar alloc] initWithFrame:progressorFrame style:APCStepProgressBarStyleOnlyProgressView];
-    
-    RKTask  *task = self.task;
-    NSArray  *steps = task.steps;
-    tempProgressor.numberOfSteps = [steps count];
-    [tempProgressor setCompletedSteps: 1 animation:NO];
-    tempProgressor.progressTintColor = [UIColor appTertiaryColor1];
-    [self.navigationBar addSubview:tempProgressor];
-    self.progressor = tempProgressor;
-    
-    self.showsProgressInNavigationBar = NO;
-    self.navigationBar.topItem.title = NSLocalizedString(kTaskViewControllerTitle, nil);
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -79,7 +59,7 @@ static  CGFloat  kAPCStepProgressBarHeight = 8.0;
     
     {
         RKIntroductionStep  *step = [[RKIntroductionStep alloc] initWithIdentifier:kDailyJournalStep102 name:@"active step"];
-        step.caption = @"Button Tap";
+        step.caption = @"Mood Log";
         [steps addObject:step];
     }
 
@@ -252,14 +232,6 @@ static  CGFloat  kAPCStepProgressBarHeight = 8.0;
     [super stepViewControllerDidFinish:stepViewController navigationDirection:direction];
     
     stepViewController.continueButton = nil;
-    
-    NSInteger  completedSteps = self.progressor.completedSteps;
-    if (direction == RKStepViewControllerNavigationDirectionForward) {
-        completedSteps = completedSteps + 1;
-    } else {
-        completedSteps = completedSteps - 1;
-    }
-    [self.progressor setCompletedSteps:completedSteps animation:YES];
 }
 
 @end
