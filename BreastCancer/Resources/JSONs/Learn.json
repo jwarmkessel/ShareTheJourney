@@ -18,7 +18,7 @@
               "tint_color" : "red"
               },
               {
-              "title":"Life with Parkinson's",
+              "title":"Life with Breast Cancer",
               "details":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed dignissim vel turpis id fringilla. Nam pharetra gravida enim consectetur rutrum.",
               "icon_image":"disease_icon",
               "tint_color" : "green"
@@ -37,25 +37,7 @@
          "row_items":
          [
           {
-          "title":"Parkinson’s Resource",
-          "details":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed dignissim vel turpis id fringilla. Nam pharetra gravida enim consectetur rutrum.",
-          "icon_image":"globe_icon",
-          "tint_color" : "gray"
-          },
-          {
-          "title":"Parkinson’s Resource",
-          "details":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed dignissim vel turpis id fringilla. Nam pharetra gravida enim consectetur rutrum.",
-          "icon_image":"globe_icon",
-          "tint_color" : "gray"
-          },
-          {
-          "title":"Parkinson’s Resource",
-          "details":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed dignissim vel turpis id fringilla. Nam pharetra gravida enim consectetur rutrum.",
-          "icon_image":"globe_icon",
-          "tint_color" : "gray"
-          },
-          {
-          "title":"Parkinson’s Resource",
+          "title":"Breast Cancer Resource",
           "details":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed dignissim vel turpis id fringilla. Nam pharetra gravida enim consectetur rutrum.",
           "icon_image":"globe_icon",
           "tint_color" : "gray"
