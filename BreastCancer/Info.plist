@@ -39,5 +39,9 @@
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
 	</array>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Needed to determine socialization.</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>Needed to determine socialization.</string>
 </dict>
 </plist>
