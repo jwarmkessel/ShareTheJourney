@@ -10,6 +10,8 @@
 #import "APHCustomTextView.h"
 #import "APHMoodLogDictionaryKeys.h"
 
+@import APCAppleCore;
+
 typedef  enum  _TypingDirection
 {
     TypingDirectionAdding,
@@ -18,12 +20,18 @@ typedef  enum  _TypingDirection
 
 static  NSCharacterSet  *whitespaceAndNewLineSet = nil;
 
+static  NSUInteger  kMaximumNumberOfWordsPerLog = 150;
+static  NSUInteger  kThresholdForLimitWarning   = 140;
+
 @interface APHNotesViewController  ( )  <UITextViewDelegate>
 
 @property  (nonatomic, weak)  IBOutlet  APHCustomTextView    *scriptorium;
 
-@property  (nonatomic, weak)  IBOutlet  UIToolbar            *toolshed;
-@property  (nonatomic, weak)            UIBarButtonItem      *counterDisplay;
+@property  (nonatomic, weak)  IBOutlet  UINavigationBar      *navigator;
+@property  (nonatomic, weak)  IBOutlet  UILabel              *counterDisplay;
+
+@property  (nonatomic, weak)  IBOutlet  NSLayoutConstraint   *containerSpacing;
+@property  (nonatomic, assign)          CGFloat               savedContainerSpacing;
 
 @property  (nonatomic, strong)          NSMutableDictionary  *noteContentModel;
 @property  (nonatomic, strong)          NSMutableDictionary  *noteChangesModel;
@@ -42,13 +50,18 @@ static  NSCharacterSet  *whitespaceAndNewLineSet = nil;
 
 - (BOOL)canBecomeFirstResponder
 {
-    return  NO;
+    return  YES;
 }
 
 - (void)displayWordCount:(NSUInteger)count
 {
-    NSString  *numberOfWordsDisplay = [NSString stringWithFormat:@"%d", count];
-    self.counterDisplay.title = numberOfWordsDisplay;
+    NSString  *numberOfWordsDisplay = [NSString stringWithFormat:@"%lu of %lu words", (unsigned long)count, kMaximumNumberOfWordsPerLog];
+    if (count < kThresholdForLimitWarning) {
+        self.counterDisplay.textColor = [UIColor grayColor];
+    } else {
+        self.counterDisplay.textColor = [UIColor redColor];
+    }
+    self.counterDisplay.text = numberOfWordsDisplay;
 }
 
 - (NSUInteger)countWords:(NSString *)words
@@ -96,18 +109,25 @@ static  NSCharacterSet  *whitespaceAndNewLineSet = nil;
     
     NSTimeInterval timestamp = [[NSDate date] timeIntervalSinceReferenceDate];
     
+    NSUInteger  preCount = [self countWords:self.scriptorium.text];
     if ([text length] != 0) {
-        record = @{
-                   APHMoodLogEditTimeStampKey : @(timestamp),
-                   APHMoodLogEditingTypeKey : APHMoodLogEditingTypeAddingKey,
-                   };
+        if (preCount >= kMaximumNumberOfWordsPerLog) {
+            answer = NO;
+        } else {
+            record = @{
+                       APHMoodLogEditTimeStampKey : @(timestamp),
+                       APHMoodLogEditingTypeKey : APHMoodLogEditingTypeAddingKey,
+                       };
+        }
     } else {
         record = @{
                    APHMoodLogEditTimeStampKey : @(timestamp),
                    APHMoodLogEditingTypeKey : APHMoodLogEditingTypeDeletingKey,
                    };
     }
-    [self.noteModifications addObject: record];
+    if (record != nil) {
+        [self.noteModifications addObject: record];
+    }
     
     NSUInteger  count = [self countWords:self.scriptorium.text];
     [self displayWordCount:count];
@@ -119,6 +139,7 @@ static  NSCharacterSet  *whitespaceAndNewLineSet = nil;
 
 - (void)cancelButtonTapped:(UIBarButtonItem *)sender
 {
+    [self.scriptorium resignFirstResponder];
     if (self.delegate != nil) {
         [self.delegate notesDidCancel:self];
     }
@@ -126,6 +147,8 @@ static  NSCharacterSet  *whitespaceAndNewLineSet = nil;
 
 - (void)doneButtonTapped:(UIBarButtonItem *)sender
 {
+    [self.scriptorium resignFirstResponder];
+    
     [self.noteContentModel setObject:self.scriptorium.text forKey:APHMoodLogNoteTextKey];
     
     [self.noteChangesModel setObject:self.noteModifications forKey:APHMoodLogNoteModificationsKey];
@@ -140,6 +163,20 @@ static  NSCharacterSet  *whitespaceAndNewLineSet = nil;
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
+#pragma  mark  -  Keyboard Notification Methods
+
+- (void)keyboardWillEmerge:(NSNotification *)notification
+{
+    CGFloat  keyboardHeight = [notification.userInfo[UIKeyboardFrameEndUserInfoKey] CGRectValue].size.height;
+    self.savedContainerSpacing = self.containerSpacing.constant;
+    
+    double   animationDuration = [notification.userInfo[UIKeyboardAnimationDurationUserInfoKey] doubleValue];
+    
+    [UIView animateWithDuration:animationDuration animations:^{
+        self.containerSpacing.constant = keyboardHeight;
+    }];
+}
+
 #pragma  mark  -  View Controller Methods
 
 - (void)viewDidLoad
@@ -147,20 +184,21 @@ static  NSCharacterSet  *whitespaceAndNewLineSet = nil;
     [super viewDidLoad];
     
     self.scriptorium.text = @"";
-    self.navigationItem.title  = @"0";
+    self.navigator.topItem.title = @"";
     
     [[UIMenuController sharedMenuController] setMenuVisible:NO];
     
-    UIBarButtonItem  *spacerleft = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
-    UIBarButtonItem  *titler     = [[UIBarButtonItem alloc] initWithTitle:@"0000" style:UIBarButtonItemStylePlain target:nil action:nil];
-    self.counterDisplay = titler;
-    UIBarButtonItem  *spacerright = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
-    
     if (self.note == nil) {
-        UIBarButtonItem  *cancellor = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(cancelButtonTapped:)];
-        UIBarButtonItem  *finisher = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(doneButtonTapped:)];
         
-        self.toolshed.items = @[ cancellor, spacerleft, titler, spacerright, finisher ];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillEmerge:) name:UIKeyboardWillShowNotification object:nil];
+        
+        UIBarButtonItem  *cancellor = [[UIBarButtonItem alloc] initWithTitle:@"Cancel" style:UIBarButtonItemStylePlain target:self action:@selector(cancelButtonTapped:)];
+        cancellor.tintColor = [UIColor appPrimaryColor];
+        self.navigator.topItem.leftBarButtonItem = cancellor;
+        
+        UIBarButtonItem  *finisher = [[UIBarButtonItem alloc] initWithTitle:@"Done" style:UIBarButtonItemStylePlain  target:self action:@selector(doneButtonTapped:)];
+        finisher.tintColor = [UIColor appPrimaryColor];
+        self.navigator.topItem.rightBarButtonItem = finisher;
         
         NSTimeInterval  timestamp = [[NSDate date] timeIntervalSinceReferenceDate];
         
@@ -178,9 +216,11 @@ static  NSCharacterSet  *whitespaceAndNewLineSet = nil;
         self.scriptorium.editable   = NO;
         self.scriptorium.selectable = NO;
         
-        UIBarButtonItem  *backster = [[UIBarButtonItem alloc] initWithTitle:@"\u27e8 Notes" style:UIBarButtonItemStylePlain target:self action:@selector(backBarButtonWasTapped:)];
+        UIBarButtonItem  *backsterTitle   = [[UIBarButtonItem alloc] initWithTitle:@"Back to List" style:UIBarButtonItemStylePlain target:self action:@selector(backBarButtonWasTapped:)];
+        backsterTitle.tintColor = [UIColor appPrimaryColor];
         
-        self.toolshed.items = @[ backster, spacerleft, titler, spacerright, spacerright ];
+        self.navigator.topItem.leftItemsSupplementBackButton = NO;
+        self.navigator.topItem.leftBarButtonItem = backsterTitle;
 
         self.scriptorium.text = self.note[APHMoodLogNoteTextKey];
         NSUInteger  count = [self countWords:self.scriptorium.text];
