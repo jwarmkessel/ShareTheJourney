@@ -50,7 +50,7 @@ static  NSUInteger  kThresholdForLimitWarning   = 140;
 
 - (BOOL)canBecomeFirstResponder
 {
-    return  YES;
+    return  NO;
 }
 
 - (void)displayWordCount:(NSUInteger)count
