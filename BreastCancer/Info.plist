@@ -19,9 +19,13 @@
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
-	<string>a2</string>
+	<string>a3</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>Needed to determine socialization.</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Needed to determine socialization.</string>
 	<key>UIBackgroundModes</key>
 	<array>
 		<string>fetch</string>
@@ -39,9 +43,5 @@
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
 	</array>
-	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>Needed to determine socialization.</string>
-	<key>NSLocationAlwaysUsageDescription</key>
-	<string>Needed to determine socialization.</string>
 </dict>
 </plist>
