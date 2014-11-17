@@ -322,6 +322,22 @@
 			path = Onboarding;
 			sourceTree = "<group>";
 		};
+		7B8D702D1A1A80D6003A7A5B /* Intro */ = {
+			isa = PBXGroup;
+			children = (
+				CF15F24C1A116A5A00D87570 /* APHDailyJournalIntroViewController.h */,
+				CF15F24D1A116A5A00D87570 /* APHDailyJournalIntroViewController.m */,
+				CF15F24E1A116A5A00D87570 /* APHDailyJournalIntroViewController.xib */,
+				CF2697DB19EC3E4200525E19 /* APHContentsViewController.h */,
+				CF2697DC19EC3E4200525E19 /* APHContentsViewController.m */,
+				CF5FAB4119F95C8F0006CA71 /* APHContentsViewController.xib */,
+				CF5FAB4219F95C8F0006CA71 /* APHNotesContentsTableViewCell.xib */,
+				CF2697E119EC3E4200525E19 /* APHNotesContentsTableViewCell.h */,
+				CF2697E219EC3E4200525E19 /* APHNotesContentsTableViewCell.m */,
+			);
+			name = Intro;
+			sourceTree = "<group>";
+		};
 		CF15F2511A116B9400D87570 /* Common */ = {
 			isa = PBXGroup;
 			children = (
@@ -338,15 +354,7 @@
 			children = (
 				CF15F2491A11616500D87570 /* APHDailyJournalTaskViewController.h */,
 				CF15F24A1A11616500D87570 /* APHDailyJournalTaskViewController.m */,
-				CF15F24C1A116A5A00D87570 /* APHDailyJournalIntroViewController.h */,
-				CF15F24D1A116A5A00D87570 /* APHDailyJournalIntroViewController.m */,
-				CF15F24E1A116A5A00D87570 /* APHDailyJournalIntroViewController.xib */,
-				CF2697DB19EC3E4200525E19 /* APHContentsViewController.h */,
-				CF2697DC19EC3E4200525E19 /* APHContentsViewController.m */,
-				CF5FAB4119F95C8F0006CA71 /* APHContentsViewController.xib */,
-				CF5FAB4219F95C8F0006CA71 /* APHNotesContentsTableViewCell.xib */,
-				CF2697E119EC3E4200525E19 /* APHNotesContentsTableViewCell.h */,
-				CF2697E219EC3E4200525E19 /* APHNotesContentsTableViewCell.m */,
+				7B8D702D1A1A80D6003A7A5B /* Intro */,
 				CF2697E319EC3E4200525E19 /* APHNotesViewController.h */,
 				CF2697E419EC3E4200525E19 /* APHNotesViewController.m */,
 				CF2697E519EC3E4200525E19 /* APHNotesViewController.xib */,

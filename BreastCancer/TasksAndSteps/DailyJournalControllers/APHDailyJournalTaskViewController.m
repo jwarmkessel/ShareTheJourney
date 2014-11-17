@@ -34,6 +34,8 @@ static  NSString  *kDailyJournalStep103 = @"DailyJournalStep103";
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(cancelButtonTapped:)];
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -100,8 +102,8 @@ static  NSString  *kDailyJournalStep103 = @"DailyJournalStep103";
 - (RKStepViewController *)taskViewController:(RKTaskViewController *)taskViewController viewControllerForStep:(RKStep *)step
 {
     NSDictionary  *controllers = @{
-                                   kDailyJournalStep101 : [APHDailyJournalIntroViewController class],
-                                   kDailyJournalStep102 : [APHContentsViewController class],
+                                   kDailyJournalStep101 : [APHContentsViewController class],
+                                   
                                    kDailyJournalStep103 : [APHCommonTaskSummaryViewController class]
                                   };
     

@@ -200,6 +200,17 @@ typedef  enum  _DailyLogType
         NSArray  *changesModels = modelsDictionary[@"items"];
         self.changesObjects = [changesModels mutableCopy];
     }
+    
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(cancelButtonTapped:)];
+}
+
+- (void)cancelButtonTapped:(id)sender
+{
+    if (self.delegate != nil) {
+        if ([self.delegate respondsToSelector:@selector(stepViewControllerDidCancel:)] == YES) {
+            [self.delegate stepViewControllerDidCancel:self];
+        }
+    }
 }
 
 - (void)didReceiveMemoryWarning
