@@ -13,6 +13,8 @@
 #import "APHContentsViewController.h"
 #import "APHCommonTaskSummaryViewController.h"
 
+#import "APHNotesViewController.h"
+
 static  NSString  *MainStudyIdentifier = @"com.breastcancer.dailyJournal";
 
 static  NSString  *kDailyJournalStep101 = @"DailyJournalStep101";
@@ -34,8 +36,6 @@ static  NSString  *kDailyJournalStep103 = @"DailyJournalStep103";
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(cancelButtonTapped:)];
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -60,8 +60,18 @@ static  NSString  *kDailyJournalStep103 = @"DailyJournalStep103";
     }
     
     {
-        RKIntroductionStep  *step = [[RKIntroductionStep alloc] initWithIdentifier:kDailyJournalStep102 name:@"active step"];
+        RKActiveStep  *step = [[RKActiveStep alloc] initWithIdentifier:kDailyJournalStep102 name:@"active step"];
         step.caption = @"Mood Log";
+        step.text = @"Blah";
+        
+        [steps addObject:step];
+    }
+    
+    {
+        RKIntroductionStep  *step = [[RKIntroductionStep alloc] initWithIdentifier:kDailyJournalStep103 name:@"active step"];
+        step.caption = @"Mood Log";
+
+        
         [steps addObject:step];
     }
 
@@ -84,14 +94,24 @@ static  NSString  *kDailyJournalStep103 = @"DailyJournalStep103";
 
 #pragma  mark  -  Task View Controller Delegate Methods
 
-- (BOOL)taskViewController:(RKTaskViewController *)taskViewController shouldPresentStepViewController:(RKStepViewController *)stepViewController
-{
-    return  YES;
+- (BOOL)taskViewController:(RKTaskViewController *)taskViewController shouldPresentStep:(RKStep *)step {
+    
+    return YES;
 }
 
-- (void)taskViewController:(RKTaskViewController *)taskViewController willPresentStepViewController:(RKStepViewController *)stepViewController
-{
+- (void)taskViewController:(RKTaskViewController *)taskViewController willPresentStepViewController:(RKStepViewController *)stepViewController{
+    
+    
     if (kDailyJournalStep102 == stepViewController.step.identifier) {
+        
+        APHNotesViewController  *stenographer = [[APHNotesViewController alloc] initWithNibName:nil bundle:nil];
+        
+        [stepViewController addChildViewController:stenographer];
+        
+        [stepViewController.view addSubview:stenographer.view];
+        
+        //stenographer.delegate = self;
+
         stepViewController.continueButton = nil;
     } else if (kDailyJournalStep103 == stepViewController.step.identifier) {
         stepViewController.continueButton = [[UIBarButtonItem alloc] initWithTitle:@"Well done!" style:stepViewController.continueButton.style target:stepViewController.continueButton.target action:stepViewController.continueButton.action];
@@ -101,6 +121,8 @@ static  NSString  *kDailyJournalStep103 = @"DailyJournalStep103";
 
 - (RKStepViewController *)taskViewController:(RKTaskViewController *)taskViewController viewControllerForStep:(RKStep *)step
 {
+    
+    
     NSDictionary  *controllers = @{
                                    kDailyJournalStep101 : [APHContentsViewController class],
                                    
@@ -109,10 +131,12 @@ static  NSString  *kDailyJournalStep103 = @"DailyJournalStep103";
     
     Class  aClass = [controllers objectForKey:step.identifier];
     APCStepViewController  *controller = [[aClass alloc] initWithNibName:nil bundle:nil];
+
     controller.resultCollector = self;
     controller.delegate = self;
     controller.title = @"Daily Journal";
     controller.step = step;
+
     
     return controller;
 }
@@ -223,17 +247,14 @@ static  NSString  *kDailyJournalStep103 = @"DailyJournalStep103";
 #pragma mark - StepViewController Delegate Methods
 /*********************************************************************************/
 
-- (void)stepViewControllerWillBePresented:(RKStepViewController *)viewController
-{
-    viewController.skipButton = nil;
-    viewController.continueButton = nil;
-}
+//- (void)stepViewControllerWillBePresented:(RKStepViewController *)viewController
+//{
+//    viewController.skipButton = nil;
+//}
 
-- (void)stepViewControllerDidFinish:(RKStepViewController *)stepViewController navigationDirection:(RKStepViewControllerNavigationDirection)direction
-{
-    [super stepViewControllerDidFinish:stepViewController navigationDirection:direction];
-    
-    stepViewController.continueButton = nil;
-}
+//- (void)stepViewControllerDidFinish:(RKStepViewController *)stepViewController navigationDirection:(RKStepViewControllerNavigationDirection)direction
+//{
+//    [super stepViewControllerDidFinish:stepViewController navigationDirection:direction];
+//}
 
 @end

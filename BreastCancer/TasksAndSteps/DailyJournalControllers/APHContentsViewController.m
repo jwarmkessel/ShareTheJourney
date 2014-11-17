@@ -98,7 +98,9 @@ typedef  enum  _DailyLogType
     }
 }
 
+/*********************************************************************************/
 #pragma  mark  -  Note Creation Controller Delegate Methods
+/*********************************************************************************/
 
 - (void)notesDidCancel:(APHNotesViewController *)controller
 {
@@ -120,18 +122,28 @@ typedef  enum  _DailyLogType
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
+/*********************************************************************************/
 #pragma  mark  -  Add Log Note Action Method
+/*********************************************************************************/
 
 - (IBAction)makeNewNoteButtonTapped:(UIButton *)sender
 {
-    APHNotesViewController  *stenographer = [[APHNotesViewController alloc] initWithNibName:nil bundle:nil];
+    if (self.delegate != nil) {
+        if ([self.delegate respondsToSelector:@selector(stepViewControllerDidFinish:navigationDirection:)] == YES) {
+            [self.delegate stepViewControllerDidFinish:self navigationDirection:RKStepViewControllerNavigationDirectionForward];
+        }
+    }
     
-    stenographer.delegate = self;
-    
-    [self presentViewController:stenographer animated:YES completion:^{ }];
+//    APHNotesViewController  *stenographer = [[APHNotesViewController alloc] initWithNibName:nil bundle:nil];
+//    
+//    stenographer.delegate = self;
+//
+//    [self presentViewController:stenographer animated:YES completion:^{ }];
 }
 
+/*********************************************************************************/
 #pragma  mark  -  Table View Data Source Methods
+/*********************************************************************************/
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
@@ -167,7 +179,9 @@ typedef  enum  _DailyLogType
     return  cell;
 }
 
+/*********************************************************************************/
 #pragma  mark  -  Table View Delegate Methods
+/*********************************************************************************/
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -179,7 +193,9 @@ typedef  enum  _DailyLogType
     [self presentViewController:stenographer animated:YES completion:^{ }];
 }
 
+/*********************************************************************************/
 #pragma  mark  -  View Controller Methods
+/*********************************************************************************/
 
 - (void)viewDidLoad
 {
