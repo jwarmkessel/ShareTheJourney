@@ -23,8 +23,6 @@ static  NSString  *kDailyJournalStep103 = @"DailyJournalStep103";
 
 @interface APHDailyJournalTaskViewController  ( ) <NSObject>
 
-@property (strong, nonatomic) RKSTDataArchive *taskArchive;
-
 @property  (nonatomic, weak)  APCStepProgressBar  *progressor;
 
 @end
@@ -41,8 +39,6 @@ static  NSString  *kDailyJournalStep103 = @"DailyJournalStep103";
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
-    
-    [self beginTask];
 }
 
 #pragma  mark  -  Task Creation Methods
@@ -52,30 +48,24 @@ static  NSString  *kDailyJournalStep103 = @"DailyJournalStep103";
     NSMutableArray *steps = [[NSMutableArray alloc] init];
     
     {
-        RKIntroductionStep  *step = [[RKIntroductionStep alloc] initWithIdentifier:kDailyJournalStep101 name:@"Daily Journal"];
-        step.caption = @"Daily Journal";
-        step.explanation = @"";
-        step.instruction = @"";
-        [steps addObject:step];
-    }
-    
-    {
-        RKSTActiveStep  *step = [[RKSTActiveStep alloc] initWithIdentifier:kDailyJournalStep102 name:@"active step"];
-        step.caption = @"Mood Log";
-        step.text = @"Blah";
+        RKSTInstructionStep *step = [[RKSTInstructionStep alloc] initWithIdentifier:kDailyJournalStep101];
         
         [steps addObject:step];
     }
     
     {
-        RKIntroductionStep  *step = [[RKIntroductionStep alloc] initWithIdentifier:kDailyJournalStep103 name:@"active step"];
-        step.caption = @"Mood Log";
-
+        RKSTActiveStep  *step = [[RKSTActiveStep alloc] initWithIdentifier:kDailyJournalStep102];
+        
+        [steps addObject:step];
+    }
+    
+    {
+        RKSTInstructionStep  *step = [[RKSTInstructionStep alloc] initWithIdentifier:kDailyJournalStep103];
         
         [steps addObject:step];
     }
 
-    RKSTOrderedTask  *task = [[RKSTOrderedTask alloc] initWithName:@"Daily Journal" identifier:@"Mood Logs Task" steps:steps];
+    RKSTOrderedTask  *task = [[RKSTOrderedTask alloc] initWithIdentifier:@"Daily Journal" steps:steps];
     
     return  task;
 }
@@ -92,15 +82,97 @@ static  NSString  *kDailyJournalStep103 = @"DailyJournalStep103";
     [self.presentingViewController dismissViewControllerAnimated:YES completion:^{ } ];
 }
 
-#pragma  mark  -  Task View Controller Delegate Methods
 
-- (BOOL)taskViewController:(RKSTTaskViewController *)taskViewController shouldPresentStep:(RKSTStep *)step {
+
+/*********************************************************************************/
+#pragma  mark  - Private methods
+/*********************************************************************************/
+
+
+/*********************************************************************************/
+#pragma mark - Helpers
+/*********************************************************************************/
+
+
+/*********************************************************************************/
+#pragma  mark  - TaskViewController delegates
+/*********************************************************************************/
+/**
+ * @brief Successful completion of a step that has no steps after it.
+ */
+- (void)taskViewControllerDidComplete:(RKSTTaskViewController *)taskViewController {
     
+}
+
+/**
+ * @brief Reports an error during the task.
+ */
+- (void)taskViewController:(RKSTTaskViewController *)taskViewController didFailOnStep:(RKSTStep *)step withError:(NSError *)error {
+    NSLog(@"Error");
+}
+
+/**
+ * @brief The task was cancelled by participant or the developer.
+ */
+- (void)taskViewControllerDidCancel:(RKSTTaskViewController *)taskViewController {
+    
+    
+}
+/**
+ * @brief Check whether there is "Learn More" content for this step
+ * @return NO if there is no additional content to display.
+ */
+- (BOOL)taskViewController:(RKSTTaskViewController *)taskViewController hasLearnMoreForStep:(RKSTStep *)step {
     return YES;
 }
 
-- (void)taskViewController:(RKSTTaskViewController *)taskViewController willPresentStepViewController:(RKSTStepViewController *)stepViewController{
+/**
+ * @brief The user has tapped the "Learn More" button no the step.
+ * @discussion Present a dialog or modal view controller containing the
+ * "Learn More" content for this step.
+ */
+- (void)taskViewController:(RKSTTaskViewController *)taskViewController learnMoreForStep:(RKSTStepViewController *)stepViewController {
     
+}
+
+/**
+ * @brief Supply a custom view controller for a given step.
+ * @discussion The delegate should provide a step view controller implementation for any custom step.
+ * @return A custom view controller, or nil to use the default step controller for this step.
+ */
+- (RKSTStepViewController *)taskViewController:(RKSTTaskViewController *)taskViewController viewControllerForStep:(RKSTStep *)step {
+    
+    NSDictionary  *controllers = @{
+                                   kDailyJournalStep101 : [APHContentsViewController class],
+                                   
+                                   kDailyJournalStep103 : [APHCommonTaskSummaryViewController class]
+                                   };
+    
+    Class  aClass = [controllers objectForKey:step.identifier];
+    APCStepViewController  *controller = [[aClass alloc] initWithNibName:nil bundle:nil];
+    
+    controller.delegate = self;
+    controller.title = @"Daily Journal";
+    controller.step = step;
+    
+    
+    return controller;
+}
+
+/**
+ * @brief Control whether the task controller proceeds to the next or previous step.
+ * @return YES, if navigation can proceed to the specified step.
+ */
+- (BOOL)taskViewController:(RKSTTaskViewController *)taskViewController shouldPresentStep:(RKSTStep *)step {
+ 
+    return YES;
+}
+
+/**
+ * @brief Tells the delegate that a stepViewController is about to be displayed.
+ * @discussion Provides an opportunity to modify the step view controller before presentation.
+ */
+- (void)taskViewController:(RKSTTaskViewController *)taskViewController stepViewControllerWillAppear:(RKSTStepViewController *)stepViewController {
     
     if (kDailyJournalStep102 == stepViewController.step.identifier) {
         
@@ -115,148 +187,28 @@ static  NSString  *kDailyJournalStep103 = @"DailyJournalStep103";
         [stenographer didMoveToParentViewController:stepViewController];
         //stenographer.delegate = self;
         
-//        [stenographer.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:[c(>=320)]" options:0 metrics:nil views:@{@"c":stenographer.view}]];
-//
-//        [stepViewController.view addConstraint:[NSLayoutConstraint constraintWithItem:stenographer.view attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:stepViewController.view attribute:NSLayoutAttributeBottom multiplier:1.0f constant:0.0f]];
-//        
-//        [stepViewController.view addConstraint:[NSLayoutConstraint constraintWithItem:stenographer.view attribute:NSLayoutAttributeLeading relatedBy:NSLayoutRelationEqual toItem:stepViewController.view attribute:NSLayoutAttributeLeading multiplier:1.0f constant:0.0f]];
-//        
-//        [stepViewController.view addConstraint:[NSLayoutConstraint constraintWithItem:stenographer.view attribute:NSLayoutAttributeTrailing relatedBy:NSLayoutRelationEqual toItem:stepViewController.view attribute:NSLayoutAttributeBottom multiplier:1.0f constant:0.0f]];
-//        
-//        [stepViewController.view addConstraint:[NSLayoutConstraint constraintWithItem:stenographer.view attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:stepViewController.view attribute:NSLayoutAttributeLeading multiplier:1.0f constant:0.0f]];
-//
-//        [stepViewController.view layoutIfNeeded];
-//
-
-        stepViewController.continueButton = nil;
-    } else if (kDailyJournalStep103 == stepViewController.step.identifier) {
-        stepViewController.continueButton = [[UIBarButtonItem alloc] initWithTitle:@"Well done!" style:stepViewController.continueButton.style target:stepViewController.continueButton.target action:stepViewController.continueButton.action];
-        stepViewController.continueButton = nil;
-    }
-}
-
-- (RKSTStepViewController *)taskViewController:(RKSTTaskViewController *)taskViewController viewControllerForStep:(RKSTStep *)step
-{
-    
-    
-    NSDictionary  *controllers = @{
-                                   kDailyJournalStep101 : [APHContentsViewController class],
-                                   
-                                   kDailyJournalStep103 : [APHCommonTaskSummaryViewController class]
-                                  };
-    
-    Class  aClass = [controllers objectForKey:step.identifier];
-    APCStepViewController  *controller = [[aClass alloc] initWithNibName:nil bundle:nil];
-
-    controller.resultCollector = self;
-    controller.delegate = self;
-    controller.title = @"Daily Journal";
-    controller.step = step;
-
-    
-    return controller;
-}
-
-/*********************************************************************************/
-#pragma  mark  - Private methods
-/*********************************************************************************/
-
-- (void)beginTask
-{
-    if (self.taskArchive)
-    {
-        [self.taskArchive resetContent];
-    }
-    
-    self.taskArchive = [[RKSTDataArchive alloc] initWithItemIdentifier:[RKItemIdentifier itemIdentifierForTask:self.task] studyIdentifier:MainStudyIdentifier taskInstanceUUID:self.taskInstanceUUID extraMetadata:nil fileProtection:RKFileProtectionCompleteUnlessOpen];
-    
-}
-
-/*********************************************************************************/
-#pragma mark - Helpers
-/*********************************************************************************/
-
--(void)sendResult:(RKSTResult*)result
-{
-    //TODO
-    // In a real application, consider adding to the archive on a concurrent queue.
-    NSError *err = nil;
-    if (![result addToArchive:self.taskArchive error:&err])
-    {
-        // Error adding the result to the archive; archive may be invalid. Tell
-        // the user there's been a problem and stop the task.
-        NSLog(@"Error adding %@ to archive: %@", result, err);
-    }
-}
-
-
-/*********************************************************************************/
-#pragma  mark  - TaskViewController delegates
-/*********************************************************************************/
-- (void)taskViewController:(RKSTTaskViewController *)taskViewController didProduceResult:(RKSTResult *)result {
-    
-    NSLog(@"didProduceResult = %@", result);
-    
-    if ([result isKindOfClass:[RKSurveyResult class]]) {
-        RKSurveyResult* sresult = (RKSurveyResult*)result;
+        //        [stenographer.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:[c(>=320)]" options:0 metrics:nil views:@{@"c":stenographer.view}]];
+        //
+        //        [stepViewController.view addConstraint:[NSLayoutConstraint constraintWithItem:stenographer.view attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:stepViewController.view attribute:NSLayoutAttributeBottom multiplier:1.0f constant:0.0f]];
+        //
+        //        [stepViewController.view addConstraint:[NSLayoutConstraint constraintWithItem:stenographer.view attribute:NSLayoutAttributeLeading relatedBy:NSLayoutRelationEqual toItem:stepViewController.view attribute:NSLayoutAttributeLeading multiplier:1.0f constant:0.0f]];
+        //
+        //        [stepViewController.view addConstraint:[NSLayoutConstraint constraintWithItem:stenographer.view attribute:NSLayoutAttributeTrailing relatedBy:NSLayoutRelationEqual toItem:stepViewController.view attribute:NSLayoutAttributeBottom multiplier:1.0f constant:0.0f]];
+        //
+        //        [stepViewController.view addConstraint:[NSLayoutConstraint constraintWithItem:stenographer.view attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:stepViewController.view attribute:NSLayoutAttributeLeading multiplier:1.0f constant:0.0f]];
+        //
+        //        [stepViewController.view layoutIfNeeded];
+        //
         
-        for (RKSTQuestionResult* qr in sresult.surveyResults) {
-            NSLog(@"%@ = [%@] %@ ", [[qr itemIdentifier] stringValue], [qr.answer class], qr.answer);
-        }
+        
     }
-    
-    
-    [self sendResult:result];
-    
-    [super taskViewController:taskViewController didProduceResult:result];
 }
 
-- (void)taskViewControllerDidFail: (RKSTTaskViewController *)taskViewController withError:(NSError*)error{
-    NSLog(@"taskViewControllerDidFail %@", error);
-
-    [self.taskArchive resetContent];
-    self.taskArchive = nil;
+/**
+ * @brief Tells the delegate that task result object has changed.
+ */
+- (void)taskViewController:(RKSTTaskViewController *)taskViewController didChangeResult:(RKSTTaskResult *)result {
     
-}
-
-- (void)taskViewControllerDidCancel:(RKSTTaskViewController *)taskViewController{
-    
-    [taskViewController suspend];
-    
-    [self.taskArchive resetContent];
-    self.taskArchive = nil;
-    
-    [self dismissViewControllerAnimated:YES completion:nil];
-}
-
-- (void)taskViewControllerDidComplete: (RKSTTaskViewController *)taskViewController{
-    
-    [taskViewController suspend];
-    
-    NSError *err = nil;
-    NSURL *archiveFileURL = [self.taskArchive archiveURLWithError:&err];
-    if (archiveFileURL)
-    {
-        NSURL *documents = [NSURL fileURLWithPath:[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject]];
-        NSURL *outputUrl = [documents URLByAppendingPathComponent:[archiveFileURL lastPathComponent]];
-        
-        // This is where you would queue the archive for upload. In this demo, we move it
-        // to the documents directory, where you could copy it off using iTunes, for instance.
-        [[NSFileManager defaultManager] moveItemAtURL:archiveFileURL toURL:outputUrl error:nil];
-        
-        NSLog(@"outputUrl= %@", outputUrl);
-        
-        // When done, clean up:
-        self.taskArchive = nil;
-        if (archiveFileURL)
-        {
-            [[NSFileManager defaultManager] removeItemAtURL:archiveFileURL error:nil];
-        }
-    }
-    
-    [self dismissViewControllerAnimated:YES completion:nil];
-    
-    [super taskViewControllerDidComplete:taskViewController];
 }
 
 /*********************************************************************************/

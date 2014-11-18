@@ -52,7 +52,6 @@
 		F534B58919E4681E00C3C152 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F534B58819E4681E00C3C152 /* main.m */; };
 		F534B59419E4681E00C3C152 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F534B59319E4681E00C3C152 /* Images.xcassets */; };
 		F534B67C19E4689D00C3C152 /* NSString+CustomMethods.m in Sources */ = {isa = PBXBuildFile; fileRef = F534B5AF19E4689D00C3C152 /* NSString+CustomMethods.m */; };
-		F534B67D19E4689D00C3C152 /* RKStep+Description.m in Sources */ = {isa = PBXBuildFile; fileRef = F534B5B119E4689D00C3C152 /* RKStep+Description.m */; };
 		F534B67E19E4689D00C3C152 /* UIColor+Parkinson.m in Sources */ = {isa = PBXBuildFile; fileRef = F534B5B319E4689D00C3C152 /* UIColor+Parkinson.m */; };
 		F534B68A19E4689D00C3C152 /* APCParameters.json in Resources */ = {isa = PBXBuildFile; fileRef = F534B5CB19E4689D00C3C152 /* APCParameters.json */; };
 		F534B68B19E4689D00C3C152 /* APHTasksAndSchedules.json in Resources */ = {isa = PBXBuildFile; fileRef = F534B5CC19E4689D00C3C152 /* APHTasksAndSchedules.json */; };
@@ -192,8 +191,6 @@
 		F534B59319E4681E00C3C152 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		F534B5AE19E4689D00C3C152 /* NSString+CustomMethods.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+CustomMethods.h"; sourceTree = "<group>"; };
 		F534B5AF19E4689D00C3C152 /* NSString+CustomMethods.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+CustomMethods.m"; sourceTree = "<group>"; };
-		F534B5B019E4689D00C3C152 /* RKStep+Description.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "RKStep+Description.h"; sourceTree = "<group>"; };
-		F534B5B119E4689D00C3C152 /* RKStep+Description.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "RKStep+Description.m"; sourceTree = "<group>"; };
 		F534B5B219E4689D00C3C152 /* UIColor+Parkinson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Parkinson.h"; sourceTree = "<group>"; };
 		F534B5B319E4689D00C3C152 /* UIColor+Parkinson.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Parkinson.m"; sourceTree = "<group>"; };
 		F534B5CB19E4689D00C3C152 /* APCParameters.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = APCParameters.json; sourceTree = "<group>"; };
@@ -405,8 +402,6 @@
 			children = (
 				F534B5AE19E4689D00C3C152 /* NSString+CustomMethods.h */,
 				F534B5AF19E4689D00C3C152 /* NSString+CustomMethods.m */,
-				F534B5B019E4689D00C3C152 /* RKStep+Description.h */,
-				F534B5B119E4689D00C3C152 /* RKStep+Description.m */,
 				F534B5B219E4689D00C3C152 /* UIColor+Parkinson.h */,
 				F534B5B319E4689D00C3C152 /* UIColor+Parkinson.m */,
 			);
@@ -646,7 +641,6 @@
 				CF15F24B1A11616500D87570 /* APHDailyJournalTaskViewController.m in Sources */,
 				5B15DD1F1A114F8100BEA0D1 /* APHChangePasscodeViewController.m in Sources */,
 				F534B67C19E4689D00C3C152 /* NSString+CustomMethods.m in Sources */,
-				F534B67D19E4689D00C3C152 /* RKStep+Description.m in Sources */,
 				CF2697E819EC3E4200525E19 /* APHMoodLogDictionaryKeys.m in Sources */,
 				5B15DD401A114F9000BEA0D1 /* APHSignUpGeneralInfoViewController.m in Sources */,
 				5B15DD3C1A114F9000BEA0D1 /* APHInEligibleViewController.m in Sources */,
