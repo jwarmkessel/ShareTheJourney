@@ -82,15 +82,12 @@
     consent.signaturePageTitle = @"Consent";
     consent.signaturePageContent = @"I agree  to participate in this research Study.";
     
-    
-    RKSTConsentSignature *participantSig = [RKSTConsentSignature signatureForPersonWithTitle:@"Participant" name:nil signatureImage:nil dateString:nil];
+    //TODO:Check the identifier
+    RKSTConsentSignature *participantSig = [RKSTConsentSignature signatureForPersonWithTitle:@"Participant" dateFormatString:@"yyyy-MM-dd 'at' HH:mm" identifier:@"com.ymedia.participant"];
     [consent addSignature:participantSig];
     
-    RKSTConsentSignature *investigatorSig = [RKSTConsentSignature signatureForPersonWithTitle:@"Investigator" name:@"Jake Clemson" signatureImage:[UIImage imageNamed:@"signature.png"] dateString:@"9/2/14"];
+    RKSTConsentSignature *investigatorSig = [RKSTConsentSignature signatureForPersonWithTitle:@"Investigator" dateFormatString:@"yyyy-MM-dd 'at' HH:mm" identifier:@"com.ymedia.participant"];
     [consent addSignature:investigatorSig];
-    
-    
-    
     
     NSMutableArray* components = [NSMutableArray new];
     
@@ -131,8 +128,10 @@
     
     RKSTVisualConsentStep *step = [[RKSTVisualConsentStep alloc] initWithDocument:consent];
     RKSTConsentReviewStep *reviewStep = [[RKSTConsentReviewStep alloc] initWithSignature:participantSig inDocument:consent];
-    RKSTOrderedTask *task = [[RKSTOrderedTask alloc] initWithName:@"consent" identifier:@"consent" steps:@[step,reviewStep]];
-    RKSTTaskViewController *consentVC = [[RKSTTaskViewController alloc] initWithTask:task taskInstanceUUID:[NSUUID UUID]];
+    
+    RKSTOrderedTask *task = [[RKSTOrderedTask alloc] initWithIdentifier:@"consent" steps:@[step,reviewStep]];
+    
+    RKSTTaskViewController *consentVC = [[RKSTTaskViewController alloc] initWithTask:task taskRunUUID:[NSUUID UUID]];
     
     consentVC.taskDelegate = self;
     [self presentViewController:consentVC animated:YES completion:nil];
