@@ -27,19 +27,19 @@
             APHDashboardItemType rowType = typeNumber.integerValue;
             
             switch (rowType) {
-                case kAPHDashboardItemTypeMood:
+                case kAPHDashboardItemTypeDailyMood:
                 {
                     APCTableViewDashboardItem *item = [APCTableViewDashboardItem new];
-                    item.caption = NSLocalizedString(@"Mood", @"");
+                    item.caption = NSLocalizedString(@"Daily Mood", @"");
                     
                     [self.items addObject:item];
                     
                 }
                     break;
-                case kAPHDashboardItemTypeActivity:{
+                case kAPHDashboardItemTypeDailyJournal:{
                     
                     APCTableViewDashboardItem *item = [APCTableViewDashboardItem new];
-                    item.caption = NSLocalizedString(@"Activity", @"");
+                    item.caption = NSLocalizedString(@"Daily Journal", @"");
                     
                     [self.items addObject:item];
                 }

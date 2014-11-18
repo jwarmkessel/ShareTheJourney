@@ -40,8 +40,8 @@ static NSString * const kAPCRightDetailTableViewCellIdentifier = @"APCRightDetai
         
         if (!_rowItemsOrder.count) {
             _rowItemsOrder = [[NSMutableArray alloc] initWithArray:@[
-                                                                     @(kAPHDashboardItemTypeMood),
-                                                                     @(kAPHDashboardItemTypeActivity),
+                                                                     @(kAPHDashboardItemTypeDailyMood),
+                                                                     @(kAPHDashboardItemTypeDailyJournal),
                                                                      @(kAPHDashboardItemTypeAlerts),
                                                                      @(kAPHDashboardItemTypeInsights)]];
             
@@ -145,12 +145,12 @@ static NSString * const kAPCRightDetailTableViewCellIdentifier = @"APCRightDetai
             APHDashboardItemType rowType = typeNumber.integerValue;
             
             switch (rowType) {
-                case kAPHDashboardItemTypeMood:
+                case kAPHDashboardItemTypeDailyMood:
                 {
                     APCTableViewDashboardGraphItem *item = [APCTableViewDashboardGraphItem new];
-                    item.caption = NSLocalizedString(@"Mood", @"");
+                    item.caption = NSLocalizedString(@"Daily Mood", @"");
                     item.graphData = self.distanceScore;
-                    item.detailText = [NSString stringWithFormat:NSLocalizedString(@"Average : %lu ft", @"Average: {value} ft"), [[self.distanceScore averageDataPoint] integerValue]];
+                    item.detailText = [NSString stringWithFormat:NSLocalizedString(@"Average : %lu", @"Average: {value} ft"), [[self.distanceScore averageDataPoint] integerValue]];
                     item.identifier = kAPCDashboardGraphTableViewCellIdentifier;
                     item.editable = YES;
                     item.tintColor = [UIColor appTertiaryPurpleColor];
@@ -162,12 +162,12 @@ static NSString * const kAPCRightDetailTableViewCellIdentifier = @"APCRightDetai
 
                 }
                     break;
-                case kAPHDashboardItemTypeActivity:{
+                case kAPHDashboardItemTypeDailyJournal:{
                     
                     APCTableViewDashboardGraphItem *item = [APCTableViewDashboardGraphItem new];
-                    item.caption = NSLocalizedString(@"Activity", @"");
+                    item.caption = NSLocalizedString(@"Daily Journal", @"");
                     item.graphData = self.heartRateScore;
-                    item.detailText = [NSString stringWithFormat:NSLocalizedString(@"Average : %lu bpm", @"Average: {value} bpm"), [[self.heartRateScore averageDataPoint] integerValue]];
+                    item.detailText = [NSString stringWithFormat:NSLocalizedString(@"Average : %lu", @"Average: {value}"), [[self.heartRateScore averageDataPoint] integerValue]];
                     item.identifier = kAPCDashboardGraphTableViewCellIdentifier;
                     item.editable = YES;
                     item.tintColor = [UIColor appTertiaryYellowColor];
