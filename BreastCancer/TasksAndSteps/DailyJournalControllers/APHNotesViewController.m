@@ -183,6 +183,12 @@ static  NSUInteger  kThresholdForLimitWarning   = 140;
 {
     [super viewDidLoad];
     
+    }
+
+- (void)viewDidLayoutSubviews {
+    
+    [super viewDidLayoutSubviews];
+    
     self.scriptorium.text = @"";
     self.navigator.topItem.title = @"";
     
@@ -211,7 +217,7 @@ static  NSUInteger  kThresholdForLimitWarning   = 140;
         self.noteModifications = [NSMutableArray array];
         
         [self displayWordCount:0];
-        [self.scriptorium becomeFirstResponder];
+        //[self.scriptorium becomeFirstResponder];
     } else {
         self.scriptorium.editable   = NO;
         self.scriptorium.selectable = NO;
@@ -221,11 +227,12 @@ static  NSUInteger  kThresholdForLimitWarning   = 140;
         
         self.navigator.topItem.leftItemsSupplementBackButton = NO;
         self.navigator.topItem.leftBarButtonItem = backsterTitle;
-
+        
         self.scriptorium.text = self.note[APHMoodLogNoteTextKey];
         NSUInteger  count = [self countWords:self.scriptorium.text];
         [self displayWordCount:count];
     }
+
 }
 
 - (void)didReceiveMemoryWarning
