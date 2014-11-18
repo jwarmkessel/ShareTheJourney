@@ -1,14 +1,14 @@
 //
-//  RKStep+Description.m
+//  RKSTStep+Description.m
 //  Parkinson
 //
 //  Created by Henry McGilton on 8/20/14.
 //  Copyright (c) 2014 Y Media Labs. All rights reserved.
 //
 
-#import "RKStep+Description.h"
+#import "RKSTStep+Description.h"
 
-@implementation RKStep (Description)
+@implementation RKSTStep (Description)
 
 - (NSMutableString *)doStep
 {
@@ -34,7 +34,7 @@
 
 @end
 
-@implementation RKActiveStep (Description)
+@implementation RKSTActiveStep (Description)
 
 - (NSString *)description
 {

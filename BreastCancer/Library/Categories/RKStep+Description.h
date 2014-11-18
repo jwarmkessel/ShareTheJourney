@@ -1,5 +1,5 @@
 //
-//  RKStep+Description.h
+//  RKSTStep+Description.h
 //  Parkinson
 //
 //  Created by Henry McGilton on 8/20/14.
@@ -9,13 +9,13 @@
 #import <UIKit/UIKit.h>
 #import <ResearchKit/ResearchKit.h>
 
-@interface RKStep (Description)
+@interface RKSTStep (Description)
 
 - (NSString *)description;
 
 @end
 
-@interface RKActiveStep (Description)
+@interface RKSTActiveStep (Description)
 
 - (NSString *)description;
 

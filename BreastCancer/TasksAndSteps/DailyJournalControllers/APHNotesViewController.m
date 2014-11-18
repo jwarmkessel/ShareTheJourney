@@ -254,12 +254,14 @@ static  NSUInteger  kThresholdForLimitWarning   = 140;
 
 - (IBAction)submitTapped:(id)sender {
 
-    RKStepViewController *parentViewController = (RKStepViewController *) [self parentViewController];
+    RKSTStepViewController *parentViewController = (RKSTStepViewController *) [self parentViewController];
     
     if (parentViewController.delegate != nil) {
         if ([parentViewController.delegate respondsToSelector:@selector(stepViewControllerDidFinish:navigationDirection:)] == YES) {
-            [parentViewController.delegate stepViewControllerDidFinish:parentViewController navigationDirection:RKStepViewControllerNavigationDirectionForward];
+            [parentViewController.delegate stepViewControllerDidFinish:parentViewController navigationDirection:RKSTStepViewControllerNavigationDirectionForward];
         }
     }
 }
+
+
 @end

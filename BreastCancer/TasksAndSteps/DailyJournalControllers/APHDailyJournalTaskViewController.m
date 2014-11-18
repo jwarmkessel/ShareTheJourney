@@ -23,7 +23,7 @@ static  NSString  *kDailyJournalStep103 = @"DailyJournalStep103";
 
 @interface APHDailyJournalTaskViewController  ( ) <NSObject>
 
-@property (strong, nonatomic) RKDataArchive *taskArchive;
+@property (strong, nonatomic) RKSTDataArchive *taskArchive;
 
 @property  (nonatomic, weak)  APCStepProgressBar  *progressor;
 
@@ -47,7 +47,7 @@ static  NSString  *kDailyJournalStep103 = @"DailyJournalStep103";
 
 #pragma  mark  -  Task Creation Methods
 
-+ (RKTask *)createTask:(APCScheduledTask *)scheduledTask
++ (RKSTOrderedTask *)createTask:(APCScheduledTask *)scheduledTask
 {
     NSMutableArray *steps = [[NSMutableArray alloc] init];
     
@@ -60,7 +60,7 @@ static  NSString  *kDailyJournalStep103 = @"DailyJournalStep103";
     }
     
     {
-        RKActiveStep  *step = [[RKActiveStep alloc] initWithIdentifier:kDailyJournalStep102 name:@"active step"];
+        RKSTActiveStep  *step = [[RKSTActiveStep alloc] initWithIdentifier:kDailyJournalStep102 name:@"active step"];
         step.caption = @"Mood Log";
         step.text = @"Blah";
         
@@ -75,7 +75,7 @@ static  NSString  *kDailyJournalStep103 = @"DailyJournalStep103";
         [steps addObject:step];
     }
 
-    RKTask  *task = [[RKTask alloc] initWithName:@"Daily Journal" identifier:@"Mood Logs Task" steps:steps];
+    RKSTOrderedTask  *task = [[RKSTOrderedTask alloc] initWithName:@"Daily Journal" identifier:@"Mood Logs Task" steps:steps];
     
     return  task;
 }
@@ -94,12 +94,12 @@ static  NSString  *kDailyJournalStep103 = @"DailyJournalStep103";
 
 #pragma  mark  -  Task View Controller Delegate Methods
 
-- (BOOL)taskViewController:(RKTaskViewController *)taskViewController shouldPresentStep:(RKStep *)step {
+- (BOOL)taskViewController:(RKSTTaskViewController *)taskViewController shouldPresentStep:(RKSTStep *)step {
     
     return YES;
 }
 
-- (void)taskViewController:(RKTaskViewController *)taskViewController willPresentStepViewController:(RKStepViewController *)stepViewController{
+- (void)taskViewController:(RKSTTaskViewController *)taskViewController willPresentStepViewController:(RKSTStepViewController *)stepViewController{
     
     
     if (kDailyJournalStep102 == stepViewController.step.identifier) {
@@ -135,7 +135,7 @@ static  NSString  *kDailyJournalStep103 = @"DailyJournalStep103";
     }
 }
 
-- (RKStepViewController *)taskViewController:(RKTaskViewController *)taskViewController viewControllerForStep:(RKStep *)step
+- (RKSTStepViewController *)taskViewController:(RKSTTaskViewController *)taskViewController viewControllerForStep:(RKSTStep *)step
 {
     
     
@@ -168,7 +168,7 @@ static  NSString  *kDailyJournalStep103 = @"DailyJournalStep103";
         [self.taskArchive resetContent];
     }
     
-    self.taskArchive = [[RKDataArchive alloc] initWithItemIdentifier:[RKItemIdentifier itemIdentifierForTask:self.task] studyIdentifier:MainStudyIdentifier taskInstanceUUID:self.taskInstanceUUID extraMetadata:nil fileProtection:RKFileProtectionCompleteUnlessOpen];
+    self.taskArchive = [[RKSTDataArchive alloc] initWithItemIdentifier:[RKItemIdentifier itemIdentifierForTask:self.task] studyIdentifier:MainStudyIdentifier taskInstanceUUID:self.taskInstanceUUID extraMetadata:nil fileProtection:RKFileProtectionCompleteUnlessOpen];
     
 }
 
@@ -176,7 +176,7 @@ static  NSString  *kDailyJournalStep103 = @"DailyJournalStep103";
 #pragma mark - Helpers
 /*********************************************************************************/
 
--(void)sendResult:(RKResult*)result
+-(void)sendResult:(RKSTResult*)result
 {
     //TODO
     // In a real application, consider adding to the archive on a concurrent queue.
@@ -193,14 +193,14 @@ static  NSString  *kDailyJournalStep103 = @"DailyJournalStep103";
 /*********************************************************************************/
 #pragma  mark  - TaskViewController delegates
 /*********************************************************************************/
-- (void)taskViewController:(RKTaskViewController *)taskViewController didProduceResult:(RKResult *)result {
+- (void)taskViewController:(RKSTTaskViewController *)taskViewController didProduceResult:(RKSTResult *)result {
     
     NSLog(@"didProduceResult = %@", result);
     
     if ([result isKindOfClass:[RKSurveyResult class]]) {
         RKSurveyResult* sresult = (RKSurveyResult*)result;
         
-        for (RKQuestionResult* qr in sresult.surveyResults) {
+        for (RKSTQuestionResult* qr in sresult.surveyResults) {
             NSLog(@"%@ = [%@] %@ ", [[qr itemIdentifier] stringValue], [qr.answer class], qr.answer);
         }
     }
@@ -211,7 +211,7 @@ static  NSString  *kDailyJournalStep103 = @"DailyJournalStep103";
     [super taskViewController:taskViewController didProduceResult:result];
 }
 
-- (void)taskViewControllerDidFail: (RKTaskViewController *)taskViewController withError:(NSError*)error{
+- (void)taskViewControllerDidFail: (RKSTTaskViewController *)taskViewController withError:(NSError*)error{
     NSLog(@"taskViewControllerDidFail %@", error);
 
     [self.taskArchive resetContent];
@@ -219,7 +219,7 @@ static  NSString  *kDailyJournalStep103 = @"DailyJournalStep103";
     
 }
 
-- (void)taskViewControllerDidCancel:(RKTaskViewController *)taskViewController{
+- (void)taskViewControllerDidCancel:(RKSTTaskViewController *)taskViewController{
     
     [taskViewController suspend];
     
@@ -229,7 +229,7 @@ static  NSString  *kDailyJournalStep103 = @"DailyJournalStep103";
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
-- (void)taskViewControllerDidComplete: (RKTaskViewController *)taskViewController{
+- (void)taskViewControllerDidComplete: (RKSTTaskViewController *)taskViewController{
     
     [taskViewController suspend];
     
@@ -263,12 +263,12 @@ static  NSString  *kDailyJournalStep103 = @"DailyJournalStep103";
 #pragma mark - StepViewController Delegate Methods
 /*********************************************************************************/
 
-//- (void)stepViewControllerWillBePresented:(RKStepViewController *)viewController
+//- (void)stepViewControllerWillBePresented:(RKSTStepViewController *)viewController
 //{
 //    viewController.skipButton = nil;
 //}
 
-//- (void)stepViewControllerDidFinish:(RKStepViewController *)stepViewController navigationDirection:(RKStepViewControllerNavigationDirection)direction
+//- (void)stepViewControllerDidFinish:(RKSTStepViewController *)stepViewController navigationDirection:(RKSTStepViewControllerNavigationDirection)direction
 //{
 //    [super stepViewControllerDidFinish:stepViewController navigationDirection:direction];
 //}
