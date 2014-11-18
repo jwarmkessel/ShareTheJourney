@@ -36,6 +36,15 @@ static  NSUInteger  kThresholdForLimitWarning   = 140;
 @property  (nonatomic, strong)          NSMutableDictionary  *noteContentModel;
 @property  (nonatomic, strong)          NSMutableDictionary  *noteChangesModel;
 @property  (nonatomic, strong)          NSMutableArray       *noteModifications;
+@property (weak, nonatomic) IBOutlet UIButton *doneButton;
+
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *bottomButtonConstraint;
+
+
+
+@property (weak, nonatomic) IBOutlet UIView *containerView;
+- (IBAction)submitTapped:(id)sender;
+
 
 @end
 
@@ -172,8 +181,12 @@ static  NSUInteger  kThresholdForLimitWarning   = 140;
     
     double   animationDuration = [notification.userInfo[UIKeyboardAnimationDurationUserInfoKey] doubleValue];
     
+    self.bottomButtonConstraint.constant = keyboardHeight;
+    self.containerSpacing.constant = keyboardHeight;
+    
     [UIView animateWithDuration:animationDuration animations:^{
-        self.containerSpacing.constant = keyboardHeight;
+
+        [self.view layoutIfNeeded];
     }];
 }
 
@@ -182,13 +195,7 @@ static  NSUInteger  kThresholdForLimitWarning   = 140;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    }
 
-- (void)viewDidLayoutSubviews {
-    
-    [super viewDidLayoutSubviews];
-    
     self.scriptorium.text = @"";
     self.navigator.topItem.title = @"";
     
@@ -232,7 +239,12 @@ static  NSUInteger  kThresholdForLimitWarning   = 140;
         NSUInteger  count = [self countWords:self.scriptorium.text];
         [self displayWordCount:count];
     }
+}
 
+- (void)viewDidLayoutSubviews {
+    
+    [super viewDidLayoutSubviews];
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -240,4 +252,14 @@ static  NSUInteger  kThresholdForLimitWarning   = 140;
     [super didReceiveMemoryWarning];
 }
 
+- (IBAction)submitTapped:(id)sender {
+
+    RKStepViewController *parentViewController = (RKStepViewController *) [self parentViewController];
+    
+    if (parentViewController.delegate != nil) {
+        if ([parentViewController.delegate respondsToSelector:@selector(stepViewControllerDidFinish:navigationDirection:)] == YES) {
+            [parentViewController.delegate stepViewControllerDidFinish:parentViewController navigationDirection:RKStepViewControllerNavigationDirectionForward];
+        }
+    }
+}
 @end

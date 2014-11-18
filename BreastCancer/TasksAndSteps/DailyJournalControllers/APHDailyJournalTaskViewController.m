@@ -115,18 +115,18 @@ static  NSString  *kDailyJournalStep103 = @"DailyJournalStep103";
         [stenographer didMoveToParentViewController:stepViewController];
         //stenographer.delegate = self;
         
-        [stenographer.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:[c(>=320)]" options:0 metrics:nil views:@{@"c":stenographer.view}]];
-
-        [stepViewController.view addConstraint:[NSLayoutConstraint constraintWithItem:stenographer.view attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:stepViewController.view attribute:NSLayoutAttributeBottom multiplier:1.0f constant:0.0f]];
-        
-        [stepViewController.view addConstraint:[NSLayoutConstraint constraintWithItem:stenographer.view attribute:NSLayoutAttributeLeading relatedBy:NSLayoutRelationEqual toItem:stepViewController.view attribute:NSLayoutAttributeLeading multiplier:1.0f constant:0.0f]];
-        
-        [stepViewController.view addConstraint:[NSLayoutConstraint constraintWithItem:stenographer.view attribute:NSLayoutAttributeTrailing relatedBy:NSLayoutRelationEqual toItem:stepViewController.view attribute:NSLayoutAttributeBottom multiplier:1.0f constant:0.0f]];
-        
-        [stepViewController.view addConstraint:[NSLayoutConstraint constraintWithItem:stenographer.view attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:stepViewController.view attribute:NSLayoutAttributeLeading multiplier:1.0f constant:0.0f]];
+//        [stenographer.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:[c(>=320)]" options:0 metrics:nil views:@{@"c":stenographer.view}]];
 //
-        [stepViewController.view layoutIfNeeded];
+//        [stepViewController.view addConstraint:[NSLayoutConstraint constraintWithItem:stenographer.view attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:stepViewController.view attribute:NSLayoutAttributeBottom multiplier:1.0f constant:0.0f]];
 //        
+//        [stepViewController.view addConstraint:[NSLayoutConstraint constraintWithItem:stenographer.view attribute:NSLayoutAttributeLeading relatedBy:NSLayoutRelationEqual toItem:stepViewController.view attribute:NSLayoutAttributeLeading multiplier:1.0f constant:0.0f]];
+//        
+//        [stepViewController.view addConstraint:[NSLayoutConstraint constraintWithItem:stenographer.view attribute:NSLayoutAttributeTrailing relatedBy:NSLayoutRelationEqual toItem:stepViewController.view attribute:NSLayoutAttributeBottom multiplier:1.0f constant:0.0f]];
+//        
+//        [stepViewController.view addConstraint:[NSLayoutConstraint constraintWithItem:stenographer.view attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:stepViewController.view attribute:NSLayoutAttributeLeading multiplier:1.0f constant:0.0f]];
+//
+//        [stepViewController.view layoutIfNeeded];
+//
 
         stepViewController.continueButton = nil;
     } else if (kDailyJournalStep103 == stepViewController.step.identifier) {
