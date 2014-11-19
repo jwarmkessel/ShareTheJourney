@@ -121,7 +121,7 @@ static  NSUInteger  kThresholdForLimitWarning   = 140;
     NSUInteger  preCount = [self countWords:self.scriptorium.text];
     if ([text length] != 0) {
         if (preCount >= kMaximumNumberOfWordsPerLog) {
-            answer = NO;
+            //answer = NO;
         } else {
             record = @{
                        APHMoodLogEditTimeStampKey : @(timestamp),
