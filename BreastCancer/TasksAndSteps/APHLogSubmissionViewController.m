@@ -6,9 +6,12 @@
 //  Copyright (c) 2014 Y Media Labs. All rights reserved.
 //
 
+@import APCAppleCore;
+
 #import "APHLogSubmissionViewController.h"
 
 @interface APHLogSubmissionViewController ()
+- (IBAction)submitButtonTapped:(id)sender;
 
 @end
 
@@ -34,4 +37,14 @@
 }
 */
 
+- (IBAction)submitButtonTapped:(id)sender {
+    
+    RKSTStepViewController *parentViewController = (RKSTStepViewController *) [self parentViewController];
+    
+    if (parentViewController.delegate != nil) {
+        if ([parentViewController.delegate respondsToSelector:@selector(stepViewControllerDidFinish:navigationDirection:)] == YES) {
+            [parentViewController.delegate stepViewControllerDidFinish:parentViewController navigationDirection:RKSTStepViewControllerNavigationDirectionForward];
+        }
+    }
+}
 @end
