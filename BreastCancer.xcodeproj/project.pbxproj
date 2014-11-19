@@ -40,8 +40,6 @@
 		CF15F24B1A11616500D87570 /* APHDailyJournalTaskViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CF15F24A1A11616500D87570 /* APHDailyJournalTaskViewController.m */; };
 		CF15F24F1A116A5A00D87570 /* APHDailyJournalIntroViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CF15F24D1A116A5A00D87570 /* APHDailyJournalIntroViewController.m */; };
 		CF15F2501A116A5A00D87570 /* APHDailyJournalIntroViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CF15F24E1A116A5A00D87570 /* APHDailyJournalIntroViewController.xib */; };
-		CF15F2551A116BC400D87570 /* APHCommonTaskSummaryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CF15F2531A116BC400D87570 /* APHCommonTaskSummaryViewController.m */; };
-		CF15F2561A116BC400D87570 /* APHCommonTaskSummaryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CF15F2541A116BC400D87570 /* APHCommonTaskSummaryViewController.xib */; };
 		CF2697E619EC3E4200525E19 /* APHContentsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CF2697DC19EC3E4200525E19 /* APHContentsViewController.m */; };
 		CF2697E719EC3E4200525E19 /* APHCustomTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = CF2697DE19EC3E4200525E19 /* APHCustomTextView.m */; };
 		CF2697E819EC3E4200525E19 /* APHMoodLogDictionaryKeys.m in Sources */ = {isa = PBXBuildFile; fileRef = CF2697E019EC3E4200525E19 /* APHMoodLogDictionaryKeys.m */; };
@@ -172,9 +170,6 @@
 		CF15F24C1A116A5A00D87570 /* APHDailyJournalIntroViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = APHDailyJournalIntroViewController.h; path = DailyJournalControllers/APHDailyJournalIntroViewController.h; sourceTree = "<group>"; };
 		CF15F24D1A116A5A00D87570 /* APHDailyJournalIntroViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = APHDailyJournalIntroViewController.m; path = DailyJournalControllers/APHDailyJournalIntroViewController.m; sourceTree = "<group>"; };
 		CF15F24E1A116A5A00D87570 /* APHDailyJournalIntroViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = APHDailyJournalIntroViewController.xib; path = DailyJournalControllers/APHDailyJournalIntroViewController.xib; sourceTree = "<group>"; };
-		CF15F2521A116BC400D87570 /* APHCommonTaskSummaryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = APHCommonTaskSummaryViewController.h; path = BreastCancer/TasksAndSteps/Common/APHCommonTaskSummaryViewController.h; sourceTree = SOURCE_ROOT; };
-		CF15F2531A116BC400D87570 /* APHCommonTaskSummaryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = APHCommonTaskSummaryViewController.m; path = BreastCancer/TasksAndSteps/Common/APHCommonTaskSummaryViewController.m; sourceTree = SOURCE_ROOT; };
-		CF15F2541A116BC400D87570 /* APHCommonTaskSummaryViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = APHCommonTaskSummaryViewController.xib; path = BreastCancer/TasksAndSteps/Common/APHCommonTaskSummaryViewController.xib; sourceTree = SOURCE_ROOT; };
 		CF2697DB19EC3E4200525E19 /* APHContentsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = APHContentsViewController.h; path = DailyJournalControllers/APHContentsViewController.h; sourceTree = "<group>"; };
 		CF2697DC19EC3E4200525E19 /* APHContentsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = APHContentsViewController.m; path = DailyJournalControllers/APHContentsViewController.m; sourceTree = "<group>"; };
 		CF2697DD19EC3E4200525E19 /* APHCustomTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = APHCustomTextView.h; path = DailyJournalControllers/APHCustomTextView.h; sourceTree = "<group>"; };
@@ -313,17 +308,6 @@
 				5B1D9D731A1BD419000F4AD6 /* APHScoring.m */,
 			);
 			path = Scoring;
-			sourceTree = "<group>";
-		};
-		CF15F2511A116B9400D87570 /* Common */ = {
-			isa = PBXGroup;
-			children = (
-				CF15F2521A116BC400D87570 /* APHCommonTaskSummaryViewController.h */,
-				CF15F2531A116BC400D87570 /* APHCommonTaskSummaryViewController.m */,
-				CF15F2541A116BC400D87570 /* APHCommonTaskSummaryViewController.xib */,
-			);
-			name = Common;
-			path = ../Library;
 			sourceTree = "<group>";
 		};
 		CF2697DA19EC3E0D00525E19 /* Daily Journal Controllers */ = {
@@ -487,7 +471,6 @@
 				CF5FAB3E19F95C630006CA71 /* APHIntroductionViewController.h */,
 				CF5FAB3F19F95C630006CA71 /* APHIntroductionViewController.m */,
 				CF2697DA19EC3E0D00525E19 /* Daily Journal Controllers */,
-				CF15F2511A116B9400D87570 /* Common */,
 			);
 			path = TasksAndSteps;
 			sourceTree = "<group>";
@@ -619,7 +602,6 @@
 				CF5FAB4419F95C8F0006CA71 /* APHNotesContentsTableViewCell.xib in Resources */,
 				5B15DCF41A114F7000BEA0D1 /* Learn.json in Resources */,
 				F534B68D19E4689D00C3C152 /* sleepSurvey.json in Resources */,
-				CF15F2561A116BC400D87570 /* APHCommonTaskSummaryViewController.xib in Resources */,
 				CF15F2501A116A5A00D87570 /* APHDailyJournalIntroViewController.xib in Resources */,
 				5B15DD1C1A114F8100BEA0D1 /* APHLearn.storyboard in Resources */,
 				7B8D703F1A1C4B13003A7A5B /* APHLogSubmissionViewController.xib in Resources */,
@@ -662,7 +644,6 @@
 				5B15DD481A11524900BEA0D1 /* APHAppDelegate.m in Sources */,
 				5B15DD221A114F8100BEA0D1 /* APHSettingsViewController.m in Sources */,
 				CF2697E719EC3E4200525E19 /* APHCustomTextView.m in Sources */,
-				CF15F2551A116BC400D87570 /* APHCommonTaskSummaryViewController.m in Sources */,
 				7B8D703E1A1C4B13003A7A5B /* APHLogSubmissionViewController.m in Sources */,
 				CF2697EA19EC3E4200525E19 /* APHNotesViewController.m in Sources */,
 				5B15DD201A114F8100BEA0D1 /* APHProfieViewController.m in Sources */,
