@@ -11,7 +11,6 @@
 #import "APHDailyJournalTaskViewController.h"
 #import "APHDailyJournalIntroViewController.h"
 #import "APHContentsViewController.h"
-#import "APHCommonTaskSummaryViewController.h"
 
 #import "APHNotesViewController.h"
 #import "APHLogSubmissionViewController.h"
@@ -153,11 +152,17 @@ static  NSString  *kDailyJournalStep104 = @"DailyJournalStep104";
     NSDictionary  *controllers = @{
                                    kDailyJournalStep101 : [APHContentsViewController class],
                                    
-                                   kDailyJournalStep104 : [APHCommonTaskSummaryViewController class]
+                                   kDailyJournalStep104 : [APCSimpleTaskSummaryViewController class]
                                    };
     
     Class  aClass = [controllers objectForKey:step.identifier];
+    
     APCStepViewController  *controller = [[aClass alloc] initWithNibName:nil bundle:nil];
+    
+    if (step.identifier == kDailyJournalStep104 ) {
+        controller = [[aClass alloc] initWithNibName:nil bundle:[NSBundle appleCoreBundle]];
+    }
+    
     
     controller.delegate = self;
     controller.title = @"Daily Journal";
