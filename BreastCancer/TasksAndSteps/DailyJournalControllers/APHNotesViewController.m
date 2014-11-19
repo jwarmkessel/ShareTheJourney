@@ -225,6 +225,7 @@ static  NSUInteger  kThresholdForLimitWarning   = 140;
         
         [self displayWordCount:0];
         //[self.scriptorium becomeFirstResponder];
+        
     } else {
         self.scriptorium.editable   = NO;
         self.scriptorium.selectable = NO;
