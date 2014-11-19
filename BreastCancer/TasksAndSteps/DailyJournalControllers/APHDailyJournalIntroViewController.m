@@ -42,9 +42,9 @@
 {
     [super viewDidLoad];
     
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel
-                                                                                          target:self
-                                                                                          action:@selector(cancelButtonTapped:)];
+//    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel
+//                                                                                          target:self
+//                                                                                          action:@selector(cancelButtonTapped:)];
     
     [self.getStartedButton setBackgroundColor:[UIColor appPrimaryColor]];
 }

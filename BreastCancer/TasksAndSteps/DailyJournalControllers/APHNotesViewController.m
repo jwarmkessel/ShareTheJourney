@@ -205,13 +205,6 @@ static  NSUInteger  kThresholdForLimitWarning   = 140;
         
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillEmerge:) name:UIKeyboardWillShowNotification object:nil];
         
-        UIBarButtonItem  *cancellor = [[UIBarButtonItem alloc] initWithTitle:@"Cancel" style:UIBarButtonItemStylePlain target:self action:@selector(cancelButtonTapped:)];
-        cancellor.tintColor = [UIColor appPrimaryColor];
-        self.navigator.topItem.leftBarButtonItem = cancellor;
-        
-        UIBarButtonItem  *finisher = [[UIBarButtonItem alloc] initWithTitle:@"Done" style:UIBarButtonItemStylePlain  target:self action:@selector(doneButtonTapped:)];
-        finisher.tintColor = [UIColor appPrimaryColor];
-        self.navigator.topItem.rightBarButtonItem = finisher;
         
         NSTimeInterval  timestamp = [[NSDate date] timeIntervalSinceReferenceDate];
         
@@ -255,11 +248,27 @@ static  NSUInteger  kThresholdForLimitWarning   = 140;
 
 - (IBAction)submitTapped:(id)sender {
 
-    RKSTStepViewController *parentViewController = (RKSTStepViewController *) [self parentViewController];
+    RKSTStepViewController *stepViewController = (RKSTStepViewController *) [self parentViewController];
     
-    if (parentViewController.delegate != nil) {
-        if ([parentViewController.delegate respondsToSelector:@selector(stepViewControllerDidFinish:navigationDirection:)] == YES) {
-            [parentViewController.delegate stepViewControllerDidFinish:parentViewController navigationDirection:RKSTStepViewControllerNavigationDirectionForward];
+    [self.scriptorium resignFirstResponder];
+    
+    [self.noteContentModel setObject:self.scriptorium.text forKey:APHMoodLogNoteTextKey];
+    
+    [self.noteChangesModel setObject:self.noteModifications forKey:APHMoodLogNoteModificationsKey];
+    
+    
+    NSArray *resultsArray = @[self.noteContentModel, self.noteChangesModel];
+    
+    RKSTStepResult *stepResult = [[RKSTStepResult alloc] initWithStepIdentifier:@"DailyJournalStep102" results:resultsArray];
+    
+    [stepViewController.delegate stepViewController:stepViewController didChangeResult:stepResult];
+    
+    
+
+    
+    if (stepViewController.delegate != nil) {
+        if ([stepViewController.delegate respondsToSelector:@selector(stepViewControllerDidFinish:navigationDirection:)] == YES) {
+            [stepViewController.delegate stepViewControllerDidFinish:stepViewController navigationDirection:RKSTStepViewControllerNavigationDirectionForward];
         }
     }
 }

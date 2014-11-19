@@ -35,6 +35,7 @@ static  NSString  *kDailyJournalStep104 = @"DailyJournalStep104";
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -67,7 +68,7 @@ static  NSString  *kDailyJournalStep104 = @"DailyJournalStep104";
     }
     
     {
-        RKSTInstructionStep  *step = [[RKSTInstructionStep alloc] initWithIdentifier:kDailyJournalStep104];
+        RKSTActiveStep  *step = [[RKSTActiveStep alloc] initWithIdentifier:kDailyJournalStep104];
         
         [steps addObject:step];
     }
@@ -78,17 +79,6 @@ static  NSString  *kDailyJournalStep104 = @"DailyJournalStep104";
 }
 
 #pragma  mark  -  Navigation Bar Button Action Methods
-
-- (void)cancelButtonTapped:(id)sender
-{
-    [self.presentingViewController dismissViewControllerAnimated:YES completion:^{ } ];
-}
-
-- (void)doneButtonTapped:(id)sender
-{
-    [self.presentingViewController dismissViewControllerAnimated:YES completion:^{ } ];
-}
-
 
 
 /*********************************************************************************/
@@ -104,43 +94,6 @@ static  NSString  *kDailyJournalStep104 = @"DailyJournalStep104";
 /*********************************************************************************/
 #pragma  mark  - TaskViewController delegates
 /*********************************************************************************/
-/**
- * @brief Successful completion of a step that has no steps after it.
- */
-- (void)taskViewControllerDidComplete:(RKSTTaskViewController *)taskViewController {
-    
-}
-
-/**
- * @brief Reports an error during the task.
- */
-- (void)taskViewController:(RKSTTaskViewController *)taskViewController didFailOnStep:(RKSTStep *)step withError:(NSError *)error {
-    NSLog(@"Error");
-}
-
-/**
- * @brief The task was cancelled by participant or the developer.
- */
-- (void)taskViewControllerDidCancel:(RKSTTaskViewController *)taskViewController {
-    
-    
-}
-/**
- * @brief Check whether there is "Learn More" content for this step
- * @return NO if there is no additional content to display.
- */
-- (BOOL)taskViewController:(RKSTTaskViewController *)taskViewController hasLearnMoreForStep:(RKSTStep *)step {
-    return YES;
-}
-
-/**
- * @brief The user has tapped the "Learn More" button no the step.
- * @discussion Present a dialog or modal view controller containing the
- * "Learn More" content for this step.
- */
-- (void)taskViewController:(RKSTTaskViewController *)taskViewController learnMoreForStep:(RKSTStepViewController *)stepViewController {
-    
-}
 
 /**
  * @brief Supply a custom view controller for a given step.
@@ -187,6 +140,7 @@ static  NSString  *kDailyJournalStep104 = @"DailyJournalStep104";
  */
 - (void)taskViewController:(RKSTTaskViewController *)taskViewController stepViewControllerWillAppear:(RKSTStepViewController *)stepViewController {
 
+    
     if (kDailyJournalStep101 == stepViewController.step.identifier) {
         taskViewController.navigationBar.topItem.title = NSLocalizedString(@"Log History", @"Log History");
     } else if (kDailyJournalStep102 == stepViewController.step.identifier) {
@@ -228,6 +182,10 @@ static  NSString  *kDailyJournalStep104 = @"DailyJournalStep104";
  * @brief Tells the delegate that task result object has changed.
  */
 - (void)taskViewController:(RKSTTaskViewController *)taskViewController didChangeResult:(RKSTTaskResult *)result {
+    NSLog(@"Result %@", result);
+    
+    NSDictionary *journalText = [result.results objectAtIndex:0];
+    NSDictionary *journalLogging = [result.results objectAtIndex:0];
     
 }
 
