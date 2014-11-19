@@ -20,6 +20,7 @@ static  NSString  *MainStudyIdentifier = @"com.breastcancer.dailyJournal";
 static  NSString  *kDailyJournalStep101 = @"DailyJournalStep101";
 static  NSString  *kDailyJournalStep102 = @"DailyJournalStep102";
 static  NSString  *kDailyJournalStep103 = @"DailyJournalStep103";
+static  NSString  *kDailyJournalStep104 = @"DailyJournalStep104";
 
 @interface APHDailyJournalTaskViewController  ( ) <NSObject>
 
@@ -60,7 +61,13 @@ static  NSString  *kDailyJournalStep103 = @"DailyJournalStep103";
     }
     
     {
-        RKSTInstructionStep  *step = [[RKSTInstructionStep alloc] initWithIdentifier:kDailyJournalStep103];
+        RKSTActiveStep  *step = [[RKSTActiveStep alloc] initWithIdentifier:kDailyJournalStep103];
+        
+        [steps addObject:step];
+    }
+    
+    {
+        RKSTInstructionStep  *step = [[RKSTInstructionStep alloc] initWithIdentifier:kDailyJournalStep104];
         
         [steps addObject:step];
     }
@@ -145,7 +152,7 @@ static  NSString  *kDailyJournalStep103 = @"DailyJournalStep103";
     NSDictionary  *controllers = @{
                                    kDailyJournalStep101 : [APHContentsViewController class],
                                    
-                                   kDailyJournalStep103 : [APHCommonTaskSummaryViewController class]
+                                   kDailyJournalStep104 : [APHCommonTaskSummaryViewController class]
                                    };
     
     Class  aClass = [controllers objectForKey:step.identifier];
@@ -173,8 +180,12 @@ static  NSString  *kDailyJournalStep103 = @"DailyJournalStep103";
  * @discussion Provides an opportunity to modify the step view controller before presentation.
  */
 - (void)taskViewController:(RKSTTaskViewController *)taskViewController stepViewControllerWillAppear:(RKSTStepViewController *)stepViewController {
-    
-    if (kDailyJournalStep102 == stepViewController.step.identifier) {
+
+    if (kDailyJournalStep101 == stepViewController.step.identifier) {
+        taskViewController.navigationBar.topItem.title = NSLocalizedString(@"Log History", @"Log History");
+    } else if (kDailyJournalStep102 == stepViewController.step.identifier) {
+        
+        taskViewController.navigationBar.topItem.title = NSLocalizedString(@"Enter Daily Log", @"Enter Daily Log");
         
         APHNotesViewController  *stenographer = [[APHNotesViewController alloc] initWithNibName:nil bundle:nil];
         
@@ -185,23 +196,15 @@ static  NSString  *kDailyJournalStep103 = @"DailyJournalStep103";
         
         [stepViewController.view addSubview:stenographer.view];
         [stenographer didMoveToParentViewController:stepViewController];
-        //stenographer.delegate = self;
         
-        //        [stenographer.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:[c(>=320)]" options:0 metrics:nil views:@{@"c":stenographer.view}]];
-        //
-        //        [stepViewController.view addConstraint:[NSLayoutConstraint constraintWithItem:stenographer.view attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:stepViewController.view attribute:NSLayoutAttributeBottom multiplier:1.0f constant:0.0f]];
-        //
-        //        [stepViewController.view addConstraint:[NSLayoutConstraint constraintWithItem:stenographer.view attribute:NSLayoutAttributeLeading relatedBy:NSLayoutRelationEqual toItem:stepViewController.view attribute:NSLayoutAttributeLeading multiplier:1.0f constant:0.0f]];
-        //
-        //        [stepViewController.view addConstraint:[NSLayoutConstraint constraintWithItem:stenographer.view attribute:NSLayoutAttributeTrailing relatedBy:NSLayoutRelationEqual toItem:stepViewController.view attribute:NSLayoutAttributeBottom multiplier:1.0f constant:0.0f]];
-        //
-        //        [stepViewController.view addConstraint:[NSLayoutConstraint constraintWithItem:stenographer.view attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:stepViewController.view attribute:NSLayoutAttributeLeading multiplier:1.0f constant:0.0f]];
-        //
-        //        [stepViewController.view layoutIfNeeded];
-        //
-        
+    } else if (kDailyJournalStep103 == stepViewController.step.identifier) {
+        taskViewController.navigationBar.topItem.title = NSLocalizedString(@"Log Submission", @"Log Submission");
+
+    } else if (kDailyJournalStep104 == stepViewController.step.identifier) {
+        taskViewController.navigationBar.topItem.title = NSLocalizedString(@"Log Complete", @"Log Complete");
         
     }
+    
 }
 
 /**
