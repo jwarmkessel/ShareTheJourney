@@ -14,6 +14,7 @@
 #import "APHCommonTaskSummaryViewController.h"
 
 #import "APHNotesViewController.h"
+#import "APHLogSubmissionViewController.h"
 
 static  NSString  *MainStudyIdentifier = @"com.breastcancer.dailyJournal";
 
@@ -199,6 +200,17 @@ static  NSString  *kDailyJournalStep104 = @"DailyJournalStep104";
         
     } else if (kDailyJournalStep103 == stepViewController.step.identifier) {
         taskViewController.navigationBar.topItem.title = NSLocalizedString(@"Log Submission", @"Log Submission");
+        
+        
+        APHLogSubmissionViewController  *stenographer = [[APHLogSubmissionViewController alloc] initWithNibName:nil bundle:nil];
+        
+        //[stenographer.view setTranslatesAutoresizingMaskIntoConstraints:NO];
+        stenographer.view.frame = CGRectMake(0.0, 0.0, stepViewController.view.frame.size.width, stepViewController.view.frame.size.height);
+        
+        [stepViewController addChildViewController:stenographer];
+        
+        [stepViewController.view addSubview:stenographer.view];
+        [stenographer didMoveToParentViewController:stepViewController];
 
     } else if (kDailyJournalStep104 == stepViewController.step.identifier) {
         taskViewController.navigationBar.topItem.title = NSLocalizedString(@"Log Complete", @"Log Complete");

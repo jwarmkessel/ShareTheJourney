@@ -35,6 +35,8 @@
 		5B1D9D6E1A1BD414000F4AD6 /* APHDashboardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B1D9D6B1A1BD414000F4AD6 /* APHDashboardViewController.m */; };
 		5B1D9D741A1BD419000F4AD6 /* APHDataPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B1D9D711A1BD419000F4AD6 /* APHDataPoint.m */; };
 		5B1D9D751A1BD419000F4AD6 /* APHScoring.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B1D9D731A1BD419000F4AD6 /* APHScoring.m */; };
+		7B8D703E1A1C4B13003A7A5B /* APHLogSubmissionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B8D703C1A1C4B13003A7A5B /* APHLogSubmissionViewController.m */; };
+		7B8D703F1A1C4B13003A7A5B /* APHLogSubmissionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7B8D703D1A1C4B13003A7A5B /* APHLogSubmissionViewController.xib */; };
 		CF15F24B1A11616500D87570 /* APHDailyJournalTaskViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CF15F24A1A11616500D87570 /* APHDailyJournalTaskViewController.m */; };
 		CF15F24F1A116A5A00D87570 /* APHDailyJournalIntroViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CF15F24D1A116A5A00D87570 /* APHDailyJournalIntroViewController.m */; };
 		CF15F2501A116A5A00D87570 /* APHDailyJournalIntroViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CF15F24E1A116A5A00D87570 /* APHDailyJournalIntroViewController.xib */; };
@@ -162,6 +164,9 @@
 		5B1D9D711A1BD419000F4AD6 /* APHDataPoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APHDataPoint.m; sourceTree = "<group>"; };
 		5B1D9D721A1BD419000F4AD6 /* APHScoring.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APHScoring.h; sourceTree = "<group>"; };
 		5B1D9D731A1BD419000F4AD6 /* APHScoring.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APHScoring.m; sourceTree = "<group>"; };
+		7B8D703B1A1C4B13003A7A5B /* APHLogSubmissionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APHLogSubmissionViewController.h; sourceTree = "<group>"; };
+		7B8D703C1A1C4B13003A7A5B /* APHLogSubmissionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APHLogSubmissionViewController.m; sourceTree = "<group>"; };
+		7B8D703D1A1C4B13003A7A5B /* APHLogSubmissionViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = APHLogSubmissionViewController.xib; sourceTree = "<group>"; };
 		CF15F2491A11616500D87570 /* APHDailyJournalTaskViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = APHDailyJournalTaskViewController.h; path = DailyJournalControllers/APHDailyJournalTaskViewController.h; sourceTree = "<group>"; };
 		CF15F24A1A11616500D87570 /* APHDailyJournalTaskViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = APHDailyJournalTaskViewController.m; path = DailyJournalControllers/APHDailyJournalTaskViewController.m; sourceTree = "<group>"; };
 		CF15F24C1A116A5A00D87570 /* APHDailyJournalIntroViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = APHDailyJournalIntroViewController.h; path = DailyJournalControllers/APHDailyJournalIntroViewController.h; sourceTree = "<group>"; };
@@ -342,6 +347,9 @@
 				CF2697DE19EC3E4200525E19 /* APHCustomTextView.m */,
 				CF2697DF19EC3E4200525E19 /* APHMoodLogDictionaryKeys.h */,
 				CF2697E019EC3E4200525E19 /* APHMoodLogDictionaryKeys.m */,
+				7B8D703B1A1C4B13003A7A5B /* APHLogSubmissionViewController.h */,
+				7B8D703C1A1C4B13003A7A5B /* APHLogSubmissionViewController.m */,
+				7B8D703D1A1C4B13003A7A5B /* APHLogSubmissionViewController.xib */,
 			);
 			name = "Daily Journal Controllers";
 			sourceTree = "<group>";
@@ -614,6 +622,7 @@
 				CF15F2561A116BC400D87570 /* APHCommonTaskSummaryViewController.xib in Resources */,
 				CF15F2501A116A5A00D87570 /* APHDailyJournalIntroViewController.xib in Resources */,
 				5B15DD1C1A114F8100BEA0D1 /* APHLearn.storyboard in Resources */,
+				7B8D703F1A1C4B13003A7A5B /* APHLogSubmissionViewController.xib in Resources */,
 				CF2697EB19EC3E4200525E19 /* APHNotesViewController.xib in Resources */,
 				F534B69E19E4689D00C3C152 /* APHActivities.storyboard in Resources */,
 				F534B69C19E4689D00C3C152 /* LaunchScreen.xib in Resources */,
@@ -654,6 +663,7 @@
 				5B15DD221A114F8100BEA0D1 /* APHSettingsViewController.m in Sources */,
 				CF2697E719EC3E4200525E19 /* APHCustomTextView.m in Sources */,
 				CF15F2551A116BC400D87570 /* APHCommonTaskSummaryViewController.m in Sources */,
+				7B8D703E1A1C4B13003A7A5B /* APHLogSubmissionViewController.m in Sources */,
 				CF2697EA19EC3E4200525E19 /* APHNotesViewController.m in Sources */,
 				5B15DD201A114F8100BEA0D1 /* APHProfieViewController.m in Sources */,
 				5B15DD231A114F8100BEA0D1 /* APHWithdrawSurveyViewController.m in Sources */,
