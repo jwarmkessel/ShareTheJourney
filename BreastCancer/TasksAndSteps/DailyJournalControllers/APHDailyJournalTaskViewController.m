@@ -75,7 +75,8 @@ static  NSString  *kDailyJournalStep104 = @"DailyJournalStep104";
         [steps addObject:step];
     }
 
-    RKSTOrderedTask  *task = [[RKSTOrderedTask alloc] initWithIdentifier:@"Daily Journal" steps:steps];
+    //The identifier gets set as the title in the navigation bar.
+    RKSTOrderedTask  *task = [[RKSTOrderedTask alloc] initWithIdentifier:@"Journal" steps:steps];
     
     return  task;
 }
@@ -102,7 +103,6 @@ static  NSString  *kDailyJournalStep104 = @"DailyJournalStep104";
     }
     
     controller.delegate = self;
-    controller.title = @"Daily Journal";
     controller.step = step;
     
     
@@ -113,7 +113,7 @@ static  NSString  *kDailyJournalStep104 = @"DailyJournalStep104";
 
     
     if (kDailyJournalStep101 == stepViewController.step.identifier) {
-        taskViewController.navigationBar.topItem.title = NSLocalizedString(@"Log History", @"Log History");
+        taskViewController.navigationBar.topItem.title = NSLocalizedString(@"Journal", @"Journal");
     } else if (kDailyJournalStep102 == stepViewController.step.identifier) {
         
         taskViewController.navigationBar.topItem.title = NSLocalizedString(@"Enter Daily Log", @"Enter Daily Log");
