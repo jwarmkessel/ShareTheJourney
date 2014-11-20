@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface APHLogSubmissionViewController : APCStepViewController
+@property (weak, nonatomic) IBOutlet UITextView *textView;
 
 @end
