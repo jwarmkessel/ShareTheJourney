@@ -23,7 +23,7 @@ typedef  enum  _DailyLogType
     DailyLogTypeNotesChanges
 }  DailyLogType;
 
-@interface APHContentsViewController  ( )  <UITableViewDataSource, UITableViewDelegate, APHNotesViewControllerDelegate>
+@interface APHContentsViewController  ( )  <UITableViewDataSource, UITableViewDelegate>
 
 @property  (nonatomic, weak)  IBOutlet  UITableView     *tabulator;
 @property  (nonatomic, weak)  IBOutlet  UIButton        *enterDailyLog;
@@ -98,7 +98,9 @@ typedef  enum  _DailyLogType
     }
 }
 
+/*********************************************************************************/
 #pragma  mark  -  Note Creation Controller Delegate Methods
+/*********************************************************************************/
 
 - (void)notesDidCancel:(APHNotesViewController *)controller
 {
@@ -120,18 +122,28 @@ typedef  enum  _DailyLogType
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
+/*********************************************************************************/
 #pragma  mark  -  Add Log Note Action Method
+/*********************************************************************************/
 
 - (IBAction)makeNewNoteButtonTapped:(UIButton *)sender
 {
-    APHNotesViewController  *stenographer = [[APHNotesViewController alloc] initWithNibName:nil bundle:nil];
-    
-    stenographer.delegate = self;
-    
-    [self presentViewController:stenographer animated:YES completion:^{ }];
+
+    if ([self.delegate respondsToSelector:@selector(stepViewControllerDidFinish:navigationDirection:)] == YES) {
+        [self.delegate stepViewControllerDidFinish:self navigationDirection:RKSTStepViewControllerNavigationDirectionForward];
+    }
+
+//TODO left here because we may reuse this here.
+//    APHNotesViewController  *stenographer = [[APHNotesViewController alloc] initWithNibName:nil bundle:nil];
+//    
+//    stenographer.delegate = self;
+//
+//    [self presentViewController:stenographer animated:YES completion:^{ }];
 }
 
+/*********************************************************************************/
 #pragma  mark  -  Table View Data Source Methods
+/*********************************************************************************/
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
@@ -167,7 +179,9 @@ typedef  enum  _DailyLogType
     return  cell;
 }
 
+/*********************************************************************************/
 #pragma  mark  -  Table View Delegate Methods
+/*********************************************************************************/
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -179,7 +193,9 @@ typedef  enum  _DailyLogType
     [self presentViewController:stenographer animated:YES completion:^{ }];
 }
 
+/*********************************************************************************/
 #pragma  mark  -  View Controller Methods
+/*********************************************************************************/
 
 - (void)viewDidLoad
 {
@@ -199,6 +215,15 @@ typedef  enum  _DailyLogType
         self.contentObjects = [contentModels mutableCopy];
         NSArray  *changesModels = modelsDictionary[@"items"];
         self.changesObjects = [changesModels mutableCopy];
+    }
+    
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(cancelButtonTapped:)];
+}
+
+- (void)cancelButtonTapped:(id)sender
+{
+    if ([self.delegate respondsToSelector:@selector(stepViewControllerDidCancel:)] == YES) {
+        [self.delegate stepViewControllerDidCancel:self];
     }
 }
 

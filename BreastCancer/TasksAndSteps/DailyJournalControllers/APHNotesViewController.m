@@ -10,7 +10,7 @@
 #import "APHCustomTextView.h"
 #import "APHMoodLogDictionaryKeys.h"
 
-@import APCAppleCore;
+
 
 typedef  enum  _TypingDirection
 {
@@ -36,6 +36,15 @@ static  NSUInteger  kThresholdForLimitWarning   = 140;
 @property  (nonatomic, strong)          NSMutableDictionary  *noteContentModel;
 @property  (nonatomic, strong)          NSMutableDictionary  *noteChangesModel;
 @property  (nonatomic, strong)          NSMutableArray       *noteModifications;
+@property (weak, nonatomic) IBOutlet UIButton *doneButton;
+
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *bottomButtonConstraint;
+
+
+
+@property (weak, nonatomic) IBOutlet UIView *containerView;
+- (IBAction)submitTapped:(id)sender;
+
 
 @end
 
@@ -50,7 +59,7 @@ static  NSUInteger  kThresholdForLimitWarning   = 140;
 
 - (BOOL)canBecomeFirstResponder
 {
-    return  NO;
+    return  YES;
 }
 
 - (void)displayWordCount:(NSUInteger)count
@@ -112,7 +121,7 @@ static  NSUInteger  kThresholdForLimitWarning   = 140;
     NSUInteger  preCount = [self countWords:self.scriptorium.text];
     if ([text length] != 0) {
         if (preCount >= kMaximumNumberOfWordsPerLog) {
-            answer = NO;
+            //answer = NO;
         } else {
             record = @{
                        APHMoodLogEditTimeStampKey : @(timestamp),
@@ -135,29 +144,6 @@ static  NSUInteger  kThresholdForLimitWarning   = 140;
     return  answer;
 }
 
-#pragma  mark  -  Bar Button Methods
-
-- (void)cancelButtonTapped:(UIBarButtonItem *)sender
-{
-    [self.scriptorium resignFirstResponder];
-    if (self.delegate != nil) {
-        [self.delegate notesDidCancel:self];
-    }
-}
-
-- (void)doneButtonTapped:(UIBarButtonItem *)sender
-{
-    [self.scriptorium resignFirstResponder];
-    
-    [self.noteContentModel setObject:self.scriptorium.text forKey:APHMoodLogNoteTextKey];
-    
-    [self.noteChangesModel setObject:self.noteModifications forKey:APHMoodLogNoteModificationsKey];
-    
-    if (self.delegate != nil) {
-        [self.delegate controller:self notesDidCompleteWithNote:self.noteContentModel andChanges:self.noteChangesModel];
-    }
-}
-
 - (void)backBarButtonWasTapped:(UIBarButtonItem *)sender
 {
     [self dismissViewControllerAnimated:YES completion:nil];
@@ -172,8 +158,12 @@ static  NSUInteger  kThresholdForLimitWarning   = 140;
     
     double   animationDuration = [notification.userInfo[UIKeyboardAnimationDurationUserInfoKey] doubleValue];
     
+    self.bottomButtonConstraint.constant = keyboardHeight;
+    self.containerSpacing.constant = keyboardHeight;
+    
     [UIView animateWithDuration:animationDuration animations:^{
-        self.containerSpacing.constant = keyboardHeight;
+
+        [self.view layoutIfNeeded];
     }];
 }
 
@@ -182,7 +172,7 @@ static  NSUInteger  kThresholdForLimitWarning   = 140;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
+
     self.scriptorium.text = @"";
     self.navigator.topItem.title = @"";
     
@@ -192,13 +182,6 @@ static  NSUInteger  kThresholdForLimitWarning   = 140;
         
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillEmerge:) name:UIKeyboardWillShowNotification object:nil];
         
-        UIBarButtonItem  *cancellor = [[UIBarButtonItem alloc] initWithTitle:@"Cancel" style:UIBarButtonItemStylePlain target:self action:@selector(cancelButtonTapped:)];
-        cancellor.tintColor = [UIColor appPrimaryColor];
-        self.navigator.topItem.leftBarButtonItem = cancellor;
-        
-        UIBarButtonItem  *finisher = [[UIBarButtonItem alloc] initWithTitle:@"Done" style:UIBarButtonItemStylePlain  target:self action:@selector(doneButtonTapped:)];
-        finisher.tintColor = [UIColor appPrimaryColor];
-        self.navigator.topItem.rightBarButtonItem = finisher;
         
         NSTimeInterval  timestamp = [[NSDate date] timeIntervalSinceReferenceDate];
         
@@ -211,7 +194,7 @@ static  NSUInteger  kThresholdForLimitWarning   = 140;
         self.noteModifications = [NSMutableArray array];
         
         [self displayWordCount:0];
-        [self.scriptorium becomeFirstResponder];
+        
     } else {
         self.scriptorium.editable   = NO;
         self.scriptorium.selectable = NO;
@@ -221,16 +204,59 @@ static  NSUInteger  kThresholdForLimitWarning   = 140;
         
         self.navigator.topItem.leftItemsSupplementBackButton = NO;
         self.navigator.topItem.leftBarButtonItem = backsterTitle;
-
+        
         self.scriptorium.text = self.note[APHMoodLogNoteTextKey];
         NSUInteger  count = [self countWords:self.scriptorium.text];
         [self displayWordCount:count];
     }
+    
+    [self.scriptorium becomeFirstResponder];
+}
+
+- (void)viewDidLayoutSubviews {
+    
+    [super viewDidLayoutSubviews];
+    //[self.scriptorium becomeFirstResponder];
+    
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
 }
+
+- (IBAction)submitTapped:(id)sender {
+
+    
+    
+    [self.scriptorium resignFirstResponder];
+    
+    [self.noteContentModel setObject:self.scriptorium.text forKey:APHMoodLogNoteTextKey];
+    
+    [self.noteChangesModel setObject:self.noteModifications forKey:APHMoodLogNoteModificationsKey];
+    
+    
+    RKSTDataResult *contentModel = [[RKSTDataResult alloc] initWithIdentifier:@"DailyJournalStep102"];
+    RKSTDataResult *changesModel = [[RKSTDataResult alloc] initWithIdentifier:@"DailyJournalStep102"];
+    
+    RKSTQuestionResult *questionResult = [[RKSTQuestionResult alloc] initWithIdentifier:@"DailyJournalStep102"];
+    questionResult.answer = @"YES!!!!";
+    
+    contentModel.data = [NSKeyedArchiver archivedDataWithRootObject:self.noteContentModel];
+    changesModel.data = [NSKeyedArchiver archivedDataWithRootObject:self.noteChangesModel];
+    
+    NSArray *resultsArray = @[contentModel, changesModel];
+    
+    RKSTStepResult *stepResult = [[RKSTStepResult alloc] initWithStepIdentifier:@"DailyJournalStep102" results:@[questionResult]];
+    
+    [self.delegate stepViewController:self didChangeResult:stepResult];
+    
+
+    if ([self.delegate respondsToSelector:@selector(stepViewControllerDidFinish:navigationDirection:)] == YES) {
+        [self.delegate stepViewControllerDidFinish:self navigationDirection:RKSTStepViewControllerNavigationDirectionForward];
+    }
+
+}
+
 
 @end
