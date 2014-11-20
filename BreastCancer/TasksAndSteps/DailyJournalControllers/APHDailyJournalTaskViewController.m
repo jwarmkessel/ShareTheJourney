@@ -75,7 +75,8 @@ static  NSString  *kDailyJournalStep104 = @"DailyJournalStep104";
         [steps addObject:step];
     }
 
-    RKSTOrderedTask  *task = [[RKSTOrderedTask alloc] initWithIdentifier:@"Daily Journal" steps:steps];
+    //The identifier gets set as the title in the navigation bar.
+    RKSTOrderedTask  *task = [[RKSTOrderedTask alloc] initWithIdentifier:@"Journal" steps:steps];
     
     return  task;
 }
@@ -84,11 +85,6 @@ static  NSString  *kDailyJournalStep104 = @"DailyJournalStep104";
 #pragma  mark  - TaskViewController delegates
 /*********************************************************************************/
 
-/**
- * @brief Supply a custom view controller for a given step.
- * @discussion The delegate should provide a step view controller implementation for any custom step.
- * @return A custom view controller, or nil to use the default step controller for this step.
- */
 - (RKSTStepViewController *)taskViewController:(RKSTTaskViewController *)taskViewController viewControllerForStep:(RKSTStep *)step {
     
     NSDictionary  *controllers = @{
@@ -106,50 +102,50 @@ static  NSString  *kDailyJournalStep104 = @"DailyJournalStep104";
         controller = [[aClass alloc] initWithNibName:nil bundle:[NSBundle appleCoreBundle]];
     }
     
-    
     controller.delegate = self;
-    controller.title = @"Daily Journal";
     controller.step = step;
     
     
     return controller;
 }
 
-/**
- * @brief Control whether the task controller proceeds to the next or previous step.
- * @return YES, if navigation can proceed to the specified step.
- */
-//- (BOOL)taskViewController:(RKSTTaskViewController *)taskViewController shouldPresentStep:(RKSTStep *)step {
-// 
-//    return YES;
-//}
-
-/**
- * @brief Tells the delegate that a stepViewController is about to be displayed.
- * @discussion Provides an opportunity to modify the step view controller before presentation.
- */
 - (void)taskViewController:(RKSTTaskViewController *)taskViewController stepViewControllerWillAppear:(RKSTStepViewController *)stepViewController {
 
     
     if (kDailyJournalStep101 == stepViewController.step.identifier) {
-        taskViewController.navigationBar.topItem.title = NSLocalizedString(@"Log History", @"Log History");
+        taskViewController.navigationBar.topItem.title = NSLocalizedString(@"Journal", @"Journal");
     } else if (kDailyJournalStep102 == stepViewController.step.identifier) {
         
         taskViewController.navigationBar.topItem.title = NSLocalizedString(@"Enter Daily Log", @"Enter Daily Log");
         
+//TODO Waiting on Apple to fix this bug so this code works.
+//        RKSTStepResult *stepResult = [taskViewController.result stepResultForStepIdentifier:@"DailyJournalStep102"];
+//        
+//        if (stepResult) {
+//            RKSTDataResult *contentResult = (RKSTDataResult *)[stepResult resultForIdentifier:@"content"];
+//            NSDictionary *dict = [NSKeyedUnarchiver unarchiveObjectWithData:contentResult.data];
+//            APHNotesViewController *notesStepViewController = (APHNotesViewController *) stepViewController;
+//            notesStepViewController.scriptorium.text = dict[@"APHMoodLogNoteText"];
+//        }
+        
     } else if (kDailyJournalStep103 == stepViewController.step.identifier) {
         taskViewController.navigationBar.topItem.title = NSLocalizedString(@"Log Submission", @"Log Submission");
 
+        RKSTStepResult *stepResult = [taskViewController.result stepResultForStepIdentifier:@"DailyJournalStep102"];
+        RKSTDataResult *contentResult = (RKSTDataResult *)[stepResult resultForIdentifier:@"content"];
+        
+        NSDictionary *dict = [NSKeyedUnarchiver unarchiveObjectWithData:contentResult.data];
+    
+        APHLogSubmissionViewController *logSubmissionStepVC = (APHLogSubmissionViewController *) stepViewController;
+        logSubmissionStepVC.textView.text = dict[@"APHMoodLogNoteText"];
+
+        
     } else if (kDailyJournalStep104 == stepViewController.step.identifier) {
         taskViewController.navigationBar.topItem.title = NSLocalizedString(@"Log Complete", @"Log Complete");
-        
     }
     
 }
 
-/**
- * @brief Tells the delegate that task result object has changed.
- */
 - (void)taskViewController:(RKSTTaskViewController *)taskViewController didChangeResult:(RKSTTaskResult *)result {
     NSLog(@"TaskVC didChangeResult");
     

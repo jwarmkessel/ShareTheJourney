@@ -12,14 +12,19 @@
 
 @interface APHLogSubmissionViewController ()
 - (IBAction)submitButtonTapped:(id)sender;
-
+@property (nonatomic, strong) RKSTStepResult *cachedResult;
+@property (nonatomic, strong) NSMutableDictionary *noteContent;
 @end
 
 @implementation APHLogSubmissionViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+    
+    self.textView.editable = NO;
+    self.noteContent = [NSMutableDictionary dictionary];
+
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(cancelButtonTapped:)];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -29,10 +34,33 @@
 
 - (IBAction)submitButtonTapped:(id)sender {
     
-    if (self.delegate != nil) {
-        if ([self.delegate respondsToSelector:@selector(stepViewControllerDidFinish:navigationDirection:)] == YES) {
-            [self.delegate stepViewControllerDidFinish:self navigationDirection:RKSTStepViewControllerNavigationDirectionForward];
-        }
+    [self.noteContent setObject:self.textView.text forKey:@"content"];
+    
+    RKSTDataResult *contentModel = [[RKSTDataResult alloc] initWithIdentifier:@"content"];
+    
+    contentModel.data = [NSKeyedArchiver archivedDataWithRootObject:self.noteContent];
+    
+    self.cachedResult = [[RKSTStepResult alloc] initWithStepIdentifier:@"DailyJournalStep103" results:@[contentModel]];
+    
+    [self.delegate stepViewController:self didChangeResult:self.cachedResult];
+    
+    if ([self.delegate respondsToSelector:@selector(stepViewControllerDidFinish:navigationDirection:)] == YES) {
+        [self.delegate stepViewControllerDidFinish:self navigationDirection:RKSTStepViewControllerNavigationDirectionForward];
+    }
+}
+
+- (RKSTStepResult *)result {
+    
+    return self.cachedResult;
+}
+
+
+#pragma mark - UINavigation Buttons
+
+- (void)cancelButtonTapped:(id)sender
+{
+    if ([self.delegate respondsToSelector:@selector(stepViewControllerDidCancel:)] == YES) {
+        [self.delegate stepViewControllerDidCancel:self];
     }
 }
 

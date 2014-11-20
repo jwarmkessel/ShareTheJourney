@@ -128,12 +128,12 @@ typedef  enum  _DailyLogType
 
 - (IBAction)makeNewNoteButtonTapped:(UIButton *)sender
 {
-    if (self.delegate != nil) {
-        if ([self.delegate respondsToSelector:@selector(stepViewControllerDidFinish:navigationDirection:)] == YES) {
-            [self.delegate stepViewControllerDidFinish:self navigationDirection:RKSTStepViewControllerNavigationDirectionForward];
-        }
+
+    if ([self.delegate respondsToSelector:@selector(stepViewControllerDidFinish:navigationDirection:)] == YES) {
+        [self.delegate stepViewControllerDidFinish:self navigationDirection:RKSTStepViewControllerNavigationDirectionForward];
     }
-    
+
+//TODO left here because we may reuse this here.
 //    APHNotesViewController  *stenographer = [[APHNotesViewController alloc] initWithNibName:nil bundle:nil];
 //    
 //    stenographer.delegate = self;
@@ -166,7 +166,7 @@ typedef  enum  _DailyLogType
     
     APHNotesContentsTableViewCell  *cell = (APHNotesContentsTableViewCell *)[tableView dequeueReusableCellWithIdentifier:kContentsTableViewCellIdentifier];
     
-    cell.noteName.text = [NSString stringWithFormat:@"Log %d", (indexPath.row + 1)];
+    cell.noteName.text = [NSString stringWithFormat:@"Log %ld", (indexPath.row + 1)];
     
     NSDateFormatter  *formatter = [[NSDateFormatter alloc] init];
     [formatter setDateStyle: NSDateFormatterShortStyle];
@@ -187,7 +187,6 @@ typedef  enum  _DailyLogType
 {
     NSDictionary  *model = self.contentObjects[indexPath.row];
     APHNotesViewController  *stenographer = [[APHNotesViewController alloc] initWithNibName:nil bundle:nil];
-    stenographer.delegate = self;
     stenographer.note = model;
     
     [self presentViewController:stenographer animated:YES completion:^{ }];
@@ -222,10 +221,8 @@ typedef  enum  _DailyLogType
 
 - (void)cancelButtonTapped:(id)sender
 {
-    if (self.delegate != nil) {
-        if ([self.delegate respondsToSelector:@selector(stepViewControllerDidCancel:)] == YES) {
-            [self.delegate stepViewControllerDidCancel:self];
-        }
+    if ([self.delegate respondsToSelector:@selector(stepViewControllerDidCancel:)] == YES) {
+        [self.delegate stepViewControllerDidCancel:self];
     }
 }
 

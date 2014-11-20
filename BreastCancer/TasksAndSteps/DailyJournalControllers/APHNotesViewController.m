@@ -7,9 +7,7 @@
 //
 
 #import "APHNotesViewController.h"
-#import "APHCustomTextView.h"
 #import "APHMoodLogDictionaryKeys.h"
-
 
 
 typedef  enum  _TypingDirection
@@ -25,7 +23,7 @@ static  NSUInteger  kThresholdForLimitWarning   = 140;
 
 @interface APHNotesViewController  ( )  <UITextViewDelegate>
 
-@property  (nonatomic, weak)  IBOutlet  APHCustomTextView    *scriptorium;
+
 
 @property  (nonatomic, weak)  IBOutlet  UINavigationBar      *navigator;
 @property  (nonatomic, weak)  IBOutlet  UILabel              *counterDisplay;
@@ -45,6 +43,7 @@ static  NSUInteger  kThresholdForLimitWarning   = 140;
 @property (weak, nonatomic) IBOutlet UIView *containerView;
 - (IBAction)submitTapped:(id)sender;
 
+@property (nonatomic, strong) RKSTStepResult *cachedResult;
 
 @end
 
@@ -59,7 +58,7 @@ static  NSUInteger  kThresholdForLimitWarning   = 140;
 
 - (BOOL)canBecomeFirstResponder
 {
-    return  NO;
+    return  YES;
 }
 
 - (void)displayWordCount:(NSUInteger)count
@@ -112,6 +111,9 @@ static  NSUInteger  kThresholdForLimitWarning   = 140;
 
 - (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text
 {
+    //Enable button after text is entered.
+    [self.doneButton setEnabled:YES];
+    
     BOOL  answer = YES;
     
     NSDictionary  *record = nil;
@@ -167,12 +169,38 @@ static  NSUInteger  kThresholdForLimitWarning   = 140;
     }];
 }
 
+#pragma mark - UINavigation Buttons
+
+- (void)cancelButtonTapped:(id)sender
+{
+    if ([self.delegate respondsToSelector:@selector(stepViewControllerDidCancel:)] == YES) {
+        [self.delegate stepViewControllerDidCancel:self];
+    }
+}
+
 #pragma  mark  -  View Controller Methods
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+    [self.scriptorium becomeFirstResponder];
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    
+    [self.scriptorium resignFirstResponder];
+}
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 
+    //Done button is disabled.
+    [self.doneButton setEnabled:NO];
+    
+    [self.doneButton setTitleColor:[UIColor lightGrayColor] forState:UIControlStateDisabled];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(cancelButtonTapped:)];
+    
     self.scriptorium.text = @"";
     self.navigator.topItem.title = @"";
     
@@ -194,7 +222,6 @@ static  NSUInteger  kThresholdForLimitWarning   = 140;
         self.noteModifications = [NSMutableArray array];
         
         [self displayWordCount:0];
-        //[self.scriptorium becomeFirstResponder];
         
     } else {
         self.scriptorium.editable   = NO;
@@ -215,6 +242,7 @@ static  NSUInteger  kThresholdForLimitWarning   = 140;
 - (void)viewDidLayoutSubviews {
     
     [super viewDidLayoutSubviews];
+    [self.scriptorium becomeFirstResponder];
     
 }
 
@@ -225,8 +253,6 @@ static  NSUInteger  kThresholdForLimitWarning   = 140;
 
 - (IBAction)submitTapped:(id)sender {
 
-    
-    
     [self.scriptorium resignFirstResponder];
     
     [self.noteContentModel setObject:self.scriptorium.text forKey:APHMoodLogNoteTextKey];
@@ -234,26 +260,28 @@ static  NSUInteger  kThresholdForLimitWarning   = 140;
     [self.noteChangesModel setObject:self.noteModifications forKey:APHMoodLogNoteModificationsKey];
     
     
-    RKSTDataResult *contentModel = [[RKSTDataResult alloc] initWithIdentifier:@"DailyJournalStep102"];
-    RKSTDataResult *changesModel = [[RKSTDataResult alloc] initWithIdentifier:@"DailyJournalStep102"];
-    
-    RKSTQuestionResult *questionResult = [[RKSTQuestionResult alloc] initWithIdentifier:@"DailyJournalStep102"];
-    questionResult.answer = @"YES!!!!";
-    
+    RKSTDataResult *contentModel = [[RKSTDataResult alloc] initWithIdentifier:@"content"];
+    RKSTDataResult *changesModel = [[RKSTDataResult alloc] initWithIdentifier:@"changes"];
+        
     contentModel.data = [NSKeyedArchiver archivedDataWithRootObject:self.noteContentModel];
     changesModel.data = [NSKeyedArchiver archivedDataWithRootObject:self.noteChangesModel];
     
     NSArray *resultsArray = @[contentModel, changesModel];
     
-    RKSTStepResult *stepResult = [[RKSTStepResult alloc] initWithStepIdentifier:@"DailyJournalStep102" results:@[questionResult]];
+    self.cachedResult = [[RKSTStepResult alloc] initWithStepIdentifier:@"DailyJournalStep102" results:resultsArray];
     
-    [self.delegate stepViewController:self didChangeResult:stepResult];
+    [self.delegate stepViewController:self didChangeResult:self.cachedResult];
     
-    if (self.delegate != nil) {
-        if ([self.delegate respondsToSelector:@selector(stepViewControllerDidFinish:navigationDirection:)] == YES) {
-            [self.delegate stepViewControllerDidFinish:self navigationDirection:RKSTStepViewControllerNavigationDirectionForward];
-        }
+
+    if ([self.delegate respondsToSelector:@selector(stepViewControllerDidFinish:navigationDirection:)] == YES) {
+        [self.delegate stepViewControllerDidFinish:self navigationDirection:RKSTStepViewControllerNavigationDirectionForward];
     }
+
+}
+
+- (RKSTStepResult *)result {
+
+    return self.cachedResult;
 }
 
 

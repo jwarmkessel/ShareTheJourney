@@ -6,6 +6,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="APHLogSubmissionViewController">
             <connections>
+                <outlet property="textView" destination="0b9-Vl-YGg" id="qO5-m4-yGW"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
