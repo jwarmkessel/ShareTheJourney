@@ -128,12 +128,12 @@ typedef  enum  _DailyLogType
 
 - (IBAction)makeNewNoteButtonTapped:(UIButton *)sender
 {
-    if (self.delegate != nil) {
-        if ([self.delegate respondsToSelector:@selector(stepViewControllerDidFinish:navigationDirection:)] == YES) {
-            [self.delegate stepViewControllerDidFinish:self navigationDirection:RKSTStepViewControllerNavigationDirectionForward];
-        }
+
+    if ([self.delegate respondsToSelector:@selector(stepViewControllerDidFinish:navigationDirection:)] == YES) {
+        [self.delegate stepViewControllerDidFinish:self navigationDirection:RKSTStepViewControllerNavigationDirectionForward];
     }
-    
+
+//TODO left here because we may reuse this here.
 //    APHNotesViewController  *stenographer = [[APHNotesViewController alloc] initWithNibName:nil bundle:nil];
 //    
 //    stenographer.delegate = self;
@@ -222,10 +222,8 @@ typedef  enum  _DailyLogType
 
 - (void)cancelButtonTapped:(id)sender
 {
-    if (self.delegate != nil) {
-        if ([self.delegate respondsToSelector:@selector(stepViewControllerDidCancel:)] == YES) {
-            [self.delegate stepViewControllerDidCancel:self];
-        }
+    if ([self.delegate respondsToSelector:@selector(stepViewControllerDidCancel:)] == YES) {
+        [self.delegate stepViewControllerDidCancel:self];
     }
 }
 

@@ -20,19 +20,15 @@
 
 - (IBAction)getStartedWasTapped:(id)sender
 {
-    if (self.delegate != nil) {
-        if ([self.delegate respondsToSelector:@selector(stepViewControllerDidFinish:navigationDirection:)] == YES) {
-            [self.delegate stepViewControllerDidFinish:self navigationDirection:RKSTStepViewControllerNavigationDirectionForward];
-        }
+    if ([self.delegate respondsToSelector:@selector(stepViewControllerDidFinish:navigationDirection:)] == YES) {
+        [self.delegate stepViewControllerDidFinish:self navigationDirection:RKSTStepViewControllerNavigationDirectionForward];
     }
 }
 
 - (void)cancelButtonTapped:(id)sender
 {
-    if (self.delegate != nil) {
-        if ([self.delegate respondsToSelector:@selector(stepViewControllerDidCancel:)] == YES) {
-            [self.delegate stepViewControllerDidCancel:self];
-        }
+    if ([self.delegate respondsToSelector:@selector(stepViewControllerDidCancel:)] == YES) {
+        [self.delegate stepViewControllerDidCancel:self];
     }
 }
 
@@ -41,10 +37,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-//    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel
-//                                                                                          target:self
-//                                                                                          action:@selector(cancelButtonTapped:)];
     
     [self.getStartedButton setBackgroundColor:[UIColor appPrimaryColor]];
 }

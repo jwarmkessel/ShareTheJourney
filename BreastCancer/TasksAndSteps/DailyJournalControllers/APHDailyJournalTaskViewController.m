@@ -84,11 +84,6 @@ static  NSString  *kDailyJournalStep104 = @"DailyJournalStep104";
 #pragma  mark  - TaskViewController delegates
 /*********************************************************************************/
 
-/**
- * @brief Supply a custom view controller for a given step.
- * @discussion The delegate should provide a step view controller implementation for any custom step.
- * @return A custom view controller, or nil to use the default step controller for this step.
- */
 - (RKSTStepViewController *)taskViewController:(RKSTTaskViewController *)taskViewController viewControllerForStep:(RKSTStep *)step {
     
     NSDictionary  *controllers = @{
@@ -115,19 +110,6 @@ static  NSString  *kDailyJournalStep104 = @"DailyJournalStep104";
     return controller;
 }
 
-/**
- * @brief Control whether the task controller proceeds to the next or previous step.
- * @return YES, if navigation can proceed to the specified step.
- */
-//- (BOOL)taskViewController:(RKSTTaskViewController *)taskViewController shouldPresentStep:(RKSTStep *)step {
-// 
-//    return YES;
-//}
-
-/**
- * @brief Tells the delegate that a stepViewController is about to be displayed.
- * @discussion Provides an opportunity to modify the step view controller before presentation.
- */
 - (void)taskViewController:(RKSTTaskViewController *)taskViewController stepViewControllerWillAppear:(RKSTStepViewController *)stepViewController {
 
     
@@ -147,9 +129,6 @@ static  NSString  *kDailyJournalStep104 = @"DailyJournalStep104";
     
 }
 
-/**
- * @brief Tells the delegate that task result object has changed.
- */
 - (void)taskViewController:(RKSTTaskViewController *)taskViewController didChangeResult:(RKSTTaskResult *)result {
     NSLog(@"TaskVC didChangeResult");
     

@@ -59,7 +59,7 @@ static  NSUInteger  kThresholdForLimitWarning   = 140;
 
 - (BOOL)canBecomeFirstResponder
 {
-    return  NO;
+    return  YES;
 }
 
 - (void)displayWordCount:(NSUInteger)count
@@ -194,7 +194,6 @@ static  NSUInteger  kThresholdForLimitWarning   = 140;
         self.noteModifications = [NSMutableArray array];
         
         [self displayWordCount:0];
-        //[self.scriptorium becomeFirstResponder];
         
     } else {
         self.scriptorium.editable   = NO;
@@ -210,11 +209,14 @@ static  NSUInteger  kThresholdForLimitWarning   = 140;
         NSUInteger  count = [self countWords:self.scriptorium.text];
         [self displayWordCount:count];
     }
+    
+    [self.scriptorium becomeFirstResponder];
 }
 
 - (void)viewDidLayoutSubviews {
     
     [super viewDidLayoutSubviews];
+    //[self.scriptorium becomeFirstResponder];
     
 }
 
@@ -249,11 +251,11 @@ static  NSUInteger  kThresholdForLimitWarning   = 140;
     
     [self.delegate stepViewController:self didChangeResult:stepResult];
     
-    if (self.delegate != nil) {
-        if ([self.delegate respondsToSelector:@selector(stepViewControllerDidFinish:navigationDirection:)] == YES) {
-            [self.delegate stepViewControllerDidFinish:self navigationDirection:RKSTStepViewControllerNavigationDirectionForward];
-        }
+
+    if ([self.delegate respondsToSelector:@selector(stepViewControllerDidFinish:navigationDirection:)] == YES) {
+        [self.delegate stepViewControllerDidFinish:self navigationDirection:RKSTStepViewControllerNavigationDirectionForward];
     }
+
 }
 
 
