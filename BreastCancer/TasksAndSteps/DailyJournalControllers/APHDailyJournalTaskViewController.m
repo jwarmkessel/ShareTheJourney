@@ -11,227 +11,154 @@
 #import "APHDailyJournalTaskViewController.h"
 #import "APHDailyJournalIntroViewController.h"
 #import "APHContentsViewController.h"
-#import "APHCommonTaskSummaryViewController.h"
+
+#import "APHNotesViewController.h"
+#import "APHLogSubmissionViewController.h"
 
 static  NSString  *MainStudyIdentifier = @"com.breastcancer.dailyJournal";
 
 static  NSString  *kDailyJournalStep101 = @"DailyJournalStep101";
 static  NSString  *kDailyJournalStep102 = @"DailyJournalStep102";
 static  NSString  *kDailyJournalStep103 = @"DailyJournalStep103";
+static  NSString  *kDailyJournalStep104 = @"DailyJournalStep104";
 
 @interface APHDailyJournalTaskViewController  ( ) <NSObject>
-
-@property (strong, nonatomic) RKDataArchive *taskArchive;
-
-@property  (nonatomic, weak)  APCStepProgressBar  *progressor;
 
 @end
 
 @implementation APHDailyJournalTaskViewController
 
+/*********************************************************************************/
 #pragma  mark  -  View Controller Methods
+/*********************************************************************************/
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
 }
 
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
-    
-    [self beginTask];
 }
 
+/*********************************************************************************/
 #pragma  mark  -  Task Creation Methods
+/*********************************************************************************/
 
-+ (RKTask *)createTask:(APCScheduledTask *)scheduledTask
++ (RKSTOrderedTask *)createTask:(APCScheduledTask *)scheduledTask
 {
     NSMutableArray *steps = [[NSMutableArray alloc] init];
     
     {
-        RKIntroductionStep  *step = [[RKIntroductionStep alloc] initWithIdentifier:kDailyJournalStep101 name:@"Daily Journal"];
-        step.caption = @"Daily Journal";
-        step.explanation = @"";
-        step.instruction = @"";
+        RKSTInstructionStep *step = [[RKSTInstructionStep alloc] initWithIdentifier:kDailyJournalStep101];
+        
+        [steps addObject:step];
+    }
+
+    {
+        RKSTActiveStep  *step = [[RKSTActiveStep alloc] initWithIdentifier:kDailyJournalStep102];
+        
         [steps addObject:step];
     }
     
     {
-        RKIntroductionStep  *step = [[RKIntroductionStep alloc] initWithIdentifier:kDailyJournalStep102 name:@"active step"];
-        step.caption = @"Mood Log";
+        RKSTActiveStep  *step = [[RKSTActiveStep alloc] initWithIdentifier:kDailyJournalStep103];
+        
+        [steps addObject:step];
+    }
+    
+    {
+        RKSTActiveStep  *step = [[RKSTActiveStep alloc] initWithIdentifier:kDailyJournalStep104];
+        
         [steps addObject:step];
     }
 
-    RKTask  *task = [[RKTask alloc] initWithName:@"Daily Journal" identifier:@"Mood Logs Task" steps:steps];
+    RKSTOrderedTask  *task = [[RKSTOrderedTask alloc] initWithIdentifier:@"Daily Journal" steps:steps];
     
     return  task;
 }
 
-#pragma  mark  -  Navigation Bar Button Action Methods
+/*********************************************************************************/
+#pragma  mark  - TaskViewController delegates
+/*********************************************************************************/
 
-- (void)cancelButtonTapped:(id)sender
-{
-    [self.presentingViewController dismissViewControllerAnimated:YES completion:^{ } ];
-}
-
-- (void)doneButtonTapped:(id)sender
-{
-    [self.presentingViewController dismissViewControllerAnimated:YES completion:^{ } ];
-}
-
-#pragma  mark  -  Task View Controller Delegate Methods
-
-- (BOOL)taskViewController:(RKTaskViewController *)taskViewController shouldPresentStepViewController:(RKStepViewController *)stepViewController
-{
-    return  YES;
-}
-
-- (void)taskViewController:(RKTaskViewController *)taskViewController willPresentStepViewController:(RKStepViewController *)stepViewController
-{
-    if (kDailyJournalStep102 == stepViewController.step.identifier) {
-        stepViewController.continueButton = nil;
-    } else if (kDailyJournalStep103 == stepViewController.step.identifier) {
-        stepViewController.continueButton = [[UIBarButtonItem alloc] initWithTitle:@"Well done!" style:stepViewController.continueButton.style target:stepViewController.continueButton.target action:stepViewController.continueButton.action];
-        stepViewController.continueButton = nil;
-    }
-}
-
-- (RKStepViewController *)taskViewController:(RKTaskViewController *)taskViewController viewControllerForStep:(RKStep *)step
-{
+/**
+ * @brief Supply a custom view controller for a given step.
+ * @discussion The delegate should provide a step view controller implementation for any custom step.
+ * @return A custom view controller, or nil to use the default step controller for this step.
+ */
+- (RKSTStepViewController *)taskViewController:(RKSTTaskViewController *)taskViewController viewControllerForStep:(RKSTStep *)step {
+    
     NSDictionary  *controllers = @{
-                                   kDailyJournalStep101 : [APHDailyJournalIntroViewController class],
-                                   kDailyJournalStep102 : [APHContentsViewController class],
-                                   kDailyJournalStep103 : [APHCommonTaskSummaryViewController class]
-                                  };
+                                   kDailyJournalStep101 : [APHContentsViewController class],
+                                   kDailyJournalStep102 : [APHNotesViewController class],
+                                   kDailyJournalStep103 : [APHLogSubmissionViewController class],
+                                   kDailyJournalStep104 : [APCSimpleTaskSummaryViewController class]
+                                   };
     
     Class  aClass = [controllers objectForKey:step.identifier];
+    
     APCStepViewController  *controller = [[aClass alloc] initWithNibName:nil bundle:nil];
-    controller.resultCollector = self;
+    
+    if (step.identifier == kDailyJournalStep104 ) {
+        controller = [[aClass alloc] initWithNibName:nil bundle:[NSBundle appleCoreBundle]];
+    }
+    
+    
     controller.delegate = self;
     controller.title = @"Daily Journal";
     controller.step = step;
     
+    
     return controller;
 }
 
-/*********************************************************************************/
-#pragma  mark  - Private methods
-/*********************************************************************************/
+/**
+ * @brief Control whether the task controller proceeds to the next or previous step.
+ * @return YES, if navigation can proceed to the specified step.
+ */
+//- (BOOL)taskViewController:(RKSTTaskViewController *)taskViewController shouldPresentStep:(RKSTStep *)step {
+// 
+//    return YES;
+//}
 
-- (void)beginTask
+/**
+ * @brief Tells the delegate that a stepViewController is about to be displayed.
+ * @discussion Provides an opportunity to modify the step view controller before presentation.
+ */
+- (void)taskViewController:(RKSTTaskViewController *)taskViewController stepViewControllerWillAppear:(RKSTStepViewController *)stepViewController {
+
+    
+    if (kDailyJournalStep101 == stepViewController.step.identifier) {
+        taskViewController.navigationBar.topItem.title = NSLocalizedString(@"Log History", @"Log History");
+    } else if (kDailyJournalStep102 == stepViewController.step.identifier) {
+        
+        taskViewController.navigationBar.topItem.title = NSLocalizedString(@"Enter Daily Log", @"Enter Daily Log");
+        
+    } else if (kDailyJournalStep103 == stepViewController.step.identifier) {
+        taskViewController.navigationBar.topItem.title = NSLocalizedString(@"Log Submission", @"Log Submission");
+
+    } else if (kDailyJournalStep104 == stepViewController.step.identifier) {
+        taskViewController.navigationBar.topItem.title = NSLocalizedString(@"Log Complete", @"Log Complete");
+        
+    }
+    
+}
+
+/**
+ * @brief Tells the delegate that task result object has changed.
+ */
+- (void)taskViewController:(RKSTTaskViewController *)taskViewController didChangeResult:(RKSTTaskResult *)result {
+    NSLog(@"TaskVC didChangeResult");
+    
+}
+
+- (void)taskViewControllerDidComplete: (RKSTTaskViewController *)taskViewController
 {
-    if (self.taskArchive)
-    {
-        [self.taskArchive resetContent];
-    }
-    
-    self.taskArchive = [[RKDataArchive alloc] initWithItemIdentifier:[RKItemIdentifier itemIdentifierForTask:self.task] studyIdentifier:MainStudyIdentifier taskInstanceUUID:self.taskInstanceUUID extraMetadata:nil fileProtection:RKFileProtectionCompleteUnlessOpen];
-    
-}
-
-/*********************************************************************************/
-#pragma mark - Helpers
-/*********************************************************************************/
-
--(void)sendResult:(RKResult*)result
-{
-    //TODO
-    // In a real application, consider adding to the archive on a concurrent queue.
-    NSError *err = nil;
-    if (![result addToArchive:self.taskArchive error:&err])
-    {
-        // Error adding the result to the archive; archive may be invalid. Tell
-        // the user there's been a problem and stop the task.
-        NSLog(@"Error adding %@ to archive: %@", result, err);
-    }
-}
-
-
-/*********************************************************************************/
-#pragma  mark  - TaskViewController delegates
-/*********************************************************************************/
-- (void)taskViewController:(RKTaskViewController *)taskViewController didProduceResult:(RKResult *)result {
-    
-    NSLog(@"didProduceResult = %@", result);
-    
-    if ([result isKindOfClass:[RKSurveyResult class]]) {
-        RKSurveyResult* sresult = (RKSurveyResult*)result;
-        
-        for (RKQuestionResult* qr in sresult.surveyResults) {
-            NSLog(@"%@ = [%@] %@ ", [[qr itemIdentifier] stringValue], [qr.answer class], qr.answer);
-        }
-    }
-    
-    
-    [self sendResult:result];
-    
-    [super taskViewController:taskViewController didProduceResult:result];
-}
-
-- (void)taskViewControllerDidFail: (RKTaskViewController *)taskViewController withError:(NSError*)error{
-    NSLog(@"taskViewControllerDidFail %@", error);
-
-    [self.taskArchive resetContent];
-    self.taskArchive = nil;
-    
-}
-
-- (void)taskViewControllerDidCancel:(RKTaskViewController *)taskViewController{
-    
-    [taskViewController suspend];
-    
-    [self.taskArchive resetContent];
-    self.taskArchive = nil;
-    
-    [self dismissViewControllerAnimated:YES completion:nil];
-}
-
-- (void)taskViewControllerDidComplete: (RKTaskViewController *)taskViewController{
-    
-    [taskViewController suspend];
-    
-    NSError *err = nil;
-    NSURL *archiveFileURL = [self.taskArchive archiveURLWithError:&err];
-    if (archiveFileURL)
-    {
-        NSURL *documents = [NSURL fileURLWithPath:[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject]];
-        NSURL *outputUrl = [documents URLByAppendingPathComponent:[archiveFileURL lastPathComponent]];
-        
-        // This is where you would queue the archive for upload. In this demo, we move it
-        // to the documents directory, where you could copy it off using iTunes, for instance.
-        [[NSFileManager defaultManager] moveItemAtURL:archiveFileURL toURL:outputUrl error:nil];
-        
-        NSLog(@"outputUrl= %@", outputUrl);
-        
-        // When done, clean up:
-        self.taskArchive = nil;
-        if (archiveFileURL)
-        {
-            [[NSFileManager defaultManager] removeItemAtURL:archiveFileURL error:nil];
-        }
-    }
-    
-    [self dismissViewControllerAnimated:YES completion:nil];
-    
     [super taskViewControllerDidComplete:taskViewController];
-}
 
-/*********************************************************************************/
-#pragma mark - StepViewController Delegate Methods
-/*********************************************************************************/
-
-- (void)stepViewControllerWillBePresented:(RKStepViewController *)viewController
-{
-    viewController.skipButton = nil;
-    viewController.continueButton = nil;
-}
-
-- (void)stepViewControllerDidFinish:(RKStepViewController *)stepViewController navigationDirection:(RKStepViewControllerNavigationDirection)direction
-{
-    [super stepViewControllerDidFinish:stepViewController navigationDirection:direction];
-    
-    stepViewController.continueButton = nil;
 }
 
 @end
