@@ -45,6 +45,7 @@ static  NSUInteger  kThresholdForLimitWarning   = 140;
 @property (weak, nonatomic) IBOutlet UIView *containerView;
 - (IBAction)submitTapped:(id)sender;
 
+@property (nonatomic, strong) RKSTStepResult *cachedResult;
 
 @end
 
@@ -167,12 +168,23 @@ static  NSUInteger  kThresholdForLimitWarning   = 140;
     }];
 }
 
+#pragma mark - UINavigation Buttons
+
+- (void)cancelButtonTapped:(id)sender
+{
+    if ([self.delegate respondsToSelector:@selector(stepViewControllerDidCancel:)] == YES) {
+        [self.delegate stepViewControllerDidCancel:self];
+    }
+}
+
 #pragma  mark  -  View Controller Methods
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(cancelButtonTapped:)];
+    
     self.scriptorium.text = @"";
     self.navigator.topItem.title = @"";
     
@@ -209,8 +221,6 @@ static  NSUInteger  kThresholdForLimitWarning   = 140;
         NSUInteger  count = [self countWords:self.scriptorium.text];
         [self displayWordCount:count];
     }
-    
-    [self.scriptorium becomeFirstResponder];
 }
 
 - (void)viewDidLayoutSubviews {
@@ -227,8 +237,6 @@ static  NSUInteger  kThresholdForLimitWarning   = 140;
 
 - (IBAction)submitTapped:(id)sender {
 
-    
-    
     [self.scriptorium resignFirstResponder];
     
     [self.noteContentModel setObject:self.scriptorium.text forKey:APHMoodLogNoteTextKey];
@@ -247,15 +255,20 @@ static  NSUInteger  kThresholdForLimitWarning   = 140;
     
     NSArray *resultsArray = @[contentModel, changesModel];
     
-    RKSTStepResult *stepResult = [[RKSTStepResult alloc] initWithStepIdentifier:@"DailyJournalStep102" results:@[questionResult]];
+    self.cachedResult = [[RKSTStepResult alloc] initWithStepIdentifier:@"DailyJournalStep102" results:@[questionResult]];
     
-    [self.delegate stepViewController:self didChangeResult:stepResult];
+    [self.delegate stepViewController:self didChangeResult:self.cachedResult];
     
 
     if ([self.delegate respondsToSelector:@selector(stepViewControllerDidFinish:navigationDirection:)] == YES) {
         [self.delegate stepViewControllerDidFinish:self navigationDirection:RKSTStepViewControllerNavigationDirectionForward];
     }
 
+}
+
+- (RKSTStepResult *)result {
+
+    return self.cachedResult;
 }
 
 
