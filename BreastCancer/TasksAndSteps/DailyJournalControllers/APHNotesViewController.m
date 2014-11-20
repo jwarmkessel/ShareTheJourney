@@ -111,6 +111,9 @@ static  NSUInteger  kThresholdForLimitWarning   = 140;
 
 - (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text
 {
+    //Enable button after text is entered.
+    [self.doneButton setEnabled:YES];
+    
     BOOL  answer = YES;
     
     NSDictionary  *record = nil;
@@ -181,6 +184,10 @@ static  NSUInteger  kThresholdForLimitWarning   = 140;
 {
     [super viewDidLoad];
 
+    //Done button is disabled.
+    [self.doneButton setEnabled:NO];
+    
+    [self.doneButton setTitleColor:[UIColor lightGrayColor] forState:UIControlStateDisabled];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(cancelButtonTapped:)];
     
     self.scriptorium.text = @"";
