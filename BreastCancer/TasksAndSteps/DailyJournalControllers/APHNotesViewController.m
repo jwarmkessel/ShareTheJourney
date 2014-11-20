@@ -180,6 +180,17 @@ static  NSUInteger  kThresholdForLimitWarning   = 140;
 
 #pragma  mark  -  View Controller Methods
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+    [self.scriptorium becomeFirstResponder];
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    
+    [self.scriptorium resignFirstResponder];
+}
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -231,7 +242,7 @@ static  NSUInteger  kThresholdForLimitWarning   = 140;
 - (void)viewDidLayoutSubviews {
     
     [super viewDidLayoutSubviews];
-    //[self.scriptorium becomeFirstResponder];
+    [self.scriptorium becomeFirstResponder];
     
 }
 
