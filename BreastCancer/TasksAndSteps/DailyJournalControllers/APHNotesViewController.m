@@ -10,7 +10,7 @@
 #import "APHCustomTextView.h"
 #import "APHMoodLogDictionaryKeys.h"
 
-@import APCAppleCore;
+
 
 typedef  enum  _TypingDirection
 {
@@ -144,29 +144,6 @@ static  NSUInteger  kThresholdForLimitWarning   = 140;
     return  answer;
 }
 
-#pragma  mark  -  Bar Button Methods
-
-- (void)cancelButtonTapped:(UIBarButtonItem *)sender
-{
-    [self.scriptorium resignFirstResponder];
-    if (self.delegate != nil) {
-        [self.delegate notesDidCancel:self];
-    }
-}
-
-- (void)doneButtonTapped:(UIBarButtonItem *)sender
-{
-    [self.scriptorium resignFirstResponder];
-    
-    [self.noteContentModel setObject:self.scriptorium.text forKey:APHMoodLogNoteTextKey];
-    
-    [self.noteChangesModel setObject:self.noteModifications forKey:APHMoodLogNoteModificationsKey];
-    
-    if (self.delegate != nil) {
-        [self.delegate controller:self notesDidCompleteWithNote:self.noteContentModel andChanges:self.noteChangesModel];
-    }
-}
-
 - (void)backBarButtonWasTapped:(UIBarButtonItem *)sender
 {
     [self dismissViewControllerAnimated:YES completion:nil];
@@ -248,7 +225,7 @@ static  NSUInteger  kThresholdForLimitWarning   = 140;
 
 - (IBAction)submitTapped:(id)sender {
 
-    RKSTStepViewController *stepViewController = (RKSTStepViewController *) [self parentViewController];
+    
     
     [self.scriptorium resignFirstResponder];
     
@@ -257,18 +234,24 @@ static  NSUInteger  kThresholdForLimitWarning   = 140;
     [self.noteChangesModel setObject:self.noteModifications forKey:APHMoodLogNoteModificationsKey];
     
     
-    NSArray *resultsArray = @[self.noteContentModel, self.noteChangesModel];
+    RKSTDataResult *contentModel = [[RKSTDataResult alloc] initWithIdentifier:@"DailyJournalStep102"];
+    RKSTDataResult *changesModel = [[RKSTDataResult alloc] initWithIdentifier:@"DailyJournalStep102"];
     
-    RKSTStepResult *stepResult = [[RKSTStepResult alloc] initWithStepIdentifier:@"DailyJournalStep102" results:resultsArray];
+    RKSTQuestionResult *questionResult = [[RKSTQuestionResult alloc] initWithIdentifier:@"DailyJournalStep102"];
+    questionResult.answer = @"YES!!!!";
     
-    [stepViewController.delegate stepViewController:stepViewController didChangeResult:stepResult];
+    contentModel.data = [NSKeyedArchiver archivedDataWithRootObject:self.noteContentModel];
+    changesModel.data = [NSKeyedArchiver archivedDataWithRootObject:self.noteChangesModel];
     
+    NSArray *resultsArray = @[contentModel, changesModel];
     
-
+    RKSTStepResult *stepResult = [[RKSTStepResult alloc] initWithStepIdentifier:@"DailyJournalStep102" results:@[questionResult]];
     
-    if (stepViewController.delegate != nil) {
-        if ([stepViewController.delegate respondsToSelector:@selector(stepViewControllerDidFinish:navigationDirection:)] == YES) {
-            [stepViewController.delegate stepViewControllerDidFinish:stepViewController navigationDirection:RKSTStepViewControllerNavigationDirectionForward];
+    [self.delegate stepViewController:self didChangeResult:stepResult];
+    
+    if (self.delegate != nil) {
+        if ([self.delegate respondsToSelector:@selector(stepViewControllerDidFinish:navigationDirection:)] == YES) {
+            [self.delegate stepViewControllerDidFinish:self navigationDirection:RKSTStepViewControllerNavigationDirectionForward];
         }
     }
 }

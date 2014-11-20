@@ -39,11 +39,9 @@
 
 - (IBAction)submitButtonTapped:(id)sender {
     
-    RKSTStepViewController *parentViewController = (RKSTStepViewController *) [self parentViewController];
-    
-    if (parentViewController.delegate != nil) {
-        if ([parentViewController.delegate respondsToSelector:@selector(stepViewControllerDidFinish:navigationDirection:)] == YES) {
-            [parentViewController.delegate stepViewControllerDidFinish:parentViewController navigationDirection:RKSTStepViewControllerNavigationDirectionForward];
+    if (self.delegate != nil) {
+        if ([self.delegate respondsToSelector:@selector(stepViewControllerDidFinish:navigationDirection:)] == YES) {
+            [self.delegate stepViewControllerDidFinish:self navigationDirection:RKSTStepViewControllerNavigationDirectionForward];
         }
     }
 }

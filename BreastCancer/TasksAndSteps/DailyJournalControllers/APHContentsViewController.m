@@ -23,7 +23,7 @@ typedef  enum  _DailyLogType
     DailyLogTypeNotesChanges
 }  DailyLogType;
 
-@interface APHContentsViewController  ( )  <UITableViewDataSource, UITableViewDelegate, APHNotesViewControllerDelegate>
+@interface APHContentsViewController  ( )  <UITableViewDataSource, UITableViewDelegate>
 
 @property  (nonatomic, weak)  IBOutlet  UITableView     *tabulator;
 @property  (nonatomic, weak)  IBOutlet  UIButton        *enterDailyLog;

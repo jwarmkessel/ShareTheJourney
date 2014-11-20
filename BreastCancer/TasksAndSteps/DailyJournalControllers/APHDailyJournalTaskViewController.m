@@ -24,13 +24,13 @@ static  NSString  *kDailyJournalStep104 = @"DailyJournalStep104";
 
 @interface APHDailyJournalTaskViewController  ( ) <NSObject>
 
-@property  (nonatomic, weak)  APCStepProgressBar  *progressor;
-
 @end
 
 @implementation APHDailyJournalTaskViewController
 
+/*********************************************************************************/
 #pragma  mark  -  View Controller Methods
+/*********************************************************************************/
 
 - (void)viewDidLoad
 {
@@ -43,7 +43,9 @@ static  NSString  *kDailyJournalStep104 = @"DailyJournalStep104";
     [super viewDidAppear:animated];
 }
 
+/*********************************************************************************/
 #pragma  mark  -  Task Creation Methods
+/*********************************************************************************/
 
 + (RKSTOrderedTask *)createTask:(APCScheduledTask *)scheduledTask
 {
@@ -54,7 +56,7 @@ static  NSString  *kDailyJournalStep104 = @"DailyJournalStep104";
         
         [steps addObject:step];
     }
-    
+
     {
         RKSTActiveStep  *step = [[RKSTActiveStep alloc] initWithIdentifier:kDailyJournalStep102];
         
@@ -78,19 +80,6 @@ static  NSString  *kDailyJournalStep104 = @"DailyJournalStep104";
     return  task;
 }
 
-#pragma  mark  -  Navigation Bar Button Action Methods
-
-
-/*********************************************************************************/
-#pragma  mark  - Private methods
-/*********************************************************************************/
-
-
-/*********************************************************************************/
-#pragma mark - Helpers
-/*********************************************************************************/
-
-
 /*********************************************************************************/
 #pragma  mark  - TaskViewController delegates
 /*********************************************************************************/
@@ -104,7 +93,8 @@ static  NSString  *kDailyJournalStep104 = @"DailyJournalStep104";
     
     NSDictionary  *controllers = @{
                                    kDailyJournalStep101 : [APHContentsViewController class],
-                                   
+                                   kDailyJournalStep102 : [APHNotesViewController class],
+                                   kDailyJournalStep103 : [APHLogSubmissionViewController class],
                                    kDailyJournalStep104 : [APCSimpleTaskSummaryViewController class]
                                    };
     
@@ -129,10 +119,10 @@ static  NSString  *kDailyJournalStep104 = @"DailyJournalStep104";
  * @brief Control whether the task controller proceeds to the next or previous step.
  * @return YES, if navigation can proceed to the specified step.
  */
-- (BOOL)taskViewController:(RKSTTaskViewController *)taskViewController shouldPresentStep:(RKSTStep *)step {
- 
-    return YES;
-}
+//- (BOOL)taskViewController:(RKSTTaskViewController *)taskViewController shouldPresentStep:(RKSTStep *)step {
+// 
+//    return YES;
+//}
 
 /**
  * @brief Tells the delegate that a stepViewController is about to be displayed.
@@ -147,29 +137,8 @@ static  NSString  *kDailyJournalStep104 = @"DailyJournalStep104";
         
         taskViewController.navigationBar.topItem.title = NSLocalizedString(@"Enter Daily Log", @"Enter Daily Log");
         
-        APHNotesViewController  *stenographer = [[APHNotesViewController alloc] initWithNibName:nil bundle:nil];
-        
-        //[stenographer.view setTranslatesAutoresizingMaskIntoConstraints:NO];
-        stenographer.view.frame = CGRectMake(0.0, 0.0, stepViewController.view.frame.size.width, stepViewController.view.frame.size.height);
-        
-        [stepViewController addChildViewController:stenographer];
-        
-        [stepViewController.view addSubview:stenographer.view];
-        [stenographer didMoveToParentViewController:stepViewController];
-        
     } else if (kDailyJournalStep103 == stepViewController.step.identifier) {
         taskViewController.navigationBar.topItem.title = NSLocalizedString(@"Log Submission", @"Log Submission");
-        
-        
-        APHLogSubmissionViewController  *stenographer = [[APHLogSubmissionViewController alloc] initWithNibName:nil bundle:nil];
-        
-        //[stenographer.view setTranslatesAutoresizingMaskIntoConstraints:NO];
-        stenographer.view.frame = CGRectMake(0.0, 0.0, stepViewController.view.frame.size.width, stepViewController.view.frame.size.height);
-        
-        [stepViewController addChildViewController:stenographer];
-        
-        [stepViewController.view addSubview:stenographer.view];
-        [stenographer didMoveToParentViewController:stepViewController];
 
     } else if (kDailyJournalStep104 == stepViewController.step.identifier) {
         taskViewController.navigationBar.topItem.title = NSLocalizedString(@"Log Complete", @"Log Complete");
@@ -182,25 +151,14 @@ static  NSString  *kDailyJournalStep104 = @"DailyJournalStep104";
  * @brief Tells the delegate that task result object has changed.
  */
 - (void)taskViewController:(RKSTTaskViewController *)taskViewController didChangeResult:(RKSTTaskResult *)result {
-    NSLog(@"Result %@", result);
-    
-    NSDictionary *journalText = [result.results objectAtIndex:0];
-    NSDictionary *journalLogging = [result.results objectAtIndex:0];
+    NSLog(@"TaskVC didChangeResult");
     
 }
 
-/*********************************************************************************/
-#pragma mark - StepViewController Delegate Methods
-/*********************************************************************************/
+- (void)taskViewControllerDidComplete: (RKSTTaskViewController *)taskViewController
+{
+    [super taskViewControllerDidComplete:taskViewController];
 
-//- (void)stepViewControllerWillBePresented:(RKSTStepViewController *)viewController
-//{
-//    viewController.skipButton = nil;
-//}
-
-//- (void)stepViewControllerDidFinish:(RKSTStepViewController *)stepViewController navigationDirection:(RKSTStepViewControllerNavigationDirection)direction
-//{
-//    [super stepViewControllerDidFinish:stepViewController navigationDirection:direction];
-//}
+}
 
 @end

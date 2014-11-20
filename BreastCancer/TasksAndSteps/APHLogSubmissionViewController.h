@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface APHLogSubmissionViewController : UIViewController
+@interface APHLogSubmissionViewController : APCStepViewController
 
 @end

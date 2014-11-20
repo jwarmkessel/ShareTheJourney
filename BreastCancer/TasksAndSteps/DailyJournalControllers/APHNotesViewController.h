@@ -7,23 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
-
+@import APCAppleCore;
 @class  APHNotesViewController;
 @class  APHLogNoteModel;
 
-@protocol  APHNotesViewControllerDelegate
-
-@required
-
-- (void)notesDidCancel:(APHNotesViewController *)controller;
-- (void)controller:(APHNotesViewController *)controller notesDidCompleteWithNote:(NSDictionary *)note  andChanges:(NSDictionary *)changes;
-
-@end
-
-@interface APHNotesViewController : UIViewController
+@interface APHNotesViewController : APCStepViewController
 
 @property  (nonatomic, weak)  NSDictionary  *note;
-
-@property  (nonatomic, weak)  id <APHNotesViewControllerDelegate>  delegate;
 
 @end
