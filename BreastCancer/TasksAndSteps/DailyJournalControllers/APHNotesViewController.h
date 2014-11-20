@@ -6,13 +6,14 @@
 //  Copyright (c) 2014 Y Media Labs. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
 @import APCAppleCore;
+#import <UIKit/UIKit.h>
+#import "APHCustomTextView.h"
 @class  APHNotesViewController;
 @class  APHLogNoteModel;
 
 @interface APHNotesViewController : APCStepViewController
 
 @property  (nonatomic, weak)  NSDictionary  *note;
-
+@property  (nonatomic, weak)  IBOutlet  APHCustomTextView    *scriptorium;
 @end

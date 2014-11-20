@@ -7,9 +7,7 @@
 //
 
 #import "APHNotesViewController.h"
-#import "APHCustomTextView.h"
 #import "APHMoodLogDictionaryKeys.h"
-
 
 
 typedef  enum  _TypingDirection
@@ -25,7 +23,7 @@ static  NSUInteger  kThresholdForLimitWarning   = 140;
 
 @interface APHNotesViewController  ( )  <UITextViewDelegate>
 
-@property  (nonatomic, weak)  IBOutlet  APHCustomTextView    *scriptorium;
+
 
 @property  (nonatomic, weak)  IBOutlet  UINavigationBar      *navigator;
 @property  (nonatomic, weak)  IBOutlet  UILabel              *counterDisplay;
@@ -45,6 +43,7 @@ static  NSUInteger  kThresholdForLimitWarning   = 140;
 @property (weak, nonatomic) IBOutlet UIView *containerView;
 - (IBAction)submitTapped:(id)sender;
 
+@property (nonatomic, strong) RKSTStepResult *cachedResult;
 
 @end
 
@@ -167,12 +166,23 @@ static  NSUInteger  kThresholdForLimitWarning   = 140;
     }];
 }
 
+#pragma mark - UINavigation Buttons
+
+- (void)cancelButtonTapped:(id)sender
+{
+    if ([self.delegate respondsToSelector:@selector(stepViewControllerDidCancel:)] == YES) {
+        [self.delegate stepViewControllerDidCancel:self];
+    }
+}
+
 #pragma  mark  -  View Controller Methods
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(cancelButtonTapped:)];
+    
     self.scriptorium.text = @"";
     self.navigator.topItem.title = @"";
     
@@ -209,8 +219,6 @@ static  NSUInteger  kThresholdForLimitWarning   = 140;
         NSUInteger  count = [self countWords:self.scriptorium.text];
         [self displayWordCount:count];
     }
-    
-    [self.scriptorium becomeFirstResponder];
 }
 
 - (void)viewDidLayoutSubviews {
@@ -227,8 +235,6 @@ static  NSUInteger  kThresholdForLimitWarning   = 140;
 
 - (IBAction)submitTapped:(id)sender {
 
-    
-    
     [self.scriptorium resignFirstResponder];
     
     [self.noteContentModel setObject:self.scriptorium.text forKey:APHMoodLogNoteTextKey];
@@ -236,26 +242,28 @@ static  NSUInteger  kThresholdForLimitWarning   = 140;
     [self.noteChangesModel setObject:self.noteModifications forKey:APHMoodLogNoteModificationsKey];
     
     
-    RKSTDataResult *contentModel = [[RKSTDataResult alloc] initWithIdentifier:@"DailyJournalStep102"];
-    RKSTDataResult *changesModel = [[RKSTDataResult alloc] initWithIdentifier:@"DailyJournalStep102"];
-    
-    RKSTQuestionResult *questionResult = [[RKSTQuestionResult alloc] initWithIdentifier:@"DailyJournalStep102"];
-    questionResult.answer = @"YES!!!!";
-    
+    RKSTDataResult *contentModel = [[RKSTDataResult alloc] initWithIdentifier:@"content"];
+    RKSTDataResult *changesModel = [[RKSTDataResult alloc] initWithIdentifier:@"changes"];
+        
     contentModel.data = [NSKeyedArchiver archivedDataWithRootObject:self.noteContentModel];
     changesModel.data = [NSKeyedArchiver archivedDataWithRootObject:self.noteChangesModel];
     
     NSArray *resultsArray = @[contentModel, changesModel];
     
-    RKSTStepResult *stepResult = [[RKSTStepResult alloc] initWithStepIdentifier:@"DailyJournalStep102" results:@[questionResult]];
+    self.cachedResult = [[RKSTStepResult alloc] initWithStepIdentifier:@"DailyJournalStep102" results:resultsArray];
     
-    [self.delegate stepViewController:self didChangeResult:stepResult];
+    [self.delegate stepViewController:self didChangeResult:self.cachedResult];
     
 
     if ([self.delegate respondsToSelector:@selector(stepViewControllerDidFinish:navigationDirection:)] == YES) {
         [self.delegate stepViewControllerDidFinish:self navigationDirection:RKSTStepViewControllerNavigationDirectionForward];
     }
 
+}
+
+- (RKSTStepResult *)result {
+
+    return self.cachedResult;
 }
 
 

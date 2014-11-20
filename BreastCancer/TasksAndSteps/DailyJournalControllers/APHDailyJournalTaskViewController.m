@@ -101,7 +101,6 @@ static  NSString  *kDailyJournalStep104 = @"DailyJournalStep104";
         controller = [[aClass alloc] initWithNibName:nil bundle:[NSBundle appleCoreBundle]];
     }
     
-    
     controller.delegate = self;
     controller.title = @"Daily Journal";
     controller.step = step;
@@ -119,12 +118,30 @@ static  NSString  *kDailyJournalStep104 = @"DailyJournalStep104";
         
         taskViewController.navigationBar.topItem.title = NSLocalizedString(@"Enter Daily Log", @"Enter Daily Log");
         
+//TODO Waiting on Apple to fix this bug so this code works.
+//        RKSTStepResult *stepResult = [taskViewController.result stepResultForStepIdentifier:@"DailyJournalStep102"];
+//        
+//        if (stepResult) {
+//            RKSTDataResult *contentResult = (RKSTDataResult *)[stepResult resultForIdentifier:@"content"];
+//            NSDictionary *dict = [NSKeyedUnarchiver unarchiveObjectWithData:contentResult.data];
+//            APHNotesViewController *notesStepViewController = (APHNotesViewController *) stepViewController;
+//            notesStepViewController.scriptorium.text = dict[@"APHMoodLogNoteText"];
+//        }
+        
     } else if (kDailyJournalStep103 == stepViewController.step.identifier) {
         taskViewController.navigationBar.topItem.title = NSLocalizedString(@"Log Submission", @"Log Submission");
 
+        RKSTStepResult *stepResult = [taskViewController.result stepResultForStepIdentifier:@"DailyJournalStep102"];
+        RKSTDataResult *contentResult = (RKSTDataResult *)[stepResult resultForIdentifier:@"content"];
+        
+        NSDictionary *dict = [NSKeyedUnarchiver unarchiveObjectWithData:contentResult.data];
+    
+        APHLogSubmissionViewController *logSubmissionStepVC = (APHLogSubmissionViewController *) stepViewController;
+        logSubmissionStepVC.textView.text = dict[@"APHMoodLogNoteText"];
+
+        
     } else if (kDailyJournalStep104 == stepViewController.step.identifier) {
         taskViewController.navigationBar.topItem.title = NSLocalizedString(@"Log Complete", @"Log Complete");
-        
     }
     
 }
