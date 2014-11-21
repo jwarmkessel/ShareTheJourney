@@ -262,6 +262,7 @@
 		5B15DD241A114F9000BEA0D1 /* Onboarding */ = {
 			isa = PBXGroup;
 			children = (
+				5B15DD2D1A114F9000BEA0D1 /* APHOnboarding.storyboard */,
 				5B15DD251A114F9000BEA0D1 /* APHEligibleViewController.h */,
 				5B15DD261A114F9000BEA0D1 /* APHEligibleViewController.m */,
 				5B15DD271A114F9000BEA0D1 /* APHInclusionCriteriaViewController.h */,
@@ -270,7 +271,6 @@
 				5B15DD2A1A114F9000BEA0D1 /* APHInEligibleViewController.m */,
 				5B15DD2B1A114F9000BEA0D1 /* APHIntroVideoViewController.h */,
 				5B15DD2C1A114F9000BEA0D1 /* APHIntroVideoViewController.m */,
-				5B15DD2D1A114F9000BEA0D1 /* APHOnboarding.storyboard */,
 				5B15DD2E1A114F9000BEA0D1 /* APHSignInViewController.h */,
 				5B15DD2F1A114F9000BEA0D1 /* APHSignInViewController.m */,
 				5B15DD301A114F9000BEA0D1 /* APHSignUpGeneralInfoViewController.h */,
