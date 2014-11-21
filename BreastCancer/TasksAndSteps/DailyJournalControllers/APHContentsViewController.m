@@ -9,8 +9,9 @@
 #import "APHContentsViewController.h"
 #import "APHNotesViewController.h"
 #import "APHMoodLogDictionaryKeys.h"
-
+#import "APHAppDelegate.h"
 #import "APHNotesContentsTableViewCell.h"
+#import "APHDisplayLogHistoryViewController.h"
 
 static  NSString  *kNotesContentStoragePath = @"DailyMoodLogsContent.json";
 static  NSString  *kNotesChangesStoragePath = @"DailyMoodLogsChanges.json";
@@ -31,6 +32,7 @@ typedef  enum  _DailyLogType
 @property  (nonatomic, strong)          NSMutableArray  *contentObjects;
 @property  (nonatomic, strong)          NSMutableArray  *changesObjects;
 
+@property (nonatomic, strong) NSArray *logHistory;
 @end
 
 @implementation APHContentsViewController
@@ -83,6 +85,7 @@ typedef  enum  _DailyLogType
             NSLog(@"Unable to Read Jason Data: error = %@", error);
         }
     }
+    
     return  object;
 }
 
@@ -152,7 +155,7 @@ typedef  enum  _DailyLogType
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return  [self.contentObjects count];
+    return  [self.logHistory count];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -162,18 +165,17 @@ typedef  enum  _DailyLogType
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSDictionary  *model = self.contentObjects[indexPath.row];
+    APCResult  *model = self.logHistory[indexPath.row];
     
     APHNotesContentsTableViewCell  *cell = (APHNotesContentsTableViewCell *)[tableView dequeueReusableCellWithIdentifier:kContentsTableViewCellIdentifier];
     
-    cell.noteName.text = [NSString stringWithFormat:@"Log %ld", (indexPath.row + 1)];
+    cell.noteName.text = model.resultSummary;
     
     NSDateFormatter  *formatter = [[NSDateFormatter alloc] init];
     [formatter setDateStyle: NSDateFormatterShortStyle];
     [formatter setTimeStyle: NSDateFormatterNoStyle];
-    
-    NSTimeInterval  timestamp = [model[APHMoodLogNoteTimeStampKey] doubleValue];
-    NSDate  *date = [NSDate dateWithTimeIntervalSinceReferenceDate:timestamp];
+
+    NSDate  *date = model.createdAt;
     cell.noteDate.text = [formatter stringFromDate:date];
     
     return  cell;
@@ -185,11 +187,19 @@ typedef  enum  _DailyLogType
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSDictionary  *model = self.contentObjects[indexPath.row];
-    APHNotesViewController  *stenographer = [[APHNotesViewController alloc] initWithNibName:nil bundle:nil];
-    stenographer.note = model;
+    APCResult  *model = self.logHistory[indexPath.row];
+    APHDisplayLogHistoryViewController  *stenographer = [[APHDisplayLogHistoryViewController alloc] initWithNibName:@"APHDisplayLogHistoryViewController" bundle:[NSBundle mainBundle]];
     
-    [self presentViewController:stenographer animated:YES completion:^{ }];
+    NSDateFormatter  *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateStyle: NSDateFormatterShortStyle];
+    [formatter setTimeStyle: NSDateFormatterNoStyle];
+    
+    NSDate  *date = model.createdAt;
+    
+    [self presentViewController:stenographer animated:YES completion:nil];
+    
+    [stenographer setTextViewText:model.resultSummary];
+    stenographer.dateLabel.text = [formatter stringFromDate:date];
 }
 
 /*********************************************************************************/
@@ -200,23 +210,42 @@ typedef  enum  _DailyLogType
 {
     [super viewDidLoad];
     
-    [self.tabulator registerNib:[UINib nibWithNibName:@"APHNotesContentsTableViewCell"
-                                               bundle:[NSBundle mainBundle]] forCellReuseIdentifier:(NSString *)kContentsTableViewCellIdentifier];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    APHAppDelegate *appDelegate = [UIApplication sharedApplication].delegate;
+    
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc]
+                                        initWithKey:@"endDate" ascending:NO];
+    
+    
+    NSFetchRequest * request = [APCResult request];
+    request.predicate = [NSPredicate predicateWithFormat:@"rkTaskIdentifier == %@", [[self.taskViewController task] identifier]];
+    request.sortDescriptors = @[sortDescriptor];
+    
+    self.logHistory = [appDelegate.dataSubstrate.mainContext executeFetchRequest:request error:NULL];
     
     [self.enterDailyLog setBackgroundColor:[UIColor appPrimaryColor]];
     
-    NSDictionary  *modelsDictionary = [self fetchDataModelsForType:DailyLogTypeNotesContent];
-    if (modelsDictionary == nil) {
-        self.contentObjects = [NSMutableArray array];
-        self.changesObjects = [NSMutableArray array];
-    } else {
-        NSArray  *contentModels = modelsDictionary[@"items"];
-        self.contentObjects = [contentModels mutableCopy];
-        NSArray  *changesModels = modelsDictionary[@"items"];
-        self.changesObjects = [changesModels mutableCopy];
-    }
+    [self.tabulator registerNib:[UINib nibWithNibName:@"APHNotesContentsTableViewCell"
+                                                   bundle:[NSBundle mainBundle]] forCellReuseIdentifier:(NSString *)kContentsTableViewCellIdentifier];
     
+    
+    //
+    //    NSDictionary  *modelsDictionary = [self fetchDataModelsForType:DailyLogTypeNotesContent];
+    //    if (modelsDictionary == nil) {
+    //        self.contentObjects = [NSMutableArray array];
+    //        self.changesObjects = [NSMutableArray array];
+    //    } else {
+    //        NSArray  *contentModels = modelsDictionary[@"items"];
+    //        self.contentObjects = [contentModels mutableCopy];
+    //        NSArray  *changesModels = modelsDictionary[@"items"];
+    //        self.changesObjects = [changesModels mutableCopy];
+    //    }
+    //
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(cancelButtonTapped:)];
+
 }
 
 - (void)cancelButtonTapped:(id)sender
