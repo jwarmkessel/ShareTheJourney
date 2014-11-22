@@ -59,49 +59,6 @@ static  NSString  *kMoodSurveyStep107 = @"moodsurvey107";
         [steps addObject:step];
     }
     
-    // Biographic and Demographic
-    {
-        NSMutableArray *stepQuestions = [NSMutableArray array];
-        RKSTFormStep *step = [[RKSTFormStep alloc] initWithIdentifier:kMoodSurveyStep102
-                                                                title:nil
-                                                             subtitle:NSLocalizedString(@"To calculate your heart age, please enter a few details about yourself.",
-                                                                                        @"To calculate your heart age, please enter a few details about yourself.")];
-        step.optional = NO;
-    }
-    
-//        {
-//            RKSTHealthKitCharacteristicTypeAnswerFormat *format = [RKSTHealthKitCharacteristicTypeAnswerFormat answerFormatWithCharacteristicType:[HKCharacteristicType characteristicTypeForIdentifier:HKCharacteristicTypeIdentifierDateOfBirth]];
-//            
-//            RKSTFormItem *item = [[RKSTFormItem alloc] initWithIdentifier:kMoodSurveyStep103
-//                                                                     text:NSLocalizedString(@"Date of birth", @"Date of birth")
-//                                                             answerFormat:format];
-//            [stepQuestions addObject:item];
-//        }
-//        
-//        {
-//            RKSTHealthKitCharacteristicTypeAnswerFormat *format = [RKSTHealthKitCharacteristicTypeAnswerFormat answerFormatWithCharacteristicType:[HKCharacteristicType characteristicTypeForIdentifier:HKCharacteristicTypeIdentifierBiologicalSex]];
-//            
-//            RKSTFormItem *item = [[RKSTFormItem alloc] initWithIdentifier:kMoodSurveyStep104
-//                                                                     text:NSLocalizedString(@"Gender", @"Gender")
-//                                                             answerFormat:format];
-//            [stepQuestions addObject:item];
-//        }
-//        
-//        {
-//            RKSTAnswerFormat *format = [RKSTChoiceAnswerFormat choiceAnswerWithTextOptions:@[@"African-American", @"Other"]
-//                                                                                     style:RKChoiceAnswerStyleSingleChoice];
-//        
-//            RKSTFormItem *item = [[RKSTFormItem alloc] initWithIdentifier:kMoodSurveyStep105
-//                                                                     text:NSLocalizedString(@"Ethnicity", @"Ethnicity")
-//                                                             answerFormat:format];
-//            [stepQuestions addObject:item];
-//        }
-//        
-//        [step setFormItems:stepQuestions];
-//        
-//        [steps addObject:step];
-
-    
     {
         
         NSArray* questionChoices = @[@"Perfectly crisp concentration",
@@ -120,14 +77,31 @@ static  NSString  *kMoodSurveyStep107 = @"moodsurvey107";
     
     {
         
+        NSArray *imageChoices = @[[UIImage imageNamed:@"email_icon"],
+                            [UIImage imageNamed:@"facebook_icon"],
+                            [UIImage imageNamed:@"sms_icon"],
+                            [UIImage imageNamed:@"twitter_icon"],
+                            [UIImage imageNamed:@"twitter_icon"]];
+        
         NSArray* questionChoices = @[@"Ready to take on the world",
                                      @"Filled with energy through the day",
                                      @"Energy to make it through the day",
                                      @"Basic functions",
                                      @"No energy"];
+
+        NSMutableArray *answerChoices = [NSMutableArray new];
         
-        RKSTAnswerFormat *format = [RKSTChoiceAnswerFormat choiceAnswerWithTextOptions:questionChoices
-                                                                                 style:RKChoiceAnswerStyleSingleChoice];
+        for (int i = 0; i<[imageChoices count]; i++) {
+            RKSTImageAnswerOption *answerOption = [RKSTImageAnswerOption optionWithNormalImage:imageChoices[i]
+                                                                                 selectedImage:imageChoices[0]
+                                                                                          text:questionChoices[i]
+                                                                                         value:[NSNumber class]];
+
+            [answerChoices addObject:answerOption];
+        }
+        
+        RKSTAnswerFormat *format = [RKSTChoiceAnswerFormat choiceAnswerWithImageOptions:answerChoices style:RKChoiceAnswerStyleSingleChoice];
+        
         
         RKSTQuestionStep *step = [RKSTQuestionStep questionStepWithIdentifier:kMoodSurveyStep104 title:@"What is your overall mood so far today?" answer:format];
         
