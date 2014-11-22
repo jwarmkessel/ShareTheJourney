@@ -37,7 +37,7 @@ static  NSString  *kMoodSurveyStep107 = @"moodsurvey107";
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    [RKSTHeadlineLabel appearance].labelFont = [UIFont systemFontOfSize:15];
+    [RKSTHeadlineLabel appearance].labelFont = [UIFont systemFontOfSize:20];
 }
 
 - (void)didReceiveMemoryWarning {
