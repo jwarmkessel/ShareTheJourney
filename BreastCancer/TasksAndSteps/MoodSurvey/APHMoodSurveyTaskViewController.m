@@ -60,6 +60,11 @@ static  NSString  *kMoodSurveyStep107 = @"moodsurvey107";
     }
     
     {
+        NSArray *imageChoices = @[[UIImage imageNamed:@"email_icon"],
+                                  [UIImage imageNamed:@"facebook_icon"],
+                                  [UIImage imageNamed:@"sms_icon"],
+                                  [UIImage imageNamed:@"twitter_icon"],
+                                  [UIImage imageNamed:@"twitter_icon"]];
         
         NSArray* questionChoices = @[@"Perfectly crisp concentration",
                                       @"No issues with concentration",
@@ -67,8 +72,19 @@ static  NSString  *kMoodSurveyStep107 = @"moodsurvey107";
                                       @"Difficulties with concentration",
                                       @"No concentration"];
         
-        RKSTAnswerFormat *format = [RKSTChoiceAnswerFormat choiceAnswerWithTextOptions:questionChoices
-                                                                                 style:RKChoiceAnswerStyleSingleChoice];
+        NSMutableArray *answerChoices = [NSMutableArray new];
+        
+        for (int i = 0; i<[imageChoices count]; i++) {
+            RKSTImageAnswerOption *answerOption = [RKSTImageAnswerOption optionWithNormalImage:imageChoices[i]
+                                                                                 selectedImage:imageChoices[0]
+                                                                                          text:questionChoices[i]
+                                                                                         value:[NSNumber class]];
+            
+            [answerChoices addObject:answerOption];
+        }
+        
+        RKSTAnswerFormat *format = [RKSTChoiceAnswerFormat choiceAnswerWithImageOptions:answerChoices style:RKChoiceAnswerStyleSingleChoice];
+
         
         RKSTQuestionStep *step = [RKSTQuestionStep questionStepWithIdentifier:kMoodSurveyStep103 title:@"How were you feeling cognitively throughout the day?" answer:format];
 
@@ -109,15 +125,31 @@ static  NSString  *kMoodSurveyStep107 = @"moodsurvey107";
     }
     
     {
-
+        NSArray *imageChoices = @[[UIImage imageNamed:@"email_icon"],
+                                  [UIImage imageNamed:@"facebook_icon"],
+                                  [UIImage imageNamed:@"sms_icon"],
+                                  [UIImage imageNamed:@"twitter_icon"],
+                                  [UIImage imageNamed:@"twitter_icon"]];
+        
         NSArray* questionChoices = @[@"The Best I have felt",
                                      @"Better than usual",
                                      @"Normal",
                                      @"Down",
                                      @"Extremely down"];
         
-        RKSTAnswerFormat *format = [RKSTChoiceAnswerFormat choiceAnswerWithTextOptions:questionChoices
-                                                                                 style:RKChoiceAnswerStyleSingleChoice];
+        NSMutableArray *answerChoices = [NSMutableArray new];
+        
+        for (int i = 0; i<[imageChoices count]; i++) {
+            RKSTImageAnswerOption *answerOption = [RKSTImageAnswerOption optionWithNormalImage:imageChoices[i]
+                                                                                 selectedImage:imageChoices[0]
+                                                                                          text:questionChoices[i]
+                                                                                         value:[NSNumber class]];
+            
+            [answerChoices addObject:answerOption];
+        }
+        
+        RKSTAnswerFormat *format = [RKSTChoiceAnswerFormat choiceAnswerWithImageOptions:answerChoices style:RKChoiceAnswerStyleSingleChoice];
+
         
         RKSTQuestionStep *step = [RKSTQuestionStep questionStepWithIdentifier:kMoodSurveyStep105 title:@"What is your energy level like so far today?" answer:format];
         
@@ -125,6 +157,11 @@ static  NSString  *kMoodSurveyStep107 = @"moodsurvey107";
     }
     
     {
+        NSArray *imageChoices = @[[UIImage imageNamed:@"email_icon"],
+                                  [UIImage imageNamed:@"facebook_icon"],
+                                  [UIImage imageNamed:@"sms_icon"],
+                                  [UIImage imageNamed:@"twitter_icon"],
+                                  [UIImage imageNamed:@"twitter_icon"]];
         
         NSArray* questionChoices = @[@"Eliminated all deficit sleep",
                                      @"Made up some deficit sleep",
@@ -132,8 +169,19 @@ static  NSString  *kMoodSurveyStep107 = @"moodsurvey107";
                                      @"Barely enough sleep",
                                      @"No real sleep"];
         
-        RKSTAnswerFormat *format = [RKSTChoiceAnswerFormat choiceAnswerWithTextOptions:questionChoices
-                                                                                 style:RKChoiceAnswerStyleSingleChoice];
+        NSMutableArray *answerChoices = [NSMutableArray new];
+        
+        for (int i = 0; i<[imageChoices count]; i++) {
+            RKSTImageAnswerOption *answerOption = [RKSTImageAnswerOption optionWithNormalImage:imageChoices[i]
+                                                                                 selectedImage:imageChoices[0]
+                                                                                          text:questionChoices[i]
+                                                                                         value:[NSNumber class]];
+            
+            [answerChoices addObject:answerOption];
+        }
+        
+        RKSTAnswerFormat *format = [RKSTChoiceAnswerFormat choiceAnswerWithImageOptions:answerChoices style:RKChoiceAnswerStyleSingleChoice];
+
         
         RKSTQuestionStep *step = [RKSTQuestionStep questionStepWithIdentifier:kMoodSurveyStep106 title:@"Did you get enough quality sleep last night?" answer:format];
         
@@ -141,15 +189,31 @@ static  NSString  *kMoodSurveyStep107 = @"moodsurvey107";
     }
     
     {
-
+        NSArray *imageChoices = @[[UIImage imageNamed:@"email_icon"],
+                                  [UIImage imageNamed:@"facebook_icon"],
+                                  [UIImage imageNamed:@"sms_icon"],
+                                  [UIImage imageNamed:@"twitter_icon"],
+                                  [UIImage imageNamed:@"twitter_icon"]];
+        
         NSArray* questionChoices = @[@"Activities that make you breathe hard and sweat",
                                      @"Walking",
                                      @"Standing",
                                      @"Sitting",
                                      @"Lying down"];
         
-        RKSTAnswerFormat *format = [RKSTChoiceAnswerFormat choiceAnswerWithTextOptions:questionChoices
-                                                                                 style:RKChoiceAnswerStyleSingleChoice];
+        NSMutableArray *answerChoices = [NSMutableArray new];
+        
+        for (int i = 0; i<[imageChoices count]; i++) {
+            RKSTImageAnswerOption *answerOption = [RKSTImageAnswerOption optionWithNormalImage:imageChoices[i]
+                                                                                 selectedImage:imageChoices[0]
+                                                                                          text:questionChoices[i]
+                                                                                         value:[NSNumber class]];
+            
+            [answerChoices addObject:answerOption];
+        }
+        
+        RKSTAnswerFormat *format = [RKSTChoiceAnswerFormat choiceAnswerWithImageOptions:answerChoices style:RKChoiceAnswerStyleSingleChoice];
+
         
         RKSTQuestionStep *step = [RKSTQuestionStep questionStepWithIdentifier:kMoodSurveyStep107 title:@"What level exercise are you getting today?" answer:format];
         
