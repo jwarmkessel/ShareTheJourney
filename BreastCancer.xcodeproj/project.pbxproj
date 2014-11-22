@@ -35,7 +35,10 @@
 		5B1D9D6E1A1BD414000F4AD6 /* APHDashboardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B1D9D6B1A1BD414000F4AD6 /* APHDashboardViewController.m */; };
 		5B1D9D741A1BD419000F4AD6 /* APHDataPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B1D9D711A1BD419000F4AD6 /* APHDataPoint.m */; };
 		5B1D9D751A1BD419000F4AD6 /* APHScoring.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B1D9D731A1BD419000F4AD6 /* APHScoring.m */; };
-		7B5E25A91A1EBF7300A04FEF /* APHMoodSurveyTaskViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B5E25A81A1EBF7300A04FEF /* APHMoodSurveyTaskViewController.m */; };
+		5B8E6C0D1A1FD5020033733A /* AboutStudy.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 5B8E6C091A1FD5020033733A /* AboutStudy.pdf */; };
+		5B8E6C0E1A1FD5020033733A /* EligibleToParticipate.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 5B8E6C0A1A1FD5020033733A /* EligibleToParticipate.pdf */; };
+		5B8E6C0F1A1FD5020033733A /* HowStudyWorks.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 5B8E6C0B1A1FD5020033733A /* HowStudyWorks.pdf */; };
+		5B8E6C101A1FD5020033733A /* WhoRunningStudy.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 5B8E6C0C1A1FD5020033733A /* WhoRunningStudy.pdf */; };
 		7B8D703E1A1C4B13003A7A5B /* APHLogSubmissionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B8D703C1A1C4B13003A7A5B /* APHLogSubmissionViewController.m */; };
 		7B8D703F1A1C4B13003A7A5B /* APHLogSubmissionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7B8D703D1A1C4B13003A7A5B /* APHLogSubmissionViewController.xib */; };
 		CF15F24B1A11616500D87570 /* APHDailyJournalTaskViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CF15F24A1A11616500D87570 /* APHDailyJournalTaskViewController.m */; };
@@ -163,8 +166,10 @@
 		5B1D9D711A1BD419000F4AD6 /* APHDataPoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APHDataPoint.m; sourceTree = "<group>"; };
 		5B1D9D721A1BD419000F4AD6 /* APHScoring.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APHScoring.h; sourceTree = "<group>"; };
 		5B1D9D731A1BD419000F4AD6 /* APHScoring.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APHScoring.m; sourceTree = "<group>"; };
-		7B5E25A71A1EBF7300A04FEF /* APHMoodSurveyTaskViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APHMoodSurveyTaskViewController.h; sourceTree = "<group>"; };
-		7B5E25A81A1EBF7300A04FEF /* APHMoodSurveyTaskViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APHMoodSurveyTaskViewController.m; sourceTree = "<group>"; };
+		5B8E6C091A1FD5020033733A /* AboutStudy.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = AboutStudy.pdf; sourceTree = "<group>"; };
+		5B8E6C0A1A1FD5020033733A /* EligibleToParticipate.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = EligibleToParticipate.pdf; sourceTree = "<group>"; };
+		5B8E6C0B1A1FD5020033733A /* HowStudyWorks.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = HowStudyWorks.pdf; sourceTree = "<group>"; };
+		5B8E6C0C1A1FD5020033733A /* WhoRunningStudy.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = WhoRunningStudy.pdf; sourceTree = "<group>"; };
 		7B8D703B1A1C4B13003A7A5B /* APHLogSubmissionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APHLogSubmissionViewController.h; sourceTree = "<group>"; };
 		7B8D703C1A1C4B13003A7A5B /* APHLogSubmissionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APHLogSubmissionViewController.m; sourceTree = "<group>"; };
 		7B8D703D1A1C4B13003A7A5B /* APHLogSubmissionViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = APHLogSubmissionViewController.xib; sourceTree = "<group>"; };
@@ -265,6 +270,7 @@
 		5B15DD241A114F9000BEA0D1 /* Onboarding */ = {
 			isa = PBXGroup;
 			children = (
+				5B15DD2D1A114F9000BEA0D1 /* APHOnboarding.storyboard */,
 				5B15DD251A114F9000BEA0D1 /* APHEligibleViewController.h */,
 				5B15DD261A114F9000BEA0D1 /* APHEligibleViewController.m */,
 				5B15DD271A114F9000BEA0D1 /* APHInclusionCriteriaViewController.h */,
@@ -273,7 +279,6 @@
 				5B15DD2A1A114F9000BEA0D1 /* APHInEligibleViewController.m */,
 				5B15DD2B1A114F9000BEA0D1 /* APHIntroVideoViewController.h */,
 				5B15DD2C1A114F9000BEA0D1 /* APHIntroVideoViewController.m */,
-				5B15DD2D1A114F9000BEA0D1 /* APHOnboarding.storyboard */,
 				5B15DD2E1A114F9000BEA0D1 /* APHSignInViewController.h */,
 				5B15DD2F1A114F9000BEA0D1 /* APHSignInViewController.m */,
 				5B15DD301A114F9000BEA0D1 /* APHSignUpGeneralInfoViewController.h */,
@@ -313,13 +318,15 @@
 			path = Scoring;
 			sourceTree = "<group>";
 		};
-		7B5E25A61A1EBF4500A04FEF /* Mood Survey */ = {
+		5B8E6C081A1FD5020033733A /* ContentPDFs */ = {
 			isa = PBXGroup;
 			children = (
-				7B5E25A71A1EBF7300A04FEF /* APHMoodSurveyTaskViewController.h */,
-				7B5E25A81A1EBF7300A04FEF /* APHMoodSurveyTaskViewController.m */,
+				5B8E6C091A1FD5020033733A /* AboutStudy.pdf */,
+				5B8E6C0A1A1FD5020033733A /* EligibleToParticipate.pdf */,
+				5B8E6C0B1A1FD5020033733A /* HowStudyWorks.pdf */,
+				5B8E6C0C1A1FD5020033733A /* WhoRunningStudy.pdf */,
 			);
-			name = "Mood Survey";
+			path = ContentPDFs;
 			sourceTree = "<group>";
 		};
 		CF2697DA19EC3E0D00525E19 /* Daily Journal Controllers */ = {
@@ -415,6 +422,7 @@
 		F534B5C419E4689D00C3C152 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				5B8E6C081A1FD5020033733A /* ContentPDFs */,
 				F534B5CA19E4689D00C3C152 /* JSONs */,
 				F534B5D619E4689D00C3C152 /* Videos */,
 			);
@@ -482,7 +490,6 @@
 			children = (
 				CF5FAB3E19F95C630006CA71 /* APHIntroductionViewController.h */,
 				CF5FAB3F19F95C630006CA71 /* APHIntroductionViewController.m */,
-				7B5E25A61A1EBF4500A04FEF /* Mood Survey */,
 				CF2697DA19EC3E0D00525E19 /* Daily Journal Controllers */,
 			);
 			path = TasksAndSteps;
@@ -601,10 +608,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5B8E6C0E1A1FD5020033733A /* EligibleToParticipate.pdf in Resources */,
+				5B8E6C0D1A1FD5020033733A /* AboutStudy.pdf in Resources */,
 				5B15DD721A118FF900BEA0D1 /* Intro.mp4 in Resources */,
+				5B8E6C101A1FD5020033733A /* WhoRunningStudy.pdf in Resources */,
 				5B15DCF51A114F7000BEA0D1 /* WithdrawStudy.json in Resources */,
 				5B15DD3E1A114F9000BEA0D1 /* APHOnboarding.storyboard in Resources */,
 				5B1D9D6C1A1BD414000F4AD6 /* APHDashboard.storyboard in Resources */,
+				5B8E6C0F1A1FD5020033733A /* HowStudyWorks.pdf in Resources */,
 				CF5FAB4319F95C8F0006CA71 /* APHContentsViewController.xib in Resources */,
 				F534B59419E4681E00C3C152 /* Images.xcassets in Resources */,
 				F534B68E19E4689D00C3C152 /* StudyOverview.json in Resources */,
@@ -636,7 +647,6 @@
 				CF2697E919EC3E4200525E19 /* APHNotesContentsTableViewCell.m in Sources */,
 				5B15DD441A114F9000BEA0D1 /* APHStudyOverviewViewController.m in Sources */,
 				5B15DD3F1A114F9000BEA0D1 /* APHSignInViewController.m in Sources */,
-				7B5E25A91A1EBF7300A04FEF /* APHMoodSurveyTaskViewController.m in Sources */,
 				5B15DD3B1A114F9000BEA0D1 /* APHInclusionCriteriaViewController.m in Sources */,
 				CF2697E619EC3E4200525E19 /* APHContentsViewController.m in Sources */,
 				CF15F24F1A116A5A00D87570 /* APHDailyJournalIntroViewController.m in Sources */,

@@ -29,20 +29,35 @@
 {
     [self studyDetailsFromJSONFile:@"StudyOverview"];
     
+    {
+        APCTableViewStudyDetailsItem *shareStudyItem = [APCTableViewStudyDetailsItem new];
+        shareStudyItem.caption = NSLocalizedString(@"Share this Study", nil);
+        shareStudyItem.iconImage = [UIImage imageNamed:@"share_icon"];
+        shareStudyItem.tintColor = [UIColor appTertiaryGreenColor];
+        
+        APCTableViewRow *rowItem = [APCTableViewRow new];
+        rowItem.item = shareStudyItem;
+        rowItem.itemType = kAPCTableViewStudyItemTypeShare;
+        APCTableViewSection *section = [self.items firstObject];
+        NSMutableArray *rowItems = [NSMutableArray arrayWithArray:section.rows];
+        [rowItems addObject:rowItem];
+        section.rows = [NSArray arrayWithArray:rowItems];
+    }
     
-    APCTableViewStudyDetailsItem *reviewConsentItem = [APCTableViewStudyDetailsItem new];
-    reviewConsentItem.caption = NSLocalizedString(@"Review Consent", nil);
-    reviewConsentItem.iconImage = [UIImage imageNamed:@"consent_icon"];
-    reviewConsentItem.tintColor = [UIColor appTertiaryPurpleColor];
-    
-    APCTableViewRow *rowItem = [APCTableViewRow new];
-    rowItem.item = reviewConsentItem;
-    
-    APCTableViewSection *section = [self.items firstObject];
-    NSMutableArray *rowItems = [NSMutableArray arrayWithArray:section.rows];
-    [rowItems addObject:rowItem];
-    section.rows = [NSArray arrayWithArray:rowItems];
-    
+    {
+        APCTableViewStudyDetailsItem *reviewConsentItem = [APCTableViewStudyDetailsItem new];
+        reviewConsentItem.caption = NSLocalizedString(@"Review Consent", nil);
+        reviewConsentItem.iconImage = [UIImage imageNamed:@"consent_icon"];
+        reviewConsentItem.tintColor = [UIColor appTertiaryPurpleColor];
+        
+        APCTableViewRow *rowItem = [APCTableViewRow new];
+        rowItem.item = reviewConsentItem;
+        rowItem.itemType = kAPCTableViewStudyItemTypeReviewConsent;
+        APCTableViewSection *section = [self.items firstObject];
+        NSMutableArray *rowItems = [NSMutableArray arrayWithArray:section.rows];
+        [rowItems addObject:rowItem];
+        section.rows = [NSArray arrayWithArray:rowItems];
+    }    
 }
 
 #pragma mark - UITableViewDelegate methods
@@ -58,18 +73,31 @@
     [super tableView:tableView didSelectRowAtIndexPath:indexPath];
     
     APCTableViewStudyDetailsItem *studyDetails = [self itemForIndexPath:indexPath];
+    APCTableViewStudyItemType itemType = [self itemTypeForIndexPath:indexPath];
     
-    if (indexPath.row == 4) {
-        APCShareViewController *shareViewController = [[UIStoryboard storyboardWithName:@"APHOnboarding" bundle:nil] instantiateViewControllerWithIdentifier:@"ShareVC"];
-        shareViewController.hidesOkayButton = YES;
-        [self.navigationController pushViewController:shareViewController animated:YES];
-        
-    } else if (indexPath.row == 5) {
-        [self showConsent];
-    } else {
-        APCStudyDetailsViewController *detailsViewController = [[UIStoryboard storyboardWithName:@"APHOnboarding" bundle:nil] instantiateViewControllerWithIdentifier:@"StudyDetailsVC"];
-        detailsViewController.studyDetails = studyDetails;
-        [self.navigationController pushViewController:detailsViewController animated:YES];
+    switch (itemType) {
+        case kAPCTableViewStudyItemTypeStudyDetails:
+        {
+            APCStudyDetailsViewController *detailsViewController = [[UIStoryboard storyboardWithName:@"APHOnboarding" bundle:nil] instantiateViewControllerWithIdentifier:@"StudyDetailsVC"];
+            detailsViewController.studyDetails = studyDetails;
+            [self.navigationController pushViewController:detailsViewController animated:YES];
+        }
+            break;
+        case kAPCTableViewStudyItemTypeShare:
+        {
+            APCShareViewController *shareViewController = [[UIStoryboard storyboardWithName:@"APHOnboarding" bundle:nil] instantiateViewControllerWithIdentifier:@"ShareVC"];
+            shareViewController.hidesOkayButton = YES;
+            [self.navigationController pushViewController:shareViewController animated:YES];
+        }
+            break;
+        case kAPCTableViewStudyItemTypeReviewConsent:
+        {
+            [self showConsent];
+        }
+            break;
+            
+        default:
+            break;
     }
 }
 
@@ -82,12 +110,25 @@
     consent.signaturePageTitle = @"Consent";
     consent.signaturePageContent = @"I agree  to participate in this research Study.";
     
-    //TODO:Check the identifier
-    RKSTConsentSignature *participantSig = [RKSTConsentSignature signatureForPersonWithTitle:@"Participant" dateFormatString:@"yyyy-MM-dd 'at' HH:mm" identifier:@"com.ymedia.participant"];
+    
+//    RKSTConsentSignature *participantSig = [RKSTConsentSignature signatureForPersonWithTitle:@"Participant" name:nil signatureImage:nil dateString:nil];
+    RKSTConsentSignature *participantSig = [RKSTConsentSignature signatureForPersonWithTitle:@"Participant"
+                                                                                 name:nil
+                                                                       signatureImage:nil
+                                                                           dateString:nil
+                                                                           identifier:@"participant"];
     [consent addSignature:participantSig];
     
-    RKSTConsentSignature *investigatorSig = [RKSTConsentSignature signatureForPersonWithTitle:@"Investigator" dateFormatString:@"yyyy-MM-dd 'at' HH:mm" identifier:@"com.ymedia.participant"];
+//    RKSTConsentSignature *investigatorSig = [RKSTConsentSignature signatureForPersonWithTitle:@"Investigator" name:@"Jake Clemson" signatureImage:[UIImage imageNamed:@"signature.png"] dateString:@"9/2/14"];
+    RKSTConsentSignature *investigatorSig = [RKSTConsentSignature signatureForPersonWithTitle:@"Investigator"
+                                                                                name:@"Jake Clemson"
+                                                                      signatureImage:[UIImage imageNamed:@"signature.png"]
+                                                                          dateString:@"9/2/14"
+                                                                          identifier:@"investigator"];
     [consent addSignature:investigatorSig];
+    
+    
+    
     
     NSMutableArray* components = [NSMutableArray new];
     
@@ -128,9 +169,9 @@
     
     RKSTVisualConsentStep *step = [[RKSTVisualConsentStep alloc] initWithDocument:consent];
     RKSTConsentReviewStep *reviewStep = [[RKSTConsentReviewStep alloc] initWithSignature:participantSig inDocument:consent];
-    
-    RKSTOrderedTask *task = [[RKSTOrderedTask alloc] initWithIdentifier:@"consent" steps:@[step,reviewStep]];
-    
+//    RKSTOrderedTask *task = [[RKSTOrderedTask alloc] initWithidentifier:@"consent" steps:@[step,reviewStep]];
+    RKSTOrderedTask *task = [[RKSTOrderedTask alloc] initWithIdentifier:@"consent" steps:@[step, reviewStep]];
+//    RKSTTaskViewController *consentVC = [[RKSTTaskViewController alloc] initWithTask:task taskInstanceUUID:[NSUUID UUID]];
     RKSTTaskViewController *consentVC = [[RKSTTaskViewController alloc] initWithTask:task taskRunUUID:[NSUUID UUID]];
     
     consentVC.taskDelegate = self;
@@ -149,6 +190,11 @@
 {
     [taskViewController suspend];
     [taskViewController dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (void)taskViewController:(RKSTTaskViewController *)taskViewController didFailOnStep:(RKSTStep *)step withError:(NSError *)error
+{
+    // Handle the failure gracefully.
 }
 
 @end
