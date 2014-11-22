@@ -7,6 +7,7 @@
 //
 
 #import "APHMoodSurveyTaskViewController.h"
+#import "APHHeartAgeIntroStepViewController.h"
 
 static  NSString  *MainStudyIdentifier = @"com.breastcancer.moodsurvey";
 
@@ -189,12 +190,12 @@ static  NSString  *kMoodSurveyStep107 = @"moodsurvey107";
 - (RKSTStepViewController *)taskViewController:(RKSTTaskViewController *)taskViewController viewControllerForStep:(RKSTStep *)step {
     
     NSDictionary  *controllers = @{
-                                   kMoodSurveyStep101 : [APCSimpleTaskSummaryViewController class],
-                                   kMoodSurveyStep102 : [APCSimpleTaskSummaryViewController class],
-                                   kMoodSurveyStep103 : [APCSimpleTaskSummaryViewController class],
-                                   kMoodSurveyStep104 : [APCSimpleTaskSummaryViewController class],
-                                   kMoodSurveyStep105 : [APCSimpleTaskSummaryViewController class],
-                                   kMoodSurveyStep106 : [APCSimpleTaskSummaryViewController class],
+                                   kMoodSurveyStep101 : [APHHeartAgeIntroStepViewController class],
+//                                   kMoodSurveyStep102 : [APCSimpleTaskSummaryViewController class],
+//                                   kMoodSurveyStep103 : [APCSimpleTaskSummaryViewController class],
+//                                   kMoodSurveyStep104 : [APCSimpleTaskSummaryViewController class],
+//                                   kMoodSurveyStep105 : [APCSimpleTaskSummaryViewController class],
+//                                   kMoodSurveyStep106 : [APCSimpleTaskSummaryViewController class],
                                    kMoodSurveyStep107 : [APCSimpleTaskSummaryViewController class]
                                    };
     
