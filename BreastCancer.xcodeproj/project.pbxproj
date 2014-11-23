@@ -39,6 +39,11 @@
 		5B8E6C0E1A1FD5020033733A /* EligibleToParticipate.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 5B8E6C0A1A1FD5020033733A /* EligibleToParticipate.pdf */; };
 		5B8E6C0F1A1FD5020033733A /* HowStudyWorks.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 5B8E6C0B1A1FD5020033733A /* HowStudyWorks.pdf */; };
 		5B8E6C101A1FD5020033733A /* WhoRunningStudy.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 5B8E6C0C1A1FD5020033733A /* WhoRunningStudy.pdf */; };
+		7B5E25CB1A2045BB00A04FEF /* APHMoodSurveyTaskViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B5E25CA1A2045BB00A04FEF /* APHMoodSurveyTaskViewController.m */; };
+		7B5E25D01A20592400A04FEF /* APHHeartAgeIntroStepViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B5E25CE1A20592400A04FEF /* APHHeartAgeIntroStepViewController.m */; };
+		7B5E25D11A20592400A04FEF /* APHHeartAgeIntroStepViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7B5E25CF1A20592400A04FEF /* APHHeartAgeIntroStepViewController.xib */; };
+		7B5E25D51A211BCA00A04FEF /* APHMoodSurveyCustomView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B5E25D41A211BCA00A04FEF /* APHMoodSurveyCustomView.m */; };
+		7B5E25D71A211BD500A04FEF /* APHMoodSurveyCustomView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7B5E25D61A211BD500A04FEF /* APHMoodSurveyCustomView.xib */; };
 		7B8D703E1A1C4B13003A7A5B /* APHLogSubmissionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B8D703C1A1C4B13003A7A5B /* APHLogSubmissionViewController.m */; };
 		7B8D703F1A1C4B13003A7A5B /* APHLogSubmissionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7B8D703D1A1C4B13003A7A5B /* APHLogSubmissionViewController.xib */; };
 		CF15F24B1A11616500D87570 /* APHDailyJournalTaskViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CF15F24A1A11616500D87570 /* APHDailyJournalTaskViewController.m */; };
@@ -170,6 +175,14 @@
 		5B8E6C0A1A1FD5020033733A /* EligibleToParticipate.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = EligibleToParticipate.pdf; sourceTree = "<group>"; };
 		5B8E6C0B1A1FD5020033733A /* HowStudyWorks.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = HowStudyWorks.pdf; sourceTree = "<group>"; };
 		5B8E6C0C1A1FD5020033733A /* WhoRunningStudy.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = WhoRunningStudy.pdf; sourceTree = "<group>"; };
+		7B5E25C91A2045BB00A04FEF /* APHMoodSurveyTaskViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = APHMoodSurveyTaskViewController.h; path = MoodSurvey/APHMoodSurveyTaskViewController.h; sourceTree = "<group>"; };
+		7B5E25CA1A2045BB00A04FEF /* APHMoodSurveyTaskViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = APHMoodSurveyTaskViewController.m; path = MoodSurvey/APHMoodSurveyTaskViewController.m; sourceTree = "<group>"; };
+		7B5E25CD1A20592400A04FEF /* APHHeartAgeIntroStepViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = APHHeartAgeIntroStepViewController.h; path = MoodSurvey/Intro/APHHeartAgeIntroStepViewController.h; sourceTree = "<group>"; };
+		7B5E25CE1A20592400A04FEF /* APHHeartAgeIntroStepViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = APHHeartAgeIntroStepViewController.m; path = MoodSurvey/Intro/APHHeartAgeIntroStepViewController.m; sourceTree = "<group>"; };
+		7B5E25CF1A20592400A04FEF /* APHHeartAgeIntroStepViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = APHHeartAgeIntroStepViewController.xib; path = MoodSurvey/Intro/APHHeartAgeIntroStepViewController.xib; sourceTree = "<group>"; };
+		7B5E25D31A211BCA00A04FEF /* APHMoodSurveyCustomView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APHMoodSurveyCustomView.h; sourceTree = "<group>"; };
+		7B5E25D41A211BCA00A04FEF /* APHMoodSurveyCustomView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APHMoodSurveyCustomView.m; sourceTree = "<group>"; };
+		7B5E25D61A211BD500A04FEF /* APHMoodSurveyCustomView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = APHMoodSurveyCustomView.xib; sourceTree = "<group>"; };
 		7B8D703B1A1C4B13003A7A5B /* APHLogSubmissionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APHLogSubmissionViewController.h; sourceTree = "<group>"; };
 		7B8D703C1A1C4B13003A7A5B /* APHLogSubmissionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APHLogSubmissionViewController.m; sourceTree = "<group>"; };
 		7B8D703D1A1C4B13003A7A5B /* APHLogSubmissionViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = APHLogSubmissionViewController.xib; sourceTree = "<group>"; };
@@ -327,6 +340,37 @@
 				5B8E6C0C1A1FD5020033733A /* WhoRunningStudy.pdf */,
 			);
 			path = ContentPDFs;
+			sourceTree = "<group>";
+		};
+		7B5E25C71A20454200A04FEF /* Mood Survey */ = {
+			isa = PBXGroup;
+			children = (
+				7B5E25C91A2045BB00A04FEF /* APHMoodSurveyTaskViewController.h */,
+				7B5E25CA1A2045BB00A04FEF /* APHMoodSurveyTaskViewController.m */,
+				7B5E25CC1A2058E400A04FEF /* Intro */,
+				7B5E25D21A211B8700A04FEF /* CustomView */,
+			);
+			name = "Mood Survey";
+			sourceTree = "<group>";
+		};
+		7B5E25CC1A2058E400A04FEF /* Intro */ = {
+			isa = PBXGroup;
+			children = (
+				7B5E25CD1A20592400A04FEF /* APHHeartAgeIntroStepViewController.h */,
+				7B5E25CE1A20592400A04FEF /* APHHeartAgeIntroStepViewController.m */,
+				7B5E25CF1A20592400A04FEF /* APHHeartAgeIntroStepViewController.xib */,
+			);
+			name = Intro;
+			sourceTree = "<group>";
+		};
+		7B5E25D21A211B8700A04FEF /* CustomView */ = {
+			isa = PBXGroup;
+			children = (
+				7B5E25D31A211BCA00A04FEF /* APHMoodSurveyCustomView.h */,
+				7B5E25D41A211BCA00A04FEF /* APHMoodSurveyCustomView.m */,
+				7B5E25D61A211BD500A04FEF /* APHMoodSurveyCustomView.xib */,
+			);
+			name = CustomView;
 			sourceTree = "<group>";
 		};
 		CF2697DA19EC3E0D00525E19 /* Daily Journal Controllers */ = {
@@ -490,6 +534,7 @@
 			children = (
 				CF5FAB3E19F95C630006CA71 /* APHIntroductionViewController.h */,
 				CF5FAB3F19F95C630006CA71 /* APHIntroductionViewController.m */,
+				7B5E25C71A20454200A04FEF /* Mood Survey */,
 				CF2697DA19EC3E0D00525E19 /* Daily Journal Controllers */,
 			);
 			path = TasksAndSteps;
@@ -614,6 +659,7 @@
 				5B8E6C101A1FD5020033733A /* WhoRunningStudy.pdf in Resources */,
 				5B15DCF51A114F7000BEA0D1 /* WithdrawStudy.json in Resources */,
 				5B15DD3E1A114F9000BEA0D1 /* APHOnboarding.storyboard in Resources */,
+				7B5E25D71A211BD500A04FEF /* APHMoodSurveyCustomView.xib in Resources */,
 				5B1D9D6C1A1BD414000F4AD6 /* APHDashboard.storyboard in Resources */,
 				5B8E6C0F1A1FD5020033733A /* HowStudyWorks.pdf in Resources */,
 				CF5FAB4319F95C8F0006CA71 /* APHContentsViewController.xib in Resources */,
@@ -630,6 +676,7 @@
 				5B15DD1C1A114F8100BEA0D1 /* APHLearn.storyboard in Resources */,
 				7B8D703F1A1C4B13003A7A5B /* APHLogSubmissionViewController.xib in Resources */,
 				CF2697EB19EC3E4200525E19 /* APHNotesViewController.xib in Resources */,
+				7B5E25D11A20592400A04FEF /* APHHeartAgeIntroStepViewController.xib in Resources */,
 				F534B69E19E4689D00C3C152 /* APHActivities.storyboard in Resources */,
 				F534B69C19E4689D00C3C152 /* LaunchScreen.xib in Resources */,
 				5B15DD211A114F8100BEA0D1 /* APHProfile.storyboard in Resources */,
@@ -647,6 +694,7 @@
 				CF2697E919EC3E4200525E19 /* APHNotesContentsTableViewCell.m in Sources */,
 				5B15DD441A114F9000BEA0D1 /* APHStudyOverviewViewController.m in Sources */,
 				5B15DD3F1A114F9000BEA0D1 /* APHSignInViewController.m in Sources */,
+				7B5E25CB1A2045BB00A04FEF /* APHMoodSurveyTaskViewController.m in Sources */,
 				5B15DD3B1A114F9000BEA0D1 /* APHInclusionCriteriaViewController.m in Sources */,
 				CF2697E619EC3E4200525E19 /* APHContentsViewController.m in Sources */,
 				CF15F24F1A116A5A00D87570 /* APHDailyJournalIntroViewController.m in Sources */,
@@ -654,6 +702,7 @@
 				F534B69F19E4689D00C3C152 /* APHActivitiesViewController.m in Sources */,
 				F534B58919E4681E00C3C152 /* main.m in Sources */,
 				CF15F24B1A11616500D87570 /* APHDailyJournalTaskViewController.m in Sources */,
+				7B5E25D01A20592400A04FEF /* APHHeartAgeIntroStepViewController.m in Sources */,
 				5B15DD1F1A114F8100BEA0D1 /* APHChangePasscodeViewController.m in Sources */,
 				F534B67C19E4689D00C3C152 /* NSString+CustomMethods.m in Sources */,
 				CF2697E819EC3E4200525E19 /* APHMoodLogDictionaryKeys.m in Sources */,
@@ -673,6 +722,7 @@
 				5B15DD201A114F8100BEA0D1 /* APHProfieViewController.m in Sources */,
 				5B15DD231A114F8100BEA0D1 /* APHWithdrawSurveyViewController.m in Sources */,
 				5B15DD431A114F9000BEA0D1 /* APHSignupTouchIDViewController.m in Sources */,
+				7B5E25D51A211BCA00A04FEF /* APHMoodSurveyCustomView.m in Sources */,
 				F534B69A19E4689D00C3C152 /* APHDataSubstrate.m in Sources */,
 				5B1D9D6D1A1BD414000F4AD6 /* APHDashboardEditViewController.m in Sources */,
 				5B15DD411A114F9000BEA0D1 /* APHSignUpMedicalInfoViewController.m in Sources */,

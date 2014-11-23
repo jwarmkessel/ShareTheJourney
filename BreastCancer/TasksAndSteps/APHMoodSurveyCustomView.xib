@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6250" systemVersion="14A388a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="APHMoodSurveyCustomView">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="200"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hXY-u4-58Z">
+                    <rect key="frame" x="20" y="40" width="280" height="120"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="hXY-u4-58Z" secondAttribute="height" multiplier="28:9" constant="-93.333333333333314" id="Uxg-h5-Gi9"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="33"/>
+                    <color key="textColor" red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="hXY-u4-58Z" secondAttribute="trailing" constant="20" id="6LB-26-YVT"/>
+                <constraint firstItem="hXY-u4-58Z" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" id="Djt-3o-jls"/>
+                <constraint firstAttribute="centerX" secondItem="hXY-u4-58Z" secondAttribute="centerX" id="hZi-y6-Ces"/>
+                <constraint firstAttribute="centerY" secondItem="hXY-u4-58Z" secondAttribute="centerY" id="vYE-Qj-Kys"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="questionChoiceLabel" destination="hXY-u4-58Z" id="N7M-iO-0bx"/>
+            </connections>
+        </view>
+    </objects>
+</document>
