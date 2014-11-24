@@ -198,7 +198,7 @@ static  NSUInteger  kThresholdForLimitWarning   = 140;
     [super viewDidLoad];
 
     //Done button is disabled.
-    [self.doneButton setEnabled:NO];
+    //[self.doneButton setEnabled:NO];
     
     [self.view setBackgroundColor:[UIColor appSecondaryColor4]];
     

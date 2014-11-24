@@ -7,6 +7,7 @@
 //
 
 #import "APHExerciseSurveyTaskViewController.h"
+#import "APHExerciseMotivationIntroViewController.h"
 #import "APHQuestionViewController.h"
 
 static  NSString  *MainStudyIdentifier = @"com.breastcancer.exercisesurvey";
@@ -50,7 +51,7 @@ static  NSString  *kExerciseSurveyStep108 = @"exercisesurvey108";
     NSMutableArray *steps = [[NSMutableArray alloc] init];
     
     {
-        RKSTInstructionStep *step = [[RKSTInstructionStep alloc] initWithIdentifier:kExerciseSurveyStep101];
+        RKSTActiveStep *step = [[RKSTActiveStep alloc] initWithIdentifier:kExerciseSurveyStep101];
         
         [steps addObject:step];
     }
@@ -73,6 +74,30 @@ static  NSString  *kExerciseSurveyStep108 = @"exercisesurvey108";
         [steps addObject:step];
     }
     
+    {
+        RKSTActiveStep  *step = [[RKSTActiveStep alloc] initWithIdentifier:kExerciseSurveyStep105];
+        
+        [steps addObject:step];
+    }
+    
+    {
+        RKSTActiveStep  *step = [[RKSTActiveStep alloc] initWithIdentifier:kExerciseSurveyStep106];
+        
+        [steps addObject:step];
+    }
+    
+    {
+        RKSTActiveStep  *step = [[RKSTActiveStep alloc] initWithIdentifier:kExerciseSurveyStep107];
+        
+        [steps addObject:step];
+    }
+    
+    {
+        RKSTActiveStep  *step = [[RKSTActiveStep alloc] initWithIdentifier:kExerciseSurveyStep108];
+        
+        [steps addObject:step];
+    }
+    
     //The identifier gets set as the title in the navigation bar.
     RKSTOrderedTask  *task = [[RKSTOrderedTask alloc] initWithIdentifier:@"Journal" steps:steps];
     
@@ -86,19 +111,23 @@ static  NSString  *kExerciseSurveyStep108 = @"exercisesurvey108";
 - (RKSTStepViewController *)taskViewController:(RKSTTaskViewController *)taskViewController viewControllerForStep:(RKSTStep *)step {
     
 
-    NSDictionary  *controllers = @{
+    NSDictionary  *controllers = @{kExerciseSurveyStep101 : [APHExerciseMotivationIntroViewController class],
                                    kExerciseSurveyStep102 : [APHQuestionViewController class],
-                                   kExerciseSurveyStep103 : [APCStepViewController class],
-                                   kExerciseSurveyStep104 : [APCStepViewController class]
+                                   kExerciseSurveyStep103 : [APHQuestionViewController class],
+                                   kExerciseSurveyStep104 : [APHQuestionViewController class],
+                                   kExerciseSurveyStep105 : [APHQuestionViewController class],
+                                   kExerciseSurveyStep106 : [APHQuestionViewController class],
+                                   kExerciseSurveyStep107 : [APHQuestionViewController class],
+                                   kExerciseSurveyStep108 : [APCSimpleTaskSummaryViewController class]
                                    };
     
     Class  aClass = [controllers objectForKey:step.identifier];
     
     APCStepViewController  *controller = [[aClass alloc] initWithNibName:nil bundle:nil];
     
-    if (step.identifier == kExerciseSurveyStep104 ) {
-        controller = [[aClass alloc] initWithNibName:nil bundle:[NSBundle appleCoreBundle]];
-    }
+//    if (step.identifier == kExerciseSurveyStep104 ) {
+//        controller = [[aClass alloc] initWithNibName:nil bundle:[NSBundle appleCoreBundle]];
+//    }
     
     controller.delegate = self;
     controller.step = step;
@@ -111,14 +140,17 @@ static  NSString  *kExerciseSurveyStep108 = @"exercisesurvey108";
     
     
     if (kExerciseSurveyStep101 == stepViewController.step.identifier) {
-        taskViewController.navigationBar.topItem.title = NSLocalizedString(@"Journal", @"Journal");
+        taskViewController.navigationBar.topItem.title = NSLocalizedString(@"Exercise Survey", @"Exercise Survey");
         
     } else if (kExerciseSurveyStep102 == stepViewController.step.identifier) {
         
-        taskViewController.navigationBar.topItem.title = NSLocalizedString(@"Enter Daily Log", @"Enter Daily Log");
+        taskViewController.navigationBar.topItem.title = NSLocalizedString(@"Exercise Motivation", @"Exercise Motivation");
         
     } else if (kExerciseSurveyStep103 == stepViewController.step.identifier) {
-        taskViewController.navigationBar.topItem.title = NSLocalizedString(@"Log Submission", @"Log Submission");
+        taskViewController.navigationBar.topItem.title = NSLocalizedString(@"Exercise Motivation", @"Exercise Motivation");
+        
+    } else if (kExerciseSurveyStep103 == stepViewController.step.identifier) {
+        taskViewController.navigationBar.topItem.title = NSLocalizedString(@"Exercise Motivation", @"Exercise Motivation");
         
         
     } else if (kExerciseSurveyStep104 == stepViewController.step.identifier) {
