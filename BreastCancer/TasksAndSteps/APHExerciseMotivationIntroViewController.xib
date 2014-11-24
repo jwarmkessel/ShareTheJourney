@@ -6,7 +6,13 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="APHExerciseMotivationIntroViewController">
             <connections>
+                <outlet property="exerciseLabel" destination="0Nz-UK-hcJ" id="O9a-Ap-cDC"/>
+                <outlet property="exerciseSelectedView" destination="di4-qu-Dxw" id="Nm9-tY-1UX"/>
+                <outlet property="stepsLabel" destination="CLT-j8-3HN" id="aqr-86-2rs"/>
+                <outlet property="stepsSelectedView" destination="kxo-Ev-hwq" id="aHx-Or-daE"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+                <outlet property="walkingLabel" destination="kcF-3k-xEA" id="CKx-N8-uQr"/>
+                <outlet property="walkingSelectedView" destination="H1n-Rc-0S8" id="Xmc-Jc-nAP"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -34,7 +40,7 @@
                             </constraints>
                         </view>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Walk for 20 minutes every day" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kcF-3k-xEA">
-                            <rect key="frame" x="15" y="17" width="260" height="30"/>
+                            <rect key="frame" x="15" y="0.0" width="260" height="64"/>
                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
@@ -70,7 +76,7 @@
                             </constraints>
                         </view>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Exercise for half an hour twice a week" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Nz-UK-hcJ">
-                            <rect key="frame" x="15" y="17" width="260" height="30"/>
+                            <rect key="frame" x="15" y="0.0" width="260" height="64"/>
                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
@@ -106,7 +112,7 @@
                             </constraints>
                         </view>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Reach 5,000 steps every day" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CLT-j8-3HN">
-                            <rect key="frame" x="15" y="17" width="260" height="30"/>
+                            <rect key="frame" x="15" y="0.0" width="260" height="64"/>
                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
