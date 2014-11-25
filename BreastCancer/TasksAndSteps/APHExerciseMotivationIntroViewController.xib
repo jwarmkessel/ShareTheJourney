@@ -8,6 +8,7 @@
             <connections>
                 <outlet property="exerciseLabel" destination="0Nz-UK-hcJ" id="O9a-Ap-cDC"/>
                 <outlet property="exerciseSelectedView" destination="di4-qu-Dxw" id="Nm9-tY-1UX"/>
+                <outlet property="nextButton" destination="9XK-aI-RfC" id="Ext-zk-8wH"/>
                 <outlet property="stepsLabel" destination="CLT-j8-3HN" id="aqr-86-2rs"/>
                 <outlet property="stepsSelectedView" destination="kxo-Ev-hwq" id="aHx-Or-daE"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>

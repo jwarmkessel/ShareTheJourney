@@ -19,8 +19,10 @@
 @property (weak, nonatomic) IBOutlet APCConfirmationView *exerciseSelectedView;
 @property (weak, nonatomic) IBOutlet APCConfirmationView *stepsSelectedView;
 
+@property (weak, nonatomic) IBOutlet UIButton *nextButton;
 
-
+@property (nonatomic, strong) NSMutableDictionary *dict;
+@property (nonatomic, strong) RKSTStepResult *cachedResult;
 @property (nonatomic, strong) NSString *selectedGoal;
 @end
 
@@ -29,6 +31,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self.view setBackgroundColor:[UIColor appSecondaryColor4]];
+    
+    [self.nextButton setEnabled:NO];
     
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(cancelButtonTapped:)];
     
@@ -41,11 +45,9 @@
         
         label.tag = i + 1;
         
-        
         UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(oneTap:)];
         singleTap.numberOfTapsRequired = 1;
         [label addGestureRecognizer:singleTap];
-        
         [label setUserInteractionEnabled:YES];
         
         UITapGestureRecognizer *singleTapSelected = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(oneTap:)];
@@ -58,6 +60,9 @@
 }
 
 - (void)oneTap:(UIGestureRecognizer *)gesture {
+    [self.nextButton setEnabled:YES];
+    [self.nextButton setTitleColor:[UIColor appPrimaryColor] forState:UIControlStateNormal];
+    
     NSInteger selectedViewTag = gesture.view.tag;
     UILabel *selectedLabel = (UILabel *) [self.view viewWithTag:selectedViewTag];
     self.selectedGoal = selectedLabel.text;
@@ -94,8 +99,7 @@
             [selectedView setAlpha:0];
             
             break;
-            
-
+        
         default:
             
             break;
@@ -123,28 +127,30 @@
 }
 
 - (IBAction)nextButtonTapped:(id)sender {
-//    [self.scriptorium resignFirstResponder];
-//    
-//    [self.noteContentModel setObject:self.scriptorium.text forKey:APHMoodLogNoteTextKey];
-//    
-//    [self.noteChangesModel setObject:self.noteModifications forKey:APHMoodLogNoteModificationsKey];
-//    
-//    
-//    RKSTDataResult *contentModel = [[RKSTDataResult alloc] initWithIdentifier:@"content"];
-//    RKSTDataResult *changesModel = [[RKSTDataResult alloc] initWithIdentifier:@"changes"];
-//    
-//    contentModel.data = [NSKeyedArchiver archivedDataWithRootObject:self.noteContentModel];
-//    changesModel.data = [NSKeyedArchiver archivedDataWithRootObject:self.noteChangesModel];
-//    
-//    NSArray *resultsArray = @[contentModel, changesModel];
-//    
-//    self.cachedResult = [[RKSTStepResult alloc] initWithStepIdentifier:@"DailyJournalStep102" results:resultsArray];
-//    
-//    [self.delegate stepViewController:self didChangeResult:self.cachedResult];
+
+    self.dict = [NSMutableDictionary new];
+    [self.dict setObject:self.selectedGoal forKey:@"result"];
+
+    RKSTDataResult *contentModel = [[RKSTDataResult alloc] initWithIdentifier:@"result"];
+
+
+    contentModel.data = [NSKeyedArchiver archivedDataWithRootObject:self.dict];
+
+
+    NSArray *resultsArray = @[contentModel];
+
+    self.cachedResult = [[RKSTStepResult alloc] initWithStepIdentifier:self.step.identifier results:resultsArray];
+
+    [self.delegate stepViewController:self didChangeResult:self.cachedResult];
     
     
     if ([self.delegate respondsToSelector:@selector(stepViewControllerDidFinish:navigationDirection:)] == YES) {
         [self.delegate stepViewControllerDidFinish:self navigationDirection:RKSTStepViewControllerNavigationDirectionForward];
     }
+}
+
+- (RKSTStepResult *)result {
+    
+    return self.cachedResult;
 }
 @end

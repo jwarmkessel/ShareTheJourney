@@ -21,6 +21,12 @@ static  NSCharacterSet  *whitespaceAndNewLineSet = nil;
 static  NSUInteger  kMaximumNumberOfWordsPerLog = 150;
 static  NSUInteger  kThresholdForLimitWarning   = 140;
 
+static  NSString  *kExerciseSurveyStep102 = @"exercisesurvey102";
+static  NSString  *kExerciseSurveyStep103 = @"exercisesurvey103";
+static  NSString  *kExerciseSurveyStep104 = @"exercisesurvey104";
+static  NSString  *kExerciseSurveyStep105 = @"exercisesurvey105";
+static  NSString  *kExerciseSurveyStep106 = @"exercisesurvey106";
+
 @interface APHQuestionViewController  ( )  <UITextViewDelegate>
 
 
@@ -115,7 +121,8 @@ static  NSUInteger  kThresholdForLimitWarning   = 140;
 {
     //Enable button after text is entered.
     [self.doneButton setEnabled:YES];
-
+    [self.doneButton setTitleColor:[UIColor appPrimaryColor] forState:UIControlStateNormal];
+    
     BOOL  answer = YES;
     
     NSDictionary  *record = nil;
@@ -196,9 +203,13 @@ static  NSUInteger  kThresholdForLimitWarning   = 140;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
+    
     //Done button is disabled.
-    //[self.doneButton setEnabled:NO];
+    [self.doneButton setEnabled:NO];
+    
+    if ([self.step.identifier isEqualToString:kExerciseSurveyStep106]) {
+        [self.doneButton setTitle:@"Finished" forState:UIControlStateNormal];
+    }
     
     [self.view setBackgroundColor:[UIColor appSecondaryColor4]];
     
@@ -259,12 +270,10 @@ static  NSUInteger  kThresholdForLimitWarning   = 140;
 
     [self.scriptorium resignFirstResponder];
     
-    [self.noteContentModel setObject:self.scriptorium.text forKey:APHMoodLogNoteTextKey];
-    
+    [self.noteContentModel setObject:self.scriptorium.text forKey:@"result"];
     [self.noteChangesModel setObject:self.noteModifications forKey:APHMoodLogNoteModificationsKey];
     
-    
-    RKSTDataResult *contentModel = [[RKSTDataResult alloc] initWithIdentifier:@"content"];
+    RKSTDataResult *contentModel = [[RKSTDataResult alloc] initWithIdentifier:@"result"];
     RKSTDataResult *changesModel = [[RKSTDataResult alloc] initWithIdentifier:@"changes"];
         
     contentModel.data = [NSKeyedArchiver archivedDataWithRootObject:self.noteContentModel];
@@ -272,7 +281,7 @@ static  NSUInteger  kThresholdForLimitWarning   = 140;
     
     NSArray *resultsArray = @[contentModel, changesModel];
     
-    self.cachedResult = [[RKSTStepResult alloc] initWithStepIdentifier:@"DailyJournalStep102" results:resultsArray];
+    self.cachedResult = [[RKSTStepResult alloc] initWithStepIdentifier:self.step.identifier results:resultsArray];
     
     [self.delegate stepViewController:self didChangeResult:self.cachedResult];
     

@@ -16,4 +16,9 @@
 
 @property  (nonatomic, weak)  NSDictionary  *note;
 @property  (nonatomic, weak)  IBOutlet  APHCustomTextView    *scriptorium;
+
+@property (weak, nonatomic) IBOutlet UILabel *previousAnswer;
+@property (weak, nonatomic) IBOutlet UILabel *currentQuestion;
+@property (weak, nonatomic) IBOutlet UIButton *nextButton;
+
 @end

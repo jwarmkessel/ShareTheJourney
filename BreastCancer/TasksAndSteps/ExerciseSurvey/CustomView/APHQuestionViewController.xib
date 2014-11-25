@@ -9,7 +9,9 @@
             <connections>
                 <outlet property="bottomButtonConstraint" destination="pcU-VT-ToS" id="AtV-6g-DKD"/>
                 <outlet property="containerSpacing" destination="A82-Cj-qcT" id="fT2-OD-9bU"/>
-                <outlet property="doneButton" destination="efQ-ju-aAY" id="tnt-nz-nlE"/>
+                <outlet property="currentQuestion" destination="DbF-jM-M1H" id="nNp-60-sMR"/>
+                <outlet property="doneButton" destination="efQ-ju-aAY" id="dC1-HJ-8cJ"/>
+                <outlet property="previousAnswer" destination="qV4-Sx-7gP" id="tV1-mz-S2H"/>
                 <outlet property="scriptorium" destination="nsl-Rj-KnY" id="iCO-V5-Suf"/>
                 <outlet property="view" destination="iN0-l3-epB" id="cvb-K4-7r5"/>
             </connections>
@@ -86,6 +88,9 @@
                             </constraints>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            <connections>
+                                <outlet property="delegate" destination="-1" id="xcY-na-gbb"/>
+                            </connections>
                         </textView>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="34x-gQ-cG2" userLabel="OrnamentationView">
                             <rect key="frame" x="0.0" y="0.0" width="5" height="387"/>
@@ -105,7 +110,7 @@
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
                             <connections>
-                                <action selector="submitTapped:" destination="-1" eventType="touchUpInside" id="AGj-wJ-AlJ"/>
+                                <action selector="submitTapped:" destination="-1" eventType="touchUpInside" id="iku-wP-BwS"/>
                             </connections>
                         </button>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yLp-Wb-P8l" userLabel="InstructionsView">
