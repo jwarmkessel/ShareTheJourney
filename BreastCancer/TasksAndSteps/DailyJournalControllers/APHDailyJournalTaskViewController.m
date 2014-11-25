@@ -24,6 +24,8 @@ static  NSString  *kDailyJournalStep104 = @"DailyJournalStep104";
 
 @interface APHDailyJournalTaskViewController  ( ) <NSObject>
 
+@property (nonatomic, strong) NSDictionary *contentDictionary;
+
 @end
 
 @implementation APHDailyJournalTaskViewController
@@ -76,9 +78,15 @@ static  NSString  *kDailyJournalStep104 = @"DailyJournalStep104";
     }
 
     //The identifier gets set as the title in the navigation bar.
-    RKSTOrderedTask  *task = [[RKSTOrderedTask alloc] initWithIdentifier:@"Journal" steps:steps];
+    RKSTOrderedTask  *task = [[RKSTOrderedTask alloc] initWithIdentifier:@"Daily Journal" steps:steps];
     
     return  task;
+}
+
+- (NSString *)createResultSummary {
+    
+    NSString *contentString = self.contentDictionary[@"APHMoodLogNoteText"];
+    return contentString;
 }
 
 /*********************************************************************************/
@@ -138,6 +146,9 @@ static  NSString  *kDailyJournalStep104 = @"DailyJournalStep104";
     
         APHLogSubmissionViewController *logSubmissionStepVC = (APHLogSubmissionViewController *) stepViewController;
         logSubmissionStepVC.textView.text = dict[@"APHMoodLogNoteText"];
+        
+        //Result of the text content
+        self.contentDictionary = dict;
 
         
     } else if (kDailyJournalStep104 == stepViewController.step.identifier) {
