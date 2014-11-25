@@ -53,6 +53,8 @@
 		7BA3AC111A23DDBC0017B3C8 /* APHExerciseMotivationIntroViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7BA3AC0F1A23DDBC0017B3C8 /* APHExerciseMotivationIntroViewController.xib */; };
 		7BA3AC161A2407D00017B3C8 /* APHExerciseMotivationSummaryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BA3AC141A2407D00017B3C8 /* APHExerciseMotivationSummaryViewController.m */; };
 		7BA3AC171A2407D00017B3C8 /* APHExerciseMotivationSummaryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7BA3AC151A2407D00017B3C8 /* APHExerciseMotivationSummaryViewController.xib */; };
+		7BFD56791A24FAF0001210A2 /* APHDisplayLogHistoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BFD56771A24FAF0001210A2 /* APHDisplayLogHistoryViewController.m */; };
+		7BFD567A1A24FAF0001210A2 /* APHDisplayLogHistoryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7BFD56781A24FAF0001210A2 /* APHDisplayLogHistoryViewController.xib */; };
 		CF15F24B1A11616500D87570 /* APHDailyJournalTaskViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CF15F24A1A11616500D87570 /* APHDailyJournalTaskViewController.m */; };
 		CF15F24F1A116A5A00D87570 /* APHDailyJournalIntroViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CF15F24D1A116A5A00D87570 /* APHDailyJournalIntroViewController.m */; };
 		CF15F2501A116A5A00D87570 /* APHDailyJournalIntroViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CF15F24E1A116A5A00D87570 /* APHDailyJournalIntroViewController.xib */; };
@@ -204,6 +206,9 @@
 		7BA3AC131A2407D00017B3C8 /* APHExerciseMotivationSummaryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APHExerciseMotivationSummaryViewController.h; sourceTree = "<group>"; };
 		7BA3AC141A2407D00017B3C8 /* APHExerciseMotivationSummaryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APHExerciseMotivationSummaryViewController.m; sourceTree = "<group>"; };
 		7BA3AC151A2407D00017B3C8 /* APHExerciseMotivationSummaryViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = APHExerciseMotivationSummaryViewController.xib; sourceTree = "<group>"; };
+		7BFD56761A24FAF0001210A2 /* APHDisplayLogHistoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APHDisplayLogHistoryViewController.h; sourceTree = "<group>"; };
+		7BFD56771A24FAF0001210A2 /* APHDisplayLogHistoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APHDisplayLogHistoryViewController.m; sourceTree = "<group>"; };
+		7BFD56781A24FAF0001210A2 /* APHDisplayLogHistoryViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = APHDisplayLogHistoryViewController.xib; sourceTree = "<group>"; };
 		CF15F2491A11616500D87570 /* APHDailyJournalTaskViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = APHDailyJournalTaskViewController.h; path = DailyJournalControllers/APHDailyJournalTaskViewController.h; sourceTree = "<group>"; };
 		CF15F24A1A11616500D87570 /* APHDailyJournalTaskViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = APHDailyJournalTaskViewController.m; path = DailyJournalControllers/APHDailyJournalTaskViewController.m; sourceTree = "<group>"; };
 		CF15F24C1A116A5A00D87570 /* APHDailyJournalIntroViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = APHDailyJournalIntroViewController.h; path = DailyJournalControllers/APHDailyJournalIntroViewController.h; sourceTree = "<group>"; };
@@ -429,6 +434,9 @@
 		CF2697DA19EC3E0D00525E19 /* Daily Journal Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				7BFD56761A24FAF0001210A2 /* APHDisplayLogHistoryViewController.h */,
+				7BFD56771A24FAF0001210A2 /* APHDisplayLogHistoryViewController.m */,
+				7BFD56781A24FAF0001210A2 /* APHDisplayLogHistoryViewController.xib */,
 				CF15F2491A11616500D87570 /* APHDailyJournalTaskViewController.h */,
 				CF15F24A1A11616500D87570 /* APHDailyJournalTaskViewController.m */,
 				CF15F24C1A116A5A00D87570 /* APHDailyJournalIntroViewController.h */,
@@ -731,6 +739,7 @@
 				F534B68D19E4689D00C3C152 /* sleepSurvey.json in Resources */,
 				CF15F2501A116A5A00D87570 /* APHDailyJournalIntroViewController.xib in Resources */,
 				5B15DD1C1A114F8100BEA0D1 /* APHLearn.storyboard in Resources */,
+				7BFD567A1A24FAF0001210A2 /* APHDisplayLogHistoryViewController.xib in Resources */,
 				7B8D703F1A1C4B13003A7A5B /* APHLogSubmissionViewController.xib in Resources */,
 				CF2697EB19EC3E4200525E19 /* APHNotesViewController.xib in Resources */,
 				7B5E25D11A20592400A04FEF /* APHHeartAgeIntroStepViewController.xib in Resources */,
@@ -760,6 +769,7 @@
 				F534B69F19E4689D00C3C152 /* APHActivitiesViewController.m in Sources */,
 				F534B58919E4681E00C3C152 /* main.m in Sources */,
 				CF15F24B1A11616500D87570 /* APHDailyJournalTaskViewController.m in Sources */,
+				7BFD56791A24FAF0001210A2 /* APHDisplayLogHistoryViewController.m in Sources */,
 				7B5E25D01A20592400A04FEF /* APHHeartAgeIntroStepViewController.m in Sources */,
 				5B15DD1F1A114F8100BEA0D1 /* APHChangePasscodeViewController.m in Sources */,
 				F534B67C19E4689D00C3C152 /* NSString+CustomMethods.m in Sources */,
