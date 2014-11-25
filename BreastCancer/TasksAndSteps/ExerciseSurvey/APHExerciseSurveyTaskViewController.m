@@ -126,9 +126,9 @@ static  NSString  *kExerciseSurveyStep108 = @"exercisesurvey108";
     
     APCStepViewController  *controller = [[aClass alloc] initWithNibName:nil bundle:nil];
     
-//    if (step.identifier == kExerciseSurveyStep104 ) {
-//        controller = [[aClass alloc] initWithNibName:nil bundle:[NSBundle appleCoreBundle]];
-//    }
+    if (step.identifier == kExerciseSurveyStep108 ) {
+        controller = [[aClass alloc] initWithNibName:nil bundle:[NSBundle appleCoreBundle]];
+    }
     
     controller.delegate = self;
     controller.step = step;
