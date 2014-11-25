@@ -7,6 +7,12 @@
               "taskClassName": "APHMoodSurveyTaskViewController"
               },
               {
+              "taskTitle": "Exercise Survey",
+              "taskID": "APHExerciseSurvey-7259AC18-D711-47A6-ADBD-6CFCECDED1DF",
+              "taskType": "APHExerciseSurvey",
+              "taskClassName": "APHExerciseSurveyTaskViewController"
+              },
+              {
               "taskTitle" : "Daily Journal",
               "taskID": "APHDailyJournal-80F09109-265A-49C6-9C5D-765E49AAF5D9",
               "taskType": "APHDailyJournal",
@@ -25,6 +31,14 @@
                   "href": "applebreastcancer:",
                   "schedule": "1:2,4,6",
                   "taskID": "APHMoodSurvey-7259AC18-D711-47A6-ADBD-6CFCECDED1DF"
+                  },
+                  {
+                  "type": "REPEATING",
+                  "href": "applebreastcancer:",
+                  "schedule": "1:2,4,6",
+                  "taskID": "APHExerciseSurvey-7259AC18-D711-47A6-ADBD-6CFCECDED1DF"
                   }
                   ]
 }
+
+

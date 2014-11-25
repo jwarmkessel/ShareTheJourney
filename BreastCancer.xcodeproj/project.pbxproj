@@ -44,8 +44,15 @@
 		7B5E25D11A20592400A04FEF /* APHHeartAgeIntroStepViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7B5E25CF1A20592400A04FEF /* APHHeartAgeIntroStepViewController.xib */; };
 		7B5E25D51A211BCA00A04FEF /* APHMoodSurveyCustomView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B5E25D41A211BCA00A04FEF /* APHMoodSurveyCustomView.m */; };
 		7B5E25D71A211BD500A04FEF /* APHMoodSurveyCustomView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7B5E25D61A211BD500A04FEF /* APHMoodSurveyCustomView.xib */; };
+		7B79530E1A22884500AA8039 /* APHExerciseSurveyTaskViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B7953091A22884500AA8039 /* APHExerciseSurveyTaskViewController.m */; };
+		7B7953141A2288D600AA8039 /* APHQuestionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B7953121A2288D600AA8039 /* APHQuestionViewController.m */; };
+		7B7953151A2288D600AA8039 /* APHQuestionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7B7953131A2288D600AA8039 /* APHQuestionViewController.xib */; };
 		7B8D703E1A1C4B13003A7A5B /* APHLogSubmissionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B8D703C1A1C4B13003A7A5B /* APHLogSubmissionViewController.m */; };
 		7B8D703F1A1C4B13003A7A5B /* APHLogSubmissionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7B8D703D1A1C4B13003A7A5B /* APHLogSubmissionViewController.xib */; };
+		7BA3AC101A23DDBC0017B3C8 /* APHExerciseMotivationIntroViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BA3AC0E1A23DDBC0017B3C8 /* APHExerciseMotivationIntroViewController.m */; };
+		7BA3AC111A23DDBC0017B3C8 /* APHExerciseMotivationIntroViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7BA3AC0F1A23DDBC0017B3C8 /* APHExerciseMotivationIntroViewController.xib */; };
+		7BA3AC161A2407D00017B3C8 /* APHExerciseMotivationSummaryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BA3AC141A2407D00017B3C8 /* APHExerciseMotivationSummaryViewController.m */; };
+		7BA3AC171A2407D00017B3C8 /* APHExerciseMotivationSummaryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7BA3AC151A2407D00017B3C8 /* APHExerciseMotivationSummaryViewController.xib */; };
 		CF15F24B1A11616500D87570 /* APHDailyJournalTaskViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CF15F24A1A11616500D87570 /* APHDailyJournalTaskViewController.m */; };
 		CF15F24F1A116A5A00D87570 /* APHDailyJournalIntroViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CF15F24D1A116A5A00D87570 /* APHDailyJournalIntroViewController.m */; };
 		CF15F2501A116A5A00D87570 /* APHDailyJournalIntroViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CF15F24E1A116A5A00D87570 /* APHDailyJournalIntroViewController.xib */; };
@@ -183,9 +190,20 @@
 		7B5E25D31A211BCA00A04FEF /* APHMoodSurveyCustomView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APHMoodSurveyCustomView.h; sourceTree = "<group>"; };
 		7B5E25D41A211BCA00A04FEF /* APHMoodSurveyCustomView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APHMoodSurveyCustomView.m; sourceTree = "<group>"; };
 		7B5E25D61A211BD500A04FEF /* APHMoodSurveyCustomView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = APHMoodSurveyCustomView.xib; sourceTree = "<group>"; };
+		7B7953081A22884500AA8039 /* APHExerciseSurveyTaskViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = APHExerciseSurveyTaskViewController.h; path = ExerciseSurvey/APHExerciseSurveyTaskViewController.h; sourceTree = "<group>"; };
+		7B7953091A22884500AA8039 /* APHExerciseSurveyTaskViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = APHExerciseSurveyTaskViewController.m; path = ExerciseSurvey/APHExerciseSurveyTaskViewController.m; sourceTree = "<group>"; };
+		7B7953111A2288D600AA8039 /* APHQuestionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APHQuestionViewController.h; sourceTree = "<group>"; };
+		7B7953121A2288D600AA8039 /* APHQuestionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APHQuestionViewController.m; sourceTree = "<group>"; };
+		7B7953131A2288D600AA8039 /* APHQuestionViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = APHQuestionViewController.xib; sourceTree = "<group>"; };
 		7B8D703B1A1C4B13003A7A5B /* APHLogSubmissionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APHLogSubmissionViewController.h; sourceTree = "<group>"; };
 		7B8D703C1A1C4B13003A7A5B /* APHLogSubmissionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APHLogSubmissionViewController.m; sourceTree = "<group>"; };
 		7B8D703D1A1C4B13003A7A5B /* APHLogSubmissionViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = APHLogSubmissionViewController.xib; sourceTree = "<group>"; };
+		7BA3AC0D1A23DDBC0017B3C8 /* APHExerciseMotivationIntroViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APHExerciseMotivationIntroViewController.h; sourceTree = "<group>"; };
+		7BA3AC0E1A23DDBC0017B3C8 /* APHExerciseMotivationIntroViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APHExerciseMotivationIntroViewController.m; sourceTree = "<group>"; };
+		7BA3AC0F1A23DDBC0017B3C8 /* APHExerciseMotivationIntroViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = APHExerciseMotivationIntroViewController.xib; sourceTree = "<group>"; };
+		7BA3AC131A2407D00017B3C8 /* APHExerciseMotivationSummaryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APHExerciseMotivationSummaryViewController.h; sourceTree = "<group>"; };
+		7BA3AC141A2407D00017B3C8 /* APHExerciseMotivationSummaryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APHExerciseMotivationSummaryViewController.m; sourceTree = "<group>"; };
+		7BA3AC151A2407D00017B3C8 /* APHExerciseMotivationSummaryViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = APHExerciseMotivationSummaryViewController.xib; sourceTree = "<group>"; };
 		CF15F2491A11616500D87570 /* APHDailyJournalTaskViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = APHDailyJournalTaskViewController.h; path = DailyJournalControllers/APHDailyJournalTaskViewController.h; sourceTree = "<group>"; };
 		CF15F24A1A11616500D87570 /* APHDailyJournalTaskViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = APHDailyJournalTaskViewController.m; path = DailyJournalControllers/APHDailyJournalTaskViewController.m; sourceTree = "<group>"; };
 		CF15F24C1A116A5A00D87570 /* APHDailyJournalIntroViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = APHDailyJournalIntroViewController.h; path = DailyJournalControllers/APHDailyJournalIntroViewController.h; sourceTree = "<group>"; };
@@ -373,6 +391,41 @@
 			name = CustomView;
 			sourceTree = "<group>";
 		};
+		7B7953031A22849300AA8039 /* ExerciseSurvey */ = {
+			isa = PBXGroup;
+			children = (
+				7B7953081A22884500AA8039 /* APHExerciseSurveyTaskViewController.h */,
+				7B7953091A22884500AA8039 /* APHExerciseSurveyTaskViewController.m */,
+				7BA3AC071A22D7BD0017B3C8 /* Intro */,
+				7B79530A1A22884500AA8039 /* CustomView */,
+			);
+			name = ExerciseSurvey;
+			sourceTree = "<group>";
+		};
+		7B79530A1A22884500AA8039 /* CustomView */ = {
+			isa = PBXGroup;
+			children = (
+				7B7953111A2288D600AA8039 /* APHQuestionViewController.h */,
+				7B7953121A2288D600AA8039 /* APHQuestionViewController.m */,
+				7B7953131A2288D600AA8039 /* APHQuestionViewController.xib */,
+				7BA3AC131A2407D00017B3C8 /* APHExerciseMotivationSummaryViewController.h */,
+				7BA3AC141A2407D00017B3C8 /* APHExerciseMotivationSummaryViewController.m */,
+				7BA3AC151A2407D00017B3C8 /* APHExerciseMotivationSummaryViewController.xib */,
+			);
+			name = CustomView;
+			path = ExerciseSurvey/CustomView;
+			sourceTree = "<group>";
+		};
+		7BA3AC071A22D7BD0017B3C8 /* Intro */ = {
+			isa = PBXGroup;
+			children = (
+				7BA3AC0D1A23DDBC0017B3C8 /* APHExerciseMotivationIntroViewController.h */,
+				7BA3AC0E1A23DDBC0017B3C8 /* APHExerciseMotivationIntroViewController.m */,
+				7BA3AC0F1A23DDBC0017B3C8 /* APHExerciseMotivationIntroViewController.xib */,
+			);
+			name = Intro;
+			sourceTree = "<group>";
+		};
 		CF2697DA19EC3E0D00525E19 /* Daily Journal Controllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -534,6 +587,7 @@
 			children = (
 				CF5FAB3E19F95C630006CA71 /* APHIntroductionViewController.h */,
 				CF5FAB3F19F95C630006CA71 /* APHIntroductionViewController.m */,
+				7B7953031A22849300AA8039 /* ExerciseSurvey */,
 				7B5E25C71A20454200A04FEF /* Mood Survey */,
 				CF2697DA19EC3E0D00525E19 /* Daily Journal Controllers */,
 			);
@@ -654,16 +708,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				5B8E6C0E1A1FD5020033733A /* EligibleToParticipate.pdf in Resources */,
+				7BA3AC111A23DDBC0017B3C8 /* APHExerciseMotivationIntroViewController.xib in Resources */,
 				5B8E6C0D1A1FD5020033733A /* AboutStudy.pdf in Resources */,
 				5B15DD721A118FF900BEA0D1 /* Intro.mp4 in Resources */,
 				5B8E6C101A1FD5020033733A /* WhoRunningStudy.pdf in Resources */,
 				5B15DCF51A114F7000BEA0D1 /* WithdrawStudy.json in Resources */,
 				5B15DD3E1A114F9000BEA0D1 /* APHOnboarding.storyboard in Resources */,
+				7B7953151A2288D600AA8039 /* APHQuestionViewController.xib in Resources */,
 				7B5E25D71A211BD500A04FEF /* APHMoodSurveyCustomView.xib in Resources */,
 				5B1D9D6C1A1BD414000F4AD6 /* APHDashboard.storyboard in Resources */,
 				5B8E6C0F1A1FD5020033733A /* HowStudyWorks.pdf in Resources */,
 				CF5FAB4319F95C8F0006CA71 /* APHContentsViewController.xib in Resources */,
 				F534B59419E4681E00C3C152 /* Images.xcassets in Resources */,
+				7BA3AC171A2407D00017B3C8 /* APHExerciseMotivationSummaryViewController.xib in Resources */,
 				F534B68E19E4689D00C3C152 /* StudyOverview.json in Resources */,
 				F534B68C19E4689D00C3C152 /* JSON_READ_ME in Resources */,
 				F534B68A19E4689D00C3C152 /* APCParameters.json in Resources */,
@@ -693,6 +750,7 @@
 				5B15DD3D1A114F9000BEA0D1 /* APHIntroVideoViewController.m in Sources */,
 				CF2697E919EC3E4200525E19 /* APHNotesContentsTableViewCell.m in Sources */,
 				5B15DD441A114F9000BEA0D1 /* APHStudyOverviewViewController.m in Sources */,
+				7BA3AC161A2407D00017B3C8 /* APHExerciseMotivationSummaryViewController.m in Sources */,
 				5B15DD3F1A114F9000BEA0D1 /* APHSignInViewController.m in Sources */,
 				7B5E25CB1A2045BB00A04FEF /* APHMoodSurveyTaskViewController.m in Sources */,
 				5B15DD3B1A114F9000BEA0D1 /* APHInclusionCriteriaViewController.m in Sources */,
@@ -720,7 +778,10 @@
 				7B8D703E1A1C4B13003A7A5B /* APHLogSubmissionViewController.m in Sources */,
 				CF2697EA19EC3E4200525E19 /* APHNotesViewController.m in Sources */,
 				5B15DD201A114F8100BEA0D1 /* APHProfieViewController.m in Sources */,
+				7B7953141A2288D600AA8039 /* APHQuestionViewController.m in Sources */,
+				7BA3AC101A23DDBC0017B3C8 /* APHExerciseMotivationIntroViewController.m in Sources */,
 				5B15DD231A114F8100BEA0D1 /* APHWithdrawSurveyViewController.m in Sources */,
+				7B79530E1A22884500AA8039 /* APHExerciseSurveyTaskViewController.m in Sources */,
 				5B15DD431A114F9000BEA0D1 /* APHSignupTouchIDViewController.m in Sources */,
 				7B5E25D51A211BCA00A04FEF /* APHMoodSurveyCustomView.m in Sources */,
 				F534B69A19E4689D00C3C152 /* APHDataSubstrate.m in Sources */,
