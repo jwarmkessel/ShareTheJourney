@@ -65,17 +65,17 @@ static  NSString  *kMoodSurveyStep107 = @"moodsurvey107";
     }
     
     {
-        NSArray *imageChoices = @[[UIImage imageNamed:@"BreastCancer-Cognitive-1-Grey"],
-                                  [UIImage imageNamed:@"BreastCancer-Cognitive-2-Grey"],
-                                  [UIImage imageNamed:@"BreastCancer-Cognitive-3-Grey"],
-                                  [UIImage imageNamed:@"BreastCancer-Cognitive-4-Grey"],
-                                  [UIImage imageNamed:@"BreastCancer-Cognitive-5-Grey"]];
+        NSArray *imageChoices = @[[UIImage imageNamed:@"Breast-Cancer-Clarity-1g"],
+                                  [UIImage imageNamed:@"Breast-Cancer-Clarity-2g"],
+                                  [UIImage imageNamed:@"Breast-Cancer-Clarity-3g"],
+                                  [UIImage imageNamed:@"Breast-Cancer-Clarity-4g"],
+                                  [UIImage imageNamed:@"Breast-Cancer-Clarity-5g"]];
         
-        NSArray *selectedImageChoices = @[[UIImage imageNamed:@"BreastCancer-Cognitive-1-Pink"],
-                                          [UIImage imageNamed:@"BreastCancer-Cognitive-2-Pink"],
-                                          [UIImage imageNamed:@"BreastCancer-Cognitive-3-Pink"],
-                                          [UIImage imageNamed:@"BreastCancer-Cognitive-4-Pink"],
-                                          [UIImage imageNamed:@"BreastCancer-Cognitive-5-Pink"]];
+        NSArray *selectedImageChoices = @[[UIImage imageNamed:@"Breast-Cancer-Clarity-1p"],
+                                          [UIImage imageNamed:@"Breast-Cancer-Clarity-2p"],
+                                          [UIImage imageNamed:@"Breast-Cancer-Clarity-3p"],
+                                          [UIImage imageNamed:@"Breast-Cancer-Clarity-4p"],
+                                          [UIImage imageNamed:@"Breast-Cancer-Clarity-5p"]];
         
         
         
@@ -103,17 +103,17 @@ static  NSString  *kMoodSurveyStep107 = @"moodsurvey107";
     
     {
         
-        NSArray *imageChoices = @[[UIImage imageNamed:@"BreastCancer-Mood-1-Grey"],
-                                  [UIImage imageNamed:@"BreastCancer-Mood-2-Grey"],
-                                  [UIImage imageNamed:@"BreastCancer-Mood-3-Grey"],
-                                  [UIImage imageNamed:@"BreastCancer-Mood-4-Grey"],
-                                  [UIImage imageNamed:@"BreastCancer-Mood-5-Grey"]];
+        NSArray *imageChoices = @[[UIImage imageNamed:@"Breast-Cancer-Mood-1g"],
+                                  [UIImage imageNamed:@"Breast-Cancer-Mood-2g"],
+                                  [UIImage imageNamed:@"Breast-Cancer-Mood-3g"],
+                                  [UIImage imageNamed:@"Breast-Cancer-Mood-4g"],
+                                  [UIImage imageNamed:@"Breast-Cancer-Mood-5g"]];
         
-        NSArray *selectedImageChoices = @[[UIImage imageNamed:@"BreastCancer-Mood-1-Pink"],
-                                          [UIImage imageNamed:@"BreastCancer-Mood-2-Pink"],
-                                          [UIImage imageNamed:@"BreastCancer-Mood-3-Pink"],
-                                          [UIImage imageNamed:@"BreastCancer-Mood-4-Pink"],
-                                          [UIImage imageNamed:@"BreastCancer-Mood-5-Pink"]];
+        NSArray *selectedImageChoices = @[[UIImage imageNamed:@"Breast-Cancer-Mood-1p"],
+                                          [UIImage imageNamed:@"Breast-Cancer-Mood-2p"],
+                                          [UIImage imageNamed:@"Breast-Cancer-Mood-3p"],
+                                          [UIImage imageNamed:@"Breast-Cancer-Mood-4p"],
+                                          [UIImage imageNamed:@"Breast-Cancer-Mood-5p"]];
         
 
 
@@ -140,17 +140,17 @@ static  NSString  *kMoodSurveyStep107 = @"moodsurvey107";
     }
     
     {
-        NSArray *imageChoices = @[[UIImage imageNamed:@"BreastCancer-Energy-1-Grey"],
-                                  [UIImage imageNamed:@"BreastCancer-Energy-2-Grey"],
-                                  [UIImage imageNamed:@"BreastCancer-Energy-3-Grey"],
-                                  [UIImage imageNamed:@"BreastCancer-Energy-4-Grey"],
-                                  [UIImage imageNamed:@"BreastCancer-Energy-5-Grey"]];
+        NSArray *imageChoices = @[[UIImage imageNamed:@"Breast-Cancer-Energy-1g"],
+                                  [UIImage imageNamed:@"Breast-Cancer-Energy-2g"],
+                                  [UIImage imageNamed:@"Breast-Cancer-Energy-3g"],
+                                  [UIImage imageNamed:@"Breast-Cancer-Energy-4g"],
+                                  [UIImage imageNamed:@"Breast-Cancer-Energy-5g"]];
         
-        NSArray *selectedImageChoices = @[[UIImage imageNamed:@"BreastCancer-Energy-1-Pink"],
-                                          [UIImage imageNamed:@"BreastCancer-Energy-2-Pink"],
-                                          [UIImage imageNamed:@"BreastCancer-Energy-3-Pink"],
-                                          [UIImage imageNamed:@"BreastCancer-Energy-4-Pink"],
-                                          [UIImage imageNamed:@"BreastCancer-Energy-5-Pink"]];
+        NSArray *selectedImageChoices = @[[UIImage imageNamed:@"Breast-Cancer-Energy-1p"],
+                                          [UIImage imageNamed:@"Breast-Cancer-Energy-2p"],
+                                          [UIImage imageNamed:@"Breast-Cancer-Energy-3p"],
+                                          [UIImage imageNamed:@"Breast-Cancer-Energy-4p"],
+                                          [UIImage imageNamed:@"Breast-Cancer-Energy-5p"]];
         
         NSMutableArray *answerChoices = [NSMutableArray new];
         
@@ -175,17 +175,17 @@ static  NSString  *kMoodSurveyStep107 = @"moodsurvey107";
     }
     
     {
-        NSArray *imageChoices = @[[UIImage imageNamed:@"BreastCancer-Sleep-1-Grey"],
-                                  [UIImage imageNamed:@"BreastCancer-Sleep-2-Grey"],
-                                  [UIImage imageNamed:@"BreastCancer-Sleep-3-Grey"],
-                                  [UIImage imageNamed:@"BreastCancer-Sleep-4-Grey"],
-                                  [UIImage imageNamed:@"BreastCancer-Sleep-5-Grey"]];
+        NSArray *imageChoices = @[[UIImage imageNamed:@"Breast-Cancer-Sleep-1g"],
+                                  [UIImage imageNamed:@"Breast-Cancer-Sleep-2g"],
+                                  [UIImage imageNamed:@"Breast-Cancer-Sleep-3g"],
+                                  [UIImage imageNamed:@"Breast-Cancer-Sleep-4g"],
+                                  [UIImage imageNamed:@"Breast-Cancer-Sleep-5g"]];
         
-        NSArray *selectedImageChoices = @[[UIImage imageNamed:@"BreastCancer-Sleep-1-Pink"],
-                                          [UIImage imageNamed:@"BreastCancer-Sleep-2-Pink"],
-                                          [UIImage imageNamed:@"BreastCancer-Sleep-3-Pink"],
-                                          [UIImage imageNamed:@"BreastCancer-Sleep-4-Pink"],
-                                          [UIImage imageNamed:@"BreastCancer-Sleep-5-Pink"]];
+        NSArray *selectedImageChoices = @[[UIImage imageNamed:@"Breast-Cancer-Sleep-1p"],
+                                          [UIImage imageNamed:@"Breast-Cancer-Sleep-2p"],
+                                          [UIImage imageNamed:@"Breast-Cancer-Sleep-3p"],
+                                          [UIImage imageNamed:@"Breast-Cancer-Sleep-4p"],
+                                          [UIImage imageNamed:@"Breast-Cancer-Sleep-5p"]];
         
         NSMutableArray *answerChoices = [NSMutableArray new];
         
@@ -210,17 +210,17 @@ static  NSString  *kMoodSurveyStep107 = @"moodsurvey107";
     }
     
     {
-        NSArray *imageChoices = @[[UIImage imageNamed:@"BreastCancer-Exercise-1-Grey"],
-                                  [UIImage imageNamed:@"BreastCancer-Exercise-2-Grey"],
-                                  [UIImage imageNamed:@"BreastCancer-Exercise-3-Grey"],
-                                  [UIImage imageNamed:@"BreastCancer-Exercise-4-Grey"],
-                                  [UIImage imageNamed:@"BreastCancer-Exercise-5-Grey"]];
+        NSArray *imageChoices = @[[UIImage imageNamed:@"Breast-Cancer-Exercise-1g"],
+                                  [UIImage imageNamed:@"Breast-Cancer-Exercise-2g"],
+                                  [UIImage imageNamed:@"Breast-Cancer-Exercise-3g"],
+                                  [UIImage imageNamed:@"Breast-Cancer-Exercise-4g"],
+                                  [UIImage imageNamed:@"Breast-Cancer-Exercise-5g"]];
         
-        NSArray *selectedImageChoices = @[[UIImage imageNamed:@"BreastCancer-Exercise-1-Pink"],
-                                          [UIImage imageNamed:@"BreastCancer-Exercise-2-Pink"],
-                                          [UIImage imageNamed:@"BreastCancer-Exercise-3-Pink"],
-                                          [UIImage imageNamed:@"BreastCancer-Exercise-4-Pink"],
-                                          [UIImage imageNamed:@"BreastCancer-Exercise-5-Pink"]];
+        NSArray *selectedImageChoices = @[[UIImage imageNamed:@"Breast-Cancer-Exercise-1p"],
+                                          [UIImage imageNamed:@"Breast-Cancer-Exercise-2p"],
+                                          [UIImage imageNamed:@"Breast-Cancer-Exercise-3p"],
+                                          [UIImage imageNamed:@"Breast-Cancer-Exercise-4p"],
+                                          [UIImage imageNamed:@"Breast-Cancer-Exercise-5p"]];
         
         NSMutableArray *answerChoices = [NSMutableArray new];
         
