@@ -64,7 +64,6 @@
 		CF2697E919EC3E4200525E19 /* APHNotesContentsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CF2697E219EC3E4200525E19 /* APHNotesContentsTableViewCell.m */; };
 		CF2697EA19EC3E4200525E19 /* APHNotesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CF2697E419EC3E4200525E19 /* APHNotesViewController.m */; };
 		CF2697EB19EC3E4200525E19 /* APHNotesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CF2697E519EC3E4200525E19 /* APHNotesViewController.xib */; };
-		CF5FAB4019F95C630006CA71 /* APHIntroductionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CF5FAB3F19F95C630006CA71 /* APHIntroductionViewController.m */; };
 		CF5FAB4319F95C8F0006CA71 /* APHContentsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CF5FAB4119F95C8F0006CA71 /* APHContentsViewController.xib */; };
 		CF5FAB4419F95C8F0006CA71 /* APHNotesContentsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CF5FAB4219F95C8F0006CA71 /* APHNotesContentsTableViewCell.xib */; };
 		F534B58919E4681E00C3C152 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F534B58819E4681E00C3C152 /* main.m */; };
@@ -225,8 +224,6 @@
 		CF2697E319EC3E4200525E19 /* APHNotesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = APHNotesViewController.h; path = DailyJournalControllers/APHNotesViewController.h; sourceTree = "<group>"; };
 		CF2697E419EC3E4200525E19 /* APHNotesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = APHNotesViewController.m; path = DailyJournalControllers/APHNotesViewController.m; sourceTree = "<group>"; };
 		CF2697E519EC3E4200525E19 /* APHNotesViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = APHNotesViewController.xib; path = DailyJournalControllers/APHNotesViewController.xib; sourceTree = "<group>"; };
-		CF5FAB3E19F95C630006CA71 /* APHIntroductionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APHIntroductionViewController.h; sourceTree = "<group>"; };
-		CF5FAB3F19F95C630006CA71 /* APHIntroductionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APHIntroductionViewController.m; sourceTree = "<group>"; };
 		CF5FAB4119F95C8F0006CA71 /* APHContentsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = APHContentsViewController.xib; path = DailyJournalControllers/APHContentsViewController.xib; sourceTree = "<group>"; };
 		CF5FAB4219F95C8F0006CA71 /* APHNotesContentsTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = APHNotesContentsTableViewCell.xib; path = DailyJournalControllers/APHNotesContentsTableViewCell.xib; sourceTree = "<group>"; };
 		F534B58319E4681E00C3C152 /* BreastCancer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BreastCancer.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -593,8 +590,6 @@
 		F534B60C19E4689D00C3C152 /* TasksAndSteps */ = {
 			isa = PBXGroup;
 			children = (
-				CF5FAB3E19F95C630006CA71 /* APHIntroductionViewController.h */,
-				CF5FAB3F19F95C630006CA71 /* APHIntroductionViewController.m */,
 				7B7953031A22849300AA8039 /* ExerciseSurvey */,
 				7B5E25C71A20454200A04FEF /* Mood Survey */,
 				CF2697DA19EC3E0D00525E19 /* Daily Journal Controllers */,
@@ -778,7 +773,6 @@
 				5B15DD3C1A114F9000BEA0D1 /* APHInEligibleViewController.m in Sources */,
 				5B1D9D751A1BD419000F4AD6 /* APHScoring.m in Sources */,
 				5B15DD421A114F9000BEA0D1 /* APHSignUpPermissionsViewController.m in Sources */,
-				CF5FAB4019F95C630006CA71 /* APHIntroductionViewController.m in Sources */,
 				5B1D9D6E1A1BD414000F4AD6 /* APHDashboardViewController.m in Sources */,
 				5B15DD1E1A114F8100BEA0D1 /* APHLearnStudyDetailsViewController.m in Sources */,
 				5B15DD3A1A114F9000BEA0D1 /* APHEligibleViewController.m in Sources */,
