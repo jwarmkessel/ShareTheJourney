@@ -14,4 +14,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *questionResult3;
 @property (weak, nonatomic) IBOutlet UILabel *questionResult4;
 @property (weak, nonatomic) IBOutlet UILabel *questionResult5;
+
+@property (weak, nonatomic) IBOutlet UIImageView *titleImageView;
+
 @end

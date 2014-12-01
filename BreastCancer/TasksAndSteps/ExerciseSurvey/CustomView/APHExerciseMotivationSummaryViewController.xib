@@ -11,6 +11,7 @@
                 <outlet property="questionResult3" destination="rAe-DQ-b42" id="IEK-g7-kSi"/>
                 <outlet property="questionResult4" destination="iB9-wp-05b" id="yg8-9N-8Ht"/>
                 <outlet property="questionResult5" destination="Fx5-WY-KY5" id="yci-eO-aft"/>
+                <outlet property="titleImageView" destination="W0w-H0-AQg" id="6Jj-LT-jCu"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -21,13 +22,22 @@
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hZK-W2-ltm">
                     <rect key="frame" x="0.0" y="0.0" width="320" height="64"/>
+                    <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BreastCancer-Motivation" translatesAutoresizingMaskIntoConstraints="NO" id="W0w-H0-AQg">
+                            <rect key="frame" x="10" y="0.0" width="300" height="64"/>
+                        </imageView>
+                    </subviews>
                     <color key="backgroundColor" red="0.93725490199999995" green="0.0039215686269999999" blue="0.55294117649999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
+                        <constraint firstAttribute="bottom" secondItem="W0w-H0-AQg" secondAttribute="bottom" id="C7x-VY-2Ab"/>
+                        <constraint firstItem="W0w-H0-AQg" firstAttribute="leading" secondItem="hZK-W2-ltm" secondAttribute="leading" constant="10" id="PHJ-DS-buC"/>
                         <constraint firstAttribute="height" constant="64" id="UKH-SI-5fU"/>
+                        <constraint firstAttribute="trailing" secondItem="W0w-H0-AQg" secondAttribute="trailing" constant="10" id="oHd-hr-BzX"/>
+                        <constraint firstItem="W0w-H0-AQg" firstAttribute="top" secondItem="hZK-W2-ltm" secondAttribute="top" id="oSo-z1-XVO"/>
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rFs-ub-Omd">
-                    <rect key="frame" x="0.0" y="108" width="320" height="64"/>
+                    <rect key="frame" x="0.0" y="105" width="320" height="64"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wj8-Lf-AFh" userLabel="ornamentation">
                             <rect key="frame" x="0.0" y="0.0" width="5" height="64"/>
@@ -52,7 +62,7 @@
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8r7-fl-97t">
-                    <rect key="frame" x="0.0" y="192" width="320" height="64"/>
+                    <rect key="frame" x="0.0" y="189" width="320" height="64"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7xI-b5-rJ1" userLabel="ornamentation">
                             <rect key="frame" x="0.0" y="0.0" width="5" height="64"/>
@@ -77,7 +87,7 @@
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eWm-cd-2Xm">
-                    <rect key="frame" x="0.0" y="276" width="320" height="64"/>
+                    <rect key="frame" x="0.0" y="273" width="320" height="64"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="17Q-kz-8mb" userLabel="ornamentation">
                             <rect key="frame" x="0.0" y="0.0" width="5" height="64"/>
@@ -102,7 +112,7 @@
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1KO-1U-s1y">
-                    <rect key="frame" x="0.0" y="360" width="320" height="64"/>
+                    <rect key="frame" x="0.0" y="357" width="320" height="64"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="V3q-Wk-dgT" userLabel="ornamentation">
                             <rect key="frame" x="0.0" y="0.0" width="5" height="64"/>
@@ -127,7 +137,7 @@
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1Y3-bV-J7r">
-                    <rect key="frame" x="0.0" y="440" width="320" height="64"/>
+                    <rect key="frame" x="0.0" y="441" width="320" height="64"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="I6s-40-Pbh" userLabel="ornamentation">
                             <rect key="frame" x="0.0" y="0.0" width="5" height="64"/>
@@ -161,33 +171,73 @@
                     <color key="textColor" red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BreastCancer-Ribbon" translatesAutoresizingMaskIntoConstraints="NO" id="cBi-Qf-XAm">
+                    <rect key="frame" x="0.0" y="169" width="320" height="20"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="20" id="XhQ-Rq-gYs"/>
+                    </constraints>
+                </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BreastCancer-Ribbon" translatesAutoresizingMaskIntoConstraints="NO" id="ctR-ha-My3">
+                    <rect key="frame" x="0.0" y="253" width="320" height="20"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="20" id="TG7-I7-IS1"/>
+                    </constraints>
+                </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BreastCancer-Ribbon" translatesAutoresizingMaskIntoConstraints="NO" id="Msl-ve-60D">
+                    <rect key="frame" x="0.0" y="337" width="320" height="20"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="20" id="dwI-GQ-t2T"/>
+                    </constraints>
+                </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BreastCancer-Ribbon" translatesAutoresizingMaskIntoConstraints="NO" id="d09-zp-f8O">
+                    <rect key="frame" x="0.0" y="421" width="320" height="20"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="20" id="9Nn-i3-00B"/>
+                    </constraints>
+                </imageView>
             </subviews>
             <color key="backgroundColor" red="0.97254901959999995" green="0.97254901959999995" blue="0.97254901959999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
+                <constraint firstItem="ctR-ha-My3" firstAttribute="width" secondItem="8r7-fl-97t" secondAttribute="width" id="4av-2D-wR9"/>
                 <constraint firstAttribute="centerX" secondItem="eAK-zz-EUi" secondAttribute="centerX" id="5oN-qT-hYO"/>
                 <constraint firstAttribute="trailing" secondItem="8r7-fl-97t" secondAttribute="trailing" id="8Ct-xf-csa"/>
-                <constraint firstItem="1Y3-bV-J7r" firstAttribute="top" secondItem="1KO-1U-s1y" secondAttribute="bottom" constant="16" id="D12-iR-LIO"/>
+                <constraint firstItem="1Y3-bV-J7r" firstAttribute="top" secondItem="1KO-1U-s1y" secondAttribute="bottom" constant="20" id="D12-iR-LIO"/>
                 <constraint firstItem="1KO-1U-s1y" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="EwB-Mk-5Xe"/>
                 <constraint firstItem="8r7-fl-97t" firstAttribute="top" secondItem="rFs-ub-Omd" secondAttribute="bottom" constant="20" id="HTR-o0-V4m"/>
                 <constraint firstItem="eAK-zz-EUi" firstAttribute="top" secondItem="hZK-W2-ltm" secondAttribute="bottom" constant="10" id="IFp-3t-iOw"/>
                 <constraint firstAttribute="trailing" secondItem="1Y3-bV-J7r" secondAttribute="trailing" id="Ncw-7D-tLV"/>
-                <constraint firstItem="rFs-ub-Omd" firstAttribute="top" secondItem="eAK-zz-EUi" secondAttribute="bottom" constant="13" id="P2d-VH-l5b"/>
+                <constraint firstItem="1KO-1U-s1y" firstAttribute="trailing" secondItem="d09-zp-f8O" secondAttribute="trailing" id="OrS-An-i4X"/>
+                <constraint firstItem="rFs-ub-Omd" firstAttribute="top" secondItem="eAK-zz-EUi" secondAttribute="bottom" constant="10" id="P2d-VH-l5b"/>
                 <constraint firstItem="hZK-W2-ltm" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="PDT-5o-XRz"/>
+                <constraint firstItem="cBi-Qf-XAm" firstAttribute="width" secondItem="rFs-ub-Omd" secondAttribute="width" id="Q3I-eR-4MS"/>
+                <constraint firstItem="ctR-ha-My3" firstAttribute="top" secondItem="8r7-fl-97t" secondAttribute="bottom" id="SEr-bS-YWc"/>
                 <constraint firstItem="rFs-ub-Omd" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Whd-6k-xB4"/>
                 <constraint firstItem="eWm-cd-2Xm" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Xhl-WG-4Or"/>
+                <constraint firstItem="d09-zp-f8O" firstAttribute="top" secondItem="1KO-1U-s1y" secondAttribute="bottom" id="aOk-4q-S2g"/>
                 <constraint firstItem="8r7-fl-97t" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="cQ1-0K-hfh"/>
+                <constraint firstItem="ctR-ha-My3" firstAttribute="trailing" secondItem="8r7-fl-97t" secondAttribute="trailing" id="cd9-0F-Gfu"/>
                 <constraint firstAttribute="trailing" secondItem="hZK-W2-ltm" secondAttribute="trailing" id="dVg-H7-jK9"/>
+                <constraint firstItem="1KO-1U-s1y" firstAttribute="width" secondItem="d09-zp-f8O" secondAttribute="width" id="ec9-MU-rOR"/>
                 <constraint firstItem="eWm-cd-2Xm" firstAttribute="top" secondItem="8r7-fl-97t" secondAttribute="bottom" constant="20" id="fRR-DQ-psJ"/>
                 <constraint firstItem="hZK-W2-ltm" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="fgu-fb-UYS"/>
+                <constraint firstItem="eWm-cd-2Xm" firstAttribute="trailing" secondItem="Msl-ve-60D" secondAttribute="trailing" id="huI-av-XwE"/>
+                <constraint firstItem="Msl-ve-60D" firstAttribute="top" secondItem="eWm-cd-2Xm" secondAttribute="bottom" id="jjQ-9B-5bY"/>
                 <constraint firstItem="eAK-zz-EUi" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="40" id="lFU-AW-Uqf"/>
+                <constraint firstItem="cBi-Qf-XAm" firstAttribute="trailing" secondItem="rFs-ub-Omd" secondAttribute="trailing" id="mU9-Jf-fPU"/>
                 <constraint firstAttribute="trailing" secondItem="1KO-1U-s1y" secondAttribute="trailing" id="ox0-yx-HwZ"/>
+                <constraint firstItem="eWm-cd-2Xm" firstAttribute="width" secondItem="Msl-ve-60D" secondAttribute="width" id="pQq-em-wau"/>
                 <constraint firstItem="1Y3-bV-J7r" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="pWp-gO-27f"/>
                 <constraint firstAttribute="trailing" secondItem="eWm-cd-2Xm" secondAttribute="trailing" id="pZ1-Le-G2h"/>
                 <constraint firstItem="1KO-1U-s1y" firstAttribute="top" secondItem="eWm-cd-2Xm" secondAttribute="bottom" constant="20" id="szE-2V-PQY"/>
                 <constraint firstAttribute="trailing" secondItem="rFs-ub-Omd" secondAttribute="trailing" id="txK-i1-PUQ"/>
+                <constraint firstItem="cBi-Qf-XAm" firstAttribute="top" secondItem="rFs-ub-Omd" secondAttribute="bottom" id="u7y-zq-QYV"/>
             </constraints>
             <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
         </view>
     </objects>
+    <resources>
+        <image name="BreastCancer-Motivation" width="597" height="111"/>
+        <image name="BreastCancer-Ribbon" width="640" height="32"/>
+    </resources>
 </document>
