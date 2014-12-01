@@ -125,6 +125,8 @@ static  NSString  *kExerciseSurveyStep106 = @"exercisesurvey106";
     NSLog(@"textView : %lu", (unsigned long)textView.text.length);
     
     BOOL enableButtonFlag = YES;
+    
+    //The textView text length is still set to one after the text view has deleted all characters, therefore, I need to check the length and whether the string is empty.
     if (textView.text.length <= 1  &&  [text isEqualToString:@""]) {
         enableButtonFlag = NO;
     }
@@ -132,38 +134,6 @@ static  NSString  *kExerciseSurveyStep106 = @"exercisesurvey106";
     //Enable button after text is entered.
     [self.doneButton setEnabled:enableButtonFlag];
     [self.doneButton setTitleColor:[UIColor appPrimaryColor] forState:UIControlStateNormal];
-
-    //Left here in case we wanted to log user interaction.
-//    BOOL  answer = YES;
-//    
-//    NSDictionary  *record = nil;
-//    
-//    NSTimeInterval timestamp = [[NSDate date] timeIntervalSinceReferenceDate];
-//    
-//    NSUInteger  preCount = [self countWords:self.scriptorium.text];
-//    if ([text length] != 0) {
-//        if (preCount >= kMaximumNumberOfWordsPerLog) {
-//            //answer = NO;
-//        } else {
-//            record = @{
-//                       APHMoodLogEditTimeStampKey : @(timestamp),
-//                       APHMoodLogEditingTypeKey : APHMoodLogEditingTypeAddingKey,
-//                       };
-//        }
-//    } else {
-//        record = @{
-//                   APHMoodLogEditTimeStampKey : @(timestamp),
-//                   APHMoodLogEditingTypeKey : APHMoodLogEditingTypeDeletingKey,
-//                   };
-//    }
-//    if (record != nil) {
-//        [self.noteModifications addObject: record];
-//    }
-//    
-//    NSUInteger  count = [self countWords:self.scriptorium.text];
-//    [self displayWordCount:count];
-//    
-//    return  answer;
 
     if(range.length + range.location > textView.text.length)
     {
