@@ -208,7 +208,7 @@ static  NSString  *kExerciseSurveyStep106 = @"exercisesurvey106";
     [self.doneButton setEnabled:NO];
     
     if ([self.step.identifier isEqualToString:kExerciseSurveyStep106]) {
-        [self.doneButton setTitle:@"Finished" forState:UIControlStateNormal];
+        [self.doneButton setTitle:@"Finish" forState:UIControlStateNormal];
     }
     
     [self.view setBackgroundColor:[UIColor appSecondaryColor4]];
