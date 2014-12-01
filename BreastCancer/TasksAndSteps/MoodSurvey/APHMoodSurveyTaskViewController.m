@@ -363,7 +363,7 @@ static  NSString  *kMoodSurveyStep107 = @"moodsurvey107";
             NSDictionary  *questionAnswerDictionary = @{
                                                         kMoodSurveyStep102 : @[@"Perfectly crisp concentration",
                                                                                @"No issues with concentration",
-                                                                               @"Occassioal difficulties with concentration",
+                                                                               @"Occasional difficulties with concentration",
                                                                                @"Difficulties with concentration",
                                                                                @"No concentration"],
                                                         
