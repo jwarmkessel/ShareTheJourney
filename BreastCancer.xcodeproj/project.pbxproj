@@ -54,7 +54,6 @@
 		F534B68C19E4689D00C3C152 /* JSON_READ_ME in Resources */ = {isa = PBXBuildFile; fileRef = F534B5CD19E4689D00C3C152 /* JSON_READ_ME */; };
 		F534B68D19E4689D00C3C152 /* sleepSurvey.json in Resources */ = {isa = PBXBuildFile; fileRef = F534B5CE19E4689D00C3C152 /* sleepSurvey.json */; };
 		F534B68E19E4689D00C3C152 /* StudyOverview.json in Resources */ = {isa = PBXBuildFile; fileRef = F534B5CF19E4689D00C3C152 /* StudyOverview.json */; };
-		F534B69A19E4689D00C3C152 /* APHDataSubstrate.m in Sources */ = {isa = PBXBuildFile; fileRef = F534B5E019E4689D00C3C152 /* APHDataSubstrate.m */; };
 		F534B69C19E4689D00C3C152 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = F534B5E319E4689D00C3C152 /* LaunchScreen.xib */; };
 		F534B69D19E4689D00C3C152 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F534B5E419E4689D00C3C152 /* Main.storyboard */; };
 		F534B6F619E468D400C3C152 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F534B6F519E468D400C3C152 /* HealthKit.framework */; };
@@ -178,8 +177,6 @@
 		F534B5CD19E4689D00C3C152 /* JSON_READ_ME */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = JSON_READ_ME; sourceTree = "<group>"; };
 		F534B5CE19E4689D00C3C152 /* sleepSurvey.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = sleepSurvey.json; sourceTree = "<group>"; };
 		F534B5CF19E4689D00C3C152 /* StudyOverview.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = StudyOverview.json; sourceTree = "<group>"; };
-		F534B5DF19E4689D00C3C152 /* APHDataSubstrate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APHDataSubstrate.h; sourceTree = "<group>"; };
-		F534B5E019E4689D00C3C152 /* APHDataSubstrate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APHDataSubstrate.m; sourceTree = "<group>"; };
 		F534B5E319E4689D00C3C152 /* LaunchScreen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LaunchScreen.xib; sourceTree = "<group>"; };
 		F534B5E419E4689D00C3C152 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		F534B6F419E468D400C3C152 /* BreastCancer.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = BreastCancer.entitlements; sourceTree = "<group>"; };
@@ -418,8 +415,6 @@
 			children = (
 				5B15DD461A11524900BEA0D1 /* APHAppDelegate.h */,
 				5B15DD471A11524900BEA0D1 /* APHAppDelegate.m */,
-				F534B5DF19E4689D00C3C152 /* APHDataSubstrate.h */,
-				F534B5E019E4689D00C3C152 /* APHDataSubstrate.m */,
 				F534B5E319E4689D00C3C152 /* LaunchScreen.xib */,
 				F534B5E419E4689D00C3C152 /* Main.storyboard */,
 			);
@@ -614,7 +609,6 @@
 				7BA3AC101A23DDBC0017B3C8 /* APHExerciseMotivationIntroViewController.m in Sources */,
 				7B79530E1A22884500AA8039 /* APHExerciseSurveyTaskViewController.m in Sources */,
 				7B5E25D51A211BCA00A04FEF /* APHMoodSurveyCustomView.m in Sources */,
-				F534B69A19E4689D00C3C152 /* APHDataSubstrate.m in Sources */,
 				5B1D9D6D1A1BD414000F4AD6 /* APHDashboardEditViewController.m in Sources */,
 				5B1D9D741A1BD419000F4AD6 /* APHDataPoint.m in Sources */,
 			);
