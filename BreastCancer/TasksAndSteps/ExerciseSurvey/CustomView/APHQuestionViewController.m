@@ -21,7 +21,7 @@ static  NSCharacterSet  *whitespaceAndNewLineSet = nil;
 static  NSUInteger  kMaximumNumberOfWordsPerLog = 150;
 static  NSUInteger  kThresholdForLimitWarning   = 140;
 
-static NSUInteger kMaximumNumberOfCharacters = 150;
+static NSUInteger kMaximumNumberOfCharacters = 90;
 
 static  NSString  *kExerciseSurveyStep102 = @"exercisesurvey102";
 static  NSString  *kExerciseSurveyStep103 = @"exercisesurvey103";
@@ -55,6 +55,7 @@ static  NSString  *kExerciseSurveyStep106 = @"exercisesurvey106";
 
 @property (nonatomic, strong) RKSTStepResult *cachedResult;
 
+@property (weak, nonatomic) IBOutlet UILabel *characterCounterLabel;
 @end
 
 @implementation APHQuestionViewController
@@ -121,29 +122,31 @@ static  NSString  *kExerciseSurveyStep106 = @"exercisesurvey106";
 
 - (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text
 {
-    NSLog(@"TEXT : %@", text);
-    NSLog(@"textView : %lu", (unsigned long)textView.text.length);
+    if(range.length + range.location > textView.text.length)
+    {
+        goto errReturn;
+    }
     
     BOOL enableButtonFlag = YES;
     
     //The textView text length is still set to one after the text view has deleted all characters, therefore, I need to check the length and whether the string is empty.
+    
     if (textView.text.length <= 1  &&  [text isEqualToString:@""]) {
         enableButtonFlag = NO;
+        
+        self.characterCounterLabel.text = [NSString stringWithFormat:@"0 / %lu", (unsigned long)kMaximumNumberOfCharacters];
+    } else {
+      self.characterCounterLabel.text = [NSString stringWithFormat:@"%lu / %lu", (unsigned long)textView.text.length + 1, (unsigned long)kMaximumNumberOfCharacters];
     }
     
     //Enable button after text is entered.
     [self.doneButton setEnabled:enableButtonFlag];
     [self.doneButton setTitleColor:[UIColor appPrimaryColor] forState:UIControlStateNormal];
 
-    if(range.length + range.location > textView.text.length)
-    {
-        goto errReturn;
-    }
-
     NSUInteger newLength = [textView.text length] + [text length] - range.length;
     
     errReturn:
-    return (newLength > kMaximumNumberOfCharacters) ? NO : YES;
+    return (newLength >= kMaximumNumberOfCharacters) ? NO : YES;
 }
 
 - (void)backBarButtonWasTapped:(UIBarButtonItem *)sender
@@ -182,6 +185,8 @@ static  NSString  *kExerciseSurveyStep106 = @"exercisesurvey106";
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    
+    self.characterCounterLabel.text = [NSString stringWithFormat:@"%lu / %lu", self.scriptorium.text.length, kMaximumNumberOfCharacters];
     
     [self.scriptorium becomeFirstResponder];
 }
