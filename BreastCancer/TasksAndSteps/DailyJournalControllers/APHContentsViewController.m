@@ -214,7 +214,7 @@ typedef  enum  _DailyLogType
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    APHAppDelegate *appDelegate = [UIApplication sharedApplication].delegate;
+    APHAppDelegate *appDelegate = (APHAppDelegate*) [UIApplication sharedApplication].delegate;
     
     NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc]
                                         initWithKey:@"endDate" ascending:NO];
