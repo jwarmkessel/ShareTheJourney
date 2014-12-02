@@ -66,9 +66,7 @@ static  NSString  *kExerciseSurveyStep106 = @"exercisesurvey106";
 #pragma  mark  -  Text View Delegate Methods
 
 - (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text
-{
-    NSLog(@"Text %@", text);
-  
+{  
     BOOL enableButtonFlag = YES;
     BOOL returnValue = YES;
     
