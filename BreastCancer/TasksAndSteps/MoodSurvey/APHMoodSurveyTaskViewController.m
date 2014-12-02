@@ -394,7 +394,33 @@ static  NSString  *kMoodSurveyStep107 = @"moodsurvey107";
             
             NSArray *  questionAnswerChoices = [questionAnswerDictionary objectForKey:stepViewController.step.identifier];
             
-            self.currentCustomView.questionChoiceLabel.text = [questionAnswerChoices objectAtIndex:[number intValue]];
+            //These numbers have to relate to the output on the graphs in dashboard.
+            int aNum = 0;
+            
+            switch ([number intValue]) {
+                case 0:
+                    aNum = 5;
+                    break;
+                case 1:
+                    aNum = 4;
+                    break;
+                    
+                case 2:
+                    aNum = 3;
+                    break;
+                    
+                case 3:
+                    aNum = 2;
+                    break;
+                    
+                case 4:
+                    aNum = 1;
+                    break;
+            }
+            
+            self.currentCustomView.questionChoiceLabel.text = [NSString stringWithFormat:@"%@ (%d)", [questionAnswerChoices objectAtIndex:[number intValue]], aNum];
+            
+            
             
             [UIView animateWithDuration:0.3 animations:^{
                 self.currentCustomView.alpha = 1;
