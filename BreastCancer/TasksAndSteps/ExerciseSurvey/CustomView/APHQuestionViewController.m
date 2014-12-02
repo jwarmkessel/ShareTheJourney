@@ -16,11 +16,6 @@ typedef  enum  _TypingDirection
     TypingDirectionDeleting
 }  TypingDirection;
 
-//static  NSCharacterSet  *whitespaceAndNewLineSet = nil;
-//
-//static  NSUInteger  kMaximumNumberOfWordsPerLog = 150;
-//static  NSUInteger  kThresholdForLimitWarning   = 140;
-
 static NSUInteger kMaximumNumberOfCharacters = 90;
 
 static  NSString  *kExerciseSurveyStep102 = @"exercisesurvey102";
@@ -56,6 +51,7 @@ static  NSString  *kExerciseSurveyStep106 = @"exercisesurvey106";
 @property (nonatomic, strong) RKSTStepResult *cachedResult;
 
 @property (weak, nonatomic) IBOutlet UILabel *characterCounterLabel;
+@property (assign) NSUInteger charCounter;
 @end
 
 @implementation APHQuestionViewController
@@ -71,31 +67,37 @@ static  NSString  *kExerciseSurveyStep106 = @"exercisesurvey106";
 
 - (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text
 {
-    if(range.length + range.location > textView.text.length)
-    {
-        goto errReturn;
-    }
-    
+    NSLog(@"Text %@", text);
+  
     BOOL enableButtonFlag = YES;
+    BOOL returnValue = YES;
     
-    //The textView text length is still set to one after the text view has deleted all characters, therefore, I need to check the length and whether the string is empty.
-    
-    if (textView.text.length <= 1  &&  [text isEqualToString:@""]) {
-        enableButtonFlag = NO;
+    //This is basically counting characters but also keeping track of delete strings.
+    if ([text isEqualToString:@""]) {
+        if (self.charCounter > 0) {
+            self.charCounter--;
+            self.characterCounterLabel.text = [NSString stringWithFormat:@"%lu / %lu", (unsigned long)self.charCounter, kMaximumNumberOfCharacters];
+            
+            if (self.charCounter == 0) {
+                enableButtonFlag = NO;
+            }
+        }
         
-        self.characterCounterLabel.text = [NSString stringWithFormat:@"0 / %lu", (unsigned long)kMaximumNumberOfCharacters];
-    } else {
-      self.characterCounterLabel.text = [NSString stringWithFormat:@"%lu / %lu", (unsigned long)textView.text.length + 1, (unsigned long)kMaximumNumberOfCharacters];
+    } else if ([text isEqualToString:@" "] || ![text isEqualToString:@""]) {
+        if (self.charCounter + 1 <= kMaximumNumberOfCharacters){
+            self.charCounter++;
+            self.characterCounterLabel.text = [NSString stringWithFormat:@"%lu / %lu", (unsigned long)self.charCounter, kMaximumNumberOfCharacters];
+        } else {
+            returnValue = NO;
+            goto goToReturn;
+        }
     }
     
-    //Enable button after text is entered.
     [self.doneButton setEnabled:enableButtonFlag];
     [self.doneButton setTitleColor:[UIColor appPrimaryColor] forState:UIControlStateNormal];
-
-    NSUInteger newLength = [textView.text length] + [text length] - range.length;
     
-    errReturn:
-    return (newLength >= kMaximumNumberOfCharacters) ? NO : YES;
+goToReturn:
+    return returnValue;
 }
 
 - (void)backBarButtonWasTapped:(UIBarButtonItem *)sender
@@ -148,6 +150,7 @@ static  NSString  *kExerciseSurveyStep106 = @"exercisesurvey106";
 {
     [super viewDidLoad];
     
+    self.charCounter = 0;
     //Done button is disabled.
     [self.doneButton setEnabled:NO];
     
@@ -181,6 +184,8 @@ static  NSString  *kExerciseSurveyStep106 = @"exercisesurvey106";
 - (IBAction)submitTapped:(id)sender {
 
     [self.scriptorium resignFirstResponder];
+    
+    self.noteContentModel = [NSMutableDictionary new];
     
     [self.noteContentModel setObject:self.scriptorium.text forKey:@"result"];
     [self.noteChangesModel setObject:self.noteModifications forKey:APHMoodLogNoteModificationsKey];
