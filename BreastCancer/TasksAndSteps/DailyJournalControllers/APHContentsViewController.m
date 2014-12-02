@@ -221,10 +221,17 @@ typedef  enum  _DailyLogType
     
     
     NSFetchRequest * request = [APCResult request];
-    request.predicate = [NSPredicate predicateWithFormat:@"rkTaskIdentifier == %@", [[self.taskViewController task] identifier]];
+    
+    request.predicate = [NSPredicate predicateWithFormat:@"taskID == %@", [[self.taskViewController task] identifier]];
     request.sortDescriptors = @[sortDescriptor];
     
-    self.logHistory = [appDelegate.dataSubstrate.mainContext executeFetchRequest:request error:NULL];
+    NSError *error = nil;
+    
+    self.logHistory = [appDelegate.dataSubstrate.mainContext executeFetchRequest:request error:&error];
+    
+    if (error) {
+        [error handle];
+    }
     
     [self.enterDailyLog setBackgroundColor:[UIColor appPrimaryColor]];
     
