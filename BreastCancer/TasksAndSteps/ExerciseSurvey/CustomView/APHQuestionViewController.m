@@ -21,6 +21,8 @@ static  NSCharacterSet  *whitespaceAndNewLineSet = nil;
 static  NSUInteger  kMaximumNumberOfWordsPerLog = 150;
 static  NSUInteger  kThresholdForLimitWarning   = 140;
 
+static NSUInteger kMaximumNumberOfCharacters = 150;
+
 static  NSString  *kExerciseSurveyStep102 = @"exercisesurvey102";
 static  NSString  *kExerciseSurveyStep103 = @"exercisesurvey103";
 static  NSString  *kExerciseSurveyStep104 = @"exercisesurvey104";
@@ -119,40 +121,29 @@ static  NSString  *kExerciseSurveyStep106 = @"exercisesurvey106";
 
 - (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text
 {
+    NSLog(@"TEXT : %@", text);
+    NSLog(@"textView : %lu", (unsigned long)textView.text.length);
+    
+    BOOL enableButtonFlag = YES;
+    
+    //The textView text length is still set to one after the text view has deleted all characters, therefore, I need to check the length and whether the string is empty.
+    if (textView.text.length <= 1  &&  [text isEqualToString:@""]) {
+        enableButtonFlag = NO;
+    }
+    
     //Enable button after text is entered.
-    [self.doneButton setEnabled:YES];
+    [self.doneButton setEnabled:enableButtonFlag];
     [self.doneButton setTitleColor:[UIColor appPrimaryColor] forState:UIControlStateNormal];
-    
-    BOOL  answer = YES;
-    
-    NSDictionary  *record = nil;
-    
-    NSTimeInterval timestamp = [[NSDate date] timeIntervalSinceReferenceDate];
-    
-    NSUInteger  preCount = [self countWords:self.scriptorium.text];
-    if ([text length] != 0) {
-        if (preCount >= kMaximumNumberOfWordsPerLog) {
-            //answer = NO;
-        } else {
-            record = @{
-                       APHMoodLogEditTimeStampKey : @(timestamp),
-                       APHMoodLogEditingTypeKey : APHMoodLogEditingTypeAddingKey,
-                       };
-        }
-    } else {
-        record = @{
-                   APHMoodLogEditTimeStampKey : @(timestamp),
-                   APHMoodLogEditingTypeKey : APHMoodLogEditingTypeDeletingKey,
-                   };
+
+    if(range.length + range.location > textView.text.length)
+    {
+        goto errReturn;
     }
-    if (record != nil) {
-        [self.noteModifications addObject: record];
-    }
+
+    NSUInteger newLength = [textView.text length] + [text length] - range.length;
     
-    NSUInteger  count = [self countWords:self.scriptorium.text];
-    [self displayWordCount:count];
-    
-    return  answer;
+    errReturn:
+    return (newLength > kMaximumNumberOfCharacters) ? NO : YES;
 }
 
 - (void)backBarButtonWasTapped:(UIBarButtonItem *)sender
@@ -208,7 +199,7 @@ static  NSString  *kExerciseSurveyStep106 = @"exercisesurvey106";
     [self.doneButton setEnabled:NO];
     
     if ([self.step.identifier isEqualToString:kExerciseSurveyStep106]) {
-        [self.doneButton setTitle:@"Finished" forState:UIControlStateNormal];
+        [self.doneButton setTitle:@"Finish" forState:UIControlStateNormal];
     }
     
     [self.view setBackgroundColor:[UIColor appSecondaryColor4]];
