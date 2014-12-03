@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-@import APCAppleCore;
+@import APCAppCore;
 
 @interface APHAppDelegate : APCAppDelegate
 
