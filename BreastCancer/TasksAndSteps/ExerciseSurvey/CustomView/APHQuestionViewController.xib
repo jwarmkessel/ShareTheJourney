@@ -8,6 +8,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="APHQuestionViewController">
             <connections>
                 <outlet property="bottomButtonConstraint" destination="pcU-VT-ToS" id="AtV-6g-DKD"/>
+                <outlet property="characterCounterLabel" destination="ydF-w0-YeN" id="Ya9-YY-5q3"/>
                 <outlet property="containerSpacing" destination="A82-Cj-qcT" id="fT2-OD-9bU"/>
                 <outlet property="currentQuestion" destination="DbF-jM-M1H" id="nNp-60-sMR"/>
                 <outlet property="doneButton" destination="efQ-ju-aAY" id="dC1-HJ-8cJ"/>
@@ -154,15 +155,27 @@
                                 <constraint firstAttribute="bottom" secondItem="cJV-hp-Ffx" secondAttribute="bottom" id="yWa-KT-e3a"/>
                             </constraints>
                         </view>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0 / 150" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ydF-w0-YeN">
+                            <rect key="frame" x="246" y="270" width="72.5" height="21"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="72.5" id="0Ne-dM-2oc"/>
+                                <constraint firstAttribute="height" constant="21" id="mOI-dY-W2g"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                            <nil key="highlightedColor"/>
+                        </label>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
+                        <constraint firstAttribute="trailing" secondItem="ydF-w0-YeN" secondAttribute="trailing" constant="1.5" id="CCw-z9-AQr"/>
                         <constraint firstItem="34x-gQ-cG2" firstAttribute="leading" secondItem="C1V-y7-AcJ" secondAttribute="leading" id="FMR-sa-37z"/>
                         <constraint firstAttribute="bottom" secondItem="nsl-Rj-KnY" secondAttribute="bottom" constant="96" id="Fae-M2-3fE"/>
                         <constraint firstItem="nsl-Rj-KnY" firstAttribute="top" secondItem="C1V-y7-AcJ" secondAttribute="top" id="HLW-uV-JTh"/>
                         <constraint firstItem="yLp-Wb-P8l" firstAttribute="leading" secondItem="C1V-y7-AcJ" secondAttribute="leading" id="LKj-zJ-cva"/>
                         <constraint firstAttribute="bottom" secondItem="34x-gQ-cG2" secondAttribute="bottom" id="Qbe-tX-Pah"/>
                         <constraint firstItem="efQ-ju-aAY" firstAttribute="top" secondItem="yLp-Wb-P8l" secondAttribute="bottom" id="UKa-g8-dSo"/>
+                        <constraint firstItem="yLp-Wb-P8l" firstAttribute="top" secondItem="ydF-w0-YeN" secondAttribute="bottom" constant="2" id="ZQ8-J6-bAb"/>
                         <constraint firstItem="efQ-ju-aAY" firstAttribute="leading" secondItem="C1V-y7-AcJ" secondAttribute="leading" id="bZv-88-r7B"/>
                         <constraint firstItem="34x-gQ-cG2" firstAttribute="top" secondItem="C1V-y7-AcJ" secondAttribute="top" id="nvu-0p-YCu"/>
                         <constraint firstAttribute="trailing" secondItem="nsl-Rj-KnY" secondAttribute="trailing" constant="8" id="oiJ-DL-aqL"/>
