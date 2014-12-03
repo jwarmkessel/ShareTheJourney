@@ -9,36 +9,15 @@
 /* Begin PBXBuildFile section */
 		5B15DCF41A114F7000BEA0D1 /* Learn.json in Resources */ = {isa = PBXBuildFile; fileRef = 5B15DCF21A114F7000BEA0D1 /* Learn.json */; };
 		5B15DCF51A114F7000BEA0D1 /* WithdrawStudy.json in Resources */ = {isa = PBXBuildFile; fileRef = 5B15DCF31A114F7000BEA0D1 /* WithdrawStudy.json */; };
-		5B15DD1C1A114F8100BEA0D1 /* APHLearn.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B15DD061A114F8100BEA0D1 /* APHLearn.storyboard */; };
-		5B15DD1D1A114F8100BEA0D1 /* APHLearnMasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B15DD081A114F8100BEA0D1 /* APHLearnMasterViewController.m */; };
-		5B15DD1E1A114F8100BEA0D1 /* APHLearnStudyDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B15DD0A1A114F8100BEA0D1 /* APHLearnStudyDetailsViewController.m */; };
-		5B15DD1F1A114F8100BEA0D1 /* APHChangePasscodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B15DD0D1A114F8100BEA0D1 /* APHChangePasscodeViewController.m */; };
-		5B15DD201A114F8100BEA0D1 /* APHProfieViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B15DD0F1A114F8100BEA0D1 /* APHProfieViewController.m */; };
-		5B15DD211A114F8100BEA0D1 /* APHProfile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B15DD101A114F8100BEA0D1 /* APHProfile.storyboard */; };
-		5B15DD221A114F8100BEA0D1 /* APHSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B15DD121A114F8100BEA0D1 /* APHSettingsViewController.m */; };
-		5B15DD231A114F8100BEA0D1 /* APHWithdrawSurveyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B15DD141A114F8100BEA0D1 /* APHWithdrawSurveyViewController.m */; };
-		5B15DD3A1A114F9000BEA0D1 /* APHEligibleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B15DD261A114F9000BEA0D1 /* APHEligibleViewController.m */; };
 		5B15DD3B1A114F9000BEA0D1 /* APHInclusionCriteriaViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B15DD281A114F9000BEA0D1 /* APHInclusionCriteriaViewController.m */; };
-		5B15DD3C1A114F9000BEA0D1 /* APHInEligibleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B15DD2A1A114F9000BEA0D1 /* APHInEligibleViewController.m */; };
-		5B15DD3D1A114F9000BEA0D1 /* APHIntroVideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B15DD2C1A114F9000BEA0D1 /* APHIntroVideoViewController.m */; };
 		5B15DD3E1A114F9000BEA0D1 /* APHOnboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B15DD2D1A114F9000BEA0D1 /* APHOnboarding.storyboard */; };
-		5B15DD3F1A114F9000BEA0D1 /* APHSignInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B15DD2F1A114F9000BEA0D1 /* APHSignInViewController.m */; };
-		5B15DD401A114F9000BEA0D1 /* APHSignUpGeneralInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B15DD311A114F9000BEA0D1 /* APHSignUpGeneralInfoViewController.m */; };
-		5B15DD411A114F9000BEA0D1 /* APHSignUpMedicalInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B15DD331A114F9000BEA0D1 /* APHSignUpMedicalInfoViewController.m */; };
-		5B15DD421A114F9000BEA0D1 /* APHSignUpPermissionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B15DD351A114F9000BEA0D1 /* APHSignUpPermissionsViewController.m */; };
-		5B15DD431A114F9000BEA0D1 /* APHSignupTouchIDViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B15DD371A114F9000BEA0D1 /* APHSignupTouchIDViewController.m */; };
-		5B15DD441A114F9000BEA0D1 /* APHStudyOverviewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B15DD391A114F9000BEA0D1 /* APHStudyOverviewViewController.m */; };
 		5B15DD481A11524900BEA0D1 /* APHAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B15DD471A11524900BEA0D1 /* APHAppDelegate.m */; };
 		5B15DD721A118FF900BEA0D1 /* Intro.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 5B15DD711A118FF900BEA0D1 /* Intro.mp4 */; };
+		5B18CEDA1A2CFFD1001A905E /* TermsAndConditions.json in Resources */ = {isa = PBXBuildFile; fileRef = 5B18CED91A2CFFD1001A905E /* TermsAndConditions.json */; };
+		5B18CEDC1A2CFFD9001A905E /* HTMLContent in Resources */ = {isa = PBXBuildFile; fileRef = 5B18CEDB1A2CFFD9001A905E /* HTMLContent */; };
 		5B1D9D6C1A1BD414000F4AD6 /* APHDashboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B1D9D671A1BD414000F4AD6 /* APHDashboard.storyboard */; };
 		5B1D9D6D1A1BD414000F4AD6 /* APHDashboardEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B1D9D691A1BD414000F4AD6 /* APHDashboardEditViewController.m */; };
 		5B1D9D6E1A1BD414000F4AD6 /* APHDashboardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B1D9D6B1A1BD414000F4AD6 /* APHDashboardViewController.m */; };
-		5B1D9D741A1BD419000F4AD6 /* APHDataPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B1D9D711A1BD419000F4AD6 /* APHDataPoint.m */; };
-		5B1D9D751A1BD419000F4AD6 /* APHScoring.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B1D9D731A1BD419000F4AD6 /* APHScoring.m */; };
-		5B8E6C0D1A1FD5020033733A /* AboutStudy.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 5B8E6C091A1FD5020033733A /* AboutStudy.pdf */; };
-		5B8E6C0E1A1FD5020033733A /* EligibleToParticipate.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 5B8E6C0A1A1FD5020033733A /* EligibleToParticipate.pdf */; };
-		5B8E6C0F1A1FD5020033733A /* HowStudyWorks.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 5B8E6C0B1A1FD5020033733A /* HowStudyWorks.pdf */; };
-		5B8E6C101A1FD5020033733A /* WhoRunningStudy.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 5B8E6C0C1A1FD5020033733A /* WhoRunningStudy.pdf */; };
 		7B5E25CB1A2045BB00A04FEF /* APHMoodSurveyTaskViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B5E25CA1A2045BB00A04FEF /* APHMoodSurveyTaskViewController.m */; };
 		7B5E25D01A20592400A04FEF /* APHHeartAgeIntroStepViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B5E25CE1A20592400A04FEF /* APHHeartAgeIntroStepViewController.m */; };
 		7B5E25D11A20592400A04FEF /* APHHeartAgeIntroStepViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7B5E25CF1A20592400A04FEF /* APHHeartAgeIntroStepViewController.xib */; };
@@ -53,6 +32,8 @@
 		7BA3AC111A23DDBC0017B3C8 /* APHExerciseMotivationIntroViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7BA3AC0F1A23DDBC0017B3C8 /* APHExerciseMotivationIntroViewController.xib */; };
 		7BA3AC161A2407D00017B3C8 /* APHExerciseMotivationSummaryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BA3AC141A2407D00017B3C8 /* APHExerciseMotivationSummaryViewController.m */; };
 		7BA3AC171A2407D00017B3C8 /* APHExerciseMotivationSummaryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7BA3AC151A2407D00017B3C8 /* APHExerciseMotivationSummaryViewController.xib */; };
+		7BFD56791A24FAF0001210A2 /* APHDisplayLogHistoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BFD56771A24FAF0001210A2 /* APHDisplayLogHistoryViewController.m */; };
+		7BFD567A1A24FAF0001210A2 /* APHDisplayLogHistoryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7BFD56781A24FAF0001210A2 /* APHDisplayLogHistoryViewController.xib */; };
 		CF15F24B1A11616500D87570 /* APHDailyJournalTaskViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CF15F24A1A11616500D87570 /* APHDailyJournalTaskViewController.m */; };
 		CF15F24F1A116A5A00D87570 /* APHDailyJournalIntroViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CF15F24D1A116A5A00D87570 /* APHDailyJournalIntroViewController.m */; };
 		CF15F2501A116A5A00D87570 /* APHDailyJournalIntroViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CF15F24E1A116A5A00D87570 /* APHDailyJournalIntroViewController.xib */; };
@@ -62,23 +43,16 @@
 		CF2697E919EC3E4200525E19 /* APHNotesContentsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CF2697E219EC3E4200525E19 /* APHNotesContentsTableViewCell.m */; };
 		CF2697EA19EC3E4200525E19 /* APHNotesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CF2697E419EC3E4200525E19 /* APHNotesViewController.m */; };
 		CF2697EB19EC3E4200525E19 /* APHNotesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CF2697E519EC3E4200525E19 /* APHNotesViewController.xib */; };
-		CF5FAB4019F95C630006CA71 /* APHIntroductionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CF5FAB3F19F95C630006CA71 /* APHIntroductionViewController.m */; };
 		CF5FAB4319F95C8F0006CA71 /* APHContentsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CF5FAB4119F95C8F0006CA71 /* APHContentsViewController.xib */; };
 		CF5FAB4419F95C8F0006CA71 /* APHNotesContentsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CF5FAB4219F95C8F0006CA71 /* APHNotesContentsTableViewCell.xib */; };
 		F534B58919E4681E00C3C152 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F534B58819E4681E00C3C152 /* main.m */; };
 		F534B59419E4681E00C3C152 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F534B59319E4681E00C3C152 /* Images.xcassets */; };
-		F534B67C19E4689D00C3C152 /* NSString+CustomMethods.m in Sources */ = {isa = PBXBuildFile; fileRef = F534B5AF19E4689D00C3C152 /* NSString+CustomMethods.m */; };
-		F534B67E19E4689D00C3C152 /* UIColor+Parkinson.m in Sources */ = {isa = PBXBuildFile; fileRef = F534B5B319E4689D00C3C152 /* UIColor+Parkinson.m */; };
 		F534B68A19E4689D00C3C152 /* APCParameters.json in Resources */ = {isa = PBXBuildFile; fileRef = F534B5CB19E4689D00C3C152 /* APCParameters.json */; };
 		F534B68B19E4689D00C3C152 /* APHTasksAndSchedules.json in Resources */ = {isa = PBXBuildFile; fileRef = F534B5CC19E4689D00C3C152 /* APHTasksAndSchedules.json */; };
-		F534B68C19E4689D00C3C152 /* JSON_READ_ME in Resources */ = {isa = PBXBuildFile; fileRef = F534B5CD19E4689D00C3C152 /* JSON_READ_ME */; };
 		F534B68D19E4689D00C3C152 /* sleepSurvey.json in Resources */ = {isa = PBXBuildFile; fileRef = F534B5CE19E4689D00C3C152 /* sleepSurvey.json */; };
 		F534B68E19E4689D00C3C152 /* StudyOverview.json in Resources */ = {isa = PBXBuildFile; fileRef = F534B5CF19E4689D00C3C152 /* StudyOverview.json */; };
-		F534B69A19E4689D00C3C152 /* APHDataSubstrate.m in Sources */ = {isa = PBXBuildFile; fileRef = F534B5E019E4689D00C3C152 /* APHDataSubstrate.m */; };
 		F534B69C19E4689D00C3C152 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = F534B5E319E4689D00C3C152 /* LaunchScreen.xib */; };
 		F534B69D19E4689D00C3C152 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F534B5E419E4689D00C3C152 /* Main.storyboard */; };
-		F534B69E19E4689D00C3C152 /* APHActivities.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F534B5E719E4689D00C3C152 /* APHActivities.storyboard */; };
-		F534B69F19E4689D00C3C152 /* APHActivitiesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F534B5E919E4689D00C3C152 /* APHActivitiesViewController.m */; };
 		F534B6F619E468D400C3C152 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F534B6F519E468D400C3C152 /* HealthKit.framework */; };
 		F534B70319E4697E00C3C152 /* APCAppleCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F534B6FE19E4696E00C3C152 /* APCAppleCore.framework */; };
 		F534B70419E4697E00C3C152 /* APCAppleCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F534B6FE19E4696E00C3C152 /* APCAppleCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -87,6 +61,8 @@
 		F534B70B19E4699A00C3C152 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F534B70A19E4699A00C3C152 /* CoreData.framework */; };
 		F534B70D19E469A100C3C152 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F534B70C19E469A000C3C152 /* Security.framework */; };
 		F534B70F19E469A600C3C152 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F534B70E19E469A600C3C152 /* AVFoundation.framework */; };
+		F53F27A01A2D30D600A1D725 /* APHDataPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = F53F279D1A2D30D600A1D725 /* APHDataPoint.m */; };
+		F53F27A11A2D30D600A1D725 /* APHScoring.m in Sources */ = {isa = PBXBuildFile; fileRef = F53F279F1A2D30D600A1D725 /* APHScoring.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -131,57 +107,19 @@
 /* Begin PBXFileReference section */
 		5B15DCF21A114F7000BEA0D1 /* Learn.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Learn.json; sourceTree = "<group>"; };
 		5B15DCF31A114F7000BEA0D1 /* WithdrawStudy.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = WithdrawStudy.json; sourceTree = "<group>"; };
-		5B15DD061A114F8100BEA0D1 /* APHLearn.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = APHLearn.storyboard; sourceTree = "<group>"; };
-		5B15DD071A114F8100BEA0D1 /* APHLearnMasterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APHLearnMasterViewController.h; sourceTree = "<group>"; };
-		5B15DD081A114F8100BEA0D1 /* APHLearnMasterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APHLearnMasterViewController.m; sourceTree = "<group>"; };
-		5B15DD091A114F8100BEA0D1 /* APHLearnStudyDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APHLearnStudyDetailsViewController.h; sourceTree = "<group>"; };
-		5B15DD0A1A114F8100BEA0D1 /* APHLearnStudyDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APHLearnStudyDetailsViewController.m; sourceTree = "<group>"; };
-		5B15DD0C1A114F8100BEA0D1 /* APHChangePasscodeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APHChangePasscodeViewController.h; sourceTree = "<group>"; };
-		5B15DD0D1A114F8100BEA0D1 /* APHChangePasscodeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APHChangePasscodeViewController.m; sourceTree = "<group>"; };
-		5B15DD0E1A114F8100BEA0D1 /* APHProfieViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APHProfieViewController.h; sourceTree = "<group>"; };
-		5B15DD0F1A114F8100BEA0D1 /* APHProfieViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APHProfieViewController.m; sourceTree = "<group>"; };
-		5B15DD101A114F8100BEA0D1 /* APHProfile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = APHProfile.storyboard; sourceTree = "<group>"; };
-		5B15DD111A114F8100BEA0D1 /* APHSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APHSettingsViewController.h; sourceTree = "<group>"; };
-		5B15DD121A114F8100BEA0D1 /* APHSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APHSettingsViewController.m; sourceTree = "<group>"; };
-		5B15DD131A114F8100BEA0D1 /* APHWithdrawSurveyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APHWithdrawSurveyViewController.h; sourceTree = "<group>"; };
-		5B15DD141A114F8100BEA0D1 /* APHWithdrawSurveyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APHWithdrawSurveyViewController.m; sourceTree = "<group>"; };
-		5B15DD251A114F9000BEA0D1 /* APHEligibleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APHEligibleViewController.h; sourceTree = "<group>"; };
-		5B15DD261A114F9000BEA0D1 /* APHEligibleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APHEligibleViewController.m; sourceTree = "<group>"; };
 		5B15DD271A114F9000BEA0D1 /* APHInclusionCriteriaViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APHInclusionCriteriaViewController.h; sourceTree = "<group>"; };
 		5B15DD281A114F9000BEA0D1 /* APHInclusionCriteriaViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APHInclusionCriteriaViewController.m; sourceTree = "<group>"; };
-		5B15DD291A114F9000BEA0D1 /* APHInEligibleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APHInEligibleViewController.h; sourceTree = "<group>"; };
-		5B15DD2A1A114F9000BEA0D1 /* APHInEligibleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APHInEligibleViewController.m; sourceTree = "<group>"; };
-		5B15DD2B1A114F9000BEA0D1 /* APHIntroVideoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APHIntroVideoViewController.h; sourceTree = "<group>"; };
-		5B15DD2C1A114F9000BEA0D1 /* APHIntroVideoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APHIntroVideoViewController.m; sourceTree = "<group>"; };
 		5B15DD2D1A114F9000BEA0D1 /* APHOnboarding.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = APHOnboarding.storyboard; sourceTree = "<group>"; };
-		5B15DD2E1A114F9000BEA0D1 /* APHSignInViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APHSignInViewController.h; sourceTree = "<group>"; };
-		5B15DD2F1A114F9000BEA0D1 /* APHSignInViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APHSignInViewController.m; sourceTree = "<group>"; };
-		5B15DD301A114F9000BEA0D1 /* APHSignUpGeneralInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APHSignUpGeneralInfoViewController.h; sourceTree = "<group>"; };
-		5B15DD311A114F9000BEA0D1 /* APHSignUpGeneralInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APHSignUpGeneralInfoViewController.m; sourceTree = "<group>"; };
-		5B15DD321A114F9000BEA0D1 /* APHSignUpMedicalInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APHSignUpMedicalInfoViewController.h; sourceTree = "<group>"; };
-		5B15DD331A114F9000BEA0D1 /* APHSignUpMedicalInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APHSignUpMedicalInfoViewController.m; sourceTree = "<group>"; };
-		5B15DD341A114F9000BEA0D1 /* APHSignUpPermissionsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APHSignUpPermissionsViewController.h; sourceTree = "<group>"; };
-		5B15DD351A114F9000BEA0D1 /* APHSignUpPermissionsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APHSignUpPermissionsViewController.m; sourceTree = "<group>"; };
-		5B15DD361A114F9000BEA0D1 /* APHSignupTouchIDViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APHSignupTouchIDViewController.h; sourceTree = "<group>"; };
-		5B15DD371A114F9000BEA0D1 /* APHSignupTouchIDViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APHSignupTouchIDViewController.m; sourceTree = "<group>"; };
-		5B15DD381A114F9000BEA0D1 /* APHStudyOverviewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APHStudyOverviewViewController.h; sourceTree = "<group>"; };
-		5B15DD391A114F9000BEA0D1 /* APHStudyOverviewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APHStudyOverviewViewController.m; sourceTree = "<group>"; };
 		5B15DD461A11524900BEA0D1 /* APHAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APHAppDelegate.h; sourceTree = "<group>"; };
 		5B15DD471A11524900BEA0D1 /* APHAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APHAppDelegate.m; sourceTree = "<group>"; };
 		5B15DD711A118FF900BEA0D1 /* Intro.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = Intro.mp4; sourceTree = "<group>"; };
+		5B18CED91A2CFFD1001A905E /* TermsAndConditions.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = TermsAndConditions.json; sourceTree = "<group>"; };
+		5B18CEDB1A2CFFD9001A905E /* HTMLContent */ = {isa = PBXFileReference; lastKnownFileType = folder; path = HTMLContent; sourceTree = "<group>"; };
 		5B1D9D671A1BD414000F4AD6 /* APHDashboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = APHDashboard.storyboard; sourceTree = "<group>"; };
 		5B1D9D681A1BD414000F4AD6 /* APHDashboardEditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APHDashboardEditViewController.h; sourceTree = "<group>"; };
 		5B1D9D691A1BD414000F4AD6 /* APHDashboardEditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APHDashboardEditViewController.m; sourceTree = "<group>"; };
 		5B1D9D6A1A1BD414000F4AD6 /* APHDashboardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APHDashboardViewController.h; sourceTree = "<group>"; };
 		5B1D9D6B1A1BD414000F4AD6 /* APHDashboardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APHDashboardViewController.m; sourceTree = "<group>"; };
-		5B1D9D701A1BD419000F4AD6 /* APHDataPoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APHDataPoint.h; sourceTree = "<group>"; };
-		5B1D9D711A1BD419000F4AD6 /* APHDataPoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APHDataPoint.m; sourceTree = "<group>"; };
-		5B1D9D721A1BD419000F4AD6 /* APHScoring.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APHScoring.h; sourceTree = "<group>"; };
-		5B1D9D731A1BD419000F4AD6 /* APHScoring.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APHScoring.m; sourceTree = "<group>"; };
-		5B8E6C091A1FD5020033733A /* AboutStudy.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = AboutStudy.pdf; sourceTree = "<group>"; };
-		5B8E6C0A1A1FD5020033733A /* EligibleToParticipate.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = EligibleToParticipate.pdf; sourceTree = "<group>"; };
-		5B8E6C0B1A1FD5020033733A /* HowStudyWorks.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = HowStudyWorks.pdf; sourceTree = "<group>"; };
-		5B8E6C0C1A1FD5020033733A /* WhoRunningStudy.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = WhoRunningStudy.pdf; sourceTree = "<group>"; };
 		7B5E25C91A2045BB00A04FEF /* APHMoodSurveyTaskViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = APHMoodSurveyTaskViewController.h; path = MoodSurvey/APHMoodSurveyTaskViewController.h; sourceTree = "<group>"; };
 		7B5E25CA1A2045BB00A04FEF /* APHMoodSurveyTaskViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = APHMoodSurveyTaskViewController.m; path = MoodSurvey/APHMoodSurveyTaskViewController.m; sourceTree = "<group>"; };
 		7B5E25CD1A20592400A04FEF /* APHHeartAgeIntroStepViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = APHHeartAgeIntroStepViewController.h; path = MoodSurvey/Intro/APHHeartAgeIntroStepViewController.h; sourceTree = "<group>"; };
@@ -204,6 +142,9 @@
 		7BA3AC131A2407D00017B3C8 /* APHExerciseMotivationSummaryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APHExerciseMotivationSummaryViewController.h; sourceTree = "<group>"; };
 		7BA3AC141A2407D00017B3C8 /* APHExerciseMotivationSummaryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APHExerciseMotivationSummaryViewController.m; sourceTree = "<group>"; };
 		7BA3AC151A2407D00017B3C8 /* APHExerciseMotivationSummaryViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = APHExerciseMotivationSummaryViewController.xib; sourceTree = "<group>"; };
+		7BFD56761A24FAF0001210A2 /* APHDisplayLogHistoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APHDisplayLogHistoryViewController.h; sourceTree = "<group>"; };
+		7BFD56771A24FAF0001210A2 /* APHDisplayLogHistoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APHDisplayLogHistoryViewController.m; sourceTree = "<group>"; };
+		7BFD56781A24FAF0001210A2 /* APHDisplayLogHistoryViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = APHDisplayLogHistoryViewController.xib; sourceTree = "<group>"; };
 		CF15F2491A11616500D87570 /* APHDailyJournalTaskViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = APHDailyJournalTaskViewController.h; path = DailyJournalControllers/APHDailyJournalTaskViewController.h; sourceTree = "<group>"; };
 		CF15F24A1A11616500D87570 /* APHDailyJournalTaskViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = APHDailyJournalTaskViewController.m; path = DailyJournalControllers/APHDailyJournalTaskViewController.m; sourceTree = "<group>"; };
 		CF15F24C1A116A5A00D87570 /* APHDailyJournalIntroViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = APHDailyJournalIntroViewController.h; path = DailyJournalControllers/APHDailyJournalIntroViewController.h; sourceTree = "<group>"; };
@@ -220,30 +161,18 @@
 		CF2697E319EC3E4200525E19 /* APHNotesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = APHNotesViewController.h; path = DailyJournalControllers/APHNotesViewController.h; sourceTree = "<group>"; };
 		CF2697E419EC3E4200525E19 /* APHNotesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = APHNotesViewController.m; path = DailyJournalControllers/APHNotesViewController.m; sourceTree = "<group>"; };
 		CF2697E519EC3E4200525E19 /* APHNotesViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = APHNotesViewController.xib; path = DailyJournalControllers/APHNotesViewController.xib; sourceTree = "<group>"; };
-		CF5FAB3E19F95C630006CA71 /* APHIntroductionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APHIntroductionViewController.h; sourceTree = "<group>"; };
-		CF5FAB3F19F95C630006CA71 /* APHIntroductionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APHIntroductionViewController.m; sourceTree = "<group>"; };
 		CF5FAB4119F95C8F0006CA71 /* APHContentsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = APHContentsViewController.xib; path = DailyJournalControllers/APHContentsViewController.xib; sourceTree = "<group>"; };
 		CF5FAB4219F95C8F0006CA71 /* APHNotesContentsTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = APHNotesContentsTableViewCell.xib; path = DailyJournalControllers/APHNotesContentsTableViewCell.xib; sourceTree = "<group>"; };
 		F534B58319E4681E00C3C152 /* BreastCancer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BreastCancer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F534B58719E4681E00C3C152 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F534B58819E4681E00C3C152 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		F534B59319E4681E00C3C152 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		F534B5AE19E4689D00C3C152 /* NSString+CustomMethods.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+CustomMethods.h"; sourceTree = "<group>"; };
-		F534B5AF19E4689D00C3C152 /* NSString+CustomMethods.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+CustomMethods.m"; sourceTree = "<group>"; };
-		F534B5B219E4689D00C3C152 /* UIColor+Parkinson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Parkinson.h"; sourceTree = "<group>"; };
-		F534B5B319E4689D00C3C152 /* UIColor+Parkinson.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Parkinson.m"; sourceTree = "<group>"; };
 		F534B5CB19E4689D00C3C152 /* APCParameters.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = APCParameters.json; sourceTree = "<group>"; };
 		F534B5CC19E4689D00C3C152 /* APHTasksAndSchedules.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = APHTasksAndSchedules.json; sourceTree = "<group>"; };
-		F534B5CD19E4689D00C3C152 /* JSON_READ_ME */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = JSON_READ_ME; sourceTree = "<group>"; };
 		F534B5CE19E4689D00C3C152 /* sleepSurvey.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = sleepSurvey.json; sourceTree = "<group>"; };
 		F534B5CF19E4689D00C3C152 /* StudyOverview.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = StudyOverview.json; sourceTree = "<group>"; };
-		F534B5DF19E4689D00C3C152 /* APHDataSubstrate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APHDataSubstrate.h; sourceTree = "<group>"; };
-		F534B5E019E4689D00C3C152 /* APHDataSubstrate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APHDataSubstrate.m; sourceTree = "<group>"; };
 		F534B5E319E4689D00C3C152 /* LaunchScreen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LaunchScreen.xib; sourceTree = "<group>"; };
 		F534B5E419E4689D00C3C152 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
-		F534B5E719E4689D00C3C152 /* APHActivities.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = APHActivities.storyboard; sourceTree = "<group>"; };
-		F534B5E819E4689D00C3C152 /* APHActivitiesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APHActivitiesViewController.h; sourceTree = "<group>"; };
-		F534B5E919E4689D00C3C152 /* APHActivitiesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APHActivitiesViewController.m; sourceTree = "<group>"; };
 		F534B6F419E468D400C3C152 /* BreastCancer.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = BreastCancer.entitlements; sourceTree = "<group>"; };
 		F534B6F519E468D400C3C152 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
 		F534B6F819E4696E00C3C152 /* APCAppleCore.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = APCAppleCore.xcodeproj; path = AppleCore/APCAppleCore/APCAppleCore.xcodeproj; sourceTree = SOURCE_ROOT; };
@@ -251,6 +180,10 @@
 		F534B70A19E4699A00C3C152 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		F534B70C19E469A000C3C152 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		F534B70E19E469A600C3C152 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		F53F279C1A2D30D600A1D725 /* APHDataPoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APHDataPoint.h; sourceTree = "<group>"; };
+		F53F279D1A2D30D600A1D725 /* APHDataPoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APHDataPoint.m; sourceTree = "<group>"; };
+		F53F279E1A2D30D600A1D725 /* APHScoring.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APHScoring.h; sourceTree = "<group>"; };
+		F53F279F1A2D30D600A1D725 /* APHScoring.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APHScoring.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -270,58 +203,12 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		5B15DD051A114F8100BEA0D1 /* Learn */ = {
-			isa = PBXGroup;
-			children = (
-				5B15DD061A114F8100BEA0D1 /* APHLearn.storyboard */,
-				5B15DD071A114F8100BEA0D1 /* APHLearnMasterViewController.h */,
-				5B15DD081A114F8100BEA0D1 /* APHLearnMasterViewController.m */,
-				5B15DD091A114F8100BEA0D1 /* APHLearnStudyDetailsViewController.h */,
-				5B15DD0A1A114F8100BEA0D1 /* APHLearnStudyDetailsViewController.m */,
-			);
-			path = Learn;
-			sourceTree = "<group>";
-		};
-		5B15DD0B1A114F8100BEA0D1 /* Profile */ = {
-			isa = PBXGroup;
-			children = (
-				5B15DD0C1A114F8100BEA0D1 /* APHChangePasscodeViewController.h */,
-				5B15DD0D1A114F8100BEA0D1 /* APHChangePasscodeViewController.m */,
-				5B15DD0E1A114F8100BEA0D1 /* APHProfieViewController.h */,
-				5B15DD0F1A114F8100BEA0D1 /* APHProfieViewController.m */,
-				5B15DD101A114F8100BEA0D1 /* APHProfile.storyboard */,
-				5B15DD111A114F8100BEA0D1 /* APHSettingsViewController.h */,
-				5B15DD121A114F8100BEA0D1 /* APHSettingsViewController.m */,
-				5B15DD131A114F8100BEA0D1 /* APHWithdrawSurveyViewController.h */,
-				5B15DD141A114F8100BEA0D1 /* APHWithdrawSurveyViewController.m */,
-			);
-			path = Profile;
-			sourceTree = "<group>";
-		};
 		5B15DD241A114F9000BEA0D1 /* Onboarding */ = {
 			isa = PBXGroup;
 			children = (
 				5B15DD2D1A114F9000BEA0D1 /* APHOnboarding.storyboard */,
-				5B15DD251A114F9000BEA0D1 /* APHEligibleViewController.h */,
-				5B15DD261A114F9000BEA0D1 /* APHEligibleViewController.m */,
 				5B15DD271A114F9000BEA0D1 /* APHInclusionCriteriaViewController.h */,
 				5B15DD281A114F9000BEA0D1 /* APHInclusionCriteriaViewController.m */,
-				5B15DD291A114F9000BEA0D1 /* APHInEligibleViewController.h */,
-				5B15DD2A1A114F9000BEA0D1 /* APHInEligibleViewController.m */,
-				5B15DD2B1A114F9000BEA0D1 /* APHIntroVideoViewController.h */,
-				5B15DD2C1A114F9000BEA0D1 /* APHIntroVideoViewController.m */,
-				5B15DD2E1A114F9000BEA0D1 /* APHSignInViewController.h */,
-				5B15DD2F1A114F9000BEA0D1 /* APHSignInViewController.m */,
-				5B15DD301A114F9000BEA0D1 /* APHSignUpGeneralInfoViewController.h */,
-				5B15DD311A114F9000BEA0D1 /* APHSignUpGeneralInfoViewController.m */,
-				5B15DD321A114F9000BEA0D1 /* APHSignUpMedicalInfoViewController.h */,
-				5B15DD331A114F9000BEA0D1 /* APHSignUpMedicalInfoViewController.m */,
-				5B15DD341A114F9000BEA0D1 /* APHSignUpPermissionsViewController.h */,
-				5B15DD351A114F9000BEA0D1 /* APHSignUpPermissionsViewController.m */,
-				5B15DD361A114F9000BEA0D1 /* APHSignupTouchIDViewController.h */,
-				5B15DD371A114F9000BEA0D1 /* APHSignupTouchIDViewController.m */,
-				5B15DD381A114F9000BEA0D1 /* APHStudyOverviewViewController.h */,
-				5B15DD391A114F9000BEA0D1 /* APHStudyOverviewViewController.m */,
 			);
 			path = Onboarding;
 			sourceTree = "<group>";
@@ -336,28 +223,6 @@
 				5B1D9D6B1A1BD414000F4AD6 /* APHDashboardViewController.m */,
 			);
 			path = Dashboard;
-			sourceTree = "<group>";
-		};
-		5B1D9D6F1A1BD419000F4AD6 /* Scoring */ = {
-			isa = PBXGroup;
-			children = (
-				5B1D9D701A1BD419000F4AD6 /* APHDataPoint.h */,
-				5B1D9D711A1BD419000F4AD6 /* APHDataPoint.m */,
-				5B1D9D721A1BD419000F4AD6 /* APHScoring.h */,
-				5B1D9D731A1BD419000F4AD6 /* APHScoring.m */,
-			);
-			path = Scoring;
-			sourceTree = "<group>";
-		};
-		5B8E6C081A1FD5020033733A /* ContentPDFs */ = {
-			isa = PBXGroup;
-			children = (
-				5B8E6C091A1FD5020033733A /* AboutStudy.pdf */,
-				5B8E6C0A1A1FD5020033733A /* EligibleToParticipate.pdf */,
-				5B8E6C0B1A1FD5020033733A /* HowStudyWorks.pdf */,
-				5B8E6C0C1A1FD5020033733A /* WhoRunningStudy.pdf */,
-			);
-			path = ContentPDFs;
 			sourceTree = "<group>";
 		};
 		7B5E25C71A20454200A04FEF /* Mood Survey */ = {
@@ -429,6 +294,9 @@
 		CF2697DA19EC3E0D00525E19 /* Daily Journal Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				7BFD56761A24FAF0001210A2 /* APHDisplayLogHistoryViewController.h */,
+				7BFD56771A24FAF0001210A2 /* APHDisplayLogHistoryViewController.m */,
+				7BFD56781A24FAF0001210A2 /* APHDisplayLogHistoryViewController.xib */,
 				CF15F2491A11616500D87570 /* APHDailyJournalTaskViewController.h */,
 				CF15F24A1A11616500D87570 /* APHDailyJournalTaskViewController.m */,
 				CF15F24C1A116A5A00D87570 /* APHDailyJournalIntroViewController.h */,
@@ -473,13 +341,12 @@
 		F534B58519E4681E00C3C152 /* BreastCancer */ = {
 			isa = PBXGroup;
 			children = (
-				5B1D9D6F1A1BD419000F4AD6 /* Scoring */,
 				F534B5DE19E4689D00C3C152 /* Startup */,
 				5B15DD241A114F9000BEA0D1 /* Onboarding */,
 				F534B5E519E4689D00C3C152 /* TabBarControllers */,
 				F534B60C19E4689D00C3C152 /* TasksAndSteps */,
-				F534B5AC19E4689D00C3C152 /* Library */,
 				F534B5C419E4689D00C3C152 /* Resources */,
+				F53F27991A2D30D600A1D725 /* Library */,
 				F534B59319E4681E00C3C152 /* Images.xcassets */,
 				F534B6F719E4690400C3C152 /* Frameworks */,
 				F534B58619E4681E00C3C152 /* Supporting Files */,
@@ -497,29 +364,10 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		F534B5AC19E4689D00C3C152 /* Library */ = {
-			isa = PBXGroup;
-			children = (
-				F534B5AD19E4689D00C3C152 /* Categories */,
-			);
-			path = Library;
-			sourceTree = "<group>";
-		};
-		F534B5AD19E4689D00C3C152 /* Categories */ = {
-			isa = PBXGroup;
-			children = (
-				F534B5AE19E4689D00C3C152 /* NSString+CustomMethods.h */,
-				F534B5AF19E4689D00C3C152 /* NSString+CustomMethods.m */,
-				F534B5B219E4689D00C3C152 /* UIColor+Parkinson.h */,
-				F534B5B319E4689D00C3C152 /* UIColor+Parkinson.m */,
-			);
-			path = Categories;
-			sourceTree = "<group>";
-		};
 		F534B5C419E4689D00C3C152 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				5B8E6C081A1FD5020033733A /* ContentPDFs */,
+				5B18CEDB1A2CFFD9001A905E /* HTMLContent */,
 				F534B5CA19E4689D00C3C152 /* JSONs */,
 				F534B5D619E4689D00C3C152 /* Videos */,
 			);
@@ -529,11 +377,11 @@
 		F534B5CA19E4689D00C3C152 /* JSONs */ = {
 			isa = PBXGroup;
 			children = (
+				5B18CED91A2CFFD1001A905E /* TermsAndConditions.json */,
 				5B15DCF21A114F7000BEA0D1 /* Learn.json */,
 				5B15DCF31A114F7000BEA0D1 /* WithdrawStudy.json */,
 				F534B5CB19E4689D00C3C152 /* APCParameters.json */,
 				F534B5CC19E4689D00C3C152 /* APHTasksAndSchedules.json */,
-				F534B5CD19E4689D00C3C152 /* JSON_READ_ME */,
 				F534B5CE19E4689D00C3C152 /* sleepSurvey.json */,
 				F534B5CF19E4689D00C3C152 /* StudyOverview.json */,
 			);
@@ -553,8 +401,6 @@
 			children = (
 				5B15DD461A11524900BEA0D1 /* APHAppDelegate.h */,
 				5B15DD471A11524900BEA0D1 /* APHAppDelegate.m */,
-				F534B5DF19E4689D00C3C152 /* APHDataSubstrate.h */,
-				F534B5E019E4689D00C3C152 /* APHDataSubstrate.m */,
 				F534B5E319E4689D00C3C152 /* LaunchScreen.xib */,
 				F534B5E419E4689D00C3C152 /* Main.storyboard */,
 			);
@@ -565,28 +411,13 @@
 			isa = PBXGroup;
 			children = (
 				5B1D9D661A1BD414000F4AD6 /* Dashboard */,
-				5B15DD051A114F8100BEA0D1 /* Learn */,
-				5B15DD0B1A114F8100BEA0D1 /* Profile */,
-				F534B5E619E4689D00C3C152 /* Activities */,
 			);
 			path = TabBarControllers;
-			sourceTree = "<group>";
-		};
-		F534B5E619E4689D00C3C152 /* Activities */ = {
-			isa = PBXGroup;
-			children = (
-				F534B5E719E4689D00C3C152 /* APHActivities.storyboard */,
-				F534B5E819E4689D00C3C152 /* APHActivitiesViewController.h */,
-				F534B5E919E4689D00C3C152 /* APHActivitiesViewController.m */,
-			);
-			path = Activities;
 			sourceTree = "<group>";
 		};
 		F534B60C19E4689D00C3C152 /* TasksAndSteps */ = {
 			isa = PBXGroup;
 			children = (
-				CF5FAB3E19F95C630006CA71 /* APHIntroductionViewController.h */,
-				CF5FAB3F19F95C630006CA71 /* APHIntroductionViewController.m */,
 				7B7953031A22849300AA8039 /* ExerciseSurvey */,
 				7B5E25C71A20454200A04FEF /* Mood Survey */,
 				CF2697DA19EC3E0D00525E19 /* Daily Journal Controllers */,
@@ -616,6 +447,25 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		F53F27991A2D30D600A1D725 /* Library */ = {
+			isa = PBXGroup;
+			children = (
+				F53F279B1A2D30D600A1D725 /* Scoring */,
+			);
+			path = Library;
+			sourceTree = "<group>";
+		};
+		F53F279B1A2D30D600A1D725 /* Scoring */ = {
+			isa = PBXGroup;
+			children = (
+				F53F279C1A2D30D600A1D725 /* APHDataPoint.h */,
+				F53F279D1A2D30D600A1D725 /* APHDataPoint.m */,
+				F53F279E1A2D30D600A1D725 /* APHScoring.h */,
+				F53F279F1A2D30D600A1D725 /* APHScoring.m */,
+			);
+			path = Scoring;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -627,6 +477,7 @@
 				F534B58019E4681E00C3C152 /* Frameworks */,
 				F534B58119E4681E00C3C152 /* Resources */,
 				F534B70719E4697E00C3C152 /* Embed Frameworks */,
+				F53F27B31A2D37B200A1D725 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -707,88 +558,80 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5B8E6C0E1A1FD5020033733A /* EligibleToParticipate.pdf in Resources */,
 				7BA3AC111A23DDBC0017B3C8 /* APHExerciseMotivationIntroViewController.xib in Resources */,
-				5B8E6C0D1A1FD5020033733A /* AboutStudy.pdf in Resources */,
 				5B15DD721A118FF900BEA0D1 /* Intro.mp4 in Resources */,
-				5B8E6C101A1FD5020033733A /* WhoRunningStudy.pdf in Resources */,
+				5B18CEDC1A2CFFD9001A905E /* HTMLContent in Resources */,
 				5B15DCF51A114F7000BEA0D1 /* WithdrawStudy.json in Resources */,
 				5B15DD3E1A114F9000BEA0D1 /* APHOnboarding.storyboard in Resources */,
 				7B7953151A2288D600AA8039 /* APHQuestionViewController.xib in Resources */,
 				7B5E25D71A211BD500A04FEF /* APHMoodSurveyCustomView.xib in Resources */,
 				5B1D9D6C1A1BD414000F4AD6 /* APHDashboard.storyboard in Resources */,
-				5B8E6C0F1A1FD5020033733A /* HowStudyWorks.pdf in Resources */,
 				CF5FAB4319F95C8F0006CA71 /* APHContentsViewController.xib in Resources */,
 				F534B59419E4681E00C3C152 /* Images.xcassets in Resources */,
 				7BA3AC171A2407D00017B3C8 /* APHExerciseMotivationSummaryViewController.xib in Resources */,
 				F534B68E19E4689D00C3C152 /* StudyOverview.json in Resources */,
-				F534B68C19E4689D00C3C152 /* JSON_READ_ME in Resources */,
 				F534B68A19E4689D00C3C152 /* APCParameters.json in Resources */,
 				F534B68B19E4689D00C3C152 /* APHTasksAndSchedules.json in Resources */,
 				F534B69D19E4689D00C3C152 /* Main.storyboard in Resources */,
+				5B18CEDA1A2CFFD1001A905E /* TermsAndConditions.json in Resources */,
 				CF5FAB4419F95C8F0006CA71 /* APHNotesContentsTableViewCell.xib in Resources */,
 				5B15DCF41A114F7000BEA0D1 /* Learn.json in Resources */,
 				F534B68D19E4689D00C3C152 /* sleepSurvey.json in Resources */,
 				CF15F2501A116A5A00D87570 /* APHDailyJournalIntroViewController.xib in Resources */,
-				5B15DD1C1A114F8100BEA0D1 /* APHLearn.storyboard in Resources */,
+				7BFD567A1A24FAF0001210A2 /* APHDisplayLogHistoryViewController.xib in Resources */,
 				7B8D703F1A1C4B13003A7A5B /* APHLogSubmissionViewController.xib in Resources */,
 				CF2697EB19EC3E4200525E19 /* APHNotesViewController.xib in Resources */,
 				7B5E25D11A20592400A04FEF /* APHHeartAgeIntroStepViewController.xib in Resources */,
-				F534B69E19E4689D00C3C152 /* APHActivities.storyboard in Resources */,
 				F534B69C19E4689D00C3C152 /* LaunchScreen.xib in Resources */,
-				5B15DD211A114F8100BEA0D1 /* APHProfile.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		F53F27B31A2D37B200A1D725 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "${SRCROOT}/AppleCore/APCAppleCore/APCAppleCore/Resources/update_version.sh";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		F534B57F19E4681E00C3C152 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5B15DD3D1A114F9000BEA0D1 /* APHIntroVideoViewController.m in Sources */,
 				CF2697E919EC3E4200525E19 /* APHNotesContentsTableViewCell.m in Sources */,
-				5B15DD441A114F9000BEA0D1 /* APHStudyOverviewViewController.m in Sources */,
 				7BA3AC161A2407D00017B3C8 /* APHExerciseMotivationSummaryViewController.m in Sources */,
-				5B15DD3F1A114F9000BEA0D1 /* APHSignInViewController.m in Sources */,
 				7B5E25CB1A2045BB00A04FEF /* APHMoodSurveyTaskViewController.m in Sources */,
 				5B15DD3B1A114F9000BEA0D1 /* APHInclusionCriteriaViewController.m in Sources */,
+				F53F27A11A2D30D600A1D725 /* APHScoring.m in Sources */,
 				CF2697E619EC3E4200525E19 /* APHContentsViewController.m in Sources */,
 				CF15F24F1A116A5A00D87570 /* APHDailyJournalIntroViewController.m in Sources */,
-				5B15DD1D1A114F8100BEA0D1 /* APHLearnMasterViewController.m in Sources */,
-				F534B69F19E4689D00C3C152 /* APHActivitiesViewController.m in Sources */,
 				F534B58919E4681E00C3C152 /* main.m in Sources */,
 				CF15F24B1A11616500D87570 /* APHDailyJournalTaskViewController.m in Sources */,
+				7BFD56791A24FAF0001210A2 /* APHDisplayLogHistoryViewController.m in Sources */,
 				7B5E25D01A20592400A04FEF /* APHHeartAgeIntroStepViewController.m in Sources */,
-				5B15DD1F1A114F8100BEA0D1 /* APHChangePasscodeViewController.m in Sources */,
-				F534B67C19E4689D00C3C152 /* NSString+CustomMethods.m in Sources */,
 				CF2697E819EC3E4200525E19 /* APHMoodLogDictionaryKeys.m in Sources */,
-				5B15DD401A114F9000BEA0D1 /* APHSignUpGeneralInfoViewController.m in Sources */,
-				5B15DD3C1A114F9000BEA0D1 /* APHInEligibleViewController.m in Sources */,
-				5B1D9D751A1BD419000F4AD6 /* APHScoring.m in Sources */,
-				5B15DD421A114F9000BEA0D1 /* APHSignUpPermissionsViewController.m in Sources */,
-				CF5FAB4019F95C630006CA71 /* APHIntroductionViewController.m in Sources */,
 				5B1D9D6E1A1BD414000F4AD6 /* APHDashboardViewController.m in Sources */,
-				5B15DD1E1A114F8100BEA0D1 /* APHLearnStudyDetailsViewController.m in Sources */,
-				5B15DD3A1A114F9000BEA0D1 /* APHEligibleViewController.m in Sources */,
 				5B15DD481A11524900BEA0D1 /* APHAppDelegate.m in Sources */,
-				5B15DD221A114F8100BEA0D1 /* APHSettingsViewController.m in Sources */,
 				CF2697E719EC3E4200525E19 /* APHCustomTextView.m in Sources */,
+				F53F27A01A2D30D600A1D725 /* APHDataPoint.m in Sources */,
 				7B8D703E1A1C4B13003A7A5B /* APHLogSubmissionViewController.m in Sources */,
 				CF2697EA19EC3E4200525E19 /* APHNotesViewController.m in Sources */,
-				5B15DD201A114F8100BEA0D1 /* APHProfieViewController.m in Sources */,
 				7B7953141A2288D600AA8039 /* APHQuestionViewController.m in Sources */,
 				7BA3AC101A23DDBC0017B3C8 /* APHExerciseMotivationIntroViewController.m in Sources */,
-				5B15DD231A114F8100BEA0D1 /* APHWithdrawSurveyViewController.m in Sources */,
 				7B79530E1A22884500AA8039 /* APHExerciseSurveyTaskViewController.m in Sources */,
-				5B15DD431A114F9000BEA0D1 /* APHSignupTouchIDViewController.m in Sources */,
 				7B5E25D51A211BCA00A04FEF /* APHMoodSurveyCustomView.m in Sources */,
-				F534B69A19E4689D00C3C152 /* APHDataSubstrate.m in Sources */,
 				5B1D9D6D1A1BD414000F4AD6 /* APHDashboardEditViewController.m in Sources */,
-				5B15DD411A114F9000BEA0D1 /* APHSignUpMedicalInfoViewController.m in Sources */,
-				5B1D9D741A1BD419000F4AD6 /* APHDataPoint.m in Sources */,
-				F534B67E19E4689D00C3C152 /* UIColor+Parkinson.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

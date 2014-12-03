@@ -35,11 +35,7 @@ static  NSUInteger  kThresholdForLimitWarning   = 140;
 @property  (nonatomic, strong)          NSMutableDictionary  *noteChangesModel;
 @property  (nonatomic, strong)          NSMutableArray       *noteModifications;
 @property (weak, nonatomic) IBOutlet UIButton *doneButton;
-
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *bottomButtonConstraint;
-
-
-
 @property (weak, nonatomic) IBOutlet UIView *containerView;
 - (IBAction)submitTapped:(id)sender;
 
