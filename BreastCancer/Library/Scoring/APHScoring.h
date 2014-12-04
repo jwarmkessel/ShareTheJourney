@@ -17,7 +17,9 @@ typedef NS_ENUM(NSUInteger, YMLScoreDataKinds)
     APHDataKindTotalCholesterol,
     APHDataKindHDL,
     APHDataKindHeartRate,
-    APHDataKindWalk
+    APHDataKindWalk,
+    APHMoodKind,
+    APHSteps
 };
 
 @interface APHScoring : NSEnumerator <APCLineGraphViewDataSource>

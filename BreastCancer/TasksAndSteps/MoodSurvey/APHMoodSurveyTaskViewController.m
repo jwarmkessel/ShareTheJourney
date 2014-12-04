@@ -45,6 +45,21 @@ static  NSString  *kMoodSurveyStep107 = @"moodsurvey107";
     // Dispose of any resources that can be recreated.
 }
 
+- (NSString *)createResultSummary {
+        
+    NSMutableDictionary *json = [NSMutableDictionary new];
+    NSArray *arrayOfResults = self.result.results;
+    
+    for (RKSTStepResult *stepResult in arrayOfResults) {
+        if (stepResult.results.firstObject) {
+            RKSTQuestionResult *questionResult = stepResult.results.firstObject;
+            json[stepResult.identifier] = @{ @"answer" : questionResult.answer, @"timestamp" :[NSDate date]};
+        }
+    }
+    
+    return [json description];
+}
+
 /*********************************************************************************/
 #pragma mark - Initialize
 /*********************************************************************************/
@@ -55,9 +70,6 @@ static  NSString  *kMoodSurveyStep107 = @"moodsurvey107";
     
     {
         RKSTInstructionStep *step = [[RKSTInstructionStep alloc] initWithIdentifier:kMoodSurveyStep101];
-        step.title = NSLocalizedString(@"Heart Age Test", @"Heart Age Test");
-        step.text = NSLocalizedString(@"The following few details about you will be used to calculate your heart age.",
-                                      @"Requesting user to provide information to calculate their heart age.");
         step.detailText = nil;
         
         
@@ -253,7 +265,7 @@ static  NSString  *kMoodSurveyStep107 = @"moodsurvey107";
         [steps addObject:step];
     }
     
-    RKSTOrderedTask *task = [[RKSTOrderedTask alloc] initWithIdentifier:@"Heart Age Test"
+    RKSTOrderedTask *task = [[RKSTOrderedTask alloc] initWithIdentifier:@"Mood Survey"
                                                                   steps:steps];
     
     return task;
@@ -349,6 +361,7 @@ static  NSString  *kMoodSurveyStep107 = @"moodsurvey107";
 
 - (void)stepViewController:(RKSTStepViewController *)stepViewController didChangeResult:(RKSTStepResult*)stepResult{
     
+    [super stepViewController:stepViewController didChangeResult:stepResult];
     
     if (stepViewController.step.identifier != kMoodSurveyStep101 && stepViewController.step.identifier != kMoodSurveyStep107) {
         self.currentCustomView.alpha = 0;

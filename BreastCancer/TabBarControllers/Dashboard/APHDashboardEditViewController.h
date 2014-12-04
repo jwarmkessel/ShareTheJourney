@@ -9,10 +9,12 @@
 @import APCAppCore;
 
 typedef NS_ENUM(APCTableViewItemType, APHDashboardItemType) {
-    kAPHDashboardItemTypeDailyMood,
     kAPHDashboardItemTypeDailyJournal,
-    kAPHDashboardItemTypeAlerts,
-    kAPHDashboardItemTypeInsights,
+    kAPHDashboardItemTypeDailyFeeling,
+    kAPHDashboardItemTypeDailyMood,
+    kAPHDashboardItemTypeDailyEnergy,
+    kAPHDashboardItemTypeDailySleep,
+    kAPHDashboardItemTypeDailyExercise
 };
 
 @interface APHDashboardEditViewController : APCDashboardEditViewController

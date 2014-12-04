@@ -26,7 +26,30 @@
             
             APHDashboardItemType rowType = typeNumber.integerValue;
             
+            //            @(kAPHDashboardItemTypeDailyFeeling),
+            //            @(kAPHDashboardItemTypeDailyMood),
+            //            @(kAPHDashboardItemTypeDailyEnergy),
+            //            @(kAPHDashboardItemTypeDailySleep),
+            //            @(kAPHDashboardItemTypeDailyExercise)
+            
             switch (rowType) {
+                case kAPHDashboardItemTypeDailyJournal:{
+                    
+                    APCTableViewDashboardItem *item = [APCTableViewDashboardItem new];
+                    item.caption = NSLocalizedString(@"Daily Journal", @"");
+                    
+                    [self.items addObject:item];
+                }
+                    break;
+                case kAPHDashboardItemTypeDailyFeeling:
+                {
+                    APCTableViewDashboardItem *item = [APCTableViewDashboardItem new];
+                    item.caption = NSLocalizedString(@"Daily Feeling", @"");
+                    
+                    [self.items addObject:item];
+                    
+                }
+                    break;
                 case kAPHDashboardItemTypeDailyMood:
                 {
                     APCTableViewDashboardItem *item = [APCTableViewDashboardItem new];
@@ -36,28 +59,31 @@
                     
                 }
                     break;
-                case kAPHDashboardItemTypeDailyJournal:{
-                    
+                case kAPHDashboardItemTypeDailyEnergy:
+                {
                     APCTableViewDashboardItem *item = [APCTableViewDashboardItem new];
-                    item.caption = NSLocalizedString(@"Daily Journal", @"");
+                    item.caption = NSLocalizedString(@"Daily Energy", @"");
                     
                     [self.items addObject:item];
+                    
                 }
                     break;
-                case kAPHDashboardItemTypeAlerts:{
-                    
+                case kAPHDashboardItemTypeDailySleep:
+                {
                     APCTableViewDashboardItem *item = [APCTableViewDashboardItem new];
-                    item.caption = NSLocalizedString(@"Alerts", @"");
+                    item.caption = NSLocalizedString(@"Daily Sleep", @"");
                     
                     [self.items addObject:item];
+                    
                 }
                     break;
-                case kAPHDashboardItemTypeInsights:{
-                    
+                case kAPHDashboardItemTypeDailyExercise:
+                {
                     APCTableViewDashboardItem *item = [APCTableViewDashboardItem new];
-                    item.caption = NSLocalizedString(@"Insights", @"");
+                    item.caption = NSLocalizedString(@"Daily Exercise", @"");
                     
                     [self.items addObject:item];
+                    
                 }
                     break;
                 default:
