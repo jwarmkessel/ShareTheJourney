@@ -16,12 +16,7 @@ typedef  enum  _TypingDirection
     TypingDirectionDeleting
 }  TypingDirection;
 
-static  NSCharacterSet  *whitespaceAndNewLineSet = nil;
-
-static  NSUInteger  kMaximumNumberOfWordsPerLog = 150;
-static  NSUInteger  kThresholdForLimitWarning   = 140;
-
-static NSUInteger kMaximumNumberOfCharacters = 150;
+static NSUInteger kMaximumNumberOfCharacters = 90;
 
 static  NSString  *kExerciseSurveyStep102 = @"exercisesurvey102";
 static  NSString  *kExerciseSurveyStep103 = @"exercisesurvey103";
@@ -55,14 +50,11 @@ static  NSString  *kExerciseSurveyStep106 = @"exercisesurvey106";
 
 @property (nonatomic, strong) RKSTStepResult *cachedResult;
 
+@property (weak, nonatomic) IBOutlet UILabel *characterCounterLabel;
+@property (assign) NSUInteger charCounter;
 @end
 
 @implementation APHQuestionViewController
-
-+ (void)initialize
-{
-    whitespaceAndNewLineSet = [NSCharacterSet whitespaceAndNewlineCharacterSet];
-}
 
 #pragma  mark  -  Menu Controller Methods
 
@@ -71,79 +63,39 @@ static  NSString  *kExerciseSurveyStep106 = @"exercisesurvey106";
     return  YES;
 }
 
-- (void)displayWordCount:(NSUInteger)count
-{
-    NSString  *numberOfWordsDisplay = [NSString stringWithFormat:@"%lu of %lu words", (unsigned long)count, kMaximumNumberOfWordsPerLog];
-    if (count < kThresholdForLimitWarning) {
-        self.counterDisplay.textColor = [UIColor grayColor];
-    } else {
-        self.counterDisplay.textColor = [UIColor redColor];
-    }
-    self.counterDisplay.text = numberOfWordsDisplay;
-}
-
-- (NSUInteger)countWords:(NSString *)words
-{
-    typedef  enum  _WordState
-    {
-        WordStateInWord,
-        WordStateNotInWord
-    }  WordState;
-    
-    WordState  state = WordStateNotInWord;
-    
-    NSString  *text = self.scriptorium.text;
-    NSUInteger  length = [text length];
-    
-    NSUInteger  count = 0;
-    
-    for (NSUInteger  i = 0; i < length;  i++) {
-        unichar  character = [text characterAtIndex:i];
-        if (state == WordStateNotInWord) {
-            if ([whitespaceAndNewLineSet characterIsMember:character] == YES) {
-                continue;
-            } else {
-                state = WordStateInWord;
-                count = count + 1;
-            }
-        } else {
-            if ([whitespaceAndNewLineSet characterIsMember:character] == NO) {
-                continue;
-            } else {
-                state = WordStateNotInWord;
-            }
-        }
-    }
-    return  count;
-}
-
 #pragma  mark  -  Text View Delegate Methods
 
 - (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text
-{
-    NSLog(@"TEXT : %@", text);
-    NSLog(@"textView : %lu", (unsigned long)textView.text.length);
-    
+{  
     BOOL enableButtonFlag = YES;
+    BOOL returnValue = YES;
     
-    //The textView text length is still set to one after the text view has deleted all characters, therefore, I need to check the length and whether the string is empty.
-    if (textView.text.length <= 1  &&  [text isEqualToString:@""]) {
-        enableButtonFlag = NO;
+    //This is basically counting characters but also keeping track of delete strings.
+    if ([text isEqualToString:@""]) {
+        if (self.charCounter > 0) {
+            self.charCounter--;
+            self.characterCounterLabel.text = [NSString stringWithFormat:@"%lu / %lu", (unsigned long)self.charCounter, kMaximumNumberOfCharacters];
+            
+            if (self.charCounter == 0) {
+                enableButtonFlag = NO;
+            }
+        }
+        
+    } else if ([text isEqualToString:@" "] || ![text isEqualToString:@""]) {
+        if (self.charCounter + 1 <= kMaximumNumberOfCharacters){
+            self.charCounter++;
+            self.characterCounterLabel.text = [NSString stringWithFormat:@"%lu / %lu", (unsigned long)self.charCounter, kMaximumNumberOfCharacters];
+        } else {
+            returnValue = NO;
+            goto goToReturn;
+        }
     }
     
-    //Enable button after text is entered.
     [self.doneButton setEnabled:enableButtonFlag];
     [self.doneButton setTitleColor:[UIColor appPrimaryColor] forState:UIControlStateNormal];
-
-    if(range.length + range.location > textView.text.length)
-    {
-        goto errReturn;
-    }
-
-    NSUInteger newLength = [textView.text length] + [text length] - range.length;
     
-    errReturn:
-    return (newLength > kMaximumNumberOfCharacters) ? NO : YES;
+goToReturn:
+    return returnValue;
 }
 
 - (void)backBarButtonWasTapped:(UIBarButtonItem *)sender
@@ -160,7 +112,6 @@ static  NSString  *kExerciseSurveyStep106 = @"exercisesurvey106";
     
     double   animationDuration = [notification.userInfo[UIKeyboardAnimationDurationUserInfoKey] doubleValue];
     
-    //self.bottomButtonConstraint.constant = keyboardHeight;
     self.containerSpacing.constant = keyboardHeight;
     
     [UIView animateWithDuration:animationDuration animations:^{
@@ -183,6 +134,8 @@ static  NSString  *kExerciseSurveyStep106 = @"exercisesurvey106";
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
+    self.characterCounterLabel.text = [NSString stringWithFormat:@"%lu / %lu", self.scriptorium.text.length, kMaximumNumberOfCharacters];
+    
     [self.scriptorium becomeFirstResponder];
 }
 
@@ -195,6 +148,7 @@ static  NSString  *kExerciseSurveyStep106 = @"exercisesurvey106";
 {
     [super viewDidLoad];
     
+    self.charCounter = 0;
     //Done button is disabled.
     [self.doneButton setEnabled:NO];
     
@@ -210,39 +164,7 @@ static  NSString  *kExerciseSurveyStep106 = @"exercisesurvey106";
     self.scriptorium.text = @"";
     self.navigator.topItem.title = @"";
     
-    [[UIMenuController sharedMenuController] setMenuVisible:NO];
-    
-    if (self.note == nil) {
-        
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillEmerge:) name:UIKeyboardWillShowNotification object:nil];
-        
-        
-        NSTimeInterval  timestamp = [[NSDate date] timeIntervalSinceReferenceDate];
-        
-        self.noteContentModel = [NSMutableDictionary dictionary];
-        [self.noteContentModel setObject:@(timestamp) forKey:APHMoodLogNoteTimeStampKey];
-        
-        self.noteChangesModel = [NSMutableDictionary dictionary];
-        [self.noteChangesModel setObject:@(timestamp) forKey:APHMoodLogNoteTimeStampKey];
-        
-        self.noteModifications = [NSMutableArray array];
-        
-        [self displayWordCount:0];
-        
-    } else {
-        self.scriptorium.editable   = NO;
-        self.scriptorium.selectable = NO;
-        
-        UIBarButtonItem  *backsterTitle   = [[UIBarButtonItem alloc] initWithTitle:@"Back to List" style:UIBarButtonItemStylePlain target:self action:@selector(backBarButtonWasTapped:)];
-        backsterTitle.tintColor = [UIColor appPrimaryColor];
-        
-        self.navigator.topItem.leftItemsSupplementBackButton = NO;
-        self.navigator.topItem.leftBarButtonItem = backsterTitle;
-        
-        self.scriptorium.text = self.note[APHMoodLogNoteTextKey];
-        NSUInteger  count = [self countWords:self.scriptorium.text];
-        [self displayWordCount:count];
-    }
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillEmerge:) name:UIKeyboardWillShowNotification object:nil];
 }
 
 - (void)viewDidLayoutSubviews {
@@ -260,6 +182,8 @@ static  NSString  *kExerciseSurveyStep106 = @"exercisesurvey106";
 - (IBAction)submitTapped:(id)sender {
 
     [self.scriptorium resignFirstResponder];
+    
+    self.noteContentModel = [NSMutableDictionary new];
     
     [self.noteContentModel setObject:self.scriptorium.text forKey:@"result"];
     [self.noteChangesModel setObject:self.noteModifications forKey:APHMoodLogNoteModificationsKey];
