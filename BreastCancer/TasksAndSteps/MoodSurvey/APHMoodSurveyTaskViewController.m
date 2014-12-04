@@ -46,14 +46,39 @@ static  NSString  *kMoodSurveyStep107 = @"moodsurvey107";
 }
 
 - (NSString *)createResultSummary {
-        
+    
     NSMutableDictionary *json = [NSMutableDictionary new];
     NSArray *arrayOfResults = self.result.results;
     
     for (RKSTStepResult *stepResult in arrayOfResults) {
         if (stepResult.results.firstObject) {
             RKSTQuestionResult *questionResult = stepResult.results.firstObject;
-            json[stepResult.identifier] = @{ @"answer" : questionResult.answer, @"timestamp" :[NSDate date]};
+            
+            //Convert the answers to numbers for better graph representation.
+            int aNum = 0;
+            
+            switch ([questionResult.answer intValue]) {
+                case 0:
+                    aNum = 5;
+                    break;
+                case 1:
+                    aNum = 4;
+                    break;
+                    
+                case 2:
+                    aNum = 3;
+                    break;
+                    
+                case 3:
+                    aNum = 2;
+                    break;
+                    
+                case 4:
+                    aNum = 1;
+                    break;
+            }
+            
+            json[stepResult.identifier] = @{ @"answer" : [NSNumber numberWithInt:aNum], @"timestamp" :[NSDate date]};
         }
     }
     
