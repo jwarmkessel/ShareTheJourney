@@ -25,41 +25,67 @@
         for (NSNumber *typeNumber in self.rowItemsOrder) {
             
             APHDashboardItemType rowType = typeNumber.integerValue;
-            
+                        
             switch (rowType) {
+                case kAPHDashboardItemTypeHealthKitSteps:{
+                    
+                    APCTableViewDashboardItem *item = [APCTableViewDashboardItem new];
+                    item.caption = NSLocalizedString(@"Steps", @"");
+                    
+                    [self.items addObject:item];
+                }
+                    break;
+                    
                 case kAPHDashboardItemTypeDailyMood:
                 {
                     APCTableViewDashboardItem *item = [APCTableViewDashboardItem new];
-                    item.caption = NSLocalizedString(@"Daily Mood", @"");
+                    item.caption = NSLocalizedString(@"Mood", @"");
                     
                     [self.items addObject:item];
                     
                 }
                     break;
-                case kAPHDashboardItemTypeDailyJournal:{
                     
+                case kAPHDashboardItemTypeDailyEnergy:
+                {
                     APCTableViewDashboardItem *item = [APCTableViewDashboardItem new];
-                    item.caption = NSLocalizedString(@"Daily Journal", @"");
+                    item.caption = NSLocalizedString(@"Energy Level", @"");
                     
                     [self.items addObject:item];
+                    
                 }
                     break;
-                case kAPHDashboardItemTypeAlerts:{
                     
+                case kAPHDashboardItemTypeDailyExercise:
+                {
                     APCTableViewDashboardItem *item = [APCTableViewDashboardItem new];
-                    item.caption = NSLocalizedString(@"Alerts", @"");
+                    item.caption = NSLocalizedString(@"Exercise Level", @"");
                     
                     [self.items addObject:item];
+                    
                 }
                     break;
-                case kAPHDashboardItemTypeInsights:{
                     
+                case kAPHDashboardItemTypeDailySleep:
+                {
                     APCTableViewDashboardItem *item = [APCTableViewDashboardItem new];
-                    item.caption = NSLocalizedString(@"Insights", @"");
+                    item.caption = NSLocalizedString(@"Sleep Quality", @"");
                     
                     [self.items addObject:item];
+                    
                 }
                     break;
+                    
+                case kAPHDashboardItemTypeDailyCognitive:
+                {
+                    APCTableViewDashboardItem *item = [APCTableViewDashboardItem new];
+                    item.caption = NSLocalizedString(@"Cognitive Function", @"");
+                    
+                    [self.items addObject:item];
+                    
+                }
+                    break;
+
                 default:
                     break;
             }

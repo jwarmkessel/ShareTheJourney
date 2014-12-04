@@ -1,5 +1,5 @@
 //
-//  YMLScoring.h
+//  APHScoring.h
 //  CardioHealth
 //
 //  Created by Farhan Ahmed on 10/29/14.
@@ -10,19 +10,16 @@
 
 @import APCAppCore;
 
-typedef NS_ENUM(NSUInteger, YMLScoreDataKinds)
-{
-    APHDataKindNone = 0,
-    APHDataKindSystolicBloodPressure,
-    APHDataKindTotalCholesterol,
-    APHDataKindHDL,
-    APHDataKindHeartRate,
-    APHDataKindWalk
-};
-
 @interface APHScoring : NSEnumerator <APCLineGraphViewDataSource>
 
-- (instancetype)initWithKind:(NSUInteger)kind numberOfDays:(NSUInteger)numberOfDays correlateWithKind:(NSUInteger)correlateKind;
+- (instancetype)initWithHealthKitQuantityType:(HKQuantityType *)quantityType
+                                 numberOfDays:(NSUInteger)numberOfDays;
+
+- (instancetype)initWithTask:(NSString *)taskId
+                numberOfDays:(NSUInteger)numberOfDays
+                    valueKey:(NSString *)valueKey
+                     dataKey:(NSString *)dataKey;
+
 - (NSNumber *)minimumDataPoint;
 - (NSNumber *)maximumDataPoint;
 - (NSNumber *)averageDataPoint;
