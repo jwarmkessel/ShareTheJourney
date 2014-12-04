@@ -322,6 +322,9 @@ static NSString *const kDatasetValueKey = @"datasetValueKey";
     
     if (self.current < [self.dataPoints count]) {
         nextPoint = [self.dataPoints objectAtIndex:self.current++];
+    } else {
+        self.current = 0;
+        nextPoint = [self.dataPoints objectAtIndex:self.current++];
     }
     
     return nextPoint;
@@ -375,11 +378,13 @@ static NSString *const kDatasetValueKey = @"datasetValueKey";
 
 - (CGFloat)minimumValueForLineGraph:(APCLineGraphView *)graphView
 {
+    NSLog(@"%f", [[self minimumDataPoint] doubleValue]);
     return [[self minimumDataPoint] doubleValue];
 }
 
 - (CGFloat)maximumValueForLineGraph:(APCLineGraphView *)graphView
 {
+        NSLog(@"%f", [[self maximumDataPoint] doubleValue]);
     return [[self maximumDataPoint] doubleValue];
 }
 
