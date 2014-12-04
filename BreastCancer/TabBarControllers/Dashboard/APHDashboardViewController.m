@@ -76,18 +76,6 @@ static NSString * const kAPCRightDetailTableViewCellIdentifier = @"APCRightDetai
     
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     
-    self.distanceScore = [[APHScoring alloc] initWithKind:APHDataKindWalk
-                                             numberOfDays:5
-                                        correlateWithKind:APHDataKindNone];
-    
-    self.heartRateScore = [[APHScoring alloc] initWithKind:APHDataKindHeartRate
-                                              numberOfDays:5
-                                         correlateWithKind:APHDataKindNone];
-    
-    self.feelingScore = [[APHScoring alloc] initWithKind:APHMoodKind
-                                              numberOfDays:5
-                                         correlateWithKind:APHDataKindNone];
-    
     [self prepareData];
 }
 
@@ -181,10 +169,14 @@ static NSString * const kAPCRightDetailTableViewCellIdentifier = @"APCRightDetai
                     
                 case kAPHDashboardItemTypeDailyMood:{
                     
+                    APHScoring *scoring = [[APHScoring alloc] initWithTask:@"APHMoodSurvey-7259AC18-D711-47A6-ADBD-6CFCECDED1DF"
+                                                              numberOfDays:-5
+                                                                  valueKey:@"moodsurvey103" dataKey:nil];
+                    
                     APCTableViewDashboardGraphItem *item = [APCTableViewDashboardGraphItem new];
                     item.caption = NSLocalizedString(@"Mood", @"");
-                    item.graphData = self.heartRateScore;
-                    item.detailText = [NSString stringWithFormat:NSLocalizedString(@"Average : %lu", @"Average: {value}"), [[self.heartRateScore averageDataPoint] integerValue]];
+                    item.graphData = scoring;
+                    item.detailText = [NSString stringWithFormat: NSLocalizedString(@"Average : %lu", @"Average: {value}"), [[scoring averageDataPoint] integerValue]];
                     item.identifier = kAPCDashboardGraphTableViewCellIdentifier;
                     item.editable = YES;
                     item.tintColor = [UIColor appTertiaryYellowColor];
@@ -198,9 +190,13 @@ static NSString * const kAPCRightDetailTableViewCellIdentifier = @"APCRightDetai
                     
                 case kAPHDashboardItemTypeDailyEnergy:{
                     
+                    APHScoring *scoring = [[APHScoring alloc] initWithTask:@"APHMoodSurvey-7259AC18-D711-47A6-ADBD-6CFCECDED1DF"
+                                                              numberOfDays:-5
+                                                                  valueKey:@"moodsurvey104" dataKey:nil];
+                    
                     APCTableViewDashboardGraphItem *item = [APCTableViewDashboardGraphItem new];
                     item.caption = NSLocalizedString(@"Energy Level", @"");
-                    item.graphData = self.heartRateScore;
+                    item.graphData = scoring;
                     item.detailText = [NSString stringWithFormat:NSLocalizedString(@"Average : %lu", @"Average: {value}"), [[self.heartRateScore averageDataPoint] integerValue]];
                     item.identifier = kAPCDashboardGraphTableViewCellIdentifier;
                     item.editable = YES;
@@ -215,9 +211,13 @@ static NSString * const kAPCRightDetailTableViewCellIdentifier = @"APCRightDetai
                     
                 case kAPHDashboardItemTypeDailyExercise:{
                     
+                    APHScoring *scoring = [[APHScoring alloc] initWithTask:@"APHMoodSurvey-7259AC18-D711-47A6-ADBD-6CFCECDED1DF"
+                                                              numberOfDays:-5
+                                                                  valueKey:@"moodsurvey106" dataKey:nil];
+                    
                     APCTableViewDashboardGraphItem *item = [APCTableViewDashboardGraphItem new];
                     item.caption = NSLocalizedString(@"Exercise Level", @"");
-                    item.graphData = self.heartRateScore;
+                    item.graphData = scoring;
                     item.detailText = [NSString stringWithFormat:NSLocalizedString(@"Average : %lu", @"Average: {value}"), [[self.heartRateScore averageDataPoint] integerValue]];
                     item.identifier = kAPCDashboardGraphTableViewCellIdentifier;
                     item.editable = YES;
@@ -232,9 +232,13 @@ static NSString * const kAPCRightDetailTableViewCellIdentifier = @"APCRightDetai
                     
                 case kAPHDashboardItemTypeDailySleep:{
                     
+                    APHScoring *scoring = [[APHScoring alloc] initWithTask:@"APHMoodSurvey-7259AC18-D711-47A6-ADBD-6CFCECDED1DF"
+                                                              numberOfDays:-5
+                                                                  valueKey:@"moodsurvey105" dataKey:nil];
+                    
                     APCTableViewDashboardGraphItem *item = [APCTableViewDashboardGraphItem new];
                     item.caption = NSLocalizedString(@"Sleep Quality", @"");
-                    item.graphData = self.heartRateScore;
+                    item.graphData = scoring;
                     item.detailText = [NSString stringWithFormat:NSLocalizedString(@"Average : %lu", @"Average: {value}"), [[self.heartRateScore averageDataPoint] integerValue]];
                     item.identifier = kAPCDashboardGraphTableViewCellIdentifier;
                     item.editable = YES;
@@ -249,9 +253,13 @@ static NSString * const kAPCRightDetailTableViewCellIdentifier = @"APCRightDetai
                     
                 case kAPHDashboardItemTypeDailyCognitive:
                 {
+                    APHScoring *scoring = [[APHScoring alloc] initWithTask:@"APHMoodSurvey-7259AC18-D711-47A6-ADBD-6CFCECDED1DF"
+                                                              numberOfDays:-5
+                                                                  valueKey:@"moodsurvey102" dataKey:nil];
+                    
                     APCTableViewDashboardGraphItem *item = [APCTableViewDashboardGraphItem new];
                     item.caption = NSLocalizedString(@"Cognitive Function", @"");
-                    item.graphData = self.distanceScore;
+                    item.graphData = scoring;
                     item.detailText = [NSString stringWithFormat:NSLocalizedString(@"Average : %lu", @"Average: {value} ft"), [[self.distanceScore averageDataPoint] integerValue]];
                     item.identifier = kAPCDashboardGraphTableViewCellIdentifier;
                     item.editable = YES;

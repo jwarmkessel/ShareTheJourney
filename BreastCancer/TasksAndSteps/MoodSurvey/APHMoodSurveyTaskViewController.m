@@ -47,7 +47,7 @@ static  NSString  *kMoodSurveyStep107 = @"moodsurvey107";
 
 - (NSString *)createResultSummary {
     
-    NSMutableDictionary *json = [NSMutableDictionary new];
+    NSMutableDictionary *resultCollectionDictionary = [NSMutableDictionary new];
     NSArray *arrayOfResults = self.result.results;
     
     for (RKSTStepResult *stepResult in arrayOfResults) {
@@ -78,11 +78,29 @@ static  NSString  *kMoodSurveyStep107 = @"moodsurvey107";
                     break;
             }
             
-            json[stepResult.identifier] = @{ @"answer" : [NSNumber numberWithInt:aNum], @"timestamp" :[NSDate date]};
+            resultCollectionDictionary[stepResult.identifier] = [NSNumber numberWithInt:aNum];
+            //BLAH[stepResult.identifier] = @{ @"answer" : [NSNumber numberWithInt:aNum]};
         }
     }
+    NSError *error = nil;
+//
     
-    return [json description];
+//
+//    NSDictionary *jsonData = [NSJSONSerialization JSONObjectWithData:myData options:NSJSONReadingMutableContainers error:&error];
+//    
+//    if (error) {
+//        NSLog(@"Error parsing JSON: %@", error);
+//    } else {
+//        NSLog(@"%@", jsonData);
+//    }
+//    NSString *contentString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
+    
+    NSData  *ksonData = [NSJSONSerialization dataWithJSONObject:resultCollectionDictionary options:0 error:&error];
+
+    //NSData *glucoseEntry = [NSJSONSerialization dataWithJSONObject:myData options:0 error:&error];
+    NSString *contentString = [[NSString alloc] initWithData:ksonData encoding:NSUTF8StringEncoding];
+    
+    return contentString;
 }
 
 /*********************************************************************************/
