@@ -10,19 +10,12 @@
 #import "APHDashboardViewController.h"
 #import "APHDashboardEditViewController.h"
 
-/* Scoring */
-#import "APHScoring.h"
-
 static NSString * const kAPCBasicTableViewCellIdentifier       = @"APCBasicTableViewCell";
 static NSString * const kAPCRightDetailTableViewCellIdentifier = @"APCRightDetailTableViewCell";
 
 @interface APHDashboardViewController ()<UIViewControllerTransitioningDelegate>
 
 @property (nonatomic, strong) NSMutableArray *rowItemsOrder;
-
-@property (nonatomic, strong) APHScoring *distanceScore;
-@property (nonatomic, strong) APHScoring *heartRateScore;
-
 @property (nonatomic, strong) APCPresentAnimator *presentAnimator;
 
 @end
@@ -40,10 +33,13 @@ static NSString * const kAPCRightDetailTableViewCellIdentifier = @"APCRightDetai
         
         if (!_rowItemsOrder.count) {
             _rowItemsOrder = [[NSMutableArray alloc] initWithArray:@[
+//                                                                     @(kAPHDashboardItemTypeHealthKitSteps),
                                                                      @(kAPHDashboardItemTypeDailyMood),
-                                                                     @(kAPHDashboardItemTypeDailyJournal),
-                                                                     @(kAPHDashboardItemTypeAlerts),
-                                                                     @(kAPHDashboardItemTypeInsights)]];
+                                                                     @(kAPHDashboardItemTypeDailyEnergy),
+                                                                     @(kAPHDashboardItemTypeDailyExercise),
+                                                                     @(kAPHDashboardItemTypeDailySleep),
+                                                                     @(kAPHDashboardItemTypeDailyCognitive)
+                                                                    ]];
             
             [defaults setObject:[NSArray arrayWithArray:_rowItemsOrder] forKey:kAPCDashboardRowItemsOrder];
             [defaults synchronize];
@@ -65,14 +61,6 @@ static NSString * const kAPCRightDetailTableViewCellIdentifier = @"APCRightDetai
     [super viewDidLoad];
     
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-    
-    self.distanceScore = [[APHScoring alloc] initWithKind:APHDataKindWalk
-                                             numberOfDays:5
-                                        correlateWithKind:APHDataKindNone];
-    
-    self.heartRateScore = [[APHScoring alloc] initWithKind:APHDataKindHeartRate
-                                              numberOfDays:5
-                                         correlateWithKind:APHDataKindNone];
     
     [self prepareData];
 }
@@ -145,14 +133,18 @@ static NSString * const kAPCRightDetailTableViewCellIdentifier = @"APCRightDetai
         for (NSNumber *typeNumber in self.rowItemsOrder) {
             
             APHDashboardItemType rowType = typeNumber.integerValue;
-            
+
             switch (rowType) {
-                case kAPHDashboardItemTypeDailyMood:
-                {
+
+                case kAPHDashboardItemTypeHealthKitSteps:{
+                    
+                    HKQuantityType *stepQuantityType = [HKQuantityType quantityTypeForIdentifier:HKQuantityTypeIdentifierStepCount];
+                    APCScoring *scoring = [[APCScoring alloc] initWithHealthKitQuantityType:stepQuantityType unit:[HKUnit countUnit] numberOfDays:-5];
+                    
                     APCTableViewDashboardGraphItem *item = [APCTableViewDashboardGraphItem new];
-                    item.caption = NSLocalizedString(@"Daily Mood", @"");
-                    item.graphData = self.distanceScore;
-                    item.detailText = [NSString stringWithFormat:NSLocalizedString(@"Average : %lu", @"Average: {value} ft"), [[self.distanceScore averageDataPoint] integerValue]];
+                    item.caption = NSLocalizedString(@"Steps", @"");
+                    item.graphData = scoring;
+                    item.detailText = [NSString stringWithFormat:NSLocalizedString(@"Average : %lu", @"Average: {value}"), [[scoring averageDataPoint] integerValue]];
                     item.identifier = kAPCDashboardGraphTableViewCellIdentifier;
                     item.editable = YES;
                     item.tintColor = [UIColor appTertiaryPurpleColor];
@@ -161,15 +153,19 @@ static NSString * const kAPCRightDetailTableViewCellIdentifier = @"APCRightDetai
                     row.item = item;
                     row.itemType = rowType;
                     [rowItems addObject:row];
-
                 }
                     break;
-                case kAPHDashboardItemTypeDailyJournal:{
+                    
+                case kAPHDashboardItemTypeDailyMood:{
+                    
+                    APCScoring *scoring = [[APCScoring alloc] initWithTask:@"APHMoodSurvey-7259AC18-D711-47A6-ADBD-6CFCECDED1DF"
+                                                              numberOfDays:-5
+                                                                  valueKey:@"moodsurvey103" dataKey:nil];
                     
                     APCTableViewDashboardGraphItem *item = [APCTableViewDashboardGraphItem new];
-                    item.caption = NSLocalizedString(@"Daily Journal", @"");
-                    item.graphData = self.heartRateScore;
-                    item.detailText = [NSString stringWithFormat:NSLocalizedString(@"Average : %lu", @"Average: {value}"), [[self.heartRateScore averageDataPoint] integerValue]];
+                    item.caption = NSLocalizedString(@"Mood", @"");
+                    item.graphData = scoring;
+                    item.detailText = [NSString stringWithFormat: NSLocalizedString(@"Average : %lu", @"Average: {value}"), [[scoring averageDataPoint] integerValue]];
                     item.identifier = kAPCDashboardGraphTableViewCellIdentifier;
                     item.editable = YES;
                     item.tintColor = [UIColor appTertiaryYellowColor];
@@ -180,13 +176,20 @@ static NSString * const kAPCRightDetailTableViewCellIdentifier = @"APCRightDetai
                     [rowItems addObject:row];
                 }
                     break;
-                case kAPHDashboardItemTypeAlerts:{
                     
-                    APCTableViewDashboardMessageItem *item = [APCTableViewDashboardMessageItem new];
-                    item.identifier = kAPCDashboardMessageTableViewCellIdentifier;
-                    item.messageType = kAPCDashboardMessageTypeAlert;
-                    item.detailText = @"Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.";
+                case kAPHDashboardItemTypeDailyEnergy:{
+                    
+                    APCScoring *scoring = [[APCScoring alloc] initWithTask:@"APHMoodSurvey-7259AC18-D711-47A6-ADBD-6CFCECDED1DF"
+                                                              numberOfDays:-5
+                                                                  valueKey:@"moodsurvey104" dataKey:nil];
+                    
+                    APCTableViewDashboardGraphItem *item = [APCTableViewDashboardGraphItem new];
+                    item.caption = NSLocalizedString(@"Energy Level", @"");
+                    item.graphData = scoring;
+                    item.detailText = [NSString stringWithFormat:NSLocalizedString(@"Average : %lu", @"Average: {value}"), [[scoring averageDataPoint] integerValue]];
+                    item.identifier = kAPCDashboardGraphTableViewCellIdentifier;
                     item.editable = YES;
+                    item.tintColor = [UIColor appTertiaryGreenColor];
                     
                     APCTableViewRow *row = [APCTableViewRow new];
                     row.item = item;
@@ -194,13 +197,20 @@ static NSString * const kAPCRightDetailTableViewCellIdentifier = @"APCRightDetai
                     [rowItems addObject:row];
                 }
                     break;
-                case kAPHDashboardItemTypeInsights:{
                     
-                    APCTableViewDashboardMessageItem *item = [APCTableViewDashboardMessageItem new];
-                    item.identifier = kAPCDashboardMessageTableViewCellIdentifier;
-                    item.messageType = kAPCDashboardMessageTypeInsight;
-                    item.detailText = @"Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.";
+                case kAPHDashboardItemTypeDailyExercise:{
+                    
+                    APCScoring *scoring = [[APCScoring alloc] initWithTask:@"APHMoodSurvey-7259AC18-D711-47A6-ADBD-6CFCECDED1DF"
+                                                              numberOfDays:-5
+                                                                  valueKey:@"moodsurvey106" dataKey:nil];
+                    
+                    APCTableViewDashboardGraphItem *item = [APCTableViewDashboardGraphItem new];
+                    item.caption = NSLocalizedString(@"Exercise Level", @"");
+                    item.graphData = scoring;
+                    item.detailText = [NSString stringWithFormat:NSLocalizedString(@"Average : %lu", @"Average: {value}"), [[scoring averageDataPoint] integerValue]];
+                    item.identifier = kAPCDashboardGraphTableViewCellIdentifier;
                     item.editable = YES;
+                    item.tintColor = [UIColor appTertiaryYellowColor];
                     
                     APCTableViewRow *row = [APCTableViewRow new];
                     row.item = item;
@@ -208,6 +218,50 @@ static NSString * const kAPCRightDetailTableViewCellIdentifier = @"APCRightDetai
                     [rowItems addObject:row];
                 }
                     break;
+                    
+                case kAPHDashboardItemTypeDailySleep:{
+                    
+                    APCScoring *scoring = [[APCScoring alloc] initWithTask:@"APHMoodSurvey-7259AC18-D711-47A6-ADBD-6CFCECDED1DF"
+                                                              numberOfDays:-5
+                                                                  valueKey:@"moodsurvey105" dataKey:nil];
+                    
+                    APCTableViewDashboardGraphItem *item = [APCTableViewDashboardGraphItem new];
+                    item.caption = NSLocalizedString(@"Sleep Quality", @"");
+                    item.graphData = scoring;
+                    item.detailText = [NSString stringWithFormat:NSLocalizedString(@"Average : %lu", @"Average: {value}"), [[scoring averageDataPoint] integerValue]];
+                    item.identifier = kAPCDashboardGraphTableViewCellIdentifier;
+                    item.editable = YES;
+                    item.tintColor = [UIColor appTertiaryPurpleColor];
+                    
+                    APCTableViewRow *row = [APCTableViewRow new];
+                    row.item = item;
+                    row.itemType = rowType;
+                    [rowItems addObject:row];
+                }
+                    break;
+                    
+                case kAPHDashboardItemTypeDailyCognitive:
+                {
+                    APCScoring *scoring = [[APCScoring alloc] initWithTask:@"APHMoodSurvey-7259AC18-D711-47A6-ADBD-6CFCECDED1DF"
+                                                              numberOfDays:-5
+                                                                  valueKey:@"moodsurvey102" dataKey:nil];
+                    
+                    APCTableViewDashboardGraphItem *item = [APCTableViewDashboardGraphItem new];
+                    item.caption = NSLocalizedString(@"Cognitive Function", @"");
+                    item.graphData = scoring;
+                    item.detailText = [NSString stringWithFormat:NSLocalizedString(@"Average : %lu", @"Average: {value} ft"), [[scoring averageDataPoint] integerValue]];
+                    item.identifier = kAPCDashboardGraphTableViewCellIdentifier;
+                    item.editable = YES;
+                    item.tintColor = [UIColor appTertiaryRedColor];
+                    
+                    APCTableViewRow *row = [APCTableViewRow new];
+                    row.item = item;
+                    row.itemType = rowType;
+                    [rowItems addObject:row];
+                    
+                }
+                    break;
+
                 default:
                     break;
             }
@@ -224,6 +278,11 @@ static NSString * const kAPCRightDetailTableViewCellIdentifier = @"APCRightDetai
 }
 
 #pragma mark - APCDashboardGraphTableViewCellDelegate methods
+
+- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
+    //cell.contentView.subviews
+    
+}
 
 - (void)dashboardGraphViewCellDidTapExpandForCell:(APCDashboardLineGraphTableViewCell *)cell
 {

@@ -45,6 +45,64 @@ static  NSString  *kMoodSurveyStep107 = @"moodsurvey107";
     // Dispose of any resources that can be recreated.
 }
 
+- (NSString *)createResultSummary {
+    
+    NSMutableDictionary *resultCollectionDictionary = [NSMutableDictionary new];
+    NSArray *arrayOfResults = self.result.results;
+    
+    for (RKSTStepResult *stepResult in arrayOfResults) {
+        if (stepResult.results.firstObject) {
+            RKSTQuestionResult *questionResult = stepResult.results.firstObject;
+            
+            //Convert the answers to numbers for better graph representation.
+            int aNum = 0;
+            
+            switch ([questionResult.answer intValue]) {
+                case 0:
+                    aNum = 5;
+                    break;
+                case 1:
+                    aNum = 4;
+                    break;
+                    
+                case 2:
+                    aNum = 3;
+                    break;
+                    
+                case 3:
+                    aNum = 2;
+                    break;
+                    
+                case 4:
+                    aNum = 1;
+                    break;
+            }
+            
+            resultCollectionDictionary[stepResult.identifier] = [NSNumber numberWithInt:aNum];
+            //BLAH[stepResult.identifier] = @{ @"answer" : [NSNumber numberWithInt:aNum]};
+        }
+    }
+    NSError *error = nil;
+//
+    
+//
+//    NSDictionary *jsonData = [NSJSONSerialization JSONObjectWithData:myData options:NSJSONReadingMutableContainers error:&error];
+//    
+//    if (error) {
+//        NSLog(@"Error parsing JSON: %@", error);
+//    } else {
+//        NSLog(@"%@", jsonData);
+//    }
+//    NSString *contentString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
+    
+    NSData  *ksonData = [NSJSONSerialization dataWithJSONObject:resultCollectionDictionary options:0 error:&error];
+
+    //NSData *glucoseEntry = [NSJSONSerialization dataWithJSONObject:myData options:0 error:&error];
+    NSString *contentString = [[NSString alloc] initWithData:ksonData encoding:NSUTF8StringEncoding];
+    
+    return contentString;
+}
+
 /*********************************************************************************/
 #pragma mark - Initialize
 /*********************************************************************************/
@@ -55,9 +113,6 @@ static  NSString  *kMoodSurveyStep107 = @"moodsurvey107";
     
     {
         RKSTInstructionStep *step = [[RKSTInstructionStep alloc] initWithIdentifier:kMoodSurveyStep101];
-        step.title = NSLocalizedString(@"Heart Age Test", @"Heart Age Test");
-        step.text = NSLocalizedString(@"The following few details about you will be used to calculate your heart age.",
-                                      @"Requesting user to provide information to calculate their heart age.");
         step.detailText = nil;
         
         
@@ -253,7 +308,7 @@ static  NSString  *kMoodSurveyStep107 = @"moodsurvey107";
         [steps addObject:step];
     }
     
-    RKSTOrderedTask *task = [[RKSTOrderedTask alloc] initWithIdentifier:@"Heart Age Test"
+    RKSTOrderedTask *task = [[RKSTOrderedTask alloc] initWithIdentifier:@"Mood Survey"
                                                                   steps:steps];
     
     return task;
@@ -349,6 +404,7 @@ static  NSString  *kMoodSurveyStep107 = @"moodsurvey107";
 
 - (void)stepViewController:(RKSTStepViewController *)stepViewController didChangeResult:(RKSTStepResult*)stepResult{
     
+    [super stepViewController:stepViewController didChangeResult:stepResult];
     
     if (stepViewController.step.identifier != kMoodSurveyStep101 && stepViewController.step.identifier != kMoodSurveyStep107) {
         self.currentCustomView.alpha = 0;
