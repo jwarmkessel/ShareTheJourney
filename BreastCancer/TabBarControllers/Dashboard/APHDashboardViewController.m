@@ -49,10 +49,10 @@ static NSString * const kAPCRightDetailTableViewCellIdentifier = @"APCRightDetai
             _rowItemsOrder = [[NSMutableArray alloc] initWithArray:@[
                                                                      @(kAPHDashboardItemTypeHealthKitSteps),
                                                                      @(kAPHDashboardItemTypeDailyMood),
-                                                                     @(kAPHDashboardItemTypeDailyCognitive),
                                                                      @(kAPHDashboardItemTypeDailyEnergy),
+                                                                     @(kAPHDashboardItemTypeDailyExercise),
                                                                      @(kAPHDashboardItemTypeDailySleep),
-                                                                     @(kAPHDashboardItemTypeDailyExercise)
+                                                                     @(kAPHDashboardItemTypeDailyCognitive)
                                                                     ]];
             
             [defaults setObject:[NSArray arrayWithArray:_rowItemsOrder] forKey:kAPCDashboardRowItemsOrder];

@@ -8,6 +8,8 @@
 
 #import "APHScoring.h"
 #import "APHDataPoint.h"
+#import "APHAppDelegate.h"
+@import HealthKit;
 
 @interface APHScoring()
 
@@ -262,5 +264,19 @@
     return value;
 }
 
+- (NSArray *)getStepsData {
+    
+    APHAppDelegate *appDelegate = [UIApplication sharedApplication].delegate;
+    
+    HKQuantityType* quantityType = [HKObjectType quantityTypeForIdentifier:HKQuantityTypeIdentifierStepCount];
+    
+    NSPredicate *predicate = [HKQuery predicateForSamplesWithStartDate:[NSDate date] endDate:nil options:HKQueryOptionNone];
+    
+    [appDelegate.dataSubstrate.healthStore mostRecentQuantitySampleOfType:quantityType predicate:predicate completion:^(HKQuantity *mostRecentQuantity, NSError *error) {
+        
+    }];
+    
+    return nil;
+}
 
 @end
