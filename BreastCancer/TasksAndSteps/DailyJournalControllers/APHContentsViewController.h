@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@import APCAppleCore;
+@import APCAppCore;
 
 @interface APHContentsViewController : APCStepViewController
 

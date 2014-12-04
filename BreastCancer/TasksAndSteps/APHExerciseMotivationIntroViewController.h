@@ -6,8 +6,8 @@
 //  Copyright (c) 2014 Y Media Labs. All rights reserved.
 //
 
-@import APCAppleCore;
-#import <APCAppleCore/APCAppleCore.h>
+@import APCAppCore;
+#import <APCAppCore/APCAppCore.h>
 
 @interface APHExerciseMotivationIntroViewController : APCStepViewController
 
