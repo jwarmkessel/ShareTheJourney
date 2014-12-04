@@ -9,8 +9,8 @@
 @import APCAppCore;
 
 typedef NS_ENUM(APCTableViewItemType, APHDashboardItemType) {
-    kAPHDashboardItemTypeDailyJournal,
-    kAPHDashboardItemTypeDailyFeeling,
+    kAPHDashboardItemTypeHealthKitSteps,
+    kAPHDashboardItemTypeDailyCognitive,
     kAPHDashboardItemTypeDailyMood,
     kAPHDashboardItemTypeDailyEnergy,
     kAPHDashboardItemTypeDailySleep,

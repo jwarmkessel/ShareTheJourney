@@ -25,67 +25,67 @@
         for (NSNumber *typeNumber in self.rowItemsOrder) {
             
             APHDashboardItemType rowType = typeNumber.integerValue;
-            
-            //            @(kAPHDashboardItemTypeDailyFeeling),
-            //            @(kAPHDashboardItemTypeDailyMood),
-            //            @(kAPHDashboardItemTypeDailyEnergy),
-            //            @(kAPHDashboardItemTypeDailySleep),
-            //            @(kAPHDashboardItemTypeDailyExercise)
-            
+                        
             switch (rowType) {
-                case kAPHDashboardItemTypeDailyJournal:{
+                case kAPHDashboardItemTypeHealthKitSteps:{
                     
                     APCTableViewDashboardItem *item = [APCTableViewDashboardItem new];
-                    item.caption = NSLocalizedString(@"Daily Journal", @"");
+                    item.caption = NSLocalizedString(@"Steps", @"");
                     
                     [self.items addObject:item];
                 }
                     break;
-                case kAPHDashboardItemTypeDailyFeeling:
-                {
-                    APCTableViewDashboardItem *item = [APCTableViewDashboardItem new];
-                    item.caption = NSLocalizedString(@"Daily Feeling", @"");
                     
-                    [self.items addObject:item];
-                    
-                }
-                    break;
                 case kAPHDashboardItemTypeDailyMood:
                 {
                     APCTableViewDashboardItem *item = [APCTableViewDashboardItem new];
-                    item.caption = NSLocalizedString(@"Daily Mood", @"");
+                    item.caption = NSLocalizedString(@"Mood", @"");
                     
                     [self.items addObject:item];
                     
                 }
                     break;
+                    
                 case kAPHDashboardItemTypeDailyEnergy:
                 {
                     APCTableViewDashboardItem *item = [APCTableViewDashboardItem new];
-                    item.caption = NSLocalizedString(@"Daily Energy", @"");
+                    item.caption = NSLocalizedString(@"Energy Level", @"");
                     
                     [self.items addObject:item];
                     
                 }
                     break;
-                case kAPHDashboardItemTypeDailySleep:
-                {
-                    APCTableViewDashboardItem *item = [APCTableViewDashboardItem new];
-                    item.caption = NSLocalizedString(@"Daily Sleep", @"");
                     
-                    [self.items addObject:item];
-                    
-                }
-                    break;
                 case kAPHDashboardItemTypeDailyExercise:
                 {
                     APCTableViewDashboardItem *item = [APCTableViewDashboardItem new];
-                    item.caption = NSLocalizedString(@"Daily Exercise", @"");
+                    item.caption = NSLocalizedString(@"Exercise Level", @"");
                     
                     [self.items addObject:item];
                     
                 }
                     break;
+                    
+                case kAPHDashboardItemTypeDailySleep:
+                {
+                    APCTableViewDashboardItem *item = [APCTableViewDashboardItem new];
+                    item.caption = NSLocalizedString(@"Sleep Quality", @"");
+                    
+                    [self.items addObject:item];
+                    
+                }
+                    break;
+                    
+                case kAPHDashboardItemTypeDailyCognitive:
+                {
+                    APCTableViewDashboardItem *item = [APCTableViewDashboardItem new];
+                    item.caption = NSLocalizedString(@"Cognitive Function", @"");
+                    
+                    [self.items addObject:item];
+                    
+                }
+                    break;
+
                 default:
                     break;
             }
