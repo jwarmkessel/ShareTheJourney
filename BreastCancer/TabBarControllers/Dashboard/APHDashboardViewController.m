@@ -10,26 +10,12 @@
 #import "APHDashboardViewController.h"
 #import "APHDashboardEditViewController.h"
 
-/* Scoring */
-#import "APHScoring.h"
-
 static NSString * const kAPCBasicTableViewCellIdentifier       = @"APCBasicTableViewCell";
 static NSString * const kAPCRightDetailTableViewCellIdentifier = @"APCRightDetailTableViewCell";
 
 @interface APHDashboardViewController ()<UIViewControllerTransitioningDelegate>
 
 @property (nonatomic, strong) NSMutableArray *rowItemsOrder;
-
-@property (nonatomic, strong) APHScoring *distanceScore;
-@property (nonatomic, strong) APHScoring *heartRateScore;
-
-@property (nonatomic, strong) APHScoring *feelingScore;
-@property (nonatomic, strong) APHScoring *moodScore;
-@property (nonatomic, strong) APHScoring *energyScore;
-@property (nonatomic, strong) APHScoring *sleepScore;
-@property (nonatomic, strong) APHScoring *exerciseScore;
-
-
 @property (nonatomic, strong) APCPresentAnimator *presentAnimator;
 
 @end
@@ -152,6 +138,8 @@ static NSString * const kAPCRightDetailTableViewCellIdentifier = @"APCRightDetai
 
                 case kAPHDashboardItemTypeHealthKitSteps:{
                     
+                    APCScoring *scoring = [[APCScoring alloc] initWithHealthKitQuantityType:stepType unit:[HKUnit countUnit] numberOfDays:-5];
+                    
                     APCTableViewDashboardGraphItem *item = [APCTableViewDashboardGraphItem new];
                     item.caption = NSLocalizedString(@"Steps", @"");
                     item.graphData = self.heartRateScore;
@@ -169,7 +157,7 @@ static NSString * const kAPCRightDetailTableViewCellIdentifier = @"APCRightDetai
                     
                 case kAPHDashboardItemTypeDailyMood:{
                     
-                    APHScoring *scoring = [[APHScoring alloc] initWithTask:@"APHMoodSurvey-7259AC18-D711-47A6-ADBD-6CFCECDED1DF"
+                    APCScoring *scoring = [[APCScoring alloc] initWithTask:@"APHMoodSurvey-7259AC18-D711-47A6-ADBD-6CFCECDED1DF"
                                                               numberOfDays:-5
                                                                   valueKey:@"moodsurvey103" dataKey:nil];
                     
@@ -190,7 +178,7 @@ static NSString * const kAPCRightDetailTableViewCellIdentifier = @"APCRightDetai
                     
                 case kAPHDashboardItemTypeDailyEnergy:{
                     
-                    APHScoring *scoring = [[APHScoring alloc] initWithTask:@"APHMoodSurvey-7259AC18-D711-47A6-ADBD-6CFCECDED1DF"
+                    APCScoring *scoring = [[APCScoring alloc] initWithTask:@"APHMoodSurvey-7259AC18-D711-47A6-ADBD-6CFCECDED1DF"
                                                               numberOfDays:-5
                                                                   valueKey:@"moodsurvey104" dataKey:nil];
                     
@@ -211,7 +199,7 @@ static NSString * const kAPCRightDetailTableViewCellIdentifier = @"APCRightDetai
                     
                 case kAPHDashboardItemTypeDailyExercise:{
                     
-                    APHScoring *scoring = [[APHScoring alloc] initWithTask:@"APHMoodSurvey-7259AC18-D711-47A6-ADBD-6CFCECDED1DF"
+                    APCScoring *scoring = [[APCScoring alloc] initWithTask:@"APHMoodSurvey-7259AC18-D711-47A6-ADBD-6CFCECDED1DF"
                                                               numberOfDays:-5
                                                                   valueKey:@"moodsurvey106" dataKey:nil];
                     
@@ -232,7 +220,7 @@ static NSString * const kAPCRightDetailTableViewCellIdentifier = @"APCRightDetai
                     
                 case kAPHDashboardItemTypeDailySleep:{
                     
-                    APHScoring *scoring = [[APHScoring alloc] initWithTask:@"APHMoodSurvey-7259AC18-D711-47A6-ADBD-6CFCECDED1DF"
+                    APCScoring *scoring = [[APCScoring alloc] initWithTask:@"APHMoodSurvey-7259AC18-D711-47A6-ADBD-6CFCECDED1DF"
                                                               numberOfDays:-5
                                                                   valueKey:@"moodsurvey105" dataKey:nil];
                     
@@ -253,7 +241,7 @@ static NSString * const kAPCRightDetailTableViewCellIdentifier = @"APCRightDetai
                     
                 case kAPHDashboardItemTypeDailyCognitive:
                 {
-                    APHScoring *scoring = [[APHScoring alloc] initWithTask:@"APHMoodSurvey-7259AC18-D711-47A6-ADBD-6CFCECDED1DF"
+                    APCScoring *scoring = [[APCScoring alloc] initWithTask:@"APHMoodSurvey-7259AC18-D711-47A6-ADBD-6CFCECDED1DF"
                                                               numberOfDays:-5
                                                                   valueKey:@"moodsurvey102" dataKey:nil];
                     
