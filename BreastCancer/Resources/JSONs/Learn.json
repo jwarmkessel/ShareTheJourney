@@ -12,20 +12,14 @@
                           },
                           
                 {
-                    "title": "Cardiovascular Disease information",
-                    "details": "disease_information",
-                    "icon_image": "disease_icon",
-                    "tint_color": "red"
-                },
-                {
                     "title": "Symptoms",
                     "details": "symptoms",
                     "icon_image": "diagnostics_icon",
                     "tint_color": "red"
                 },
                 {
-                    "title": "Treatment Options",
-                    "details": "treatment",
+                    "title": "Life after Treatment",
+                    "details": "lifeaftertreatment",
                     "icon_image": "treatment_icon",
                     "tint_color": "yellow"
                 }
