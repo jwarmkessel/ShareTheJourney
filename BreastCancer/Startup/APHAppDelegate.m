@@ -167,28 +167,17 @@ static NSTimeInterval LOCATION_COLLECTION_INTERVAL = 5 * 60.0 * 60.0;
 {
     if (!self.consentVC) {
         RKSTConsentDocument* consent = [[RKSTConsentDocument alloc] init];
-        consent.title = @"Demo Consent";
+        consent.title = @"Consent";
         consent.signaturePageTitle = @"Consent";
         consent.signaturePageContent = @"I agree  to participate in this research Study.";
         
         
-        //    RKSTConsentSignature *participantSig = [RKSTConsentSignature signatureForPersonWithTitle:@"Participant" name:nil signatureImage:nil dateString:nil];
         RKSTConsentSignature *participantSig = [RKSTConsentSignature signatureForPersonWithTitle:@"Participant"
                                                                                             name:nil
                                                                                   signatureImage:nil
                                                                                       dateString:nil
                                                                                       identifier:@"participant"];
         [consent addSignature:participantSig];
-        
-        //    RKSTConsentSignature *investigatorSig = [RKSTConsentSignature signatureForPersonWithTitle:@"Investigator" name:@"Jake Clemson" signatureImage:[UIImage imageNamed:@"signature.png"] dateString:@"9/2/14"];
-        RKSTConsentSignature *investigatorSig = [RKSTConsentSignature signatureForPersonWithTitle:@"Investigator"
-                                                                                             name:@"Jake Clemson"
-                                                                                   signatureImage:[UIImage imageNamed:@"signature.png"]
-                                                                                       dateString:@"9/2/14"
-                                                                                       identifier:@"investigator"];
-        [consent addSignature:investigatorSig];
-        
-        
         
         
         NSMutableArray* components = [NSMutableArray new];
@@ -202,7 +191,7 @@ static NSTimeInterval LOCATION_COLLECTION_INTERVAL = 5 * 60.0 * 60.0;
                             @(RKSTConsentSectionTypeUtilizingData), //6
                             @(RKSTConsentSectionTypeCustom),    //7.Potential Benefits
                             @(RKSTConsentSectionTypeCustom),    //8.Risk To Privacy
-                            @(RKSTConsentSectionTypePotentialRiskUncomfortableQuestion), //9. Issues to consider
+                            @(RKSTConsentSectionTypeCustom), //9. Issues to consider
                             @(RKSTConsentSectionTypeCustom),    //10.Issues to consider
                             @(RKSTConsentSectionTypeImpactLifeTime), //11. Issues to Consider
                             @(RKSTConsentSectionTypeAllowWithdraw)]; //12.
@@ -247,12 +236,6 @@ static NSTimeInterval LOCATION_COLLECTION_INTERVAL = 5 * 60.0 * 60.0;
                     section.content = @"The combined study data on Synapse will also be available to use for other research purposes and will be shared with registered users worldwide who agree to using the data in an ethical manner, to do no harm and not attempt to re-identify or re- contact you unless you have chosen to allow them to do so.\n\nUSE OF DATA FOR FUTURE RESEARCH\nSeveral databases are available to help researchers understand different diseases. These databases contain information and other data helpful to study diseases. This study will include your research data into one such database, Synapse, to be used in future research beyond this study. Your data may benefit future research.\n\nBefore your data is released to the Synapse database, your personal contact information such as your name, e-mail, etc, will be removed. Your unique code identifier will be used in place of your name when your data is released onto Synapse. The study data will be made available on Synapse to registered users who have agreed to using the data in an ethical manner, to do no harm and not attempt to re-identify or re-contact you unless you have chosen to allow them to do so. The Principal Investigator and Sponsor will have no oversight on the future use of the study data released through Synapse.\n\nAlthough you can withdraw from the study at any time, you cannot withdraw the de-identified data that have already been distributed through research databases.\n\nThe main risk of donating your de-identified data to a centralized database is the potential loss of privacy and confidentiality in case of public disclosure due to unintended data breaches, including hacking or other activities outside of the procedures authorized by the study. In such a case, your data may be misused or used for unauthorized purposes by someone sufficiently skilled in data analysis to try to re-identify you. This risk is low.";
                 }
                     break;
-                case RKSTConsentSectionTypePotentialRiskUncomfortableQuestion:
-                {
-                    section.title = @"Issues to Consider";
-                    section.content = @"This is not a treatment study and we do not expect any medical side effects from participating.\nSome survey questions may make you feel uncomfortable. Know that the information you provide is entirely up to you and you are free to skip questions that you do not want to answer.\n\nOther people may glimpse the study notifications and/or reminders on your phone and realize you are enrolled in this study. This can make some people feel self- conscious. You can avoid this discomfort by putting a passcode on your phone to block unauthorized users from accessing your phone content.\n\nYou may have concerns about data security, privacy and confidentiality. We take great care to protect your information, however there is a slight risk of loss of privacy. This is a low risk because we separate your personal information (information that can directly identify you, such as your name or phone number) from the research data to respect your privacy. However, even with removal of this information, it is sometimes possible to re-identify an individual given enough cross-reference information about him or her. This risk, while very low, should still be contemplated prior to enrolling.\n\nData collected in this study will count against your existing mobile data plan. You may configure the application to only use WiFi connections to limit the impact this data collection has on your data plan.";
-                }
-                    break;
                 case RKSTConsentSectionTypeImpactLifeTime:
                 {
                     section.title = @"Issues to Consider";
@@ -264,17 +247,23 @@ static NSTimeInterval LOCATION_COLLECTION_INTERVAL = 5 * 60.0 * 60.0;
                     if (i == 6) {
                         section.title = @"Potential Benefits";
                         section.summary = @"You will be able to visualize your data and potentially learn more about trends in your health.";
-                        section.customImage = [UIImage imageNamed:@"consent_sample"];
+                        section.customImage = [UIImage imageNamed:@"consent_visualize"];
                         section.content = @"The goal of this study is to create knowledge that can benefit us as a society. The benefits are primarily the creation of insights to help current and future patients and their families to better detect, understand and manage their health. We will return the insights learned from analysis of the study data through the study website, but these insights may not be of direct benefit to you. We cannot, and thus we do not, guarantee or promise that you will personally receive any direct benefits from this study. However you will be able to track your health and export your data at will to share with your medical doctor and anyone you choose.";
                         
                     } else if (i == 7){
                         section.title = @"Risk to Privacy";
                         section.summary = @"We will make every effort to protect your information, but total anonymity cannot be guaranteed.";
-                        section.customImage = [UIImage imageNamed:@"consent_sample"];
+                        section.customImage = [UIImage imageNamed:@"consent_privacy"];
                         section.content = @"You may have concerns about data security, privacy and confidentiality. We take great care to protect your information, however there is a slight risk of loss of privacy. This is a low risk because we separate your personal information (information that can directly identify you, such as your name or phone number) from the research data to respect your privacy. However, even with removal of this information, it is sometimes possible to re-identify an individual given enough cross-reference information about him or her. This risk, while very low, should still be contemplated prior to enrolling.\n\nCONFIDENTIALITY\nWe are committed to protect your privacy. Your identity will be kept as confidential as possible. Except as required by law, you will not be identified by name or by any other direct personal identifier. We will use a random code number instead of your name on all your data collected, analyzed, aggregated and released to researchers. Information about the code will be kept in a secure system. This study anticipates that your data will be added to a combined study dataset placed in a “repository” - an online database – like Sage Bionetworks Synapse where other researchers can access it. No name or contact information will be included in this combined study dataset. Researchers will have access to all the study data but will be unable to easily map any particular data to the identities of the participants. However, there is always a risk that the database can be breached by hackers, or that experts in re- identification may attempt to reverse our processes. Total confidentiality cannot be guaranteed.";
-                    } else if (i == 9){
+                    } else if (i == 8){
+                        section.title = @"Issues to Consider";
+                        section.summary = @"Some questions may make you uncomfortable. Simply do not respond.";
+                        section.customImage = [UIImage imageNamed:@"consent_uncomfortablequestions"];
+                        section.content = @"This is not a treatment study and we do not expect any medical side effects from participating.\nSome survey questions may make you feel uncomfortable. Know that the information you provide is entirely up to you and you are free to skip questions that you do not want to answer.\n\nOther people may glimpse the study notifications and/or reminders on your phone and realize you are enrolled in this study. This can make some people feel self- conscious. You can avoid this discomfort by putting a passcode on your phone to block unauthorized users from accessing your phone content.\n\nYou may have concerns about data security, privacy and confidentiality. We take great care to protect your information, however there is a slight risk of loss of privacy. This is a low risk because we separate your personal information (information that can directly identify you, such as your name or phone number) from the research data to respect your privacy. However, even with removal of this information, it is sometimes possible to re-identify an individual given enough cross-reference information about him or her. This risk, while very low, should still be contemplated prior to enrolling.\n\nData collected in this study will count against your existing mobile data plan. You may configure the application to only use WiFi connections to limit the impact this data collection has on your data plan.";
+                    }else if (i == 9){
                         section.title = @"Issues to Consider";
                         section.summary = @"Participating in this study may change how you feel. You may feel more tired, sad, energized, or happy.";
+                        section.customImage = [UIImage imageNamed:@"consent_mood"];
                         section.content = @"Participation in this study may involve risks that are not known at this time.\n\nYou will be told about any new information that might change your decision to be in this study.\n\nSince no medical treatments are provided during this study there are no alternative therapies. The only alternative is to not participate.";
                     }
                     
@@ -290,23 +279,6 @@ static NSTimeInterval LOCATION_COLLECTION_INTERVAL = 5 * 60.0 * 60.0;
             }
             
             [components addObject:section];
-        }
-        
-        {
-            RKSTConsentSection* c = [[RKSTConsentSection alloc] initWithType:RKSTConsentSectionTypeCustom];
-            c.summary = @"Custom Scene summary";
-            c.title = @"Custom Scene";
-            c.content = @"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam adhuc, meo fortasse vitio, quid ego quaeram non perspicis. Plane idem, inquit, et maxima quidem, qua fieri nulla maior potest. Quonam, inquit, modo? An potest, inquit ille, quicquam esse suavius quam nihil dolere? Cave putes quicquam esse verius. Quonam, inquit, modo?";
-            c.customImage = [UIImage imageNamed:@"image_example.png"];
-            [components addObject:c];
-        }
-        
-        {
-            RKSTConsentSection* c = [[RKSTConsentSection alloc] initWithType:RKSTConsentSectionTypeOnlyInDocument];
-            c.summary = @"OnlyInDocument Scene summary";
-            c.title = @"OnlyInDocument Scene";
-            c.content = @"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam adhuc, meo fortasse vitio, quid ego quaeram non perspicis. Plane idem, inquit, et maxima quidem, qua fieri nulla maior potest. Quonam, inquit, modo? An potest, inquit ille, quicquam esse suavius quam nihil dolere? Cave putes quicquam esse verius. Quonam, inquit, modo?";
-            [components addObject:c];
         }
         
         consent.sections = [components copy];
