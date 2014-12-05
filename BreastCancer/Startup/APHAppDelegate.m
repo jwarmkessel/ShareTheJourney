@@ -1,11 +1,10 @@
-//
-//  APHParkinsonAppDelegate.m
-//  Parkinson
-//
-//  Created by Henry McGilton on 8/20/14.
-//  Copyright (c) 2014 Y Media Labs. All rights reserved.
-//
-
+// 
+//  APHAppDelegate.m 
+//  Share the Journey 
+// 
+//  Copyright (c) 2014 <INSTITUTION-NAME-TBD> All rights reserved. 
+// 
+ 
 @import APCAppCore;
 #import "APHAppDelegate.h"
 
@@ -34,7 +33,8 @@ static NSString *const kVideoShownKey = @"VideoShown";
                                            kBridgeEnvironmentKey                : @(SBBEnvironmentStaging),
                                            kHKReadPermissionsKey                : @[
                                                    HKQuantityTypeIdentifierBodyMass,
-                                                   HKQuantityTypeIdentifierHeight
+                                                   HKQuantityTypeIdentifierHeight,
+                                                   HKQuantityTypeIdentifierStepCount
                                                    ],
                                            kHKWritePermissionsKey                : @[
                                                    HKQuantityTypeIdentifierBodyMass,
@@ -42,7 +42,6 @@ static NSString *const kVideoShownKey = @"VideoShown";
                                                    ],
                                            kAppServicesListRequiredKey           : @[
                                                    @(kSignUpPermissionsTypeLocation),
-//                                                   @(kSignUpPermissionsTypePushNotifications),
                                                    @(kSignUpPermissionsTypeCoremotion)
                                                    ]
                                            }];
@@ -81,58 +80,23 @@ static NSString *const kVideoShownKey = @"VideoShown";
 /*********************************************************************************/
 #pragma mark - Datasubstrate Delegate Methods
 /*********************************************************************************/
-static NSTimeInterval LOCATION_COLLECTION_INTERVAL = 5 * 60.0 * 60.0;
-
 -(void)setUpCollectors
 {
-    if (self.dataSubstrate.currentUser.isConsented) {
-        NSError *error = nil;
+    NSError *error = nil;
+    {
+        HKQuantityType *quantityType = (HKQuantityType*)[HKObjectType quantityTypeForIdentifier:HKQuantityTypeIdentifierStepCount];
+        RKSTHealthCollector *healthCollector = [self.dataSubstrate.study addHealthCollectorWithSampleType:quantityType unit:[HKUnit countUnit] startDate:nil error:&error];
+        if (!healthCollector)
         {
-            HKQuantityType *quantityType = (HKQuantityType*)[HKObjectType quantityTypeForIdentifier:HKQuantityTypeIdentifierStepCount];
-            RKSTHealthCollector *healthCollector = [self.dataSubstrate.study addHealthCollectorWithSampleType:quantityType unit:[HKUnit countUnit] startDate:nil error:&error];
-            if (!healthCollector)
-            {
-                NSLog(@"Error creating health collector: %@", error);
-                [self.dataSubstrate.studyStore removeStudy:self.dataSubstrate.study error:nil];
-                goto errReturn;
-            }
-            
-            HKQuantityType *quantityType2 = (HKQuantityType*)[HKObjectType quantityTypeForIdentifier:HKQuantityTypeIdentifierBloodGlucose];
-            HKUnit *unit = [HKUnit unitFromString:@"mg/dL"];
-            RKSTHealthCollector *glucoseCollector = [self.dataSubstrate.study addHealthCollectorWithSampleType:quantityType2 unit:unit startDate:nil error:&error];
-            
-            if (!glucoseCollector)
-            {
-                NSLog(@"Error creating glucose collector: %@", error);
-                [self.dataSubstrate.studyStore removeStudy:self.dataSubstrate.study error:nil];
-                goto errReturn;
-            }
-            
-            HKCorrelationType *bpType = (HKCorrelationType *)[HKCorrelationType correlationTypeForIdentifier:HKCorrelationTypeIdentifierBloodPressure];
-            RKSTHealthCorrelationCollector *bpCollector = [self.dataSubstrate.study addHealthCorrelationCollectorWithCorrelationType:bpType sampleTypes:@[[HKObjectType quantityTypeForIdentifier:HKQuantityTypeIdentifierBloodPressureDiastolic], [HKObjectType quantityTypeForIdentifier:HKQuantityTypeIdentifierBloodPressureSystolic]] units:@[[HKUnit unitFromString:@"mmHg"], [HKUnit unitFromString:@"mmHg"]] startDate:nil error:&error];
-            if (!bpCollector)
-            {
-                NSLog(@"Error creating BP collector: %@", error);
-                [self.dataSubstrate.studyStore removeStudy:self.dataSubstrate.study error:nil];
-                goto errReturn;
-            }
-            
-            RKSTMotionActivityCollector *motionCollector = [self.dataSubstrate.study addMotionActivityCollectorWithStartDate:nil error:&error];
-            if (!motionCollector)
-            {
-                NSLog(@"Error creating motion collector: %@", error);
-                [self.dataSubstrate.studyStore removeStudy:self.dataSubstrate.study error:nil];
-                goto errReturn;
-            }
-            
-            //Set Up Passive Location Collection
-            self.dataSubstrate.passiveLocationTracking = [[APCPassiveLocationTracking alloc] initWithTimeInterval:LOCATION_COLLECTION_INTERVAL];
-            [self.dataSubstrate.passiveLocationTracking start];
+            [error handle];
+            [self.dataSubstrate.studyStore removeStudy:self.dataSubstrate.study error:nil];
+            goto errReturn;
         }
         
-    errReturn:
-        return;
     }
+    
+errReturn:
+    return;
     
 }
 
