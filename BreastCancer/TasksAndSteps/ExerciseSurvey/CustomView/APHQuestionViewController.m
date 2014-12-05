@@ -1,11 +1,10 @@
-//
-//  APHQuestionViewController.m
-//  Breast Cancer
-//
-//  Created by Justin Warmkessel on 11/23/14.
-//  Copyright (c) 2014 Y Media Labs. All rights reserved.
-//
-
+// 
+//  APHQuestionViewController.m 
+//  Share the Journey 
+// 
+//  Copyright (c) 2014 <INSTITUTION-NAME-TBD> All rights reserved. 
+// 
+ 
 #import "APHQuestionViewController.h"
 #import "APHMoodLogDictionaryKeys.h"
 

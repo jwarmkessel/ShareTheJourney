@@ -1,11 +1,10 @@
-//
-//  APHLogSubmissionViewController.h
-//  BreastCancer
-//
-//  Created by Justin Warmkessel on 11/18/14.
-//  Copyright (c) 2014 Y Media Labs. All rights reserved.
-//
-
+// 
+//  APHLogSubmissionViewController.h 
+//  Share the Journey 
+// 
+//  Copyright (c) 2014 <INSTITUTION-NAME-TBD> All rights reserved. 
+// 
+ 
 #import <UIKit/UIKit.h>
 
 @interface APHLogSubmissionViewController : APCStepViewController
