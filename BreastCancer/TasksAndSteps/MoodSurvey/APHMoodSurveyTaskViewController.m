@@ -85,12 +85,12 @@ static  NSString  *kMoodSurveyStep107 = @"moodsurvey107";
     }
     NSError *error = nil;
     
-    NSData  *ksonData = [NSJSONSerialization dataWithJSONObject:resultCollectionDictionary options:0 error:&error];
+    NSData  *moodAnswersJson = [NSJSONSerialization dataWithJSONObject:resultCollectionDictionary options:0 error:&error];
 
     NSString *contentString = nil;
 
     if (!error) {
-        contentString = [[NSString alloc] initWithData:ksonData encoding:NSUTF8StringEncoding];
+        contentString = [[NSString alloc] initWithData:moodAnswersJson encoding:NSUTF8StringEncoding];
     } else {
         [error handle];
     }
