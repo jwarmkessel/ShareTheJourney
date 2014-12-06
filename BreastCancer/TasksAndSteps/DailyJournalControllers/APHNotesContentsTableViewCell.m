@@ -1,11 +1,10 @@
-//
-//  NotesContentsTableViewCell.m
-//  Breast Cancer
-//
-//  Created by Henry McGilton on 10/8/14.
-//  Copyright (c) 2014 Y Media Labs. All rights reserved.
-//
-
+// 
+//  APHNotesContentsTableViewCell.m 
+//  Share the Journey 
+// 
+//  Copyright (c) 2014 Apple, Inc. All rights reserved. 
+// 
+ 
 #import "APHNotesContentsTableViewCell.h"
 
 @implementation APHNotesContentsTableViewCell

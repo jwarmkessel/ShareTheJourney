@@ -1,11 +1,10 @@
-//
-//  APHQuestionViewController.m
-//  Breast Cancer
-//
-//  Created by Justin Warmkessel on 11/23/14.
-//  Copyright (c) 2014 Y Media Labs. All rights reserved.
-//
-
+// 
+//  APHQuestionViewController.m 
+//  Share the Journey 
+// 
+//  Copyright (c) 2014 Apple, Inc. All rights reserved. 
+// 
+ 
 #import "APHQuestionViewController.h"
 #import "APHMoodLogDictionaryKeys.h"
 
@@ -35,7 +34,6 @@ static  NSString  *kExerciseSurveyStep106 = @"exercisesurvey106";
 @property  (nonatomic, assign)          CGFloat               savedContainerSpacing;
 
 @property  (nonatomic, strong)          NSMutableDictionary  *noteContentModel;
-@property  (nonatomic, strong)          NSMutableDictionary  *noteChangesModel;
 @property  (nonatomic, strong)          NSMutableArray       *noteModifications;
 
 
@@ -186,15 +184,18 @@ goToReturn:
     self.noteContentModel = [NSMutableDictionary new];
     
     [self.noteContentModel setObject:self.scriptorium.text forKey:@"result"];
-    [self.noteChangesModel setObject:self.noteModifications forKey:APHMoodLogNoteModificationsKey];
     
-    RKSTDataResult *contentModel = [[RKSTDataResult alloc] initWithIdentifier:@"result"];
-    RKSTDataResult *changesModel = [[RKSTDataResult alloc] initWithIdentifier:@"changes"];
-        
-    contentModel.data = [NSKeyedArchiver archivedDataWithRootObject:self.noteContentModel];
-    changesModel.data = [NSKeyedArchiver archivedDataWithRootObject:self.noteChangesModel];
+    RKSTDataResult *contentModel = [[RKSTDataResult alloc] initWithIdentifier:self.step.identifier];
+
+    NSError *error = nil;
     
-    NSArray *resultsArray = @[contentModel, changesModel];
+    contentModel.data = [NSJSONSerialization dataWithJSONObject:self.noteContentModel options:0 error:&error];
+    
+    if (error) {
+        [error handle];
+    }
+    
+    NSArray *resultsArray = @[contentModel];
     
     self.cachedResult = [[RKSTStepResult alloc] initWithStepIdentifier:self.step.identifier results:resultsArray];
     

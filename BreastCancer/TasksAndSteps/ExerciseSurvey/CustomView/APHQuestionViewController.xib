@@ -31,8 +31,8 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="z1v-TC-JU8" userLabel="ResultsView">
                     <rect key="frame" x="0.0" y="0.0" width="320" height="64"/>
                     <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Reach 5,000 steps every day." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qV4-Sx-7gP">
-                            <rect key="frame" x="20" y="21" width="267" height="21"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Reach 5,000 steps every day." lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qV4-Sx-7gP">
+                            <rect key="frame" x="20" y="7" width="280" height="50"/>
                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <nil key="highlightedColor"/>
@@ -41,10 +41,10 @@
                     <color key="backgroundColor" red="0.93725490199999995" green="0.0039215686269999999" blue="0.55294117649999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="64" id="RFz-OP-Qgk"/>
+                        <constraint firstItem="qV4-Sx-7gP" firstAttribute="top" secondItem="z1v-TC-JU8" secondAttribute="top" constant="7" id="Rai-ve-u8P"/>
                         <constraint firstItem="qV4-Sx-7gP" firstAttribute="leading" secondItem="z1v-TC-JU8" secondAttribute="leading" constant="20" id="b6I-Cs-dNm"/>
-                        <constraint firstAttribute="trailing" secondItem="qV4-Sx-7gP" secondAttribute="trailing" constant="33" id="maZ-i2-tdG"/>
-                        <constraint firstItem="qV4-Sx-7gP" firstAttribute="top" secondItem="z1v-TC-JU8" secondAttribute="top" constant="21" id="oHz-Vd-zaQ"/>
-                        <constraint firstAttribute="bottom" secondItem="qV4-Sx-7gP" secondAttribute="bottom" constant="22" id="zk5-Dt-xau"/>
+                        <constraint firstAttribute="bottom" secondItem="qV4-Sx-7gP" secondAttribute="bottom" constant="7" id="lqa-Ya-MHI"/>
+                        <constraint firstAttribute="trailing" secondItem="qV4-Sx-7gP" secondAttribute="trailing" constant="20" id="maZ-i2-tdG"/>
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WSq-wE-23H" userLabel="QuestionView">
@@ -81,7 +81,7 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="C1V-y7-AcJ" userLabel="containerView">
                     <rect key="frame" x="0.0" y="117" width="320" height="387"/>
                     <subviews>
-                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nsl-Rj-KnY" customClass="APHCustomTextView">
+                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nsl-Rj-KnY" customClass="APHCustomTextView">
                             <rect key="frame" x="13" y="0.0" width="299" height="291"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <constraints>

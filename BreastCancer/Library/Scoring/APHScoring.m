@@ -1,11 +1,10 @@
-//
-//  APHScoring.m
-//  CardioHealth
-//
-//  Created by Farhan Ahmed on 10/29/14.
-//  Copyright (c) 2014 Y Media Labs. All rights reserved.
-//
-
+// 
+//  APHScoring.m 
+//  Share the Journey 
+// 
+//  Copyright (c) 2014 Apple, Inc. All rights reserved. 
+// 
+ 
 #import "APHScoring.h"
 
 static NSDateFormatter *dateFormatter = nil;

@@ -1,11 +1,10 @@
-//
-//  APHOverviewViewController.m
-//  BasicTabBar
-//
-//  Created by Henry McGilton on 9/7/14.
-//  Copyright (c) 2014 Y Media Labs. All rights reserved.
-//
-
+// 
+//  APHDashboardViewController.m 
+//  Share the Journey 
+// 
+//  Copyright (c) 2014 Apple, Inc. All rights reserved. 
+// 
+ 
 /* Controllers */
 #import "APHDashboardViewController.h"
 #import "APHDashboardEditViewController.h"
@@ -33,7 +32,7 @@ static NSString * const kAPCRightDetailTableViewCellIdentifier = @"APCRightDetai
         
         if (!_rowItemsOrder.count) {
             _rowItemsOrder = [[NSMutableArray alloc] initWithArray:@[
-//                                                                     @(kAPHDashboardItemTypeHealthKitSteps),
+                                                                     @(kAPHDashboardItemTypeHealthKitSteps),
                                                                      @(kAPHDashboardItemTypeDailyMood),
                                                                      @(kAPHDashboardItemTypeDailyEnergy),
                                                                      @(kAPHDashboardItemTypeDailyExercise),

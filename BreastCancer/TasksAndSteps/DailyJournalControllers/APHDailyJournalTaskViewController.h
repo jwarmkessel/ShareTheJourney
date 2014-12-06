@@ -1,11 +1,10 @@
-//
-//  APHDailyJournalTaskViewController.h
-//  BreastCancer
-//
-//  Created by Henry McGilton on 9/3/14.
-//  Copyright (c) 2014 Y Media Labs. All rights reserved.
-//
-
+// 
+//  APHDailyJournalTaskViewController.h 
+//  Share the Journey 
+// 
+//  Copyright (c) 2014 Apple, Inc. All rights reserved. 
+// 
+ 
 @import APCAppCore;
 #import <Foundation/Foundation.h>
 #import <ResearchKit/ResearchKit.h>

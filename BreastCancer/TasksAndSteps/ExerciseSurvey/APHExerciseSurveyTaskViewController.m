@@ -1,11 +1,10 @@
-//
-//  APHExerciseSurveyTaskViewController.m
-//  BreastCancer
-//
-//  Created by Justin Warmkessel on 11/23/14.
-//  Copyright (c) 2014 Y Media Labs. All rights reserved.
-//
-
+// 
+//  APHExerciseSurveyTaskViewController.m 
+//  Share the Journey 
+// 
+//  Copyright (c) 2014 Apple, Inc. All rights reserved. 
+// 
+ 
 #import "APHExerciseSurveyTaskViewController.h"
 #import "APHExerciseMotivationIntroViewController.h"
 #import "APHQuestionViewController.h"
@@ -22,8 +21,14 @@ static  NSString  *kExerciseSurveyStep106 = @"exercisesurvey106";
 static  NSString  *kExerciseSurveyStep107 = @"exercisesurvey107";
 static  NSString  *kExerciseSurveyStep108 = @"exercisesurvey108";
 
+static NSString *kWalkFiveThousandSteps = @"Walk 5,000 steps every day";
+static NSString *kExerciseEverySingleDay = @"Exercise Every Single Day for at least 30 minutes";
+static NSString *kExerciseThreeTimesPerWeek = @"Exercise at least 3 times per week for at least 30 minutes";
+static NSString *kWalkTenThousandSteps = @"Walk 10,000 steps at least 3 times per week";
+
 @interface APHExerciseSurveyTaskViewController ()
 
+@property (nonatomic, strong) NSString *previousStepIdentifier;
 @end
 
 @implementation APHExerciseSurveyTaskViewController
@@ -148,59 +153,61 @@ static  NSString  *kExerciseSurveyStep108 = @"exercisesurvey108";
                                     };
     
     if (kExerciseSurveyStep101 == stepViewController.step.identifier) {
-        taskViewController.navigationBar.topItem.title = NSLocalizedString(@"Exercise Survey", @"Exercise Survey");
+        taskViewController.navigationBar.topItem.title = NSLocalizedString(@"Exercise Motivation", @"Exercise Motivation");
         
     } else if (kExerciseSurveyStep102 == stepViewController.step.identifier) {
-
+        self.previousStepIdentifier = kExerciseSurveyStep101;
         RKSTStepResult *stepResult = [taskViewController.result stepResultForStepIdentifier:kExerciseSurveyStep101];
         
         APHQuestionViewController *questionVC = (APHQuestionViewController *)stepViewController;
-        questionVC.previousAnswer.text = [self extractResult:stepResult];
+        questionVC.previousAnswer.text = [self extractResult:stepResult withIdentifier:kExerciseSurveyStep101];
         questionVC.currentQuestion.text = [stepQuestions objectForKey:stepViewController.step.identifier];
         
         taskViewController.navigationBar.topItem.title = NSLocalizedString(@"Exercise Motivation", @"Exercise Motivation");
         
     } else if (kExerciseSurveyStep103 == stepViewController.step.identifier) {
+        self.previousStepIdentifier = kExerciseSurveyStep102;
         
         RKSTStepResult *stepResult = [taskViewController.result stepResultForStepIdentifier:kExerciseSurveyStep102];
         
         APHQuestionViewController *questionVC = (APHQuestionViewController *)stepViewController;
-        questionVC.previousAnswer.text = [self extractResult:stepResult];
+        questionVC.previousAnswer.text = [self extractResult:stepResult withIdentifier:self.previousStepIdentifier];
         questionVC.currentQuestion.text = [stepQuestions objectForKey:stepViewController.step.identifier];
         
         taskViewController.navigationBar.topItem.title = NSLocalizedString(@"Exercise Motivation", @"Exercise Motivation");
         
     } else if (kExerciseSurveyStep104 == stepViewController.step.identifier) {
-        
+        self.previousStepIdentifier = kExerciseSurveyStep103;
         RKSTStepResult *stepResult = [taskViewController.result stepResultForStepIdentifier:kExerciseSurveyStep103];
         
         APHQuestionViewController *questionVC = (APHQuestionViewController *)stepViewController;
-        questionVC.previousAnswer.text = [self extractResult:stepResult];
+        questionVC.previousAnswer.text = [self extractResult:stepResult withIdentifier:self.previousStepIdentifier];
         questionVC.currentQuestion.text = [stepQuestions objectForKey:stepViewController.step.identifier];
         
         taskViewController.navigationBar.topItem.title = NSLocalizedString(@"Exercise Motivation", @"Exercise Motivation");
         
     } else if (kExerciseSurveyStep105 == stepViewController.step.identifier) {
-        
+        self.previousStepIdentifier = kExerciseSurveyStep104;
         RKSTStepResult *stepResult = [taskViewController.result stepResultForStepIdentifier:kExerciseSurveyStep104];
         
         APHQuestionViewController *questionVC = (APHQuestionViewController *)stepViewController;
-        questionVC.previousAnswer.text = [self extractResult:stepResult];
+        questionVC.previousAnswer.text = [self extractResult:stepResult withIdentifier:self.previousStepIdentifier];
         questionVC.currentQuestion.text = [stepQuestions objectForKey:stepViewController.step.identifier];
         
         taskViewController.navigationBar.topItem.title = NSLocalizedString(@"Exercise Motivation", @"Exercise Motivation");
         
     } else if (kExerciseSurveyStep106 == stepViewController.step.identifier) {
-        
+        self.previousStepIdentifier = kExerciseSurveyStep105;
         RKSTStepResult *stepResult = [taskViewController.result stepResultForStepIdentifier:kExerciseSurveyStep105];
         
         APHQuestionViewController *questionVC = (APHQuestionViewController *)stepViewController;
-        questionVC.previousAnswer.text = [self extractResult:stepResult];
+        questionVC.previousAnswer.text = [self extractResult:stepResult withIdentifier:self.previousStepIdentifier];
         questionVC.currentQuestion.text = [stepQuestions objectForKey:stepViewController.step.identifier];
 
         taskViewController.navigationBar.topItem.title = NSLocalizedString(@"Exercise Motivation", @"Exercise Motivation");
         
     } else if (kExerciseSurveyStep107 == stepViewController.step.identifier) {
+        self.previousStepIdentifier = kExerciseSurveyStep106;
         APHExerciseMotivationSummaryViewController *questionSummaryVC = (APHExerciseMotivationSummaryViewController *)stepViewController;
         
         NSArray *summaryLabels = @[questionSummaryVC.questionResult1, questionSummaryVC.questionResult2, questionSummaryVC.questionResult3, questionSummaryVC.questionResult4, questionSummaryVC.questionResult5];
@@ -208,11 +215,32 @@ static  NSString  *kExerciseSurveyStep108 = @"exercisesurvey108";
         NSArray *stepIdentifiers = @[kExerciseSurveyStep101, kExerciseSurveyStep102, kExerciseSurveyStep103, kExerciseSurveyStep104, kExerciseSurveyStep105, kExerciseSurveyStep106, kExerciseSurveyStep107, kExerciseSurveyStep108];
         
         for (int i = 0; i < [summaryLabels count]; i++) {
-            
+            NSString *stringIdentifier = [NSString stringWithFormat:@"exercisesurvey10%d", i+2];
             RKSTStepResult *stepResult = [taskViewController.result stepResultForStepIdentifier:stepIdentifiers[i + 1]];
             UILabel *label = (UILabel *) summaryLabels[i];
-            label.text = (NSString *) [self extractResult:stepResult];
+            label.text = (NSString *) [self extractResult:stepResult withIdentifier:stringIdentifier];
 
+        }
+        
+        RKSTStepResult *stepResult = [taskViewController.result stepResultForStepIdentifier:stepIdentifiers[0]];
+        
+        NSString *selectedGoal = [self extractResult:stepResult withIdentifier:kExerciseSurveyStep101];
+        
+        NSArray *arrayOfGoalChoices = @[kExerciseEverySingleDay, kExerciseThreeTimesPerWeek, kWalkFiveThousandSteps, kWalkTenThousandSteps];
+
+        NSDictionary *goalImages = @{
+                                        kExerciseEverySingleDay : @"banner_exersiseeveryday",
+                                        kExerciseThreeTimesPerWeek : @"banner_exersise3x",
+                                        kWalkFiveThousandSteps : @"banner_5ksteps",
+                                        kWalkTenThousandSteps : @"banner_10ksteps"
+                                        };
+        
+        for (NSString *goalString in arrayOfGoalChoices) {
+            if ([goalString isEqualToString:selectedGoal]) {
+                
+                [questionSummaryVC.titleImageView setImage:[UIImage imageNamed:goalImages[goalString]]];
+                
+            }
         }
         
         taskViewController.navigationBar.topItem.title = NSLocalizedString(@"Exercise Goal Review", @"Exercise Goal Review");
@@ -220,7 +248,7 @@ static  NSString  *kExerciseSurveyStep108 = @"exercisesurvey108";
         
     } else if (kExerciseSurveyStep108 == stepViewController.step.identifier) {
         
-        taskViewController.navigationBar.topItem.title = NSLocalizedString(@"Log Complete", @"Log Complete");
+        taskViewController.navigationBar.topItem.title = NSLocalizedString(@"Activity Complete", @"Activity Complete");
     }
     
 }
@@ -239,12 +267,15 @@ static  NSString  *kExerciseSurveyStep108 = @"exercisesurvey108";
 /*********************************************************************************/
 #pragma  mark  -  Helper Methods
 /*********************************************************************************/
-- (NSString *)extractResult:(RKSTStepResult *)result {
+- (NSString *)extractResult:(RKSTStepResult *)result withIdentifier:(NSString *)identifier {
     
-    RKSTDataResult *contentResult = (RKSTDataResult *)[result resultForIdentifier:@"result"];
+    RKSTDataResult *contentResult = (RKSTDataResult *)[result resultForIdentifier:identifier];
     
-    NSDictionary *dict = [NSKeyedUnarchiver unarchiveObjectWithData:contentResult.data];
-    
-    return dict[@"result"];
+    NSError* error;
+    NSDictionary* stepResultJson = [NSJSONSerialization JSONObjectWithData:contentResult.data
+                                                         options:kNilOptions
+                                                           error:&error];
+    NSLog(@"%@", [[NSString alloc] initWithData:contentResult.data encoding:NSUTF8StringEncoding]);
+    return [stepResultJson valueForKey:@"result"];
 }
 @end

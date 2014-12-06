@@ -6,7 +6,7 @@
               "taskClassName": "APHMoodSurveyTaskViewController"
               },
               {
-              "taskTitle": "Exercise Survey",
+              "taskTitle": "Exercise Motivation",
               "taskID": "APHExerciseSurvey-7259AC18-D711-47A6-ADBD-6CFCECDED1DF",
               "taskClassName": "APHExerciseSurveyTaskViewController"
               },

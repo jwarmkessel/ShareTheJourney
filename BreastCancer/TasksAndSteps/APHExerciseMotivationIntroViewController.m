@@ -1,23 +1,27 @@
-//
-//  APHExerciseMotivationIntroViewController.m
-//  BreastCancer
-//
-//  Created by Justin Warmkessel on 11/24/14.
-//  Copyright (c) 2014 Y Media Labs. All rights reserved.
-//
-
+// 
+//  APHExerciseMotivationIntroViewController.m 
+//  Share the Journey 
+// 
+//  Copyright (c) 2014 Apple, Inc. All rights reserved. 
+// 
+ 
 #import "APHExerciseMotivationIntroViewController.h"
 
 @interface APHExerciseMotivationIntroViewController ()
 - (IBAction)nextButtonTapped:(id)sender;
 
-@property (weak, nonatomic) IBOutlet UILabel *walkingLabel;
-@property (weak, nonatomic) IBOutlet UILabel *exerciseLabel;
-@property (weak, nonatomic) IBOutlet UILabel *stepsLabel;
+@property (weak, nonatomic) IBOutlet UILabel *exerciseEveryDayLabel;
+@property (weak, nonatomic) IBOutlet UILabel *exerciseThreeTimesAWeekLabel;
 
-@property (weak, nonatomic) IBOutlet APCConfirmationView *walkingSelectedView;
-@property (weak, nonatomic) IBOutlet APCConfirmationView *exerciseSelectedView;
-@property (weak, nonatomic) IBOutlet APCConfirmationView *stepsSelectedView;
+@property (weak, nonatomic) IBOutlet UILabel *walkTenThousandStepsLabel;
+
+@property (weak, nonatomic) IBOutlet UILabel *fiveThousandStepsLabel;
+
+@property (weak, nonatomic) IBOutlet APCConfirmationView *exerciseEveryDaySelectedView;
+@property (weak, nonatomic) IBOutlet APCConfirmationView *exerciseThreeTimesAWeekSelectedView;
+@property (weak, nonatomic) IBOutlet APCConfirmationView *fiveThousandStepsSelectedView;
+
+@property (weak, nonatomic) IBOutlet APCConfirmationView *walkTenThousandStepsSelectedView;
 
 @property (weak, nonatomic) IBOutlet UIButton *nextButton;
 
@@ -36,8 +40,17 @@
     
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(cancelButtonTapped:)];
     
-    NSArray *buttons = @[self.walkingLabel, self.exerciseLabel, self.stepsLabel];
-    NSArray *selectedViews = @[self.walkingSelectedView, self.exerciseSelectedView, self.stepsSelectedView];
+    NSArray *buttons = @[self.exerciseEveryDayLabel,
+                         self.exerciseThreeTimesAWeekLabel,
+                         self.fiveThousandStepsLabel,
+                         self.walkTenThousandStepsLabel
+                         ];
+    
+    NSArray *selectedViews = @[self.exerciseEveryDaySelectedView,
+                               self.exerciseThreeTimesAWeekSelectedView,
+                               self.fiveThousandStepsSelectedView,
+                               self.walkTenThousandStepsSelectedView
+                               ];
     
     for (int i = 0; i<[buttons count]; i++) {
         UILabel *label = (UILabel *) buttons[i];
@@ -68,7 +81,7 @@
     self.selectedGoal = selectedLabel.text;
     NSLog(@"%@", selectedLabel.text);
     
-    NSArray *selectedViews = @[self.walkingSelectedView, self.exerciseSelectedView, self.stepsSelectedView];
+    NSArray *selectedViews = @[self.exerciseEveryDaySelectedView, self.exerciseThreeTimesAWeekSelectedView, self.fiveThousandStepsSelectedView, self.walkTenThousandStepsSelectedView];
     
     for (APCConfirmationView *view in selectedViews) {
         [view setCompleted:NO];
@@ -82,20 +95,27 @@
     {
         case 1:
             
-            selectedView = self.walkingSelectedView;
+            selectedView = self.exerciseEveryDaySelectedView;
             [selectedView setAlpha:0];
             break;
             
         case 2:
             
-            selectedView = self.exerciseSelectedView;
+            selectedView = self.exerciseThreeTimesAWeekSelectedView;
             [selectedView setAlpha:0];
             
             break;
 
         case 3:
             
-            selectedView = self.stepsSelectedView;
+            selectedView = self.fiveThousandStepsSelectedView;
+            [selectedView setAlpha:0];
+            
+            break;
+            
+        case 4:
+            
+            selectedView = self.walkTenThousandStepsSelectedView;
             [selectedView setAlpha:0];
             
             break;
@@ -131,11 +151,12 @@
     self.dict = [NSMutableDictionary new];
     [self.dict setObject:self.selectedGoal forKey:@"result"];
 
-    RKSTDataResult *contentModel = [[RKSTDataResult alloc] initWithIdentifier:@"result"];
+    RKSTDataResult *contentModel = [[RKSTDataResult alloc] initWithIdentifier:self.step.identifier];
 
+    NSError *error = nil;
+    NSData  *exerciseMotivationAnswers = [NSJSONSerialization dataWithJSONObject:self.dict options:0 error:&error];
 
-    contentModel.data = [NSKeyedArchiver archivedDataWithRootObject:self.dict];
-
+    contentModel.data = exerciseMotivationAnswers;
 
     NSArray *resultsArray = @[contentModel];
 

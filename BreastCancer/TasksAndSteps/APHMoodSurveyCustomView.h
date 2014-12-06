@@ -1,11 +1,10 @@
-//
-//  APHMoodSurveyCustomView.h
-//  BreastCancer
-//
-//  Created by Justin Warmkessel on 11/22/14.
-//  Copyright (c) 2014 Y Media Labs. All rights reserved.
-//
-
+// 
+//  APHMoodSurveyCustomView.h 
+//  Share the Journey 
+// 
+//  Copyright (c) 2014 Apple, Inc. All rights reserved. 
+// 
+ 
 #import <UIKit/UIKit.h>
 
 @interface APHMoodSurveyCustomView : UIView

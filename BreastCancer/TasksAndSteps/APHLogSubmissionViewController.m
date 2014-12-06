@@ -1,11 +1,10 @@
-//
-//  APHLogSubmissionViewController.m
-//  BreastCancer
-//
-//  Created by Justin Warmkessel on 11/18/14.
-//  Copyright (c) 2014 Y Media Labs. All rights reserved.
-//
-
+// 
+//  APHLogSubmissionViewController.m 
+//  Share the Journey 
+// 
+//  Copyright (c) 2014 Apple, Inc. All rights reserved. 
+// 
+ 
 @import APCAppCore;
 
 #import "APHLogSubmissionViewController.h"
@@ -36,11 +35,12 @@
     
     [self.noteContent setObject:self.textView.text forKey:@"content"];
     
-    RKSTDataResult *contentModel = [[RKSTDataResult alloc] initWithIdentifier:@"content"];
+    RKSTDataResult *contentModel = [[RKSTDataResult alloc] initWithIdentifier:self.step.identifier];
     
-    contentModel.data = [NSKeyedArchiver archivedDataWithRootObject:self.noteContent];
+    NSError *error = nil;
+    contentModel.data = [NSJSONSerialization dataWithJSONObject:self.noteContent options:0 error:&error];
     
-    self.cachedResult = [[RKSTStepResult alloc] initWithStepIdentifier:@"DailyJournalStep103" results:@[contentModel]];
+    self.cachedResult = [[RKSTStepResult alloc] initWithStepIdentifier:self.step.identifier results:@[contentModel]];
     
     [self.delegate stepViewController:self didChangeResult:self.cachedResult];
     
