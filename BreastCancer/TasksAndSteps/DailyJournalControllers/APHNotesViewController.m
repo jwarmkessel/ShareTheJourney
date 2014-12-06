@@ -268,7 +268,7 @@ static  NSUInteger  kThresholdForLimitWarning   = 140;
     
     NSArray *resultsArray = @[contentModel, changesModel];
     
-    self.cachedResult = [[RKSTStepResult alloc] initWithStepIdentifier:@"DailyJournalStep102" results:resultsArray];
+    self.cachedResult = [[RKSTStepResult alloc] initWithStepIdentifier:self.step.identifier results:resultsArray];
     
     [self.delegate stepViewController:self didChangeResult:self.cachedResult];
 
