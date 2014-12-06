@@ -24,6 +24,7 @@ static  NSString  *kDailyJournalStep104 = @"DailyJournalStep104";
 @interface APHDailyJournalTaskViewController  ( ) <NSObject>
 
 @property (nonatomic, strong) NSDictionary *contentDictionary;
+@property (strong, nonatomic) NSString *previousCachedAnswerString;
 
 @end
 
@@ -125,15 +126,10 @@ static  NSString  *kDailyJournalStep104 = @"DailyJournalStep104";
         
         taskViewController.navigationBar.topItem.title = NSLocalizedString(@"Enter Daily Log", @"Enter Daily Log");
         
-//TODO Waiting on Apple to fix this bug so this code works.
-//        RKSTStepResult *stepResult = [taskViewController.result stepResultForStepIdentifier:@"DailyJournalStep102"];
-//        
-//        if (stepResult) {
-//            RKSTDataResult *contentResult = (RKSTDataResult *)[stepResult resultForIdentifier:@"content"];
-//            NSDictionary *dict = [NSKeyedUnarchiver unarchiveObjectWithData:contentResult.data];
-//            APHNotesViewController *notesStepViewController = (APHNotesViewController *) stepViewController;
-//            notesStepViewController.scriptorium.text = dict[@"APHMoodLogNoteText"];
-//        }
+        if (self.previousCachedAnswerString != nil) {
+            APHNotesViewController *notesStepViewController = (APHNotesViewController *) stepViewController;
+            notesStepViewController.scriptorium.text = self.previousCachedAnswerString;
+        }
         
     } else if (kDailyJournalStep103 == stepViewController.step.identifier) {
         taskViewController.navigationBar.topItem.title = NSLocalizedString(@"Log Submission", @"Log Submission");
@@ -159,6 +155,16 @@ static  NSString  *kDailyJournalStep104 = @"DailyJournalStep104";
 - (void)taskViewController:(RKSTTaskViewController *)taskViewController didChangeResult:(RKSTTaskResult *)result {
     NSLog(@"TaskVC didChangeResult");
     
+    if([self.currentStepViewController.step.identifier isEqualToString:@"DailyJournalStep102"]) {
+        RKSTStepResult *stepResult = [taskViewController.result stepResultForStepIdentifier:@"DailyJournalStep102"];
+
+        if (stepResult) {
+            RKSTDataResult *contentResult = (RKSTDataResult *)[stepResult resultForIdentifier:@"content"];
+            NSDictionary *dict = [NSKeyedUnarchiver unarchiveObjectWithData:contentResult.data];
+
+            self.previousCachedAnswerString = dict[@"APHMoodLogNoteText"];
+        }
+    }
 }
 
 - (void)taskViewControllerDidComplete: (RKSTTaskViewController *)taskViewController
