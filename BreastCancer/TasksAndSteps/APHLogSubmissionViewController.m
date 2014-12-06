@@ -35,11 +35,12 @@
     
     [self.noteContent setObject:self.textView.text forKey:@"content"];
     
-    RKSTDataResult *contentModel = [[RKSTDataResult alloc] initWithIdentifier:@"content"];
+    RKSTDataResult *contentModel = [[RKSTDataResult alloc] initWithIdentifier:self.step.identifier];
     
-    contentModel.data = [NSKeyedArchiver archivedDataWithRootObject:self.noteContent];
+    NSError *error = nil;
+    contentModel.data = [NSJSONSerialization dataWithJSONObject:self.noteContent options:0 error:&error];
     
-    self.cachedResult = [[RKSTStepResult alloc] initWithStepIdentifier:@"DailyJournalStep103" results:@[contentModel]];
+    self.cachedResult = [[RKSTStepResult alloc] initWithStepIdentifier:self.step.identifier results:@[contentModel]];
     
     [self.delegate stepViewController:self didChangeResult:self.cachedResult];
     

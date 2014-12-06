@@ -139,13 +139,16 @@ static NSString *kMoodLogNoteText = @"APHMoodLogNoteText";
         RKSTStepResult *stepResult = [taskViewController.result stepResultForStepIdentifier:@"DailyJournalStep102"];
         RKSTDataResult *contentResult = (RKSTDataResult *)[stepResult resultForIdentifier:@"content"];
         
-        NSDictionary *answerDictionary = [NSKeyedUnarchiver unarchiveObjectWithData:contentResult.data];
+        NSError* error;
+        NSDictionary* stepResultJson = [NSJSONSerialization JSONObjectWithData:contentResult.data
+                                                                       options:kNilOptions
+                                                                         error:&error];
     
         APHLogSubmissionViewController *logSubmissionStepVC = (APHLogSubmissionViewController *) stepViewController;
-        logSubmissionStepVC.textView.text = answerDictionary[kMoodLogNoteText];
+        logSubmissionStepVC.textView.text = stepResultJson[kMoodLogNoteText];
         
         //Result of the text content
-        self.contentDictionary = answerDictionary;
+        self.contentDictionary = stepResultJson;
 
         
     } else if (kDailyJournalStep104 == stepViewController.step.identifier) {
@@ -162,9 +165,13 @@ static NSString *kMoodLogNoteText = @"APHMoodLogNoteText";
 
         if (stepResult) {
             RKSTDataResult *contentResult = (RKSTDataResult *)[stepResult resultForIdentifier:@"content"];
-            NSDictionary *answerDictionary = [NSKeyedUnarchiver unarchiveObjectWithData:contentResult.data];
+            NSError* error;
+            NSDictionary* stepResultJson = [NSJSONSerialization JSONObjectWithData:contentResult.data
+                                                                           options:kNilOptions
+                                                                             error:&error];
+            NSLog(@"%@", [[NSString alloc] initWithData:contentResult.data encoding:NSUTF8StringEncoding]);
 
-            self.previousCachedAnswerString = answerDictionary[kMoodLogNoteText];
+            self.previousCachedAnswerString = stepResultJson[kMoodLogNoteText];
         }
     }
 }
