@@ -23,6 +23,7 @@ static  NSString  *kMoodSurveyStep107 = @"moodsurvey107";
 @interface APHMoodSurveyTaskViewController ()
 
 @property (strong, nonatomic) APHMoodSurveyCustomView *currentCustomView;
+@property (strong, nonatomic) NSMutableDictionary *previousCachedAnswer;
 
 @end
 
@@ -37,6 +38,7 @@ static  NSString  *kMoodSurveyStep107 = @"moodsurvey107";
     // Do any additional setup after loading the view.
     
     [RKSTHeadlineLabel appearance].labelFont = [UIFont systemFontOfSize:20];
+    self.previousCachedAnswer = [NSMutableDictionary new];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -82,23 +84,17 @@ static  NSString  *kMoodSurveyStep107 = @"moodsurvey107";
         }
     }
     NSError *error = nil;
-//
-    
-//
-//    NSDictionary *jsonData = [NSJSONSerialization JSONObjectWithData:myData options:NSJSONReadingMutableContainers error:&error];
-//    
-//    if (error) {
-//        NSLog(@"Error parsing JSON: %@", error);
-//    } else {
-//        NSLog(@"%@", jsonData);
-//    }
-//    NSString *contentString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
     
     NSData  *ksonData = [NSJSONSerialization dataWithJSONObject:resultCollectionDictionary options:0 error:&error];
 
-    //NSData *glucoseEntry = [NSJSONSerialization dataWithJSONObject:myData options:0 error:&error];
-    NSString *contentString = [[NSString alloc] initWithData:ksonData encoding:NSUTF8StringEncoding];
-    
+    NSString *contentString = nil;
+
+    if (!error) {
+        contentString = [[NSString alloc] initWithData:ksonData encoding:NSUTF8StringEncoding];
+    } else {
+        [error handle];
+    }
+
     return contentString;
 }
 
@@ -321,11 +317,6 @@ static  NSString  *kMoodSurveyStep107 = @"moodsurvey107";
     
     NSDictionary  *controllers = @{
                                    kMoodSurveyStep101 : [APHHeartAgeIntroStepViewController class],
-//                                   kMoodSurveyStep102 : [APCSimpleTaskSummaryViewController class],
-//                                   kMoodSurveyStep103 : [APCSimpleTaskSummaryViewController class],
-//                                   kMoodSurveyStep104 : [APCSimpleTaskSummaryViewController class],
-//                                   kMoodSurveyStep105 : [APCSimpleTaskSummaryViewController class],
-//                                   kMoodSurveyStep106 : [APCSimpleTaskSummaryViewController class],
                                    kMoodSurveyStep107 : [APCSimpleTaskSummaryViewController class]
                                    };
     
@@ -353,8 +344,12 @@ static  NSString  *kMoodSurveyStep107 = @"moodsurvey107";
         /**** use for setting custom views. **/
         UINib *nib = [UINib nibWithNibName:@"APHMoodSurveyCustomView" bundle:nil];
         APHMoodSurveyCustomView *restComfortablyView = [[nib instantiateWithOwner:self options:nil] objectAtIndex:0];
-        
+
         self.currentCustomView = restComfortablyView;
+        
+        if (self.previousCachedAnswer[stepViewController.step.identifier]) {
+            self.currentCustomView.questionChoiceLabel.text = self.previousCachedAnswer[stepViewController.step.identifier];
+        }
         
         [stepVC.view addSubview:restComfortablyView];
         
@@ -473,14 +468,17 @@ static  NSString  *kMoodSurveyStep107 = @"moodsurvey107";
                     break;
             }
             
-            self.currentCustomView.questionChoiceLabel.text = [NSString stringWithFormat:@"%@ (%d)", [questionAnswerChoices objectAtIndex:[number intValue]], aNum];
-            
-            
-            
-            [UIView animateWithDuration:0.3 animations:^{
-                self.currentCustomView.alpha = 1;
-            }];
-
+            if (number != nil) {
+                NSString *stringAnswer = [NSString stringWithFormat:@"%@ (%d)", [questionAnswerChoices objectAtIndex:[number intValue]], aNum];
+                
+                self.currentCustomView.questionChoiceLabel.text = stringAnswer;
+                
+                self.previousCachedAnswer[stepViewController.step.identifier] = stringAnswer;
+                
+                [UIView animateWithDuration:0.3 animations:^{
+                    self.currentCustomView.alpha = 1;
+                }];
+            }
         }
     }
 }
