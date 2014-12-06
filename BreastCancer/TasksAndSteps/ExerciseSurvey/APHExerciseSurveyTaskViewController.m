@@ -21,9 +21,10 @@ static  NSString  *kExerciseSurveyStep106 = @"exercisesurvey106";
 static  NSString  *kExerciseSurveyStep107 = @"exercisesurvey107";
 static  NSString  *kExerciseSurveyStep108 = @"exercisesurvey108";
 
-static NSString *kWalkTwentyMinutes = @"Walk for 20 minutes every day";
-static NSString *kExerciseTwiceAWeek = @"Exercise for half an hour twice a week";
-static NSString *kFiveThousandStepsTwiceAWeek = @"Reach 5,000 steps every day";
+static NSString *kWalkFiveThousandSteps = @"Walk 5,000 steps every day";
+static NSString *kExerciseEverySingleDay = @"Exercise Every Single Day for at least 30 minutes";
+static NSString *kExerciseThreeTimesPerWeek = @"Exercise at least 3 times per week for at least 30 minutes";
+static NSString *kWalkTenThousandSteps = @"Walk 10,000 steps at least 3 times per week";
 
 @interface APHExerciseSurveyTaskViewController ()
 
@@ -223,17 +224,19 @@ static NSString *kFiveThousandStepsTwiceAWeek = @"Reach 5,000 steps every day";
         
         NSString *selectedGoal = [self extractResult:stepResult];
         
-        NSArray *arrayOfGoalChoices = @[kWalkTwentyMinutes, kExerciseTwiceAWeek, kFiveThousandStepsTwiceAWeek];
+        NSArray *arrayOfGoalChoices = @[kExerciseEverySingleDay, kExerciseThreeTimesPerWeek, kWalkFiveThousandSteps, kWalkTenThousandSteps];
 
-        NSDictionary *stepQuestions = @{
-                                        kWalkTwentyMinutes : @"Why is this your goal?",
-                                        kExerciseTwiceAWeek : @"What will you gain?",
-                                        kFiveThousandStepsTwiceAWeek : @"How does this benefit you?",
+        NSDictionary *goalImages = @{
+                                        kExerciseEverySingleDay : @"banner_exersiseeveryday",
+                                        kExerciseThreeTimesPerWeek : @"banner_exersise3x",
+                                        kWalkFiveThousandSteps : @"banner_5ksteps",
+                                        kWalkTenThousandSteps : @"banner_10ksteps"
                                         };
         
         for (NSString *goalString in arrayOfGoalChoices) {
             if ([goalString isEqualToString:selectedGoal]) {
                 
+                [questionSummaryVC.titleImageView setImage:[UIImage imageNamed:goalImages[goalString]]];
                 
             }
         }
