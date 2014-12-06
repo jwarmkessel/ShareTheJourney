@@ -21,6 +21,11 @@ static  NSString  *kExerciseSurveyStep106 = @"exercisesurvey106";
 static  NSString  *kExerciseSurveyStep107 = @"exercisesurvey107";
 static  NSString  *kExerciseSurveyStep108 = @"exercisesurvey108";
 
+static NSString *kWalkFiveThousandSteps = @"Walk 5,000 steps every day";
+static NSString *kExerciseEverySingleDay = @"Exercise Every Single Day for at least 30 minutes";
+static NSString *kExerciseThreeTimesPerWeek = @"Exercise at least 3 times per week for at least 30 minutes";
+static NSString *kWalkTenThousandSteps = @"Walk 10,000 steps at least 3 times per week";
+
 @interface APHExerciseSurveyTaskViewController ()
 
 @end
@@ -212,6 +217,28 @@ static  NSString  *kExerciseSurveyStep108 = @"exercisesurvey108";
             UILabel *label = (UILabel *) summaryLabels[i];
             label.text = (NSString *) [self extractResult:stepResult];
 
+        }
+        
+        RKSTStepResult *stepResult = [taskViewController.result stepResultForStepIdentifier:stepIdentifiers[0]];
+        NSLog(@"%@", [self extractResult:stepResult]);
+        
+        NSString *selectedGoal = [self extractResult:stepResult];
+        
+        NSArray *arrayOfGoalChoices = @[kExerciseEverySingleDay, kExerciseThreeTimesPerWeek, kWalkFiveThousandSteps, kWalkTenThousandSteps];
+
+        NSDictionary *goalImages = @{
+                                        kExerciseEverySingleDay : @"banner_exersiseeveryday",
+                                        kExerciseThreeTimesPerWeek : @"banner_exersise3x",
+                                        kWalkFiveThousandSteps : @"banner_5ksteps",
+                                        kWalkTenThousandSteps : @"banner_10ksteps"
+                                        };
+        
+        for (NSString *goalString in arrayOfGoalChoices) {
+            if ([goalString isEqualToString:selectedGoal]) {
+                
+                [questionSummaryVC.titleImageView setImage:[UIImage imageNamed:goalImages[goalString]]];
+                
+            }
         }
         
         taskViewController.navigationBar.topItem.title = NSLocalizedString(@"Exercise Goal Review", @"Exercise Goal Review");
