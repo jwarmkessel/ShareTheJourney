@@ -179,6 +179,13 @@ static  NSUInteger  kThresholdForLimitWarning   = 140;
     [super viewWillAppear:animated];
     
     [self.scriptorium becomeFirstResponder];
+    
+    if (self.scriptorium.text.length > 0) {
+        [self.doneButton setEnabled:YES];
+        [self countWords:self.scriptorium.text];
+        NSUInteger  count = [self countWords:self.scriptorium.text];
+        [self displayWordCount:count];
+    }
 }
 
 - (void)viewWillDisappear:(BOOL)animated {

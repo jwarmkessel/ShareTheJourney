@@ -21,9 +21,12 @@ static  NSString  *kDailyJournalStep102 = @"DailyJournalStep102";
 static  NSString  *kDailyJournalStep103 = @"DailyJournalStep103";
 static  NSString  *kDailyJournalStep104 = @"DailyJournalStep104";
 
+static NSString *kMoodLogNoteText = @"APHMoodLogNoteText";
+
 @interface APHDailyJournalTaskViewController  ( ) <NSObject>
 
 @property (nonatomic, strong) NSDictionary *contentDictionary;
+@property (strong, nonatomic) NSString *previousCachedAnswerString;
 
 @end
 
@@ -84,7 +87,7 @@ static  NSString  *kDailyJournalStep104 = @"DailyJournalStep104";
 
 - (NSString *)createResultSummary {
     
-    NSString *contentString = self.contentDictionary[@"APHMoodLogNoteText"];
+    NSString *contentString = self.contentDictionary[kMoodLogNoteText];
     return contentString;
 }
 
@@ -125,15 +128,10 @@ static  NSString  *kDailyJournalStep104 = @"DailyJournalStep104";
         
         taskViewController.navigationBar.topItem.title = NSLocalizedString(@"Enter Daily Log", @"Enter Daily Log");
         
-//TODO Waiting on Apple to fix this bug so this code works.
-//        RKSTStepResult *stepResult = [taskViewController.result stepResultForStepIdentifier:@"DailyJournalStep102"];
-//        
-//        if (stepResult) {
-//            RKSTDataResult *contentResult = (RKSTDataResult *)[stepResult resultForIdentifier:@"content"];
-//            NSDictionary *dict = [NSKeyedUnarchiver unarchiveObjectWithData:contentResult.data];
-//            APHNotesViewController *notesStepViewController = (APHNotesViewController *) stepViewController;
-//            notesStepViewController.scriptorium.text = dict[@"APHMoodLogNoteText"];
-//        }
+        if (self.previousCachedAnswerString != nil) {
+            APHNotesViewController *notesStepViewController = (APHNotesViewController *) stepViewController;
+            notesStepViewController.scriptorium.text = self.previousCachedAnswerString;
+        }
         
     } else if (kDailyJournalStep103 == stepViewController.step.identifier) {
         taskViewController.navigationBar.topItem.title = NSLocalizedString(@"Log Submission", @"Log Submission");
@@ -141,13 +139,13 @@ static  NSString  *kDailyJournalStep104 = @"DailyJournalStep104";
         RKSTStepResult *stepResult = [taskViewController.result stepResultForStepIdentifier:@"DailyJournalStep102"];
         RKSTDataResult *contentResult = (RKSTDataResult *)[stepResult resultForIdentifier:@"content"];
         
-        NSDictionary *dict = [NSKeyedUnarchiver unarchiveObjectWithData:contentResult.data];
+        NSDictionary *answerDictionary = [NSKeyedUnarchiver unarchiveObjectWithData:contentResult.data];
     
         APHLogSubmissionViewController *logSubmissionStepVC = (APHLogSubmissionViewController *) stepViewController;
-        logSubmissionStepVC.textView.text = dict[@"APHMoodLogNoteText"];
+        logSubmissionStepVC.textView.text = answerDictionary[kMoodLogNoteText];
         
         //Result of the text content
-        self.contentDictionary = dict;
+        self.contentDictionary = answerDictionary;
 
         
     } else if (kDailyJournalStep104 == stepViewController.step.identifier) {
@@ -159,6 +157,16 @@ static  NSString  *kDailyJournalStep104 = @"DailyJournalStep104";
 - (void)taskViewController:(RKSTTaskViewController *)taskViewController didChangeResult:(RKSTTaskResult *)result {
     NSLog(@"TaskVC didChangeResult");
     
+    if([self.currentStepViewController.step.identifier isEqualToString:kDailyJournalStep102]) {
+        RKSTStepResult *stepResult = [taskViewController.result stepResultForStepIdentifier:kDailyJournalStep102];
+
+        if (stepResult) {
+            RKSTDataResult *contentResult = (RKSTDataResult *)[stepResult resultForIdentifier:@"content"];
+            NSDictionary *answerDictionary = [NSKeyedUnarchiver unarchiveObjectWithData:contentResult.data];
+
+            self.previousCachedAnswerString = answerDictionary[kMoodLogNoteText];
+        }
+    }
 }
 
 - (void)taskViewControllerDidComplete: (RKSTTaskViewController *)taskViewController
