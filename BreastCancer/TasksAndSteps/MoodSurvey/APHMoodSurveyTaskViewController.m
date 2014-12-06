@@ -80,7 +80,6 @@ static  NSString  *kMoodSurveyStep107 = @"moodsurvey107";
             }
             
             resultCollectionDictionary[stepResult.identifier] = [NSNumber numberWithInt:aNum];
-            //BLAH[stepResult.identifier] = @{ @"answer" : [NSNumber numberWithInt:aNum]};
         }
     }
     NSError *error = nil;
