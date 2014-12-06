@@ -151,11 +151,12 @@
     self.dict = [NSMutableDictionary new];
     [self.dict setObject:self.selectedGoal forKey:@"result"];
 
-    RKSTDataResult *contentModel = [[RKSTDataResult alloc] initWithIdentifier:@"result"];
+    RKSTDataResult *contentModel = [[RKSTDataResult alloc] initWithIdentifier:self.step.identifier];
 
+    NSError *error = nil;
+    NSData  *exerciseMotivationAnswers = [NSJSONSerialization dataWithJSONObject:self.dict options:0 error:&error];
 
-    contentModel.data = [NSKeyedArchiver archivedDataWithRootObject:self.dict];
-
+    contentModel.data = exerciseMotivationAnswers;
 
     NSArray *resultsArray = @[contentModel];
 

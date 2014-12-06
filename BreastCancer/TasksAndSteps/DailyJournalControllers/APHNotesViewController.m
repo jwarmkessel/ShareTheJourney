@@ -22,8 +22,6 @@ static  NSUInteger  kThresholdForLimitWarning   = 140;
 
 @interface APHNotesViewController  ( )  <UITextViewDelegate>
 
-
-
 @property  (nonatomic, weak)  IBOutlet  UINavigationBar      *navigator;
 @property  (nonatomic, weak)  IBOutlet  UILabel              *counterDisplay;
 
@@ -258,26 +256,26 @@ static  NSUInteger  kThresholdForLimitWarning   = 140;
     [self.scriptorium resignFirstResponder];
     
     [self.noteContentModel setObject:self.scriptorium.text forKey:APHMoodLogNoteTextKey];
-    
     [self.noteChangesModel setObject:self.noteModifications forKey:APHMoodLogNoteModificationsKey];
     
-    
+    NSError *changesError = nil;
+    NSError *contentError = nil;
     RKSTDataResult *contentModel = [[RKSTDataResult alloc] initWithIdentifier:@"content"];
     RKSTDataResult *changesModel = [[RKSTDataResult alloc] initWithIdentifier:@"changes"];
         
-    contentModel.data = [NSKeyedArchiver archivedDataWithRootObject:self.noteContentModel];
-    changesModel.data = [NSKeyedArchiver archivedDataWithRootObject:self.noteChangesModel];
+    contentModel.data = [NSJSONSerialization dataWithJSONObject:self.noteContentModel options:0 error:&contentError];
+    changesModel.data = [NSJSONSerialization dataWithJSONObject:self.noteChangesModel options:0 error:&changesError];
     
     NSArray *resultsArray = @[contentModel, changesModel];
     
     self.cachedResult = [[RKSTStepResult alloc] initWithStepIdentifier:@"DailyJournalStep102" results:resultsArray];
     
     [self.delegate stepViewController:self didChangeResult:self.cachedResult];
-    
 
     if ([self.delegate respondsToSelector:@selector(stepViewControllerDidFinish:navigationDirection:)] == YES) {
         [self.delegate stepViewControllerDidFinish:self navigationDirection:RKSTStepViewControllerNavigationDirectionForward];
     }
+    
 
 }
 
