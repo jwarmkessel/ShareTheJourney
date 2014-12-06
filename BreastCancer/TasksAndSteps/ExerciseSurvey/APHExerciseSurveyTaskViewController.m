@@ -147,7 +147,7 @@ static  NSString  *kExerciseSurveyStep108 = @"exercisesurvey108";
                                     };
     
     if (kExerciseSurveyStep101 == stepViewController.step.identifier) {
-        taskViewController.navigationBar.topItem.title = NSLocalizedString(@"Exercise Survey", @"Exercise Survey");
+        taskViewController.navigationBar.topItem.title = NSLocalizedString(@"Exercise Motivation", @"Exercise Motivation");
         
     } else if (kExerciseSurveyStep102 == stepViewController.step.identifier) {
 
@@ -219,7 +219,7 @@ static  NSString  *kExerciseSurveyStep108 = @"exercisesurvey108";
         
     } else if (kExerciseSurveyStep108 == stepViewController.step.identifier) {
         
-        taskViewController.navigationBar.topItem.title = NSLocalizedString(@"Log Complete", @"Log Complete");
+        taskViewController.navigationBar.topItem.title = NSLocalizedString(@"Activity Complete", @"Activity Complete");
     }
     
 }
