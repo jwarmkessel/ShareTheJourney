@@ -34,8 +34,8 @@ for review.</string>
                     <color key="backgroundColor" red="0.97254901960784312" green="0.97254901960784312" blue="0.97254901960784312" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="64" id="AUj-ZY-jvN"/>
-                        <constraint firstAttribute="bottom" secondItem="Fqb-D6-G3U" secondAttribute="bottom" constant="12" id="Vrz-er-Ktj"/>
-                        <constraint firstItem="Fqb-D6-G3U" firstAttribute="top" secondItem="ZjI-59-JNy" secondAttribute="top" constant="12" id="ggZ-py-kXp"/>
+                        <constraint firstAttribute="centerY" secondItem="Fqb-D6-G3U" secondAttribute="centerY" id="ave-bw-4kS"/>
+                        <constraint firstAttribute="centerX" secondItem="Fqb-D6-G3U" secondAttribute="centerX" constant="-2" id="fb8-YG-zfE"/>
                     </constraints>
                 </view>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Today" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i9K-JY-cja">
@@ -73,13 +73,12 @@ for review.</string>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="ZjI-59-JNy" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="3cp-jR-ocC"/>
-                <constraint firstItem="0b9-Vl-YGg" firstAttribute="leading" secondItem="Fqb-D6-G3U" secondAttribute="leading" constant="-4" id="59K-uE-u5t"/>
+                <constraint firstItem="i9K-JY-cja" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="14" id="5AQ-xW-Y7b"/>
                 <constraint firstAttribute="trailing" secondItem="uJ6-EU-grm" secondAttribute="trailing" id="5Ps-ok-yqJ"/>
                 <constraint firstItem="uJ6-EU-grm" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="PXN-MM-sfq"/>
                 <constraint firstAttribute="bottom" secondItem="uJ6-EU-grm" secondAttribute="bottom" id="TKc-s1-nUF"/>
                 <constraint firstAttribute="trailing" secondItem="ZjI-59-JNy" secondAttribute="trailing" id="V4U-N6-32V"/>
                 <constraint firstItem="0b9-Vl-YGg" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="Zk4-2h-YQQ"/>
-                <constraint firstItem="Fqb-D6-G3U" firstAttribute="leading" secondItem="i9K-JY-cja" secondAttribute="leading" constant="-2" id="bfn-zu-diH"/>
                 <constraint firstItem="i9K-JY-cja" firstAttribute="top" secondItem="ZjI-59-JNy" secondAttribute="bottom" constant="21" id="dnX-85-grd"/>
                 <constraint firstItem="0b9-Vl-YGg" firstAttribute="top" secondItem="i9K-JY-cja" secondAttribute="bottom" constant="8" id="ltn-9H-J6L"/>
                 <constraint firstItem="uJ6-EU-grm" firstAttribute="top" secondItem="0b9-Vl-YGg" secondAttribute="bottom" constant="12" id="pwU-Ui-EFW"/>
