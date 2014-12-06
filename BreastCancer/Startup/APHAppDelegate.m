@@ -34,7 +34,9 @@ static NSString *const kVideoShownKey = @"VideoShown";
                                            kHKReadPermissionsKey                : @[
                                                    HKQuantityTypeIdentifierBodyMass,
                                                    HKQuantityTypeIdentifierHeight,
-                                                   HKQuantityTypeIdentifierStepCount
+                                                   HKQuantityTypeIdentifierStepCount,
+                                                   HKQuantityTypeIdentifierDistanceWalkingRunning,
+                                                   @{kHKCategoryTypeKey : HKCategoryTypeIdentifierSleepAnalysis}
                                                    ],
                                            kHKWritePermissionsKey                : @[
                                                    HKQuantityTypeIdentifierBodyMass,
