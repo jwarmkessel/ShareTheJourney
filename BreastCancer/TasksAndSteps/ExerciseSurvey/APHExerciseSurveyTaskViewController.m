@@ -21,6 +21,10 @@ static  NSString  *kExerciseSurveyStep106 = @"exercisesurvey106";
 static  NSString  *kExerciseSurveyStep107 = @"exercisesurvey107";
 static  NSString  *kExerciseSurveyStep108 = @"exercisesurvey108";
 
+static NSString *kWalkTwentyMinutes = @"Walk for 20 minutes every day";
+static NSString *kExerciseTwiceAWeek = @"Exercise for half an hour twice a week";
+static NSString *kFiveThousandStepsTwiceAWeek = @"Reach 5,000 steps every day";
+
 @interface APHExerciseSurveyTaskViewController ()
 
 @end
@@ -212,6 +216,26 @@ static  NSString  *kExerciseSurveyStep108 = @"exercisesurvey108";
             UILabel *label = (UILabel *) summaryLabels[i];
             label.text = (NSString *) [self extractResult:stepResult];
 
+        }
+        
+        RKSTStepResult *stepResult = [taskViewController.result stepResultForStepIdentifier:stepIdentifiers[0]];
+        NSLog(@"%@", [self extractResult:stepResult]);
+        
+        NSString *selectedGoal = [self extractResult:stepResult];
+        
+        NSArray *arrayOfGoalChoices = @[kWalkTwentyMinutes, kExerciseTwiceAWeek, kFiveThousandStepsTwiceAWeek];
+
+        NSDictionary *stepQuestions = @{
+                                        kWalkTwentyMinutes : @"Why is this your goal?",
+                                        kExerciseTwiceAWeek : @"What will you gain?",
+                                        kFiveThousandStepsTwiceAWeek : @"How does this benefit you?",
+                                        };
+        
+        for (NSString *goalString in arrayOfGoalChoices) {
+            if ([goalString isEqualToString:selectedGoal]) {
+                
+                
+            }
         }
         
         taskViewController.navigationBar.topItem.title = NSLocalizedString(@"Exercise Goal Review", @"Exercise Goal Review");
