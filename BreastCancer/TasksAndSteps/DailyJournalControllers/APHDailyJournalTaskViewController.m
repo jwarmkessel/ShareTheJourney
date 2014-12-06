@@ -151,7 +151,7 @@ static  NSString  *kDailyJournalStep104 = @"DailyJournalStep104";
 
         
     } else if (kDailyJournalStep104 == stepViewController.step.identifier) {
-        taskViewController.navigationBar.topItem.title = NSLocalizedString(@"Log Complete", @"Log Complete");
+        taskViewController.navigationBar.topItem.title = NSLocalizedString(@"Activity Complete", @"Activity Complete");
     }
     
 }

@@ -152,7 +152,7 @@ static NSString *kWalkTenThousandSteps = @"Walk 10,000 steps at least 3 times pe
                                     };
     
     if (kExerciseSurveyStep101 == stepViewController.step.identifier) {
-        taskViewController.navigationBar.topItem.title = NSLocalizedString(@"Exercise Survey", @"Exercise Survey");
+        taskViewController.navigationBar.topItem.title = NSLocalizedString(@"Exercise Motivation", @"Exercise Motivation");
         
     } else if (kExerciseSurveyStep102 == stepViewController.step.identifier) {
 
@@ -246,7 +246,7 @@ static NSString *kWalkTenThousandSteps = @"Walk 10,000 steps at least 3 times pe
         
     } else if (kExerciseSurveyStep108 == stepViewController.step.identifier) {
         
-        taskViewController.navigationBar.topItem.title = NSLocalizedString(@"Log Complete", @"Log Complete");
+        taskViewController.navigationBar.topItem.title = NSLocalizedString(@"Activity Complete", @"Activity Complete");
     }
     
 }
