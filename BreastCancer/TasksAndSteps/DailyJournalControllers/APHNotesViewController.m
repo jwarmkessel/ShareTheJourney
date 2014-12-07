@@ -56,7 +56,7 @@ static  NSUInteger  kThresholdForLimitWarning   = 140;
 
 - (void)displayWordCount:(NSUInteger)count
 {
-    NSString  *numberOfWordsDisplay = [NSString stringWithFormat:@"%lu of %lu words", (unsigned long)count, kMaximumNumberOfWordsPerLog];
+    NSString  *numberOfWordsDisplay = [NSString stringWithFormat:@"%lu of %lu words", (unsigned long)count, (unsigned long)kMaximumNumberOfWordsPerLog];
     if (count < kThresholdForLimitWarning) {
         self.counterDisplay.textColor = [UIColor grayColor];
     } else {
