@@ -415,18 +415,18 @@ static  NSString  *kMoodSurveyStep107 = @"moodsurvey107";
                                                                                @"Occasional difficulties with concentration",
                                                                                @"Difficulties with concentration",
                                                                                @"No concentration"],
-                                                        
-                                                        kMoodSurveyStep103 : @[@"Ready to take on the world",
-                                                                               @"Filled with energy through the day",
-                                                                               @"Energy to make it through the day",
-                                                                               @"Basic functions",
-                                                                               @"No energy"],
-                                                        
-                                                        kMoodSurveyStep104 : @[@"The best I have felt",
+                                                       
+                                                        kMoodSurveyStep103 : @[@"The best I have felt",
                                                                                @"Better than usual",
                                                                                @"Normal",
                                                                                @"Down",
                                                                                @"Extremely down"],
+                                                        
+                                                        kMoodSurveyStep104 : @[@"Ready to take on the world",
+                                                                               @"Filled with energy through the day",
+                                                                               @"Energy to make it through the day",
+                                                                               @"Basic functions",
+                                                                               @"No energy"],
                                                         
                                                         kMoodSurveyStep105 : @[@"Eliminated all deficit sleep",
                                                                                @"Made up some deficit sleep",
