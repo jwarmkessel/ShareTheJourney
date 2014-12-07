@@ -50,7 +50,7 @@
 
 - (IBAction)getStartedWasTapped:(id)sender
 {
-   
+    [self.getStartedButton setEnabled:NO];
     if ([self.delegate respondsToSelector:@selector(stepViewControllerDidFinish:navigationDirection:)] == YES) {
         [self.delegate stepViewControllerDidFinish:self navigationDirection:RKSTStepViewControllerNavigationDirectionForward];
     }

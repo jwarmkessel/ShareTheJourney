@@ -253,6 +253,8 @@ static  NSUInteger  kThresholdForLimitWarning   = 140;
 
 - (IBAction)submitTapped:(id)sender {
 
+    [self.doneButton setEnabled:NO];
+    
     [self.scriptorium resignFirstResponder];
     
     [self.noteContentModel setObject:self.scriptorium.text forKey:APHMoodLogNoteTextKey];

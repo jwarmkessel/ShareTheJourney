@@ -13,6 +13,8 @@
 - (IBAction)submitButtonTapped:(id)sender;
 @property (nonatomic, strong) RKSTStepResult *cachedResult;
 @property (nonatomic, strong) NSMutableDictionary *noteContent;
+@property (weak, nonatomic) IBOutlet UIButton *submitButton;
+
 @end
 
 @implementation APHLogSubmissionViewController
@@ -32,6 +34,8 @@
 }
 
 - (IBAction)submitButtonTapped:(id)sender {
+    
+    [self.submitButton setEnabled:NO];
     
     [self.noteContent setObject:self.textView.text forKey:@"content"];
     

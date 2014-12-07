@@ -178,7 +178,7 @@ goToReturn:
 }
 
 - (IBAction)submitTapped:(id)sender {
-
+    [self.doneButton setEnabled:NO];
     [self.scriptorium resignFirstResponder];
     
     self.noteContentModel = [NSMutableDictionary new];
