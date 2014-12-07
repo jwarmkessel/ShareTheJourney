@@ -123,10 +123,10 @@ static NSString *kMoodLogNoteText = @"APHMoodLogNoteText";
 
     
     if (kDailyJournalStep101 == stepViewController.step.identifier) {
-        taskViewController.navigationBar.topItem.title = NSLocalizedString(@"Journal", @"Journal");
+        taskViewController.navigationBar.topItem.title = NSLocalizedString(@"Daily Journal", @"Daily Journal");
     } else if (kDailyJournalStep102 == stepViewController.step.identifier) {
         
-        taskViewController.navigationBar.topItem.title = NSLocalizedString(@"Enter Daily Log", @"Enter Daily Log");
+        taskViewController.navigationBar.topItem.title = NSLocalizedString(@"Daily Journal", @"Daily Journal");
         
         if (self.previousCachedAnswerString != nil) {
             APHNotesViewController *notesStepViewController = (APHNotesViewController *) stepViewController;
@@ -134,7 +134,7 @@ static NSString *kMoodLogNoteText = @"APHMoodLogNoteText";
         }
         
     } else if (kDailyJournalStep103 == stepViewController.step.identifier) {
-        taskViewController.navigationBar.topItem.title = NSLocalizedString(@"Log Submission", @"Log Submission");
+        taskViewController.navigationBar.topItem.title = NSLocalizedString(@"Daily Journal", @"Daily Journal");
 
         RKSTStepResult *stepResult = [taskViewController.result stepResultForStepIdentifier:@"DailyJournalStep102"];
         RKSTDataResult *contentResult = (RKSTDataResult *)[stepResult resultForIdentifier:@"content"];
