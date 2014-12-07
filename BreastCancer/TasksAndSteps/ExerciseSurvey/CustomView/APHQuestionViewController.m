@@ -72,7 +72,7 @@ static  NSString  *kExerciseSurveyStep106 = @"exercisesurvey106";
     if ([text isEqualToString:@""]) {
         if (self.charCounter > 0) {
             self.charCounter--;
-            self.characterCounterLabel.text = [NSString stringWithFormat:@"%lu / %lu", (unsigned long)self.charCounter, kMaximumNumberOfCharacters];
+            self.characterCounterLabel.text = [NSString stringWithFormat:@"%lu / %lu", (unsigned long)self.charCounter, (unsigned long)kMaximumNumberOfCharacters];
             
             if (self.charCounter == 0) {
                 enableButtonFlag = NO;
@@ -82,7 +82,7 @@ static  NSString  *kExerciseSurveyStep106 = @"exercisesurvey106";
     } else if ([text isEqualToString:@" "] || ![text isEqualToString:@""]) {
         if (self.charCounter + 1 <= kMaximumNumberOfCharacters){
             self.charCounter++;
-            self.characterCounterLabel.text = [NSString stringWithFormat:@"%lu / %lu", (unsigned long)self.charCounter, kMaximumNumberOfCharacters];
+            self.characterCounterLabel.text = [NSString stringWithFormat:@"%lu / %lu", (unsigned long)self.charCounter, (unsigned long)kMaximumNumberOfCharacters];
         } else {
             returnValue = NO;
             goto goToReturn;
@@ -132,7 +132,7 @@ goToReturn:
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
-    self.characterCounterLabel.text = [NSString stringWithFormat:@"%lu / %lu", self.scriptorium.text.length, kMaximumNumberOfCharacters];
+    self.characterCounterLabel.text = [NSString stringWithFormat:@"%lu / %lu", (unsigned long)self.scriptorium.text.length, (unsigned long)kMaximumNumberOfCharacters];
     
     [self.scriptorium becomeFirstResponder];
 }
