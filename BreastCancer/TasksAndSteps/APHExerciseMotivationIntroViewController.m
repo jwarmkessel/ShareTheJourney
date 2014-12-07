@@ -147,7 +147,7 @@
 }
 
 - (IBAction)nextButtonTapped:(id)sender {
-
+    [self.nextButton setEnabled:NO];
     self.dict = [NSMutableDictionary new];
     [self.dict setObject:self.selectedGoal forKey:@"result"];
 
