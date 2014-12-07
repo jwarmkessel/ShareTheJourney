@@ -9,7 +9,7 @@
 
 @interface APHHeartAgeIntroStepViewController ()
 @property (weak, nonatomic) IBOutlet UIButton *getStartedButton;
-
+@property (weak, nonatomic) IBOutlet UITextView *purposeTextView;
 @end
 
 @implementation APHHeartAgeIntroStepViewController

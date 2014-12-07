@@ -1,17 +1,17 @@
 {
     "tasks": [
               {
-              "taskTitle": "Mood Survey",
+              "taskTitle": "Daily Scales",
               "taskID": "APHMoodSurvey-7259AC18-D711-47A6-ADBD-6CFCECDED1DF",
               "taskClassName": "APHMoodSurveyTaskViewController"
               },
               {
-              "taskTitle": "Exercise Motivation",
+              "taskTitle": "Exercise Motivator",
               "taskID": "APHExerciseSurvey-7259AC18-D711-47A6-ADBD-6CFCECDED1DF",
               "taskClassName": "APHExerciseSurveyTaskViewController"
               },
               {
-              "taskTitle" : "Daily Journal",
+              "taskTitle" : "My Journal",
               "taskID": "APHDailyJournal-80F09109-265A-49C6-9C5D-765E49AAF5D9",
               "taskClassName" : "APHDailyJournalTaskViewController"
               }
