@@ -18,18 +18,15 @@
               ],
     "schedules": [
                   {
-                  "scheduleType": "recurring",
-                  "scheduleString": "0 5,11,17 * * *",
+                  "scheduleType": "once",
                   "taskID": "APHMoodSurvey-7259AC18-D711-47A6-ADBD-6CFCECDED1DF"
                   },
                   {
-                  "scheduleType": "recurring",
-                  "scheduleString": "0 5,11,17 * * *",
+                  "scheduleType": "once",
                   "taskID": "APHExerciseSurvey-7259AC18-D711-47A6-ADBD-6CFCECDED1DF"
                   },
                   {
-                  "scheduleType": "recurring",
-                  "scheduleString": "0 5,11,17 * * *",
+                  "scheduleType": "once",
                   "taskID": "APHDailyJournal-80F09109-265A-49C6-9C5D-765E49AAF5D9"
                   }
                   ]
