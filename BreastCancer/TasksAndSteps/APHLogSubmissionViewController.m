@@ -22,6 +22,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    [self.submitButton setBackgroundImage:[UIImage imageWithColor:[UIColor appPrimaryColor]] forState:UIControlStateNormal];
+    
     self.textView.editable = NO;
     self.noteContent = [NSMutableDictionary dictionary];
 

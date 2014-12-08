@@ -75,7 +75,7 @@ static  NSUInteger  kThresholdForLimitWarning   = 140;
     
     WordState  state = WordStateNotInWord;
     
-    NSString  *text = self.scriptorium.text;
+    NSString  *text = words;
     NSUInteger  length = [text length];
     
     NSUInteger  count = 0;
@@ -102,10 +102,16 @@ static  NSUInteger  kThresholdForLimitWarning   = 140;
 
 #pragma  mark  -  Text View Delegate Methods
 
+- (NSString *) adjustText: (NSString *)text withRange:(NSRange)range {
+    
+    
+    return nil;
+}
+
 - (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text
 {
     //Enable button after text is entered.
-    [self.doneButton setEnabled:YES];
+    [self.doneButton setUserInteractionEnabled:YES];
     
     BOOL  answer = YES;
     
@@ -132,9 +138,19 @@ static  NSUInteger  kThresholdForLimitWarning   = 140;
     if (record != nil) {
         [self.noteModifications addObject: record];
     }
+        
+    NSString *changedText = [self.scriptorium.text stringByReplacingCharactersInRange:range withString:text];
     
-    NSUInteger  count = [self countWords:self.scriptorium.text];
-    [self displayWordCount:count];
+    NSUInteger  changedTextCount = [self countWords:changedText];
+    
+    [self displayWordCount:changedTextCount];
+    
+    if (changedTextCount == 0) {
+        [self.doneButton setUserInteractionEnabled:NO];
+        [self.doneButton setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
+    } else {
+        [self.doneButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    }
     
     return  answer;
 }
@@ -179,7 +195,7 @@ static  NSUInteger  kThresholdForLimitWarning   = 140;
     [self.scriptorium becomeFirstResponder];
     
     if (self.scriptorium.text.length > 0) {
-        [self.doneButton setEnabled:YES];
+        [self.doneButton setUserInteractionEnabled:YES];
         [self countWords:self.scriptorium.text];
         NSUInteger  count = [self countWords:self.scriptorium.text];
         [self displayWordCount:count];
@@ -195,10 +211,12 @@ static  NSUInteger  kThresholdForLimitWarning   = 140;
 {
     [super viewDidLoad];
 
-    //Done button is disabled.
-    [self.doneButton setEnabled:NO];
+    [self.doneButton setBackgroundImage:[UIImage imageWithColor:[UIColor appPrimaryColor]] forState:UIControlStateNormal];
+
+    [self.doneButton setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
     
-    [self.doneButton setTitleColor:[UIColor lightGrayColor] forState:UIControlStateDisabled];
+    [self.doneButton setUserInteractionEnabled:NO];
+    
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(cancelButtonTapped:)];
     
     self.scriptorium.text = @"";
@@ -253,7 +271,7 @@ static  NSUInteger  kThresholdForLimitWarning   = 140;
 
 - (IBAction)submitTapped:(id)sender {
 
-    [self.doneButton setEnabled:NO];
+    [self.doneButton setUserInteractionEnabled:NO];
     
     [self.scriptorium resignFirstResponder];
     
