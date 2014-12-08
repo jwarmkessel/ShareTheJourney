@@ -1,0 +1,40 @@
+{
+    "items": [
+        {
+            "section_title": "",
+            "row_items": [
+                          
+                          {
+                          "title":"Study Details",
+                          "details":"study_details",
+                          "icon_image":"paperplus_icon",
+                          "tint_color" : "blue"
+                          },
+                          
+                {
+                    "title": "Symptoms",
+                    "details": "symptoms",
+                    "icon_image": "diagnostics_icon",
+                    "tint_color": "red"
+                },
+                {
+                    "title": "Life After Treatment",
+                    "details": "lifeaftertreatment",
+                    "icon_image": "clipboard_icon",
+                    "tint_color": "yellow"
+                }
+            ]
+        },
+        {
+            "section_title": "Resources",
+            "row_items": [
+                {
+                    "title": "Online Resources",
+                    "details": "online_resources",
+                    "icon_image": "globe_icon",
+                    "tint_color": "gray"
+                }
+            ]
+        }
+    ]
+}
