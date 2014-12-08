@@ -232,7 +232,7 @@ typedef  enum  _DailyLogType
         [error handle];
     }
     
-    [self.enterDailyLog setBackgroundColor:[UIColor appPrimaryColor]];
+    [self.enterDailyLog setBackgroundImage:[UIImage imageWithColor:[UIColor appPrimaryColor]] forState:UIControlStateNormal];
     
     [self.tabulator registerNib:[UINib nibWithNibName:@"APHNotesContentsTableViewCell"
                                                    bundle:[NSBundle mainBundle]] forCellReuseIdentifier:(NSString *)kContentsTableViewCellIdentifier];
