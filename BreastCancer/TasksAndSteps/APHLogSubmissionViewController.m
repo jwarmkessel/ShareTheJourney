@@ -13,12 +13,16 @@
 - (IBAction)submitButtonTapped:(id)sender;
 @property (nonatomic, strong) RKSTStepResult *cachedResult;
 @property (nonatomic, strong) NSMutableDictionary *noteContent;
+@property (weak, nonatomic) IBOutlet UIButton *submitButton;
+
 @end
 
 @implementation APHLogSubmissionViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    [self.submitButton setBackgroundImage:[UIImage imageWithColor:[UIColor appPrimaryColor]] forState:UIControlStateNormal];
     
     self.textView.editable = NO;
     self.noteContent = [NSMutableDictionary dictionary];
@@ -32,6 +36,8 @@
 }
 
 - (IBAction)submitButtonTapped:(id)sender {
+    
+    [self.submitButton setEnabled:NO];
     
     [self.noteContent setObject:self.textView.text forKey:@"content"];
     

@@ -6,6 +6,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="APHLogSubmissionViewController">
             <connections>
+                <outlet property="submitButton" destination="uJ6-EU-grm" id="Vc5-er-TwD"/>
                 <outlet property="textView" destination="0b9-Vl-YGg" id="qO5-m4-yGW"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -57,12 +58,11 @@ for review.</string>
                 </textView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uJ6-EU-grm">
                     <rect key="frame" x="0.0" y="440" width="320" height="64"/>
-                    <color key="backgroundColor" red="0.93725490199999995" green="0.0039215686269999999" blue="0.55294117649999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="64" id="NuE-il-SU1"/>
                     </constraints>
                     <state key="normal" title="Submit">
-                        <color key="titleColor" red="0.97254901959999995" green="0.97254901959999995" blue="0.97254901959999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <connections>

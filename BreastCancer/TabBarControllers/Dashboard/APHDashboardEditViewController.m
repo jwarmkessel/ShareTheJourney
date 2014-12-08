@@ -30,6 +30,7 @@
                     
                     APCTableViewDashboardItem *item = [APCTableViewDashboardItem new];
                     item.caption = NSLocalizedString(@"Steps", @"");
+                    item.tintColor = [UIColor appTertiaryPurpleColor];
                     
                     [self.items addObject:item];
                 }
@@ -39,6 +40,7 @@
                 {
                     APCTableViewDashboardItem *item = [APCTableViewDashboardItem new];
                     item.caption = NSLocalizedString(@"Mood", @"");
+                    item.tintColor = [UIColor appTertiaryYellowColor];
                     
                     [self.items addObject:item];
                     
@@ -49,6 +51,7 @@
                 {
                     APCTableViewDashboardItem *item = [APCTableViewDashboardItem new];
                     item.caption = NSLocalizedString(@"Energy Level", @"");
+                    item.tintColor = [UIColor appTertiaryGreenColor];
                     
                     [self.items addObject:item];
                     
@@ -59,6 +62,7 @@
                 {
                     APCTableViewDashboardItem *item = [APCTableViewDashboardItem new];
                     item.caption = NSLocalizedString(@"Exercise Level", @"");
+                    item.tintColor = [UIColor appTertiaryYellowColor];
                     
                     [self.items addObject:item];
                     
@@ -69,6 +73,7 @@
                 {
                     APCTableViewDashboardItem *item = [APCTableViewDashboardItem new];
                     item.caption = NSLocalizedString(@"Sleep Quality", @"");
+                    item.tintColor = [UIColor appTertiaryPurpleColor];
                     
                     [self.items addObject:item];
                     
@@ -79,6 +84,7 @@
                 {
                     APCTableViewDashboardItem *item = [APCTableViewDashboardItem new];
                     item.caption = NSLocalizedString(@"Cognitive Function", @"");
+                    item.tintColor = [UIColor appTertiaryRedColor];
                     
                     [self.items addObject:item];
                     

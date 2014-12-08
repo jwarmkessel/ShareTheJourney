@@ -9,7 +9,7 @@
 
 @interface APHHeartAgeIntroStepViewController ()
 @property (weak, nonatomic) IBOutlet UIButton *getStartedButton;
-
+@property (weak, nonatomic) IBOutlet UITextView *purposeTextView;
 @end
 
 @implementation APHHeartAgeIntroStepViewController
@@ -50,7 +50,7 @@
 
 - (IBAction)getStartedWasTapped:(id)sender
 {
-   
+    [self.getStartedButton setEnabled:NO];
     if ([self.delegate respondsToSelector:@selector(stepViewControllerDidFinish:navigationDirection:)] == YES) {
         [self.delegate stepViewControllerDidFinish:self navigationDirection:RKSTStepViewControllerNavigationDirectionForward];
     }
