@@ -18,7 +18,6 @@
             <subviews>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V4s-bA-fin">
                     <rect key="frame" x="0.0" y="440" width="320" height="64"/>
-                    <color key="backgroundColor" red="0.63921568627450975" green="0.0" blue="0.16862745098039217" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="64" id="BBf-B2-of6"/>
                     </constraints>
@@ -31,10 +30,10 @@
                     </connections>
                 </button>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="c5U-w8-D39">
-                    <rect key="frame" x="0.0" y="0.0" width="320" height="323"/>
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="251"/>
                     <subviews>
                         <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2LI-UD-QOF">
-                            <rect key="frame" x="10" y="30" width="300" height="285"/>
+                            <rect key="frame" x="10" y="30" width="300" height="212"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <string key="text">This activity will ask you to assess how you feel on 5 different important areas: Cognition (mental clarity), Mood, Energy level, Sleep quality, and Exercise.  We recommend that you answer these towards the end of the day, reflecting on how you felt on this particular day.</string>
                             <color key="textColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -57,16 +56,17 @@
                         <constraint firstItem="2LI-UD-QOF" firstAttribute="top" secondItem="Zj6-dc-2BM" secondAttribute="bottom" constant="1" id="UVk-iC-XKV"/>
                         <constraint firstItem="Zj6-dc-2BM" firstAttribute="leading" secondItem="c5U-w8-D39" secondAttribute="leading" id="Vs0-hF-2Bv"/>
                         <constraint firstAttribute="trailing" secondItem="Zj6-dc-2BM" secondAttribute="trailing" id="W3h-lk-psG"/>
+                        <constraint firstAttribute="height" constant="251" id="aVJ-kY-nyQ"/>
                         <constraint firstItem="2LI-UD-QOF" firstAttribute="leading" secondItem="c5U-w8-D39" secondAttribute="leading" constant="10" id="mnw-Xn-mPs"/>
-                        <constraint firstAttribute="bottom" secondItem="2LI-UD-QOF" secondAttribute="bottom" constant="8" id="qVX-HH-zgv"/>
+                        <constraint firstAttribute="bottom" secondItem="2LI-UD-QOF" secondAttribute="bottom" constant="9" id="qVX-HH-zgv"/>
                         <constraint firstAttribute="trailing" secondItem="2LI-UD-QOF" secondAttribute="trailing" constant="10" id="spU-rV-XTN"/>
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Gyf-xH-RVs">
-                    <rect key="frame" x="0.0" y="324" width="320" height="117"/>
+                    <rect key="frame" x="0.0" y="252" width="320" height="117"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Length" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rQl-h2-XT0">
-                            <rect key="frame" x="0.0" y="8" width="320" height="20.5"/>
+                            <rect key="frame" x="0.0" y="8" width="320" height="21"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                             <nil key="highlightedColor"/>
@@ -86,6 +86,7 @@
                         <constraint firstAttribute="trailing" secondItem="P5R-2c-akw" secondAttribute="trailing" constant="15" id="AOO-TQ-01d"/>
                         <constraint firstItem="P5R-2c-akw" firstAttribute="top" secondItem="rQl-h2-XT0" secondAttribute="bottom" constant="5.5" id="AsB-04-XW3"/>
                         <constraint firstItem="rQl-h2-XT0" firstAttribute="top" secondItem="Gyf-xH-RVs" secondAttribute="top" constant="8" id="Hpb-Qp-KX4"/>
+                        <constraint firstAttribute="bottom" secondItem="P5R-2c-akw" secondAttribute="bottom" constant="36" id="SEj-7q-807"/>
                         <constraint firstAttribute="height" constant="117" id="Zfg-VA-wOU"/>
                         <constraint firstItem="P5R-2c-akw" firstAttribute="leading" secondItem="Gyf-xH-RVs" secondAttribute="leading" constant="15" id="nAd-Z8-o5o"/>
                         <constraint firstAttribute="trailing" secondItem="rQl-h2-XT0" secondAttribute="trailing" id="qbh-Ic-xjn"/>
@@ -96,7 +97,6 @@
             <color key="backgroundColor" red="0.96862745098039216" green="0.96862745098039216" blue="0.96862745098039216" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
                 <constraint firstItem="Gyf-xH-RVs" firstAttribute="top" secondItem="c5U-w8-D39" secondAttribute="bottom" constant="1" id="HaM-Jo-TC1"/>
-                <constraint firstItem="V4s-bA-fin" firstAttribute="top" secondItem="Gyf-xH-RVs" secondAttribute="bottom" constant="-1" id="HeR-mT-51a"/>
                 <constraint firstItem="c5U-w8-D39" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="KGu-bC-61U"/>
                 <constraint firstAttribute="bottom" secondItem="V4s-bA-fin" secondAttribute="bottom" id="Qnt-Ib-Ssl"/>
                 <constraint firstItem="c5U-w8-D39" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="cmV-Wh-ki3"/>
