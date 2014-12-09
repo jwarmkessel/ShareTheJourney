@@ -64,13 +64,6 @@ static  NSString  *kExerciseSurveyStep106 = @"exercisesurvey106";
 
 - (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text
 {
-    BOOL returnValue = YES;
-    NSLog(@"Text: %@ Range %@", text, NSStringFromRange(range));
-    if ([text isEqualToString:@" "] && !range.location) {
-        returnValue = NO;
-        
-        goto gotoReturn;
-    }
     NSString *updatedText = [self.scriptorium.text stringByReplacingCharactersInRange:range withString:text];
     
     self.characterCounterLabel.text = [NSString stringWithFormat:@"%lu / %lu", (unsigned long)updatedText.length, (unsigned long)kMaximumNumberOfCharacters];
@@ -82,8 +75,8 @@ static  NSString  *kExerciseSurveyStep106 = @"exercisesurvey106";
         [self.doneButton setEnabled:NO];
         [self.doneButton setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
     }
-    gotoReturn:
-    return returnValue;
+
+    return YES;
 }
 
 - (void)backBarButtonWasTapped:(UIBarButtonItem *)sender
