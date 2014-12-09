@@ -29,6 +29,7 @@ static NSString *kWalkTenThousandSteps = @"Walk 10,000 steps at least 3 times pe
 @interface APHExerciseSurveyTaskViewController ()
 
 @property (nonatomic, strong) NSString *previousStepIdentifier;
+@property (strong, nonatomic) NSMutableDictionary *previousCachedAnswer;
 @end
 
 @implementation APHExerciseSurveyTaskViewController
@@ -40,7 +41,7 @@ static NSString *kWalkTenThousandSteps = @"Walk 10,000 steps at least 3 times pe
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
+    self.previousCachedAnswer = [NSMutableDictionary new];
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -163,6 +164,8 @@ static NSString *kWalkTenThousandSteps = @"Walk 10,000 steps at least 3 times pe
         questionVC.previousAnswer.text = [self extractResult:stepResult withIdentifier:kExerciseSurveyStep101];
         questionVC.currentQuestion.text = [stepQuestions objectForKey:stepViewController.step.identifier];
         
+        questionVC.scriptorium.text = self.previousCachedAnswer[kExerciseSurveyStep102];
+        
         taskViewController.navigationBar.topItem.title = NSLocalizedString(@"Exercise Motivation", @"Exercise Motivation");
         
     } else if (kExerciseSurveyStep103 == stepViewController.step.identifier) {
@@ -174,6 +177,8 @@ static NSString *kWalkTenThousandSteps = @"Walk 10,000 steps at least 3 times pe
         questionVC.previousAnswer.text = [self extractResult:stepResult withIdentifier:self.previousStepIdentifier];
         questionVC.currentQuestion.text = [stepQuestions objectForKey:stepViewController.step.identifier];
         
+        questionVC.scriptorium.text = self.previousCachedAnswer[kExerciseSurveyStep103];
+        
         taskViewController.navigationBar.topItem.title = NSLocalizedString(@"Exercise Motivation", @"Exercise Motivation");
         
     } else if (kExerciseSurveyStep104 == stepViewController.step.identifier) {
@@ -183,6 +188,8 @@ static NSString *kWalkTenThousandSteps = @"Walk 10,000 steps at least 3 times pe
         APHQuestionViewController *questionVC = (APHQuestionViewController *)stepViewController;
         questionVC.previousAnswer.text = [self extractResult:stepResult withIdentifier:self.previousStepIdentifier];
         questionVC.currentQuestion.text = [stepQuestions objectForKey:stepViewController.step.identifier];
+        
+        questionVC.scriptorium.text = self.previousCachedAnswer[kExerciseSurveyStep104];
         
         taskViewController.navigationBar.topItem.title = NSLocalizedString(@"Exercise Motivation", @"Exercise Motivation");
         
@@ -194,6 +201,8 @@ static NSString *kWalkTenThousandSteps = @"Walk 10,000 steps at least 3 times pe
         questionVC.previousAnswer.text = [self extractResult:stepResult withIdentifier:self.previousStepIdentifier];
         questionVC.currentQuestion.text = [stepQuestions objectForKey:stepViewController.step.identifier];
         
+        questionVC.scriptorium.text = self.previousCachedAnswer[kExerciseSurveyStep105];
+        
         taskViewController.navigationBar.topItem.title = NSLocalizedString(@"Exercise Motivation", @"Exercise Motivation");
         
     } else if (kExerciseSurveyStep106 == stepViewController.step.identifier) {
@@ -204,6 +213,8 @@ static NSString *kWalkTenThousandSteps = @"Walk 10,000 steps at least 3 times pe
         questionVC.previousAnswer.text = [self extractResult:stepResult withIdentifier:self.previousStepIdentifier];
         questionVC.currentQuestion.text = [stepQuestions objectForKey:stepViewController.step.identifier];
 
+        questionVC.scriptorium.text = self.previousCachedAnswer[kExerciseSurveyStep106];
+        
         taskViewController.navigationBar.topItem.title = NSLocalizedString(@"Exercise Motivation", @"Exercise Motivation");
         
     } else if (kExerciseSurveyStep107 == stepViewController.step.identifier) {
@@ -256,6 +267,20 @@ static NSString *kWalkTenThousandSteps = @"Walk 10,000 steps at least 3 times pe
 - (void)taskViewController:(RKSTTaskViewController *)taskViewController didChangeResult:(RKSTTaskResult *)result {
     NSLog(@"TaskVC didChangeResult");
     
+    if (![self.currentStepViewController.step.identifier isEqualToString:kExerciseSurveyStep108]) {
+        
+        RKSTStepResult *stepResult = [result stepResultForStepIdentifier:self.currentStepViewController.step.identifier];
+        
+        RKSTDataResult *contentResult = (RKSTDataResult *)[stepResult resultForIdentifier:self.currentStepViewController.step.identifier];
+        
+        NSError* error;
+        NSDictionary* stepResultJson = [NSJSONSerialization JSONObjectWithData:contentResult.data
+                                                                       options:kNilOptions
+                                                                         error:&error];
+        NSLog(@"%@", [[NSString alloc] initWithData:contentResult.data encoding:NSUTF8StringEncoding]);
+        
+        self.previousCachedAnswer[self.currentStepViewController.step.identifier] = stepResultJson[@"result"];
+    }
 }
 
 - (void)taskViewControllerDidComplete: (RKSTTaskViewController *)taskViewController
@@ -276,6 +301,7 @@ static NSString *kWalkTenThousandSteps = @"Walk 10,000 steps at least 3 times pe
                                                          options:kNilOptions
                                                            error:&error];
     NSLog(@"%@", [[NSString alloc] initWithData:contentResult.data encoding:NSUTF8StringEncoding]);
+    
     return [stepResultJson valueForKey:@"result"];
 }
 @end
