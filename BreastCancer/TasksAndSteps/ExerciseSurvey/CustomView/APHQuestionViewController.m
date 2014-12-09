@@ -132,6 +132,10 @@ goToReturn:
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
+    if (self.scriptorium.text.length > 0) {
+        [self.doneButton setEnabled:YES];
+        [self.doneButton setTitleColor:[UIColor appPrimaryColor] forState:UIControlStateNormal];
+    }
     self.characterCounterLabel.text = [NSString stringWithFormat:@"%lu / %lu", (unsigned long)self.scriptorium.text.length, (unsigned long)kMaximumNumberOfCharacters];
     
     [self.scriptorium becomeFirstResponder];
