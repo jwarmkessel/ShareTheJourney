@@ -55,31 +55,34 @@ static  NSString  *kMoodSurveyStep107 = @"moodsurvey107";
         if (stepResult.results.firstObject) {
             RKSTQuestionResult *questionResult = stepResult.results.firstObject;
             
-            //Convert the answers to numbers for better graph representation.
-            int aNum = 0;
-            
-            switch ([questionResult.answer intValue]) {
-                case 0:
-                    aNum = 5;
-                    break;
-                case 1:
-                    aNum = 4;
-                    break;
-                    
-                case 2:
-                    aNum = 3;
-                    break;
-                    
-                case 3:
-                    aNum = 2;
-                    break;
-                    
-                case 4:
-                    aNum = 1;
-                    break;
+
+            if (questionResult.answer != [NSNull null]) {
+                //Convert the answers to numbers for better graph representation.
+                int aNum = 0;
+                
+                switch ([questionResult.answer intValue]) {
+                    case 0:
+                        aNum = 5;
+                        break;
+                    case 1:
+                        aNum = 4;
+                        break;
+                        
+                    case 2:
+                        aNum = 3;
+                        break;
+                        
+                    case 3:
+                        aNum = 2;
+                        break;
+                        
+                    case 4:
+                        aNum = 1;
+                        break;
+                }
+                
+                resultCollectionDictionary[stepResult.identifier] = [NSNumber numberWithInt:aNum];
             }
-            
-            resultCollectionDictionary[stepResult.identifier] = [NSNumber numberWithInt:aNum];
         }
     }
     NSError *error = nil;
@@ -478,6 +481,9 @@ static  NSString  *kMoodSurveyStep107 = @"moodsurvey107";
                     self.currentCustomView.alpha = 1;
                 }];
             }
+        } else {
+            self.previousCachedAnswer[stepViewController.step.identifier] = @"";
+            
         }
     }
 }
