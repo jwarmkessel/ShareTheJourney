@@ -20,6 +20,13 @@ static NSString * const kAPCRightDetailTableViewCellIdentifier = @"APCRightDetai
 
 @property (nonatomic, strong) NSDateFormatter *dateFormatter;
 
+@property (nonatomic, strong) APCScoring *stepScoring;
+@property (nonatomic, strong) APCScoring *moodScoring;
+@property (nonatomic, strong) APCScoring *energyScoring;
+@property (nonatomic, strong) APCScoring *sleepScoring;
+@property (nonatomic, strong) APCScoring *exerciseScoring;
+@property (nonatomic, strong) APCScoring *cognitiveScoring;
+
 @end
 
 @implementation APHDashboardViewController
@@ -65,6 +72,7 @@ static NSString * const kAPCRightDetailTableViewCellIdentifier = @"APCRightDetai
     
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     
+    [self prepareScoringObjects];
     [self prepareData];
 }
 
@@ -84,6 +92,48 @@ static NSString * const kAPCRightDetailTableViewCellIdentifier = @"APCRightDetai
 }
 
 #pragma mark - Data
+
+- (void)updateVisibleRowsInTableView:(NSNotification *)notification {
+    [self prepareData];
+}
+
+- (void)prepareScoringObjects {
+
+    {
+        HKQuantityType *stepQuantityType = [HKQuantityType quantityTypeForIdentifier:HKQuantityTypeIdentifierStepCount];
+        self.stepScoring= [[APCScoring alloc] initWithHealthKitQuantityType:stepQuantityType unit:[HKUnit countUnit] numberOfDays:-5];
+    }
+    
+    {
+        self.moodScoring = [[APCScoring alloc] initWithTask:@"APHMoodSurvey-7259AC18-D711-47A6-ADBD-6CFCECDED1DF"
+                                                numberOfDays:-5
+                                                    valueKey:@"moodsurvey103" dataKey:nil];
+    }
+    
+    {
+        self.energyScoring = [[APCScoring alloc] initWithTask:@"APHMoodSurvey-7259AC18-D711-47A6-ADBD-6CFCECDED1DF"
+                                                  numberOfDays:-5
+                                                      valueKey:@"moodsurvey104" dataKey:nil];
+    }
+    
+    {
+        self.exerciseScoring = [[APCScoring alloc] initWithTask:@"APHMoodSurvey-7259AC18-D711-47A6-ADBD-6CFCECDED1DF"
+                                                  numberOfDays:-5
+                                                      valueKey:@"moodsurvey106" dataKey:nil];
+    }
+    
+    {
+        self.sleepScoring = [[APCScoring alloc] initWithTask:@"APHMoodSurvey-7259AC18-D711-47A6-ADBD-6CFCECDED1DF"
+                                                  numberOfDays:-5
+                                                      valueKey:@"moodsurvey105" dataKey:nil];
+    }
+    
+    {
+        self.cognitiveScoring = [[APCScoring alloc] initWithTask:@"APHMoodSurvey-7259AC18-D711-47A6-ADBD-6CFCECDED1DF"
+                                                  numberOfDays:-5
+                                                      valueKey:@"moodsurvey102" dataKey:nil];
+    }
+}
 
 - (void)prepareData
 {
@@ -146,13 +196,10 @@ static NSString * const kAPCRightDetailTableViewCellIdentifier = @"APCRightDetai
 
                 case kAPHDashboardItemTypeHealthKitSteps:{
                     
-                    HKQuantityType *stepQuantityType = [HKQuantityType quantityTypeForIdentifier:HKQuantityTypeIdentifierStepCount];
-                    APCScoring *scoring = [[APCScoring alloc] initWithHealthKitQuantityType:stepQuantityType unit:[HKUnit countUnit] numberOfDays:-5];
-                    
                     APCTableViewDashboardGraphItem *item = [APCTableViewDashboardGraphItem new];
                     item.caption = NSLocalizedString(@"Steps", @"");
-                    item.graphData = scoring;
-                    item.detailText = [NSString stringWithFormat:NSLocalizedString(@"Average : %lu", @"Average: {value}"), [[scoring averageDataPoint] integerValue]];
+                    item.graphData = self.stepScoring;
+                    item.detailText = [NSString stringWithFormat:NSLocalizedString(@"Average : %lu", @"Average: {value}"), [[self.stepScoring averageDataPoint] integerValue]];
                     item.identifier = kAPCDashboardGraphTableViewCellIdentifier;
                     item.editable = YES;
                     item.tintColor = [UIColor appTertiaryPurpleColor];
@@ -166,14 +213,10 @@ static NSString * const kAPCRightDetailTableViewCellIdentifier = @"APCRightDetai
                     
                 case kAPHDashboardItemTypeDailyMood:{
                     
-                    APCScoring *scoring = [[APCScoring alloc] initWithTask:@"APHMoodSurvey-7259AC18-D711-47A6-ADBD-6CFCECDED1DF"
-                                                              numberOfDays:-5
-                                                                  valueKey:@"moodsurvey103" dataKey:nil];
-                    
                     APCTableViewDashboardGraphItem *item = [APCTableViewDashboardGraphItem new];
                     item.caption = NSLocalizedString(@"Mood", @"");
-                    item.graphData = scoring;
-                    item.detailText = [NSString stringWithFormat: NSLocalizedString(@"Average : %lu", @"Average: {value}"), [[scoring averageDataPoint] integerValue]];
+                    item.graphData = self.moodScoring;
+                    item.detailText = [NSString stringWithFormat: NSLocalizedString(@"Average : %lu", @"Average: {value}"), [[self.moodScoring averageDataPoint] integerValue]];
                     item.identifier = kAPCDashboardGraphTableViewCellIdentifier;
                     item.editable = YES;
                     item.tintColor = [UIColor appTertiaryYellowColor];
@@ -186,15 +229,11 @@ static NSString * const kAPCRightDetailTableViewCellIdentifier = @"APCRightDetai
                     break;
                     
                 case kAPHDashboardItemTypeDailyEnergy:{
-                    
-                    APCScoring *scoring = [[APCScoring alloc] initWithTask:@"APHMoodSurvey-7259AC18-D711-47A6-ADBD-6CFCECDED1DF"
-                                                              numberOfDays:-5
-                                                                  valueKey:@"moodsurvey104" dataKey:nil];
-                    
+
                     APCTableViewDashboardGraphItem *item = [APCTableViewDashboardGraphItem new];
                     item.caption = NSLocalizedString(@"Energy Level", @"");
-                    item.graphData = scoring;
-                    item.detailText = [NSString stringWithFormat:NSLocalizedString(@"Average : %lu", @"Average: {value}"), [[scoring averageDataPoint] integerValue]];
+                    item.graphData = self.energyScoring;
+                    item.detailText = [NSString stringWithFormat:NSLocalizedString(@"Average : %lu", @"Average: {value}"), [[self.energyScoring averageDataPoint] integerValue]];
                     item.identifier = kAPCDashboardGraphTableViewCellIdentifier;
                     item.editable = YES;
                     item.tintColor = [UIColor appTertiaryGreenColor];
@@ -208,14 +247,10 @@ static NSString * const kAPCRightDetailTableViewCellIdentifier = @"APCRightDetai
                     
                 case kAPHDashboardItemTypeDailyExercise:{
                     
-                    APCScoring *scoring = [[APCScoring alloc] initWithTask:@"APHMoodSurvey-7259AC18-D711-47A6-ADBD-6CFCECDED1DF"
-                                                              numberOfDays:-5
-                                                                  valueKey:@"moodsurvey106" dataKey:nil];
-                    
                     APCTableViewDashboardGraphItem *item = [APCTableViewDashboardGraphItem new];
                     item.caption = NSLocalizedString(@"Exercise Level", @"");
-                    item.graphData = scoring;
-                    item.detailText = [NSString stringWithFormat:NSLocalizedString(@"Average : %lu", @"Average: {value}"), [[scoring averageDataPoint] integerValue]];
+                    item.graphData = self.exerciseScoring;
+                    item.detailText = [NSString stringWithFormat:NSLocalizedString(@"Average : %lu", @"Average: {value}"), [[self.exerciseScoring averageDataPoint] integerValue]];
                     item.identifier = kAPCDashboardGraphTableViewCellIdentifier;
                     item.editable = YES;
                     item.tintColor = [UIColor appTertiaryYellowColor];
@@ -229,14 +264,10 @@ static NSString * const kAPCRightDetailTableViewCellIdentifier = @"APCRightDetai
                     
                 case kAPHDashboardItemTypeDailySleep:{
                     
-                    APCScoring *scoring = [[APCScoring alloc] initWithTask:@"APHMoodSurvey-7259AC18-D711-47A6-ADBD-6CFCECDED1DF"
-                                                              numberOfDays:-5
-                                                                  valueKey:@"moodsurvey105" dataKey:nil];
-                    
                     APCTableViewDashboardGraphItem *item = [APCTableViewDashboardGraphItem new];
                     item.caption = NSLocalizedString(@"Sleep Quality", @"");
-                    item.graphData = scoring;
-                    item.detailText = [NSString stringWithFormat:NSLocalizedString(@"Average : %lu", @"Average: {value}"), [[scoring averageDataPoint] integerValue]];
+                    item.graphData = self.sleepScoring;
+                    item.detailText = [NSString stringWithFormat:NSLocalizedString(@"Average : %lu", @"Average: {value}"), [[self.sleepScoring averageDataPoint] integerValue]];
                     item.identifier = kAPCDashboardGraphTableViewCellIdentifier;
                     item.editable = YES;
                     item.tintColor = [UIColor appTertiaryPurpleColor];
@@ -250,14 +281,10 @@ static NSString * const kAPCRightDetailTableViewCellIdentifier = @"APCRightDetai
                     
                 case kAPHDashboardItemTypeDailyCognitive:
                 {
-                    APCScoring *scoring = [[APCScoring alloc] initWithTask:@"APHMoodSurvey-7259AC18-D711-47A6-ADBD-6CFCECDED1DF"
-                                                              numberOfDays:-5
-                                                                  valueKey:@"moodsurvey102" dataKey:nil];
-                    
                     APCTableViewDashboardGraphItem *item = [APCTableViewDashboardGraphItem new];
                     item.caption = NSLocalizedString(@"Cognitive Function", @"");
-                    item.graphData = scoring;
-                    item.detailText = [NSString stringWithFormat:NSLocalizedString(@"Average : %lu", @"Average: {value} ft"), [[scoring averageDataPoint] integerValue]];
+                    item.graphData = self.cognitiveScoring;
+                    item.detailText = [NSString stringWithFormat:NSLocalizedString(@"Average : %lu", @"Average: {value} ft"), [[self.cognitiveScoring averageDataPoint] integerValue]];
                     item.identifier = kAPCDashboardGraphTableViewCellIdentifier;
                     item.editable = YES;
                     item.tintColor = [UIColor appTertiaryRedColor];
