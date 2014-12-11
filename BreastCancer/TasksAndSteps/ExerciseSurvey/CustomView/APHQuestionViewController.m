@@ -49,7 +49,6 @@ static  NSString  *kExerciseSurveyStep106 = @"exercisesurvey106";
 @property (nonatomic, strong) RKSTStepResult *cachedResult;
 
 @property (weak, nonatomic) IBOutlet UILabel *characterCounterLabel;
-@property (assign) NSUInteger charCounter;
 @end
 
 @implementation APHQuestionViewController
@@ -64,36 +63,20 @@ static  NSString  *kExerciseSurveyStep106 = @"exercisesurvey106";
 #pragma  mark  -  Text View Delegate Methods
 
 - (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text
-{  
-    BOOL enableButtonFlag = YES;
-    BOOL returnValue = YES;
+{
+    NSString *updatedText = [self.scriptorium.text stringByReplacingCharactersInRange:range withString:text];
     
-    //This is basically counting characters but also keeping track of delete strings.
-    if ([text isEqualToString:@""]) {
-        if (self.charCounter > 0) {
-            self.charCounter--;
-            self.characterCounterLabel.text = [NSString stringWithFormat:@"%lu / %lu", (unsigned long)self.charCounter, (unsigned long)kMaximumNumberOfCharacters];
-            
-            if (self.charCounter == 0) {
-                enableButtonFlag = NO;
-            }
-        }
-        
-    } else if ([text isEqualToString:@" "] || ![text isEqualToString:@""]) {
-        if (self.charCounter + 1 <= kMaximumNumberOfCharacters){
-            self.charCounter++;
-            self.characterCounterLabel.text = [NSString stringWithFormat:@"%lu / %lu", (unsigned long)self.charCounter, (unsigned long)kMaximumNumberOfCharacters];
-        } else {
-            returnValue = NO;
-            goto goToReturn;
-        }
+    self.characterCounterLabel.text = [NSString stringWithFormat:@"%lu / %lu", (unsigned long)updatedText.length, (unsigned long)kMaximumNumberOfCharacters];
+    
+    if (updatedText.length > 0) {
+        [self.doneButton setEnabled:YES];
+        [self.doneButton setTitleColor:[UIColor appPrimaryColor] forState:UIControlStateNormal];
+    } else {
+        [self.doneButton setEnabled:NO];
+        [self.doneButton setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
     }
-    
-    [self.doneButton setEnabled:enableButtonFlag];
-    [self.doneButton setTitleColor:[UIColor appPrimaryColor] forState:UIControlStateNormal];
-    
-goToReturn:
-    return returnValue;
+
+    return YES;
 }
 
 - (void)backBarButtonWasTapped:(UIBarButtonItem *)sender
@@ -132,6 +115,10 @@ goToReturn:
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
+    if (self.scriptorium.text.length > 0) {
+        [self.doneButton setEnabled:YES];
+        [self.doneButton setTitleColor:[UIColor appPrimaryColor] forState:UIControlStateNormal];
+    }
     self.characterCounterLabel.text = [NSString stringWithFormat:@"%lu / %lu", (unsigned long)self.scriptorium.text.length, (unsigned long)kMaximumNumberOfCharacters];
     
     [self.scriptorium becomeFirstResponder];
@@ -146,7 +133,6 @@ goToReturn:
 {
     [super viewDidLoad];
     
-    self.charCounter = 0;
     //Done button is disabled.
     [self.doneButton setEnabled:NO];
     
