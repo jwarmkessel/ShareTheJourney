@@ -98,41 +98,25 @@ static NSString * const kAPCRightDetailTableViewCellIdentifier = @"APCRightDetai
 }
 
 - (void)prepareScoringObjects {
-
-    {
+    
         HKQuantityType *stepQuantityType = [HKQuantityType quantityTypeForIdentifier:HKQuantityTypeIdentifierStepCount];
         self.stepScoring= [[APCScoring alloc] initWithHealthKitQuantityType:stepQuantityType unit:[HKUnit countUnit] numberOfDays:-5];
-    }
-    
-    {
+
         self.moodScoring = [[APCScoring alloc] initWithTask:@"APHMoodSurvey-7259AC18-D711-47A6-ADBD-6CFCECDED1DF"
                                                 numberOfDays:-5
                                                     valueKey:@"moodsurvey103" dataKey:nil];
-    }
-    
-    {
         self.energyScoring = [[APCScoring alloc] initWithTask:@"APHMoodSurvey-7259AC18-D711-47A6-ADBD-6CFCECDED1DF"
                                                   numberOfDays:-5
                                                       valueKey:@"moodsurvey104" dataKey:nil];
-    }
-    
-    {
         self.exerciseScoring = [[APCScoring alloc] initWithTask:@"APHMoodSurvey-7259AC18-D711-47A6-ADBD-6CFCECDED1DF"
                                                   numberOfDays:-5
                                                       valueKey:@"moodsurvey106" dataKey:nil];
-    }
-    
-    {
         self.sleepScoring = [[APCScoring alloc] initWithTask:@"APHMoodSurvey-7259AC18-D711-47A6-ADBD-6CFCECDED1DF"
                                                   numberOfDays:-5
                                                       valueKey:@"moodsurvey105" dataKey:nil];
-    }
-    
-    {
         self.cognitiveScoring = [[APCScoring alloc] initWithTask:@"APHMoodSurvey-7259AC18-D711-47A6-ADBD-6CFCECDED1DF"
                                                   numberOfDays:-5
                                                       valueKey:@"moodsurvey102" dataKey:nil];
-    }
 }
 
 - (void)prepareData
