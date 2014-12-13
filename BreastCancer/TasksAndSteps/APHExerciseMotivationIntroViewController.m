@@ -34,9 +34,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     [self.view setBackgroundColor:[UIColor appSecondaryColor4]];
     
     [self.nextButton setEnabled:NO];
+    [self.nextButton setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
     
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(cancelButtonTapped:)];
     
