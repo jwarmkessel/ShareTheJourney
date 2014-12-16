@@ -43,7 +43,15 @@ static NSString *const kVideoShownKey = @"VideoShown";
                                            kAppServicesListRequiredKey           : @[
                                                    @(kSignUpPermissionsTypeLocation),
                                                    @(kSignUpPermissionsTypeCoremotion)
-                                                   ]
+                                                   ],
+                                           kAppProfileElementsListKey            : @[
+                                                   @(kAPCUserInfoItemTypeEmail),
+                                                   @(kAPCUserInfoItemTypeDateOfBirth),
+                                                   @(kAPCUserInfoItemTypeHeight),
+                                                   @(kAPCUserInfoItemTypeWeight),
+                                                   @(kAPCUserInfoItemTypeWakeUpTime),
+                                                   @(kAPCUserInfoItemTypeSleepTime),
+                                                   ],
                                            }];
     self.initializationOptions = dictionary;
 }
