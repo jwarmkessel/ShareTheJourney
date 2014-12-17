@@ -229,7 +229,7 @@ typedef  enum  _DailyLogType
     self.logHistory = [appDelegate.dataSubstrate.mainContext executeFetchRequest:request error:&error];
     
     if (error) {
-        [error handle];
+        APCLogError2(error);
     }
     
     [self.enterDailyLog setBackgroundImage:[UIImage imageWithColor:[UIColor appPrimaryColor]] forState:UIControlStateNormal];

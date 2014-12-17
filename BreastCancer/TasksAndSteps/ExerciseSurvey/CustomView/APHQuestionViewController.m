@@ -178,7 +178,7 @@ static  NSString  *kExerciseSurveyStep106 = @"exercisesurvey106";
     contentModel.data = [NSJSONSerialization dataWithJSONObject:self.noteContentModel options:0 error:&error];
     
     if (error) {
-        [error handle];
+        APCLogError2(error);
     }
     
     NSArray *resultsArray = @[contentModel];
