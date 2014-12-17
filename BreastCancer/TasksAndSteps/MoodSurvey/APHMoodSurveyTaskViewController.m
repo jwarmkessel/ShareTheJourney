@@ -94,7 +94,7 @@ static  NSString  *kMoodSurveyStep107 = @"moodsurvey107";
     if (!error) {
         contentString = [[NSString alloc] initWithData:moodAnswersJson encoding:NSUTF8StringEncoding];
     } else {
-        [error handle];
+        APCLogError2(error);
     }
 
     return contentString;
