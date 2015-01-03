@@ -83,6 +83,7 @@ static NSString * const kAPCRightDetailTableViewCellIdentifier = @"APCRightDetai
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     self.rowItemsOrder = [NSMutableArray arrayWithArray:[defaults objectForKey:kAPCDashboardRowItemsOrder]];
     
+    [self prepareScoringObjects];
     [self prepareData];
 }
 
