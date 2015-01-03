@@ -94,7 +94,8 @@ static NSString * const kAPCRightDetailTableViewCellIdentifier = @"APCRightDetai
 
 #pragma mark - Data
 
-- (void)updateVisibleRowsInTableView:(NSNotification *)notification {
+- (void)updateVisibleRowsInTableView:(NSNotification *)notification
+{
     [self prepareData];
 }
 
@@ -105,19 +106,38 @@ static NSString * const kAPCRightDetailTableViewCellIdentifier = @"APCRightDetai
 
         self.moodScoring = [[APCScoring alloc] initWithTask:@"APHMoodSurvey-7259AC18-D711-47A6-ADBD-6CFCECDED1DF"
                                                 numberOfDays:-5
-                                                    valueKey:@"moodsurvey103" dataKey:nil];
+                                                    valueKey:@"moodsurvey103"
+                                                    dataKey:nil
+                                                    sortKey:nil
+                                                 groupByDay:YES];
+    
         self.energyScoring = [[APCScoring alloc] initWithTask:@"APHMoodSurvey-7259AC18-D711-47A6-ADBD-6CFCECDED1DF"
                                                   numberOfDays:-5
-                                                      valueKey:@"moodsurvey104" dataKey:nil];
+                                                      valueKey:@"moodsurvey104"
+                                                      dataKey:nil
+                                                      sortKey:nil
+                                                   groupByDay:YES];
+    
         self.exerciseScoring = [[APCScoring alloc] initWithTask:@"APHMoodSurvey-7259AC18-D711-47A6-ADBD-6CFCECDED1DF"
                                                   numberOfDays:-5
-                                                      valueKey:@"moodsurvey106" dataKey:nil];
+                                                      valueKey:@"moodsurvey106"
+                                                        dataKey:nil
+                                                        sortKey:nil
+                                                     groupByDay:YES];
+    
         self.sleepScoring = [[APCScoring alloc] initWithTask:@"APHMoodSurvey-7259AC18-D711-47A6-ADBD-6CFCECDED1DF"
                                                   numberOfDays:-5
-                                                      valueKey:@"moodsurvey105" dataKey:nil];
+                                                      valueKey:@"moodsurvey105"
+                                                     dataKey:nil
+                                                     sortKey:nil
+                                                  groupByDay:YES];
+    
         self.cognitiveScoring = [[APCScoring alloc] initWithTask:@"APHMoodSurvey-7259AC18-D711-47A6-ADBD-6CFCECDED1DF"
                                                   numberOfDays:-5
-                                                      valueKey:@"moodsurvey102" dataKey:nil];
+                                                      valueKey:@"moodsurvey102"
+                                                         dataKey:nil
+                                                         sortKey:nil
+                                                      groupByDay:YES];
 }
 
 - (void)prepareData
