@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14B23" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Mhn-Ic-VJp">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Mhn-Ic-VJp">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -82,10 +82,10 @@
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </view>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eRl-0x-wJt">
-                                            <rect key="frame" x="286" y="16" width="24" height="24"/>
+                                            <rect key="frame" x="280" y="16" width="30" height="30"/>
                                             <constraints>
-                                                <constraint firstAttribute="height" constant="24" id="298-yv-GG6"/>
-                                                <constraint firstAttribute="width" constant="24" id="6DS-uN-5R5"/>
+                                                <constraint firstAttribute="height" constant="30" id="298-yv-GG6"/>
+                                                <constraint firstAttribute="width" constant="30" id="6DS-uN-5R5"/>
                                             </constraints>
                                             <state key="normal" title="Button" image="expand_icon">
                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -294,10 +294,10 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pF8-89-dBw">
-                                <rect key="frame" x="520" y="11" width="33" height="33"/>
+                                <rect key="frame" x="522" y="8" width="38" height="38"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="33" id="KQy-Ia-pUQ"/>
-                                    <constraint firstAttribute="height" constant="33" id="ZSe-fd-Y0t"/>
+                                    <constraint firstAttribute="width" constant="38" id="KQy-Ia-pUQ"/>
+                                    <constraint firstAttribute="height" constant="38" id="ZSe-fd-Y0t"/>
                                 </constraints>
                                 <state key="normal" image="collapse_icon">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -333,10 +333,10 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="pF8-89-dBw" firstAttribute="top" secondItem="6cf-i5-Ly0" secondAttribute="bottom" constant="11" id="17q-1w-dfR"/>
+                            <constraint firstItem="pF8-89-dBw" firstAttribute="top" secondItem="6cf-i5-Ly0" secondAttribute="bottom" constant="8" id="17q-1w-dfR"/>
                             <constraint firstItem="iGO-3c-1sG" firstAttribute="top" secondItem="6cf-i5-Ly0" secondAttribute="bottom" constant="54" id="1Ue-PW-nL9"/>
                             <constraint firstItem="Oee-xp-J4F" firstAttribute="leading" secondItem="EpV-6b-kDF" secondAttribute="leading" id="3eS-nd-WBM"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="pF8-89-dBw" secondAttribute="trailing" constant="-1" id="8E5-su-siO"/>
+                            <constraint firstAttribute="trailing" secondItem="pF8-89-dBw" secondAttribute="trailing" constant="8" id="8E5-su-siO"/>
                             <constraint firstItem="AZE-sq-1Bg" firstAttribute="top" secondItem="Oee-xp-J4F" secondAttribute="bottom" constant="8" id="Cje-wJ-lhw"/>
                             <constraint firstItem="Twe-8Y-NLR" firstAttribute="leading" secondItem="EpV-6b-kDF" secondAttribute="leadingMargin" constant="287" id="D6b-JI-ziF"/>
                             <constraint firstAttribute="trailingMargin" secondItem="hNd-k0-k6R" secondAttribute="trailing" constant="48" id="IMz-rB-9Fa"/>
@@ -398,11 +398,6 @@
                                 <constraint firstAttribute="centerY" secondItem="Fn5-mm-6tC" secondAttribute="centerY" constant="0.5" id="vGQ-v3-Gvj"/>
                             </constraints>
                         </view>
-                        <view key="tableFooterView" contentMode="scaleToFill" id="8Uw-M6-lZY">
-                            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <color key="backgroundColor" red="0.97254901959999995" green="0.97254901959999995" blue="0.97254901959999995" alpha="1" colorSpace="calibratedRGB"/>
-                        </view>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="APCDashboardEditTableViewCell" rowHeight="59" id="bXM-MT-fM8" customClass="APCDashboardEditTableViewCell">
                                 <autoresizingMask key="autoresizingMask"/>
@@ -416,22 +411,22 @@
                                                 <constraint firstAttribute="height" constant="1" id="UdC-7w-hhc"/>
                                             </constraints>
                                         </view>
-                                        <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="26C-32-vWV">
-                                            <rect key="frame" x="0.0" y="1" width="4" height="54"/>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="26C-32-vWV">
+                                            <rect key="frame" x="0.0" y="1" width="4" height="55"/>
                                             <color key="backgroundColor" red="0.01176470588" green="0.62352941179999999" blue="0.87450980389999999" alpha="1" colorSpace="calibratedRGB"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="4" id="2XH-d5-EyB"/>
                                             </constraints>
                                         </view>
-                                        <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Lvb-MH-Fgh">
-                                            <rect key="frame" x="0.0" y="55" width="320" height="1"/>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Lvb-MH-Fgh">
+                                            <rect key="frame" x="0.0" y="56" width="320" height="1"/>
                                             <color key="backgroundColor" red="0.90980392160000001" green="0.90980392160000001" blue="0.90980392160000001" alpha="1" colorSpace="calibratedRGB"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="1" id="VAx-Fv-uAr"/>
                                             </constraints>
                                         </view>
-                                        <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="S6l-AU-smb">
-                                            <rect key="frame" x="0.0" y="56" width="320" height="3"/>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="S6l-AU-smb">
+                                            <rect key="frame" x="0.0" y="57" width="320" height="3"/>
                                             <color key="backgroundColor" red="0.97254901959999995" green="0.97254901959999995" blue="0.97254901959999995" alpha="1" colorSpace="calibratedRGB"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="3" id="Xqj-UB-hdK"/>
