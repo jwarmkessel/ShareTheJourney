@@ -85,10 +85,10 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="di4-qu-Dxw" customClass="APCConfirmationView">
-                            <rect key="frame" x="282" y="17" width="30" height="32"/>
+                            <rect key="frame" x="282" y="17" width="30" height="30"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="32" id="nzN-rb-alj"/>
+                                <constraint firstAttribute="height" constant="30" id="nzN-rb-alj"/>
                                 <constraint firstAttribute="width" constant="30" id="yh6-ba-Ukp"/>
                             </constraints>
                         </view>
@@ -100,7 +100,7 @@
                         <constraint firstAttribute="trailing" secondItem="di4-qu-Dxw" secondAttribute="trailing" constant="8" id="SlT-7l-m2j"/>
                         <constraint firstItem="di4-qu-Dxw" firstAttribute="top" secondItem="SD0-bw-I3V" secondAttribute="top" constant="17" id="Vvy-oa-ZlW"/>
                         <constraint firstItem="dAZ-mi-y3E" firstAttribute="top" secondItem="SD0-bw-I3V" secondAttribute="top" id="dQ5-nn-9SB"/>
-                        <constraint firstAttribute="bottom" secondItem="di4-qu-Dxw" secondAttribute="bottom" constant="15" id="kF2-YC-Fpt"/>
+                        <constraint firstAttribute="bottom" secondItem="di4-qu-Dxw" secondAttribute="bottom" constant="17" id="kF2-YC-Fpt"/>
                         <constraint firstItem="dAZ-mi-y3E" firstAttribute="leading" secondItem="SD0-bw-I3V" secondAttribute="leading" id="xvt-54-GWq"/>
                     </constraints>
                 </view>
@@ -121,10 +121,10 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fRW-XT-LwQ" customClass="APCConfirmationView">
-                            <rect key="frame" x="282" y="15" width="30" height="32"/>
+                            <rect key="frame" x="282" y="17" width="30" height="30"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="32" id="YCb-as-VpB"/>
+                                <constraint firstAttribute="height" constant="30" id="YCb-as-VpB"/>
                                 <constraint firstAttribute="width" constant="30" id="z8g-3i-0JZ"/>
                             </constraints>
                         </view>
@@ -136,7 +136,7 @@
                         <constraint firstAttribute="bottom" secondItem="OkJ-cA-LqE" secondAttribute="bottom" id="DAJ-7S-io5"/>
                         <constraint firstItem="OkJ-cA-LqE" firstAttribute="top" secondItem="Er7-RS-bpN" secondAttribute="top" id="JH1-f7-1fV"/>
                         <constraint firstItem="OkJ-cA-LqE" firstAttribute="leading" secondItem="Er7-RS-bpN" secondAttribute="leading" id="c7W-Sj-Mvg"/>
-                        <constraint firstItem="fRW-XT-LwQ" firstAttribute="top" secondItem="Er7-RS-bpN" secondAttribute="top" constant="15" id="epz-pR-iH3"/>
+                        <constraint firstItem="fRW-XT-LwQ" firstAttribute="top" secondItem="Er7-RS-bpN" secondAttribute="top" constant="17" id="epz-pR-iH3"/>
                     </constraints>
                 </view>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9XK-aI-RfC">
@@ -170,9 +170,10 @@
                             </constraints>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rfW-9w-V1n" customClass="APCConfirmationView">
-                            <rect key="frame" x="281" y="16" width="30" height="32"/>
+                            <rect key="frame" x="281" y="17" width="30" height="30"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <constraints>
+                                <constraint firstAttribute="height" constant="30" id="0P6-z3-gw1"/>
                                 <constraint firstAttribute="width" constant="30" id="MQM-8C-hdo"/>
                             </constraints>
                         </view>
@@ -182,10 +183,10 @@
                         <constraint firstItem="f7f-BI-kwB" firstAttribute="leading" secondItem="3iy-nu-V5B" secondAttribute="leading" id="1uZ-cq-VBb"/>
                         <constraint firstAttribute="trailing" secondItem="rfW-9w-V1n" secondAttribute="trailing" constant="9" id="Fga-dC-bI2"/>
                         <constraint firstAttribute="height" constant="64" id="eRH-eo-TjG"/>
-                        <constraint firstAttribute="bottom" secondItem="rfW-9w-V1n" secondAttribute="bottom" constant="16" id="ksz-sg-ezr"/>
+                        <constraint firstAttribute="bottom" secondItem="rfW-9w-V1n" secondAttribute="bottom" constant="17" id="ksz-sg-ezr"/>
                         <constraint firstItem="f7f-BI-kwB" firstAttribute="top" secondItem="3iy-nu-V5B" secondAttribute="top" id="pQu-zU-Cvq"/>
                         <constraint firstAttribute="bottom" secondItem="f7f-BI-kwB" secondAttribute="bottom" id="rgz-ae-9b9"/>
-                        <constraint firstItem="rfW-9w-V1n" firstAttribute="top" secondItem="3iy-nu-V5B" secondAttribute="top" constant="16" id="xPT-ly-h9h"/>
+                        <constraint firstItem="rfW-9w-V1n" firstAttribute="top" secondItem="3iy-nu-V5B" secondAttribute="top" constant="17" id="xPT-ly-h9h"/>
                     </constraints>
                 </view>
             </subviews>

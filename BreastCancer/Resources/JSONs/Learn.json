@@ -20,8 +20,8 @@
                 {
                     "title": "Life After Treatment",
                     "details": "lifeaftertreatment",
-                    "icon_image": "clipboard_icon",
-                    "tint_color": "yellow"
+                    "icon_image": "disease_icon",
+                    "tint_color": "appColor"
                 }
             ]
         },

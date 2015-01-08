@@ -56,7 +56,7 @@ static  NSString  *kMoodSurveyStep107 = @"moodsurvey107";
             RKSTQuestionResult *questionResult = stepResult.results.firstObject;
             
 
-            if (questionResult.answer != [NSNull null]) {
+            if (questionResult.answer != [NSNull null] && questionResult.answer != nil) {
                 //Convert the answers to numbers for better graph representation.
                 int aNum = 0;
                 
