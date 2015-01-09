@@ -228,7 +228,6 @@ static  NSUInteger  kThresholdForLimitWarning   = 140;
         
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillEmerge:) name:UIKeyboardWillShowNotification object:nil];
         
-        
         NSTimeInterval  timestamp = [[NSDate date] timeIntervalSinceReferenceDate];
         
         self.noteContentModel = [NSMutableDictionary dictionary];

@@ -66,27 +66,23 @@ static  NSString  *kExerciseSurveyStep106 = @"exercisesurvey106";
 {
     NSString *updatedText = [self.scriptorium.text stringByReplacingCharactersInRange:range withString:text];
     
-    BOOL returnValue = YES;
+    BOOL shouldChangeText = NO;
     
-    if (updatedText.length > 90) {
-        returnValue = NO;
+    if (updatedText.length <= 90) {
+        shouldChangeText = YES;
+    
+        self.characterCounterLabel.text = [NSString stringWithFormat:@"%lu / %lu", (unsigned long)updatedText.length, (unsigned long)kMaximumNumberOfCharacters];
         
-        goto endOfMethod;
+        if (updatedText.length > 0) {
+            [self.doneButton setEnabled:YES];
+            [self.doneButton setTitleColor:[UIColor appPrimaryColor] forState:UIControlStateNormal];
+        } else {
+            [self.doneButton setEnabled:NO];
+            [self.doneButton setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
+        }
     }
     
-    self.characterCounterLabel.text = [NSString stringWithFormat:@"%lu / %lu", (unsigned long)updatedText.length, (unsigned long)kMaximumNumberOfCharacters];
-    
-    if (updatedText.length > 0) {
-        [self.doneButton setEnabled:YES];
-        [self.doneButton setTitleColor:[UIColor appPrimaryColor] forState:UIControlStateNormal];
-    } else {
-        [self.doneButton setEnabled:NO];
-        [self.doneButton setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
-    }
-    
-endOfMethod:
-    
-    return returnValue;
+    return shouldChangeText;
 }
 
 - (void)backBarButtonWasTapped:(UIBarButtonItem *)sender
