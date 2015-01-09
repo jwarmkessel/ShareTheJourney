@@ -220,6 +220,7 @@ static  NSUInteger  kThresholdForLimitWarning   = 140;
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(cancelButtonTapped:)];
     
     self.scriptorium.text = @"";
+    self.scriptorium.userInteractionEnabled = NO;
     self.navigator.topItem.title = @"";
     
     [[UIMenuController sharedMenuController] setMenuVisible:NO];
