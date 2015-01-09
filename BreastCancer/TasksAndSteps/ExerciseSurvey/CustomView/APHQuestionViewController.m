@@ -66,6 +66,14 @@ static  NSString  *kExerciseSurveyStep106 = @"exercisesurvey106";
 {
     NSString *updatedText = [self.scriptorium.text stringByReplacingCharactersInRange:range withString:text];
     
+    BOOL returnValue = YES;
+    
+    if (updatedText.length > 90) {
+        returnValue = NO;
+        
+        goto endOfMethod;
+    }
+    
     self.characterCounterLabel.text = [NSString stringWithFormat:@"%lu / %lu", (unsigned long)updatedText.length, (unsigned long)kMaximumNumberOfCharacters];
     
     if (updatedText.length > 0) {
@@ -75,8 +83,10 @@ static  NSString  *kExerciseSurveyStep106 = @"exercisesurvey106";
         [self.doneButton setEnabled:NO];
         [self.doneButton setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
     }
-
-    return YES;
+    
+endOfMethod:
+    
+    return returnValue;
 }
 
 - (void)backBarButtonWasTapped:(UIBarButtonItem *)sender
@@ -147,6 +157,9 @@ static  NSString  *kExerciseSurveyStep106 = @"exercisesurvey106";
     
     self.scriptorium.text = @"";
     self.navigator.topItem.title = @"";
+    
+    [self.scriptorium setUserInteractionEnabled:YES];
+    [self.scriptorium setEditable:YES];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillEmerge:) name:UIKeyboardWillShowNotification object:nil];
 }
