@@ -28,6 +28,8 @@
 		7B7953151A2288D600AA8039 /* APHQuestionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7B7953131A2288D600AA8039 /* APHQuestionViewController.xib */; };
 		7B8B67D71A6701B10021606D /* breastcancer-staging.pem in Resources */ = {isa = PBXBuildFile; fileRef = 7B8B67D51A6701B10021606D /* breastcancer-staging.pem */; };
 		7B8B67D81A6701B10021606D /* breastcancer.pem in Resources */ = {isa = PBXBuildFile; fileRef = 7B8B67D61A6701B10021606D /* breastcancer.pem */; };
+		7B8B67DD1A6711BE0021606D /* APHExerciseMotivationSummaryViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7B8B67DC1A6711BE0021606D /* APHExerciseMotivationSummaryViewController.storyboard */; };
+		7B8B67E11A671DDC0021606D /* APHExerciseSummaryContainerTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B8B67E01A671DDC0021606D /* APHExerciseSummaryContainerTableViewController.m */; };
 		7B8D703E1A1C4B13003A7A5B /* APHLogSubmissionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B8D703C1A1C4B13003A7A5B /* APHLogSubmissionViewController.m */; };
 		7B8D703F1A1C4B13003A7A5B /* APHLogSubmissionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7B8D703D1A1C4B13003A7A5B /* APHLogSubmissionViewController.xib */; };
 		7BA3AC101A23DDBC0017B3C8 /* APHExerciseMotivationIntroViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BA3AC0E1A23DDBC0017B3C8 /* APHExerciseMotivationIntroViewController.m */; };
@@ -137,6 +139,9 @@
 		7B7953131A2288D600AA8039 /* APHQuestionViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = APHQuestionViewController.xib; sourceTree = "<group>"; };
 		7B8B67D51A6701B10021606D /* breastcancer-staging.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "breastcancer-staging.pem"; sourceTree = "<group>"; };
 		7B8B67D61A6701B10021606D /* breastcancer.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = breastcancer.pem; sourceTree = "<group>"; };
+		7B8B67DC1A6711BE0021606D /* APHExerciseMotivationSummaryViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = APHExerciseMotivationSummaryViewController.storyboard; sourceTree = "<group>"; };
+		7B8B67DF1A671DDC0021606D /* APHExerciseSummaryContainerTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APHExerciseSummaryContainerTableViewController.h; sourceTree = "<group>"; };
+		7B8B67E01A671DDC0021606D /* APHExerciseSummaryContainerTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APHExerciseSummaryContainerTableViewController.m; sourceTree = "<group>"; };
 		7B8D703B1A1C4B13003A7A5B /* APHLogSubmissionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APHLogSubmissionViewController.h; sourceTree = "<group>"; };
 		7B8D703C1A1C4B13003A7A5B /* APHLogSubmissionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APHLogSubmissionViewController.m; sourceTree = "<group>"; };
 		7B8D703D1A1C4B13003A7A5B /* APHLogSubmissionViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = APHLogSubmissionViewController.xib; sourceTree = "<group>"; };
@@ -280,6 +285,9 @@
 				7BA3AC131A2407D00017B3C8 /* APHExerciseMotivationSummaryViewController.h */,
 				7BA3AC141A2407D00017B3C8 /* APHExerciseMotivationSummaryViewController.m */,
 				7BA3AC151A2407D00017B3C8 /* APHExerciseMotivationSummaryViewController.xib */,
+				7B8B67DC1A6711BE0021606D /* APHExerciseMotivationSummaryViewController.storyboard */,
+				7B8B67DF1A671DDC0021606D /* APHExerciseSummaryContainerTableViewController.h */,
+				7B8B67E01A671DDC0021606D /* APHExerciseSummaryContainerTableViewController.m */,
 			);
 			name = CustomView;
 			path = ExerciseSurvey/CustomView;
@@ -577,6 +585,7 @@
 				7B8B67D71A6701B10021606D /* breastcancer-staging.pem in Resources */,
 				5B15DD721A118FF900BEA0D1 /* Intro.mp4 in Resources */,
 				5B15DCF51A114F7000BEA0D1 /* WithdrawStudy.json in Resources */,
+				7B8B67DD1A6711BE0021606D /* APHExerciseMotivationSummaryViewController.storyboard in Resources */,
 				5B15DD3E1A114F9000BEA0D1 /* APHOnboarding.storyboard in Resources */,
 				7B7953151A2288D600AA8039 /* APHQuestionViewController.xib in Resources */,
 				7B5E25D71A211BD500A04FEF /* APHMoodSurveyCustomView.xib in Resources */,
@@ -630,6 +639,7 @@
 				7BA3AC161A2407D00017B3C8 /* APHExerciseMotivationSummaryViewController.m in Sources */,
 				7B5E25CB1A2045BB00A04FEF /* APHMoodSurveyTaskViewController.m in Sources */,
 				5B15DD3B1A114F9000BEA0D1 /* APHInclusionCriteriaViewController.m in Sources */,
+				7B8B67E11A671DDC0021606D /* APHExerciseSummaryContainerTableViewController.m in Sources */,
 				F53F27A11A2D30D600A1D725 /* APHScoring.m in Sources */,
 				CF2697E619EC3E4200525E19 /* APHContentsViewController.m in Sources */,
 				CF15F24F1A116A5A00D87570 /* APHDailyJournalIntroViewController.m in Sources */,
