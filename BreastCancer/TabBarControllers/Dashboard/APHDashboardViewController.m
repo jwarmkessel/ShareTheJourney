@@ -109,35 +109,35 @@ static NSString * const kAPCRightDetailTableViewCellIdentifier = @"APCRightDetai
                                                     valueKey:@"moodsurvey103"
                                                     dataKey:nil
                                                     sortKey:nil
-                                                 groupBy:YES];
+                                                 groupBy:APHTimelineGroupDay];
     
         self.energyScoring = [[APCScoring alloc] initWithTask:@"APHMoodSurvey-7259AC18-D711-47A6-ADBD-6CFCECDED1DF"
                                                   numberOfDays:-5
                                                       valueKey:@"moodsurvey104"
                                                       dataKey:nil
                                                       sortKey:nil
-                                                   groupBy:YES];
+                                                   groupBy:APHTimelineGroupDay];
     
         self.exerciseScoring = [[APCScoring alloc] initWithTask:@"APHMoodSurvey-7259AC18-D711-47A6-ADBD-6CFCECDED1DF"
                                                   numberOfDays:-5
                                                       valueKey:@"moodsurvey106"
                                                         dataKey:nil
                                                         sortKey:nil
-                                                     groupBy:YES];
+                                                     groupBy:APHTimelineGroupDay];
     
         self.sleepScoring = [[APCScoring alloc] initWithTask:@"APHMoodSurvey-7259AC18-D711-47A6-ADBD-6CFCECDED1DF"
                                                   numberOfDays:-5
                                                       valueKey:@"moodsurvey105"
                                                      dataKey:nil
                                                      sortKey:nil
-                                                  groupBy:YES];
+                                                  groupBy:APHTimelineGroupDay];
     
         self.cognitiveScoring = [[APCScoring alloc] initWithTask:@"APHMoodSurvey-7259AC18-D711-47A6-ADBD-6CFCECDED1DF"
                                                   numberOfDays:-5
                                                       valueKey:@"moodsurvey102"
                                                          dataKey:nil
                                                          sortKey:nil
-                                                      groupBy:YES];
+                                                      groupBy:APHTimelineGroupDay];
 }
 
 - (void)prepareData
