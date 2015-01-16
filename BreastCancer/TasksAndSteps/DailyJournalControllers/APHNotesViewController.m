@@ -220,6 +220,7 @@ static  NSUInteger  kThresholdForLimitWarning   = 140;
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(cancelButtonTapped:)];
     
     self.scriptorium.text = @"";
+    self.scriptorium.userInteractionEnabled = NO;
     self.navigator.topItem.title = @"";
     
     [[UIMenuController sharedMenuController] setMenuVisible:NO];
@@ -227,7 +228,6 @@ static  NSUInteger  kThresholdForLimitWarning   = 140;
     if (self.note == nil) {
         
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillEmerge:) name:UIKeyboardWillShowNotification object:nil];
-        
         
         NSTimeInterval  timestamp = [[NSDate date] timeIntervalSinceReferenceDate];
         

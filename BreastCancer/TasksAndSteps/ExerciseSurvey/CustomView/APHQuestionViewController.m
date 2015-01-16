@@ -66,17 +66,23 @@ static  NSString  *kExerciseSurveyStep106 = @"exercisesurvey106";
 {
     NSString *updatedText = [self.scriptorium.text stringByReplacingCharactersInRange:range withString:text];
     
-    self.characterCounterLabel.text = [NSString stringWithFormat:@"%lu / %lu", (unsigned long)updatedText.length, (unsigned long)kMaximumNumberOfCharacters];
+    BOOL shouldChangeText = NO;
     
-    if (updatedText.length > 0) {
-        [self.doneButton setEnabled:YES];
-        [self.doneButton setTitleColor:[UIColor appPrimaryColor] forState:UIControlStateNormal];
-    } else {
-        [self.doneButton setEnabled:NO];
-        [self.doneButton setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
+    if (updatedText.length <= 90) {
+        shouldChangeText = YES;
+    
+        self.characterCounterLabel.text = [NSString stringWithFormat:@"%lu / %lu", (unsigned long)updatedText.length, (unsigned long)kMaximumNumberOfCharacters];
+        
+        if (updatedText.length > 0) {
+            [self.doneButton setEnabled:YES];
+            [self.doneButton setTitleColor:[UIColor appPrimaryColor] forState:UIControlStateNormal];
+        } else {
+            [self.doneButton setEnabled:NO];
+            [self.doneButton setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
+        }
     }
-
-    return YES;
+    
+    return shouldChangeText;
 }
 
 - (void)backBarButtonWasTapped:(UIBarButtonItem *)sender
@@ -147,6 +153,9 @@ static  NSString  *kExerciseSurveyStep106 = @"exercisesurvey106";
     
     self.scriptorium.text = @"";
     self.navigator.topItem.title = @"";
+    
+    [self.scriptorium setUserInteractionEnabled:YES];
+    [self.scriptorium setEditable:YES];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillEmerge:) name:UIKeyboardWillShowNotification object:nil];
 }
