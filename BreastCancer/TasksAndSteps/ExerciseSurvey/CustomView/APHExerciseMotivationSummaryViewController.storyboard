@@ -30,6 +30,9 @@
                                     <color key="titleColor" red="0.93725490199999995" green="0.0039215686269999999" blue="0.55294117649999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="changeExerciseGoalAction:" destination="tzF-LL-DDj" eventType="touchUpInside" id="QPI-hH-PeU"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your Exercise Goal and Motivations" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zMu-0m-xnE">
                                 <rect key="frame" x="0.0" y="72" width="414" height="21"/>
@@ -43,7 +46,7 @@
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="x8Q-Ov-Dzu">
                                 <rect key="frame" x="0.0" y="104" width="414" height="484"/>
                                 <connections>
-                                    <segue destination="wZf-XE-yjl" kind="embed" id="e52-Mn-T1P"/>
+                                    <segue destination="wZf-XE-yjl" kind="embed" identifier="APHExerciseSummaryContainerTableViewControllerSegue" id="e52-Mn-T1P"/>
                                 </connections>
                             </containerView>
                         </subviews>
@@ -66,15 +69,20 @@
                     </view>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
+                    <connections>
+                        <outlet property="changeExerciseGoalButton" destination="2zd-8s-xMT" id="3Vd-pW-MgU"/>
+                        <outlet property="changeYourExeriseGoalHeightConstant" destination="2fu-Nz-2fn" id="fMB-Yh-fZb"/>
+                        <outlet property="titleImageView" destination="smp-ho-m8Z" id="cNX-rk-4MC"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qcS-KM-t5S" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="409" y="409"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Exercise Summary Container Table View Controller-->
         <scene sceneID="Dki-bh-fwe">
             <objects>
-                <tableViewController id="wZf-XE-yjl" sceneMemberID="viewController">
+                <tableViewController id="wZf-XE-yjl" customClass="APHExerciseSummaryContainerTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="dIP-df-Xgl">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="484"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -374,6 +382,13 @@
                             <outlet property="delegate" destination="wZf-XE-yjl" id="8KK-1e-lOV"/>
                         </connections>
                     </tableView>
+                    <connections>
+                        <outlet property="answer1Label" destination="41h-iS-nio" id="KW2-tw-186"/>
+                        <outlet property="answer2Label" destination="WJn-Tx-xnQ" id="sYa-0W-F4q"/>
+                        <outlet property="answer3Label" destination="sAS-tx-v06" id="02z-Qa-c7r"/>
+                        <outlet property="answer4Label" destination="z2b-Ob-11f" id="qS8-Ji-2Fz"/>
+                        <outlet property="answer5Label" destination="LNm-4Y-LLd" id="1WF-9f-Rlc"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LkO-wC-dpS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

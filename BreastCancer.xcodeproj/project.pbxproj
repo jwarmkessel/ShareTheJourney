@@ -35,7 +35,6 @@
 		7BA3AC101A23DDBC0017B3C8 /* APHExerciseMotivationIntroViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BA3AC0E1A23DDBC0017B3C8 /* APHExerciseMotivationIntroViewController.m */; };
 		7BA3AC111A23DDBC0017B3C8 /* APHExerciseMotivationIntroViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7BA3AC0F1A23DDBC0017B3C8 /* APHExerciseMotivationIntroViewController.xib */; };
 		7BA3AC161A2407D00017B3C8 /* APHExerciseMotivationSummaryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BA3AC141A2407D00017B3C8 /* APHExerciseMotivationSummaryViewController.m */; };
-		7BA3AC171A2407D00017B3C8 /* APHExerciseMotivationSummaryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7BA3AC151A2407D00017B3C8 /* APHExerciseMotivationSummaryViewController.xib */; };
 		7BFD56791A24FAF0001210A2 /* APHDisplayLogHistoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BFD56771A24FAF0001210A2 /* APHDisplayLogHistoryViewController.m */; };
 		7BFD567A1A24FAF0001210A2 /* APHDisplayLogHistoryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7BFD56781A24FAF0001210A2 /* APHDisplayLogHistoryViewController.xib */; };
 		CF15F24B1A11616500D87570 /* APHDailyJournalTaskViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CF15F24A1A11616500D87570 /* APHDailyJournalTaskViewController.m */; };
@@ -150,7 +149,6 @@
 		7BA3AC0F1A23DDBC0017B3C8 /* APHExerciseMotivationIntroViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = APHExerciseMotivationIntroViewController.xib; sourceTree = "<group>"; };
 		7BA3AC131A2407D00017B3C8 /* APHExerciseMotivationSummaryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APHExerciseMotivationSummaryViewController.h; sourceTree = "<group>"; };
 		7BA3AC141A2407D00017B3C8 /* APHExerciseMotivationSummaryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APHExerciseMotivationSummaryViewController.m; sourceTree = "<group>"; };
-		7BA3AC151A2407D00017B3C8 /* APHExerciseMotivationSummaryViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = APHExerciseMotivationSummaryViewController.xib; sourceTree = "<group>"; };
 		7BFD56761A24FAF0001210A2 /* APHDisplayLogHistoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APHDisplayLogHistoryViewController.h; sourceTree = "<group>"; };
 		7BFD56771A24FAF0001210A2 /* APHDisplayLogHistoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APHDisplayLogHistoryViewController.m; sourceTree = "<group>"; };
 		7BFD56781A24FAF0001210A2 /* APHDisplayLogHistoryViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = APHDisplayLogHistoryViewController.xib; sourceTree = "<group>"; };
@@ -284,7 +282,6 @@
 				7B7953131A2288D600AA8039 /* APHQuestionViewController.xib */,
 				7BA3AC131A2407D00017B3C8 /* APHExerciseMotivationSummaryViewController.h */,
 				7BA3AC141A2407D00017B3C8 /* APHExerciseMotivationSummaryViewController.m */,
-				7BA3AC151A2407D00017B3C8 /* APHExerciseMotivationSummaryViewController.xib */,
 				7B8B67DC1A6711BE0021606D /* APHExerciseMotivationSummaryViewController.storyboard */,
 				7B8B67DF1A671DDC0021606D /* APHExerciseSummaryContainerTableViewController.h */,
 				7B8B67E01A671DDC0021606D /* APHExerciseSummaryContainerTableViewController.m */,
@@ -592,7 +589,6 @@
 				5B1D9D6C1A1BD414000F4AD6 /* APHDashboard.storyboard in Resources */,
 				CF5FAB4319F95C8F0006CA71 /* APHContentsViewController.xib in Resources */,
 				F534B59419E4681E00C3C152 /* Images.xcassets in Resources */,
-				7BA3AC171A2407D00017B3C8 /* APHExerciseMotivationSummaryViewController.xib in Resources */,
 				F534B68E19E4689D00C3C152 /* StudyOverview.json in Resources */,
 				5BBDAEBB1A33DCDA0047DF87 /* HTMLContent in Resources */,
 				F534B68A19E4689D00C3C152 /* APCParameters.json in Resources */,

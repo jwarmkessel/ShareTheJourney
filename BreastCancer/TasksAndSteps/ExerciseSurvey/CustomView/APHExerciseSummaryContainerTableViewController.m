@@ -8,6 +8,11 @@
 #import "APHExerciseSummaryContainerTableViewController.h"
 
 @interface APHExerciseSummaryContainerTableViewController ()
+@property (weak, nonatomic) IBOutlet UILabel *answer1Label;
+@property (weak, nonatomic) IBOutlet UILabel *answer2Label;
+@property (weak, nonatomic) IBOutlet UILabel *answer3Label;
+@property (weak, nonatomic) IBOutlet UILabel *answer4Label;
+@property (weak, nonatomic) IBOutlet UILabel *answer5Label;
 
 @end
 
@@ -21,6 +26,23 @@
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    
+//    NSArray *answerLabels = @[self.answer1Label, self.answer2Label, self.answer3Label, self.answer4Label, self.answer5Label];
+    
+//    self.answer1Label.text = [self.answers objectAtIndex:0];
+//    self.answer2Label.text = [self.answers objectAtIndex:1];
+//    self.answer3Label.text = [self.answers objectAtIndex:2];
+//    self.answer4Label.text = [self.answers objectAtIndex:3];
+//    self.answer5Label.text = [self.answers objectAtIndex:4];
+}
+
+- (void)setAnswers:(NSMutableArray *)answers {
+    self.answer1Label.text = [answers objectAtIndex:0];
+    self.answer2Label.text = [answers objectAtIndex:1];
+    self.answer3Label.text = [answers objectAtIndex:2];
+    self.answer4Label.text = [answers objectAtIndex:3];
+    self.answer5Label.text = [answers objectAtIndex:4];
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -29,18 +51,24 @@
 }
 
 #pragma mark - Table view data source
-
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-#warning Potentially incomplete method implementation.
-    // Return the number of sections.
-    return 5;
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+ 
+    UIImageView *imgVew = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"BreastCancer-Ribbon"]];
+    return imgVew;
+    
 }
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-#warning Incomplete method implementation.
-    // Return the number of rows in the section.
-    return 5;
-}
+//
+//- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+//#warning Potentially incomplete method implementation.
+//    // Return the number of sections.
+//    return 5;
+//}
+//
+//- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+//#warning Incomplete method implementation.
+//    // Return the number of rows in the section.
+//    return 5;
+//}
 
 /*
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {

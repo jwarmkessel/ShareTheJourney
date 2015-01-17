@@ -1,4 +1,4 @@
-// 
+//
 //  APHExerciseMotivationSummaryViewController.h 
 //  Share the Journey 
 // 
@@ -8,12 +8,16 @@
 #import <APCAppCore/APCAppCore.h>
 
 @interface APHExerciseMotivationSummaryViewController : APCStepViewController
-@property (weak, nonatomic) IBOutlet UILabel *questionResult1;
-@property (weak, nonatomic) IBOutlet UILabel *questionResult2;
-@property (weak, nonatomic) IBOutlet UILabel *questionResult3;
-@property (weak, nonatomic) IBOutlet UILabel *questionResult4;
-@property (weak, nonatomic) IBOutlet UILabel *questionResult5;
+@property (weak, nonatomic)  NSString *questionResult1;
+@property (weak, nonatomic)  NSString *questionResult2;
+@property (weak, nonatomic)  NSString *questionResult3;
+@property (weak, nonatomic)  NSString *questionResult4;
+@property (weak, nonatomic)  NSString *questionResult5;
 
 @property (weak, nonatomic) IBOutlet UIImageView *titleImageView;
+@property (weak, nonatomic) IBOutlet UIButton *changeExerciseGoalButton;
 
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *changeYourExeriseGoalHeightConstant;
+- (void) setAnswersInTableview:(NSMutableArray*)answers;
+- (IBAction)changeExerciseGoalAction:(id)sender;
 @end

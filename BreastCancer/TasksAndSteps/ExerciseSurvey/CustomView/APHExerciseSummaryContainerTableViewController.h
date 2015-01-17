@@ -9,4 +9,6 @@
 
 @interface APHExerciseSummaryContainerTableViewController : UITableViewController
 
+@property (nonatomic, strong) NSMutableArray *answers;
+
 @end
