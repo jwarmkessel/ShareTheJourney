@@ -54,35 +54,11 @@ static  NSString  *kMoodSurveyStep107 = @"moodsurvey107";
     
     for (RKSTStepResult *stepResult in arrayOfResults) {
         if (stepResult.results.firstObject) {
-            RKSTNumericQuestionResult *questionResult = stepResult.results.firstObject;
+            RKSTChoiceQuestionResult *questionResult = stepResult.results.firstObject;
             
 #pragma mark this used to be RKSTQuestionResult.answer
-            if (questionResult.numericAnswer != nil && questionResult.numericAnswer != nil) {
-                //Convert the answers to numbers for better graph representation.
-                int aNum = 0;
-                
-                switch ([questionResult.numericAnswer intValue]) {
-                    case 0:
-                        aNum = 5;
-                        break;
-                    case 1:
-                        aNum = 4;
-                        break;
-                        
-                    case 2:
-                        aNum = 3;
-                        break;
-                        
-                    case 3:
-                        aNum = 2;
-                        break;
-                        
-                    case 4:
-                        aNum = 1;
-                        break;
-                }
-                
-                resultCollectionDictionary[stepResult.identifier] = [NSNumber numberWithInt:aNum];
+            if (questionResult.choiceAnswers != nil) {
+                resultCollectionDictionary[stepResult.identifier] = questionResult.choiceAnswers;
             }
         }
     }
@@ -422,96 +398,79 @@ static  NSString  *kMoodSurveyStep107 = @"moodsurvey107";
     }
 }
 
-- (void)stepViewController:(RKSTStepViewController *)stepViewController didChangeResult:(RKSTStepResult*)stepResult{
-    
-    [super stepViewControllerResultDidChange:(RKSTStepViewController*) self];
-    
-    if (stepViewController.step.identifier != kMoodSurveyStep101 && stepViewController.step.identifier != kMoodSurveyStep107) {
-        self.currentCustomView.alpha = 0;
-        
-#pragma mark used to be RKSTQuestionResult
-        RKSTNumericQuestionResult *questionResult = (RKSTNumericQuestionResult *) stepResult.firstResult;
-        
-        if (questionResult.numericAnswer != nil) {
-         
-            NSNumber *number = (NSNumber *) questionResult.numericAnswer;
-            
-            
-            NSDictionary  *questionAnswerDictionary = @{
-                                                        kMoodSurveyStep102 : @[@"Perfectly crisp concentration",
-                                                                               @"No issues with concentration",
-                                                                               @"Occasional difficulties with concentration",
-                                                                               @"Difficulties with concentration",
-                                                                               @"No concentration"],
-                                                       
-                                                        kMoodSurveyStep103 : @[@"The best I have felt",
-                                                                               @"Better than usual",
-                                                                               @"Normal",
-                                                                               @"Down",
-                                                                               @"Extremely down"],
-                                                        
-                                                        kMoodSurveyStep104 : @[@"Ready to take on the world",
-                                                                               @"Filled with energy through the day",
-                                                                               @"Energy to make it through the day",
-                                                                               @"Basic functions",
-                                                                               @"No energy"],
-                                                        
-                                                        kMoodSurveyStep105 : @[@"Eliminated all deficit sleep",
-                                                                               @"Made up some deficit sleep",
-                                                                               @"Almost enough sleep",
-                                                                               @"Barely enough sleep",
-                                                                               @"No real sleep"],
-                                                        
-                                                        kMoodSurveyStep106 : @[@"Activities that make you breathe hard and sweat",
-                                                                               @"Walking",
-                                                                               @"Standing",
-                                                                               @"Sitting",
-                                                                               @"Lying down"]
-                                                        };
-            
-            NSArray *  questionAnswerChoices = [questionAnswerDictionary objectForKey:stepViewController.step.identifier];
-            
-            //These numbers have to relate to the output on the graphs in dashboard.
-            int aNum = 0;
-            
-            switch ([number intValue]) {
-                case 0:
-                    aNum = 5;
-                    break;
-                case 1:
-                    aNum = 4;
-                    break;
-                    
-                case 2:
-                    aNum = 3;
-                    break;
-                    
-                case 3:
-                    aNum = 2;
-                    break;
-                    
-                case 4:
-                    aNum = 1;
-                    break;
-            }
-            
-            if (number != nil) {
-                NSString *stringAnswer = [NSString stringWithFormat:@"%@ (%d)", [questionAnswerChoices objectAtIndex:[number intValue]], aNum];
-                
-                self.currentCustomView.questionChoiceLabel.text = stringAnswer;
-                
-                self.previousCachedAnswer[stepViewController.step.identifier] = stringAnswer;
-                
-                [UIView animateWithDuration:0.3 animations:^{
-                    self.currentCustomView.alpha = 1;
-                }];
-            }
-        } else {
-            self.previousCachedAnswer[stepViewController.step.identifier] = @"";
-            
-        }
-    }
-}
+//- (void)stepViewControllerResultDidChange:(RKSTStepViewController *)stepViewController {
+//    RKSTChoiceQuestionResult *choiceResult = stepViewController.result.firstResult;
+//    
+//
+//    
+//}
+
+//- (void)stepViewController:(RKSTStepViewController *)stepViewController didChangeResult:(RKSTStepResult*)stepResult{
+//    
+//    [super stepViewControllerResultDidChange:(RKSTStepViewController*) self];
+//    
+//    if (stepViewController.step.identifier != kMoodSurveyStep101 && stepViewController.step.identifier != kMoodSurveyStep107) {
+//        self.currentCustomView.alpha = 0;
+//        
+//#pragma mark used to be RKSTQuestionResult
+//        RKSTNumericQuestionResult *questionResult = (RKSTNumericQuestionResult *) stepResult.firstResult;
+//        
+//        if (questionResult.numericAnswer != nil) {
+//         
+//            NSNumber *number = (NSNumber *) questionResult.numericAnswer;
+//            
+//            
+//            NSDictionary  *questionAnswerDictionary = @{
+//                                                        kMoodSurveyStep102 : @[@"Perfectly crisp concentration",
+//                                                                               @"No issues with concentration",
+//                                                                               @"Occasional difficulties with concentration",
+//                                                                               @"Difficulties with concentration",
+//                                                                               @"No concentration"],
+//                                                       
+//                                                        kMoodSurveyStep103 : @[@"The best I have felt",
+//                                                                               @"Better than usual",
+//                                                                               @"Normal",
+//                                                                               @"Down",
+//                                                                               @"Extremely down"],
+//                                                        
+//                                                        kMoodSurveyStep104 : @[@"Ready to take on the world",
+//                                                                               @"Filled with energy through the day",
+//                                                                               @"Energy to make it through the day",
+//                                                                               @"Basic functions",
+//                                                                               @"No energy"],
+//                                                        
+//                                                        kMoodSurveyStep105 : @[@"Eliminated all deficit sleep",
+//                                                                               @"Made up some deficit sleep",
+//                                                                               @"Almost enough sleep",
+//                                                                               @"Barely enough sleep",
+//                                                                               @"No real sleep"],
+//                                                        
+//                                                        kMoodSurveyStep106 : @[@"Activities that make you breathe hard and sweat",
+//                                                                               @"Walking",
+//                                                                               @"Standing",
+//                                                                               @"Sitting",
+//                                                                               @"Lying down"]
+//                                                        };
+//            
+//            NSArray *  questionAnswerChoices = [questionAnswerDictionary objectForKey:stepViewController.step.identifier];
+//            
+//            if (number != nil) {
+//                //NSString *stringAnswer = [NSString stringWithFormat:@"%@ (%d)", [questionAnswerChoices objectAtIndex:[number intValue]], aNum];
+//                
+////                self.currentCustomView.questionChoiceLabel.text = stringAnswer;
+////                
+////                self.previousCachedAnswer[stepViewController.step.identifier] = stringAnswer;
+////                
+////                [UIView animateWithDuration:0.3 animations:^{
+////                    self.currentCustomView.alpha = 1;
+////                }];
+//            }
+//        } else {
+//            self.previousCachedAnswer[stepViewController.step.identifier] = @"";
+//            
+//        }
+//    }
+//}
 
 
 @end
