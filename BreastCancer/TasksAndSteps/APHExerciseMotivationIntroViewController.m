@@ -143,9 +143,9 @@
 
 - (void)cancelButtonTapped:(id)sender
 {
-    if ([self.delegate respondsToSelector:@selector(stepViewControllerDidCancel:)] == YES) {
-        [self.delegate stepViewControllerDidCancel:self];
-    }
+//    if ([self.delegate respondsToSelector:@selector(stepViewControllerDidCancel:)] == YES) {
+//        [self.delegate stepViewControllerDidCancel:self];
+//    }
 }
 
 - (IBAction)nextButtonTapped:(id)sender {
@@ -153,7 +153,7 @@
     self.dict = [NSMutableDictionary new];
     [self.dict setObject:self.selectedGoal forKey:@"result"];
 
-    RKSTDataResult *contentModel = [[RKSTDataResult alloc] initWithIdentifier:self.step.identifier];
+    APCDataResult *contentModel = [[APCDataResult alloc] initWithIdentifier:self.step.identifier];
 
     NSError *error = nil;
     NSData  *exerciseMotivationAnswers = [NSJSONSerialization dataWithJSONObject:self.dict options:0 error:&error];
@@ -164,11 +164,10 @@
 
     self.cachedResult = [[RKSTStepResult alloc] initWithStepIdentifier:self.step.identifier results:resultsArray];
 
-    [self.delegate stepViewController:self didChangeResult:self.cachedResult];
-    
-    
-    if ([self.delegate respondsToSelector:@selector(stepViewControllerDidFinish:navigationDirection:)] == YES) {
-        [self.delegate stepViewControllerDidFinish:self navigationDirection:RKSTStepViewControllerNavigationDirectionForward];
+    [self.delegate stepViewControllerResultDidChange:self];
+
+    if ([self.delegate respondsToSelector:@selector(stepViewController:didFinishWithNavigationDirection:)] == YES) {
+        [self.delegate stepViewController:self didFinishWithNavigationDirection:RKSTStepViewControllerNavigationDirectionForward];
     }
 }
 

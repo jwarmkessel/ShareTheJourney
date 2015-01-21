@@ -57,7 +57,7 @@ static NSString *kWalkTenThousandSteps = @"Walk 10,000 steps at least 3 times pe
     
     for (RKSTStepResult *stepResult in arrayOfResults) {
         if (stepResult.results.firstObject) {
-            RKSTDataResult *questionResult = stepResult.results.firstObject;
+            APCDataResult *questionResult = stepResult.results.firstObject;
             NSData *resultData = questionResult.data;
             
             NSError *error = nil;
@@ -105,55 +105,55 @@ static NSString *kWalkTenThousandSteps = @"Walk 10,000 steps at least 3 times pe
     NSMutableArray *steps = [[NSMutableArray alloc] init];
     
     if ([scheduledTask.completed boolValue]) {
-        RKSTActiveStep *step = [[RKSTActiveStep alloc] initWithIdentifier:kExerciseSurveyStep100];
+        RKSTStep *step = [[RKSTStep alloc] initWithIdentifier:kExerciseSurveyStep100];
         
         [steps addObject:step];
     }
     
     {
-        RKSTActiveStep *step = [[RKSTActiveStep alloc] initWithIdentifier:kExerciseSurveyStep101];
+        RKSTStep *step = [[RKSTStep alloc] initWithIdentifier:kExerciseSurveyStep101];
         
         [steps addObject:step];
     }
     
     {
-        RKSTActiveStep  *step = [[RKSTActiveStep alloc] initWithIdentifier:kExerciseSurveyStep102];
+        RKSTStep  *step = [[RKSTStep alloc] initWithIdentifier:kExerciseSurveyStep102];
         
         [steps addObject:step];
     }
     
     {
-        RKSTActiveStep  *step = [[RKSTActiveStep alloc] initWithIdentifier:kExerciseSurveyStep103];
+        RKSTStep  *step = [[RKSTStep alloc] initWithIdentifier:kExerciseSurveyStep103];
         
         [steps addObject:step];
     }
     
     {
-        RKSTActiveStep  *step = [[RKSTActiveStep alloc] initWithIdentifier:kExerciseSurveyStep104];
+        RKSTStep  *step = [[RKSTStep alloc] initWithIdentifier:kExerciseSurveyStep104];
         
         [steps addObject:step];
     }
     
     {
-        RKSTActiveStep  *step = [[RKSTActiveStep alloc] initWithIdentifier:kExerciseSurveyStep105];
+        RKSTStep  *step = [[RKSTStep alloc] initWithIdentifier:kExerciseSurveyStep105];
         
         [steps addObject:step];
     }
     
     {
-        RKSTActiveStep  *step = [[RKSTActiveStep alloc] initWithIdentifier:kExerciseSurveyStep106];
+        RKSTStep  *step = [[RKSTStep alloc] initWithIdentifier:kExerciseSurveyStep106];
         
         [steps addObject:step];
     }
     
     {
-        RKSTActiveStep  *step = [[RKSTActiveStep alloc] initWithIdentifier:kExerciseSurveyStep107];
+        RKSTStep  *step = [[RKSTStep alloc] initWithIdentifier:kExerciseSurveyStep107];
         
         [steps addObject:step];
     }
     
     {
-        RKSTActiveStep  *step = [[RKSTActiveStep alloc] initWithIdentifier:kExerciseSurveyStep108];
+        RKSTStep  *step = [[RKSTStep alloc] initWithIdentifier:kExerciseSurveyStep108];
         
         [steps addObject:step];
     }
@@ -405,7 +405,7 @@ static NSString *kWalkTenThousandSteps = @"Walk 10,000 steps at least 3 times pe
         
         RKSTStepResult *stepResult = [result stepResultForStepIdentifier:self.currentStepViewController.step.identifier];
         
-        RKSTDataResult *contentResult = (RKSTDataResult *)[stepResult resultForIdentifier:self.currentStepViewController.step.identifier];
+        APCDataResult *contentResult = (APCDataResult *)[stepResult resultForIdentifier:self.currentStepViewController.step.identifier];
         
         NSError* error;
         NSDictionary* stepResultJson = [NSJSONSerialization JSONObjectWithData:contentResult.data
@@ -428,7 +428,7 @@ static NSString *kWalkTenThousandSteps = @"Walk 10,000 steps at least 3 times pe
 /*********************************************************************************/
 - (NSString *)extractResult:(RKSTStepResult *)result withIdentifier:(NSString *)identifier {
     
-    RKSTDataResult *contentResult = (RKSTDataResult *)[result resultForIdentifier:identifier];
+    APCDataResult *contentResult = (APCDataResult *)[result resultForIdentifier:identifier];
     
     NSError* error;
     NSDictionary* stepResultJson = [NSJSONSerialization JSONObjectWithData:contentResult.data

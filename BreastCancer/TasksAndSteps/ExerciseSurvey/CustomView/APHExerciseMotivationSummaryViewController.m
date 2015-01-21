@@ -39,8 +39,8 @@
 }
 
 - (IBAction)changeExerciseGoalAction:(id)sender {
-    if ([self.delegate respondsToSelector:@selector(stepViewControllerDidFinish:navigationDirection:)] == YES) {
-        [self.delegate stepViewControllerDidFinish:self navigationDirection:RKSTStepViewControllerNavigationDirectionForward];
+    if ([self.delegate respondsToSelector:@selector(stepViewController:didFinishWithNavigationDirection:)] == YES) {
+        [self.delegate stepViewController:self didFinishWithNavigationDirection:RKSTStepViewControllerNavigationDirectionForward];
     }
 }
 
@@ -53,15 +53,15 @@
 {
     if ([self.step.identifier isEqualToString:@"exercisesurvey107"]) {
         
-        if ([self.delegate respondsToSelector:@selector(stepViewControllerDidFinish:navigationDirection:)] == YES) {
-            [self.delegate stepViewControllerDidFinish:self navigationDirection:RKSTStepViewControllerNavigationDirectionForward];
+        if ([self.delegate respondsToSelector:@selector(stepViewController:didFinishWithNavigationDirection:)] == YES) {
+            [self.delegate stepViewController:self didFinishWithNavigationDirection:RKSTStepViewControllerNavigationDirectionForward];
         }
 
     } else if ([self.step.identifier isEqualToString:@"exercisesurvey100"]) {
 
-        if ([self.delegate respondsToSelector:@selector(stepViewControllerDidCancel:)] == YES) {
-            [self.delegate stepViewControllerDidCancel:self];
-        }
+//        if ([self.delegate respondsToSelector:@selector(stepViewControllerDidCancel:)] == YES) {
+//            [self.delegate stepViewControllerDidCancel:self];
+//        }
     }
 }
 

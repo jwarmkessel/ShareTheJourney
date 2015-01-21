@@ -182,9 +182,9 @@ static  NSUInteger  kThresholdForLimitWarning   = 140;
 
 - (void)cancelButtonTapped:(id)sender
 {
-    if ([self.delegate respondsToSelector:@selector(stepViewControllerDidCancel:)] == YES) {
-        [self.delegate stepViewControllerDidCancel:self];
-    }
+//    if ([self.delegate respondsToSelector:@selector(stepViewControllerDidCancel:)] == YES) {
+//        [self.delegate stepViewControllerDidCancel:self];
+//    }
 }
 
 #pragma  mark  -  View Controller Methods
@@ -280,8 +280,8 @@ static  NSUInteger  kThresholdForLimitWarning   = 140;
     
     NSError *changesError = nil;
     NSError *contentError = nil;
-    RKSTDataResult *contentModel = [[RKSTDataResult alloc] initWithIdentifier:@"content"];
-    RKSTDataResult *changesModel = [[RKSTDataResult alloc] initWithIdentifier:@"changes"];
+    APCDataResult *contentModel = [[APCDataResult alloc] initWithIdentifier:@"content"];
+    APCDataResult *changesModel = [[APCDataResult alloc] initWithIdentifier:@"changes"];
         
     contentModel.data = [NSJSONSerialization dataWithJSONObject:self.noteContentModel options:0 error:&contentError];
     changesModel.data = [NSJSONSerialization dataWithJSONObject:self.noteChangesModel options:0 error:&changesError];
@@ -290,14 +290,11 @@ static  NSUInteger  kThresholdForLimitWarning   = 140;
     
     self.cachedResult = [[RKSTStepResult alloc] initWithStepIdentifier:self.step.identifier results:resultsArray];
     
-    [self.delegate stepViewController:self didChangeResult:self.cachedResult];
+    [self.delegate stepViewControllerResultDidChange:self];
 
-    if ([self.delegate respondsToSelector:@selector(stepViewControllerDidFinish:navigationDirection:)] == YES) {
-        [self.delegate stepViewControllerDidFinish:self navigationDirection:RKSTStepViewControllerNavigationDirectionForward];
-    }
-    
-
-}
+    if ([self.delegate respondsToSelector:@selector(stepViewController:didFinishWithNavigationDirection:)] == YES) {
+        [self.delegate stepViewController:self didFinishWithNavigationDirection:RKSTStepViewControllerNavigationDirectionForward];
+    }}
 
 - (RKSTStepResult *)result {
 
