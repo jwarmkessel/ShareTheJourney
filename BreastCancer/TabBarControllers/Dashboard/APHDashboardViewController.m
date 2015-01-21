@@ -109,35 +109,35 @@ static NSString * const kAPCRightDetailTableViewCellIdentifier = @"APCRightDetai
                                                     valueKey:@"moodsurvey103"
                                                     dataKey:nil
                                                     sortKey:nil
-                                                 groupBy:YES];
+                                                 groupBy:APHTimelineGroupDay];
     
         self.energyScoring = [[APCScoring alloc] initWithTask:@"APHMoodSurvey-7259AC18-D711-47A6-ADBD-6CFCECDED1DF"
                                                   numberOfDays:-5
                                                       valueKey:@"moodsurvey104"
                                                       dataKey:nil
                                                       sortKey:nil
-                                                   groupBy:YES];
+                                                   groupBy:APHTimelineGroupDay];
     
         self.exerciseScoring = [[APCScoring alloc] initWithTask:@"APHMoodSurvey-7259AC18-D711-47A6-ADBD-6CFCECDED1DF"
                                                   numberOfDays:-5
                                                       valueKey:@"moodsurvey106"
                                                         dataKey:nil
                                                         sortKey:nil
-                                                     groupBy:YES];
+                                                     groupBy:APHTimelineGroupDay];
     
         self.sleepScoring = [[APCScoring alloc] initWithTask:@"APHMoodSurvey-7259AC18-D711-47A6-ADBD-6CFCECDED1DF"
                                                   numberOfDays:-5
                                                       valueKey:@"moodsurvey105"
                                                      dataKey:nil
                                                      sortKey:nil
-                                                  groupBy:YES];
+                                                  groupBy:APHTimelineGroupDay];
     
         self.cognitiveScoring = [[APCScoring alloc] initWithTask:@"APHMoodSurvey-7259AC18-D711-47A6-ADBD-6CFCECDED1DF"
                                                   numberOfDays:-5
                                                       valueKey:@"moodsurvey102"
                                                          dataKey:nil
                                                          sortKey:nil
-                                                      groupBy:YES];
+                                                      groupBy:APHTimelineGroupDay];
 }
 
 - (void)prepareData
@@ -149,23 +149,7 @@ static NSString * const kAPCRightDetailTableViewCellIdentifier = @"APCRightDetai
         
         NSUInteger allScheduledTasks = ((APCAppDelegate *)[UIApplication sharedApplication].delegate).dataSubstrate.countOfAllScheduledTasksForToday;
         NSUInteger completedScheduledTasks = ((APCAppDelegate *)[UIApplication sharedApplication].delegate).dataSubstrate.countOfCompletedScheduledTasksForToday;
-        
-        {
-            APCTableViewItem *item = [APCTableViewItem new];
-            item.caption = NSLocalizedString(@"Activities", @"");
-            item.identifier = kAPCRightDetailTableViewCellIdentifier;
-            item.editable = NO;
-            item.textAlignnment = NSTextAlignmentRight;
-            
-            
-            item.detailText = [NSString stringWithFormat:@"%lu/%lu", (unsigned long)completedScheduledTasks, (unsigned long)allScheduledTasks];
-            
-            APCTableViewRow *row = [APCTableViewRow new];
-            row.item = item;
-            row.itemType = kAPCTableViewDashboardItemTypeProgress;
-            [rowItems addObject:row];
-        }
-        
+                
         {
             APCTableViewDashboardProgressItem *item = [APCTableViewDashboardProgressItem new];
             item.identifier = kAPCDashboardProgressTableViewCellIdentifier;
@@ -310,7 +294,7 @@ static NSString * const kAPCRightDetailTableViewCellIdentifier = @"APCRightDetai
         
         APCTableViewSection *section = [APCTableViewSection new];
         section.rows = [NSArray arrayWithArray:rowItems];
-        section.sectionTitle = NSLocalizedString(@"Past 5 Days", @"");
+        section.sectionTitle = NSLocalizedString(@"Recent Activity", @"");
         [self.items addObject:section];
     }
     

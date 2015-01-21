@@ -13,7 +13,7 @@
 /*********************************************************************************/
 static NSString *const kStudyIdentifier = @"BreastCancer";
 static NSString *const kAppPrefix       = @"breastcancer";
-
+static  NSTimeInterval  kPassiveLocationDeferredUpdatesTimeout = 1.0 * 60.0;
 static NSString *const kVideoShownKey = @"VideoShown";
 
 @interface APHAppDelegate ()
@@ -52,6 +52,8 @@ static NSString *const kVideoShownKey = @"VideoShown";
                                                    @(kAPCUserInfoItemTypeWakeUpTime),
                                                    @(kAPCUserInfoItemTypeSleepTime),
                                                    ],
+                                           kAnalyticsOnOffKey  : @(YES),
+                                           kAnalyticsFlurryAPIKeyKey : @"3V2CN572C3R782W2DBBN"
                                            }];
     self.initializationOptions = dictionary;
 }
@@ -102,6 +104,11 @@ static NSString *const kVideoShownKey = @"VideoShown";
         }
         
     }
+    
+    self.dataSubstrate.passiveLocationTracking = [[APCPassiveLocationTracking alloc]
+                                                  initWithDeferredUpdatesTimeout:kPassiveLocationDeferredUpdatesTimeout
+                                                  andHomeLocationStatus:APCPassiveLocationTrackingHomeLocationUnavailable];
+    [self.dataSubstrate.passiveLocationTracking start];
     
 errReturn:
     return;
