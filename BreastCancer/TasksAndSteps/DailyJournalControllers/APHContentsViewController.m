@@ -252,16 +252,16 @@ typedef  enum  _DailyLogType
     //        self.changesObjects = [changesModels mutableCopy];
     //    }
     //
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(cancelButtonTapped:)];
+//    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(cancelButtonTapped:)];
 
 }
 
-- (void)cancelButtonTapped:(id)sender
-{
-//    if ([self.delegate respondsToSelector:@selector(stepViewControllerDidCancel:)] == YES) {
-//        [self.delegate stepViewControllerDidCancel:self];
-//    }
-}
+//- (void)cancelButtonTapped:(id)sender
+//{
+////    if ([self.delegate respondsToSelector:@selector(stepViewControllerDidCancel:)] == YES) {
+////        [self.delegate stepViewControllerDidCancel:self];
+////    }
+//}
 
 - (void)didReceiveMemoryWarning
 {

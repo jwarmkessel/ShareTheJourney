@@ -27,7 +27,7 @@
     self.textView.editable = NO;
     self.noteContent = [NSMutableDictionary dictionary];
 
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(cancelButtonTapped:)];
+//    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(cancelButtonTapped:)];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -67,11 +67,11 @@
 
 #pragma mark - UINavigation Buttons
 
-- (void)cancelButtonTapped:(id)sender
-{
-//    if ([self.delegate respondsToSelector:@selector(stepViewControllerDidCancel:)] == YES) {
-//        [self.delegate stepViewControllerDidCancel:self];
-//    }
-}
+//- (void)cancelButtonTapped:(id)sender
+//{
+////    if ([self.delegate respondsToSelector:@selector(stepViewControllerDidCancel:)] == YES) {
+////        [self.delegate stepViewControllerDidCancel:self];
+////    }
+//}
 
 @end

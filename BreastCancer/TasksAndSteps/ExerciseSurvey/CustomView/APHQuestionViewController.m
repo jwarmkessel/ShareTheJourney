@@ -109,12 +109,12 @@ static  NSString  *kExerciseSurveyStep106 = @"exercisesurvey106";
 
 #pragma mark - UINavigation Buttons
 
-- (void)cancelButtonTapped:(id)sender
-{
-//    if ([self.delegate respondsToSelector:@selector(stepViewControllerDidCancel:)] == YES) {
-//        [self.delegate stepViewControllerDidCancel:self];
-//    }
-}
+//- (void)cancelButtonTapped:(id)sender
+//{
+////    if ([self.delegate respondsToSelector:@selector(stepViewControllerDidCancel:)] == YES) {
+////        [self.delegate stepViewControllerDidCancel:self];
+////    }
+//}
 
 #pragma  mark  -  View Controller Methods
 
@@ -149,7 +149,7 @@ static  NSString  *kExerciseSurveyStep106 = @"exercisesurvey106";
     [self.view setBackgroundColor:[UIColor appSecondaryColor4]];
     
     [self.doneButton setTitleColor:[UIColor lightGrayColor] forState:UIControlStateDisabled];
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(cancelButtonTapped:)];
+//    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(cancelButtonTapped:)];
     
     self.scriptorium.text = @"";
     self.navigator.topItem.title = @"";

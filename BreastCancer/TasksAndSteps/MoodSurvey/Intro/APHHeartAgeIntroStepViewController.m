@@ -17,7 +17,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(cancelButtonTapped:)];
+//    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(cancelButtonTapped:)];
     
     UIColor *viewBackgroundColor = [UIColor appSecondaryColor4];
     
@@ -39,14 +39,14 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void)cancelButtonTapped:(id)sender
-{
-//    if (self.delegate != nil) {
-//        if ([self.delegate respondsToSelector:@selector(stepViewControllerDidCancel:)] == YES) {
-//            [self.delegate stepViewControllerDidCancel:self];
-//        }
-//    }
-}
+//- (void)cancelButtonTapped:(id)sender
+//{
+////    if (self.delegate != nil) {
+////        if ([self.delegate respondsToSelector:@selector(stepViewControllerDidCancel:)] == YES) {
+////            [self.delegate stepViewControllerDidCancel:self];
+////        }
+////    }
+//}
 
 - (IBAction)getStartedWasTapped:(id)sender
 {

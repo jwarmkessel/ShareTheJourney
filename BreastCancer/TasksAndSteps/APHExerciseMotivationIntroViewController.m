@@ -48,7 +48,7 @@
     [self.nextButton setEnabled:NO];
     [self.nextButton setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
     
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(cancelButtonTapped:)];
+//    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(cancelButtonTapped:)];
     
     NSArray *buttons = @[self.exerciseEveryDayLabel,
                          self.exerciseThreeTimesAWeekLabel,
@@ -149,12 +149,12 @@
 
 #pragma mark - UINavigation Buttons
 
-- (void)cancelButtonTapped:(id)sender
-{
-//    if ([self.delegate respondsToSelector:@selector(stepViewControllerDidCancel:)] == YES) {
-//        [self.delegate stepViewControllerDidCancel:self];
-//    }
-}
+//- (void)cancelButtonTapped:(id)sender
+//{
+////    if ([self.delegate respondsToSelector:@selector(stepViewControllerDidCancel:)] == YES) {
+////        [self.delegate stepViewControllerDidCancel:self];
+////    }
+//}
 
 - (IBAction)nextButtonTapped:(id)sender {
     [self.nextButton setEnabled:NO];

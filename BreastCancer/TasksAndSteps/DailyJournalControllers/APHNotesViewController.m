@@ -180,12 +180,12 @@ static  NSUInteger  kThresholdForLimitWarning   = 140;
 
 #pragma mark - UINavigation Buttons
 
-- (void)cancelButtonTapped:(id)sender
-{
-//    if ([self.delegate respondsToSelector:@selector(stepViewControllerDidCancel:)] == YES) {
-//        [self.delegate stepViewControllerDidCancel:self];
-//    }
-}
+//- (void)cancelButtonTapped:(id)sender
+//{
+////    if ([self.delegate respondsToSelector:@selector(stepViewControllerDidCancel:)] == YES) {
+////        [self.delegate stepViewControllerDidCancel:self];
+////    }
+//}
 
 #pragma  mark  -  View Controller Methods
 
@@ -217,7 +217,7 @@ static  NSUInteger  kThresholdForLimitWarning   = 140;
     
     [self.doneButton setUserInteractionEnabled:NO];
     
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(cancelButtonTapped:)];
+//    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(cancelButtonTapped:)];
     
     self.scriptorium.text = @"";
     self.scriptorium.userInteractionEnabled = NO;
