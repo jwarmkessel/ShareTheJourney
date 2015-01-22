@@ -57,6 +57,10 @@
 
 - (RKSTStepResult *)result {
     
+    if (!self.cachedResult) {
+        self.cachedResult = [[RKSTStepResult alloc] initWithIdentifier:self.step.identifier];
+    }
+    
     return self.cachedResult;
 }
 

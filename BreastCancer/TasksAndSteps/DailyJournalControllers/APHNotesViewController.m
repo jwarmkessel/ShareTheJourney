@@ -275,18 +275,16 @@ static  NSUInteger  kThresholdForLimitWarning   = 140;
     
     [self.scriptorium resignFirstResponder];
     
+#warning the modifications histories are not being stored in results
     [self.noteContentModel setObject:self.scriptorium.text forKey:APHMoodLogNoteTextKey];
     [self.noteChangesModel setObject:self.noteModifications forKey:APHMoodLogNoteModificationsKey];
     
-    NSError *changesError = nil;
-    NSError *contentError = nil;
-    APCDataResult *contentModel = [[APCDataResult alloc] initWithIdentifier:@"content"];
-    APCDataResult *changesModel = [[APCDataResult alloc] initWithIdentifier:@"changes"];
-        
-    contentModel.data = [NSJSONSerialization dataWithJSONObject:self.noteContentModel options:0 error:&contentError];
-    changesModel.data = [NSJSONSerialization dataWithJSONObject:self.noteChangesModel options:0 error:&changesError];
+
+    RKSTTextQuestionResult *content = [[RKSTTextQuestionResult alloc] initWithIdentifier:self.step.identifier];
     
-    NSArray *resultsArray = @[contentModel, changesModel];
+    content.textAnswer = (NSString *)self.scriptorium.text;
+
+    NSArray *resultsArray = @[content];
     
     self.cachedResult = [[RKSTStepResult alloc] initWithStepIdentifier:self.step.identifier results:resultsArray];
     
@@ -297,7 +295,11 @@ static  NSUInteger  kThresholdForLimitWarning   = 140;
     }}
 
 - (RKSTStepResult *)result {
-
+    
+    if (!self.cachedResult) {
+        self.cachedResult = [[RKSTStepResult alloc] initWithIdentifier:self.step.identifier];
+    }
+    
     return self.cachedResult;
 }
 

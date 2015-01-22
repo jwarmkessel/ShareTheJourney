@@ -121,7 +121,6 @@ static NSString *kMoodLogNoteText = @"APHMoodLogNoteText";
 
 - (void)taskViewController:(RKSTTaskViewController *)taskViewController stepViewControllerWillAppear:(RKSTStepViewController *)stepViewController {
 
-    
     if (kDailyJournalStep101 == stepViewController.step.identifier) {
         taskViewController.navigationBar.topItem.title = NSLocalizedString(@"Daily Journal", @"Daily Journal");
     } else if (kDailyJournalStep102 == stepViewController.step.identifier) {
@@ -137,24 +136,18 @@ static NSString *kMoodLogNoteText = @"APHMoodLogNoteText";
         taskViewController.navigationBar.topItem.title = NSLocalizedString(@"Daily Journal", @"Daily Journal");
 
         RKSTStepResult *stepResult = [taskViewController.result stepResultForStepIdentifier:@"DailyJournalStep102"];
-        APCDataResult *contentResult = (APCDataResult *)[stepResult resultForIdentifier:@"content"];
+        RKSTTextQuestionResult *contentResult = (RKSTTextQuestionResult *)[stepResult.results lastObject];
         
-        NSError* error;
-        NSDictionary* stepResultJson = [NSJSONSerialization JSONObjectWithData:contentResult.data
-                                                                       options:kNilOptions
-                                                                         error:&error];
-    
         APHLogSubmissionViewController *logSubmissionStepVC = (APHLogSubmissionViewController *) stepViewController;
-        logSubmissionStepVC.textView.text = stepResultJson[kMoodLogNoteText];
+        logSubmissionStepVC.textView.text = contentResult.textAnswer;
         
-        //Result of the text content
-        self.contentDictionary = stepResultJson;
 
-        
+        //Result of the text content
+        self.contentDictionary = @{kMoodLogNoteText : contentResult.textAnswer};
+
     } else if (kDailyJournalStep104 == stepViewController.step.identifier) {
         taskViewController.navigationBar.topItem.title = NSLocalizedString(@"Activity Complete", @"Activity Complete");
     }
-    
 }
 
 - (void)taskViewController:(RKSTTaskViewController *)taskViewController didChangeResult:(RKSTTaskResult *)result {
@@ -164,14 +157,9 @@ static NSString *kMoodLogNoteText = @"APHMoodLogNoteText";
         RKSTStepResult *stepResult = [taskViewController.result stepResultForStepIdentifier:kDailyJournalStep102];
 
         if (stepResult) {
-            APCDataResult *contentResult = (APCDataResult *)[stepResult resultForIdentifier:@"content"];
-            NSError* error;
-            NSDictionary* stepResultJson = [NSJSONSerialization JSONObjectWithData:contentResult.data
-                                                                           options:kNilOptions
-                                                                             error:&error];
-            NSLog(@"%@", [[NSString alloc] initWithData:contentResult.data encoding:NSUTF8StringEncoding]);
+            RKSTTextQuestionResult *contentResult = (RKSTTextQuestionResult *)[stepResult.results lastObject];
 
-            self.previousCachedAnswerString = stepResultJson[kMoodLogNoteText];
+            self.previousCachedAnswerString = contentResult.textAnswer;
         }
     }
 }

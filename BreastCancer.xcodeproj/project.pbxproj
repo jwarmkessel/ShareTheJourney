@@ -309,33 +309,65 @@
 			name = Intro;
 			sourceTree = "<group>";
 		};
-		CF2697DA19EC3E0D00525E19 /* Daily Journal Controllers */ = {
+		7BD1D3D61A70CF3500D6A377 /* Intro */ = {
 			isa = PBXGroup;
 			children = (
-				7BFD56761A24FAF0001210A2 /* APHDisplayLogHistoryViewController.h */,
-				7BFD56771A24FAF0001210A2 /* APHDisplayLogHistoryViewController.m */,
-				7BFD56781A24FAF0001210A2 /* APHDisplayLogHistoryViewController.xib */,
-				CF15F2491A11616500D87570 /* APHDailyJournalTaskViewController.h */,
-				CF15F24A1A11616500D87570 /* APHDailyJournalTaskViewController.m */,
-				CF15F24C1A116A5A00D87570 /* APHDailyJournalIntroViewController.h */,
-				CF15F24D1A116A5A00D87570 /* APHDailyJournalIntroViewController.m */,
-				CF15F24E1A116A5A00D87570 /* APHDailyJournalIntroViewController.xib */,
 				CF2697DB19EC3E4200525E19 /* APHContentsViewController.h */,
 				CF2697DC19EC3E4200525E19 /* APHContentsViewController.m */,
 				CF5FAB4119F95C8F0006CA71 /* APHContentsViewController.xib */,
 				CF5FAB4219F95C8F0006CA71 /* APHNotesContentsTableViewCell.xib */,
-				CF2697E119EC3E4200525E19 /* APHNotesContentsTableViewCell.h */,
-				CF2697E219EC3E4200525E19 /* APHNotesContentsTableViewCell.m */,
+				7BFD56761A24FAF0001210A2 /* APHDisplayLogHistoryViewController.h */,
+				7BFD56771A24FAF0001210A2 /* APHDisplayLogHistoryViewController.m */,
+				7BFD56781A24FAF0001210A2 /* APHDisplayLogHistoryViewController.xib */,
+				CF15F24C1A116A5A00D87570 /* APHDailyJournalIntroViewController.h */,
+				CF15F24D1A116A5A00D87570 /* APHDailyJournalIntroViewController.m */,
+				CF15F24E1A116A5A00D87570 /* APHDailyJournalIntroViewController.xib */,
+			);
+			name = Intro;
+			sourceTree = "<group>";
+		};
+		7BD1D3D71A70CF3C00D6A377 /* Steps */ = {
+			isa = PBXGroup;
+			children = (
 				CF2697E319EC3E4200525E19 /* APHNotesViewController.h */,
 				CF2697E419EC3E4200525E19 /* APHNotesViewController.m */,
 				CF2697E519EC3E4200525E19 /* APHNotesViewController.xib */,
+			);
+			name = Steps;
+			sourceTree = "<group>";
+		};
+		7BD1D3D81A70CF4A00D6A377 /* Components */ = {
+			isa = PBXGroup;
+			children = (
 				CF2697DD19EC3E4200525E19 /* APHCustomTextView.h */,
 				CF2697DE19EC3E4200525E19 /* APHCustomTextView.m */,
 				CF2697DF19EC3E4200525E19 /* APHMoodLogDictionaryKeys.h */,
 				CF2697E019EC3E4200525E19 /* APHMoodLogDictionaryKeys.m */,
+			);
+			name = Components;
+			sourceTree = "<group>";
+		};
+		7BD1D3D91A70CFDB00D6A377 /* Summary */ = {
+			isa = PBXGroup;
+			children = (
 				7B8D703B1A1C4B13003A7A5B /* APHLogSubmissionViewController.h */,
 				7B8D703C1A1C4B13003A7A5B /* APHLogSubmissionViewController.m */,
 				7B8D703D1A1C4B13003A7A5B /* APHLogSubmissionViewController.xib */,
+			);
+			name = Summary;
+			sourceTree = "<group>";
+		};
+		CF2697DA19EC3E0D00525E19 /* Daily Journal Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				CF15F2491A11616500D87570 /* APHDailyJournalTaskViewController.h */,
+				CF15F24A1A11616500D87570 /* APHDailyJournalTaskViewController.m */,
+				7BD1D3D91A70CFDB00D6A377 /* Summary */,
+				7BD1D3D81A70CF4A00D6A377 /* Components */,
+				7BD1D3D71A70CF3C00D6A377 /* Steps */,
+				7BD1D3D61A70CF3500D6A377 /* Intro */,
+				CF2697E119EC3E4200525E19 /* APHNotesContentsTableViewCell.h */,
+				CF2697E219EC3E4200525E19 /* APHNotesContentsTableViewCell.m */,
 			);
 			name = "Daily Journal Controllers";
 			sourceTree = "<group>";
