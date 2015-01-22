@@ -32,6 +32,14 @@
 
 @implementation APHExerciseMotivationIntroViewController
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -153,15 +161,13 @@
     self.dict = [NSMutableDictionary new];
     [self.dict setObject:self.selectedGoal forKey:@"result"];
 
-    APCDataResult *contentModel = [[APCDataResult alloc] initWithIdentifier:self.step.identifier];
+    RKSTTextQuestionResult *content = [[RKSTTextQuestionResult alloc] initWithIdentifier:self.step.identifier];
+    
+    content.textAnswer = (NSString *)[self.dict objectForKey:@"result"];
+    
+    NSArray *resultsArray = @[content];
 
-    NSError *error = nil;
-    NSData  *exerciseMotivationAnswers = [NSJSONSerialization dataWithJSONObject:self.dict options:0 error:&error];
-
-    contentModel.data = exerciseMotivationAnswers;
-
-    NSArray *resultsArray = @[contentModel];
-
+    
     self.cachedResult = [[RKSTStepResult alloc] initWithStepIdentifier:self.step.identifier results:resultsArray];
 
     [self.delegate stepViewControllerResultDidChange:self];
@@ -172,6 +178,10 @@
 }
 
 - (RKSTStepResult *)result {
+    
+    if (!self.cachedResult) {
+        self.cachedResult = [[RKSTStepResult alloc] initWithIdentifier:self.step.identifier];
+    }
     
     return self.cachedResult;
 }

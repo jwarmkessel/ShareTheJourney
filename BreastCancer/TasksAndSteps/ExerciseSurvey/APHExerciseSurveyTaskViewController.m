@@ -56,16 +56,9 @@ static NSString *kWalkTenThousandSteps = @"Walk 10,000 steps at least 3 times pe
     NSArray *arrayOfResults = self.result.results;
     
     for (RKSTStepResult *stepResult in arrayOfResults) {
-        if (stepResult.results.firstObject) {
-            APCDataResult *questionResult = stepResult.results.firstObject;
-            NSData *resultData = questionResult.data;
-            
-            NSError *error = nil;
-            NSDictionary *result = [NSJSONSerialization JSONObjectWithData:resultData
-                                                     options:NSJSONReadingAllowFragments
-                                                       error:&error];
-        
-            NSString *answer = [result objectForKey:@"result"];
+        if ([stepResult.results lastObject]) {
+            RKSTTextQuestionResult *questionResult = (RKSTTextQuestionResult*)[stepResult.results lastObject];
+            NSString *answer = questionResult.textAnswer;
 
             if (answer != nil) {
                 resultCollectionDictionary[stepResult.identifier] = answer;
@@ -398,22 +391,23 @@ static NSString *kWalkTenThousandSteps = @"Walk 10,000 steps at least 3 times pe
     
 }
 
-- (void)taskViewController:(RKSTTaskViewController *)taskViewController didChangeResult:(RKSTTaskResult *)result {
+
+- (void)stepViewControllerResultDidChange:(RKSTStepViewController *)stepViewController {
     NSLog(@"TaskVC didChangeResult");
     
     if (![self.currentStepViewController.step.identifier isEqualToString:kExerciseSurveyStep108]) {
         
-        RKSTStepResult *stepResult = [result stepResultForStepIdentifier:self.currentStepViewController.step.identifier];
         
-        APCDataResult *contentResult = (APCDataResult *)[stepResult resultForIdentifier:self.currentStepViewController.step.identifier];
+        RKSTStepResult *stepResult = (RKSTStepResult *) stepViewController.result;
+        RKSTTextQuestionResult *contentResult = (RKSTTextQuestionResult *)[stepResult.results lastObject];
+//
+//        NSError* error;
+//        NSDictionary* stepResultJson = [NSJSONSerialization JSONObjectWithData:contentResult.data
+//                                                                       options:kNilOptions
+//                                                                         error:&error];
+//        NSLog(@"%@", [[NSString alloc] initWithData:contentResult.data encoding:NSUTF8StringEncoding]);
         
-        NSError* error;
-        NSDictionary* stepResultJson = [NSJSONSerialization JSONObjectWithData:contentResult.data
-                                                                       options:kNilOptions
-                                                                         error:&error];
-        NSLog(@"%@", [[NSString alloc] initWithData:contentResult.data encoding:NSUTF8StringEncoding]);
-        
-        self.previousCachedAnswer[self.currentStepViewController.step.identifier] = stepResultJson[@"result"];
+        self.previousCachedAnswer[self.currentStepViewController.step.identifier] = contentResult.textAnswer;
     }
 }
 
@@ -428,14 +422,8 @@ static NSString *kWalkTenThousandSteps = @"Walk 10,000 steps at least 3 times pe
 /*********************************************************************************/
 - (NSString *)extractResult:(RKSTStepResult *)result withIdentifier:(NSString *)identifier {
     
-    APCDataResult *contentResult = (APCDataResult *)[result resultForIdentifier:identifier];
+    RKSTTextQuestionResult *contentResult = (RKSTTextQuestionResult *)[result.results lastObject];
     
-    NSError* error;
-    NSDictionary* stepResultJson = [NSJSONSerialization JSONObjectWithData:contentResult.data
-                                                         options:kNilOptions
-                                                           error:&error];
-    NSLog(@"%@", [[NSString alloc] initWithData:contentResult.data encoding:NSUTF8StringEncoding]);
-    
-    return [stepResultJson valueForKey:@"result"];
+    return contentResult.textAnswer;
 }
 @end

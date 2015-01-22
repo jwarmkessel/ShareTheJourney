@@ -9,7 +9,7 @@
 #import "APHExerciseSummaryContainerTableViewController.h"
 
 @interface APHExerciseMotivationSummaryViewController ()
-
+@property (nonatomic, strong) RKSTStepResult *cachedResult;
 @property (nonatomic, strong) APHExerciseSummaryContainerTableViewController *childViewController;
 @end
 
@@ -20,7 +20,7 @@
     
     [self.view setBackgroundColor:[UIColor appSecondaryColor4]];
     
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(doneButtonTapped:)];
+//    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(doneButtonTapped:)];
     
     if ([self.step.identifier isEqualToString:@"exercisesurvey107"]) {
         
@@ -39,8 +39,10 @@
 }
 
 - (IBAction)changeExerciseGoalAction:(id)sender {
+    
+    
     if ([self.delegate respondsToSelector:@selector(stepViewController:didFinishWithNavigationDirection:)] == YES) {
-        [self.delegate stepViewController:self didFinishWithNavigationDirection:RKSTStepViewControllerNavigationDirectionForward];
+        [self.delegate stepViewController:(RKSTStepViewController *)self didFinishWithNavigationDirection:RKSTStepViewControllerNavigationDirectionForward];
     }
 }
 
@@ -73,5 +75,11 @@
     }
 }
 
+- (RKSTStepResult *)result {
+    
+    self.cachedResult = [[RKSTStepResult alloc] initWithIdentifier:self.step.identifier];
+    
+    return self.cachedResult;
+}
 
 @end

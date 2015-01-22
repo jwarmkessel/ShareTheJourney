@@ -179,18 +179,24 @@ static  NSString  *kExerciseSurveyStep106 = @"exercisesurvey106";
     self.noteContentModel = [NSMutableDictionary new];
     
     [self.noteContentModel setObject:self.scriptorium.text forKey:@"result"];
-    
-    APCDataResult *contentModel = [[APCDataResult alloc] initWithIdentifier:self.step.identifier];
 
-    NSError *error = nil;
+    RKSTTextQuestionResult *content = [[RKSTTextQuestionResult alloc] initWithIdentifier:self.step.identifier];
     
-    contentModel.data = [NSJSONSerialization dataWithJSONObject:self.noteContentModel options:0 error:&error];
+    content.textAnswer = (NSString *)[self.noteContentModel objectForKey:@"result"];
     
-    if (error) {
-        APCLogError2(error);
-    }
+    NSArray *resultsArray = @[content];
     
-    NSArray *resultsArray = @[contentModel];
+//    APCDataResult *contentModel = [[APCDataResult alloc] initWithIdentifier:self.step.identifier];
+//
+//    NSError *error = nil;
+//    
+//    contentModel.data = [NSJSONSerialization dataWithJSONObject:self.noteContentModel options:0 error:&error];
+//    
+//    if (error) {
+//        APCLogError2(error);
+//    }
+//    
+//    NSArray *resultsArray = @[contentModel];
     
     self.cachedResult = [[RKSTStepResult alloc] initWithStepIdentifier:self.step.identifier results:resultsArray];
     
@@ -203,7 +209,11 @@ static  NSString  *kExerciseSurveyStep106 = @"exercisesurvey106";
 }
 
 - (RKSTStepResult *)result {
-
+    
+    if (!self.cachedResult) {
+        self.cachedResult = [[RKSTStepResult alloc] initWithIdentifier:self.step.identifier];
+    }
+    
     return self.cachedResult;
 }
 
