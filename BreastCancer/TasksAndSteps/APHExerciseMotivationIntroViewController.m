@@ -141,32 +141,21 @@
     }];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-
 #pragma mark - UINavigation Buttons
-
-//- (void)cancelButtonTapped:(id)sender
-//{
-////    if ([self.delegate respondsToSelector:@selector(stepViewControllerDidCancel:)] == YES) {
-////        [self.delegate stepViewControllerDidCancel:self];
-////    }
-//}
 
 - (IBAction)nextButtonTapped:(id)sender {
     [self.nextButton setEnabled:NO];
     self.dict = [NSMutableDictionary new];
     [self.dict setObject:self.selectedGoal forKey:@"result"];
-
-    RKSTTextQuestionResult *content = [[RKSTTextQuestionResult alloc] initWithIdentifier:self.step.identifier];
     
-    content.textAnswer = (NSString *)[self.dict objectForKey:@"result"];
+    APCDataResult *contentModel = [[APCDataResult alloc] initWithIdentifier:self.step.identifier];
     
-    NSArray *resultsArray = @[content];
-
+    NSError *error = nil;
+    NSData  *exerciseMotivationAnswers = [NSJSONSerialization dataWithJSONObject:self.dict options:0 error:&error];
+    
+    contentModel.data = exerciseMotivationAnswers;
+    
+    NSArray *resultsArray = @[contentModel];
     
     self.cachedResult = [[RKSTStepResult alloc] initWithStepIdentifier:self.step.identifier results:resultsArray];
 
