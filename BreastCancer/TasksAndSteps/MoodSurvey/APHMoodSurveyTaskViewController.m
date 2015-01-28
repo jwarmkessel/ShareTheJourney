@@ -337,140 +337,65 @@ static  NSString  *kMoodSurveyStep107 = @"moodsurvey107";
     return controller;
 }
 
-- (void)taskViewController:(RKSTTaskViewController *)taskViewController stepViewControllerWillAppear:(RKSTStepViewController *)stepViewController {
-    
-#pragma mark This used to be an RKSTQuestionStepViewController
-    
-    RKSTStepViewController *stepVC = (RKSTStepViewController *)stepViewController;
-    
-    if (stepViewController.step.identifier != kMoodSurveyStep101 && stepViewController.step.identifier != kMoodSurveyStep107) {
-    
-        /**** qqqqquse for setting custom views. **/
-        UINib *nib = [UINib nibWithNibName:@"APHMoodSurveyCustomView" bundle:nil];
-        APHMoodSurveyCustomView *restComfortablyView = [[nib instantiateWithOwner:self options:nil] objectAtIndex:0];
-
-        self.currentCustomView = restComfortablyView;
-        
-        if (self.previousCachedAnswer[stepViewController.step.identifier]) {
-            self.currentCustomView.questionChoiceLabel.text = self.previousCachedAnswer[stepViewController.step.identifier];
-        }
-        
-        [stepVC.view addSubview:restComfortablyView];
-        
-        [restComfortablyView setTranslatesAutoresizingMaskIntoConstraints:NO];
-        
-        [restComfortablyView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:[c(>=200)]" options:0 metrics:nil views:@{@"c":restComfortablyView}]];
-        
-        [stepVC.view addConstraint:[NSLayoutConstraint constraintWithItem:restComfortablyView
-                                                                attribute:NSLayoutAttributeHeight
-                                                                relatedBy:NSLayoutRelationEqual
-                                                                   toItem:stepVC.view
-                                                                attribute:NSLayoutAttributeHeight
-                                                               multiplier:0.001
-                                                                 constant:0]];
-        
-        [stepVC.view addConstraint:[NSLayoutConstraint constraintWithItem:restComfortablyView
-                                                                attribute:NSLayoutAttributeCenterY relatedBy:NSLayoutRelationEqual
-                                                                   toItem:stepViewController.view
-                                                                attribute:NSLayoutAttributeCenterY
-                                                               multiplier:1.15
-                                                                 constant:75]];
-        
-        [stepVC.view addConstraint:[NSLayoutConstraint constraintWithItem:restComfortablyView
-                                                                attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual
-                                                                   toItem:stepViewController.view
-                                                                attribute:NSLayoutAttributeWidth
-                                                               multiplier:1
-                                                                 constant:0]];
-        
-        [stepVC.view addConstraint:[NSLayoutConstraint constraintWithItem:stepVC.view
-                                                                attribute:NSLayoutAttributeCenterX
-                                                                relatedBy:NSLayoutRelationEqual
-                                                                   toItem:restComfortablyView
-                                                                attribute:NSLayoutAttributeCenterX
-                                                               multiplier:1.0
-                                                                 constant:0.0]];
-        
-        
-        [stepVC.view layoutIfNeeded];
-        
-
-    }
-}
-
-//- (void)stepViewControllerResultDidChange:(RKSTStepViewController *)stepViewController {
-//    RKSTChoiceQuestionResult *choiceResult = stepViewController.result.firstResult;
+//- (void)taskViewController:(RKSTTaskViewController *)taskViewController stepViewControllerWillAppear:(RKSTStepViewController *)stepViewController {
 //    
-//
+//#pragma mark This used to be an RKSTQuestionStepViewController
 //    
-//}
-
-//- (void)stepViewController:(RKSTStepViewController *)stepViewController didChangeResult:(RKSTStepResult*)stepResult{
-//    
-//    [super stepViewControllerResultDidChange:(RKSTStepViewController*) self];
+//    RKSTStepViewController *stepVC = (RKSTStepViewController *)stepViewController;
 //    
 //    if (stepViewController.step.identifier != kMoodSurveyStep101 && stepViewController.step.identifier != kMoodSurveyStep107) {
-//        self.currentCustomView.alpha = 0;
+//    
+//        /**** qqqqquse for setting custom views. **/
+//        UINib *nib = [UINib nibWithNibName:@"APHMoodSurveyCustomView" bundle:nil];
+//        APHMoodSurveyCustomView *moodSurveyCustomView = [[nib instantiateWithOwner:self options:nil] objectAtIndex:0];
+//
+//        self.currentCustomView = moodSurveyCustomView;
 //        
-//#pragma mark used to be RKSTQuestionResult
-//        RKSTNumericQuestionResult *questionResult = (RKSTNumericQuestionResult *) stepResult.firstResult;
-//        
-//        if (questionResult.numericAnswer != nil) {
-//         
-//            NSNumber *number = (NSNumber *) questionResult.numericAnswer;
-//            
-//            
-//            NSDictionary  *questionAnswerDictionary = @{
-//                                                        kMoodSurveyStep102 : @[@"Perfectly crisp concentration",
-//                                                                               @"No issues with concentration",
-//                                                                               @"Occasional difficulties with concentration",
-//                                                                               @"Difficulties with concentration",
-//                                                                               @"No concentration"],
-//                                                       
-//                                                        kMoodSurveyStep103 : @[@"The best I have felt",
-//                                                                               @"Better than usual",
-//                                                                               @"Normal",
-//                                                                               @"Down",
-//                                                                               @"Extremely down"],
-//                                                        
-//                                                        kMoodSurveyStep104 : @[@"Ready to take on the world",
-//                                                                               @"Filled with energy through the day",
-//                                                                               @"Energy to make it through the day",
-//                                                                               @"Basic functions",
-//                                                                               @"No energy"],
-//                                                        
-//                                                        kMoodSurveyStep105 : @[@"Eliminated all deficit sleep",
-//                                                                               @"Made up some deficit sleep",
-//                                                                               @"Almost enough sleep",
-//                                                                               @"Barely enough sleep",
-//                                                                               @"No real sleep"],
-//                                                        
-//                                                        kMoodSurveyStep106 : @[@"Activities that make you breathe hard and sweat",
-//                                                                               @"Walking",
-//                                                                               @"Standing",
-//                                                                               @"Sitting",
-//                                                                               @"Lying down"]
-//                                                        };
-//            
-//            NSArray *  questionAnswerChoices = [questionAnswerDictionary objectForKey:stepViewController.step.identifier];
-//            
-//            if (number != nil) {
-//                //NSString *stringAnswer = [NSString stringWithFormat:@"%@ (%d)", [questionAnswerChoices objectAtIndex:[number intValue]], aNum];
-//                
-////                self.currentCustomView.questionChoiceLabel.text = stringAnswer;
-////                
-////                self.previousCachedAnswer[stepViewController.step.identifier] = stringAnswer;
-////                
-////                [UIView animateWithDuration:0.3 animations:^{
-////                    self.currentCustomView.alpha = 1;
-////                }];
-//            }
-//        } else {
-//            self.previousCachedAnswer[stepViewController.step.identifier] = @"";
-//            
+//        if (self.previousCachedAnswer[stepViewController.step.identifier]) {
+//            self.currentCustomView.questionChoiceLabel.text = self.previousCachedAnswer[stepViewController.step.identifier];
 //        }
+//        
+//        [stepVC.view addSubview:moodSurveyCustomView];
+//        
+//        [moodSurveyCustomView setTranslatesAutoresizingMaskIntoConstraints:NO];
+//        
+//        [moodSurveyCustomView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:[c(>=200)]" options:0 metrics:nil views:@{@"c":moodSurveyCustomView}]];
+//        
+//        [stepVC.view addConstraint:[NSLayoutConstraint constraintWithItem:moodSurveyCustomView
+//                                                                attribute:NSLayoutAttributeHeight
+//                                                                relatedBy:NSLayoutRelationEqual
+//                                                                   toItem:stepVC.view
+//                                                                attribute:NSLayoutAttributeHeight
+//                                                               multiplier:0.001
+//                                                                 constant:0]];
+//        
+//        [stepVC.view addConstraint:[NSLayoutConstraint constraintWithItem:moodSurveyCustomView
+//                                                                attribute:NSLayoutAttributeCenterY relatedBy:NSLayoutRelationEqual
+//                                                                   toItem:stepViewController.view
+//                                                                attribute:NSLayoutAttributeCenterY
+//                                                               multiplier:1.15
+//                                                                 constant:75]];
+//        
+//        [stepVC.view addConstraint:[NSLayoutConstraint constraintWithItem:moodSurveyCustomView
+//                                                                attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual
+//                                                                   toItem:stepViewController.view
+//                                                                attribute:NSLayoutAttributeWidth
+//                                                               multiplier:1
+//                                                                 constant:0]];
+//        
+//        [stepVC.view addConstraint:[NSLayoutConstraint constraintWithItem:stepVC.view
+//                                                                attribute:NSLayoutAttributeCenterX
+//                                                                relatedBy:NSLayoutRelationEqual
+//                                                                   toItem:moodSurveyCustomView
+//                                                                attribute:NSLayoutAttributeCenterX
+//                                                               multiplier:1.0
+//                                                                 constant:0.0]];
+//        
+//        
+//        [stepVC.view layoutIfNeeded];
+//        
+//
 //    }
 //}
-
-
+//
 @end
