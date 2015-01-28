@@ -134,16 +134,20 @@ static NSString *kMoodLogNoteText = @"APHMoodLogNoteText";
         
     } else if (kDailyJournalStep103 == stepViewController.step.identifier) {
         taskViewController.navigationBar.topItem.title = NSLocalizedString(@"Daily Journal", @"Daily Journal");
-
+        
         RKSTStepResult *stepResult = [taskViewController.result stepResultForStepIdentifier:@"DailyJournalStep102"];
-        RKSTTextQuestionResult *contentResult = (RKSTTextQuestionResult *)[stepResult.results lastObject];
+        APCDataResult *contentResult = (APCDataResult *)[stepResult resultForIdentifier:@"content"];
+        
+        NSError* error;
+        NSDictionary* stepResultJson = [NSJSONSerialization JSONObjectWithData:contentResult.data
+                                                                       options:kNilOptions
+                                                                         error:&error];
         
         APHLogSubmissionViewController *logSubmissionStepVC = (APHLogSubmissionViewController *) stepViewController;
-        logSubmissionStepVC.textView.text = contentResult.textAnswer;
+        logSubmissionStepVC.textView.text = stepResultJson[kMoodLogNoteText];
         
-
         //Result of the text content
-        self.contentDictionary = @{kMoodLogNoteText : contentResult.textAnswer};
+        self.contentDictionary = stepResultJson;
 
     } else if (kDailyJournalStep104 == stepViewController.step.identifier) {
         taskViewController.navigationBar.topItem.title = NSLocalizedString(@"Activity Complete", @"Activity Complete");
@@ -155,11 +159,16 @@ static NSString *kMoodLogNoteText = @"APHMoodLogNoteText";
     
     if([self.currentStepViewController.step.identifier isEqualToString:kDailyJournalStep102]) {
         RKSTStepResult *stepResult = [taskViewController.result stepResultForStepIdentifier:kDailyJournalStep102];
-
+        
         if (stepResult) {
-            RKSTTextQuestionResult *contentResult = (RKSTTextQuestionResult *)[stepResult.results lastObject];
-
-            self.previousCachedAnswerString = contentResult.textAnswer;
+            APCDataResult *contentResult = (APCDataResult *)[stepResult resultForIdentifier:@"content"];
+            NSError* error;
+            NSDictionary* stepResultJson = [NSJSONSerialization JSONObjectWithData:contentResult.data
+                                                                           options:kNilOptions
+                                                                             error:&error];
+            NSLog(@"%@", [[NSString alloc] initWithData:contentResult.data encoding:NSUTF8StringEncoding]);
+            
+            self.previousCachedAnswerString = stepResultJson[kMoodLogNoteText];
         }
     }
 }
