@@ -131,7 +131,7 @@ static  NSString  *kMoodSurveyStep107   = @"moodsurvey107";
         
         for (int i = 0; i<[imageChoices count]; i++) {
             
-            RKSTImageChoice *answerOption = [RKSTImageChoice choiceWithNormalImage:imageChoices[i] selectedImage:selectedImageChoices[i] text:textDescriptionChoice[i] value:[NSNumber numberWithInt:i]];
+            RKSTImageChoice *answerOption = [RKSTImageChoice choiceWithNormalImage:imageChoices[i] selectedImage:selectedImageChoices[i] text:textDescriptionChoice[i] value:[APHMoodSurveyTaskViewController moodValueForIndex:i]];
             
             [answerChoices addObject:answerOption];
         }
@@ -166,7 +166,7 @@ static  NSString  *kMoodSurveyStep107   = @"moodsurvey107";
         
         for (int i = 0; i<[imageChoices count]; i++) {
             
-            RKSTImageChoice *answerOption = [RKSTImageChoice choiceWithNormalImage:imageChoices[i] selectedImage:selectedImageChoices[i] text:textDescriptionChoice[i] value:[NSNumber numberWithInt:i]];
+            RKSTImageChoice *answerOption = [RKSTImageChoice choiceWithNormalImage:imageChoices[i] selectedImage:selectedImageChoices[i] text:textDescriptionChoice[i] value:[APHMoodSurveyTaskViewController moodValueForIndex:i]];
             
             [answerChoices addObject:answerOption];
         }
@@ -200,7 +200,7 @@ static  NSString  *kMoodSurveyStep107   = @"moodsurvey107";
         
         for (int i = 0; i<[imageChoices count]; i++) {
             
-            RKSTImageChoice *answerOption = [RKSTImageChoice choiceWithNormalImage:imageChoices[i] selectedImage:selectedImageChoices[i] text:textDescriptionChoice[i] value:[NSNumber numberWithInt:3]];
+            RKSTImageChoice *answerOption = [RKSTImageChoice choiceWithNormalImage:imageChoices[i] selectedImage:selectedImageChoices[i] text:textDescriptionChoice[i] value:[APHMoodSurveyTaskViewController moodValueForIndex:i]];
             
             [answerChoices addObject:answerOption];
         }
@@ -234,7 +234,7 @@ static  NSString  *kMoodSurveyStep107   = @"moodsurvey107";
         
         for (int i = 0; i<[imageChoices count]; i++) {
             
-            RKSTImageChoice *answerOption = [RKSTImageChoice choiceWithNormalImage:imageChoices[i] selectedImage:selectedImageChoices[i] text:textDescriptionChoice[i] value:[NSNumber numberWithInt:2]];
+            RKSTImageChoice *answerOption = [RKSTImageChoice choiceWithNormalImage:imageChoices[i] selectedImage:selectedImageChoices[i] text:textDescriptionChoice[i] value:[APHMoodSurveyTaskViewController moodValueForIndex:i]];
             
             [answerChoices addObject:answerOption];
         }
@@ -268,7 +268,7 @@ static  NSString  *kMoodSurveyStep107   = @"moodsurvey107";
         
         for (int i = 0; i<[imageChoices count]; i++) {
             
-            RKSTImageChoice *answerOption = [RKSTImageChoice choiceWithNormalImage:imageChoices[i] selectedImage:selectedImageChoices[i] text:textDescriptionChoice[i] value:[NSNumber numberWithInt:1]];
+            RKSTImageChoice *answerOption = [RKSTImageChoice choiceWithNormalImage:imageChoices[i] selectedImage:selectedImageChoices[i] text:textDescriptionChoice[i] value:[APHMoodSurveyTaskViewController moodValueForIndex:i]];
             
             [answerChoices addObject:answerOption];
         }
@@ -320,6 +320,34 @@ static  NSString  *kMoodSurveyStep107   = @"moodsurvey107";
     
     
     return controller;
+}
+
++ (NSNumber *) moodValueForIndex:(int)indexValue {
+
+    int aNum = 0;
+    
+    switch (indexValue) {
+        case 0:
+            aNum = 5;
+            break;
+        case 1:
+            aNum = 4;
+            break;
+            
+        case 2:
+            aNum = 3;
+            break;
+            
+        case 3:
+            aNum = 2;
+            break;
+            
+        case 4:
+            aNum = 1;
+            break;
+    }
+    
+    return @(aNum);
 }
 
 @end
