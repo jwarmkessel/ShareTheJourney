@@ -179,25 +179,19 @@ static  NSString  *kExerciseSurveyStep106 = @"exercisesurvey106";
     self.noteContentModel = [NSMutableDictionary new];
     
     [self.noteContentModel setObject:self.scriptorium.text forKey:@"result"];
-
-    RKSTTextQuestionResult *content = [[RKSTTextQuestionResult alloc] initWithIdentifier:self.step.identifier];
     
-    content.textAnswer = (NSString *)[self.noteContentModel objectForKey:@"result"];
+    APCDataResult *contentModel = [[APCDataResult alloc] initWithIdentifier:self.step.identifier];
     
-    NSArray *resultsArray = @[content];
+    NSError *error = nil;
     
-//    APCDataResult *contentModel = [[APCDataResult alloc] initWithIdentifier:self.step.identifier];
-//
-//    NSError *error = nil;
-//    
-//    contentModel.data = [NSJSONSerialization dataWithJSONObject:self.noteContentModel options:0 error:&error];
-//    
-//    if (error) {
-//        APCLogError2(error);
-//    }
-//    
-//    NSArray *resultsArray = @[contentModel];
+    contentModel.data = [NSJSONSerialization dataWithJSONObject:self.noteContentModel options:0 error:&error];
     
+    if (error) {
+        APCLogError2(error);
+    }
+    
+    NSArray *resultsArray = @[contentModel];
+        
     self.cachedResult = [[RKSTStepResult alloc] initWithStepIdentifier:self.step.identifier results:resultsArray];
     
     [self.delegate stepViewControllerResultDidChange:self];
