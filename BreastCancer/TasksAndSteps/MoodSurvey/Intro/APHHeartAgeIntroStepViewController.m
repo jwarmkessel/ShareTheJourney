@@ -6,6 +6,7 @@
 // 
  
 #import "APHHeartAgeIntroStepViewController.h"
+#import <QuartzCore/QuartzCore.h>
 
 @interface APHHeartAgeIntroStepViewController ()
 @property (weak, nonatomic) IBOutlet UIButton *getStartedButton;
@@ -16,37 +17,20 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
-//    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(cancelButtonTapped:)];
     
     UIColor *viewBackgroundColor = [UIColor appSecondaryColor4];
     
     [self.view setBackgroundColor:viewBackgroundColor];
 
-  [self.getStartedButton setBackgroundImage:[UIImage imageWithColor:[UIColor appPrimaryColor]] forState:UIControlStateNormal];
+    [self.getStartedButton setTitleColor:[UIColor appPrimaryColor] forState:UIControlStateNormal];
+    
+    CALayer *btnLayer = [self.getStartedButton layer];
+    [btnLayer setMasksToBounds:YES];
+    [btnLayer setCornerRadius:5.0f];
+    [btnLayer setBorderColor:[UIColor appPrimaryColor].CGColor];
+    [btnLayer setBorderWidth:1.0];
+    
 }
-
-- (void)viewDidLayoutSubviews {
-    [super viewDidLayoutSubviews];
-}
-
-- (void)viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:animated];
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-//- (void)cancelButtonTapped:(id)sender
-//{
-////    if (self.delegate != nil) {
-////        if ([self.delegate respondsToSelector:@selector(stepViewControllerDidCancel:)] == YES) {
-////            [self.delegate stepViewControllerDidCancel:self];
-////        }
-////    }
-//}
 
 - (IBAction)getStartedWasTapped:(id)sender
 {

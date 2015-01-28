@@ -153,6 +153,10 @@
     NSError *error = nil;
     NSData  *exerciseMotivationAnswers = [NSJSONSerialization dataWithJSONObject:self.dict options:0 error:&error];
     
+    if (error) {
+        APCLogError2(error);
+    }
+    
     contentModel.data = exerciseMotivationAnswers;
     
     NSArray *resultsArray = @[contentModel];
