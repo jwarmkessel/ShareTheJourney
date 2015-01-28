@@ -275,16 +275,18 @@ static  NSUInteger  kThresholdForLimitWarning   = 140;
     
     [self.scriptorium resignFirstResponder];
     
-#warning the modifications histories are not being stored in results
     [self.noteContentModel setObject:self.scriptorium.text forKey:APHMoodLogNoteTextKey];
     [self.noteChangesModel setObject:self.noteModifications forKey:APHMoodLogNoteModificationsKey];
     
-
-    RKSTTextQuestionResult *content = [[RKSTTextQuestionResult alloc] initWithIdentifier:self.step.identifier];
+    NSError *changesError = nil;
+    NSError *contentError = nil;
+    APCDataResult *contentModel = [[APCDataResult alloc] initWithIdentifier:@"content"];
+    APCDataResult *changesModel = [[APCDataResult alloc] initWithIdentifier:@"changes"];
     
-    content.textAnswer = (NSString *)self.scriptorium.text;
-
-    NSArray *resultsArray = @[content];
+    contentModel.data = [NSJSONSerialization dataWithJSONObject:self.noteContentModel options:0 error:&contentError];
+    changesModel.data = [NSJSONSerialization dataWithJSONObject:self.noteChangesModel options:0 error:&changesError];
+    
+    NSArray *resultsArray = @[contentModel, changesModel];
     
     self.cachedResult = [[RKSTStepResult alloc] initWithStepIdentifier:self.step.identifier results:resultsArray];
     
