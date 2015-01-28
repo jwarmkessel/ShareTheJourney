@@ -9,15 +9,15 @@
 #import "APHHeartAgeIntroStepViewController.h"
 #import "APHMoodSurveyCustomView.h"
 
-static  NSString  *MainStudyIdentifier = @"com.breastcancer.moodsurvey";
+static  NSString  *MainStudyIdentifier  = @"com.breastcancer.moodsurvey";
 
-static  NSString  *kMoodSurveyStep101 = @"moodsurvey101";
-static  NSString  *kMoodSurveyStep102 = @"moodsurvey102";
-static  NSString  *kMoodSurveyStep103 = @"moodsurvey103";
-static  NSString  *kMoodSurveyStep104 = @"moodsurvey104";
-static  NSString  *kMoodSurveyStep105 = @"moodsurvey105";
-static  NSString  *kMoodSurveyStep106 = @"moodsurvey106";
-static  NSString  *kMoodSurveyStep107 = @"moodsurvey107";
+static  NSString  *kMoodSurveyStep101   = @"moodsurvey101";
+static  NSString  *kMoodSurveyStep102   = @"moodsurvey102";
+static  NSString  *kMoodSurveyStep103   = @"moodsurvey103";
+static  NSString  *kMoodSurveyStep104   = @"moodsurvey104";
+static  NSString  *kMoodSurveyStep105   = @"moodsurvey105";
+static  NSString  *kMoodSurveyStep106   = @"moodsurvey106";
+static  NSString  *kMoodSurveyStep107   = @"moodsurvey107";
 
 
 @interface APHMoodSurveyTaskViewController ()
@@ -33,20 +33,6 @@ static  NSString  *kMoodSurveyStep107 = @"moodsurvey107";
 #pragma  mark  -  View Controller Methods
 /*********************************************************************************/
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    // Do any additional setup after loading the view.
-    
-#pragma mark fix this
-    //[RKSTHeadlineLabel appearance].labelFont = [UIFont systemFontOfSize:20];
-    self.previousCachedAnswer = [NSMutableDictionary new];
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
 - (NSString *)createResultSummary {
     
     NSMutableDictionary *resultCollectionDictionary = [NSMutableDictionary new];
@@ -56,7 +42,6 @@ static  NSString  *kMoodSurveyStep107 = @"moodsurvey107";
         if (stepResult.results.firstObject) {
             RKSTChoiceQuestionResult *questionResult = stepResult.results.firstObject;
             
-#pragma mark this used to be RKSTQuestionResult.answer
             if (questionResult.choiceAnswers != nil) {
                 resultCollectionDictionary[stepResult.identifier] = questionResult.choiceAnswers;
             }
@@ -146,7 +131,7 @@ static  NSString  *kMoodSurveyStep107 = @"moodsurvey107";
         
         for (int i = 0; i<[imageChoices count]; i++) {
             
-            RKSTImageChoice *answerOption = [RKSTImageChoice choiceWithNormalImage:imageChoices[i] selectedImage:selectedImageChoices[i] text:textDescriptionChoice[i] value:[NSNumber numberWithInt:5]];
+            RKSTImageChoice *answerOption = [RKSTImageChoice choiceWithNormalImage:imageChoices[i] selectedImage:selectedImageChoices[i] text:textDescriptionChoice[i] value:[NSNumber numberWithInt:i]];
             
             [answerChoices addObject:answerOption];
         }
@@ -181,7 +166,7 @@ static  NSString  *kMoodSurveyStep107 = @"moodsurvey107";
         
         for (int i = 0; i<[imageChoices count]; i++) {
             
-            RKSTImageChoice *answerOption = [RKSTImageChoice choiceWithNormalImage:imageChoices[i] selectedImage:selectedImageChoices[i] text:textDescriptionChoice[i] value:[NSNumber numberWithInt:4]];
+            RKSTImageChoice *answerOption = [RKSTImageChoice choiceWithNormalImage:imageChoices[i] selectedImage:selectedImageChoices[i] text:textDescriptionChoice[i] value:[NSNumber numberWithInt:i]];
             
             [answerChoices addObject:answerOption];
         }
@@ -337,65 +322,4 @@ static  NSString  *kMoodSurveyStep107 = @"moodsurvey107";
     return controller;
 }
 
-//- (void)taskViewController:(RKSTTaskViewController *)taskViewController stepViewControllerWillAppear:(RKSTStepViewController *)stepViewController {
-//    
-//#pragma mark This used to be an RKSTQuestionStepViewController
-//    
-//    RKSTStepViewController *stepVC = (RKSTStepViewController *)stepViewController;
-//    
-//    if (stepViewController.step.identifier != kMoodSurveyStep101 && stepViewController.step.identifier != kMoodSurveyStep107) {
-//    
-//        /**** qqqqquse for setting custom views. **/
-//        UINib *nib = [UINib nibWithNibName:@"APHMoodSurveyCustomView" bundle:nil];
-//        APHMoodSurveyCustomView *moodSurveyCustomView = [[nib instantiateWithOwner:self options:nil] objectAtIndex:0];
-//
-//        self.currentCustomView = moodSurveyCustomView;
-//        
-//        if (self.previousCachedAnswer[stepViewController.step.identifier]) {
-//            self.currentCustomView.questionChoiceLabel.text = self.previousCachedAnswer[stepViewController.step.identifier];
-//        }
-//        
-//        [stepVC.view addSubview:moodSurveyCustomView];
-//        
-//        [moodSurveyCustomView setTranslatesAutoresizingMaskIntoConstraints:NO];
-//        
-//        [moodSurveyCustomView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:[c(>=200)]" options:0 metrics:nil views:@{@"c":moodSurveyCustomView}]];
-//        
-//        [stepVC.view addConstraint:[NSLayoutConstraint constraintWithItem:moodSurveyCustomView
-//                                                                attribute:NSLayoutAttributeHeight
-//                                                                relatedBy:NSLayoutRelationEqual
-//                                                                   toItem:stepVC.view
-//                                                                attribute:NSLayoutAttributeHeight
-//                                                               multiplier:0.001
-//                                                                 constant:0]];
-//        
-//        [stepVC.view addConstraint:[NSLayoutConstraint constraintWithItem:moodSurveyCustomView
-//                                                                attribute:NSLayoutAttributeCenterY relatedBy:NSLayoutRelationEqual
-//                                                                   toItem:stepViewController.view
-//                                                                attribute:NSLayoutAttributeCenterY
-//                                                               multiplier:1.15
-//                                                                 constant:75]];
-//        
-//        [stepVC.view addConstraint:[NSLayoutConstraint constraintWithItem:moodSurveyCustomView
-//                                                                attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual
-//                                                                   toItem:stepViewController.view
-//                                                                attribute:NSLayoutAttributeWidth
-//                                                               multiplier:1
-//                                                                 constant:0]];
-//        
-//        [stepVC.view addConstraint:[NSLayoutConstraint constraintWithItem:stepVC.view
-//                                                                attribute:NSLayoutAttributeCenterX
-//                                                                relatedBy:NSLayoutRelationEqual
-//                                                                   toItem:moodSurveyCustomView
-//                                                                attribute:NSLayoutAttributeCenterX
-//                                                               multiplier:1.0
-//                                                                 constant:0.0]];
-//        
-//        
-//        [stepVC.view layoutIfNeeded];
-//        
-//
-//    }
-//}
-//
 @end
