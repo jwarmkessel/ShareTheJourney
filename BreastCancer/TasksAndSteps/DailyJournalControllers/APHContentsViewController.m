@@ -12,10 +12,14 @@
 #import "APHNotesContentsTableViewCell.h"
 #import "APHDisplayLogHistoryViewController.h"
 
-static  NSString  *kNotesContentStoragePath = @"DailyMoodLogsContent.json";
-static  NSString  *kNotesChangesStoragePath = @"DailyMoodLogsChanges.json";
+static  NSString* const         kNotesContentStoragePath = @"DailyMoodLogsContent.json";
+static  NSString* const         kNotesChangesStoragePath = @"DailyMoodLogsChanges.json";
 
-static  NSString  *kContentsTableViewCellIdentifier = @"APHNotesContentsTableViewCell";
+static  NSString* const kContentsTableViewCellIdentifier = @"APHNotesContentsTableViewCell";
+
+#warning Placeholder text.
+static NSString* kDailyJournalInstructions = @"This is some placeholder text that must be replaced.";
+static NSString* kNoTaskText = @"You have no entries";
 
 typedef  enum  _DailyLogType
 {
@@ -25,15 +29,14 @@ typedef  enum  _DailyLogType
 
 @interface APHContentsViewController  ( )  <UITableViewDataSource, UITableViewDelegate>
 
-@property  (nonatomic, weak)  IBOutlet  UITableView     *tabulator;
-@property  (nonatomic, weak)  IBOutlet  UIButton        *enterDailyLog;
+@property  (nonatomic, weak)    IBOutlet     UITableView*   tabulator;
+@property  (nonatomic, weak)    IBOutlet        UIButton*   enterDailyLog;
 
-@property  (nonatomic, strong)          NSMutableArray  *contentObjects;
-@property  (nonatomic, strong)          NSMutableArray  *changesObjects;
-
-@property (nonatomic, strong) NSArray *logHistory;
-
-@property (nonatomic, strong) RKSTStepResult *cachedResult;
+@property  (nonatomic, strong)            NSMutableArray*   contentObjects;
+@property  (nonatomic, strong)            NSMutableArray*   changesObjects;
+@property  (nonatomic, strong)                   NSArray*   logHistory;
+@property  (nonatomic, strong)            RKSTStepResult*   cachedResult;
+@property  (nonatomic, strong)                   UILabel*   noTasksView;
 @end
 
 @implementation APHContentsViewController
@@ -136,13 +139,6 @@ typedef  enum  _DailyLogType
     if ([self.delegate respondsToSelector:@selector(stepViewController:didFinishWithNavigationDirection:)] == YES) {
         [self.delegate stepViewController:self didFinishWithNavigationDirection:RKSTStepViewControllerNavigationDirectionForward];
     }
-
-//TODO left here because we may reuse this here.
-//    APHNotesViewController  *stenographer = [[APHNotesViewController alloc] initWithNibName:nil bundle:nil];
-//    
-//    stenographer.delegate = self;
-//
-//    [self presentViewController:stenographer animated:YES completion:^{ }];
 }
 
 /*********************************************************************************/
@@ -179,7 +175,36 @@ typedef  enum  _DailyLogType
     NSDate  *date = model.createdAt;
     cell.noteDate.text = [formatter stringFromDate:date];
     
+    // Remove seperator inset
+    if ([cell respondsToSelector:@selector(setSeparatorInset:)]) {
+        [cell setSeparatorInset:UIEdgeInsetsZero];
+    }
+    
+    // Prevent the cell from inheriting the Table View's margin settings
+    if ([cell respondsToSelector:@selector(setPreservesSuperviewLayoutMargins:)]) {
+        [cell setPreservesSuperviewLayoutMargins:NO];
+    }
+    
+    // Explictly set your cell's layout margins
+    if ([cell respondsToSelector:@selector(setLayoutMargins:)]) {
+        [cell setLayoutMargins:UIEdgeInsetsZero];
+    }
+    
     return  cell;
+}
+
+-(void)viewDidLayoutSubviews
+{
+    [super viewDidLayoutSubviews];
+    
+    // Force your tableview margins (this may be a bad idea)
+    if ([self.tabulator respondsToSelector:@selector(setSeparatorInset:)]) {
+        [self.tabulator setSeparatorInset:UIEdgeInsetsZero];
+    }
+    
+    if ([self.tabulator respondsToSelector:@selector(setLayoutMargins:)]) {
+        [self.tabulator setLayoutMargins:UIEdgeInsetsZero];
+    }
 }
 
 /*********************************************************************************/
@@ -230,42 +255,55 @@ typedef  enum  _DailyLogType
     
     self.logHistory = [appDelegate.dataSubstrate.mainContext executeFetchRequest:request error:&error];
     
+    if (self.logHistory.count == 0) {
+        [self addCustomNoTaskView];
+    } else {
+        if (self.noTasksView) {
+            [self.noTasksView removeFromSuperview];
+            
+            [self.tabulator setSeparatorStyle:UITableViewCellSeparatorStyleSingleLine];
+        }
+    }
+    
     if (error) {
         APCLogError2(error);
     }
     
-    [self.enterDailyLog setBackgroundImage:[UIImage imageWithColor:[UIColor appPrimaryColor]] forState:UIControlStateNormal];
+
     
     [self.tabulator registerNib:[UINib nibWithNibName:@"APHNotesContentsTableViewCell"
                                                    bundle:[NSBundle mainBundle]] forCellReuseIdentifier:(NSString *)kContentsTableViewCellIdentifier];
     
-    
-    //
-    //    NSDictionary  *modelsDictionary = [self fetchDataModelsForType:DailyLogTypeNotesContent];
-    //    if (modelsDictionary == nil) {
-    //        self.contentObjects = [NSMutableArray array];
-    //        self.changesObjects = [NSMutableArray array];
-    //    } else {
-    //        NSArray  *contentModels = modelsDictionary[@"items"];
-    //        self.contentObjects = [contentModels mutableCopy];
-    //        NSArray  *changesModels = modelsDictionary[@"items"];
-    //        self.changesObjects = [changesModels mutableCopy];
-    //    }
-    //
-//    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(cancelButtonTapped:)];
 
 }
 
-//- (void)cancelButtonTapped:(id)sender
-//{
-////    if ([self.delegate respondsToSelector:@selector(stepViewControllerDidCancel:)] == YES) {
-////        [self.delegate stepViewControllerDidCancel:self];
-////    }
-//}
+- (void) addCustomNoTaskView {
+    self.noTasksView = [[UILabel alloc] initWithFrame:CGRectMake(0.0, 0.0, 200.0, 22.0)];
+    
+    self.noTasksView.text = kNoTaskText;
+    self.noTasksView.textColor = [UIColor lightGrayColor];
+    self.noTasksView.center = CGPointMake([UIScreen mainScreen].bounds.size.width / 2, self.tabulator.frame.size.height / 2);
+    self.noTasksView.textAlignment = NSTextAlignmentCenter;
+    [self.tabulator addSubview:self.noTasksView];
+    
+    [self.tabulator setSeparatorStyle:UITableViewCellSeparatorStyleNone];
+}
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    
+    UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0.0, 0.0, [UIScreen mainScreen].bounds.size.width, 100.0)];
+    [headerView setBackgroundColor:[UIColor appSecondaryColor4]];
+    
+    UILabel *instructions = [[UILabel alloc] initWithFrame:CGRectMake(20.0, 0.0, [UIScreen mainScreen].bounds.size.width - 40, 90.0)];
+
+    instructions.text = kDailyJournalInstructions;
+    instructions.numberOfLines = 0;
+    instructions.lineBreakMode = NSLineBreakByWordWrapping;
+    instructions.textColor = [UIColor darkGrayColor];
+    [instructions setTextAlignment:NSTextAlignmentJustified];
+    [headerView addSubview:instructions];
+    
+    return headerView;
 }
 
 - (RKSTStepResult *)result {
