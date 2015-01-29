@@ -196,6 +196,7 @@ static  NSUInteger  kThresholdForLimitWarning   = 140;
     
     if (self.scriptorium.text.length > 0) {
         [self.doneButton setUserInteractionEnabled:YES];
+        [self.doneButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
         [self countWords:self.scriptorium.text];
         NSUInteger  count = [self countWords:self.scriptorium.text];
         [self displayWordCount:count];
