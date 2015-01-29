@@ -109,12 +109,12 @@ static  NSString  *kExerciseSurveyStep106 = @"exercisesurvey106";
 
 #pragma mark - UINavigation Buttons
 
-- (void)cancelButtonTapped:(id)sender
-{
-    if ([self.delegate respondsToSelector:@selector(stepViewControllerDidCancel:)] == YES) {
-        [self.delegate stepViewControllerDidCancel:self];
-    }
-}
+//- (void)cancelButtonTapped:(id)sender
+//{
+////    if ([self.delegate respondsToSelector:@selector(stepViewControllerDidCancel:)] == YES) {
+////        [self.delegate stepViewControllerDidCancel:self];
+////    }
+//}
 
 #pragma  mark  -  View Controller Methods
 
@@ -149,7 +149,7 @@ static  NSString  *kExerciseSurveyStep106 = @"exercisesurvey106";
     [self.view setBackgroundColor:[UIColor appSecondaryColor4]];
     
     [self.doneButton setTitleColor:[UIColor lightGrayColor] forState:UIControlStateDisabled];
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(cancelButtonTapped:)];
+//    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(cancelButtonTapped:)];
     
     self.scriptorium.text = @"";
     self.navigator.topItem.title = @"";
@@ -180,8 +180,8 @@ static  NSString  *kExerciseSurveyStep106 = @"exercisesurvey106";
     
     [self.noteContentModel setObject:self.scriptorium.text forKey:@"result"];
     
-    RKSTDataResult *contentModel = [[RKSTDataResult alloc] initWithIdentifier:self.step.identifier];
-
+    APCDataResult *contentModel = [[APCDataResult alloc] initWithIdentifier:self.step.identifier];
+    
     NSError *error = nil;
     
     contentModel.data = [NSJSONSerialization dataWithJSONObject:self.noteContentModel options:0 error:&error];
@@ -191,20 +191,23 @@ static  NSString  *kExerciseSurveyStep106 = @"exercisesurvey106";
     }
     
     NSArray *resultsArray = @[contentModel];
-    
+        
     self.cachedResult = [[RKSTStepResult alloc] initWithStepIdentifier:self.step.identifier results:resultsArray];
     
-    [self.delegate stepViewController:self didChangeResult:self.cachedResult];
-    
+    [self.delegate stepViewControllerResultDidChange:self];
 
-    if ([self.delegate respondsToSelector:@selector(stepViewControllerDidFinish:navigationDirection:)] == YES) {
-        [self.delegate stepViewControllerDidFinish:self navigationDirection:RKSTStepViewControllerNavigationDirectionForward];
+    if ([self.delegate respondsToSelector:@selector(stepViewController:didFinishWithNavigationDirection:)] == YES) {
+        [self.delegate stepViewController:self didFinishWithNavigationDirection:RKSTStepViewControllerNavigationDirectionForward];
     }
 
 }
 
 - (RKSTStepResult *)result {
-
+    
+    if (!self.cachedResult) {
+        self.cachedResult = [[RKSTStepResult alloc] initWithIdentifier:self.step.identifier];
+    }
+    
     return self.cachedResult;
 }
 
