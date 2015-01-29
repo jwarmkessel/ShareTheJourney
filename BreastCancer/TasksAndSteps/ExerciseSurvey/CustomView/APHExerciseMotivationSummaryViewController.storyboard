@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14A388a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -20,20 +20,6 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="banner_10ksteps" translatesAutoresizingMaskIntoConstraints="NO" id="smp-ho-m8Z">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="64"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2zd-8s-xMT">
-                                <rect key="frame" x="0.0" y="607" width="414" height="65"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="65" id="2fu-Nz-2fn"/>
-                                </constraints>
-                                <state key="normal" title="Change your exercise goal">
-                                    <color key="titleColor" red="0.93725490199999995" green="0.0039215686269999999" blue="0.55294117649999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="changeExerciseGoalAction:" destination="tzF-LL-DDj" eventType="touchUpInside" id="QPI-hH-PeU"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your Exercise Goal and Motivations" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zMu-0m-xnE">
                                 <rect key="frame" x="0.0" y="72" width="414" height="21"/>
                                 <constraints>
@@ -44,7 +30,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="x8Q-Ov-Dzu">
-                                <rect key="frame" x="0.0" y="104" width="414" height="484"/>
+                                <rect key="frame" x="0.0" y="104" width="414" height="568"/>
                                 <connections>
                                     <segue destination="wZf-XE-yjl" kind="embed" identifier="APHExerciseSummaryContainerTableViewControllerSegue" id="e52-Mn-T1P"/>
                                 </connections>
@@ -52,26 +38,21 @@
                         </subviews>
                         <color key="backgroundColor" red="0.96470588235294119" green="0.96470588235294119" blue="0.96470588235294119" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="2zd-8s-xMT" firstAttribute="leading" secondItem="cDg-uK-iKW" secondAttribute="leading" id="3pA-K7-VqA"/>
+                            <constraint firstItem="1Hy-FY-0Un" firstAttribute="top" secondItem="x8Q-Ov-Dzu" secondAttribute="bottom" id="0mH-YN-uBm"/>
                             <constraint firstItem="zMu-0m-xnE" firstAttribute="top" secondItem="smp-ho-m8Z" secondAttribute="bottom" constant="8" id="7QG-tp-e8s"/>
                             <constraint firstItem="zMu-0m-xnE" firstAttribute="leading" secondItem="cDg-uK-iKW" secondAttribute="leadingMargin" constant="-16" id="8ar-yO-DNB"/>
                             <constraint firstAttribute="trailingMargin" secondItem="zMu-0m-xnE" secondAttribute="trailing" constant="-16" id="C04-GS-IQK"/>
-                            <constraint firstItem="2zd-8s-xMT" firstAttribute="top" secondItem="x8Q-Ov-Dzu" secondAttribute="bottom" constant="19" id="DI2-jV-t5y"/>
                             <constraint firstAttribute="trailing" secondItem="smp-ho-m8Z" secondAttribute="trailing" id="IL8-Td-geO"/>
                             <constraint firstAttribute="trailing" secondItem="x8Q-Ov-Dzu" secondAttribute="trailing" id="S7E-gf-zmy"/>
                             <constraint firstItem="smp-ho-m8Z" firstAttribute="leading" secondItem="cDg-uK-iKW" secondAttribute="leading" id="Wc3-pn-bUP"/>
                             <constraint firstItem="x8Q-Ov-Dzu" firstAttribute="top" secondItem="zMu-0m-xnE" secondAttribute="bottom" constant="11" id="aUB-7W-AqL"/>
-                            <constraint firstAttribute="trailing" secondItem="2zd-8s-xMT" secondAttribute="trailing" id="iQa-S2-YZg"/>
                             <constraint firstItem="smp-ho-m8Z" firstAttribute="top" secondItem="0jX-Zg-4wV" secondAttribute="bottom" id="iZE-9S-IdB"/>
                             <constraint firstItem="x8Q-Ov-Dzu" firstAttribute="leading" secondItem="cDg-uK-iKW" secondAttribute="leading" id="rQK-sF-kYF"/>
-                            <constraint firstItem="1Hy-FY-0Un" firstAttribute="top" secondItem="2zd-8s-xMT" secondAttribute="bottom" id="uUm-ED-R8y"/>
                         </constraints>
                     </view>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                     <connections>
-                        <outlet property="changeExerciseGoalButton" destination="2zd-8s-xMT" id="3Vd-pW-MgU"/>
-                        <outlet property="changeYourExeriseGoalHeightConstant" destination="2fu-Nz-2fn" id="fMB-Yh-fZb"/>
                         <outlet property="titleImageView" destination="smp-ho-m8Z" id="cNX-rk-4MC"/>
                     </connections>
                 </viewController>
@@ -84,7 +65,7 @@
             <objects>
                 <tableViewController id="wZf-XE-yjl" customClass="APHExerciseSummaryContainerTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="dIP-df-Xgl">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="484"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.96470588235294119" green="0.96470588235294119" blue="0.96470588235294119" alpha="1" colorSpace="calibratedRGB"/>
                         <sections>
@@ -374,6 +355,42 @@
                                             </variation>
                                         </tableViewCellContentView>
                                     </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="90" id="Pse-bn-x0X">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Pse-bn-x0X" id="ZrK-3e-vfB">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tgn-zG-XKD" customClass="APCButton">
+                                                    <rect key="frame" x="134" y="8" width="146" height="44"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="44" id="GTe-Ek-VFw"/>
+                                                        <constraint firstAttribute="width" constant="146" id="wkf-zj-CEA"/>
+                                                    </constraints>
+                                                    <state key="normal" title="Change your goal">
+                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="changeYourGoalHandler:" destination="wZf-XE-yjl" eventType="touchUpInside" id="EnV-MD-tjK"/>
+                                                    </connections>
+                                                </button>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YXD-Hz-HPk">
+                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="1"/>
+                                                    <color key="backgroundColor" red="0.97254901959999995" green="0.97254901959999995" blue="0.97254901959999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="1" id="V8L-bw-E3c"/>
+                                                    </constraints>
+                                                </view>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="centerY" secondItem="Tgn-zG-XKD" secondAttribute="centerY" constant="15" id="3x7-cd-9m6"/>
+                                                <constraint firstItem="YXD-Hz-HPk" firstAttribute="top" secondItem="ZrK-3e-vfB" secondAttribute="topMargin" constant="-8" id="45S-Vh-z6u"/>
+                                                <constraint firstItem="YXD-Hz-HPk" firstAttribute="leading" secondItem="ZrK-3e-vfB" secondAttribute="leadingMargin" constant="-8" id="79C-Bc-LGp"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="YXD-Hz-HPk" secondAttribute="trailing" constant="-8" id="Bba-rg-xam"/>
+                                                <constraint firstAttribute="centerX" secondItem="Tgn-zG-XKD" secondAttribute="centerX" id="uDQ-hh-CUj"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
                                 </cells>
                             </tableViewSection>
                         </sections>
@@ -388,11 +405,12 @@
                         <outlet property="answer3Label" destination="sAS-tx-v06" id="02z-Qa-c7r"/>
                         <outlet property="answer4Label" destination="z2b-Ob-11f" id="qS8-Ji-2Fz"/>
                         <outlet property="answer5Label" destination="LNm-4Y-LLd" id="1WF-9f-Rlc"/>
+                        <outlet property="changeYourGoalButton" destination="Tgn-zG-XKD" id="yNr-97-rvc"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LkO-wC-dpS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1035" y="340.5"/>
+            <point key="canvasLocation" x="1035" y="340"/>
         </scene>
     </scenes>
     <resources>

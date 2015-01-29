@@ -15,9 +15,7 @@
 @property (weak, nonatomic)  NSString *questionResult5;
 
 @property (weak, nonatomic) IBOutlet UIImageView *titleImageView;
-@property (weak, nonatomic) IBOutlet UIButton *changeExerciseGoalButton;
-
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *changeYourExeriseGoalHeightConstant;
+- (void)changeExerciseGoalAction;
 - (void) setAnswersInTableview:(NSMutableArray*)answers;
-- (IBAction)changeExerciseGoalAction:(id)sender;
+
 @end

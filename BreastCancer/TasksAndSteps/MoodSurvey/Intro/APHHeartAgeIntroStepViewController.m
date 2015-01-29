@@ -20,16 +20,7 @@
     
     UIColor *viewBackgroundColor = [UIColor appSecondaryColor4];
     
-    [self.view setBackgroundColor:viewBackgroundColor];
-
-    [self.getStartedButton setTitleColor:[UIColor appPrimaryColor] forState:UIControlStateNormal];
-    
-    CALayer *btnLayer = [self.getStartedButton layer];
-    [btnLayer setMasksToBounds:YES];
-    [btnLayer setCornerRadius:5.0f];
-    [btnLayer setBorderColor:[UIColor appPrimaryColor].CGColor];
-    [btnLayer setBorderWidth:1.0];
-    
+    [self.view setBackgroundColor:viewBackgroundColor];    
 }
 
 - (IBAction)getStartedWasTapped:(id)sender
