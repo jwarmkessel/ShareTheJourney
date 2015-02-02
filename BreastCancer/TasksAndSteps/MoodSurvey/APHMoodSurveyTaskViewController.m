@@ -135,7 +135,7 @@ static  NSString  *kMoodSurveyStep107   = @"moodsurvey107";
             [answerChoices addObject:answerOption];
         }
         
-        RKSTImageChoiceAnswerFormat *format = [[RKSTImageChoiceAnswerFormat alloc] initWithStyle:RKChoiceAnswerStyleSingleChoice imageChoices:answerChoices];
+        RKSTImageChoiceAnswerFormat *format = [[RKSTImageChoiceAnswerFormat alloc] initWithImageChoices:answerChoices];
         
         RKSTQuestionStep *step = [RKSTQuestionStep questionStepWithIdentifier:kMoodSurveyStep102
                                                                         title:@"How were you feeling cognitively throughout the day?"
@@ -170,7 +170,7 @@ static  NSString  *kMoodSurveyStep107   = @"moodsurvey107";
             [answerChoices addObject:answerOption];
         }
         
-        RKSTImageChoiceAnswerFormat *format = [[RKSTImageChoiceAnswerFormat alloc] initWithStyle:RKChoiceAnswerStyleSingleChoice imageChoices:answerChoices];
+        RKSTImageChoiceAnswerFormat *format = [[RKSTImageChoiceAnswerFormat alloc] initWithImageChoices:answerChoices];
         
         RKSTQuestionStep *step = [RKSTQuestionStep questionStepWithIdentifier:kMoodSurveyStep103
                                                                         title:@"What is your overall mood so far today?"
@@ -204,7 +204,7 @@ static  NSString  *kMoodSurveyStep107   = @"moodsurvey107";
             [answerChoices addObject:answerOption];
         }
         
-        RKSTImageChoiceAnswerFormat *format = [[RKSTImageChoiceAnswerFormat alloc] initWithStyle:RKChoiceAnswerStyleSingleChoice imageChoices:answerChoices];
+        RKSTImageChoiceAnswerFormat *format = [[RKSTImageChoiceAnswerFormat alloc] initWithImageChoices:answerChoices];
         
         RKSTQuestionStep *step = [RKSTQuestionStep questionStepWithIdentifier:kMoodSurveyStep104
                                                                         title:@"What is your energy level like so far today?"
@@ -238,7 +238,7 @@ static  NSString  *kMoodSurveyStep107   = @"moodsurvey107";
             [answerChoices addObject:answerOption];
         }
         
-        RKSTImageChoiceAnswerFormat *format = [[RKSTImageChoiceAnswerFormat alloc] initWithStyle:RKChoiceAnswerStyleSingleChoice imageChoices:answerChoices];
+        RKSTImageChoiceAnswerFormat *format = [[RKSTImageChoiceAnswerFormat alloc] initWithImageChoices:answerChoices];
         
         RKSTQuestionStep *step = [RKSTQuestionStep questionStepWithIdentifier:kMoodSurveyStep105
                                                                         title:@"Did you get enough quality sleep last night?"
@@ -272,7 +272,7 @@ static  NSString  *kMoodSurveyStep107   = @"moodsurvey107";
             [answerChoices addObject:answerOption];
         }
         
-        RKSTImageChoiceAnswerFormat *format = [[RKSTImageChoiceAnswerFormat alloc] initWithStyle:RKChoiceAnswerStyleSingleChoice imageChoices:answerChoices];
+        RKSTImageChoiceAnswerFormat *format = [[RKSTImageChoiceAnswerFormat alloc] initWithImageChoices:answerChoices];
         RKSTQuestionStep *step = [RKSTQuestionStep questionStepWithIdentifier:kMoodSurveyStep106
                                                                         title:@"What level exercise are you getting today?"
                                                                        answer:format];

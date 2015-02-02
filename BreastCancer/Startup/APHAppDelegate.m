@@ -94,25 +94,11 @@ static NSString *const kVideoShownKey = @"VideoShown";
 /*********************************************************************************/
 -(void)setUpCollectors
 {
-//    NSError *error = nil;
-//    {
-//        HKQuantityType *quantityType = (HKQuantityType*)[HKObjectType quantityTypeForIdentifier:HKQuantityTypeIdentifierStepCount];
-//        RKSTHealthCollector *healthCollector = [self.dataSubstrate.study addHealthCollectorWithSampleType:quantityType unit:[HKUnit countUnit] startDate:nil error:&error];
-//        if (!healthCollector)
-//        {
-//            APCLogError2(error);
-//            [self.dataSubstrate.studyStore removeStudy:self.dataSubstrate.study error:nil];
-//            goto errReturn;
-//        }
-//        
-//    }
-    
     self.dataSubstrate.passiveLocationTracking = [[APCPassiveLocationTracking alloc]
                                                   initWithDeferredUpdatesTimeout:kPassiveLocationDeferredUpdatesTimeout
                                                   andHomeLocationStatus:APCPassiveLocationTrackingHomeLocationUnavailable];
     [self.dataSubstrate.passiveLocationTracking start];
     
-//errReturn:
     return;
     
 }
