@@ -18,7 +18,7 @@ static  NSString* const         kNotesChangesStoragePath = @"DailyMoodLogsChange
 static  NSString* const kContentsTableViewCellIdentifier = @"APHNotesContentsTableViewCell";
 
 #warning Placeholder text.
-static NSString* kDailyJournalInstructions = @"This is some placeholder text that must be replaced.";
+static NSString* kDailyJournalInstructions = @"Keeping a daily journal will help you stay focused and motivated.";
 static NSString* kNoTaskText = @"You have no entries";
 
 typedef  enum  _DailyLogType
