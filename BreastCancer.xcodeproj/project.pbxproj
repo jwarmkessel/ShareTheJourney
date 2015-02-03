@@ -21,19 +21,32 @@
 		7B5E25CB1A2045BB00A04FEF /* APHMoodSurveyTaskViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B5E25CA1A2045BB00A04FEF /* APHMoodSurveyTaskViewController.m */; };
 		7B5E25D01A20592400A04FEF /* APHHeartAgeIntroStepViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B5E25CE1A20592400A04FEF /* APHHeartAgeIntroStepViewController.m */; };
 		7B5E25D11A20592400A04FEF /* APHHeartAgeIntroStepViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7B5E25CF1A20592400A04FEF /* APHHeartAgeIntroStepViewController.xib */; };
-		7B5E25D51A211BCA00A04FEF /* APHMoodSurveyCustomView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B5E25D41A211BCA00A04FEF /* APHMoodSurveyCustomView.m */; };
-		7B5E25D71A211BD500A04FEF /* APHMoodSurveyCustomView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7B5E25D61A211BD500A04FEF /* APHMoodSurveyCustomView.xib */; };
 		7B79530E1A22884500AA8039 /* APHExerciseSurveyTaskViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B7953091A22884500AA8039 /* APHExerciseSurveyTaskViewController.m */; };
 		7B7953141A2288D600AA8039 /* APHQuestionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B7953121A2288D600AA8039 /* APHQuestionViewController.m */; };
 		7B7953151A2288D600AA8039 /* APHQuestionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7B7953131A2288D600AA8039 /* APHQuestionViewController.xib */; };
 		7B8B67D71A6701B10021606D /* breastcancer-staging.pem in Resources */ = {isa = PBXBuildFile; fileRef = 7B8B67D51A6701B10021606D /* breastcancer-staging.pem */; };
 		7B8B67D81A6701B10021606D /* breastcancer.pem in Resources */ = {isa = PBXBuildFile; fileRef = 7B8B67D61A6701B10021606D /* breastcancer.pem */; };
+		7B8B67DD1A6711BE0021606D /* APHExerciseMotivationSummaryViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7B8B67DC1A6711BE0021606D /* APHExerciseMotivationSummaryViewController.storyboard */; };
+		7B8B67E11A671DDC0021606D /* APHExerciseSummaryContainerTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B8B67E01A671DDC0021606D /* APHExerciseSummaryContainerTableViewController.m */; };
 		7B8D703E1A1C4B13003A7A5B /* APHLogSubmissionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B8D703C1A1C4B13003A7A5B /* APHLogSubmissionViewController.m */; };
 		7B8D703F1A1C4B13003A7A5B /* APHLogSubmissionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7B8D703D1A1C4B13003A7A5B /* APHLogSubmissionViewController.xib */; };
 		7BA3AC101A23DDBC0017B3C8 /* APHExerciseMotivationIntroViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BA3AC0E1A23DDBC0017B3C8 /* APHExerciseMotivationIntroViewController.m */; };
 		7BA3AC111A23DDBC0017B3C8 /* APHExerciseMotivationIntroViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7BA3AC0F1A23DDBC0017B3C8 /* APHExerciseMotivationIntroViewController.xib */; };
 		7BA3AC161A2407D00017B3C8 /* APHExerciseMotivationSummaryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BA3AC141A2407D00017B3C8 /* APHExerciseMotivationSummaryViewController.m */; };
-		7BA3AC171A2407D00017B3C8 /* APHExerciseMotivationSummaryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7BA3AC151A2407D00017B3C8 /* APHExerciseMotivationSummaryViewController.xib */; };
+		7BAC9A4F1A78284D00125592 /* consent_01@2x.m4v in Resources */ = {isa = PBXBuildFile; fileRef = 7BAC9A401A78284D00125592 /* consent_01@2x.m4v */; };
+		7BAC9A501A78284D00125592 /* consent_02@2x.m4v in Resources */ = {isa = PBXBuildFile; fileRef = 7BAC9A411A78284D00125592 /* consent_02@2x.m4v */; };
+		7BAC9A511A78284D00125592 /* consent_03@2x.m4v in Resources */ = {isa = PBXBuildFile; fileRef = 7BAC9A421A78284D00125592 /* consent_03@2x.m4v */; };
+		7BAC9A521A78284D00125592 /* consent_04@2x.m4v in Resources */ = {isa = PBXBuildFile; fileRef = 7BAC9A431A78284D00125592 /* consent_04@2x.m4v */; };
+		7BAC9A531A78284D00125592 /* consent_05@2x.m4v in Resources */ = {isa = PBXBuildFile; fileRef = 7BAC9A441A78284D00125592 /* consent_05@2x.m4v */; };
+		7BAC9A541A78284D00125592 /* consent_06@2x.m4v in Resources */ = {isa = PBXBuildFile; fileRef = 7BAC9A451A78284D00125592 /* consent_06@2x.m4v */; };
+		7BAC9A551A78284D00125592 /* consent_07@2x.m4v in Resources */ = {isa = PBXBuildFile; fileRef = 7BAC9A461A78284D00125592 /* consent_07@2x.m4v */; };
+		7BAC9A561A78284D00125592 /* consent_01@3x.m4v in Resources */ = {isa = PBXBuildFile; fileRef = 7BAC9A481A78284D00125592 /* consent_01@3x.m4v */; };
+		7BAC9A571A78284D00125592 /* consent_02@3x.m4v in Resources */ = {isa = PBXBuildFile; fileRef = 7BAC9A491A78284D00125592 /* consent_02@3x.m4v */; };
+		7BAC9A581A78284D00125592 /* consent_03@3x.m4v in Resources */ = {isa = PBXBuildFile; fileRef = 7BAC9A4A1A78284D00125592 /* consent_03@3x.m4v */; };
+		7BAC9A591A78284D00125592 /* consent_04@3x.m4v in Resources */ = {isa = PBXBuildFile; fileRef = 7BAC9A4B1A78284D00125592 /* consent_04@3x.m4v */; };
+		7BAC9A5A1A78284D00125592 /* consent_05@3x.m4v in Resources */ = {isa = PBXBuildFile; fileRef = 7BAC9A4C1A78284D00125592 /* consent_05@3x.m4v */; };
+		7BAC9A5B1A78284D00125592 /* consent_06@3x.m4v in Resources */ = {isa = PBXBuildFile; fileRef = 7BAC9A4D1A78284D00125592 /* consent_06@3x.m4v */; };
+		7BAC9A5C1A78284D00125592 /* consent_07@3x.m4v in Resources */ = {isa = PBXBuildFile; fileRef = 7BAC9A4E1A78284D00125592 /* consent_07@3x.m4v */; };
 		7BFD56791A24FAF0001210A2 /* APHDisplayLogHistoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BFD56771A24FAF0001210A2 /* APHDisplayLogHistoryViewController.m */; };
 		7BFD567A1A24FAF0001210A2 /* APHDisplayLogHistoryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7BFD56781A24FAF0001210A2 /* APHDisplayLogHistoryViewController.xib */; };
 		CF15F24B1A11616500D87570 /* APHDailyJournalTaskViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CF15F24A1A11616500D87570 /* APHDailyJournalTaskViewController.m */; };
@@ -127,9 +140,6 @@
 		7B5E25CD1A20592400A04FEF /* APHHeartAgeIntroStepViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = APHHeartAgeIntroStepViewController.h; path = MoodSurvey/Intro/APHHeartAgeIntroStepViewController.h; sourceTree = "<group>"; };
 		7B5E25CE1A20592400A04FEF /* APHHeartAgeIntroStepViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = APHHeartAgeIntroStepViewController.m; path = MoodSurvey/Intro/APHHeartAgeIntroStepViewController.m; sourceTree = "<group>"; };
 		7B5E25CF1A20592400A04FEF /* APHHeartAgeIntroStepViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = APHHeartAgeIntroStepViewController.xib; path = MoodSurvey/Intro/APHHeartAgeIntroStepViewController.xib; sourceTree = "<group>"; };
-		7B5E25D31A211BCA00A04FEF /* APHMoodSurveyCustomView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APHMoodSurveyCustomView.h; sourceTree = "<group>"; };
-		7B5E25D41A211BCA00A04FEF /* APHMoodSurveyCustomView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APHMoodSurveyCustomView.m; sourceTree = "<group>"; };
-		7B5E25D61A211BD500A04FEF /* APHMoodSurveyCustomView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = APHMoodSurveyCustomView.xib; sourceTree = "<group>"; };
 		7B7953081A22884500AA8039 /* APHExerciseSurveyTaskViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = APHExerciseSurveyTaskViewController.h; path = ExerciseSurvey/APHExerciseSurveyTaskViewController.h; sourceTree = "<group>"; };
 		7B7953091A22884500AA8039 /* APHExerciseSurveyTaskViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = APHExerciseSurveyTaskViewController.m; path = ExerciseSurvey/APHExerciseSurveyTaskViewController.m; sourceTree = "<group>"; };
 		7B7953111A2288D600AA8039 /* APHQuestionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APHQuestionViewController.h; sourceTree = "<group>"; };
@@ -137,6 +147,9 @@
 		7B7953131A2288D600AA8039 /* APHQuestionViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = APHQuestionViewController.xib; sourceTree = "<group>"; };
 		7B8B67D51A6701B10021606D /* breastcancer-staging.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "breastcancer-staging.pem"; sourceTree = "<group>"; };
 		7B8B67D61A6701B10021606D /* breastcancer.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = breastcancer.pem; sourceTree = "<group>"; };
+		7B8B67DC1A6711BE0021606D /* APHExerciseMotivationSummaryViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = APHExerciseMotivationSummaryViewController.storyboard; sourceTree = "<group>"; };
+		7B8B67DF1A671DDC0021606D /* APHExerciseSummaryContainerTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APHExerciseSummaryContainerTableViewController.h; sourceTree = "<group>"; };
+		7B8B67E01A671DDC0021606D /* APHExerciseSummaryContainerTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APHExerciseSummaryContainerTableViewController.m; sourceTree = "<group>"; };
 		7B8D703B1A1C4B13003A7A5B /* APHLogSubmissionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APHLogSubmissionViewController.h; sourceTree = "<group>"; };
 		7B8D703C1A1C4B13003A7A5B /* APHLogSubmissionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APHLogSubmissionViewController.m; sourceTree = "<group>"; };
 		7B8D703D1A1C4B13003A7A5B /* APHLogSubmissionViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = APHLogSubmissionViewController.xib; sourceTree = "<group>"; };
@@ -145,7 +158,20 @@
 		7BA3AC0F1A23DDBC0017B3C8 /* APHExerciseMotivationIntroViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = APHExerciseMotivationIntroViewController.xib; sourceTree = "<group>"; };
 		7BA3AC131A2407D00017B3C8 /* APHExerciseMotivationSummaryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APHExerciseMotivationSummaryViewController.h; sourceTree = "<group>"; };
 		7BA3AC141A2407D00017B3C8 /* APHExerciseMotivationSummaryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APHExerciseMotivationSummaryViewController.m; sourceTree = "<group>"; };
-		7BA3AC151A2407D00017B3C8 /* APHExerciseMotivationSummaryViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = APHExerciseMotivationSummaryViewController.xib; sourceTree = "<group>"; };
+		7BAC9A401A78284D00125592 /* consent_01@2x.m4v */ = {isa = PBXFileReference; lastKnownFileType = file; path = "consent_01@2x.m4v"; sourceTree = "<group>"; };
+		7BAC9A411A78284D00125592 /* consent_02@2x.m4v */ = {isa = PBXFileReference; lastKnownFileType = file; path = "consent_02@2x.m4v"; sourceTree = "<group>"; };
+		7BAC9A421A78284D00125592 /* consent_03@2x.m4v */ = {isa = PBXFileReference; lastKnownFileType = file; path = "consent_03@2x.m4v"; sourceTree = "<group>"; };
+		7BAC9A431A78284D00125592 /* consent_04@2x.m4v */ = {isa = PBXFileReference; lastKnownFileType = file; path = "consent_04@2x.m4v"; sourceTree = "<group>"; };
+		7BAC9A441A78284D00125592 /* consent_05@2x.m4v */ = {isa = PBXFileReference; lastKnownFileType = file; path = "consent_05@2x.m4v"; sourceTree = "<group>"; };
+		7BAC9A451A78284D00125592 /* consent_06@2x.m4v */ = {isa = PBXFileReference; lastKnownFileType = file; path = "consent_06@2x.m4v"; sourceTree = "<group>"; };
+		7BAC9A461A78284D00125592 /* consent_07@2x.m4v */ = {isa = PBXFileReference; lastKnownFileType = file; path = "consent_07@2x.m4v"; sourceTree = "<group>"; };
+		7BAC9A481A78284D00125592 /* consent_01@3x.m4v */ = {isa = PBXFileReference; lastKnownFileType = file; path = "consent_01@3x.m4v"; sourceTree = "<group>"; };
+		7BAC9A491A78284D00125592 /* consent_02@3x.m4v */ = {isa = PBXFileReference; lastKnownFileType = file; path = "consent_02@3x.m4v"; sourceTree = "<group>"; };
+		7BAC9A4A1A78284D00125592 /* consent_03@3x.m4v */ = {isa = PBXFileReference; lastKnownFileType = file; path = "consent_03@3x.m4v"; sourceTree = "<group>"; };
+		7BAC9A4B1A78284D00125592 /* consent_04@3x.m4v */ = {isa = PBXFileReference; lastKnownFileType = file; path = "consent_04@3x.m4v"; sourceTree = "<group>"; };
+		7BAC9A4C1A78284D00125592 /* consent_05@3x.m4v */ = {isa = PBXFileReference; lastKnownFileType = file; path = "consent_05@3x.m4v"; sourceTree = "<group>"; };
+		7BAC9A4D1A78284D00125592 /* consent_06@3x.m4v */ = {isa = PBXFileReference; lastKnownFileType = file; path = "consent_06@3x.m4v"; sourceTree = "<group>"; };
+		7BAC9A4E1A78284D00125592 /* consent_07@3x.m4v */ = {isa = PBXFileReference; lastKnownFileType = file; path = "consent_07@3x.m4v"; sourceTree = "<group>"; };
 		7BFD56761A24FAF0001210A2 /* APHDisplayLogHistoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APHDisplayLogHistoryViewController.h; sourceTree = "<group>"; };
 		7BFD56771A24FAF0001210A2 /* APHDisplayLogHistoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APHDisplayLogHistoryViewController.m; sourceTree = "<group>"; };
 		7BFD56781A24FAF0001210A2 /* APHDisplayLogHistoryViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = APHDisplayLogHistoryViewController.xib; sourceTree = "<group>"; };
@@ -235,7 +261,6 @@
 				7B5E25C91A2045BB00A04FEF /* APHMoodSurveyTaskViewController.h */,
 				7B5E25CA1A2045BB00A04FEF /* APHMoodSurveyTaskViewController.m */,
 				7B5E25CC1A2058E400A04FEF /* Intro */,
-				7B5E25D21A211B8700A04FEF /* CustomView */,
 			);
 			name = "Mood Survey";
 			sourceTree = "<group>";
@@ -248,16 +273,6 @@
 				7B5E25CF1A20592400A04FEF /* APHHeartAgeIntroStepViewController.xib */,
 			);
 			name = Intro;
-			sourceTree = "<group>";
-		};
-		7B5E25D21A211B8700A04FEF /* CustomView */ = {
-			isa = PBXGroup;
-			children = (
-				7B5E25D31A211BCA00A04FEF /* APHMoodSurveyCustomView.h */,
-				7B5E25D41A211BCA00A04FEF /* APHMoodSurveyCustomView.m */,
-				7B5E25D61A211BD500A04FEF /* APHMoodSurveyCustomView.xib */,
-			);
-			name = CustomView;
 			sourceTree = "<group>";
 		};
 		7B7953031A22849300AA8039 /* ExerciseSurvey */ = {
@@ -279,7 +294,9 @@
 				7B7953131A2288D600AA8039 /* APHQuestionViewController.xib */,
 				7BA3AC131A2407D00017B3C8 /* APHExerciseMotivationSummaryViewController.h */,
 				7BA3AC141A2407D00017B3C8 /* APHExerciseMotivationSummaryViewController.m */,
-				7BA3AC151A2407D00017B3C8 /* APHExerciseMotivationSummaryViewController.xib */,
+				7B8B67DC1A6711BE0021606D /* APHExerciseMotivationSummaryViewController.storyboard */,
+				7B8B67DF1A671DDC0021606D /* APHExerciseSummaryContainerTableViewController.h */,
+				7B8B67E01A671DDC0021606D /* APHExerciseSummaryContainerTableViewController.m */,
 			);
 			name = CustomView;
 			path = ExerciseSurvey/CustomView;
@@ -304,33 +321,110 @@
 			name = Intro;
 			sourceTree = "<group>";
 		};
-		CF2697DA19EC3E0D00525E19 /* Daily Journal Controllers */ = {
+		7BAC9A3D1A78284D00125592 /* ResearchKit-Assets */ = {
 			isa = PBXGroup;
 			children = (
-				7BFD56761A24FAF0001210A2 /* APHDisplayLogHistoryViewController.h */,
-				7BFD56771A24FAF0001210A2 /* APHDisplayLogHistoryViewController.m */,
-				7BFD56781A24FAF0001210A2 /* APHDisplayLogHistoryViewController.xib */,
-				CF15F2491A11616500D87570 /* APHDailyJournalTaskViewController.h */,
-				CF15F24A1A11616500D87570 /* APHDailyJournalTaskViewController.m */,
-				CF15F24C1A116A5A00D87570 /* APHDailyJournalIntroViewController.h */,
-				CF15F24D1A116A5A00D87570 /* APHDailyJournalIntroViewController.m */,
-				CF15F24E1A116A5A00D87570 /* APHDailyJournalIntroViewController.xib */,
+				7BAC9A3E1A78284D00125592 /* Consent */,
+			);
+			path = "ResearchKit-Assets";
+			sourceTree = "<group>";
+		};
+		7BAC9A3E1A78284D00125592 /* Consent */ = {
+			isa = PBXGroup;
+			children = (
+				7BAC9A3F1A78284D00125592 /* phone@2x */,
+				7BAC9A471A78284D00125592 /* phone@3x */,
+			);
+			path = Consent;
+			sourceTree = "<group>";
+		};
+		7BAC9A3F1A78284D00125592 /* phone@2x */ = {
+			isa = PBXGroup;
+			children = (
+				7BAC9A401A78284D00125592 /* consent_01@2x.m4v */,
+				7BAC9A411A78284D00125592 /* consent_02@2x.m4v */,
+				7BAC9A421A78284D00125592 /* consent_03@2x.m4v */,
+				7BAC9A431A78284D00125592 /* consent_04@2x.m4v */,
+				7BAC9A441A78284D00125592 /* consent_05@2x.m4v */,
+				7BAC9A451A78284D00125592 /* consent_06@2x.m4v */,
+				7BAC9A461A78284D00125592 /* consent_07@2x.m4v */,
+			);
+			path = "phone@2x";
+			sourceTree = "<group>";
+		};
+		7BAC9A471A78284D00125592 /* phone@3x */ = {
+			isa = PBXGroup;
+			children = (
+				7BAC9A481A78284D00125592 /* consent_01@3x.m4v */,
+				7BAC9A491A78284D00125592 /* consent_02@3x.m4v */,
+				7BAC9A4A1A78284D00125592 /* consent_03@3x.m4v */,
+				7BAC9A4B1A78284D00125592 /* consent_04@3x.m4v */,
+				7BAC9A4C1A78284D00125592 /* consent_05@3x.m4v */,
+				7BAC9A4D1A78284D00125592 /* consent_06@3x.m4v */,
+				7BAC9A4E1A78284D00125592 /* consent_07@3x.m4v */,
+			);
+			path = "phone@3x";
+			sourceTree = "<group>";
+		};
+		7BD1D3D61A70CF3500D6A377 /* Intro */ = {
+			isa = PBXGroup;
+			children = (
 				CF2697DB19EC3E4200525E19 /* APHContentsViewController.h */,
 				CF2697DC19EC3E4200525E19 /* APHContentsViewController.m */,
 				CF5FAB4119F95C8F0006CA71 /* APHContentsViewController.xib */,
 				CF5FAB4219F95C8F0006CA71 /* APHNotesContentsTableViewCell.xib */,
-				CF2697E119EC3E4200525E19 /* APHNotesContentsTableViewCell.h */,
-				CF2697E219EC3E4200525E19 /* APHNotesContentsTableViewCell.m */,
+				7BFD56761A24FAF0001210A2 /* APHDisplayLogHistoryViewController.h */,
+				7BFD56771A24FAF0001210A2 /* APHDisplayLogHistoryViewController.m */,
+				7BFD56781A24FAF0001210A2 /* APHDisplayLogHistoryViewController.xib */,
+				CF15F24C1A116A5A00D87570 /* APHDailyJournalIntroViewController.h */,
+				CF15F24D1A116A5A00D87570 /* APHDailyJournalIntroViewController.m */,
+				CF15F24E1A116A5A00D87570 /* APHDailyJournalIntroViewController.xib */,
+			);
+			name = Intro;
+			sourceTree = "<group>";
+		};
+		7BD1D3D71A70CF3C00D6A377 /* Steps */ = {
+			isa = PBXGroup;
+			children = (
 				CF2697E319EC3E4200525E19 /* APHNotesViewController.h */,
 				CF2697E419EC3E4200525E19 /* APHNotesViewController.m */,
 				CF2697E519EC3E4200525E19 /* APHNotesViewController.xib */,
+			);
+			name = Steps;
+			sourceTree = "<group>";
+		};
+		7BD1D3D81A70CF4A00D6A377 /* Components */ = {
+			isa = PBXGroup;
+			children = (
 				CF2697DD19EC3E4200525E19 /* APHCustomTextView.h */,
 				CF2697DE19EC3E4200525E19 /* APHCustomTextView.m */,
 				CF2697DF19EC3E4200525E19 /* APHMoodLogDictionaryKeys.h */,
 				CF2697E019EC3E4200525E19 /* APHMoodLogDictionaryKeys.m */,
+			);
+			name = Components;
+			sourceTree = "<group>";
+		};
+		7BD1D3D91A70CFDB00D6A377 /* Summary */ = {
+			isa = PBXGroup;
+			children = (
 				7B8D703B1A1C4B13003A7A5B /* APHLogSubmissionViewController.h */,
 				7B8D703C1A1C4B13003A7A5B /* APHLogSubmissionViewController.m */,
 				7B8D703D1A1C4B13003A7A5B /* APHLogSubmissionViewController.xib */,
+			);
+			name = Summary;
+			sourceTree = "<group>";
+		};
+		CF2697DA19EC3E0D00525E19 /* Daily Journal Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				CF15F2491A11616500D87570 /* APHDailyJournalTaskViewController.h */,
+				CF15F24A1A11616500D87570 /* APHDailyJournalTaskViewController.m */,
+				7BD1D3D91A70CFDB00D6A377 /* Summary */,
+				7BD1D3D81A70CF4A00D6A377 /* Components */,
+				7BD1D3D71A70CF3C00D6A377 /* Steps */,
+				7BD1D3D61A70CF3500D6A377 /* Intro */,
+				CF2697E119EC3E4200525E19 /* APHNotesContentsTableViewCell.h */,
+				CF2697E219EC3E4200525E19 /* APHNotesContentsTableViewCell.m */,
 			);
 			name = "Daily Journal Controllers";
 			sourceTree = "<group>";
@@ -380,6 +474,7 @@
 		F534B5C419E4689D00C3C152 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				7BAC9A3D1A78284D00125592 /* ResearchKit-Assets */,
 				7B8B67D41A6701B10021606D /* Certificates */,
 				5BBDAEBA1A33DCDA0047DF87 /* HTMLContent */,
 				F534B5CA19E4689D00C3C152 /* JSONs */,
@@ -573,17 +668,24 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7BAC9A5B1A78284D00125592 /* consent_06@3x.m4v in Resources */,
+				7BAC9A5C1A78284D00125592 /* consent_07@3x.m4v in Resources */,
 				7BA3AC111A23DDBC0017B3C8 /* APHExerciseMotivationIntroViewController.xib in Resources */,
 				7B8B67D71A6701B10021606D /* breastcancer-staging.pem in Resources */,
 				5B15DD721A118FF900BEA0D1 /* Intro.mp4 in Resources */,
+				7BAC9A501A78284D00125592 /* consent_02@2x.m4v in Resources */,
+				7BAC9A511A78284D00125592 /* consent_03@2x.m4v in Resources */,
 				5B15DCF51A114F7000BEA0D1 /* WithdrawStudy.json in Resources */,
+				7BAC9A5A1A78284D00125592 /* consent_05@3x.m4v in Resources */,
+				7BAC9A581A78284D00125592 /* consent_03@3x.m4v in Resources */,
+				7B8B67DD1A6711BE0021606D /* APHExerciseMotivationSummaryViewController.storyboard in Resources */,
+				7BAC9A541A78284D00125592 /* consent_06@2x.m4v in Resources */,
 				5B15DD3E1A114F9000BEA0D1 /* APHOnboarding.storyboard in Resources */,
 				7B7953151A2288D600AA8039 /* APHQuestionViewController.xib in Resources */,
-				7B5E25D71A211BD500A04FEF /* APHMoodSurveyCustomView.xib in Resources */,
 				5B1D9D6C1A1BD414000F4AD6 /* APHDashboard.storyboard in Resources */,
 				CF5FAB4319F95C8F0006CA71 /* APHContentsViewController.xib in Resources */,
+				7BAC9A591A78284D00125592 /* consent_04@3x.m4v in Resources */,
 				F534B59419E4681E00C3C152 /* Images.xcassets in Resources */,
-				7BA3AC171A2407D00017B3C8 /* APHExerciseMotivationSummaryViewController.xib in Resources */,
 				F534B68E19E4689D00C3C152 /* StudyOverview.json in Resources */,
 				5BBDAEBB1A33DCDA0047DF87 /* HTMLContent in Resources */,
 				F534B68A19E4689D00C3C152 /* APCParameters.json in Resources */,
@@ -591,14 +693,20 @@
 				F534B69D19E4689D00C3C152 /* Main.storyboard in Resources */,
 				7B8B67D81A6701B10021606D /* breastcancer.pem in Resources */,
 				5B18CEDA1A2CFFD1001A905E /* TermsAndConditions.json in Resources */,
+				7BAC9A4F1A78284D00125592 /* consent_01@2x.m4v in Resources */,
 				CF5FAB4419F95C8F0006CA71 /* APHNotesContentsTableViewCell.xib in Resources */,
 				5B15DCF41A114F7000BEA0D1 /* Learn.json in Resources */,
+				7BAC9A571A78284D00125592 /* consent_02@3x.m4v in Resources */,
+				7BAC9A521A78284D00125592 /* consent_04@2x.m4v in Resources */,
 				F534B68D19E4689D00C3C152 /* sleepSurvey.json in Resources */,
 				CF15F2501A116A5A00D87570 /* APHDailyJournalIntroViewController.xib in Resources */,
 				7BFD567A1A24FAF0001210A2 /* APHDisplayLogHistoryViewController.xib in Resources */,
 				7B8D703F1A1C4B13003A7A5B /* APHLogSubmissionViewController.xib in Resources */,
 				CF2697EB19EC3E4200525E19 /* APHNotesViewController.xib in Resources */,
 				7B5E25D11A20592400A04FEF /* APHHeartAgeIntroStepViewController.xib in Resources */,
+				7BAC9A561A78284D00125592 /* consent_01@3x.m4v in Resources */,
+				7BAC9A531A78284D00125592 /* consent_05@2x.m4v in Resources */,
+				7BAC9A551A78284D00125592 /* consent_07@2x.m4v in Resources */,
 				F534B69C19E4689D00C3C152 /* LaunchScreen.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -630,6 +738,7 @@
 				7BA3AC161A2407D00017B3C8 /* APHExerciseMotivationSummaryViewController.m in Sources */,
 				7B5E25CB1A2045BB00A04FEF /* APHMoodSurveyTaskViewController.m in Sources */,
 				5B15DD3B1A114F9000BEA0D1 /* APHInclusionCriteriaViewController.m in Sources */,
+				7B8B67E11A671DDC0021606D /* APHExerciseSummaryContainerTableViewController.m in Sources */,
 				F53F27A11A2D30D600A1D725 /* APHScoring.m in Sources */,
 				CF2697E619EC3E4200525E19 /* APHContentsViewController.m in Sources */,
 				CF15F24F1A116A5A00D87570 /* APHDailyJournalIntroViewController.m in Sources */,
@@ -647,7 +756,6 @@
 				7B7953141A2288D600AA8039 /* APHQuestionViewController.m in Sources */,
 				7BA3AC101A23DDBC0017B3C8 /* APHExerciseMotivationIntroViewController.m in Sources */,
 				7B79530E1A22884500AA8039 /* APHExerciseSurveyTaskViewController.m in Sources */,
-				7B5E25D51A211BCA00A04FEF /* APHMoodSurveyCustomView.m in Sources */,
 				5B1D9D6D1A1BD414000F4AD6 /* APHDashboardEditViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -663,6 +771,67 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		3632ABA81A7E91E000F276A8 /* DebugAndSendToDataVerificationServer */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = DebugAndSendToDataVerificationServer;
+		};
+		3632ABA91A7E91E000F276A8 /* DebugAndSendToDataVerificationServer */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = BreastCancer/BreastCancer.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/AppCore/APCAppCore/**",
+				);
+				INFOPLIST_FILE = BreastCancer/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+			};
+			name = DebugAndSendToDataVerificationServer;
+		};
 		F534B5A419E4681E00C3C152 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -851,6 +1020,7 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				F534B5A419E4681E00C3C152 /* Debug */,
+				3632ABA81A7E91E000F276A8 /* DebugAndSendToDataVerificationServer */,
 				F58767FB19E4A57400254897 /* Development */,
 				F534B5A519E4681E00C3C152 /* Release */,
 			);
@@ -861,6 +1031,7 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				F534B5A719E4681E00C3C152 /* Debug */,
+				3632ABA91A7E91E000F276A8 /* DebugAndSendToDataVerificationServer */,
 				F58767FC19E4A57400254897 /* Development */,
 				F534B5A819E4681E00C3C152 /* Release */,
 			);

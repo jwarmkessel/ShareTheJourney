@@ -32,6 +32,14 @@
 
 @implementation APHExerciseMotivationIntroViewController
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -40,7 +48,7 @@
     [self.nextButton setEnabled:NO];
     [self.nextButton setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
     
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(cancelButtonTapped:)];
+//    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(cancelButtonTapped:)];
     
     NSArray *buttons = @[self.exerciseEveryDayLabel,
                          self.exerciseThreeTimesAWeekLabel,
@@ -133,46 +141,40 @@
     }];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-
 #pragma mark - UINavigation Buttons
-
-- (void)cancelButtonTapped:(id)sender
-{
-    if ([self.delegate respondsToSelector:@selector(stepViewControllerDidCancel:)] == YES) {
-        [self.delegate stepViewControllerDidCancel:self];
-    }
-}
 
 - (IBAction)nextButtonTapped:(id)sender {
     [self.nextButton setEnabled:NO];
     self.dict = [NSMutableDictionary new];
     [self.dict setObject:self.selectedGoal forKey:@"result"];
-
-    RKSTDataResult *contentModel = [[RKSTDataResult alloc] initWithIdentifier:self.step.identifier];
-
+    
+    APCDataResult *contentModel = [[APCDataResult alloc] initWithIdentifier:self.step.identifier];
+    
     NSError *error = nil;
     NSData  *exerciseMotivationAnswers = [NSJSONSerialization dataWithJSONObject:self.dict options:0 error:&error];
-
+    
+    if (error) {
+        APCLogError2(error);
+    }
+    
     contentModel.data = exerciseMotivationAnswers;
-
+    
     NSArray *resultsArray = @[contentModel];
-
+    
     self.cachedResult = [[RKSTStepResult alloc] initWithStepIdentifier:self.step.identifier results:resultsArray];
 
-    [self.delegate stepViewController:self didChangeResult:self.cachedResult];
-    
-    
-    if ([self.delegate respondsToSelector:@selector(stepViewControllerDidFinish:navigationDirection:)] == YES) {
-        [self.delegate stepViewControllerDidFinish:self navigationDirection:RKSTStepViewControllerNavigationDirectionForward];
+    [self.delegate stepViewControllerResultDidChange:self];
+
+    if ([self.delegate respondsToSelector:@selector(stepViewController:didFinishWithNavigationDirection:)] == YES) {
+        [self.delegate stepViewController:self didFinishWithNavigationDirection:RKSTStepViewControllerNavigationDirectionForward];
     }
 }
 
 - (RKSTStepResult *)result {
+    
+    if (!self.cachedResult) {
+        self.cachedResult = [[RKSTStepResult alloc] initWithIdentifier:self.step.identifier];
+    }
     
     return self.cachedResult;
 }
