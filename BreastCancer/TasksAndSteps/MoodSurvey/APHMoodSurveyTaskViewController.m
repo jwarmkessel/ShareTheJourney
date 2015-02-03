@@ -41,7 +41,7 @@ static  NSString  *kMoodSurveyStep107   = @"moodsurvey107";
             RKSTChoiceQuestionResult *questionResult = stepResult.results.firstObject;
             
             if (questionResult.choiceAnswers != nil) {
-                resultCollectionDictionary[stepResult.identifier] = questionResult.choiceAnswers;
+                resultCollectionDictionary[stepResult.identifier] = (NSNumber *)[questionResult.choiceAnswers firstObject];
             }
         }
     }
