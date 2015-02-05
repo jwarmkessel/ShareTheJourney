@@ -344,7 +344,7 @@ static  NSString  *kMoodSurveyStep108   = @"moodsurvey108";
 - (void)taskViewController:(RKSTTaskViewController *)taskViewController stepViewControllerWillAppear:(RKSTStepViewController *)stepViewController {
     
 #warning Todo: set the customizable question if it exists.
-    self.customSurveyQuestion = nil;
+    self.customSurveyQuestion = @"This is the custom question";
     
     NSArray* moodValueForIndex = @[@(5), @(4), @(3), @(2), @(1)];
     

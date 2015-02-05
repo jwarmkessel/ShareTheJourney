@@ -15,12 +15,12 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kHn-Of-w0X">
-                        <rect key="frame" x="97.5" y="197" width="125" height="44"/>
+                        <rect key="frame" x="72.5" y="197" width="175" height="44"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="44" id="K47-a4-hKU"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <state key="normal" title="Add your survey">
+                        <state key="normal" title="Customize your survey">
                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                         </state>
                     </button>
