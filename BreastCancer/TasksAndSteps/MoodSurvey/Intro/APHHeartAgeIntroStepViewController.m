@@ -7,6 +7,7 @@
  
 #import "APHHeartAgeIntroStepViewController.h"
 #import "APHCustomSurveyTableViewCell.h"
+#import "APHCustomSurveyQuestionViewController.h"
 #import "APHQuestionViewController.h"
 #import <QuartzCore/QuartzCore.h>
 
@@ -18,6 +19,8 @@
 @property (nonatomic, strong) NSAttributedString *purpose;
 @property (nonatomic, strong) NSAttributedString *length;
 @property (nonatomic, strong) UITableViewCell *purposeCell;
+
+@property (nonatomic, strong) APHCustomSurveyQuestionViewController *questionController;
 @end
 
 @implementation APHHeartAgeIntroStepViewController 
@@ -60,6 +63,12 @@
 - (IBAction)getStartedWasTapped:(id)sender
 {
     [self.getStartedButton setEnabled:NO];
+    if ([self.delegate respondsToSelector:@selector(stepViewController:didFinishWithNavigationDirection:)] == YES) {
+        [self.delegate stepViewController:self didFinishWithNavigationDirection:RKSTStepViewControllerNavigationDirectionForward];
+    }
+}
+
+- (void)getStartedWithCustomSurvey {
     if ([self.delegate respondsToSelector:@selector(stepViewController:didFinishWithNavigationDirection:)] == YES) {
         [self.delegate stepViewController:self didFinishWithNavigationDirection:RKSTStepViewControllerNavigationDirectionForward];
     }
@@ -119,25 +128,30 @@
 
         cell = [tableView dequeueReusableCellWithIdentifier:@"APHCustomSurveyTableViewCellIdentifier"];
 
-        
         APHCustomSurveyTableViewCell *customCell = (APHCustomSurveyTableViewCell *) cell;
-        [customCell.customizeSurveyButton addTarget:self action:@selector(blah) forControlEvents:UIControlEventTouchUpInside];
+        
+        if (customCell.customizeSurveyButton.allTargets.count == 0) {
+            [customCell.customizeSurveyButton addTarget:self action:@selector(showCustomizeSurveyView:) forControlEvents:UIControlEventTouchUpInside];
+        }
     }
     
     return cell;
 }
-- (void) blah{
+- (void) showCustomizeSurveyView:(id)sender{
     
-//    APHQuestionViewController *questionController = [[APHQuestionViewController alloc] initWithNibName:@"APHQuestionViewController" bundle:nil];
+    self.questionController = [[APHCustomSurveyQuestionViewController alloc] initWithNibName:@"APHCustomSurveyQuestionViewController" bundle:nil];
 
-    UIViewController *questionController = [[UIViewController alloc] init];
-    [self presentViewController:questionController animated:YES completion:nil];
+    UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:self.questionController];
     
-}
-- (void)viewWillDisappear:(BOOL)animated {
-    [super viewWillDisappear:animated];
-    //  Workaround
-    [self.tableView reloadData];
+    navController.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
+    [self presentViewController:navController animated:YES completion:nil];
+    
+    
+    [navController addChildViewController:self.questionController];
+    [self.questionController didMoveToParentViewController:navController];
+    
+    navController.navigationBar.topItem.title = @"Customize your question";
+    
 }
 
 /*********************************************************************************/
@@ -155,7 +169,7 @@
         
         [attribString addAttribute:NSForegroundColorAttributeName value:[UIColor darkGrayColor] range:NSMakeRange(0,[attribString length])];
         
-        NSMutableAttributedString * finalString = [[NSMutableAttributedString alloc] initWithString:@"\n\nThis activity will ask you to assess how you feel on 5 different important areas: Cognition (mental clarity), Mood, Energy level, Sleep quality, and Exercise.  We recommend that you answer these towards the end of the day, reflecting on how you felt on this particular day.\n\n"];
+        NSMutableAttributedString * finalString = [[NSMutableAttributedString alloc] initWithString:@"\nThis activity will ask you to assess how you feel on 5 different important areas: Cognition (mental clarity), Mood, Energy level, Sleep quality, and Exercise.  We recommend that you answer these towards the end of the day, reflecting on how you felt on this particular day."];
         
         NSMutableParagraphStyle *paragraphStyle2 = [[NSMutableParagraphStyle alloc] init];
         paragraphStyle2.lineBreakMode = NSLineBreakByWordWrapping;
@@ -178,7 +192,7 @@
         [attribString addAttribute:NSParagraphStyleAttributeName value:paragraphStyle range:NSMakeRange(0, [@"Length" length])];
         [attribString addAttribute:NSForegroundColorAttributeName value:[UIColor darkGrayColor] range:NSMakeRange(0,[attribString length])];
         
-        NSMutableAttributedString * finalString = [[NSMutableAttributedString alloc] initWithString:@"\n\nThis task will take you less than two minutes to complete.\n\n"];
+        NSMutableAttributedString * finalString = [[NSMutableAttributedString alloc] initWithString:@"\nThis task will take you less than two minutes to complete."];
         
         NSMutableParagraphStyle *paragraphStyle2 = [[NSMutableParagraphStyle alloc] init];
         paragraphStyle2.lineBreakMode = NSLineBreakByWordWrapping;

@@ -18,8 +18,6 @@
 		5B1D9D6D1A1BD414000F4AD6 /* APHDashboardEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B1D9D691A1BD414000F4AD6 /* APHDashboardEditViewController.m */; };
 		5B1D9D6E1A1BD414000F4AD6 /* APHDashboardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B1D9D6B1A1BD414000F4AD6 /* APHDashboardViewController.m */; };
 		5BBDAEBB1A33DCDA0047DF87 /* HTMLContent in Resources */ = {isa = PBXBuildFile; fileRef = 5BBDAEBA1A33DCDA0047DF87 /* HTMLContent */; };
-		7B46A0651A82F5F800F563FB /* APHCustomSurveyTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7B46A0631A82F5F800F563FB /* APHCustomSurveyTableViewCell.xib */; };
-		7B46A0691A82FD4100F563FB /* APHCustomSurveyTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B46A0681A82FD4100F563FB /* APHCustomSurveyTableViewCell.m */; };
 		7B5E25CB1A2045BB00A04FEF /* APHMoodSurveyTaskViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B5E25CA1A2045BB00A04FEF /* APHMoodSurveyTaskViewController.m */; };
 		7B5E25D01A20592400A04FEF /* APHHeartAgeIntroStepViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B5E25CE1A20592400A04FEF /* APHHeartAgeIntroStepViewController.m */; };
 		7B5E25D11A20592400A04FEF /* APHHeartAgeIntroStepViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7B5E25CF1A20592400A04FEF /* APHHeartAgeIntroStepViewController.xib */; };
@@ -49,6 +47,10 @@
 		7BAC9A5A1A78284D00125592 /* consent_05@3x.m4v in Resources */ = {isa = PBXBuildFile; fileRef = 7BAC9A4C1A78284D00125592 /* consent_05@3x.m4v */; };
 		7BAC9A5B1A78284D00125592 /* consent_06@3x.m4v in Resources */ = {isa = PBXBuildFile; fileRef = 7BAC9A4D1A78284D00125592 /* consent_06@3x.m4v */; };
 		7BAC9A5C1A78284D00125592 /* consent_07@3x.m4v in Resources */ = {isa = PBXBuildFile; fileRef = 7BAC9A4E1A78284D00125592 /* consent_07@3x.m4v */; };
+		7BB24C311A831DC500AAE097 /* APHCustomSurveyTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BB24C2F1A831DC500AAE097 /* APHCustomSurveyTableViewCell.m */; };
+		7BB24C321A831DC500AAE097 /* APHCustomSurveyTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7BB24C301A831DC500AAE097 /* APHCustomSurveyTableViewCell.xib */; };
+		7BB24C361A831EC900AAE097 /* APHCustomSurveyQuestionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BB24C341A831EC900AAE097 /* APHCustomSurveyQuestionViewController.m */; };
+		7BB24C371A831EC900AAE097 /* APHCustomSurveyQuestionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7BB24C351A831EC900AAE097 /* APHCustomSurveyQuestionViewController.xib */; };
 		7BFD56791A24FAF0001210A2 /* APHDisplayLogHistoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BFD56771A24FAF0001210A2 /* APHDisplayLogHistoryViewController.m */; };
 		7BFD567A1A24FAF0001210A2 /* APHDisplayLogHistoryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7BFD56781A24FAF0001210A2 /* APHDisplayLogHistoryViewController.xib */; };
 		CF15F24B1A11616500D87570 /* APHDailyJournalTaskViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CF15F24A1A11616500D87570 /* APHDailyJournalTaskViewController.m */; };
@@ -137,9 +139,6 @@
 		5B1D9D6A1A1BD414000F4AD6 /* APHDashboardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APHDashboardViewController.h; sourceTree = "<group>"; };
 		5B1D9D6B1A1BD414000F4AD6 /* APHDashboardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APHDashboardViewController.m; sourceTree = "<group>"; };
 		5BBDAEBA1A33DCDA0047DF87 /* HTMLContent */ = {isa = PBXFileReference; lastKnownFileType = folder; path = HTMLContent; sourceTree = "<group>"; };
-		7B46A0631A82F5F800F563FB /* APHCustomSurveyTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = APHCustomSurveyTableViewCell.xib; path = MoodSurvey/Intro/APHCustomSurveyTableViewCell.xib; sourceTree = "<group>"; };
-		7B46A0671A82FD4100F563FB /* APHCustomSurveyTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = APHCustomSurveyTableViewCell.h; path = MoodSurvey/Intro/APHCustomSurveyTableViewCell.h; sourceTree = "<group>"; };
-		7B46A0681A82FD4100F563FB /* APHCustomSurveyTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = APHCustomSurveyTableViewCell.m; path = MoodSurvey/Intro/APHCustomSurveyTableViewCell.m; sourceTree = "<group>"; };
 		7B5E25C91A2045BB00A04FEF /* APHMoodSurveyTaskViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = APHMoodSurveyTaskViewController.h; path = MoodSurvey/APHMoodSurveyTaskViewController.h; sourceTree = "<group>"; };
 		7B5E25CA1A2045BB00A04FEF /* APHMoodSurveyTaskViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = APHMoodSurveyTaskViewController.m; path = MoodSurvey/APHMoodSurveyTaskViewController.m; sourceTree = "<group>"; };
 		7B5E25CD1A20592400A04FEF /* APHHeartAgeIntroStepViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = APHHeartAgeIntroStepViewController.h; path = MoodSurvey/Intro/APHHeartAgeIntroStepViewController.h; sourceTree = "<group>"; };
@@ -177,6 +176,12 @@
 		7BAC9A4C1A78284D00125592 /* consent_05@3x.m4v */ = {isa = PBXFileReference; lastKnownFileType = file; path = "consent_05@3x.m4v"; sourceTree = "<group>"; };
 		7BAC9A4D1A78284D00125592 /* consent_06@3x.m4v */ = {isa = PBXFileReference; lastKnownFileType = file; path = "consent_06@3x.m4v"; sourceTree = "<group>"; };
 		7BAC9A4E1A78284D00125592 /* consent_07@3x.m4v */ = {isa = PBXFileReference; lastKnownFileType = file; path = "consent_07@3x.m4v"; sourceTree = "<group>"; };
+		7BB24C2E1A831DC500AAE097 /* APHCustomSurveyTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APHCustomSurveyTableViewCell.h; sourceTree = "<group>"; };
+		7BB24C2F1A831DC500AAE097 /* APHCustomSurveyTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APHCustomSurveyTableViewCell.m; sourceTree = "<group>"; };
+		7BB24C301A831DC500AAE097 /* APHCustomSurveyTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = APHCustomSurveyTableViewCell.xib; sourceTree = "<group>"; };
+		7BB24C331A831EC900AAE097 /* APHCustomSurveyQuestionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APHCustomSurveyQuestionViewController.h; sourceTree = "<group>"; };
+		7BB24C341A831EC900AAE097 /* APHCustomSurveyQuestionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APHCustomSurveyQuestionViewController.m; sourceTree = "<group>"; };
+		7BB24C351A831EC900AAE097 /* APHCustomSurveyQuestionViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = APHCustomSurveyQuestionViewController.xib; sourceTree = "<group>"; };
 		7BFD56761A24FAF0001210A2 /* APHDisplayLogHistoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APHDisplayLogHistoryViewController.h; sourceTree = "<group>"; };
 		7BFD56771A24FAF0001210A2 /* APHDisplayLogHistoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APHDisplayLogHistoryViewController.m; sourceTree = "<group>"; };
 		7BFD56781A24FAF0001210A2 /* APHDisplayLogHistoryViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = APHDisplayLogHistoryViewController.xib; sourceTree = "<group>"; };
@@ -276,9 +281,7 @@
 				7B5E25CD1A20592400A04FEF /* APHHeartAgeIntroStepViewController.h */,
 				7B5E25CE1A20592400A04FEF /* APHHeartAgeIntroStepViewController.m */,
 				7B5E25CF1A20592400A04FEF /* APHHeartAgeIntroStepViewController.xib */,
-				7B46A0671A82FD4100F563FB /* APHCustomSurveyTableViewCell.h */,
-				7B46A0681A82FD4100F563FB /* APHCustomSurveyTableViewCell.m */,
-				7B46A0631A82F5F800F563FB /* APHCustomSurveyTableViewCell.xib */,
+				7BB24C2C1A831D9D00AAE097 /* Customizable Survey */,
 			);
 			name = Intro;
 			sourceTree = "<group>";
@@ -372,6 +375,20 @@
 				7BAC9A4E1A78284D00125592 /* consent_07@3x.m4v */,
 			);
 			path = "phone@3x";
+			sourceTree = "<group>";
+		};
+		7BB24C2C1A831D9D00AAE097 /* Customizable Survey */ = {
+			isa = PBXGroup;
+			children = (
+				7BB24C2E1A831DC500AAE097 /* APHCustomSurveyTableViewCell.h */,
+				7BB24C2F1A831DC500AAE097 /* APHCustomSurveyTableViewCell.m */,
+				7BB24C301A831DC500AAE097 /* APHCustomSurveyTableViewCell.xib */,
+				7BB24C331A831EC900AAE097 /* APHCustomSurveyQuestionViewController.h */,
+				7BB24C341A831EC900AAE097 /* APHCustomSurveyQuestionViewController.m */,
+				7BB24C351A831EC900AAE097 /* APHCustomSurveyQuestionViewController.xib */,
+			);
+			name = "Customizable Survey";
+			path = "MoodSurvey/Intro/Customizable Survey";
 			sourceTree = "<group>";
 		};
 		7BD1D3D61A70CF3500D6A377 /* Intro */ = {
@@ -696,7 +713,7 @@
 				F534B59419E4681E00C3C152 /* Images.xcassets in Resources */,
 				F534B68E19E4689D00C3C152 /* StudyOverview.json in Resources */,
 				5BBDAEBB1A33DCDA0047DF87 /* HTMLContent in Resources */,
-				7B46A0651A82F5F800F563FB /* APHCustomSurveyTableViewCell.xib in Resources */,
+				7BB24C321A831DC500AAE097 /* APHCustomSurveyTableViewCell.xib in Resources */,
 				F534B68A19E4689D00C3C152 /* APCParameters.json in Resources */,
 				F534B68B19E4689D00C3C152 /* APHTasksAndSchedules.json in Resources */,
 				F534B69D19E4689D00C3C152 /* Main.storyboard in Resources */,
@@ -705,6 +722,7 @@
 				7BAC9A4F1A78284D00125592 /* consent_01@2x.m4v in Resources */,
 				CF5FAB4419F95C8F0006CA71 /* APHNotesContentsTableViewCell.xib in Resources */,
 				5B15DCF41A114F7000BEA0D1 /* Learn.json in Resources */,
+				7BB24C371A831EC900AAE097 /* APHCustomSurveyQuestionViewController.xib in Resources */,
 				7BAC9A571A78284D00125592 /* consent_02@3x.m4v in Resources */,
 				7BAC9A521A78284D00125592 /* consent_04@2x.m4v in Resources */,
 				F534B68D19E4689D00C3C152 /* sleepSurvey.json in Resources */,
@@ -757,8 +775,9 @@
 				7B5E25D01A20592400A04FEF /* APHHeartAgeIntroStepViewController.m in Sources */,
 				CF2697E819EC3E4200525E19 /* APHMoodLogDictionaryKeys.m in Sources */,
 				5B1D9D6E1A1BD414000F4AD6 /* APHDashboardViewController.m in Sources */,
-				7B46A0691A82FD4100F563FB /* APHCustomSurveyTableViewCell.m in Sources */,
+				7BB24C311A831DC500AAE097 /* APHCustomSurveyTableViewCell.m in Sources */,
 				5B15DD481A11524900BEA0D1 /* APHAppDelegate.m in Sources */,
+				7BB24C361A831EC900AAE097 /* APHCustomSurveyQuestionViewController.m in Sources */,
 				CF2697E719EC3E4200525E19 /* APHCustomTextView.m in Sources */,
 				F53F27A01A2D30D600A1D725 /* APHDataPoint.m in Sources */,
 				7B8D703E1A1C4B13003A7A5B /* APHLogSubmissionViewController.m in Sources */,
