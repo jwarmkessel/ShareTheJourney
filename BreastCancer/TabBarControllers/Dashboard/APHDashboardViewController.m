@@ -190,7 +190,7 @@ static NSString * const kAPCRightDetailTableViewCellIdentifier = @"APCRightDetai
                     item.editable = YES;
                     item.tintColor = [UIColor appTertiaryPurpleColor];
                     
-                    /* Placeholder values.-- */
+                    #warning Replace Placeholder Values - APPLE-1576
                     item.info = NSLocalizedString(@"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.", @"");
                     
                     APCTableViewRow *row = [APCTableViewRow new];
@@ -210,7 +210,7 @@ static NSString * const kAPCRightDetailTableViewCellIdentifier = @"APCRightDetai
                     item.editable = YES;
                     item.tintColor = [UIColor appTertiaryYellowColor];
                     
-                    /* Placeholder values.-- */
+                    #warning Replace Placeholder Values - APPLE-1576
                     item.info = NSLocalizedString(@"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.", @"");
                     
                     APCTableViewRow *row = [APCTableViewRow new];
@@ -230,7 +230,7 @@ static NSString * const kAPCRightDetailTableViewCellIdentifier = @"APCRightDetai
                     item.editable = YES;
                     item.tintColor = [UIColor appTertiaryGreenColor];
                     
-                    /* Placeholder values.-- */
+                    #warning Replace Placeholder Values - APPLE-1576
                     item.info = NSLocalizedString(@"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.", @"");
                     
                     APCTableViewRow *row = [APCTableViewRow new];
@@ -250,7 +250,7 @@ static NSString * const kAPCRightDetailTableViewCellIdentifier = @"APCRightDetai
                     item.editable = YES;
                     item.tintColor = [UIColor appTertiaryYellowColor];
                     
-                    /* Placeholder values.-- */
+                    #warning Replace Placeholder Values - APPLE-1576
                     item.info = NSLocalizedString(@"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.", @"");
                     
                     APCTableViewRow *row = [APCTableViewRow new];
@@ -270,7 +270,7 @@ static NSString * const kAPCRightDetailTableViewCellIdentifier = @"APCRightDetai
                     item.editable = YES;
                     item.tintColor = [UIColor appTertiaryPurpleColor];
                     
-                    /* Placeholder values.-- */
+                    #warning Replace Placeholder Values - APPLE-1576
                     item.info = NSLocalizedString(@"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.", @"");
                     
                     APCTableViewRow *row = [APCTableViewRow new];
@@ -290,7 +290,7 @@ static NSString * const kAPCRightDetailTableViewCellIdentifier = @"APCRightDetai
                     item.editable = YES;
                     item.tintColor = [UIColor appTertiaryRedColor];
                     
-                    /* Placeholder values.-- */
+                    #warning Replace Placeholder Values - APPLE-1576
                     item.info = NSLocalizedString(@"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.", @"");
                     
                     APCTableViewRow *row = [APCTableViewRow new];
