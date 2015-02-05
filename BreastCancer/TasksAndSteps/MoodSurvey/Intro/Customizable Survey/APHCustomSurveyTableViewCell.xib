@@ -15,12 +15,12 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kHn-Of-w0X">
-                        <rect key="frame" x="77" y="197" width="166" height="44"/>
+                        <rect key="frame" x="97.5" y="197" width="125" height="44"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="44" id="K47-a4-hKU"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <state key="normal" title="Customize the survey">
+                        <state key="normal" title="Add your survey">
                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                         </state>
                     </button>
@@ -28,7 +28,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="67"/>
                         <color key="backgroundColor" red="0.96470588239999999" green="0.96470588239999999" blue="0.96470588239999999" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Customize survey" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b4J-k6-3ur">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Customized survey" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b4J-k6-3ur">
                         <rect key="frame" x="85" y="87" width="151" height="20"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="20" id="59F-bM-eoP"/>
@@ -37,8 +37,8 @@
                         <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You have the ability to create your own survey questions. Tap here to enter your question." lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dde-Lu-VeG">
-                        <rect key="frame" x="18" y="111.5" width="284" height="57.5"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You have the ability to create your own survey question which will be included at the end. Tap here to enter your question." lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dde-Lu-VeG">
+                        <rect key="frame" x="18" y="111" width="284" height="76.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                         <color key="textColor" red="0.63921568627450975" green="0.63921568627450975" blue="0.63921568627450975" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
@@ -52,8 +52,8 @@
                     <constraint firstAttribute="trailingMargin" secondItem="b4J-k6-3ur" secondAttribute="trailing" constant="76.5" id="GJJ-Bd-N5p"/>
                     <constraint firstItem="dde-Lu-VeG" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="10" id="KnU-4j-gaQ"/>
                     <constraint firstAttribute="trailingMargin" secondItem="xdi-1d-8eR" secondAttribute="trailing" constant="-8" id="TSC-PB-kup"/>
-                    <constraint firstItem="dde-Lu-VeG" firstAttribute="top" secondItem="b4J-k6-3ur" secondAttribute="bottom" constant="5" id="Url-xs-Bmt"/>
-                    <constraint firstAttribute="bottomMargin" secondItem="dde-Lu-VeG" secondAttribute="bottom" constant="122.5" id="f1Q-Ob-3BY"/>
+                    <constraint firstItem="dde-Lu-VeG" firstAttribute="top" secondItem="b4J-k6-3ur" secondAttribute="bottom" constant="4" id="Url-xs-Bmt"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="dde-Lu-VeG" secondAttribute="bottom" constant="103.5" id="f1Q-Ob-3BY"/>
                     <constraint firstAttribute="centerX" secondItem="kHn-Of-w0X" secondAttribute="centerX" id="h4H-2O-DUt"/>
                     <constraint firstAttribute="trailingMargin" secondItem="dde-Lu-VeG" secondAttribute="trailing" constant="10" id="taE-wH-Kkf"/>
                     <constraint firstItem="xdi-1d-8eR" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="-8" id="y51-hR-yqJ"/>

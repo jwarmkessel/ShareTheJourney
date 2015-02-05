@@ -13,7 +13,7 @@
 
 @property (weak, nonatomic) IBOutlet UITextView *textView;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *bottomSpaceConstraint;
-@property  (nonatomic, assign)          CGFloat               savedContainerSpacing;
+@property  (nonatomic, assign) CGFloat savedContainerSpacing;
 @end
 
 @implementation APHCustomSurveyQuestionViewController
