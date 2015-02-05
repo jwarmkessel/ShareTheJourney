@@ -17,11 +17,13 @@ static  NSString  *kMoodSurveyStep104   = @"moodsurvey104";
 static  NSString  *kMoodSurveyStep105   = @"moodsurvey105";
 static  NSString  *kMoodSurveyStep106   = @"moodsurvey106";
 static  NSString  *kMoodSurveyStep107   = @"moodsurvey107";
+static  NSString  *kMoodSurveyStep108   = @"moodsurvey108";
 
 
 @interface APHMoodSurveyTaskViewController ()
 
 @property (strong, nonatomic) NSMutableDictionary *previousCachedAnswer;
+@property (strong, nonatomic) NSString *customSurveyQuestion;
 
 @end
 
@@ -97,7 +99,13 @@ static  NSString  *kMoodSurveyStep107   = @"moodsurvey107";
                                                                        @"Walking",
                                                                        @"Standing",
                                                                        @"Sitting",
-                                                                       @"Lying down"]
+                                                                       @"Lying down"],
+                                                
+                                                kMoodSurveyStep107 : @[@"Great",
+                                                                       @"Good",
+                                                                       @"Average",
+                                                                       @"Bad",
+                                                                       @"Terrible"],
                                                 };
     
     NSMutableArray *steps = [NSMutableArray array];
@@ -281,8 +289,42 @@ static  NSString  *kMoodSurveyStep107   = @"moodsurvey107";
     }
     
     {
+        NSArray *imageChoices = @[[UIImage imageNamed:@"Breast-Cancer-Exercise-1g"],
+                                  [UIImage imageNamed:@"Breast-Cancer-Exercise-2g"],
+                                  [UIImage imageNamed:@"Breast-Cancer-Exercise-3g"],
+                                  [UIImage imageNamed:@"Breast-Cancer-Exercise-4g"],
+                                  [UIImage imageNamed:@"Breast-Cancer-Exercise-5g"]];
         
+        NSArray *selectedImageChoices = @[[UIImage imageNamed:@"Breast-Cancer-Exercise-1p"],
+                                          [UIImage imageNamed:@"Breast-Cancer-Exercise-2p"],
+                                          [UIImage imageNamed:@"Breast-Cancer-Exercise-3p"],
+                                          [UIImage imageNamed:@"Breast-Cancer-Exercise-4p"],
+                                          [UIImage imageNamed:@"Breast-Cancer-Exercise-5p"]];
+        
+        NSArray *textDescriptionChoice = [questionAnswerDictionary objectForKey:kMoodSurveyStep107];
+        
+        
+        NSMutableArray *answerChoices = [NSMutableArray new];
+        
+        for (int i = 0; i<[imageChoices count]; i++) {
+            
+            RKSTImageChoice *answerOption = [RKSTImageChoice choiceWithNormalImage:imageChoices[i] selectedImage:selectedImageChoices[i] text:textDescriptionChoice[i] value:[moodValueForIndex objectAtIndex:i]];
+            
+            [answerChoices addObject:answerOption];
+        }
+
+        RKSTImageChoiceAnswerFormat *format = [[RKSTImageChoiceAnswerFormat alloc] initWithImageChoices:answerChoices];
         RKSTQuestionStep *step = [RKSTQuestionStep questionStepWithIdentifier:kMoodSurveyStep107
+                                                                        title:@"Custom Survey Question?"
+                                                                       answer:format];
+        
+        [steps addObject:step];
+    }
+
+    
+    {
+        
+        RKSTQuestionStep *step = [RKSTQuestionStep questionStepWithIdentifier:kMoodSurveyStep108
                                                                         title:@"What level exercise are you getting today?"
                                                                        answer:nil];
         
@@ -299,19 +341,107 @@ static  NSString  *kMoodSurveyStep107   = @"moodsurvey107";
 #pragma  mark  - TaskViewController delegates
 /*********************************************************************************/
 
+- (void)taskViewController:(RKSTTaskViewController *)taskViewController stepViewControllerWillAppear:(RKSTStepViewController *)stepViewController {
+    
+#warning Todo: set the customizable question if it exists.
+    self.customSurveyQuestion = nil;
+    
+    NSArray* moodValueForIndex = @[@(5), @(4), @(3), @(2), @(1)];
+    
+    NSDictionary  *questionAnswerDictionary = @{
+                                                kMoodSurveyStep102 : @[@"Perfectly crisp concentration",
+                                                                       @"No issues with concentration",
+                                                                       @"Occasional difficulties with concentration",
+                                                                       @"Difficulties with concentration",
+                                                                       @"No concentration"],
+                                                
+                                                kMoodSurveyStep103 : @[@"The best I have felt",
+                                                                       @"Better than usual",
+                                                                       @"Normal",
+                                                                       @"Down",
+                                                                       @"Extremely down"],
+                                                
+                                                kMoodSurveyStep104 : @[@"Ready to take on the world",
+                                                                       @"Filled with energy through the day",
+                                                                       @"Energy to make it through the day",
+                                                                       @"Basic functions",
+                                                                       @"No energy"],
+                                                
+                                                kMoodSurveyStep105 : @[@"Eliminated all deficit sleep",
+                                                                       @"Made up some deficit sleep",
+                                                                       @"Almost enough sleep",
+                                                                       @"Barely enough sleep",
+                                                                       @"No real sleep"],
+                                                
+                                                kMoodSurveyStep106 : @[@"Activities that make you breathe hard and sweat",
+                                                                       @"Walking",
+                                                                       @"Standing",
+                                                                       @"Sitting",
+                                                                       @"Lying down"],
+                                                
+                                                kMoodSurveyStep107 : @[@"Great",
+                                                                       @"Good",
+                                                                       @"Average",
+                                                                       @"Bad",
+                                                                       @"Terrible"],
+                                                };
+
+
+    
+    if ([stepViewController.step.identifier isEqualToString:kMoodSurveyStep107]) {
+        NSArray *imageChoices = @[[UIImage imageNamed:@"Breast-Cancer-Exercise-1g"],
+                                  [UIImage imageNamed:@"Breast-Cancer-Exercise-2g"],
+                                  [UIImage imageNamed:@"Breast-Cancer-Exercise-3g"],
+                                  [UIImage imageNamed:@"Breast-Cancer-Exercise-4g"],
+                                  [UIImage imageNamed:@"Breast-Cancer-Exercise-5g"]];
+        
+        NSArray *selectedImageChoices = @[[UIImage imageNamed:@"Breast-Cancer-Exercise-1p"],
+                                          [UIImage imageNamed:@"Breast-Cancer-Exercise-2p"],
+                                          [UIImage imageNamed:@"Breast-Cancer-Exercise-3p"],
+                                          [UIImage imageNamed:@"Breast-Cancer-Exercise-4p"],
+                                          [UIImage imageNamed:@"Breast-Cancer-Exercise-5p"]];
+        
+        NSArray *textDescriptionChoice = [questionAnswerDictionary objectForKey:kMoodSurveyStep107];
+        
+        
+        NSMutableArray *answerChoices = [NSMutableArray new];
+        
+        for (int i = 0; i<[imageChoices count]; i++) {
+            
+            RKSTImageChoice *answerOption = [RKSTImageChoice choiceWithNormalImage:imageChoices[i] selectedImage:selectedImageChoices[i] text:textDescriptionChoice[i] value:[moodValueForIndex objectAtIndex:i]];
+            
+            [answerChoices addObject:answerOption];
+        }
+
+        RKSTImageChoiceAnswerFormat *format = [[RKSTImageChoiceAnswerFormat alloc] initWithImageChoices:answerChoices];
+        
+        RKSTQuestionStep *questionStep = [RKSTQuestionStep questionStepWithIdentifier:kMoodSurveyStep107
+                                                                                title:self.customSurveyQuestion
+                                                                               answer:format];
+        
+        stepViewController.step = questionStep;
+    }
+    
+}
+
 - (RKSTStepViewController *)taskViewController:(RKSTTaskViewController *)taskViewController viewControllerForStep:(RKSTStep *)step {
     
     NSDictionary  *controllers = @{
                                    kMoodSurveyStep101 : [APHHeartAgeIntroStepViewController class],
-                                   kMoodSurveyStep107 : [APCSimpleTaskSummaryViewController class]
+                                   kMoodSurveyStep108 : [APCSimpleTaskSummaryViewController class]
                                    };
     
     Class  aClass = [controllers objectForKey:step.identifier];
     
     APCStepViewController  *controller = [[aClass alloc] initWithNibName:nil bundle:nil];
     
-    if (step.identifier == kMoodSurveyStep107 ) {
+    if (step.identifier == kMoodSurveyStep108)
+    {
         controller = [[aClass alloc] initWithNibName:nil bundle:[NSBundle appleCoreBundle]];
+    }
+    else if (step.identifier == kMoodSurveyStep107 && self.customSurveyQuestion == nil)
+    {
+        controller = [[[APCSimpleTaskSummaryViewController class] alloc] initWithNibName:nil bundle:[NSBundle appleCoreBundle]];
     }
     
     controller.delegate = self;
@@ -319,6 +449,24 @@ static  NSString  *kMoodSurveyStep107   = @"moodsurvey107";
     
     
     return controller;
+}
+
+- (void)taskViewControllerDidComplete:(RKSTTaskViewController *)taskViewController {
+    [super taskViewControllerDidComplete:taskViewController];
+}
+
+/*********************************************************************************/
+#pragma  mark  - StepViewController delegates
+/*********************************************************************************/
+
+- (void)stepViewController:(RKSTStepViewController *)stepViewController didFinishWithNavigationDirection:(RKSTStepViewControllerNavigationDirection)direction {
+    
+    [super stepViewController:stepViewController didFinishWithNavigationDirection:direction];
+    
+    if ([self.currentStepViewController.step.identifier isEqualToString:kMoodSurveyStep107] && self.customSurveyQuestion == nil) {
+        [self taskViewControllerDidComplete:self];
+    }
+    
 }
 
 @end
