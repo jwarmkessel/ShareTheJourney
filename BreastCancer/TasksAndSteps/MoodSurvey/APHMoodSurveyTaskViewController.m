@@ -26,6 +26,7 @@ static  NSString  *kCustomMoodSurveyStep101   = @"customMoodSurveyStep101";
 static  NSString  *kCustomMoodSurveyStep102   = @"customMoodSurveyStep102";
 static  NSString  *kCustomMoodSurveyStep103   = @"customMoodSurveyStep103";
 
+static NSInteger const kNumberOfCompletionsUntilDisplayingCustomSurvey = 7;
 
 @interface APHMoodSurveyTaskViewController ()
 
@@ -85,95 +86,6 @@ static  NSString  *kCustomMoodSurveyStep103   = @"customMoodSurveyStep103";
 /*********************************************************************************/
 
 
-//- (RKSTTaskProgress)progressOfCurrentStep:(RKSTStep *)step withResult:(RKSTTaskResult *)result
-//{
-//    
-//    return step;
-//}
-
-- (void)taskViewController:(RKSTTaskViewController *)taskViewController stepViewControllerWillAppear:(RKSTStepViewController *)stepViewController {
-    
-#warning Todo: set the customizable question if it exists.
-    self.customSurveyQuestion = @"This is the custom question";
-    
-    NSArray* moodValueForIndex = @[@(5), @(4), @(3), @(2), @(1)];
-    
-    NSDictionary  *questionAnswerDictionary = @{
-                                                kMoodSurveyStep102 : @[@"Perfectly crisp concentration",
-                                                                       @"No issues with concentration",
-                                                                       @"Occasional difficulties with concentration",
-                                                                       @"Difficulties with concentration",
-                                                                       @"No concentration"],
-                                                
-                                                kMoodSurveyStep103 : @[@"The best I have felt",
-                                                                       @"Better than usual",
-                                                                       @"Normal",
-                                                                       @"Down",
-                                                                       @"Extremely down"],
-                                                
-                                                kMoodSurveyStep104 : @[@"Ready to take on the world",
-                                                                       @"Filled with energy through the day",
-                                                                       @"Energy to make it through the day",
-                                                                       @"Basic functions",
-                                                                       @"No energy"],
-                                                
-                                                kMoodSurveyStep105 : @[@"Eliminated all deficit sleep",
-                                                                       @"Made up some deficit sleep",
-                                                                       @"Almost enough sleep",
-                                                                       @"Barely enough sleep",
-                                                                       @"No real sleep"],
-                                                
-                                                kMoodSurveyStep106 : @[@"Activities that make you breathe hard and sweat",
-                                                                       @"Walking",
-                                                                       @"Standing",
-                                                                       @"Sitting",
-                                                                       @"Lying down"],
-                                                
-                                                kMoodSurveyStep107 : @[@"Great",
-                                                                       @"Good",
-                                                                       @"Average",
-                                                                       @"Bad",
-                                                                       @"Terrible"],
-                                                };
-
-
-    
-    if ([stepViewController.step.identifier isEqualToString:kMoodSurveyStep107]) {
-        NSArray *imageChoices = @[[UIImage imageNamed:@"Breast-Cancer-Exercise-1g"],
-                                  [UIImage imageNamed:@"Breast-Cancer-Exercise-2g"],
-                                  [UIImage imageNamed:@"Breast-Cancer-Exercise-3g"],
-                                  [UIImage imageNamed:@"Breast-Cancer-Exercise-4g"],
-                                  [UIImage imageNamed:@"Breast-Cancer-Exercise-5g"]];
-        
-        NSArray *selectedImageChoices = @[[UIImage imageNamed:@"Breast-Cancer-Exercise-1p"],
-                                          [UIImage imageNamed:@"Breast-Cancer-Exercise-2p"],
-                                          [UIImage imageNamed:@"Breast-Cancer-Exercise-3p"],
-                                          [UIImage imageNamed:@"Breast-Cancer-Exercise-4p"],
-                                          [UIImage imageNamed:@"Breast-Cancer-Exercise-5p"]];
-        
-        NSArray *textDescriptionChoice = [questionAnswerDictionary objectForKey:kMoodSurveyStep107];
-        
-        
-        NSMutableArray *answerChoices = [NSMutableArray new];
-        
-        for (int i = 0; i<[imageChoices count]; i++) {
-            
-            RKSTImageChoice *answerOption = [RKSTImageChoice choiceWithNormalImage:imageChoices[i] selectedImage:selectedImageChoices[i] text:textDescriptionChoice[i] value:[moodValueForIndex objectAtIndex:i]];
-            
-            [answerChoices addObject:answerOption];
-        }
-
-        RKSTImageChoiceAnswerFormat *format = [[RKSTImageChoiceAnswerFormat alloc] initWithImageChoices:answerChoices];
-        
-        RKSTQuestionStep *questionStep = [RKSTQuestionStep questionStepWithIdentifier:kMoodSurveyStep107
-                                                                                title:self.customSurveyQuestion
-                                                                               answer:format];
-        
-        stepViewController.step = questionStep;
-    }
-    
-}
-
 - (RKSTStepViewController *)taskViewController:(RKSTTaskViewController *)taskViewController viewControllerForStep:(RKSTStep *)step {
     
     NSDictionary  *controllers = @{
@@ -189,10 +101,6 @@ static  NSString  *kCustomMoodSurveyStep103   = @"customMoodSurveyStep103";
     {
         controller = [[aClass alloc] initWithNibName:nil bundle:[NSBundle appleCoreBundle]];
     }
-    else if (step.identifier == kMoodSurveyStep107 && self.customSurveyQuestion == nil)
-    {
-        controller = [[[APCSimpleTaskSummaryViewController class] alloc] initWithNibName:nil bundle:[NSBundle appleCoreBundle]];
-    }
     
     controller.delegate = self;
     controller.step = step;
@@ -203,20 +111,18 @@ static  NSString  *kCustomMoodSurveyStep103   = @"customMoodSurveyStep103";
 
 - (void)taskViewControllerDidComplete:(RKSTTaskViewController *)taskViewController {
     [super taskViewControllerDidComplete:taskViewController];
-}
-
-/*********************************************************************************/
-#pragma  mark  - StepViewController delegates
-/*********************************************************************************/
-
-- (void)stepViewController:(RKSTStepViewController *)stepViewController didFinishWithNavigationDirection:(RKSTStepViewControllerNavigationDirection)direction {
     
-    [super stepViewController:stepViewController didFinishWithNavigationDirection:direction];
-    
-    if ([self.currentStepViewController.step.identifier isEqualToString:kMoodSurveyStep107] && self.customSurveyQuestion == nil) {
-        [self taskViewControllerDidComplete:self];
+
+    //Here we are keeping a count of the daily scales being completed. We are keeping track only up to 7.
+    APCAppDelegate * delegate = (APCAppDelegate*)[UIApplication sharedApplication].delegate;
+    if (delegate.dataSubstrate.currentUser.dailyScalesCompletionCounter < kNumberOfCompletionsUntilDisplayingCustomSurvey) {
+        delegate.dataSubstrate.currentUser.dailyScalesCompletionCounter++;
     }
     
+    NSString *string = [((APCAppDelegate*)[UIApplication sharedApplication].delegate) dataSubstrate].currentUser.customSurveyQuestion;
+    
+    
 }
+
 
 @end

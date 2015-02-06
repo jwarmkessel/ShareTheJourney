@@ -7,6 +7,7 @@
 //
 
 #import <ResearchKit/ResearchKit.h>
+@import APCAppCore;
 
 @interface APHDynamicMoodSurveyTask : RKSTOrderedTask <RKSTTask>
 

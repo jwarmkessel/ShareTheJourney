@@ -23,6 +23,8 @@ static  NSString  *kCustomMoodSurveyStep101   = @"customMoodSurveyStep101";
 static  NSString  *kCustomMoodSurveyStep102   = @"customMoodSurveyStep102";
 static  NSString  *kCustomMoodSurveyStep103   = @"customMoodSurveyStep103";
 
+static NSInteger const kNumberOfCompletionsUntilDisplayingCustomSurvey = 2;
+
 typedef NS_ENUM(NSUInteger, APHDynamicMoodSurveyType) {
     APHDynamicMoodSurveyTypeIntroduction = 0,
     APHDynamicMoodSurveyTypeCustomInstruction,
@@ -40,6 +42,7 @@ typedef NS_ENUM(NSUInteger, APHDynamicMoodSurveyType) {
 @property (nonatomic, strong) NSMutableDictionary *keys;
 @property (nonatomic, strong) NSMutableDictionary *backwardKeys;
 @property (nonatomic, strong) NSMutableDictionary *customSurveyKey;
+@property (nonatomic, strong) NSString *customSurveyQuestion;
 
 @property (nonatomic) NSInteger currentCount;
 @end
@@ -342,10 +345,27 @@ typedef NS_ENUM(NSUInteger, APHDynamicMoodSurveyType) {
 
 - (RKSTStep *)stepAfterStep:(RKSTStep *)step withResult:(RKSTTaskResult *)result
 {
-    NSString *customSurveyQuestion = nil;
+
+    BOOL completedNumberOfTimes = NO;
+    
+    //Check if we have reached the threshold to display customizing a survey question.
+    APCAppDelegate * delegate = (APCAppDelegate*)[UIApplication sharedApplication].delegate;
+    if (delegate.dataSubstrate.currentUser.dailyScalesCompletionCounter == kNumberOfCompletionsUntilDisplayingCustomSurvey) {
+        completedNumberOfTimes = YES;
+    }
+    
+    if (delegate.dataSubstrate.currentUser.customSurveyQuestion) {
+        self.customSurveyQuestion = delegate.dataSubstrate.currentUser.customSurveyQuestion;
+    }
     
     RKSTStepResult *stepResult = [result stepResultForStepIdentifier:kCustomMoodSurveyStep102];
     NSString *skipQuestion = [stepResult.results.firstObject textAnswer];
+    
+    if (skipQuestion != nil) {
+        [delegate.dataSubstrate.currentUser setCustomSurveyQuestion:skipQuestion];
+        self.customSurveyQuestion = skipQuestion;
+    }
+    //delegate.dataSubstrate.currentUser.customSurveyQuestion = nil;
     //This is the daily scales without custom survey question and without custom survey
     
     self.backwardKeys           = [@{
@@ -376,7 +396,7 @@ typedef NS_ENUM(NSUInteger, APHDynamicMoodSurveyType) {
                                        } mutableCopy];
     
     
-    if (customSurveyQuestion != nil)
+    if (self.customSurveyQuestion != nil && ![step.identifier isEqualToString:kCustomMoodSurveyStep102] && delegate.dataSubstrate.currentUser.dailyScalesCompletionCounter != kNumberOfCompletionsUntilDisplayingCustomSurvey)
     {
         //If there is a custom question present custom survey
         
@@ -409,7 +429,7 @@ typedef NS_ENUM(NSUInteger, APHDynamicMoodSurveyType) {
     
     }
     
-    else if (@(7) && skipQuestion == nil)
+    else if (completedNumberOfTimes && skipQuestion == nil)
 
     {
 
@@ -441,7 +461,7 @@ typedef NS_ENUM(NSUInteger, APHDynamicMoodSurveyType) {
                                      } mutableCopy];
     }
 
-    else if (@(7))
+    else if (completedNumberOfTimes)
     
     {
         //This is the daily scales with custom survey question and with custom survey
@@ -495,6 +515,10 @@ typedef NS_ENUM(NSUInteger, APHDynamicMoodSurveyType) {
     
     }
     
+    if ([step.identifier isEqualToString:kMoodSurveyStep107] && self.customSurveyQuestion != nil) {
+        step = [self customQuestionStep:self.customSurveyQuestion];
+    }
+    
     return step;
 }
 
@@ -502,7 +526,6 @@ typedef NS_ENUM(NSUInteger, APHDynamicMoodSurveyType) {
 {
     if ([[self.steps[0] identifier] isEqualToString:step.identifier]) {
         step = nil;
-        //self.currentCount = 0;
     }
     
     else
@@ -510,7 +533,10 @@ typedef NS_ENUM(NSUInteger, APHDynamicMoodSurveyType) {
         NSNumber *index = (NSNumber *) self.backwardKeys[step.identifier];
         
         step = self.steps[[index intValue]];
-        //self.currentCount = [index integerValue];
+    }
+    
+    if ([step.identifier isEqualToString:kMoodSurveyStep107] && self.customSurveyQuestion != nil) {
+        step = [self customQuestionStep:self.customSurveyQuestion];
     }
     
     return step;
@@ -519,6 +545,47 @@ typedef NS_ENUM(NSUInteger, APHDynamicMoodSurveyType) {
 - (RKSTTaskProgress)progressOfCurrentStep:(RKSTStep *)step withResult:(RKSTTaskResult *)result
 {
     return RKSTTaskProgressMake(self.currentCount, [self.steps count]);
+}
+
+- (RKSTQuestionStep *) customQuestionStep:(NSString *)question {
+    
+    NSArray* moodValueForIndex = @[@(5), @(4), @(3), @(2), @(1)];
+    
+    NSArray *imageChoices = @[[UIImage imageNamed:@"Breast-Cancer-Exercise-1g"],
+                              [UIImage imageNamed:@"Breast-Cancer-Exercise-2g"],
+                              [UIImage imageNamed:@"Breast-Cancer-Exercise-3g"],
+                              [UIImage imageNamed:@"Breast-Cancer-Exercise-4g"],
+                              [UIImage imageNamed:@"Breast-Cancer-Exercise-5g"]];
+    
+    NSArray *selectedImageChoices = @[[UIImage imageNamed:@"Breast-Cancer-Exercise-1p"],
+                                      [UIImage imageNamed:@"Breast-Cancer-Exercise-2p"],
+                                      [UIImage imageNamed:@"Breast-Cancer-Exercise-3p"],
+                                      [UIImage imageNamed:@"Breast-Cancer-Exercise-4p"],
+                                      [UIImage imageNamed:@"Breast-Cancer-Exercise-5p"]];
+    
+    NSArray *textDescriptionChoice = @[@"Great",
+                                       @"Good",
+                                       @"Average",
+                                       @"Bad",
+                                       @"Terrible"];
+    
+    
+    NSMutableArray *answerChoices = [NSMutableArray new];
+    
+    for (int i = 0; i<[imageChoices count]; i++) {
+        
+        RKSTImageChoice *answerOption = [RKSTImageChoice choiceWithNormalImage:imageChoices[i] selectedImage:selectedImageChoices[i] text:textDescriptionChoice[i] value:[moodValueForIndex objectAtIndex:i]];
+        
+        [answerChoices addObject:answerOption];
+    }
+    
+    RKSTImageChoiceAnswerFormat *format = [[RKSTImageChoiceAnswerFormat alloc] initWithImageChoices:answerChoices];
+    
+    RKSTQuestionStep *questionStep = [RKSTQuestionStep questionStepWithIdentifier:kMoodSurveyStep107
+                                                                            title:self.customSurveyQuestion
+                                                                           answer:format];
+    
+    return questionStep;
 }
 
 @end
