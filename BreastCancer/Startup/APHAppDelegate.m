@@ -94,10 +94,10 @@ static NSString *const kVideoShownKey = @"VideoShown";
 /*********************************************************************************/
 -(void)setUpCollectors
 {
-    self.dataSubstrate.passiveLocationTracking = [[APCPassiveLocationTracking alloc]
-                                                  initWithDeferredUpdatesTimeout:kPassiveLocationDeferredUpdatesTimeout
-                                                  andHomeLocationStatus:APCPassiveLocationTrackingHomeLocationUnavailable];
-    [self.dataSubstrate.passiveLocationTracking start];
+//    self.dataSubstrate.passiveLocationTracking = [[APCPassiveLocationTracking alloc]
+//                                                  initWithDeferredUpdatesTimeout:kPassiveLocationDeferredUpdatesTimeout
+//                                                  andHomeLocationStatus:APCPassiveLocationTrackingHomeLocationUnavailable];
+//    [self.dataSubstrate.passiveLocationTracking start];
     
     return;
     

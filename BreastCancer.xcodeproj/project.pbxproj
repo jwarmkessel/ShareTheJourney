@@ -18,6 +18,9 @@
 		5B1D9D6D1A1BD414000F4AD6 /* APHDashboardEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B1D9D691A1BD414000F4AD6 /* APHDashboardEditViewController.m */; };
 		5B1D9D6E1A1BD414000F4AD6 /* APHDashboardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B1D9D6B1A1BD414000F4AD6 /* APHDashboardViewController.m */; };
 		5BBDAEBB1A33DCDA0047DF87 /* HTMLContent in Resources */ = {isa = PBXBuildFile; fileRef = 5BBDAEBA1A33DCDA0047DF87 /* HTMLContent */; };
+		7B0541F71A842B4900B7729D /* APHDynamicMoodSurveyTask.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B0541F61A842B4900B7729D /* APHDynamicMoodSurveyTask.m */; };
+		7B5A5AB51A83FCF700628D4D /* APHCustomSurveyIntroViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B5A5AB31A83FCF700628D4D /* APHCustomSurveyIntroViewController.m */; };
+		7B5A5AB61A83FCF700628D4D /* APHCustomSurveyIntroViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7B5A5AB41A83FCF700628D4D /* APHCustomSurveyIntroViewController.xib */; };
 		7B5E25CB1A2045BB00A04FEF /* APHMoodSurveyTaskViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B5E25CA1A2045BB00A04FEF /* APHMoodSurveyTaskViewController.m */; };
 		7B5E25D01A20592400A04FEF /* APHHeartAgeIntroStepViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B5E25CE1A20592400A04FEF /* APHHeartAgeIntroStepViewController.m */; };
 		7B5E25D11A20592400A04FEF /* APHHeartAgeIntroStepViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7B5E25CF1A20592400A04FEF /* APHHeartAgeIntroStepViewController.xib */; };
@@ -139,6 +142,11 @@
 		5B1D9D6A1A1BD414000F4AD6 /* APHDashboardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APHDashboardViewController.h; sourceTree = "<group>"; };
 		5B1D9D6B1A1BD414000F4AD6 /* APHDashboardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APHDashboardViewController.m; sourceTree = "<group>"; };
 		5BBDAEBA1A33DCDA0047DF87 /* HTMLContent */ = {isa = PBXFileReference; lastKnownFileType = folder; path = HTMLContent; sourceTree = "<group>"; };
+		7B0541F51A842B4900B7729D /* APHDynamicMoodSurveyTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APHDynamicMoodSurveyTask.h; sourceTree = "<group>"; };
+		7B0541F61A842B4900B7729D /* APHDynamicMoodSurveyTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APHDynamicMoodSurveyTask.m; sourceTree = "<group>"; };
+		7B5A5AB21A83FCF700628D4D /* APHCustomSurveyIntroViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APHCustomSurveyIntroViewController.h; sourceTree = "<group>"; };
+		7B5A5AB31A83FCF700628D4D /* APHCustomSurveyIntroViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APHCustomSurveyIntroViewController.m; sourceTree = "<group>"; };
+		7B5A5AB41A83FCF700628D4D /* APHCustomSurveyIntroViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = APHCustomSurveyIntroViewController.xib; sourceTree = "<group>"; };
 		7B5E25C91A2045BB00A04FEF /* APHMoodSurveyTaskViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = APHMoodSurveyTaskViewController.h; path = MoodSurvey/APHMoodSurveyTaskViewController.h; sourceTree = "<group>"; };
 		7B5E25CA1A2045BB00A04FEF /* APHMoodSurveyTaskViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = APHMoodSurveyTaskViewController.m; path = MoodSurvey/APHMoodSurveyTaskViewController.m; sourceTree = "<group>"; };
 		7B5E25CD1A20592400A04FEF /* APHHeartAgeIntroStepViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = APHHeartAgeIntroStepViewController.h; path = MoodSurvey/Intro/APHHeartAgeIntroStepViewController.h; sourceTree = "<group>"; };
@@ -268,6 +276,8 @@
 		7B5E25C71A20454200A04FEF /* Mood Survey */ = {
 			isa = PBXGroup;
 			children = (
+				7B0541F51A842B4900B7729D /* APHDynamicMoodSurveyTask.h */,
+				7B0541F61A842B4900B7729D /* APHDynamicMoodSurveyTask.m */,
 				7B5E25C91A2045BB00A04FEF /* APHMoodSurveyTaskViewController.h */,
 				7B5E25CA1A2045BB00A04FEF /* APHMoodSurveyTaskViewController.m */,
 				7B5E25CC1A2058E400A04FEF /* Intro */,
@@ -380,6 +390,9 @@
 		7BB24C2C1A831D9D00AAE097 /* Customizable Survey */ = {
 			isa = PBXGroup;
 			children = (
+				7B5A5AB21A83FCF700628D4D /* APHCustomSurveyIntroViewController.h */,
+				7B5A5AB31A83FCF700628D4D /* APHCustomSurveyIntroViewController.m */,
+				7B5A5AB41A83FCF700628D4D /* APHCustomSurveyIntroViewController.xib */,
 				7BB24C2E1A831DC500AAE097 /* APHCustomSurveyTableViewCell.h */,
 				7BB24C2F1A831DC500AAE097 /* APHCustomSurveyTableViewCell.m */,
 				7BB24C301A831DC500AAE097 /* APHCustomSurveyTableViewCell.xib */,
@@ -726,6 +739,7 @@
 				7BAC9A571A78284D00125592 /* consent_02@3x.m4v in Resources */,
 				7BAC9A521A78284D00125592 /* consent_04@2x.m4v in Resources */,
 				F534B68D19E4689D00C3C152 /* sleepSurvey.json in Resources */,
+				7B5A5AB61A83FCF700628D4D /* APHCustomSurveyIntroViewController.xib in Resources */,
 				CF15F2501A116A5A00D87570 /* APHDailyJournalIntroViewController.xib in Resources */,
 				7BFD567A1A24FAF0001210A2 /* APHDisplayLogHistoryViewController.xib in Resources */,
 				7B8D703F1A1C4B13003A7A5B /* APHLogSubmissionViewController.xib in Resources */,
@@ -761,7 +775,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7B5A5AB51A83FCF700628D4D /* APHCustomSurveyIntroViewController.m in Sources */,
 				CF2697E919EC3E4200525E19 /* APHNotesContentsTableViewCell.m in Sources */,
+				7B0541F71A842B4900B7729D /* APHDynamicMoodSurveyTask.m in Sources */,
 				7BA3AC161A2407D00017B3C8 /* APHExerciseMotivationSummaryViewController.m in Sources */,
 				7B5E25CB1A2045BB00A04FEF /* APHMoodSurveyTaskViewController.m in Sources */,
 				5B15DD3B1A114F9000BEA0D1 /* APHInclusionCriteriaViewController.m in Sources */,
