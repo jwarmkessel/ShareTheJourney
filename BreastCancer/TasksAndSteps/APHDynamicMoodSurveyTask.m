@@ -345,28 +345,36 @@ typedef NS_ENUM(NSUInteger, APHDynamicMoodSurveyType) {
 
 - (RKSTStep *)stepAfterStep:(RKSTStep *)step withResult:(RKSTTaskResult *)result
 {
-
     BOOL completedNumberOfTimes = NO;
     
     //Check if we have reached the threshold to display customizing a survey question.
     APCAppDelegate * delegate = (APCAppDelegate*)[UIApplication sharedApplication].delegate;
-    if (delegate.dataSubstrate.currentUser.dailyScalesCompletionCounter == kNumberOfCompletionsUntilDisplayingCustomSurvey) {
+    
+    delegate.dataSubstrate.currentUser.customSurveyQuestion = @"bLAH";
+    
+    if (delegate.dataSubstrate.currentUser.dailyScalesCompletionCounter == kNumberOfCompletionsUntilDisplayingCustomSurvey && delegate.dataSubstrate.currentUser.customSurveyQuestion == nil) {
         completedNumberOfTimes = YES;
+        
+        RKSTStepResult *stepResult = [result stepResultForStepIdentifier:kCustomMoodSurveyStep102];
+        NSString *skipQuestion = [stepResult.results.firstObject textAnswer];
+        
+        if (skipQuestion != nil) {
+            if ([step.identifier isEqualToString:kMoodSurveyStep108])
+            {
+                [delegate.dataSubstrate.currentUser setCustomSurveyQuestion:skipQuestion];
+            }
+            
+            self.customSurveyQuestion = skipQuestion;
+        } else {
+            [delegate.dataSubstrate.currentUser setCustomSurveyQuestion:skipQuestion];
+        }
     }
     
     if (delegate.dataSubstrate.currentUser.customSurveyQuestion) {
         self.customSurveyQuestion = delegate.dataSubstrate.currentUser.customSurveyQuestion;
     }
     
-    RKSTStepResult *stepResult = [result stepResultForStepIdentifier:kCustomMoodSurveyStep102];
-    NSString *skipQuestion = [stepResult.results.firstObject textAnswer];
-    
-    if (skipQuestion != nil) {
-        [delegate.dataSubstrate.currentUser setCustomSurveyQuestion:skipQuestion];
-        self.customSurveyQuestion = skipQuestion;
-    } else {
-        [delegate.dataSubstrate.currentUser setCustomSurveyQuestion:skipQuestion];
-    }
+
 
     //This is the daily scales without custom survey question and without custom survey
     
@@ -398,7 +406,37 @@ typedef NS_ENUM(NSUInteger, APHDynamicMoodSurveyType) {
                                        };
     
     
-    if (self.customSurveyQuestion != nil && ![step.identifier isEqualToString:kCustomMoodSurveyStep102] && delegate.dataSubstrate.currentUser.dailyScalesCompletionCounter != kNumberOfCompletionsUntilDisplayingCustomSurvey)
+    if (delegate.dataSubstrate.currentUser.customSurveyQuestion) {////////////////////////////////////
+        
+        self.backwardKeys           = @{
+                                        kMoodSurveyStep101       : [NSNull null],
+                                        kCustomMoodSurveyStep101 : [NSNull null],
+                                        kCustomMoodSurveyStep102 : [NSNull null],
+                                        kMoodSurveyStep102       : @(APHDynamicMoodSurveyTypeIntroduction),
+                                        kMoodSurveyStep103       : @(APHDynamicMoodSurveyTypeClarity),
+                                        kMoodSurveyStep104       : @(APHDynamicMoodSurveyTypeMood),
+                                        kMoodSurveyStep105       : @(APHDynamicMoodSurveyTypeEnergy),
+                                        kMoodSurveyStep106       : @(APHDynamicMoodSurveyTypeSleep),
+                                        kMoodSurveyStep107       : @(APHDynamicMoodSurveyTypeExercise),
+                                        kMoodSurveyStep108       : @(APHDynamicMoodSurveyTypeConclusion),
+                                        
+                                        };
+        
+        self.keys                   = @{
+                                        kMoodSurveyStep101       : @(APHDynamicMoodSurveyTypeClarity),
+                                        kCustomMoodSurveyStep101 : [NSNull null],
+                                        kCustomMoodSurveyStep102 : [NSNull null],
+                                        kMoodSurveyStep102       : @(APHDynamicMoodSurveyTypeMood),
+                                        kMoodSurveyStep103       : @(APHDynamicMoodSurveyTypeEnergy),
+                                        kMoodSurveyStep104       : @(APHDynamicMoodSurveyTypeSleep),
+                                        kMoodSurveyStep105       : @(APHDynamicMoodSurveyTypeExercise),
+                                        kMoodSurveyStep106       : @(APHDynamicMoodSurveyTypeCustomSurvey),
+                                        kMoodSurveyStep107       : @(APHDynamicMoodSurveyTypeConclusion),
+                                        kMoodSurveyStep108       : [NSNull null]
+                                        };
+    }
+    
+    else if (self.customSurveyQuestion != nil && ![step.identifier isEqualToString:kCustomMoodSurveyStep102] && delegate.dataSubstrate.currentUser.dailyScalesCompletionCounter != kNumberOfCompletionsUntilDisplayingCustomSurvey)
     {
         //If there is a custom question present custom survey
         
@@ -431,7 +469,7 @@ typedef NS_ENUM(NSUInteger, APHDynamicMoodSurveyType) {
     
     }
     
-    else if (completedNumberOfTimes && skipQuestion == nil)
+    else if (completedNumberOfTimes && self.customSurveyQuestion == nil)
 
     {
 
