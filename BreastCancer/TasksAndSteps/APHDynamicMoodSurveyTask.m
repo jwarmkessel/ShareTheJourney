@@ -105,8 +105,9 @@ typedef NS_ENUM(NSUInteger, APHDynamicMoodSurveyType) {
     
     {
         RKSTInstructionStep *step = [[RKSTInstructionStep alloc] initWithIdentifier:kCustomMoodSurveyStep101];
-        step.title = @"You now have the ability to create your own survey question. Tap next to enter your question.";
-        
+        step.title = @"Customize Survey";
+        step.detailText = @"You now have the ability to create your own survey question. Tap next to enter your question.";
+
         [steps addObject:step];
     }
     
@@ -371,36 +372,36 @@ typedef NS_ENUM(NSUInteger, APHDynamicMoodSurveyType) {
     if (delegate.dataSubstrate.currentUser.customSurveyQuestion) {
         self.customSurveyQuestion = delegate.dataSubstrate.currentUser.customSurveyQuestion;
     }
-    
+    [self setFlowState:4];
     //set the basic state
-    [self setFlowState:0];
+//    [self setFlowState:0];
+//    
     
-    
-    if (delegate.dataSubstrate.currentUser.customSurveyQuestion)
-    {
-        //Used only if the custom question is already being set in profile.
-        [self setFlowState:1];
-    }
-    
-    else if (self.customSurveyQuestion != nil && ![step.identifier isEqualToString:kCustomMoodSurveyStep102] && delegate.dataSubstrate.currentUser.dailyScalesCompletionCounter != kNumberOfCompletionsUntilDisplayingCustomSurvey)
-    {
-        //If there is a custom question present custom survey
-        [self setFlowState:2];
-    }
-    
-    else if (completedNumberOfTimes && self.customSurveyQuestion == nil)
-
-    {
-        [self setFlowState:3];
-        
-    }
-
-    else if (completedNumberOfTimes)
-    
-    {
-        //This is the daily scales with custom survey question and with custom survey
-        [self setFlowState:4];
-    }
+//    if (delegate.dataSubstrate.currentUser.customSurveyQuestion)
+//    {
+//        //Used only if the custom question is already being set in profile.
+//        [self setFlowState:1];
+//    }
+//    
+//    else if (self.customSurveyQuestion != nil && ![step.identifier isEqualToString:kCustomMoodSurveyStep102] && delegate.dataSubstrate.currentUser.dailyScalesCompletionCounter != kNumberOfCompletionsUntilDisplayingCustomSurvey)
+//    {
+//        //If there is a custom question present custom survey
+//        [self setFlowState:2];
+//    }
+//    
+//    else if (completedNumberOfTimes && self.customSurveyQuestion == nil)
+//
+//    {
+//        [self setFlowState:3];
+//        
+//    }
+//
+//    else if (completedNumberOfTimes)
+//    
+//    {
+//        //This is the daily scales with custom survey question and with custom survey
+//        [self setFlowState:4];
+//    }
 
     
     if (step == nil)
