@@ -13,8 +13,11 @@
 /*********************************************************************************/
 static NSString *const kStudyIdentifier = @"BreastCancer";
 static NSString *const kAppPrefix       = @"breastcancer";
-static  NSTimeInterval  kPassiveLocationDeferredUpdatesTimeout = 1.0 * 60.0;
 static NSString *const kVideoShownKey = @"VideoShown";
+
+// Uncomment this when you uncomment the code in
+// -setUpCollectors, below.
+// static  NSTimeInterval  kPassiveLocationDeferredUpdatesTimeout = 1.0 * 60.0;
 
 @interface APHAppDelegate ()
 
@@ -92,15 +95,22 @@ static NSString *const kVideoShownKey = @"VideoShown";
 /*********************************************************************************/
 #pragma mark - Datasubstrate Delegate Methods
 /*********************************************************************************/
--(void)setUpCollectors
+- (void) setUpCollectors
 {
-    self.dataSubstrate.passiveLocationTracking = [[APCPassiveLocationTracking alloc]
-                                                  initWithDeferredUpdatesTimeout:kPassiveLocationDeferredUpdatesTimeout
-                                                  andHomeLocationStatus:APCPassiveLocationTrackingHomeLocationUnavailable];
-    [self.dataSubstrate.passiveLocationTracking start];
-    
+	/*
+	 NOTE:  when you uncomment this, you'll also have to
+	 uncomment kPassiveLocationDeferredUpdatesTimeout,
+	 at the top of this file.
+	 */
+
+//    self.dataSubstrate.passiveLocationTracking = [[APCPassiveLocationTracking alloc]
+//                                                  initWithDeferredUpdatesTimeout:kPassiveLocationDeferredUpdatesTimeout
+//                                                  andHomeLocationStatus:APCPassiveLocationTrackingHomeLocationUnavailable];
+//
+//    [self.dataSubstrate.passiveLocationTracking start];
+
     return;
-    
+
 }
 
 /*********************************************************************************/
