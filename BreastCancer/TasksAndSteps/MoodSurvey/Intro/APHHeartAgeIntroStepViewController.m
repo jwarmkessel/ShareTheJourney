@@ -40,6 +40,8 @@
     [self.tableView registerNib:[UINib nibWithNibName:@"APHCustomSurveyTableViewCell"
                                                bundle:[NSBundle mainBundle]]
                                forCellReuseIdentifier:@"APHCustomSurveyTableViewCellIdentifier"];
+
+    self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
 }
 
 -(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
@@ -80,7 +82,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
-    return 3;
+    return 2;
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
