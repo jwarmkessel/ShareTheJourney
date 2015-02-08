@@ -51,10 +51,7 @@
     if (indexPath.row == 0) {
         
         cell = [[UITableViewCell alloc] init];
-        
-//        UIEdgeInsets insets = UIEdgeInsetsMake(50, 50, 50, 50);
-//        [cell.textLabel];
-        cell.textLabel.text = @"You now have the ability to create your own survey question. Tap continue to enter your question";
+        cell.textLabel.text = NSLocalizedString(@"You now have the ability to create your own survey question. Tap continue to enter your question", @"");
         cell.textLabel.numberOfLines = 0;
         cell.textLabel.lineBreakMode = NSLineBreakByWordWrapping;
         

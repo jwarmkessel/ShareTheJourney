@@ -152,7 +152,7 @@
     [navController addChildViewController:self.questionController];
     [self.questionController didMoveToParentViewController:navController];
     
-    navController.navigationBar.topItem.title = @"Customize your question";
+    navController.navigationBar.topItem.title = NSLocalizedString(@"Customize your question", @"");
     
 }
 
