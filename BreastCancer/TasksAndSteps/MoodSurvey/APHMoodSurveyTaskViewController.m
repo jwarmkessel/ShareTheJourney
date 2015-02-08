@@ -249,8 +249,9 @@ static NSInteger const kNumberOfCompletionsUntilDisplayingCustomSurvey = 7;
                               multiplier:1
                               constant:0.0]];
     
-    textView.text = @"Here are some examples of what other users have come up with: e.g., What is your performance in bed?, How was your morning run?";
-    textView.textColor = [UIColor blackColor];
+    textView.text = @"Here are some examples of what other users have come up with: \n\n"
+                    "How is your performance on the treadmill?,\nHow was your morning run?";
+    textView.textColor = [UIColor darkGrayColor];
     [textView setFont:[UIFont fontWithName:@"HelveticaNeue" size:15]];
     textView.numberOfLines = 0;
     textView.adjustsFontSizeToFitWidth  = YES;
