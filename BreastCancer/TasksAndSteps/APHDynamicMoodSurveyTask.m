@@ -23,7 +23,7 @@ static  NSString  *kCustomMoodSurveyStep101   = @"customMoodSurveyStep101";
 static  NSString  *kCustomMoodSurveyStep102   = @"customMoodSurveyStep102";
 static  NSString  *kCustomMoodSurveyStep103   = @"customMoodSurveyStep103";
 
-static NSInteger const kNumberOfCompletionsUntilDisplayingCustomSurvey = 2;
+static NSInteger const kNumberOfCompletionsUntilDisplayingCustomSurvey = 6;
 
 typedef NS_ENUM(NSUInteger, APHDynamicMoodSurveyType) {
     APHDynamicMoodSurveyTypeIntroduction = 0,
