@@ -366,42 +366,43 @@ typedef NS_ENUM(NSUInteger, APHDynamicMoodSurveyType) {
             self.customSurveyQuestion = skipQuestion;
         } else {
             [delegate.dataSubstrate.currentUser setCustomSurveyQuestion:skipQuestion];
+            self.customSurveyQuestion = skipQuestion;
         }
     }
     
     if (delegate.dataSubstrate.currentUser.customSurveyQuestion) {
         self.customSurveyQuestion = delegate.dataSubstrate.currentUser.customSurveyQuestion;
     }
-    [self setFlowState:4];
+
     //set the basic state
-//    [self setFlowState:0];
-//    
+    [self setFlowState:0];
     
-//    if (delegate.dataSubstrate.currentUser.customSurveyQuestion)
-//    {
-//        //Used only if the custom question is already being set in profile.
-//        [self setFlowState:1];
-//    }
-//    
-//    else if (self.customSurveyQuestion != nil && ![step.identifier isEqualToString:kCustomMoodSurveyStep102] && delegate.dataSubstrate.currentUser.dailyScalesCompletionCounter != kNumberOfCompletionsUntilDisplayingCustomSurvey)
-//    {
-//        //If there is a custom question present custom survey
-//        [self setFlowState:2];
-//    }
-//    
-//    else if (completedNumberOfTimes && self.customSurveyQuestion == nil)
-//
-//    {
-//        [self setFlowState:3];
-//        
-//    }
-//
-//    else if (completedNumberOfTimes)
-//    
-//    {
-//        //This is the daily scales with custom survey question and with custom survey
-//        [self setFlowState:4];
-//    }
+    
+    if (delegate.dataSubstrate.currentUser.customSurveyQuestion)
+    {
+        //Used only if the custom question is already being set in profile.
+        [self setFlowState:1];
+    }
+    
+    else if (self.customSurveyQuestion != nil && ![step.identifier isEqualToString:kCustomMoodSurveyStep102] && delegate.dataSubstrate.currentUser.dailyScalesCompletionCounter != kNumberOfCompletionsUntilDisplayingCustomSurvey)
+    {
+        //If there is a custom question present custom survey
+        [self setFlowState:2];
+    }
+    
+    else if (completedNumberOfTimes && self.customSurveyQuestion == nil)
+
+    {
+        [self setFlowState:3];
+        
+    }
+
+    else if (completedNumberOfTimes)
+    
+    {
+        //This is the daily scales with custom survey question and with custom survey
+        [self setFlowState:4];
+    }
 
     
     if (step == nil)
@@ -495,26 +496,26 @@ typedef NS_ENUM(NSUInteger, APHDynamicMoodSurveyType) {
                                             kMoodSurveyStep101       : [NSNull null],
                                             kCustomMoodSurveyStep101 : [NSNull null],
                                             kCustomMoodSurveyStep102 : [NSNull null],
-                                            kMoodSurveyStep102       : @(APHDynamicMoodSurveyTypeIntroduction),
+                                            kMoodSurveyStep102       : @(APHDynamicMoodSurveyTypeCustomSurvey),
                                             kMoodSurveyStep103       : @(APHDynamicMoodSurveyTypeClarity),
                                             kMoodSurveyStep104       : @(APHDynamicMoodSurveyTypeMood),
                                             kMoodSurveyStep105       : @(APHDynamicMoodSurveyTypeEnergy),
                                             kMoodSurveyStep106       : @(APHDynamicMoodSurveyTypeSleep),
-                                            kMoodSurveyStep107       : @(APHDynamicMoodSurveyTypeExercise),
+                                            kMoodSurveyStep107       : @(APHDynamicMoodSurveyTypeIntroduction),
                                             kMoodSurveyStep108       : @(APHDynamicMoodSurveyTypeConclusion),
                                             
                                             };
             
             self.keys                   = @{
-                                            kMoodSurveyStep101       : @(APHDynamicMoodSurveyTypeClarity),
+                                            kMoodSurveyStep101       : @(APHDynamicMoodSurveyTypeCustomSurvey),
                                             kCustomMoodSurveyStep101 : [NSNull null],
                                             kCustomMoodSurveyStep102 : [NSNull null],
                                             kMoodSurveyStep102       : @(APHDynamicMoodSurveyTypeMood),
                                             kMoodSurveyStep103       : @(APHDynamicMoodSurveyTypeEnergy),
                                             kMoodSurveyStep104       : @(APHDynamicMoodSurveyTypeSleep),
                                             kMoodSurveyStep105       : @(APHDynamicMoodSurveyTypeExercise),
-                                            kMoodSurveyStep106       : @(APHDynamicMoodSurveyTypeCustomSurvey),
-                                            kMoodSurveyStep107       : @(APHDynamicMoodSurveyTypeConclusion),
+                                            kMoodSurveyStep106       : @(APHDynamicMoodSurveyTypeConclusion),
+                                            kMoodSurveyStep107       : @(APHDynamicMoodSurveyTypeClarity),
                                             kMoodSurveyStep108       : [NSNull null]
                                             };
 
@@ -526,26 +527,26 @@ typedef NS_ENUM(NSUInteger, APHDynamicMoodSurveyType) {
                                             kMoodSurveyStep101       : [NSNull null],
                                             kCustomMoodSurveyStep101 : [NSNull null],
                                             kCustomMoodSurveyStep102 : [NSNull null],
-                                            kMoodSurveyStep102       : @(APHDynamicMoodSurveyTypeIntroduction),
+                                            kMoodSurveyStep102       : @(APHDynamicMoodSurveyTypeCustomSurvey),
                                             kMoodSurveyStep103       : @(APHDynamicMoodSurveyTypeClarity),
                                             kMoodSurveyStep104       : @(APHDynamicMoodSurveyTypeMood),
                                             kMoodSurveyStep105       : @(APHDynamicMoodSurveyTypeEnergy),
                                             kMoodSurveyStep106       : @(APHDynamicMoodSurveyTypeSleep),
-                                            kMoodSurveyStep107       : @(APHDynamicMoodSurveyTypeExercise),
+                                            kMoodSurveyStep107       : @(APHDynamicMoodSurveyTypeIntroduction),
                                             kMoodSurveyStep108       : @(APHDynamicMoodSurveyTypeConclusion),
                                             
                                             };
             
             self.keys                   = @{
-                                            kMoodSurveyStep101       : @(APHDynamicMoodSurveyTypeClarity),
+                                            kMoodSurveyStep101       : @(APHDynamicMoodSurveyTypeCustomSurvey),
                                             kCustomMoodSurveyStep101 : [NSNull null],
                                             kCustomMoodSurveyStep102 : [NSNull null],
                                             kMoodSurveyStep102       : @(APHDynamicMoodSurveyTypeMood),
                                             kMoodSurveyStep103       : @(APHDynamicMoodSurveyTypeEnergy),
                                             kMoodSurveyStep104       : @(APHDynamicMoodSurveyTypeSleep),
                                             kMoodSurveyStep105       : @(APHDynamicMoodSurveyTypeExercise),
-                                            kMoodSurveyStep106       : @(APHDynamicMoodSurveyTypeCustomSurvey),
-                                            kMoodSurveyStep107       : @(APHDynamicMoodSurveyTypeConclusion),
+                                            kMoodSurveyStep106       : @(APHDynamicMoodSurveyTypeConclusion),
+                                            kMoodSurveyStep107       : @(APHDynamicMoodSurveyTypeClarity),
                                             kMoodSurveyStep108       : [NSNull null]
                                             };
 
@@ -590,26 +591,26 @@ typedef NS_ENUM(NSUInteger, APHDynamicMoodSurveyType) {
                                             kMoodSurveyStep101       : [NSNull null],
                                             kCustomMoodSurveyStep101 : @(APHDynamicMoodSurveyTypeIntroduction),
                                             kCustomMoodSurveyStep102 : @(APHDynamicMoodSurveyTypeCustomInstruction),
-                                            kMoodSurveyStep102       : @(APHDynamicMoodSurveyTypeCustomQuestionEntry),
+                                            kMoodSurveyStep102       : @(APHDynamicMoodSurveyTypeCustomSurvey),
                                             kMoodSurveyStep103       : @(APHDynamicMoodSurveyTypeClarity),
                                             kMoodSurveyStep104       : @(APHDynamicMoodSurveyTypeMood),
                                             kMoodSurveyStep105       : @(APHDynamicMoodSurveyTypeEnergy),
                                             kMoodSurveyStep106       : @(APHDynamicMoodSurveyTypeSleep),
-                                            kMoodSurveyStep107       : @(APHDynamicMoodSurveyTypeExercise),
-                                            kMoodSurveyStep108       : @(APHDynamicMoodSurveyTypeCustomSurvey),
+                                            kMoodSurveyStep107       : @(APHDynamicMoodSurveyTypeCustomQuestionEntry),
+                                            kMoodSurveyStep108       : @(APHDynamicMoodSurveyTypeExercise),
                                             
                                             };
             
             self.keys                   = @{
                                             kMoodSurveyStep101       : @(APHDynamicMoodSurveyTypeCustomInstruction),
                                             kCustomMoodSurveyStep101 : @(APHDynamicMoodSurveyTypeCustomQuestionEntry),
-                                            kCustomMoodSurveyStep102 : @(APHDynamicMoodSurveyTypeClarity),
+                                            kCustomMoodSurveyStep102 : @(APHDynamicMoodSurveyTypeCustomSurvey),
                                             kMoodSurveyStep102       : @(APHDynamicMoodSurveyTypeMood),
                                             kMoodSurveyStep103       : @(APHDynamicMoodSurveyTypeEnergy),
                                             kMoodSurveyStep104       : @(APHDynamicMoodSurveyTypeSleep),
                                             kMoodSurveyStep105       : @(APHDynamicMoodSurveyTypeExercise),
-                                            kMoodSurveyStep106       : @(APHDynamicMoodSurveyTypeCustomSurvey),
-                                            kMoodSurveyStep107       : @(APHDynamicMoodSurveyTypeConclusion),
+                                            kMoodSurveyStep106       : @(APHDynamicMoodSurveyTypeConclusion),
+                                            kMoodSurveyStep107       : @(APHDynamicMoodSurveyTypeClarity),
                                             kMoodSurveyStep108       : [NSNull null]
                                             };
         }
