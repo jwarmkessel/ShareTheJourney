@@ -133,6 +133,8 @@ static  NSString  *kExerciseSurveyStep106 = @"exercisesurvey106";
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
     
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillShowNotification object:nil];
+    
     [self.scriptorium resignFirstResponder];
 }
 - (void)viewDidLoad

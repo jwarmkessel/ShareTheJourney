@@ -7,6 +7,10 @@
  
 #import "APHMoodSurveyTaskViewController.h"
 #import "APHHeartAgeIntroStepViewController.h"
+#import "APHCustomSurveyIntroViewController.h"
+#import "APHCustomSurveyQuestionViewController.h"
+#import "APHDynamicMoodSurveyTask.h"
+#import <QuartzCore/QuartzCore.h>
 
 static  NSString  *MainStudyIdentifier  = @"com.breastcancer.moodsurvey";
 
@@ -17,11 +21,17 @@ static  NSString  *kMoodSurveyStep104   = @"moodsurvey104";
 static  NSString  *kMoodSurveyStep105   = @"moodsurvey105";
 static  NSString  *kMoodSurveyStep106   = @"moodsurvey106";
 static  NSString  *kMoodSurveyStep107   = @"moodsurvey107";
+static  NSString  *kMoodSurveyStep108   = @"moodsurvey108";
 
+static  NSString  *kCustomMoodSurveyStep101   = @"customMoodSurveyStep101";
+static  NSString  *kCustomMoodSurveyStep102   = @"customMoodSurveyStep102";
 
-@interface APHMoodSurveyTaskViewController ()
+static NSInteger const kNumberOfCompletionsUntilDisplayingCustomSurvey = 7;
+
+@interface APHMoodSurveyTaskViewController () <UIGestureRecognizerDelegate>
 
 @property (strong, nonatomic) NSMutableDictionary *previousCachedAnswer;
+@property (strong, nonatomic) UIImageView *customSurveylearnMoreView;
 
 @end
 
@@ -38,10 +48,13 @@ static  NSString  *kMoodSurveyStep107   = @"moodsurvey107";
     
     for (RKSTStepResult *stepResult in arrayOfResults) {
         if (stepResult.results.firstObject) {
-            RKSTChoiceQuestionResult *questionResult = stepResult.results.firstObject;
             
-            if (questionResult.choiceAnswers != nil) {
-                resultCollectionDictionary[stepResult.identifier] = (NSNumber *)[questionResult.choiceAnswers firstObject];
+            if ( ![stepResult.results.firstObject isKindOfClass:[RKSTTextQuestionResult class]]) {
+                RKSTChoiceQuestionResult *questionResult = stepResult.results.firstObject;
+                
+                if (questionResult.choiceAnswers != nil) {
+                    resultCollectionDictionary[stepResult.identifier] = (NSNumber *)[questionResult.choiceAnswers firstObject];
+                }
             }
         }
     }
@@ -64,233 +77,9 @@ static  NSString  *kMoodSurveyStep107   = @"moodsurvey107";
 #pragma mark - Initialize
 /*********************************************************************************/
 
-+ (RKSTOrderedTask *)createTask:(APCScheduledTask *)scheduledTask
++ (id<RKSTTask>)createTask:(APCScheduledTask *)scheduledTask
 {
-    NSArray* moodValueForIndex = @[@(5), @(4), @(3), @(2), @(1)];
-    
-    NSDictionary  *questionAnswerDictionary = @{
-                                                kMoodSurveyStep102 : @[@"Perfectly crisp concentration",
-                                                                       @"No issues with concentration",
-                                                                       @"Occasional difficulties with concentration",
-                                                                       @"Difficulties with concentration",
-                                                                       @"No concentration"],
-                                                
-                                                kMoodSurveyStep103 : @[@"The best I have felt",
-                                                                       @"Better than usual",
-                                                                       @"Normal",
-                                                                       @"Down",
-                                                                       @"Extremely down"],
-                                                
-                                                kMoodSurveyStep104 : @[@"Ready to take on the world",
-                                                                       @"Filled with energy through the day",
-                                                                       @"Energy to make it through the day",
-                                                                       @"Basic functions",
-                                                                       @"No energy"],
-                                                
-                                                kMoodSurveyStep105 : @[@"Eliminated all deficit sleep",
-                                                                       @"Made up some deficit sleep",
-                                                                       @"Almost enough sleep",
-                                                                       @"Barely enough sleep",
-                                                                       @"No real sleep"],
-                                                
-                                                kMoodSurveyStep106 : @[@"Activities that make you breathe hard and sweat",
-                                                                       @"Walking",
-                                                                       @"Standing",
-                                                                       @"Sitting",
-                                                                       @"Lying down"]
-                                                };
-    
-    NSMutableArray *steps = [NSMutableArray array];
-    
-    {
-        RKSTInstructionStep *step = [[RKSTInstructionStep alloc] initWithIdentifier:kMoodSurveyStep101];
-        step.detailText = nil;
-        
-        
-        [steps addObject:step];
-    }
-    
-    {
-        NSArray *imageChoices = @[[UIImage imageNamed:@"Breast-Cancer-Clarity-1g"],
-                                  [UIImage imageNamed:@"Breast-Cancer-Clarity-2g"],
-                                  [UIImage imageNamed:@"Breast-Cancer-Clarity-3g"],
-                                  [UIImage imageNamed:@"Breast-Cancer-Clarity-4g"],
-                                  [UIImage imageNamed:@"Breast-Cancer-Clarity-5g"]];
-        
-        NSArray *selectedImageChoices = @[[UIImage imageNamed:@"Breast-Cancer-Clarity-1p"],
-                                          [UIImage imageNamed:@"Breast-Cancer-Clarity-2p"],
-                                          [UIImage imageNamed:@"Breast-Cancer-Clarity-3p"],
-                                          [UIImage imageNamed:@"Breast-Cancer-Clarity-4p"],
-                                          [UIImage imageNamed:@"Breast-Cancer-Clarity-5p"]];
-        
-        NSArray *textDescriptionChoice = [questionAnswerDictionary objectForKey:kMoodSurveyStep102];
-        
-        
-        NSMutableArray *answerChoices = [NSMutableArray new];
-        
-        for (int i = 0; i<[imageChoices count]; i++) {
-            
-            RKSTImageChoice *answerOption = [RKSTImageChoice choiceWithNormalImage:imageChoices[i] selectedImage:selectedImageChoices[i] text:textDescriptionChoice[i] value:[moodValueForIndex objectAtIndex:i]];
-            
-            [answerChoices addObject:answerOption];
-        }
-        
-        RKSTImageChoiceAnswerFormat *format = [[RKSTImageChoiceAnswerFormat alloc] initWithImageChoices:answerChoices];
-        
-        RKSTQuestionStep *step = [RKSTQuestionStep questionStepWithIdentifier:kMoodSurveyStep102
-                                                                        title:@"How were you feeling cognitively throughout the day?"
-                                                                       answer:format];
-
-        [steps addObject:step];
-    }
-    
-    {
-        
-        NSArray *imageChoices = @[[UIImage imageNamed:@"Breast-Cancer-Mood-1g"],
-                                  [UIImage imageNamed:@"Breast-Cancer-Mood-2g"],
-                                  [UIImage imageNamed:@"Breast-Cancer-Mood-3g"],
-                                  [UIImage imageNamed:@"Breast-Cancer-Mood-4g"],
-                                  [UIImage imageNamed:@"Breast-Cancer-Mood-5g"]];
-        
-        NSArray *selectedImageChoices = @[[UIImage imageNamed:@"Breast-Cancer-Mood-1p"],
-                                          [UIImage imageNamed:@"Breast-Cancer-Mood-2p"],
-                                          [UIImage imageNamed:@"Breast-Cancer-Mood-3p"],
-                                          [UIImage imageNamed:@"Breast-Cancer-Mood-4p"],
-                                          [UIImage imageNamed:@"Breast-Cancer-Mood-5p"]];
-        
-        NSArray *textDescriptionChoice = [questionAnswerDictionary objectForKey:kMoodSurveyStep103];
-        
-        
-        NSMutableArray *answerChoices = [NSMutableArray new];
-        
-        for (int i = 0; i<[imageChoices count]; i++) {
-            
-            RKSTImageChoice *answerOption = [RKSTImageChoice choiceWithNormalImage:imageChoices[i] selectedImage:selectedImageChoices[i] text:textDescriptionChoice[i] value:[moodValueForIndex objectAtIndex:i]];
-            
-            [answerChoices addObject:answerOption];
-        }
-        
-        RKSTImageChoiceAnswerFormat *format = [[RKSTImageChoiceAnswerFormat alloc] initWithImageChoices:answerChoices];
-        
-        RKSTQuestionStep *step = [RKSTQuestionStep questionStepWithIdentifier:kMoodSurveyStep103
-                                                                        title:@"What is your overall mood so far today?"
-                                                                       answer:format];
-        
-        [steps addObject:step];
-    }
-    
-    {
-        NSArray *imageChoices = @[[UIImage imageNamed:@"Breast-Cancer-Energy-1g"],
-                                  [UIImage imageNamed:@"Breast-Cancer-Energy-2g"],
-                                  [UIImage imageNamed:@"Breast-Cancer-Energy-3g"],
-                                  [UIImage imageNamed:@"Breast-Cancer-Energy-4g"],
-                                  [UIImage imageNamed:@"Breast-Cancer-Energy-5g"]];
-        
-        NSArray *selectedImageChoices = @[[UIImage imageNamed:@"Breast-Cancer-Energy-1p"],
-                                          [UIImage imageNamed:@"Breast-Cancer-Energy-2p"],
-                                          [UIImage imageNamed:@"Breast-Cancer-Energy-3p"],
-                                          [UIImage imageNamed:@"Breast-Cancer-Energy-4p"],
-                                          [UIImage imageNamed:@"Breast-Cancer-Energy-5p"]];
-        
-        NSArray *textDescriptionChoice = [questionAnswerDictionary objectForKey:kMoodSurveyStep104];
-        
-        
-        NSMutableArray *answerChoices = [NSMutableArray new];
-        
-        for (int i = 0; i<[imageChoices count]; i++) {
-            
-            RKSTImageChoice *answerOption = [RKSTImageChoice choiceWithNormalImage:imageChoices[i] selectedImage:selectedImageChoices[i] text:textDescriptionChoice[i] value:[moodValueForIndex objectAtIndex:i]];
-            
-            [answerChoices addObject:answerOption];
-        }
-        
-        RKSTImageChoiceAnswerFormat *format = [[RKSTImageChoiceAnswerFormat alloc] initWithImageChoices:answerChoices];
-        
-        RKSTQuestionStep *step = [RKSTQuestionStep questionStepWithIdentifier:kMoodSurveyStep104
-                                                                        title:@"What is your energy level like so far today?"
-                                                                       answer:format];
-        
-        [steps addObject:step];
-    }
-    
-    {
-        NSArray *imageChoices = @[[UIImage imageNamed:@"Breast-Cancer-Sleep-1g"],
-                                  [UIImage imageNamed:@"Breast-Cancer-Sleep-2g"],
-                                  [UIImage imageNamed:@"Breast-Cancer-Sleep-3g"],
-                                  [UIImage imageNamed:@"Breast-Cancer-Sleep-4g"],
-                                  [UIImage imageNamed:@"Breast-Cancer-Sleep-5g"]];
-        
-        NSArray *selectedImageChoices = @[[UIImage imageNamed:@"Breast-Cancer-Sleep-1p"],
-                                          [UIImage imageNamed:@"Breast-Cancer-Sleep-2p"],
-                                          [UIImage imageNamed:@"Breast-Cancer-Sleep-3p"],
-                                          [UIImage imageNamed:@"Breast-Cancer-Sleep-4p"],
-                                          [UIImage imageNamed:@"Breast-Cancer-Sleep-5p"]];
-        
-        NSArray *textDescriptionChoice = [questionAnswerDictionary objectForKey:kMoodSurveyStep105];
-        
-        
-        NSMutableArray *answerChoices = [NSMutableArray new];
-        
-        for (int i = 0; i<[imageChoices count]; i++) {
-            
-            RKSTImageChoice *answerOption = [RKSTImageChoice choiceWithNormalImage:imageChoices[i] selectedImage:selectedImageChoices[i] text:textDescriptionChoice[i] value:[moodValueForIndex objectAtIndex:i]];
-            
-            [answerChoices addObject:answerOption];
-        }
-        
-        RKSTImageChoiceAnswerFormat *format = [[RKSTImageChoiceAnswerFormat alloc] initWithImageChoices:answerChoices];
-        
-        RKSTQuestionStep *step = [RKSTQuestionStep questionStepWithIdentifier:kMoodSurveyStep105
-                                                                        title:@"Did you get enough quality sleep last night?"
-                                                                       answer:format];
-        
-        [steps addObject:step];
-    }
-    
-    {
-        NSArray *imageChoices = @[[UIImage imageNamed:@"Breast-Cancer-Exercise-1g"],
-                                  [UIImage imageNamed:@"Breast-Cancer-Exercise-2g"],
-                                  [UIImage imageNamed:@"Breast-Cancer-Exercise-3g"],
-                                  [UIImage imageNamed:@"Breast-Cancer-Exercise-4g"],
-                                  [UIImage imageNamed:@"Breast-Cancer-Exercise-5g"]];
-        
-        NSArray *selectedImageChoices = @[[UIImage imageNamed:@"Breast-Cancer-Exercise-1p"],
-                                          [UIImage imageNamed:@"Breast-Cancer-Exercise-2p"],
-                                          [UIImage imageNamed:@"Breast-Cancer-Exercise-3p"],
-                                          [UIImage imageNamed:@"Breast-Cancer-Exercise-4p"],
-                                          [UIImage imageNamed:@"Breast-Cancer-Exercise-5p"]];
-        
-        NSArray *textDescriptionChoice = [questionAnswerDictionary objectForKey:kMoodSurveyStep106];
-        
-        
-        NSMutableArray *answerChoices = [NSMutableArray new];
-        
-        for (int i = 0; i<[imageChoices count]; i++) {
-            
-            RKSTImageChoice *answerOption = [RKSTImageChoice choiceWithNormalImage:imageChoices[i] selectedImage:selectedImageChoices[i] text:textDescriptionChoice[i] value:[moodValueForIndex objectAtIndex:i]];
-            
-            [answerChoices addObject:answerOption];
-        }
-        
-        RKSTImageChoiceAnswerFormat *format = [[RKSTImageChoiceAnswerFormat alloc] initWithImageChoices:answerChoices];
-        RKSTQuestionStep *step = [RKSTQuestionStep questionStepWithIdentifier:kMoodSurveyStep106
-                                                                        title:@"What level exercise are you getting today?"
-                                                                       answer:format];
-        
-        [steps addObject:step];
-    }
-    
-    {
-        
-        RKSTQuestionStep *step = [RKSTQuestionStep questionStepWithIdentifier:kMoodSurveyStep107
-                                                                        title:@"What level exercise are you getting today?"
-                                                                       answer:nil];
-        
-        [steps addObject:step];
-    }
-    
-    RKSTOrderedTask *task = [[RKSTOrderedTask alloc] initWithIdentifier:@"Mood Survey"
-                                                                  steps:steps];
+    APHDynamicMoodSurveyTask *task = [[APHDynamicMoodSurveyTask alloc] init];
     
     return task;
 }
@@ -299,18 +88,20 @@ static  NSString  *kMoodSurveyStep107   = @"moodsurvey107";
 #pragma  mark  - TaskViewController delegates
 /*********************************************************************************/
 
+
 - (RKSTStepViewController *)taskViewController:(RKSTTaskViewController *)taskViewController viewControllerForStep:(RKSTStep *)step {
     
     NSDictionary  *controllers = @{
                                    kMoodSurveyStep101 : [APHHeartAgeIntroStepViewController class],
-                                   kMoodSurveyStep107 : [APCSimpleTaskSummaryViewController class]
+                                   kMoodSurveyStep108 : [APCSimpleTaskSummaryViewController class]
                                    };
     
     Class  aClass = [controllers objectForKey:step.identifier];
     
     APCStepViewController  *controller = [[aClass alloc] initWithNibName:nil bundle:nil];
     
-    if (step.identifier == kMoodSurveyStep107 ) {
+    if (step.identifier == kMoodSurveyStep108)
+    {
         controller = [[aClass alloc] initWithNibName:nil bundle:[NSBundle appleCoreBundle]];
     }
     
@@ -319,6 +110,160 @@ static  NSString  *kMoodSurveyStep107   = @"moodsurvey107";
     
     
     return controller;
+}
+
+- (void)taskViewControllerDidComplete:(RKSTTaskViewController *)taskViewController {
+    [super taskViewControllerDidComplete:taskViewController];
+    
+
+    //Here we are keeping a count of the daily scales being completed. We are keeping track only up to 7.
+    APCAppDelegate * delegate = (APCAppDelegate*)[UIApplication sharedApplication].delegate;
+    if (delegate.dataSubstrate.currentUser.dailyScalesCompletionCounter < kNumberOfCompletionsUntilDisplayingCustomSurvey) {
+        delegate.dataSubstrate.currentUser.dailyScalesCompletionCounter++;
+    }
+}
+
+- (BOOL)taskViewController:(RKSTTaskViewController *)taskViewController hasLearnMoreForStep:(RKSTStep *)step {
+    
+    BOOL hasLearnMore = NO;
+    
+    if ([step.identifier isEqualToString:kCustomMoodSurveyStep101]) {
+        hasLearnMore = YES;
+    }
+    
+    return hasLearnMore;
+}
+
+- (void)taskViewController:(RKSTTaskViewController *)taskViewController learnMoreForStep:(RKSTStepViewController *)stepViewController {
+    
+    //[stepViewController.view setUserInteractionEnabled:NO];
+    
+    UIImage *blurredImage = [self.view blurredSnapshotDark];
+    
+    UIImageView *imageView = [[UIImageView alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    self.customSurveylearnMoreView = imageView;
+    imageView.alpha = 0;
+    [imageView setBounds:[UIScreen mainScreen].bounds];
+
+    [stepViewController.view addSubview:imageView];
+    imageView.image = blurredImage;
+    
+    [UIView animateWithDuration:0.2 animations:^{
+        imageView.alpha = 1;
+    }];
+    
+    UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(removeLearnMore:)];
+    [imageView setUserInteractionEnabled:YES];
+
+    tapGesture.delegate = self;
+    tapGesture.numberOfTapsRequired = 1;
+    tapGesture.numberOfTouchesRequired = 1;
+    tapGesture.cancelsTouchesInView = NO;
+    
+    [imageView addGestureRecognizer:tapGesture];
+
+    UIView *learnMoreBubble = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 0, 0)];
+    [learnMoreBubble setBackgroundColor:[UIColor whiteColor]];
+    learnMoreBubble.layer.cornerRadius = 5;
+    learnMoreBubble.layer.masksToBounds = YES;
+    
+    [imageView addSubview:learnMoreBubble];
+    
+    [learnMoreBubble setTranslatesAutoresizingMaskIntoConstraints:NO];
+    
+    // SET THE WIDTH
+    [imageView addConstraint:[NSLayoutConstraint
+                              constraintWithItem:learnMoreBubble
+                              attribute:NSLayoutAttributeWidth
+                              relatedBy:NSLayoutRelationEqual
+                              toItem:imageView
+                              attribute:NSLayoutAttributeWidth
+                              multiplier:0.9
+                              constant:0.0]];
+    
+    [imageView addConstraint:[NSLayoutConstraint
+                              constraintWithItem:learnMoreBubble
+                              attribute:NSLayoutAttributeHeight
+                              relatedBy:NSLayoutRelationEqual
+                              toItem:imageView
+                              attribute:NSLayoutAttributeHeight
+                              multiplier:0.2
+                              constant:0.0]];
+    
+    [imageView addConstraint:[NSLayoutConstraint
+                              constraintWithItem:learnMoreBubble
+                              attribute:NSLayoutAttributeCenterY
+                              relatedBy:NSLayoutRelationEqual
+                              toItem:imageView
+                              attribute:NSLayoutAttributeCenterY
+                              multiplier:0.6
+                              constant:0.0]];
+    
+    [imageView addConstraint:[NSLayoutConstraint
+                              constraintWithItem:learnMoreBubble
+                              attribute:NSLayoutAttributeCenterX
+                              relatedBy:NSLayoutRelationEqual
+                              toItem:imageView
+                              attribute:NSLayoutAttributeCenterX
+                              multiplier:1
+                              constant:0.0]];
+    
+    UILabel *textView = [[UILabel alloc] initWithFrame:CGRectMake(0.0, 0.0, learnMoreBubble.bounds.size.width, 100.0)];
+    [learnMoreBubble addSubview:textView];
+    
+    [textView setTranslatesAutoresizingMaskIntoConstraints:NO];
+    
+    [learnMoreBubble addConstraint:[NSLayoutConstraint
+                              constraintWithItem:textView
+                              attribute:NSLayoutAttributeWidth
+                              relatedBy:NSLayoutRelationEqual
+                              toItem:learnMoreBubble
+                              attribute:NSLayoutAttributeWidth
+                              multiplier:0.8
+                              constant:0.0]];
+    
+    [learnMoreBubble addConstraint:[NSLayoutConstraint
+                              constraintWithItem:textView
+                              attribute:NSLayoutAttributeHeight
+                              relatedBy:NSLayoutRelationEqual
+                              toItem:learnMoreBubble
+                              attribute:NSLayoutAttributeHeight
+                              multiplier:0.8
+                              constant:0.0]];
+    
+    [learnMoreBubble addConstraint:[NSLayoutConstraint
+                              constraintWithItem:textView
+                              attribute:NSLayoutAttributeCenterY
+                              relatedBy:NSLayoutRelationEqual
+                              toItem:learnMoreBubble
+                              attribute:NSLayoutAttributeCenterY
+                              multiplier:1
+                              constant:0.0]];
+    
+    [learnMoreBubble addConstraint:[NSLayoutConstraint
+                              constraintWithItem:textView
+                              attribute:NSLayoutAttributeCenterX
+                              relatedBy:NSLayoutRelationEqual
+                              toItem:learnMoreBubble
+                              attribute:NSLayoutAttributeCenterX
+                              multiplier:1
+                              constant:0.0]];
+    
+    textView.text = @"Here are some examples of what other users have come up with: \n\n"
+                    "How is your performance on the treadmill?,\nHow was your morning run?";
+    textView.textColor = [UIColor darkGrayColor];
+    [textView setFont:[UIFont fontWithName:@"HelveticaNeue" size:15]];
+    textView.numberOfLines = 0;
+    textView.adjustsFontSizeToFitWidth  = YES;
+    
+}
+
+- (void)removeLearnMore:(id)sender {
+    [UIView animateWithDuration:0.2 animations:^{
+        self.customSurveylearnMoreView.alpha = 0;
+    } completion:^(BOOL finished) {
+        [self.customSurveylearnMoreView removeFromSuperview];
+    }];
 }
 
 @end
