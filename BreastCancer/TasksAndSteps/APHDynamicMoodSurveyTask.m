@@ -8,6 +8,7 @@
 #import "APHDynamicMoodSurveyTask.h"
 
 static  NSString  *MainStudyIdentifier  = @"com.breastcancer.moodsurvey";
+static  NSString  *kMoodSurveyTaskIdentifier  = @"Mood Survey";
 
 static  NSString  *kMoodSurveyStep101   = @"moodsurvey101";
 static  NSString  *kMoodSurveyStep102   = @"moodsurvey102";
@@ -52,41 +53,47 @@ typedef NS_ENUM(NSUInteger, APHDynamicMoodSurveyType) {
     NSArray* moodValueForIndex = @[@(5), @(4), @(3), @(2), @(1)];
     
     NSDictionary  *questionAnswerDictionary = @{
-                                                kMoodSurveyStep102 : @[@"Perfectly crisp",
-                                                                       @"Crisp",
-                                                                       @"Some difficulties",
-                                                                       @"Difficulties",
-                                                                       @"Poor"],
+                                                kMoodSurveyStep102 : @[NSLocalizedString(@"Perfectly crisp", @""),
+                                                                       NSLocalizedString(@"Crisp", @""),
+                                                                       NSLocalizedString(@"Some difficulties", @""),
+                                                                       NSLocalizedString(@"Difficulties", @""),
+                                                                       NSLocalizedString(@"Poor", @"")
+                                                                       ],
                                                 
-                                                kMoodSurveyStep103 : @[@"The best I have felt",
-                                                                       @"Better than usual",
-                                                                       @"Normal",
-                                                                       @"Down",
-                                                                       @"Extremely down"],
+                                                kMoodSurveyStep103 : @[NSLocalizedString(@"The best I have felt", @""),
+                                                                       NSLocalizedString(@"Better than usual", @""),
+                                                                       NSLocalizedString(@"Normal", @""),
+                                                                       NSLocalizedString(@"Down", @""),
+                                                                       NSLocalizedString(@"Extremely down", @"")
+                                                                       ],
+
+                                                kMoodSurveyStep104 : @[NSLocalizedString(@"Ready to take on the world", @""),
+                                                                       NSLocalizedString(@"Filled with energy", @""),
+                                                                       NSLocalizedString(@"Enough to make it through the day", @""),
+                                                                       NSLocalizedString(@"Low energy", @""),
+                                                                       NSLocalizedString(@"No energy", @"")
+                                                                      ],
                                                 
-                                                kMoodSurveyStep104 : @[@"Ready to take on the world",
-                                                                       @"Filled with energy",
-                                                                       @"Enough to make it through the day",
-                                                                       @"Low energy",
-                                                                       @"No energy"],
-                                                
-                                                kMoodSurveyStep105 : @[@"Eliminated all deficit sleep",
-                                                                       @"Made up some deficit sleep",
-                                                                       @"Almost enough sleep",
-                                                                       @"Barely enough sleep",
-                                                                       @"No real sleep"],
-                                                
-                                                kMoodSurveyStep106 : @[@"Strenuous exercise (heart beats rapidly)",
-                                                                       @"Moderate exercise (not exhausting)",
-                                                                       @"Mild exercise (minimal effort)",
-                                                                       @"Minimal exercise (no effort)",
-                                                                       @"No exercise "],
-                                                
-                                                kMoodSurveyStep107 : @[@"Great",
-                                                                       @"Good",
-                                                                       @"Average",
-                                                                       @"Bad",
-                                                                       @"Terrible"],
+                                                kMoodSurveyStep105 : @[NSLocalizedString(@"Eliminated all deficit sleep", @""),
+                                                                       NSLocalizedString(@"Made up some deficit sleep", @""),
+                                                                       NSLocalizedString(@"Almost enough sleep", @""),
+                                                                       NSLocalizedString(@"Barely enough sleep", @""),
+                                                                       NSLocalizedString(@"No real sleep", @"")
+                                                                     ],
+  
+                                                kMoodSurveyStep106 : @[NSLocalizedString(@"Strenuous exercise (heart beats rapidly)", @""),
+                                                                       NSLocalizedString(@"Moderate exercise (not exhausting)", @""),
+                                                                       NSLocalizedString(@"Mild exercise (minimal effort)", @""),
+                                                                       NSLocalizedString(@"Minimal exercise (no effort)", @""),
+                                                                       NSLocalizedString(@"No exercise", @"")
+                                                                       ],
+
+                                                kMoodSurveyStep107 : @[NSLocalizedString(@"Great", @""),
+                                                                       NSLocalizedString(@"Good", @""),
+                                                                       NSLocalizedString(@"Average", @""),
+                                                                       NSLocalizedString(@"Bad", @""),
+                                                                       NSLocalizedString(@"Terrible", @"")
+                                                                       ],
                                                 };
     
     NSMutableArray *steps = [NSMutableArray array];
@@ -104,8 +111,8 @@ typedef NS_ENUM(NSUInteger, APHDynamicMoodSurveyType) {
     
     {
         RKSTInstructionStep *step = [[RKSTInstructionStep alloc] initWithIdentifier:kCustomMoodSurveyStep101];
-        step.title = @"Customize Survey";
-        step.detailText = @"You now have the ability to create your own survey question. Tap next to enter your question.";
+        step.title = NSLocalizedString(@"Customize Survey", @"");
+        step.detailText = NSLocalizedString(@"You now have the ability to create your own survey question. Tap next to enter your question.", @"");
 
         [steps addObject:step];
     }
@@ -113,7 +120,7 @@ typedef NS_ENUM(NSUInteger, APHDynamicMoodSurveyType) {
     {
         RKSTQuestionStep *step = [[RKSTQuestionStep alloc] initWithIdentifier:kCustomMoodSurveyStep102];
         
-        step.text = @"Customize your question.";
+        step.text = NSLocalizedString(@"Customize your question.", @"");
         
         RKSTAnswerFormat *textAnswerFormat = [RKSTAnswerFormat textAnswerFormatWithMaximumLength:100];
         
@@ -154,7 +161,7 @@ typedef NS_ENUM(NSUInteger, APHDynamicMoodSurveyType) {
         RKSTImageChoiceAnswerFormat *format = [[RKSTImageChoiceAnswerFormat alloc] initWithImageChoices:answerChoices];
         
         RKSTQuestionStep *step = [RKSTQuestionStep questionStepWithIdentifier:kMoodSurveyStep102
-                                                                        title:@"How were you feeling cognitively throughout the day?"
+                                                                        title:NSLocalizedString(@"How were you feeling cognitively throughout the day?", @"")
                                                                        answer:format];
         
         [steps addObject:step];
@@ -189,7 +196,7 @@ typedef NS_ENUM(NSUInteger, APHDynamicMoodSurveyType) {
         RKSTImageChoiceAnswerFormat *format = [[RKSTImageChoiceAnswerFormat alloc] initWithImageChoices:answerChoices];
         
         RKSTQuestionStep *step = [RKSTQuestionStep questionStepWithIdentifier:kMoodSurveyStep103
-                                                                        title:@"What is your overall mood so far today?"
+                                                                        title:NSLocalizedString(@"What is your overall mood so far today?", @"")
                                                                        answer:format];
         
         [steps addObject:step];
@@ -223,7 +230,7 @@ typedef NS_ENUM(NSUInteger, APHDynamicMoodSurveyType) {
         RKSTImageChoiceAnswerFormat *format = [[RKSTImageChoiceAnswerFormat alloc] initWithImageChoices:answerChoices];
         
         RKSTQuestionStep *step = [RKSTQuestionStep questionStepWithIdentifier:kMoodSurveyStep104
-                                                                        title:@"What is your energy level like so far today?"
+                                                                        title:NSLocalizedString(@"What is your energy level like so far today?", @"")
                                                                        answer:format];
         
         [steps addObject:step];
@@ -257,7 +264,7 @@ typedef NS_ENUM(NSUInteger, APHDynamicMoodSurveyType) {
         RKSTImageChoiceAnswerFormat *format = [[RKSTImageChoiceAnswerFormat alloc] initWithImageChoices:answerChoices];
         
         RKSTQuestionStep *step = [RKSTQuestionStep questionStepWithIdentifier:kMoodSurveyStep105
-                                                                        title:@"Did you get enough quality sleep last night?"
+                                                                        title:NSLocalizedString(@"Did you get enough quality sleep last night?", @"")
                                                                        answer:format];
         
         [steps addObject:step];
@@ -290,7 +297,7 @@ typedef NS_ENUM(NSUInteger, APHDynamicMoodSurveyType) {
         
         RKSTImageChoiceAnswerFormat *format = [[RKSTImageChoiceAnswerFormat alloc] initWithImageChoices:answerChoices];
         RKSTQuestionStep *step = [RKSTQuestionStep questionStepWithIdentifier:kMoodSurveyStep106
-                                                                        title:@"What level exercise are you getting today?"
+                                                                        title:NSLocalizedString(@"What level exercise are you getting today?", @"")
                                                                        answer:format];
         
         [steps addObject:step];
@@ -323,7 +330,7 @@ typedef NS_ENUM(NSUInteger, APHDynamicMoodSurveyType) {
         
         RKSTImageChoiceAnswerFormat *format = [[RKSTImageChoiceAnswerFormat alloc] initWithImageChoices:answerChoices];
         RKSTQuestionStep *step = [RKSTQuestionStep questionStepWithIdentifier:kMoodSurveyStep107
-                                                                        title:@"Custom Survey Question?"
+                                                                        title:NSLocalizedString(@"Custom Survey Question?", @"")
                                                                        answer:format];
         
         [steps addObject:step];
@@ -333,12 +340,12 @@ typedef NS_ENUM(NSUInteger, APHDynamicMoodSurveyType) {
     {
         
         RKSTQuestionStep *step = [RKSTQuestionStep questionStepWithIdentifier:kMoodSurveyStep108
-                                                                        title:@"What level exercise are you getting today?"
+                                                                        title:NSLocalizedString(@"What level exercise are you getting today?", @"")
                                                                        answer:nil];
         
         [steps addObject:step];
     }
-    self  = [super initWithIdentifier:@"Mood Survey" steps:steps];
+    self  = [super initWithIdentifier:kMoodSurveyTaskIdentifier steps:steps];
     
     return self;
 }
@@ -664,12 +671,12 @@ typedef NS_ENUM(NSUInteger, APHDynamicMoodSurveyType) {
                                       [UIImage imageNamed:@"Breast-Cancer-Custom-4p"],
                                       [UIImage imageNamed:@"Breast-Cancer-Custom-5p"]];
     
-    NSArray *textDescriptionChoice = @[@"Great",
-                                       @"Good",
-                                       @"Average",
-                                       @"Bad",
-                                       @"Terrible"];
-    
+    NSArray *textDescriptionChoice = @[NSLocalizedString(@"Great", @""),
+                                      NSLocalizedString(@"Good", @""),
+                                      NSLocalizedString(@"Average", @""),
+                                      NSLocalizedString(@"Bad", @""),
+                                      NSLocalizedString(@"Terrible", @"")
+                                      ];
     
     NSMutableArray *answerChoices = [NSMutableArray new];
     
