@@ -32,10 +32,6 @@ static NSString* const  kBreastCancerRibbonImageName = @"BreastCancer-Ribbon";
     
     if ([self.parent.step.identifier isEqualToString:kSummaryStepIdentifier]) {
         
-//        self.parent.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone
-//                                                                                                      target:self.parent
-//                                                                                                      action:@selector(doneButtonTapped:)];
-        
         [self.changeYourGoalButton setTitle:@"Next" forState:UIControlStateNormal];
     }
 
@@ -57,14 +53,6 @@ static NSString* const  kBreastCancerRibbonImageName = @"BreastCancer-Ribbon";
 }
 
 #pragma mark - Table view data source
--(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-//    NSIndexPath *hidePath = [NSIndexPath indexPathForItem:kChangeYourGoalButtonIndex inSection:kChangeYourGoalSection];
-//    
-//    if (indexPath == hidePath && [self.parent.step.identifier isEqualToString:kSummaryStepIdentifier]) {
-//        [cell setHidden:YES];
-//    }
-}
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
  
