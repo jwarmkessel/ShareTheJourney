@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6250" systemVersion="14A388a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="APHLogSubmissionViewController">
@@ -56,10 +56,11 @@ for review.</string>
                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                 </textView>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uJ6-EU-grm">
-                    <rect key="frame" x="0.0" y="440" width="320" height="64"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uJ6-EU-grm" customClass="APCButton">
+                    <rect key="frame" x="87" y="437" width="146" height="44"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="64" id="NuE-il-SU1"/>
+                        <constraint firstAttribute="width" constant="146" id="AWJ-gN-i7a"/>
+                        <constraint firstAttribute="height" constant="44" id="NuE-il-SU1"/>
                     </constraints>
                     <state key="normal" title="Submit">
                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -72,16 +73,15 @@ for review.</string>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
+                <constraint firstAttribute="centerX" secondItem="uJ6-EU-grm" secondAttribute="centerX" id="24F-cs-hoN"/>
                 <constraint firstItem="ZjI-59-JNy" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="3cp-jR-ocC"/>
                 <constraint firstItem="i9K-JY-cja" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="14" id="5AQ-xW-Y7b"/>
-                <constraint firstAttribute="trailing" secondItem="uJ6-EU-grm" secondAttribute="trailing" id="5Ps-ok-yqJ"/>
-                <constraint firstItem="uJ6-EU-grm" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="PXN-MM-sfq"/>
-                <constraint firstAttribute="bottom" secondItem="uJ6-EU-grm" secondAttribute="bottom" id="TKc-s1-nUF"/>
+                <constraint firstAttribute="bottom" secondItem="uJ6-EU-grm" secondAttribute="bottom" constant="23" id="TKc-s1-nUF"/>
                 <constraint firstAttribute="trailing" secondItem="ZjI-59-JNy" secondAttribute="trailing" id="V4U-N6-32V"/>
                 <constraint firstItem="0b9-Vl-YGg" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="Zk4-2h-YQQ"/>
                 <constraint firstItem="i9K-JY-cja" firstAttribute="top" secondItem="ZjI-59-JNy" secondAttribute="bottom" constant="21" id="dnX-85-grd"/>
                 <constraint firstItem="0b9-Vl-YGg" firstAttribute="top" secondItem="i9K-JY-cja" secondAttribute="bottom" constant="8" id="ltn-9H-J6L"/>
-                <constraint firstItem="uJ6-EU-grm" firstAttribute="top" secondItem="0b9-Vl-YGg" secondAttribute="bottom" constant="12" id="pwU-Ui-EFW"/>
+                <constraint firstItem="uJ6-EU-grm" firstAttribute="top" secondItem="0b9-Vl-YGg" secondAttribute="bottom" constant="9" id="pwU-Ui-EFW"/>
                 <constraint firstAttribute="trailing" secondItem="0b9-Vl-YGg" secondAttribute="trailing" id="tMm-9Z-J9g"/>
                 <constraint firstItem="ZjI-59-JNy" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="tY7-Th-mxY"/>
             </constraints>
