@@ -262,7 +262,7 @@ static NSString *const kVideoShownKey = @"VideoShown";
         reviewStep = [[RKSTConsentReviewStep alloc] initWithIdentifier:@"reviewStep"
                                                              signature:participantSig
                                                             inDocument:consent];
-        reviewStep.reasonForConsent = @"By agreeing you confirm that you have read the information and that you wish to take part in this research study.";
+        reviewStep.reasonForConsent = @"By agreeing you confirm that you have read the terms and conditions, that you understand them and that you wish to take part in this research study.";
         
         [consentSteps addObject:reviewStep];
     }
