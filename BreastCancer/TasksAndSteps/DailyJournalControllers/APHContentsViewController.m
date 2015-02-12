@@ -349,7 +349,7 @@ typedef  enum  _DailyLogType
     NSMutableDictionary *mutableSectionedLogHistory = [NSMutableDictionary dictionary];
     for (NSInteger i = 0; i < logHistory.count; i++) {
         APCResult *result = logHistory[i];
-        NSDateComponents *identifyingDateComponents = [[NSCalendar currentCalendar] components:(NSCalendarUnitWeekOfYear | NSCalendarUnitYear) fromDate:[NSDate date]];
+        NSDateComponents *identifyingDateComponents = [[NSCalendar currentCalendar] components:(NSCalendarUnitWeekOfYear | NSCalendarUnitYear) fromDate:result.createdAt];
         NSMutableArray *mutableSectionLog = nil;
         if ((mutableSectionLog = [mutableSectionedLogHistory objectForKey:identifyingDateComponents])) {
             NSMutableArray *mutableSectionLog = [mutableSectionedLogHistory objectForKey:identifyingDateComponents];
