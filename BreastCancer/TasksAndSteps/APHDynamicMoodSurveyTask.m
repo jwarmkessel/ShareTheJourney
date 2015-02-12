@@ -297,17 +297,17 @@ typedef NS_ENUM(NSUInteger, APHDynamicMoodSurveyType) {
     }
     
     {
-        NSArray *imageChoices = @[[UIImage imageNamed:@"Breast-Cancer-Exercise-1g"],
-                                  [UIImage imageNamed:@"Breast-Cancer-Exercise-2g"],
-                                  [UIImage imageNamed:@"Breast-Cancer-Exercise-3g"],
-                                  [UIImage imageNamed:@"Breast-Cancer-Exercise-4g"],
-                                  [UIImage imageNamed:@"Breast-Cancer-Exercise-5g"]];
+        NSArray *imageChoices = @[[UIImage imageNamed:@"Breast-Cancer-Custom-1g"],
+                                  [UIImage imageNamed:@"Breast-Cancer-Custom-2g"],
+                                  [UIImage imageNamed:@"Breast-Cancer-Custom-3g"],
+                                  [UIImage imageNamed:@"Breast-Cancer-Custom-4g"],
+                                  [UIImage imageNamed:@"Breast-Cancer-Custom-5g"]];
         
-        NSArray *selectedImageChoices = @[[UIImage imageNamed:@"Breast-Cancer-Exercise-1p"],
-                                          [UIImage imageNamed:@"Breast-Cancer-Exercise-2p"],
-                                          [UIImage imageNamed:@"Breast-Cancer-Exercise-3p"],
-                                          [UIImage imageNamed:@"Breast-Cancer-Exercise-4p"],
-                                          [UIImage imageNamed:@"Breast-Cancer-Exercise-5p"]];
+        NSArray *selectedImageChoices = @[[UIImage imageNamed:@"Breast-Cancer-Custom-1p"],
+                                          [UIImage imageNamed:@"Breast-Cancer-Custom-2p"],
+                                          [UIImage imageNamed:@"Breast-Cancer-Custom-3p"],
+                                          [UIImage imageNamed:@"Breast-Cancer-Custom-4p"],
+                                          [UIImage imageNamed:@"Breast-Cancer-Custom-5p"]];
         
         NSArray *textDescriptionChoice = [questionAnswerDictionary objectForKey:kMoodSurveyStep107];
         
