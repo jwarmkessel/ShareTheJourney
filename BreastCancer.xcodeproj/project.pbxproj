@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		215C53671A8C5D6F0006F7DC /* APHNotesHeaderTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 215C53651A8C5D6F0006F7DC /* APHNotesHeaderTableViewCell.m */; };
+		215C53681A8C5D6F0006F7DC /* APHNotesHeaderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 215C53661A8C5D6F0006F7DC /* APHNotesHeaderTableViewCell.xib */; };
 		5B15DCF41A114F7000BEA0D1 /* Learn.json in Resources */ = {isa = PBXBuildFile; fileRef = 5B15DCF21A114F7000BEA0D1 /* Learn.json */; };
 		5B15DCF51A114F7000BEA0D1 /* WithdrawStudy.json in Resources */ = {isa = PBXBuildFile; fileRef = 5B15DCF31A114F7000BEA0D1 /* WithdrawStudy.json */; };
 		5B15DD3B1A114F9000BEA0D1 /* APHInclusionCriteriaViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B15DD281A114F9000BEA0D1 /* APHInclusionCriteriaViewController.m */; };
@@ -127,6 +129,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		215C53641A8C5D6F0006F7DC /* APHNotesHeaderTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = APHNotesHeaderTableViewCell.h; path = DailyJournalControllers/APHNotesHeaderTableViewCell.h; sourceTree = "<group>"; };
+		215C53651A8C5D6F0006F7DC /* APHNotesHeaderTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = APHNotesHeaderTableViewCell.m; path = DailyJournalControllers/APHNotesHeaderTableViewCell.m; sourceTree = "<group>"; };
+		215C53661A8C5D6F0006F7DC /* APHNotesHeaderTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = APHNotesHeaderTableViewCell.xib; path = DailyJournalControllers/APHNotesHeaderTableViewCell.xib; sourceTree = "<group>"; };
 		5B15DCF21A114F7000BEA0D1 /* Learn.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Learn.json; sourceTree = "<group>"; };
 		5B15DCF31A114F7000BEA0D1 /* WithdrawStudy.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = WithdrawStudy.json; sourceTree = "<group>"; };
 		5B15DD271A114F9000BEA0D1 /* APHInclusionCriteriaViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APHInclusionCriteriaViewController.h; sourceTree = "<group>"; };
@@ -417,6 +422,9 @@
 				CF15F24C1A116A5A00D87570 /* APHDailyJournalIntroViewController.h */,
 				CF15F24D1A116A5A00D87570 /* APHDailyJournalIntroViewController.m */,
 				CF15F24E1A116A5A00D87570 /* APHDailyJournalIntroViewController.xib */,
+				215C53641A8C5D6F0006F7DC /* APHNotesHeaderTableViewCell.h */,
+				215C53651A8C5D6F0006F7DC /* APHNotesHeaderTableViewCell.m */,
+				215C53661A8C5D6F0006F7DC /* APHNotesHeaderTableViewCell.xib */,
 			);
 			name = Intro;
 			sourceTree = "<group>";
@@ -724,6 +732,7 @@
 				CF5FAB4319F95C8F0006CA71 /* APHContentsViewController.xib in Resources */,
 				7BAC9A591A78284D00125592 /* consent_04@3x.m4v in Resources */,
 				F534B59419E4681E00C3C152 /* Images.xcassets in Resources */,
+				215C53681A8C5D6F0006F7DC /* APHNotesHeaderTableViewCell.xib in Resources */,
 				F534B68E19E4689D00C3C152 /* StudyOverview.json in Resources */,
 				5BBDAEBB1A33DCDA0047DF87 /* HTMLContent in Resources */,
 				7BB24C321A831DC500AAE097 /* APHCustomSurveyTableViewCell.xib in Resources */,
@@ -797,6 +806,7 @@
 				CF2697E719EC3E4200525E19 /* APHCustomTextView.m in Sources */,
 				F53F27A01A2D30D600A1D725 /* APHDataPoint.m in Sources */,
 				7B8D703E1A1C4B13003A7A5B /* APHLogSubmissionViewController.m in Sources */,
+				215C53671A8C5D6F0006F7DC /* APHNotesHeaderTableViewCell.m in Sources */,
 				CF2697EA19EC3E4200525E19 /* APHNotesViewController.m in Sources */,
 				7B7953141A2288D600AA8039 /* APHQuestionViewController.m in Sources */,
 				7BA3AC101A23DDBC0017B3C8 /* APHExerciseMotivationIntroViewController.m in Sources */,
