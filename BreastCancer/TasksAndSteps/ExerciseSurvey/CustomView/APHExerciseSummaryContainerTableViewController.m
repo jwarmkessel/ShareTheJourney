@@ -8,8 +8,6 @@
 #import "APHExerciseSummaryContainerTableViewController.h"
 #import "APHExerciseMotivationSummaryViewController.h"
 
-static NSInteger const  kChangeYourGoalButtonIndex   = 1;
-static NSInteger const  kChangeYourGoalSection       = 4;
 static NSString* const  kSummaryStepIdentifier       = @"exercisesurvey107";
 static NSString* const  kBreastCancerRibbonImageName = @"BreastCancer-Ribbon";
 
