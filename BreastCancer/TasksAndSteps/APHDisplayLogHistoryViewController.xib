@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6250" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="APHDisplayLogHistoryViewController">
@@ -34,11 +34,11 @@
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                 </textView>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l7N-qB-odD">
-                    <rect key="frame" x="0.0" y="504" width="320" height="64"/>
-                    <color key="backgroundColor" red="0.93725490199999995" green="0.0039215686269999999" blue="0.55294117649999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l7N-qB-odD" customClass="APCButton">
+                    <rect key="frame" x="81" y="505" width="146" height="44"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="64" id="Y4M-Hc-DPz"/>
+                        <constraint firstAttribute="width" constant="146" id="K1n-E8-7op"/>
+                        <constraint firstAttribute="height" constant="44" id="Y4M-Hc-DPz"/>
                     </constraints>
                     <state key="normal" title="Done">
                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -52,14 +52,13 @@
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="nfq-NT-OI9" firstAttribute="leading" secondItem="M2G-sK-qVS" secondAttribute="leading" constant="5" id="30f-0r-lpj"/>
-                <constraint firstItem="l7N-qB-odD" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="ACL-Jy-6ux"/>
                 <constraint firstItem="nfq-NT-OI9" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="10" id="CBD-Wt-h38"/>
-                <constraint firstAttribute="bottom" secondItem="l7N-qB-odD" secondAttribute="bottom" id="IRS-Mz-MNF"/>
+                <constraint firstAttribute="bottom" secondItem="l7N-qB-odD" secondAttribute="bottom" constant="19" id="IRS-Mz-MNF"/>
                 <constraint firstAttribute="centerX" secondItem="M2G-sK-qVS" secondAttribute="centerX" constant="2" id="KwM-gO-upJ"/>
                 <constraint firstItem="M2G-sK-qVS" firstAttribute="top" secondItem="nfq-NT-OI9" secondAttribute="bottom" constant="22" id="TFW-zV-L6t"/>
-                <constraint firstItem="l7N-qB-odD" firstAttribute="top" secondItem="M2G-sK-qVS" secondAttribute="bottom" constant="12" id="Y2V-Bl-6Y0"/>
+                <constraint firstAttribute="centerX" secondItem="l7N-qB-odD" secondAttribute="centerX" constant="6" id="XDR-OZ-qKz"/>
+                <constraint firstItem="l7N-qB-odD" firstAttribute="top" secondItem="M2G-sK-qVS" secondAttribute="bottom" constant="13" id="Y2V-Bl-6Y0"/>
                 <constraint firstItem="nfq-NT-OI9" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="44" id="ue8-A0-s7V"/>
-                <constraint firstAttribute="trailing" secondItem="l7N-qB-odD" secondAttribute="trailing" id="vfK-NQ-Giu"/>
             </constraints>
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
             <nil key="simulatedTopBarMetrics"/>
