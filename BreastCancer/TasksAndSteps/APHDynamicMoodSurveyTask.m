@@ -52,11 +52,11 @@ typedef NS_ENUM(NSUInteger, APHDynamicMoodSurveyType) {
     NSArray* moodValueForIndex = @[@(5), @(4), @(3), @(2), @(1)];
     
     NSDictionary  *questionAnswerDictionary = @{
-                                                kMoodSurveyStep102 : @[@"Perfectly crisp concentration",
-                                                                       @"No issues with concentration",
-                                                                       @"Occasional difficulties with concentration",
-                                                                       @"Difficulties with concentration",
-                                                                       @"No concentration"],
+                                                kMoodSurveyStep102 : @[@"Perfectly crisp",
+                                                                       @"Crisp",
+                                                                       @"Some difficulties",
+                                                                       @"Difficulties",
+                                                                       @"Poor"],
                                                 
                                                 kMoodSurveyStep103 : @[@"The best I have felt",
                                                                        @"Better than usual",
@@ -65,9 +65,9 @@ typedef NS_ENUM(NSUInteger, APHDynamicMoodSurveyType) {
                                                                        @"Extremely down"],
                                                 
                                                 kMoodSurveyStep104 : @[@"Ready to take on the world",
-                                                                       @"Filled with energy through the day",
-                                                                       @"Energy to make it through the day",
-                                                                       @"Basic functions",
+                                                                       @"Filled with energy",
+                                                                       @"Enough to make it through the day",
+                                                                       @"Low energy",
                                                                        @"No energy"],
                                                 
                                                 kMoodSurveyStep105 : @[@"Eliminated all deficit sleep",
@@ -76,11 +76,11 @@ typedef NS_ENUM(NSUInteger, APHDynamicMoodSurveyType) {
                                                                        @"Barely enough sleep",
                                                                        @"No real sleep"],
                                                 
-                                                kMoodSurveyStep106 : @[@"Activities that make you breathe hard and sweat",
-                                                                       @"Walking",
-                                                                       @"Standing",
-                                                                       @"Sitting",
-                                                                       @"Lying down"],
+                                                kMoodSurveyStep106 : @[@"Strenuous exercise (heart beats rapidly)",
+                                                                       @"Moderate exercise (not exhausting)",
+                                                                       @"Mild exercise (minimal effort)",
+                                                                       @"Minimal exercise (no effort)",
+                                                                       @"No exercise "],
                                                 
                                                 kMoodSurveyStep107 : @[@"Great",
                                                                        @"Good",
