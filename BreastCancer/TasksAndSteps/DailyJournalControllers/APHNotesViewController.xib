@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6250" systemVersion="14A388a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="APHNotesViewController">
@@ -62,12 +62,12 @@
                             <color key="textColor" red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sgQ-vh-pAa">
-                            <rect key="frame" x="0.0" y="387" width="320" height="64"/>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sgQ-vh-pAa" customClass="APCButton">
+                            <rect key="frame" x="87" y="390" width="146" height="44"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="64" id="Ze0-QU-csO"/>
+                                <constraint firstAttribute="width" constant="146" id="OeJ-WZ-IWw"/>
+                                <constraint firstAttribute="height" constant="44" id="Ze0-QU-csO"/>
                             </constraints>
-                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
                             <state key="normal" title="Done">
                                 <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
@@ -85,14 +85,13 @@
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstAttribute="trailing" secondItem="qeH-4C-fcB" secondAttribute="trailing" constant="10" id="44P-q2-rZc"/>
-                        <constraint firstItem="sgQ-vh-pAa" firstAttribute="leading" secondItem="ALn-E8-ujo" secondAttribute="leading" id="A4H-53-F4i"/>
                         <constraint firstAttribute="trailing" secondItem="Fdk-kq-M8o" secondAttribute="trailing" constant="10" id="JB3-9l-GP3"/>
-                        <constraint firstAttribute="trailing" secondItem="sgQ-vh-pAa" secondAttribute="trailing" id="UCl-xr-cPG"/>
+                        <constraint firstAttribute="centerX" secondItem="sgQ-vh-pAa" secondAttribute="centerX" id="Rb3-op-mI5"/>
                         <constraint firstItem="Fdk-kq-M8o" firstAttribute="leading" secondItem="ALn-E8-ujo" secondAttribute="leading" constant="10" id="eIA-Cv-s7J"/>
-                        <constraint firstItem="sgQ-vh-pAa" firstAttribute="top" secondItem="qeH-4C-fcB" secondAttribute="bottom" constant="5" id="ip2-ri-b9g"/>
+                        <constraint firstItem="sgQ-vh-pAa" firstAttribute="top" secondItem="qeH-4C-fcB" secondAttribute="bottom" constant="8" id="ip2-ri-b9g"/>
                         <constraint firstItem="qeH-4C-fcB" firstAttribute="top" secondItem="Fdk-kq-M8o" secondAttribute="bottom" constant="5" id="qep-kt-tlU"/>
                         <constraint firstItem="qeH-4C-fcB" firstAttribute="leading" secondItem="ALn-E8-ujo" secondAttribute="leading" constant="10" id="uVo-95-yre"/>
-                        <constraint firstAttribute="bottom" secondItem="sgQ-vh-pAa" secondAttribute="bottom" id="xFJ-Qv-neZ"/>
+                        <constraint firstAttribute="bottom" secondItem="sgQ-vh-pAa" secondAttribute="bottom" constant="17" id="xFJ-Qv-neZ"/>
                         <constraint firstItem="Fdk-kq-M8o" firstAttribute="top" secondItem="ALn-E8-ujo" secondAttribute="top" constant="8" id="yvJ-bq-xrR"/>
                     </constraints>
                 </view>

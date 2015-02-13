@@ -80,7 +80,7 @@ static NSString *kMoodLogNoteText = @"APHMoodLogNoteText";
     }
 
     //The identifier gets set as the title in the navigation bar.
-    RKSTOrderedTask  *task = [[RKSTOrderedTask alloc] initWithIdentifier:@"Daily Journal" steps:steps];
+    RKSTOrderedTask  *task = [[RKSTOrderedTask alloc] initWithIdentifier:@"My Journal" steps:steps];
     
     return  task;
 }
@@ -122,10 +122,8 @@ static NSString *kMoodLogNoteText = @"APHMoodLogNoteText";
 - (void)taskViewController:(RKSTTaskViewController *)taskViewController stepViewControllerWillAppear:(RKSTStepViewController *)stepViewController {
 
     if (kDailyJournalStep101 == stepViewController.step.identifier) {
-        taskViewController.navigationBar.topItem.title = NSLocalizedString(@"Daily Journal", @"Daily Journal");
-    } else if (kDailyJournalStep102 == stepViewController.step.identifier) {
         
-        taskViewController.navigationBar.topItem.title = NSLocalizedString(@"Daily Journal", @"Daily Journal");
+    } else if (kDailyJournalStep102 == stepViewController.step.identifier) {
         
         if (self.previousCachedAnswerString != nil) {
             APHNotesViewController *notesStepViewController = (APHNotesViewController *) stepViewController;
@@ -133,7 +131,6 @@ static NSString *kMoodLogNoteText = @"APHMoodLogNoteText";
         }
         
     } else if (kDailyJournalStep103 == stepViewController.step.identifier) {
-        taskViewController.navigationBar.topItem.title = NSLocalizedString(@"Daily Journal", @"Daily Journal");
         
         RKSTStepResult *stepResult = [taskViewController.result stepResultForStepIdentifier:@"DailyJournalStep102"];
         APCDataResult *contentResult = (APCDataResult *)[stepResult resultForIdentifier:@"content"];
@@ -150,7 +147,7 @@ static NSString *kMoodLogNoteText = @"APHMoodLogNoteText";
         self.contentDictionary = stepResultJson;
 
     } else if (kDailyJournalStep104 == stepViewController.step.identifier) {
-        taskViewController.navigationBar.topItem.title = NSLocalizedString(@"Activity Complete", @"Activity Complete");
+        
     }
 }
 

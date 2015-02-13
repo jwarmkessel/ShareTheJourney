@@ -41,6 +41,7 @@ static  NSString  *kExerciseSurveyStep106 = @"exercisesurvey106";
 
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *bottomButtonConstraint;
 
+@property (weak, nonatomic) IBOutlet UILabel *placeHolderText;
 
 
 @property (weak, nonatomic) IBOutlet UIView *containerView;
@@ -76,9 +77,11 @@ static  NSString  *kExerciseSurveyStep106 = @"exercisesurvey106";
         if (updatedText.length > 0) {
             [self.doneButton setEnabled:YES];
             [self.doneButton setTitleColor:[UIColor appPrimaryColor] forState:UIControlStateNormal];
+            self.placeHolderText.alpha = 0;
         } else {
             [self.doneButton setEnabled:NO];
             [self.doneButton setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
+            self.placeHolderText.alpha = 1;
         }
     }
     
@@ -104,6 +107,7 @@ static  NSString  *kExerciseSurveyStep106 = @"exercisesurvey106";
     [UIView animateWithDuration:animationDuration animations:^{
 
         [self.view layoutIfNeeded];
+        self.placeHolderText.alpha = 0;
     }];
 }
 
@@ -126,12 +130,12 @@ static  NSString  *kExerciseSurveyStep106 = @"exercisesurvey106";
         [self.doneButton setTitleColor:[UIColor appPrimaryColor] forState:UIControlStateNormal];
     }
     self.characterCounterLabel.text = [NSString stringWithFormat:@"%lu / %lu", (unsigned long)self.scriptorium.text.length, (unsigned long)kMaximumNumberOfCharacters];
-    
-    [self.scriptorium becomeFirstResponder];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
+    
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillShowNotification object:nil];
     
     [self.scriptorium resignFirstResponder];
 }
@@ -163,8 +167,6 @@ static  NSString  *kExerciseSurveyStep106 = @"exercisesurvey106";
 - (void)viewDidLayoutSubviews {
     
     [super viewDidLayoutSubviews];
-    [self.scriptorium becomeFirstResponder];
-    
 }
 
 - (void)didReceiveMemoryWarning

@@ -149,7 +149,7 @@ static  NSUInteger  kThresholdForLimitWarning   = 140;
         [self.doneButton setUserInteractionEnabled:NO];
         [self.doneButton setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
     } else {
-        [self.doneButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+        [self.doneButton setTitleColor:[UIColor appPrimaryColor] forState:UIControlStateNormal];
     }
     
     return  answer;
@@ -169,8 +169,8 @@ static  NSUInteger  kThresholdForLimitWarning   = 140;
     
     double   animationDuration = [notification.userInfo[UIKeyboardAnimationDurationUserInfoKey] doubleValue];
     
-    self.bottomButtonConstraint.constant = keyboardHeight;
-    self.containerSpacing.constant = keyboardHeight;
+    self.bottomButtonConstraint.constant = keyboardHeight + 20;
+    self.containerSpacing.constant = keyboardHeight + 20;
     
     [UIView animateWithDuration:animationDuration animations:^{
 
@@ -196,7 +196,7 @@ static  NSUInteger  kThresholdForLimitWarning   = 140;
     
     if (self.scriptorium.text.length > 0) {
         [self.doneButton setUserInteractionEnabled:YES];
-        [self.doneButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+        [self.doneButton setTitleColor:[UIColor appPrimaryColor] forState:UIControlStateNormal];
         [self countWords:self.scriptorium.text];
         NSUInteger  count = [self countWords:self.scriptorium.text];
         [self displayWordCount:count];
@@ -212,13 +212,9 @@ static  NSUInteger  kThresholdForLimitWarning   = 140;
 {
     [super viewDidLoad];
 
-    [self.doneButton setBackgroundImage:[UIImage imageWithColor:[UIColor appPrimaryColor]] forState:UIControlStateNormal];
-
     [self.doneButton setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
     
     [self.doneButton setUserInteractionEnabled:NO];
-    
-//    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(cancelButtonTapped:)];
     
     self.scriptorium.text = @"";
     self.scriptorium.userInteractionEnabled = NO;

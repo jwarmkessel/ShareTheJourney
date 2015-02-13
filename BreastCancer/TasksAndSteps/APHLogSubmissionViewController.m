@@ -22,17 +22,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [self.submitButton setBackgroundImage:[UIImage imageWithColor:[UIColor appPrimaryColor]] forState:UIControlStateNormal];
-    
     self.textView.editable = NO;
     self.noteContent = [NSMutableDictionary dictionary];
-
-//    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(cancelButtonTapped:)];
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    
+    [self.submitButton setTitleColor:[UIColor appPrimaryColor] forState:UIControlStateNormal];
 }
 
 - (IBAction)submitButtonTapped:(id)sender {
