@@ -6,12 +6,11 @@
 //
 
 #import "APHProfileExtender.h"
+#import "APHCustomSurveyQuestionViewController.h"
 
 @implementation APHProfileExtender
 
 - (instancetype) init {
-
-
     self = [super init];
 
     if (self) {
@@ -21,27 +20,66 @@
     return self;
 }
 
-- (UIView *)cellForRowAtAdjustedIndexPath:(NSIndexPath *)indexPath {
-    
-    return nil;
+- (BOOL)willDisplayCell:(NSIndexPath *)indexPath {
+    return YES;
 }
 
-//- (BOOL)willDisplayCell:(NSIndexPath *)indexPath {
-//    return YES;
-//}
+//This is all the content (rows, sections) that is prepared at the appCore level
+/*
+- (NSArray *)preparedContent:(NSArray *)array {
+    return array;
+}
+*/
 
+//Add to the number of sections
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     
-    return 1;
+    return 2;
 }
 
-- (NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+//Add to the number of sections
+- (NSInteger) tableView:(UITableView *)tableView numberOfRowsInAdjustedSection:(NSInteger)section {
     
-    return 10;
+    NSInteger count = 0;
+    
+    if (section == 0) {
+        count = 1;
+    }
+    
+    return count;
 }
 
-- (void)preparedContent:(NSArray *)array {
+- (UIView *)cellForRowAtAdjustedIndexPath:(NSIndexPath *)indexPath {
     
+    UILabel *view = nil;
+    if (indexPath.section == 0) {
+        CGSize screen = [[UIScreen mainScreen] bounds].size;
+        view = (UILabel *)[[UILabel alloc] initWithFrame:CGRectMake(0.0, 0.0, screen.width, 60.0)];
+        view.text = @"Customize your survey question";
+        view.textAlignment = NSTextAlignmentCenter;
+    }
+
+    return view;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtAdjustedIndexPath:(NSIndexPath *)indexPath {
+    
+    CGFloat height = tableView.rowHeight;
+    
+    if (indexPath.section == 0) {
+        height = 60.0;
+    }
+    
+    return height;
+}
+
+- (void)navigationController:(UINavigationController *)navigationController didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    APHCustomSurveyQuestionViewController *controller = [[APHCustomSurveyQuestionViewController alloc] init];
+    
+    controller.navigationController.navigationBar.topItem.title = @"Customize your survey question";
+    
+    [navigationController pushViewController:controller animated:YES];
 }
 
 @end
