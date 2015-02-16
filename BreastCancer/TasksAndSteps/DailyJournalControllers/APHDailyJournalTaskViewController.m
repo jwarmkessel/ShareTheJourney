@@ -51,36 +51,36 @@ static NSString *kMoodLogNoteText = @"APHMoodLogNoteText";
 #pragma  mark  -  Task Creation Methods
 /*********************************************************************************/
 
-+ (RKSTOrderedTask *)createTask:(APCScheduledTask *)scheduledTask
++ (ORKOrderedTask *)createTask:(APCScheduledTask *)scheduledTask
 {
     NSMutableArray *steps = [[NSMutableArray alloc] init];
     
     {
-        RKSTInstructionStep *step = [[RKSTInstructionStep alloc] initWithIdentifier:kDailyJournalStep101];
+        ORKInstructionStep *step = [[ORKInstructionStep alloc] initWithIdentifier:kDailyJournalStep101];
         
         [steps addObject:step];
     }
 
     {
-        RKSTStep  *step = [[RKSTStep alloc] initWithIdentifier:kDailyJournalStep102];
+        ORKStep  *step = [[ORKStep alloc] initWithIdentifier:kDailyJournalStep102];
         
         [steps addObject:step];
     }
     
     {
-        RKSTStep  *step = [[RKSTStep alloc] initWithIdentifier:kDailyJournalStep103];
+        ORKStep  *step = [[ORKStep alloc] initWithIdentifier:kDailyJournalStep103];
         
         [steps addObject:step];
     }
     
     {
-        RKSTStep  *step = [[RKSTStep alloc] initWithIdentifier:kDailyJournalStep104];
+        ORKStep  *step = [[ORKStep alloc] initWithIdentifier:kDailyJournalStep104];
         
         [steps addObject:step];
     }
 
     //The identifier gets set as the title in the navigation bar.
-    RKSTOrderedTask  *task = [[RKSTOrderedTask alloc] initWithIdentifier:@"My Journal" steps:steps];
+    ORKOrderedTask  *task = [[ORKOrderedTask alloc] initWithIdentifier:@"My Journal" steps:steps];
     
     return  task;
 }
@@ -95,7 +95,7 @@ static NSString *kMoodLogNoteText = @"APHMoodLogNoteText";
 #pragma  mark  - TaskViewController delegates
 /*********************************************************************************/
 
-- (RKSTStepViewController *)taskViewController:(RKSTTaskViewController *)taskViewController viewControllerForStep:(RKSTStep *)step {
+- (ORKStepViewController *)taskViewController:(ORKTaskViewController *)taskViewController viewControllerForStep:(ORKStep *)step {
     
     NSDictionary  *controllers = @{
                                    kDailyJournalStep101 : [APHContentsViewController class],
@@ -119,7 +119,7 @@ static NSString *kMoodLogNoteText = @"APHMoodLogNoteText";
     return controller;
 }
 
-- (void)taskViewController:(RKSTTaskViewController *)taskViewController stepViewControllerWillAppear:(RKSTStepViewController *)stepViewController {
+- (void)taskViewController:(ORKTaskViewController *)taskViewController stepViewControllerWillAppear:(ORKStepViewController *)stepViewController {
 
     if (kDailyJournalStep101 == stepViewController.step.identifier) {
         
@@ -132,7 +132,7 @@ static NSString *kMoodLogNoteText = @"APHMoodLogNoteText";
         
     } else if (kDailyJournalStep103 == stepViewController.step.identifier) {
         
-        RKSTStepResult *stepResult = [taskViewController.result stepResultForStepIdentifier:@"DailyJournalStep102"];
+        ORKStepResult *stepResult = [taskViewController.result stepResultForStepIdentifier:@"DailyJournalStep102"];
         APCDataResult *contentResult = (APCDataResult *)[stepResult resultForIdentifier:@"content"];
         
         NSError* error;
@@ -151,11 +151,11 @@ static NSString *kMoodLogNoteText = @"APHMoodLogNoteText";
     }
 }
 
-- (void)taskViewController:(RKSTTaskViewController *)taskViewController didChangeResult:(RKSTTaskResult *)result {
+- (void)taskViewController:(ORKTaskViewController *)taskViewController didChangeResult:(ORKTaskResult *)result {
     NSLog(@"TaskVC didChangeResult");
     
     if([self.currentStepViewController.step.identifier isEqualToString:kDailyJournalStep102]) {
-        RKSTStepResult *stepResult = [taskViewController.result stepResultForStepIdentifier:kDailyJournalStep102];
+        ORKStepResult *stepResult = [taskViewController.result stepResultForStepIdentifier:kDailyJournalStep102];
         
         if (stepResult) {
             APCDataResult *contentResult = (APCDataResult *)[stepResult resultForIdentifier:@"content"];
@@ -170,7 +170,7 @@ static NSString *kMoodLogNoteText = @"APHMoodLogNoteText";
     }
 }
 
-- (void)taskViewControllerDidComplete: (RKSTTaskViewController *)taskViewController
+- (void)taskViewControllerDidComplete: (ORKTaskViewController *)taskViewController
 {
     [super taskViewControllerDidComplete:taskViewController];
 

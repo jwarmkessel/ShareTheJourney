@@ -12,7 +12,7 @@ static NSString* const  kAPHExerciseSummaryContainerTableViewControllerSegue = @
 static NSString* const  kSummaryStepIdentifier                               = @"exercisesurvey107";
 
 @interface APHExerciseMotivationSummaryViewController ()
-@property (nonatomic, strong) RKSTStepResult *cachedResult;
+@property (nonatomic, strong) ORKStepResult *cachedResult;
 @property (nonatomic, strong) APHExerciseSummaryContainerTableViewController *childViewController;
 @end
 
@@ -32,7 +32,7 @@ static NSString* const  kSummaryStepIdentifier                               = @
 - (void)changeExerciseGoalAction {
     
     if ([self.delegate respondsToSelector:@selector(stepViewController:didFinishWithNavigationDirection:)] == YES) {
-        [self.delegate stepViewController:(RKSTStepViewController *)self didFinishWithNavigationDirection:RKSTStepViewControllerNavigationDirectionForward];
+        [self.delegate stepViewController:(ORKStepViewController *)self didFinishWithNavigationDirection:ORKStepViewControllerNavigationDirectionForward];
     }
 }
 
@@ -41,7 +41,7 @@ static NSString* const  kSummaryStepIdentifier                               = @
     if ([self.step.identifier isEqualToString:kSummaryStepIdentifier]) {
         
         if ([self.delegate respondsToSelector:@selector(stepViewController:didFinishWithNavigationDirection:)] == YES) {
-            [self.delegate stepViewController:self didFinishWithNavigationDirection:RKSTStepViewControllerNavigationDirectionForward];
+            [self.delegate stepViewController:self didFinishWithNavigationDirection:ORKStepViewControllerNavigationDirectionForward];
         }
     }
 }
@@ -53,9 +53,9 @@ static NSString* const  kSummaryStepIdentifier                               = @
     }
 }
 
-- (RKSTStepResult *)result {
+- (ORKStepResult *)result {
     
-    self.cachedResult = [[RKSTStepResult alloc] initWithIdentifier:self.step.identifier];
+    self.cachedResult = [[ORKStepResult alloc] initWithIdentifier:self.step.identifier];
     
     return self.cachedResult;
 }

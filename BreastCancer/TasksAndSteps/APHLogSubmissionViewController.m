@@ -11,7 +11,7 @@
 
 @interface APHLogSubmissionViewController ()
 - (IBAction)submitButtonTapped:(id)sender;
-@property (nonatomic, strong) RKSTStepResult *cachedResult;
+@property (nonatomic, strong) ORKStepResult *cachedResult;
 @property (nonatomic, strong) NSMutableDictionary *noteContent;
 @property (weak, nonatomic) IBOutlet UIButton *submitButton;
 
@@ -39,19 +39,19 @@
     NSError *error = nil;
     contentModel.data = [NSJSONSerialization dataWithJSONObject:self.noteContent options:0 error:&error];
     
-    self.cachedResult = [[RKSTStepResult alloc] initWithStepIdentifier:self.step.identifier results:@[contentModel]];
+    self.cachedResult = [[ORKStepResult alloc] initWithStepIdentifier:self.step.identifier results:@[contentModel]];
     
     [self.delegate stepViewControllerResultDidChange:self];
     
     if ([self.delegate respondsToSelector:@selector(stepViewController:didFinishWithNavigationDirection:)] == YES) {
-        [self.delegate stepViewController:self didFinishWithNavigationDirection:RKSTStepViewControllerNavigationDirectionForward];
+        [self.delegate stepViewController:self didFinishWithNavigationDirection:ORKStepViewControllerNavigationDirectionForward];
     }
 }
 
-- (RKSTStepResult *)result {
+- (ORKStepResult *)result {
     
     if (!self.cachedResult) {
-        self.cachedResult = [[RKSTStepResult alloc] initWithIdentifier:self.step.identifier];
+        self.cachedResult = [[ORKStepResult alloc] initWithIdentifier:self.step.identifier];
     }
     
     return self.cachedResult;

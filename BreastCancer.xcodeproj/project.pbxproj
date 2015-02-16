@@ -20,6 +20,8 @@
 		5B1D9D6D1A1BD414000F4AD6 /* APHDashboardEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B1D9D691A1BD414000F4AD6 /* APHDashboardEditViewController.m */; };
 		5B1D9D6E1A1BD414000F4AD6 /* APHDashboardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B1D9D6B1A1BD414000F4AD6 /* APHDashboardViewController.m */; };
 		5BBDAEBB1A33DCDA0047DF87 /* HTMLContent in Resources */ = {isa = PBXBuildFile; fileRef = 5BBDAEBA1A33DCDA0047DF87 /* HTMLContent */; };
+		748E05231A916BE60016232A /* ResearchKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 748E05221A916BE60016232A /* ResearchKit.framework */; };
+		748E05261A916BEE0016232A /* ResearchKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 748E05251A916BEE0016232A /* ResearchKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		7B0541F71A842B4900B7729D /* APHDynamicMoodSurveyTask.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B0541F61A842B4900B7729D /* APHDynamicMoodSurveyTask.m */; };
 		7B5A5AB51A83FCF700628D4D /* APHCustomSurveyIntroViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B5A5AB31A83FCF700628D4D /* APHCustomSurveyIntroViewController.m */; };
 		7B5A5AB61A83FCF700628D4D /* APHCustomSurveyIntroViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7B5A5AB41A83FCF700628D4D /* APHCustomSurveyIntroViewController.xib */; };
@@ -122,6 +124,7 @@
 			files = (
 				F571C9361A2F97770011C270 /* BridgeSDK.framework in Embed Frameworks */,
 				F571C9311A2F976C0011C270 /* APCAppCore.framework in Embed Frameworks */,
+				748E05261A916BEE0016232A /* ResearchKit.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -147,6 +150,8 @@
 		5B1D9D6A1A1BD414000F4AD6 /* APHDashboardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APHDashboardViewController.h; sourceTree = "<group>"; };
 		5B1D9D6B1A1BD414000F4AD6 /* APHDashboardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APHDashboardViewController.m; sourceTree = "<group>"; };
 		5BBDAEBA1A33DCDA0047DF87 /* HTMLContent */ = {isa = PBXFileReference; lastKnownFileType = folder; path = HTMLContent; sourceTree = "<group>"; };
+		748E05221A916BE60016232A /* ResearchKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ResearchKit.framework; path = AppCore/APCAppCore/ResearchKit/ResearchKit.framework; sourceTree = "<group>"; };
+		748E05251A916BEE0016232A /* ResearchKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ResearchKit.framework; path = AppCore/APCAppCore/ResearchKit/ResearchKit.framework; sourceTree = "<group>"; };
 		7B0541F51A842B4900B7729D /* APHDynamicMoodSurveyTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APHDynamicMoodSurveyTask.h; sourceTree = "<group>"; };
 		7B0541F61A842B4900B7729D /* APHDynamicMoodSurveyTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APHDynamicMoodSurveyTask.m; sourceTree = "<group>"; };
 		7B5A5AB21A83FCF700628D4D /* APHCustomSurveyIntroViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APHCustomSurveyIntroViewController.h; sourceTree = "<group>"; };
@@ -250,6 +255,7 @@
 				F534B70D19E469A100C3C152 /* Security.framework in Frameworks */,
 				F534B70B19E4699A00C3C152 /* CoreData.framework in Frameworks */,
 				F534B6F619E468D400C3C152 /* HealthKit.framework in Frameworks */,
+				748E05231A916BE60016232A /* ResearchKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -478,6 +484,7 @@
 		F534B57A19E4681E00C3C152 = {
 			isa = PBXGroup;
 			children = (
+				748E05251A916BEE0016232A /* ResearchKit.framework */,
 				F534B58519E4681E00C3C152 /* BreastCancer */,
 				F571C9261A2F97450011C270 /* Frameworks */,
 				F534B58419E4681E00C3C152 /* Products */,
@@ -602,6 +609,7 @@
 		F571C9261A2F97450011C270 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				748E05221A916BE60016232A /* ResearchKit.framework */,
 				F571C9271A2F97610011C270 /* APCAppCore.xcodeproj */,
 				F571C9341A2F97770011C270 /* BridgeSDK.framework */,
 				F534B70E19E469A600C3C152 /* AVFoundation.framework */,
@@ -880,6 +888,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/AppCore/APCAppCore/**",
+					"$(PROJECT_DIR)/AppCore/APCAppCore/ResearchKit",
 				);
 				INFOPLIST_FILE = BreastCancer/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -976,6 +985,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/AppCore/APCAppCore/**",
+					"$(PROJECT_DIR)/AppCore/APCAppCore/ResearchKit",
 				);
 				INFOPLIST_FILE = BreastCancer/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -996,6 +1006,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/AppCore/APCAppCore/**",
+					"$(PROJECT_DIR)/AppCore/APCAppCore/ResearchKit",
 				);
 				INFOPLIST_FILE = BreastCancer/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1057,6 +1068,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/AppCore/APCAppCore/**",
+					"$(PROJECT_DIR)/AppCore/APCAppCore/ResearchKit",
 				);
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"$(inherited)",

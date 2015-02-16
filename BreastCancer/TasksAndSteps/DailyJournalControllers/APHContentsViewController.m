@@ -38,7 +38,7 @@ typedef  enum  _DailyLogType
 @property  (nonatomic, strong)            NSMutableArray*   changesObjects;
 @property                                   NSDictionary*   sectionedLogHistory;
 @property                                        NSArray*   sections;
-@property  (nonatomic, strong)            RKSTStepResult*   cachedResult;
+@property  (nonatomic, strong)             ORKStepResult*   cachedResult;
 @property  (nonatomic, strong)                   UILabel*   noTasksView;
 @end
 
@@ -140,7 +140,7 @@ typedef  enum  _DailyLogType
 {
 
     if ([self.delegate respondsToSelector:@selector(stepViewController:didFinishWithNavigationDirection:)] == YES) {
-        [self.delegate stepViewController:self didFinishWithNavigationDirection:RKSTStepViewControllerNavigationDirectionForward];
+        [self.delegate stepViewController:self didFinishWithNavigationDirection:ORKStepViewControllerNavigationDirectionForward];
     }
 }
 
@@ -368,10 +368,10 @@ typedef  enum  _DailyLogType
     self.sectionedLogHistory = [NSDictionary dictionaryWithDictionary:mutableSectionedLogHistory];
 }
 
-- (RKSTStepResult *)result {
+- (ORKStepResult *)result {
     
     if (!self.cachedResult) {
-        self.cachedResult = [[RKSTStepResult alloc] initWithIdentifier:self.step.identifier];
+        self.cachedResult = [[ORKStepResult alloc] initWithIdentifier:self.step.identifier];
     }
     
     return self.cachedResult;

@@ -132,16 +132,16 @@ static NSString *const kVideoShownKey = @"VideoShown";
 #pragma mark - Consent
 /*********************************************************************************/
 
-- (id<RKSTTask>)makeConsent
+- (id<ORKTask>)makeConsent
 {
-    RKSTConsentDocument* consent = [[RKSTConsentDocument alloc] init];
+    ORKConsentDocument* consent = [[ORKConsentDocument alloc] init];
     consent.title = @"Consent";
     consent.signaturePageTitle = @"Consent";
     consent.signaturePageContent = @"I agree to participate in this research Study.";
     
     
     //    UIImage *consentSignatureImage = [UIImage imageWithData:self.dataSubstrate.currentUser.consentSignatureImage];
-    RKSTConsentSignature *participantSig = [RKSTConsentSignature signatureForPersonWithTitle:@"Participant"
+    ORKConsentSignature *participantSig = [ORKConsentSignature signatureForPersonWithTitle:@"Participant"
                                                                             dateFormatString:nil
                                                                                   identifier:@"participant"];
     [consent addSignature:participantSig];
@@ -150,68 +150,68 @@ static NSString *const kVideoShownKey = @"VideoShown";
     NSMutableArray* components = [NSMutableArray new];
     
     NSArray* scenes = @[
-                        @(RKSTConsentSectionTypeOverview),
-                        @(RKSTConsentSectionTypeDataGathering),
-                        @(RKSTConsentSectionTypePrivacy),
-                        @(RKSTConsentSectionTypeDataUse),
-                        @(RKSTConsentSectionTypeTimeCommitment),
-                        @(RKSTConsentSectionTypeStudySurvey),
-                        @(RKSTConsentSectionTypeStudyTasks),
-                        @(RKSTConsentSectionTypeWithdrawing),
-                        @(RKSTConsentSectionTypeCustom),
-                        @(RKSTConsentSectionTypeCustom),
-                        @(RKSTConsentSectionTypeCustom),
-                        @(RKSTConsentSectionTypeCustom),
+                        @(ORKConsentSectionTypeOverview),
+                        @(ORKConsentSectionTypeDataGathering),
+                        @(ORKConsentSectionTypePrivacy),
+                        @(ORKConsentSectionTypeDataUse),
+                        @(ORKConsentSectionTypeTimeCommitment),
+                        @(ORKConsentSectionTypeStudySurvey),
+                        @(ORKConsentSectionTypeStudyTasks),
+                        @(ORKConsentSectionTypeWithdrawing),
+                        @(ORKConsentSectionTypeCustom),
+                        @(ORKConsentSectionTypeCustom),
+                        @(ORKConsentSectionTypeCustom),
+                        @(ORKConsentSectionTypeCustom),
                         ];
 
     
     for (int i = 0; i<scenes.count; i ++) {
         
         
-        RKSTConsentSectionType sectionType = [scenes[i] integerValue];
-        RKSTConsentSection *section = [[RKSTConsentSection alloc] initWithType:sectionType];
+        ORKConsentSectionType sectionType = [scenes[i] integerValue];
+        ORKConsentSection *section = [[ORKConsentSection alloc] initWithType:sectionType];
         
         switch (sectionType) {
-            case RKSTConsentSectionTypeStudySurvey:
+            case ORKConsentSectionTypeStudySurvey:
             {
                 section.summary = NSLocalizedString(@"By analyzing de-identified data across all app users, researchers will be able to better understand the relationships.", @"");
             }
                 break;
-            case RKSTConsentSectionTypeOverview:
+            case ORKConsentSectionTypeOverview:
             {
                 section.title = NSLocalizedString(@"Welcome", nil);
                 section.summary = NSLocalizedString(@"This simple walkthrough will explain the study, the impact it may have on your life and will allow you to provide your consent to participate.", @"");
                 section.content = NSLocalizedString(@"SUMMARY\n\nYou are invited to participate in a research study to understand variations in symptoms during recovery from breast cancer treatment. This study is designed for women between 18 and 80 years old with a history of breast cancer treatment and women without any history of cancer. Your participation in this study is entirely voluntary.\n\nTo be in a research study you must give your informed consent. The purpose of this form is to help you decide if you want to participate in this study. Please read the information carefully. If you decide to take part in this research study, you will be given a copy of this signed and dated consent form. If you decide to participate, you are free to withdraw your consent, and to discontinue participation at any time.\n\nYou should not join the research study until all of your questions are answered.\n\nParticipating in a research study is not the same as receiving medical care. The decision to join or not join the research study will not affect your medical benefits.\n\nPURPOSE OF THE STUDY \nWomen recovering from breast cancer treatment can have very different and more or less severe symptoms day to day. These symptoms affect quality of life and make managing recovery difficult. We would like to understand the causes of these symptom variations.\n\nNew technologies allow people to record and track their health and symptoms in real time. This study will monitor your health and symptoms using questionnaires and sensors via a mobile phone application.\n\nIf you decide to join the study you will need to download the study application on your mobile device. Then, periodically we will ask you to answer questions and/or perform some tasks on your mobile phone. These questions may be about your health, exercise, diet, sleep and medicines, in addition to some more general health surveys. The tasks may include exercising or journaling about your week. Your study data will include your responses to surveys and tasks and some measurements from the phone itself about how you are moving and interacting with others.\n\nYour data, without your name, will be added to the data of other study participants and made available to groups of researchers worldwide for analysis and future research. You also will have a unique account that you can use to review your own data. We anticipate this study will be open for multiple years, during which time your data will remain available to you to review. We anticipate enrolling 20,000 subjects in this study.\n\nThe sponsor is Sage Bionetworks with some funding from the Robert Wood Johnson Foundation.\n", @"");
             }
                 break;
-            case RKSTConsentSectionTypeStudyTasks:
+            case ORKConsentSectionTypeStudyTasks:
             {
                 section.content = NSLocalizedString(@"Health Surveys: We will ask you to answer questions about yourself, your medical history, and your current health. You may choose to leave any questions that you do not wish to answer blank. We will ask you to rate your fatigue, cognition, sleep, mood and exercise performance on a scale of 1 to 5 daily. In addition to these daily questions we will ask you to answer brief weekly and monthly surveys about your symptoms in order to track any changes.\n\nTasks: Occasionally we will ask you to perform specific tasks while using your mobile phone and record sensor data directly from your phone. For example, you may be asked to type a short journal entry, which will then be shared and analyzed for typing speed and accuracy as well as word usage. Additionally, you may be asked to provide data from third-party fitness devices (like the Fitbit or Jawbone Up) with your permission.\nWe will send notices on your phone asking you to complete these tasks and surveys. You may choose to act at your convenience, (either then or later) and you may choose to participate in all or only in some parts of the study. These surveys and tasks should take you about 20 minutes each week. You have the right to refuse to answer particular questions and the right to participate in particular aspects of the study.", @"");
             }
                 break;
-            case RKSTConsentSectionTypePrivacy:
+            case ORKConsentSectionTypePrivacy:
             {
                 section.content = NSLocalizedString(@"In order to preserve your privacy, we will use a random code instead of your name on all your study data. This unique code cannot be used to directly identify you. Any data that directly identifies you will be removed before the data is transferred for analysis, although researchers will have the ability to contact you if you have chosen to allow them to do so. We will never sell, rent or lease your contact information.", @"");
             }
                 break;
-            case RKSTConsentSectionTypeDataGathering:
+            case ORKConsentSectionTypeDataGathering:
             {
                 section.summary = NSLocalizedString(@"The de-identified data will be used for research and may be shared with other researchers.", @"");
                 section.content = NSLocalizedString(@"We will combine your study data including survey responses and other measurements with those of other study participants. The combined data will be transferred to Synapse, a computational research platform, for analysis. The research team will analyze the combined data and report findings back to the community through Blog or scientific publications. The combined study data on Synapse will also be available to use for other research purposes and will be shared with registered users worldwide who agree to using the data in an ethical manner, to do no harm and not attempt to re-identify or re-contact you unless you have chosen to allow them to do so.", @"");
             }
                 break;
-            case RKSTConsentSectionTypeDataUse:
+            case ORKConsentSectionTypeDataUse:
             {
                 section.content = NSLocalizedString(@"The combined study data on Synapse will also be available to use for other research purposes and will be shared with registered users worldwide who agree to using the data in an ethical manner, to do no harm and not attempt to re-identify or re- contact you unless you have chosen to allow them to do so.\n\nUSE OF DATA FOR FUTURE RESEARCH\nSeveral databases are available to help researchers understand different diseases. These databases contain information and other data helpful to study diseases. This study will include your research data into one such database, Synapse, to be used in future research beyond this study. Your data may benefit future research.\n\nBefore your data is released to the Synapse database, your personal contact information such as your name, e-mail, etc, will be removed. Your unique code identifier will be used in place of your name when your data is released onto Synapse. The study data will be made available on Synapse to registered users who have agreed to using the data in an ethical manner, to do no harm and not attempt to re-identify or re-contact you unless you have chosen to allow them to do so. The Principal Investigator and Sponsor will have no oversight on the future use of the study data released through Synapse.\n\nAlthough you can withdraw from the study at any time, you cannot withdraw the de-identified data that have already been distributed through research databases.\n\nThe main risk of donating your de-identified data to a centralized database is the potential loss of privacy and confidentiality in case of public disclosure due to unintended data breaches, including hacking or other activities outside of the procedures authorized by the study. In such a case, your data may be misused or used for unauthorized purposes by someone sufficiently skilled in data analysis to try to re-identify you. This risk is low.", @"");
             }
                 break;
-            case RKSTConsentSectionTypeTimeCommitment:
+            case ORKConsentSectionTypeTimeCommitment:
             {
                 section.title = NSLocalizedString(@"Issues to Consider", @"");
                 section.content = NSLocalizedString(@"We do not expect any medical side effects from participating. Inconveniences associated with participation include spending approximately 20 minutes per week to respond to questions from the study application.\n\nPAYMENT\nYou will not be paid for being in this study.\n\nCOSTS\nThere is no cost to you to participate in this study other than to your mobile data plan if applicable.", @"");
             }
                 break;
-            case RKSTConsentSectionTypeCustom:
+            case ORKConsentSectionTypeCustom:
             {
                 if (i == 8) {
                     section.title = NSLocalizedString(@"Potential Benefits", @"");
@@ -238,7 +238,7 @@ static NSString *const kVideoShownKey = @"VideoShown";
                 
             }
                 break;
-            case RKSTConsentSectionTypeWithdrawing:
+            case ORKConsentSectionTypeWithdrawing:
             {
                 section.content = NSLocalizedString(@"Your authorization for the use and/or disclosure of your health information will expire December 31, 2060.\n\nVOLUNTARY PARTICIPATION AND WITHDRAWAL\nYour participation in this study is voluntary. You do not have to sign this consent form. But if you do not, you will not be able to participate in this research study. You may decide not to participate or you may leave the study at any time. Your decision will not result in any penalty or loss of benefits to which you are entitled.\n● You are not obligated to participate in this study.\n● Your questions should be answered clearly and to your satisfaction, before you choose to participate in the study.\n● You have a right to download or transfer a copy of all of your study data.\n● By agreeing to participate you do not waive any of your legal rights.\n\nIf you choose to withdraw from the research study, we will stop collecting your study data. At the end of the study period we will stop collecting your data, even if the application remains on your phone and you keep using it. If you were interested in joining another study afterward, we would ask you to complete another consent, like this one, explaining the risks and benefits of the new study.\n\nThe Study Principal Investigator or the sponsor may also withdraw you from the study without your consent at any time for any reason, including if it is in your best interest, you do not consent to continue in the study after being told of changes in the research that may affect you, or if the study is cancelled.", @"");
             }
@@ -251,16 +251,16 @@ static NSString *const kVideoShownKey = @"VideoShown";
     }
     consent.sections = [components copy];
     
-    RKSTVisualConsentStep *consentStep = [[RKSTVisualConsentStep alloc] initWithIdentifier:@"visual"
+    ORKVisualConsentStep *consentStep = [[ORKVisualConsentStep alloc] initWithIdentifier:@"visual"
                                                                                   document:consent];
-    RKSTConsentReviewStep *reviewStep = nil;
+    ORKConsentReviewStep *reviewStep = nil;
     
     NSMutableArray *consentSteps = [NSMutableArray new];
     
     [consentSteps addObject:consentStep];
     
     if (!self.dataSubstrate.currentUser.isSignedIn) {
-        reviewStep = [[RKSTConsentReviewStep alloc] initWithIdentifier:@"reviewStep"
+        reviewStep = [[ORKConsentReviewStep alloc] initWithIdentifier:@"reviewStep"
                                                              signature:participantSig
                                                             inDocument:consent];
         reviewStep.reasonForConsent = @"By agreeing you confirm that you have read the terms and conditions, that you understand them and that you wish to take part in this research study.";
@@ -268,17 +268,17 @@ static NSString *const kVideoShownKey = @"VideoShown";
         [consentSteps addObject:reviewStep];
     }
     
-    RKSTOrderedTask *task = [[RKSTOrderedTask alloc] initWithIdentifier:@"consent"
+    ORKOrderedTask *task = [[ORKOrderedTask alloc] initWithIdentifier:@"consent"
                                                                   steps:consentSteps];
     return task;
 }
 
-- (RKSTTaskViewController *)consentViewController
+- (ORKTaskViewController *)consentViewController
 {
     
-    id<RKSTTask> task = [self makeConsent];
+    id<ORKTask> task = [self makeConsent];
     
-    RKSTTaskViewController *consentVC = [[RKSTTaskViewController alloc] initWithTask:task
+    ORKTaskViewController *consentVC = [[ORKTaskViewController alloc] initWithTask:task
                                                                          taskRunUUID:[NSUUID UUID]];
     
     return consentVC;
