@@ -20,17 +20,16 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
-    [self.doneButton setBackgroundImage:[UIImage imageWithColor:[UIColor appPrimaryColor]] forState:UIControlStateNormal];
 
-    [self.view setBackgroundColor:[UIColor whiteColor]];
+    self.title = @"Customize survey question";
+    self.navigationController.navigationBar.topItem.title = @"Customize survey question";
+    
     [self.textView setDelegate:self];
+    
+    [self.view setBackgroundColor:[UIColor whiteColor]];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillEmerge:) name:UIKeyboardWillShowNotification object:nil];
     
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(doneButtonHandler:)];
-    
-
 }
 
 #pragma  mark  -  Keyboard Notification Methods
@@ -41,7 +40,7 @@
 
     double   animationDuration = [notification.userInfo[UIKeyboardAnimationDurationUserInfoKey] doubleValue];
     
-    self.bottomSpaceConstraint.constant = keyboardHeight;
+    self.bottomSpaceConstraint.constant = keyboardHeight + 20;
     
     [UIView animateWithDuration:animationDuration animations:^{
         
@@ -50,7 +49,7 @@
 }
 
 - (IBAction)doneButtonHandler:(id)sender {
-    [self.parentViewController dismissViewControllerAnimated:YES completion:nil];
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (void) viewWillDisappear:(BOOL)animated {

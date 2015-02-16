@@ -7,6 +7,7 @@
  
 @import APCAppCore;
 #import "APHAppDelegate.h"
+#import "APHProfileExtender.h"
 
 /*********************************************************************************/
 #pragma mark - Initializations Options
@@ -21,9 +22,12 @@ static NSString *const kVideoShownKey = @"VideoShown";
 
 @interface APHAppDelegate ()
 
+@property (nonatomic, strong) APHProfileExtender* profileExtender;
+
 @end
 
 @implementation APHAppDelegate
+
 
 - (void) setUpInitializationOptions
 {
@@ -53,13 +57,18 @@ static NSString *const kVideoShownKey = @"VideoShown";
                                                    @(kAPCUserInfoItemTypeHeight),
                                                    @(kAPCUserInfoItemTypeWeight),
                                                    @(kAPCUserInfoItemTypeWakeUpTime),
-                                                   @(kAPCUserInfoItemTypeSleepTime),
-                                                   @(kAPCUserInfoItemTypeCustomSurvey)
+                                                   @(kAPCUserInfoItemTypeSleepTime)
                                                    ],
                                            kAnalyticsOnOffKey  : @(YES),
                                            kAnalyticsFlurryAPIKeyKey : @"3V2CN572C3R782W2DBBN"
                                            }];
     self.initializationOptions = dictionary;
+    self.profileExtender = [[APHProfileExtender alloc] init];
+}
+
+- (id <APCProfileViewControllerDelegate>) profileExtenderDelegate {
+    
+    return self.profileExtender;
 }
 
 - (void) setUpAppAppearance
