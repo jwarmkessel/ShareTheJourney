@@ -57,8 +57,7 @@ static NSString *const kVideoShownKey = @"VideoShown";
                                                    @(kAPCUserInfoItemTypeHeight),
                                                    @(kAPCUserInfoItemTypeWeight),
                                                    @(kAPCUserInfoItemTypeWakeUpTime),
-                                                   @(kAPCUserInfoItemTypeSleepTime),
-                                                   //@(kAPCUserInfoItemTypeCustomSurvey)
+                                                   @(kAPCUserInfoItemTypeSleepTime)
                                                    ],
                                            kAnalyticsOnOffKey  : @(YES),
                                            kAnalyticsFlurryAPIKeyKey : @"3V2CN572C3R782W2DBBN"
