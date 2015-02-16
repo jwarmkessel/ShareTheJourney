@@ -49,17 +49,20 @@
     return count;
 }
 
-- (UIView *)cellForRowAtAdjustedIndexPath:(NSIndexPath *)indexPath {
+- (UITableViewCell *)cellForRowAtAdjustedIndexPath:(NSIndexPath *)indexPath {
     
-    UILabel *view = nil;
+    UITableViewCell *cell = nil;
+    
     if (indexPath.section == 0) {
-        CGSize screen = [[UIScreen mainScreen] bounds].size;
-        view = (UILabel *)[[UILabel alloc] initWithFrame:CGRectMake(0.0, 0.0, screen.width, 60.0)];
-        view.text = @"Customize your survey question";
-        view.textAlignment = NSTextAlignmentCenter;
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:nil];
+        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+        cell.textLabel.text = @"Customize your survey question";
+        
     }
+    
 
-    return view;
+
+    return cell;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtAdjustedIndexPath:(NSIndexPath *)indexPath {
