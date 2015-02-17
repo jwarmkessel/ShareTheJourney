@@ -6,34 +6,34 @@
                       {
                       "title":"About this Study",
                       "details":"AboutStudy",
-                      "icon_image":"paperplus_icon",
+                      "icon_image":"aboutthisstudy",
                       "tint_color" : "blue"
                       },
                       
                       {
                       "title":"How this study works",
                       "details":"howstudyworks",
-                      "icon_image":"rulerpencil_icon",
+                      "icon_image":"howitworks",
                       "tint_color" : "purple"
                       },
                       
                       {
                       "title":"Who is Eligible to Participate",
                       "details":"EligibleToParticipate",
-                      "icon_image":"clipboard_icon",
+                      "icon_image":"eligibility",
                       "tint_color" : "green"
                       },
                       {
                       "title":"Who is Running this Study",
                       "details":"whoisrunning",
-                      "icon_image":"stethescope_icon",
+                      "icon_image":"whoisrunning",
                       "tint_color" : "yellow"
                       },
                           
                     {
                         "title": "Symptoms",
                         "details": "symptoms",
-                        "icon_image": "diagnostics_icon",
+                        "icon_image": "symptoms",
                         "tint_color": "red"
                     },
                     {

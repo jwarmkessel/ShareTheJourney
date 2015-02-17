@@ -150,12 +150,12 @@ typedef  enum  _DailyLogType
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return  self.sections.count;
+    return  MAX(1, self.sections.count);
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return  ((NSArray *)[self.sectionedLogHistory objectForKey:self.sections[section]]).count;
+    return  MAX(1, ((NSArray *)[self.sectionedLogHistory objectForKey:self.sections[section]]).count);
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -165,6 +165,10 @@ typedef  enum  _DailyLogType
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    if (!self.sectionedLogHistory) {
+        return [UITableViewCell new];
+    }
+    
     APCResult  *model = [self.sectionedLogHistory objectForKey:self.sections[indexPath.section]][indexPath.row];
     
     APHNotesContentsTableViewCell  *cell = (APHNotesContentsTableViewCell *)[tableView dequeueReusableCellWithIdentifier:kContentsTableViewCellIdentifier];
@@ -225,16 +229,10 @@ typedef  enum  _DailyLogType
     APCResult  *model = [self.sectionedLogHistory objectForKey:self.sections[indexPath.section]][indexPath.row];
     APHDisplayLogHistoryViewController  *stenographer = [[APHDisplayLogHistoryViewController alloc] initWithNibName:@"APHDisplayLogHistoryViewController" bundle:[NSBundle mainBundle]];
     
-    NSDateFormatter  *formatter = [[NSDateFormatter alloc] init];
-    [formatter setDateStyle: NSDateFormatterShortStyle];
-    [formatter setTimeStyle: NSDateFormatterNoStyle];
+    stenographer.logText = model.resultSummary;
+    stenographer.logDate = model.createdAt;
     
-    NSDate  *date = model.createdAt;
-    
-    [self presentViewController:stenographer animated:YES completion:nil];
-    
-    [stenographer setTextViewText:model.resultSummary];
-    stenographer.dateLabel.text = [formatter stringFromDate:date];
+    [self.navigationController pushViewController:stenographer animated:YES];
 }
 
 /*********************************************************************************/
@@ -315,7 +313,7 @@ typedef  enum  _DailyLogType
         instructions.text = kDailyJournalInstructions;
         instructions.numberOfLines = 0;
         instructions.lineBreakMode = NSLineBreakByWordWrapping;
-        instructions.textColor = [UIColor darkGrayColor];
+        instructions.textColor = [UIColor blackColor];
         [instructions setTextAlignment:NSTextAlignmentJustified];
         [headerView addSubview:instructions];
     } else {
