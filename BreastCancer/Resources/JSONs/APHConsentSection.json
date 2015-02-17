@@ -43,7 +43,7 @@
 		{
 			"sectionType" : "privacy",
             "sectionTitle": "Protecting your data",
-            "sectionSummary": "We will replace your name with \na random code. \n\nThe coded data will be encrypted and stored on a secure Cloud server under the control of Sage Bionetworks to prevent improper access.",
+            "sectionSummary": "Your data will be encrypted and stored on a secure Cloud server.",
             "sectionHtmlContent" : "6protectingdata"
 		},
 		{
