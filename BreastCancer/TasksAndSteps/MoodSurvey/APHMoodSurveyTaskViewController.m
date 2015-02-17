@@ -91,8 +91,6 @@ static NSInteger const kNumberOfCompletionsUntilDisplayingCustomSurvey = 7;
 
 - (ORKStepViewController *)taskViewController:(ORKTaskViewController *)taskViewController viewControllerForStep:(ORKStep *)step {
     
-    self.showsProgressInNavigationBar = NO;
-    
     NSDictionary  *controllers = @{
                                    kMoodSurveyStep101 : [APHHeartAgeIntroStepViewController class],
                                    kMoodSurveyStep108 : [APCSimpleTaskSummaryViewController class]
