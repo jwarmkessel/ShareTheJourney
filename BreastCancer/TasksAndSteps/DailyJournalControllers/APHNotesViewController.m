@@ -111,7 +111,7 @@ static  NSUInteger  kThresholdForLimitWarning   = 140;
 - (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text
 {
     //Enable button after text is entered.
-    [self.doneButton setUserInteractionEnabled:YES];
+    self.doneButton.enabled = YES;
     
     BOOL  answer = YES;
     
@@ -146,10 +146,9 @@ static  NSUInteger  kThresholdForLimitWarning   = 140;
     [self displayWordCount:changedTextCount];
     
     if (changedTextCount == 0) {
-        [self.doneButton setUserInteractionEnabled:NO];
-        [self.doneButton setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
+        self.doneButton.enabled = NO;
     } else {
-        [self.doneButton setTitleColor:[UIColor appPrimaryColor] forState:UIControlStateNormal];
+        self.doneButton.enabled = YES;
     }
     
     return  answer;
@@ -195,8 +194,7 @@ static  NSUInteger  kThresholdForLimitWarning   = 140;
     [self.scriptorium becomeFirstResponder];
     
     if (self.scriptorium.text.length > 0) {
-        [self.doneButton setUserInteractionEnabled:YES];
-        [self.doneButton setTitleColor:[UIColor appPrimaryColor] forState:UIControlStateNormal];
+        self.doneButton.enabled = YES;
         [self countWords:self.scriptorium.text];
         NSUInteger  count = [self countWords:self.scriptorium.text];
         [self displayWordCount:count];
@@ -212,9 +210,7 @@ static  NSUInteger  kThresholdForLimitWarning   = 140;
 {
     [super viewDidLoad];
 
-    [self.doneButton setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
-    
-    [self.doneButton setUserInteractionEnabled:NO];
+    self.doneButton.enabled = NO;
     
     self.scriptorium.text = @"";
     self.scriptorium.userInteractionEnabled = NO;
@@ -267,8 +263,7 @@ static  NSUInteger  kThresholdForLimitWarning   = 140;
 }
 
 - (IBAction)submitTapped:(id)sender {
-
-    [self.doneButton setUserInteractionEnabled:NO];
+    self.doneButton.enabled = NO;
     
     [self.scriptorium resignFirstResponder];
     
