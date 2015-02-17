@@ -46,7 +46,7 @@ typedef NS_ENUM(NSUInteger, APHDynamicMoodSurveyType) {
 
 @property (nonatomic) NSInteger currentState;
 @property (nonatomic) NSInteger currentCount;
-@property (nonatomic) NSDictionary *currentOrderedSteps;
+@property (nonatomic, strong) NSDictionary *currentOrderedSteps;
 
 
 @end
@@ -468,11 +468,6 @@ typedef NS_ENUM(NSUInteger, APHDynamicMoodSurveyType) {
 
 - (ORKTaskProgress)progressOfCurrentStep:(ORKStep *)step withResult:(ORKTaskResult *)result
 {
-//    @property (nonatomic) NSInteger currentState;
-//    @property (nonatomic) NSInteger currentCount;
-//    @property (nonatomic) NSDictionary *currentOrderedSteps;
-    
-
     
     return ORKTaskProgressMake([[self.currentOrderedSteps objectForKey:step.identifier] integerValue] - 1, self.currentOrderedSteps.count);
 }
