@@ -46,11 +46,11 @@ static NSInteger const kNumberOfCompletionsUntilDisplayingCustomSurvey = 7;
     NSMutableDictionary *resultCollectionDictionary = [NSMutableDictionary new];
     NSArray *arrayOfResults = self.result.results;
     
-    for (RKSTStepResult *stepResult in arrayOfResults) {
+    for (ORKStepResult *stepResult in arrayOfResults) {
         if (stepResult.results.firstObject) {
             
-            if ( ![stepResult.results.firstObject isKindOfClass:[RKSTTextQuestionResult class]]) {
-                RKSTChoiceQuestionResult *questionResult = stepResult.results.firstObject;
+            if ( ![stepResult.results.firstObject isKindOfClass:[ORKTextQuestionResult class]]) {
+                ORKChoiceQuestionResult *questionResult = stepResult.results.firstObject;
                 
                 if (questionResult.choiceAnswers != nil) {
                     resultCollectionDictionary[stepResult.identifier] = (NSNumber *)[questionResult.choiceAnswers firstObject];
@@ -77,7 +77,7 @@ static NSInteger const kNumberOfCompletionsUntilDisplayingCustomSurvey = 7;
 #pragma mark - Initialize
 /*********************************************************************************/
 
-+ (id<RKSTTask>)createTask:(APCScheduledTask *)scheduledTask
++ (id<ORKTask>)createTask:(APCScheduledTask *)scheduledTask
 {
     APHDynamicMoodSurveyTask *task = [[APHDynamicMoodSurveyTask alloc] init];
     
@@ -89,7 +89,9 @@ static NSInteger const kNumberOfCompletionsUntilDisplayingCustomSurvey = 7;
 /*********************************************************************************/
 
 
-- (RKSTStepViewController *)taskViewController:(RKSTTaskViewController *)taskViewController viewControllerForStep:(RKSTStep *)step {
+- (ORKStepViewController *)taskViewController:(ORKTaskViewController *)taskViewController viewControllerForStep:(ORKStep *)step {
+    
+    self.showsProgressInNavigationBar = NO;
     
     NSDictionary  *controllers = @{
                                    kMoodSurveyStep101 : [APHHeartAgeIntroStepViewController class],
@@ -112,7 +114,7 @@ static NSInteger const kNumberOfCompletionsUntilDisplayingCustomSurvey = 7;
     return controller;
 }
 
-- (void)taskViewControllerDidComplete:(RKSTTaskViewController *)taskViewController {
+- (void)taskViewControllerDidComplete:(ORKTaskViewController *)taskViewController {
     [super taskViewControllerDidComplete:taskViewController];
     
 
@@ -123,7 +125,7 @@ static NSInteger const kNumberOfCompletionsUntilDisplayingCustomSurvey = 7;
     }
 }
 
-- (BOOL)taskViewController:(RKSTTaskViewController *)taskViewController hasLearnMoreForStep:(RKSTStep *)step {
+- (BOOL)taskViewController:(ORKTaskViewController *)taskViewController hasLearnMoreForStep:(ORKStep *)step {
     
     BOOL hasLearnMore = NO;
     
@@ -134,7 +136,7 @@ static NSInteger const kNumberOfCompletionsUntilDisplayingCustomSurvey = 7;
     return hasLearnMore;
 }
 
-- (void)taskViewController:(RKSTTaskViewController *)taskViewController learnMoreForStep:(RKSTStepViewController *)stepViewController {
+- (void)taskViewController:(ORKTaskViewController *)taskViewController learnMoreForStep:(ORKStepViewController *)stepViewController {
     
     //[stepViewController.view setUserInteractionEnabled:NO];
     
@@ -251,7 +253,7 @@ static NSInteger const kNumberOfCompletionsUntilDisplayingCustomSurvey = 7;
     
     textView.text = @"Here are some examples of what other users have come up with: \n\n"
                     "How is your performance on the treadmill?,\nHow was your morning run?";
-    textView.textColor = [UIColor darkGrayColor];
+    textView.textColor = [UIColor blackColor];
     [textView setFont:[UIFont fontWithName:@"HelveticaNeue" size:15]];
     textView.numberOfLines = 0;
     textView.adjustsFontSizeToFitWidth  = YES;

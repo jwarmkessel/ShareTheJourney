@@ -55,7 +55,7 @@ static NSString *kWalkTenThousandSteps = @"Walk 10,000 steps at least 3 times pe
     NSMutableDictionary *resultCollectionDictionary = [NSMutableDictionary new];
     NSArray *arrayOfResults = self.result.results;
     
-    for (RKSTStepResult *stepResult in arrayOfResults) {
+    for (ORKStepResult *stepResult in arrayOfResults) {
         if (stepResult.results.firstObject) {
             APCDataResult *questionResult = stepResult.results.firstObject;
             NSData *resultData = questionResult.data;
@@ -99,67 +99,67 @@ static NSString *kWalkTenThousandSteps = @"Walk 10,000 steps at least 3 times pe
 #pragma  mark  -  Task Creation Methods
 /*********************************************************************************/
 
-+ (RKSTOrderedTask *)createTask:(APCScheduledTask *)scheduledTask
++ (ORKOrderedTask *)createTask:(APCScheduledTask *)scheduledTask
 {
     
     NSMutableArray *steps = [[NSMutableArray alloc] init];
     
     if ([scheduledTask.completed boolValue]) {
-        RKSTStep *step = [[RKSTStep alloc] initWithIdentifier:kExerciseSurveyStep100];
+        ORKStep *step = [[ORKStep alloc] initWithIdentifier:kExerciseSurveyStep100];
         
         [steps addObject:step];
     }
     
     {
-        RKSTStep *step = [[RKSTStep alloc] initWithIdentifier:kExerciseSurveyStep101];
+        ORKStep *step = [[ORKStep alloc] initWithIdentifier:kExerciseSurveyStep101];
         
         [steps addObject:step];
     }
     
     {
-        RKSTStep  *step = [[RKSTStep alloc] initWithIdentifier:kExerciseSurveyStep102];
+        ORKStep  *step = [[ORKStep alloc] initWithIdentifier:kExerciseSurveyStep102];
         
         [steps addObject:step];
     }
     
     {
-        RKSTStep  *step = [[RKSTStep alloc] initWithIdentifier:kExerciseSurveyStep103];
+        ORKStep  *step = [[ORKStep alloc] initWithIdentifier:kExerciseSurveyStep103];
         
         [steps addObject:step];
     }
     
     {
-        RKSTStep  *step = [[RKSTStep alloc] initWithIdentifier:kExerciseSurveyStep104];
+        ORKStep  *step = [[ORKStep alloc] initWithIdentifier:kExerciseSurveyStep104];
         
         [steps addObject:step];
     }
     
     {
-        RKSTStep  *step = [[RKSTStep alloc] initWithIdentifier:kExerciseSurveyStep105];
+        ORKStep  *step = [[ORKStep alloc] initWithIdentifier:kExerciseSurveyStep105];
         
         [steps addObject:step];
     }
     
     {
-        RKSTStep  *step = [[RKSTStep alloc] initWithIdentifier:kExerciseSurveyStep106];
+        ORKStep  *step = [[ORKStep alloc] initWithIdentifier:kExerciseSurveyStep106];
         
         [steps addObject:step];
     }
     
     {
-        RKSTStep  *step = [[RKSTStep alloc] initWithIdentifier:kExerciseSurveyStep107];
+        ORKStep  *step = [[ORKStep alloc] initWithIdentifier:kExerciseSurveyStep107];
         
         [steps addObject:step];
     }
     
     {
-        RKSTStep  *step = [[RKSTStep alloc] initWithIdentifier:kExerciseSurveyStep108];
+        ORKStep  *step = [[ORKStep alloc] initWithIdentifier:kExerciseSurveyStep108];
         
         [steps addObject:step];
     }
     
     //The identifier gets set as the title in the navigation bar.
-    RKSTOrderedTask  *task = [[RKSTOrderedTask alloc] initWithIdentifier:@"Journal" steps:steps];
+    ORKOrderedTask  *task = [[ORKOrderedTask alloc] initWithIdentifier:@"Journal" steps:steps];
     
     return  task;
 }
@@ -168,7 +168,7 @@ static NSString *kWalkTenThousandSteps = @"Walk 10,000 steps at least 3 times pe
 #pragma  mark  - TaskViewController delegates
 /*********************************************************************************/
 
-- (RKSTStepViewController *)taskViewController:(RKSTTaskViewController *)taskViewController viewControllerForStep:(RKSTStep *)step {
+- (ORKStepViewController *)taskViewController:(ORKTaskViewController *)taskViewController viewControllerForStep:(ORKStep *)step {
     
 
     NSDictionary  *controllers = @{kExerciseSurveyStep100 : [APHExerciseMotivationSummaryViewController class],
@@ -203,7 +203,7 @@ static NSString *kWalkTenThousandSteps = @"Walk 10,000 steps at least 3 times pe
     return controller;
 }
 
-- (void)taskViewController:(RKSTTaskViewController *)taskViewController stepViewControllerWillAppear:(RKSTStepViewController *)stepViewController {
+- (void)taskViewController:(ORKTaskViewController *)taskViewController stepViewControllerWillAppear:(ORKStepViewController *)stepViewController {
     
     NSDictionary *stepQuestions = @{
                                     kExerciseSurveyStep102 : @"Why is this your goal?",
@@ -283,7 +283,7 @@ static NSString *kWalkTenThousandSteps = @"Walk 10,000 steps at least 3 times pe
         
     } else if (kExerciseSurveyStep102 == stepViewController.step.identifier) {
         self.previousStepIdentifier = kExerciseSurveyStep101;
-        RKSTStepResult *stepResult = [taskViewController.result stepResultForStepIdentifier:kExerciseSurveyStep101];
+        ORKStepResult *stepResult = [taskViewController.result stepResultForStepIdentifier:kExerciseSurveyStep101];
         
         APHQuestionViewController *questionVC = (APHQuestionViewController *)stepViewController;
         questionVC.previousAnswer.text = [self extractResult:stepResult withIdentifier:kExerciseSurveyStep101];
@@ -296,7 +296,7 @@ static NSString *kWalkTenThousandSteps = @"Walk 10,000 steps at least 3 times pe
     } else if (kExerciseSurveyStep103 == stepViewController.step.identifier) {
         self.previousStepIdentifier = kExerciseSurveyStep102;
         
-        RKSTStepResult *stepResult = [taskViewController.result stepResultForStepIdentifier:kExerciseSurveyStep102];
+        ORKStepResult *stepResult = [taskViewController.result stepResultForStepIdentifier:kExerciseSurveyStep102];
         
         APHQuestionViewController *questionVC = (APHQuestionViewController *)stepViewController;
         questionVC.previousAnswer.text = [self extractResult:stepResult withIdentifier:self.previousStepIdentifier];
@@ -308,7 +308,7 @@ static NSString *kWalkTenThousandSteps = @"Walk 10,000 steps at least 3 times pe
         
     } else if (kExerciseSurveyStep104 == stepViewController.step.identifier) {
         self.previousStepIdentifier = kExerciseSurveyStep103;
-        RKSTStepResult *stepResult = [taskViewController.result stepResultForStepIdentifier:kExerciseSurveyStep103];
+        ORKStepResult *stepResult = [taskViewController.result stepResultForStepIdentifier:kExerciseSurveyStep103];
         
         APHQuestionViewController *questionVC = (APHQuestionViewController *)stepViewController;
         questionVC.previousAnswer.text = [self extractResult:stepResult withIdentifier:self.previousStepIdentifier];
@@ -320,7 +320,7 @@ static NSString *kWalkTenThousandSteps = @"Walk 10,000 steps at least 3 times pe
         
     } else if (kExerciseSurveyStep105 == stepViewController.step.identifier) {
         self.previousStepIdentifier = kExerciseSurveyStep104;
-        RKSTStepResult *stepResult = [taskViewController.result stepResultForStepIdentifier:kExerciseSurveyStep104];
+        ORKStepResult *stepResult = [taskViewController.result stepResultForStepIdentifier:kExerciseSurveyStep104];
         
         APHQuestionViewController *questionVC = (APHQuestionViewController *)stepViewController;
         questionVC.previousAnswer.text = [self extractResult:stepResult withIdentifier:self.previousStepIdentifier];
@@ -332,7 +332,7 @@ static NSString *kWalkTenThousandSteps = @"Walk 10,000 steps at least 3 times pe
         
     } else if (kExerciseSurveyStep106 == stepViewController.step.identifier) {
         self.previousStepIdentifier = kExerciseSurveyStep105;
-        RKSTStepResult *stepResult = [taskViewController.result stepResultForStepIdentifier:kExerciseSurveyStep105];
+        ORKStepResult *stepResult = [taskViewController.result stepResultForStepIdentifier:kExerciseSurveyStep105];
         
         APHQuestionViewController *questionVC = (APHQuestionViewController *)stepViewController;
         questionVC.previousAnswer.text = [self extractResult:stepResult withIdentifier:self.previousStepIdentifier];
@@ -359,13 +359,13 @@ static NSString *kWalkTenThousandSteps = @"Walk 10,000 steps at least 3 times pe
         NSMutableArray *arrayOfAnswers = [NSMutableArray new];
         for (int i = 0; i < [summaryLabels count]; i++) {
             NSString *stringIdentifier = [NSString stringWithFormat:@"exercisesurvey10%d", i+2];
-            RKSTStepResult *stepResult = [taskViewController.result stepResultForStepIdentifier:stepIdentifiers[i + 1]];
+            ORKStepResult *stepResult = [taskViewController.result stepResultForStepIdentifier:stepIdentifiers[i + 1]];
             NSString *label = (NSString *) summaryLabels[i];
             label = (NSString *) [self extractResult:stepResult withIdentifier:stringIdentifier];
             [arrayOfAnswers addObject:label];
         }
 
-        RKSTStepResult *stepResult = [taskViewController.result stepResultForStepIdentifier:stepIdentifiers[0]];
+        ORKStepResult *stepResult = [taskViewController.result stepResultForStepIdentifier:stepIdentifiers[0]];
         
         NSString *selectedGoal = [self extractResult:stepResult withIdentifier:kExerciseSurveyStep101];
         
@@ -399,12 +399,12 @@ static NSString *kWalkTenThousandSteps = @"Walk 10,000 steps at least 3 times pe
 }
 
 
-- (void)stepViewControllerResultDidChange:(RKSTStepViewController *)stepViewController {
+- (void)stepViewControllerResultDidChange:(ORKStepViewController *)stepViewController {
     NSLog(@"TaskVC didChangeResult");
     
     if (![self.currentStepViewController.step.identifier isEqualToString:kExerciseSurveyStep108]) {
         
-        RKSTStepResult *stepResult = [self.result stepResultForStepIdentifier:self.currentStepViewController.step.identifier];
+        ORKStepResult *stepResult = [self.result stepResultForStepIdentifier:self.currentStepViewController.step.identifier];
         
         APCDataResult *contentResult = (APCDataResult *)[stepResult resultForIdentifier:self.currentStepViewController.step.identifier];
         
@@ -418,7 +418,7 @@ static NSString *kWalkTenThousandSteps = @"Walk 10,000 steps at least 3 times pe
     }
 }
 
-- (void)taskViewControllerDidComplete: (RKSTTaskViewController *)taskViewController
+- (void)taskViewControllerDidComplete: (ORKTaskViewController *)taskViewController
 {
     [super taskViewControllerDidComplete:taskViewController];
     
@@ -427,7 +427,7 @@ static NSString *kWalkTenThousandSteps = @"Walk 10,000 steps at least 3 times pe
 /*********************************************************************************/
 #pragma  mark  -  Helper Methods
 /*********************************************************************************/
-- (NSString *)extractResult:(RKSTStepResult *)result withIdentifier:(NSString *)identifier {
+- (NSString *)extractResult:(ORKStepResult *)result withIdentifier:(NSString *)identifier {
     
     APCDataResult *contentResult = (APCDataResult *)[result resultForIdentifier:identifier];
     

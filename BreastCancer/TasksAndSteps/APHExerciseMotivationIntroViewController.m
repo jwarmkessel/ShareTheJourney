@@ -26,7 +26,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *nextButton;
 
 @property (nonatomic, strong) NSMutableDictionary *dict;
-@property (nonatomic, strong) RKSTStepResult *cachedResult;
+@property (nonatomic, strong) ORKStepResult *cachedResult;
 @property (nonatomic, strong) NSString *selectedGoal;
 @end
 
@@ -161,19 +161,19 @@
     
     NSArray *resultsArray = @[contentModel];
     
-    self.cachedResult = [[RKSTStepResult alloc] initWithStepIdentifier:self.step.identifier results:resultsArray];
+    self.cachedResult = [[ORKStepResult alloc] initWithStepIdentifier:self.step.identifier results:resultsArray];
 
     [self.delegate stepViewControllerResultDidChange:self];
 
     if ([self.delegate respondsToSelector:@selector(stepViewController:didFinishWithNavigationDirection:)] == YES) {
-        [self.delegate stepViewController:self didFinishWithNavigationDirection:RKSTStepViewControllerNavigationDirectionForward];
+        [self.delegate stepViewController:self didFinishWithNavigationDirection:ORKStepViewControllerNavigationDirectionForward];
     }
 }
 
-- (RKSTStepResult *)result {
+- (ORKStepResult *)result {
     
     if (!self.cachedResult) {
-        self.cachedResult = [[RKSTStepResult alloc] initWithIdentifier:self.step.identifier];
+        self.cachedResult = [[ORKStepResult alloc] initWithIdentifier:self.step.identifier];
     }
     
     return self.cachedResult;

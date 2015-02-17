@@ -185,7 +185,7 @@ static NSString * const kAPCRightDetailTableViewCellIdentifier = @"APCRightDetai
                     APCTableViewDashboardGraphItem *item = [APCTableViewDashboardGraphItem new];
                     item.caption = NSLocalizedString(@"Steps", @"");
                     item.graphData = self.stepScoring;
-                    item.detailText = [NSString stringWithFormat:NSLocalizedString(@"Average : %lu", @"Average: {value}"), [[self.stepScoring averageDataPoint] integerValue]];
+                    item.detailText = [NSString stringWithFormat:NSLocalizedString(@"Average : %lu", @"Average: {value}"), [[self.stepScoring averageDataPoint] integerValue]];                    
                     item.identifier = kAPCDashboardGraphTableViewCellIdentifier;
                     item.editable = YES;
                     item.tintColor = [UIColor appTertiaryPurpleColor];
@@ -205,13 +205,15 @@ static NSString * const kAPCRightDetailTableViewCellIdentifier = @"APCRightDetai
                     APCTableViewDashboardGraphItem *item = [APCTableViewDashboardGraphItem new];
                     item.caption = NSLocalizedString(@"Mood", @"");
                     item.graphData = self.moodScoring;
-                    item.detailText = [NSString stringWithFormat: NSLocalizedString(@"Average : %0.0f", @"Average: {value}"), [[self.moodScoring averageDataPoint] doubleValue]];
+                    item.detailText = [NSString stringWithFormat: NSLocalizedString(@"Average : ", @"Average:")];
                     item.identifier = kAPCDashboardGraphTableViewCellIdentifier;
                     item.editable = YES;
                     item.tintColor = [UIColor appTertiaryYellowColor];
+                    
                     item.minimumImage = [UIImage imageNamed:@"Breast-Cancer-Mood-5g"];
                     item.maximumImage = [UIImage imageNamed:@"Breast-Cancer-Mood-1g"];
-                    
+                    item.averageImage = [UIImage imageNamed:[NSString stringWithFormat:@"Breast-Cancer-Mood-%0.0fg", 6 - [[self.moodScoring averageDataPoint] doubleValue]]];
+                                         
                     #warning Replace Placeholder Values - APPLE-1576
                     item.info = NSLocalizedString(@"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.", @"");
                     
@@ -227,10 +229,14 @@ static NSString * const kAPCRightDetailTableViewCellIdentifier = @"APCRightDetai
                     APCTableViewDashboardGraphItem *item = [APCTableViewDashboardGraphItem new];
                     item.caption = NSLocalizedString(@"Energy Level", @"");
                     item.graphData = self.energyScoring;
-                    item.detailText = [NSString stringWithFormat:NSLocalizedString(@"Average : %0.0f", @"Average: {value}"), [[self.energyScoring averageDataPoint] doubleValue]];
+                    item.detailText = [NSString stringWithFormat:NSLocalizedString(@"Average : ", @"")];
                     item.identifier = kAPCDashboardGraphTableViewCellIdentifier;
                     item.editable = YES;
                     item.tintColor = [UIColor appTertiaryGreenColor];
+                    
+                    item.minimumImage = [UIImage imageNamed:@"Breast-Cancer-Energy-5g"];
+                    item.maximumImage = [UIImage imageNamed:@"Breast-Cancer-Energy-1g"];
+                    item.averageImage = [UIImage imageNamed:[NSString stringWithFormat:@"Breast-Cancer-Energy-%0.0fg", 6 - [[self.moodScoring averageDataPoint] doubleValue]]];
                     
                     #warning Replace Placeholder Values - APPLE-1576
                     item.info = NSLocalizedString(@"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.", @"");
@@ -247,10 +253,14 @@ static NSString * const kAPCRightDetailTableViewCellIdentifier = @"APCRightDetai
                     APCTableViewDashboardGraphItem *item = [APCTableViewDashboardGraphItem new];
                     item.caption = NSLocalizedString(@"Exercise Level", @"");
                     item.graphData = self.exerciseScoring;
-                    item.detailText = [NSString stringWithFormat:NSLocalizedString(@"Average : %0.0f", @"Average: {value}"), [[self.exerciseScoring averageDataPoint] doubleValue]];
+                    item.detailText = [NSString stringWithFormat:NSLocalizedString(@"Average : ", @"")];
                     item.identifier = kAPCDashboardGraphTableViewCellIdentifier;
                     item.editable = YES;
                     item.tintColor = [UIColor appTertiaryYellowColor];
+                    
+                    item.minimumImage = [UIImage imageNamed:@"Breast-Cancer-Exercise-5g"];
+                    item.maximumImage = [UIImage imageNamed:@"Breast-Cancer-Exercise-1g"];
+                    item.averageImage = [UIImage imageNamed:[NSString stringWithFormat:@"Breast-Cancer-Exercise-%0.0fg", 6 - [[self.moodScoring averageDataPoint] doubleValue]]];
                     
                     #warning Replace Placeholder Values - APPLE-1576
                     item.info = NSLocalizedString(@"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.", @"");
@@ -267,10 +277,14 @@ static NSString * const kAPCRightDetailTableViewCellIdentifier = @"APCRightDetai
                     APCTableViewDashboardGraphItem *item = [APCTableViewDashboardGraphItem new];
                     item.caption = NSLocalizedString(@"Sleep Quality", @"");
                     item.graphData = self.sleepScoring;
-                    item.detailText = [NSString stringWithFormat:NSLocalizedString(@"Average : %0.0f", @"Average: {value}"), [[self.sleepScoring averageDataPoint] doubleValue]];
+                    item.detailText = [NSString stringWithFormat:NSLocalizedString(@"Average : ", @"Average: ")];
                     item.identifier = kAPCDashboardGraphTableViewCellIdentifier;
                     item.editable = YES;
                     item.tintColor = [UIColor appTertiaryPurpleColor];
+                    
+                    item.minimumImage = [UIImage imageNamed:@"Breast-Cancer-Sleep-1g"];
+                    item.maximumImage = [UIImage imageNamed:@"Breast-Cancer-Sleep-5g"];
+                    item.averageImage = [UIImage imageNamed:[NSString stringWithFormat:@"Breast-Cancer-Sleep-%0.0fg", [[self.moodScoring averageDataPoint] doubleValue]]];
                     
                     #warning Replace Placeholder Values - APPLE-1576
                     item.info = NSLocalizedString(@"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.", @"");
@@ -287,10 +301,14 @@ static NSString * const kAPCRightDetailTableViewCellIdentifier = @"APCRightDetai
                     APCTableViewDashboardGraphItem *item = [APCTableViewDashboardGraphItem new];
                     item.caption = NSLocalizedString(@"Cognitive Function", @"");
                     item.graphData = self.cognitiveScoring;
-                    item.detailText = [NSString stringWithFormat:NSLocalizedString(@"Average : %0.0f", @"Average: {value} ft"), [[self.cognitiveScoring averageDataPoint] doubleValue]];
+                    item.detailText = [NSString stringWithFormat:NSLocalizedString(@"Average : ", @"Average: ")];
                     item.identifier = kAPCDashboardGraphTableViewCellIdentifier;
                     item.editable = YES;
                     item.tintColor = [UIColor appTertiaryRedColor];
+                    
+                    item.minimumImage = [UIImage imageNamed:@"Breast-Cancer-Clarity-5g"];
+                    item.maximumImage = [UIImage imageNamed:@"Breast-Cancer-Clarity-1g"];
+                    item.averageImage = [UIImage imageNamed:[NSString stringWithFormat:@"Breast-Cancer-Clarity-%0.0fg", 6 - [[self.moodScoring averageDataPoint] doubleValue]]];
                     
                     #warning Replace Placeholder Values - APPLE-1576
                     item.info = NSLocalizedString(@"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.", @"");

@@ -7,27 +7,29 @@
     [
      {
      "title":"About this Study",
-     "details":"AboutStudy",
+     "details":"AboutStudy_intro",
      "icon_image":"paperplus_icon",
      "tint_color" : "blue"
      },
      
      {
+     "title":"About this App",
+     "details":"consentvideo_intro",
+     "icon_image":"clipboard_icon",
+     "tint_color" : "green"
+     },
+     
+     {
      "title":"How this study works",
-     "details":"howstudyworks",
+     "details":"howstudyworks_intro",
      "icon_image":"rulerpencil_icon",
      "tint_color" : "purple"
      },
      
-     {
-     "title":"Who is Eligible to Participate",
-     "details":"EligibleToParticipate",
-     "icon_image":"clipboard_icon",
-     "tint_color" : "green"
-     },
+     
      {
      "title":"Who is Running this Study",
-     "details":"whoisrunning",
+     "details":"whoisrunning_intro",
      "icon_image":"stethescope_icon",
      "tint_color" : "yellow"
      }
