@@ -309,7 +309,7 @@ typedef  enum  _DailyLogType
         instructions.text = kDailyJournalInstructions;
         instructions.numberOfLines = 0;
         instructions.lineBreakMode = NSLineBreakByWordWrapping;
-        instructions.textColor = [UIColor darkGrayColor];
+        instructions.textColor = [UIColor blackColor];
         [instructions setTextAlignment:NSTextAlignmentJustified];
         [headerView addSubview:instructions];
     } else {
