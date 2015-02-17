@@ -128,6 +128,7 @@ static  NSString  *kExerciseSurveyStep106 = @"exercisesurvey106";
     if (self.scriptorium.text.length > 0) {
         [self.doneButton setEnabled:YES];
         [self.doneButton setTitleColor:[UIColor appPrimaryColor] forState:UIControlStateNormal];
+        self.placeHolderText.alpha = 0;
     }
     self.characterCounterLabel.text = [NSString stringWithFormat:@"%lu / %lu", (unsigned long)self.scriptorium.text.length, (unsigned long)kMaximumNumberOfCharacters];
 }
