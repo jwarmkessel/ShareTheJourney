@@ -67,7 +67,7 @@ static NSString* const  kBreastCancerRibbonImageName = @"BreastCancer-Ribbon";
     if ([self.parent.step.identifier isEqualToString:kSummaryStepIdentifier]) {
         
         if ([self.parent.delegate respondsToSelector:@selector(stepViewController:didFinishWithNavigationDirection:)] == YES) {
-            [self.parent.delegate stepViewController:self.parent didFinishWithNavigationDirection:RKSTStepViewControllerNavigationDirectionForward];
+            [self.parent.delegate stepViewController:self.parent didFinishWithNavigationDirection:ORKStepViewControllerNavigationDirectionForward];
         }
     }
 }

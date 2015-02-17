@@ -11,5 +11,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *dateLabel;
 @property (weak, nonatomic) IBOutlet UITextView *textView;
 
+@property (nonatomic, strong) NSString *logText;
+@property (nonatomic, strong) NSDate *logDate;
+
 - (void)setTextViewText:(NSString *)text;
 @end

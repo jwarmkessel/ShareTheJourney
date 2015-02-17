@@ -66,13 +66,13 @@
 {
     [self.getStartedButton setEnabled:NO];
     if ([self.delegate respondsToSelector:@selector(stepViewController:didFinishWithNavigationDirection:)] == YES) {
-        [self.delegate stepViewController:self didFinishWithNavigationDirection:RKSTStepViewControllerNavigationDirectionForward];
+        [self.delegate stepViewController:self didFinishWithNavigationDirection:ORKStepViewControllerNavigationDirectionForward];
     }
 }
 
 - (void)getStartedWithCustomSurvey {
     if ([self.delegate respondsToSelector:@selector(stepViewController:didFinishWithNavigationDirection:)] == YES) {
-        [self.delegate stepViewController:self didFinishWithNavigationDirection:RKSTStepViewControllerNavigationDirectionForward];
+        [self.delegate stepViewController:self didFinishWithNavigationDirection:ORKStepViewControllerNavigationDirectionForward];
     }
 }
 
@@ -169,7 +169,7 @@
         NSMutableAttributedString *attribString = [[NSMutableAttributedString alloc]initWithString:@"Purpose"];
         [attribString addAttribute:NSParagraphStyleAttributeName value:paragraphStyle range:NSMakeRange(0, [@"Purpose" length])];
         
-        [attribString addAttribute:NSForegroundColorAttributeName value:[UIColor darkGrayColor] range:NSMakeRange(0,[attribString length])];
+        [attribString addAttribute:NSForegroundColorAttributeName value:[UIColor blackColor] range:NSMakeRange(0,[attribString length])];
         
         NSMutableAttributedString * finalString = [[NSMutableAttributedString alloc] initWithString:@"\nThis activity will ask you to assess how you feel on 5 different important areas: Cognition (mental clarity), Mood, Energy level, Sleep quality, and Exercise.  We recommend that you answer these towards the end of the day, reflecting on how you felt on this particular day."];
         
@@ -177,7 +177,7 @@
         paragraphStyle2.lineBreakMode = NSLineBreakByWordWrapping;
         [finalString addAttribute:NSParagraphStyleAttributeName value:paragraphStyle2 range:NSMakeRange(0, [finalString length])];
         
-        [finalString addAttribute:NSForegroundColorAttributeName value:[UIColor lightGrayColor] range:NSMakeRange(0,[finalString length])];
+        [finalString addAttribute:NSForegroundColorAttributeName value:[UIColor blackColor] range:NSMakeRange(0,[finalString length])];
         
         [attribString appendAttributedString:finalString];
         
@@ -192,7 +192,7 @@
         
         NSMutableAttributedString *attribString = [[NSMutableAttributedString alloc]initWithString:@"Length"];
         [attribString addAttribute:NSParagraphStyleAttributeName value:paragraphStyle range:NSMakeRange(0, [@"Length" length])];
-        [attribString addAttribute:NSForegroundColorAttributeName value:[UIColor darkGrayColor] range:NSMakeRange(0,[attribString length])];
+        [attribString addAttribute:NSForegroundColorAttributeName value:[UIColor blackColor] range:NSMakeRange(0,[attribString length])];
         
         NSMutableAttributedString * finalString = [[NSMutableAttributedString alloc] initWithString:@"\nThis task will take you less than two minutes to complete."];
         
@@ -200,7 +200,7 @@
         paragraphStyle2.lineBreakMode = NSLineBreakByWordWrapping;
         [finalString addAttribute:NSParagraphStyleAttributeName value:paragraphStyle2 range:NSMakeRange(0, [finalString length])];
         
-        [finalString addAttribute:NSForegroundColorAttributeName value:[UIColor lightGrayColor] range:NSMakeRange(0,[finalString length])];
+        [finalString addAttribute:NSForegroundColorAttributeName value:[UIColor blackColor] range:NSMakeRange(0,[finalString length])];
 
         [attribString appendAttributedString:finalString];
         

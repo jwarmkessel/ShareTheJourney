@@ -11,11 +11,13 @@
 #import "APHAppDelegate.h"
 #import "APHNotesContentsTableViewCell.h"
 #import "APHDisplayLogHistoryViewController.h"
+#import "APHNotesHeaderTableViewCell.h"
 
 static  NSString* const         kNotesContentStoragePath = @"DailyMoodLogsContent.json";
 static  NSString* const         kNotesChangesStoragePath = @"DailyMoodLogsChanges.json";
 
 static  NSString* const kContentsTableViewCellIdentifier = @"APHNotesContentsTableViewCell";
+static  NSString* const kHeaderTableViewCellIdentifier = @"APHNotesHeaderTableViewCell";
 
 #warning Placeholder text.
 static NSString* kDailyJournalInstructions = @"Keeping a daily journal will help you stay focused and motivated.";
@@ -34,8 +36,9 @@ typedef  enum  _DailyLogType
 
 @property  (nonatomic, strong)            NSMutableArray*   contentObjects;
 @property  (nonatomic, strong)            NSMutableArray*   changesObjects;
-@property  (nonatomic, strong)                   NSArray*   logHistory;
-@property  (nonatomic, strong)            RKSTStepResult*   cachedResult;
+@property                                   NSDictionary*   sectionedLogHistory;
+@property                                        NSArray*   sections;
+@property  (nonatomic, strong)             ORKStepResult*   cachedResult;
 @property  (nonatomic, strong)                   UILabel*   noTasksView;
 @end
 
@@ -137,7 +140,7 @@ typedef  enum  _DailyLogType
 {
 
     if ([self.delegate respondsToSelector:@selector(stepViewController:didFinishWithNavigationDirection:)] == YES) {
-        [self.delegate stepViewController:self didFinishWithNavigationDirection:RKSTStepViewControllerNavigationDirectionForward];
+        [self.delegate stepViewController:self didFinishWithNavigationDirection:ORKStepViewControllerNavigationDirectionForward];
     }
 }
 
@@ -147,12 +150,12 @@ typedef  enum  _DailyLogType
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return  1;
+    return  self.sections.count;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return  [self.logHistory count];
+    return  ((NSArray *)[self.sectionedLogHistory objectForKey:self.sections[section]]).count;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -162,7 +165,7 @@ typedef  enum  _DailyLogType
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    APCResult  *model = self.logHistory[indexPath.row];
+    APCResult  *model = [self.sectionedLogHistory objectForKey:self.sections[indexPath.section]][indexPath.row];
     
     APHNotesContentsTableViewCell  *cell = (APHNotesContentsTableViewCell *)[tableView dequeueReusableCellWithIdentifier:kContentsTableViewCellIdentifier];
     
@@ -213,21 +216,19 @@ typedef  enum  _DailyLogType
 #pragma  mark  -  Table View Delegate Methods
 /*********************************************************************************/
 
+//- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+//    return [tableView]
+//}
+
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    APCResult  *model = self.logHistory[indexPath.row];
+    APCResult  *model = [self.sectionedLogHistory objectForKey:self.sections[indexPath.section]][indexPath.row];
     APHDisplayLogHistoryViewController  *stenographer = [[APHDisplayLogHistoryViewController alloc] initWithNibName:@"APHDisplayLogHistoryViewController" bundle:[NSBundle mainBundle]];
     
-    NSDateFormatter  *formatter = [[NSDateFormatter alloc] init];
-    [formatter setDateStyle: NSDateFormatterShortStyle];
-    [formatter setTimeStyle: NSDateFormatterNoStyle];
+    stenographer.logText = model.resultSummary;
+    stenographer.logDate = model.createdAt;
     
-    NSDate  *date = model.createdAt;
-    
-    [self presentViewController:stenographer animated:YES completion:nil];
-    
-    [stenographer setTextViewText:model.resultSummary];
-    stenographer.dateLabel.text = [formatter stringFromDate:date];
+    [self.navigationController pushViewController:stenographer animated:YES];
 }
 
 /*********************************************************************************/
@@ -237,6 +238,8 @@ typedef  enum  _DailyLogType
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    self.tabulator.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -254,9 +257,9 @@ typedef  enum  _DailyLogType
     
     NSError *error = nil;
     
-    self.logHistory = [appDelegate.dataSubstrate.mainContext executeFetchRequest:request error:&error];
+    NSArray *logHistory = [appDelegate.dataSubstrate.mainContext executeFetchRequest:request error:&error];
     
-    if (self.logHistory.count == 0) {
+    if (logHistory.count == 0) {
         [self addCustomNoTaskView];
     } else {
         if (self.noTasksView) {
@@ -264,6 +267,7 @@ typedef  enum  _DailyLogType
             
             [self.tabulator setSeparatorStyle:UITableViewCellSeparatorStyleSingleLine];
         }
+        [self sectionLogHistory:logHistory];
         [self.tabulator deselectRowAtIndexPath:[self.tabulator indexPathForSelectedRow] animated:YES];
     }
     
@@ -275,6 +279,9 @@ typedef  enum  _DailyLogType
     
     [self.tabulator registerNib:[UINib nibWithNibName:@"APHNotesContentsTableViewCell"
                                                    bundle:[NSBundle mainBundle]] forCellReuseIdentifier:(NSString *)kContentsTableViewCellIdentifier];
+    
+    [self.tabulator registerNib:[UINib nibWithNibName:@"APHNotesHeaderTableViewCell"
+                                               bundle:[NSBundle mainBundle]] forCellReuseIdentifier:(NSString *)kHeaderTableViewCellIdentifier];
     
 
 }
@@ -292,26 +299,75 @@ typedef  enum  _DailyLogType
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
-    
-    UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0.0, 0.0, [UIScreen mainScreen].bounds.size.width, 100.0)];
-    [headerView setBackgroundColor:[UIColor appSecondaryColor4]];
-    
-    UILabel *instructions = [[UILabel alloc] initWithFrame:CGRectMake(20.0, 0.0, [UIScreen mainScreen].bounds.size.width - 40, 90.0)];
-
-    instructions.text = kDailyJournalInstructions;
-    instructions.numberOfLines = 0;
-    instructions.lineBreakMode = NSLineBreakByWordWrapping;
-    instructions.textColor = [UIColor darkGrayColor];
-    [instructions setTextAlignment:NSTextAlignmentJustified];
-    [headerView addSubview:instructions];
+    UIView *headerView = nil;
+    if (section == 0) {
+        headerView = [[UIView alloc] initWithFrame:CGRectMake(0.0, 0.0, [UIScreen mainScreen].bounds.size.width, 100.0)];
+        [headerView setBackgroundColor:[UIColor appSecondaryColor4]];
+        
+        UILabel *instructions = [[UILabel alloc] initWithFrame:CGRectMake(20.0, 0.0, [UIScreen mainScreen].bounds.size.width - 40, 90.0)];
+        
+        instructions.text = kDailyJournalInstructions;
+        instructions.numberOfLines = 0;
+        instructions.lineBreakMode = NSLineBreakByWordWrapping;
+        instructions.textColor = [UIColor blackColor];
+        [instructions setTextAlignment:NSTextAlignmentJustified];
+        [headerView addSubview:instructions];
+    } else {
+        APHNotesHeaderTableViewCell *headerCell = [tableView dequeueReusableCellWithIdentifier:kHeaderTableViewCellIdentifier];
+        if (section == [self.sections indexOfObject:self.sections.lastObject]) {
+            headerCell.labelWeek.text = NSLocalizedString(@"Week 1", @"Week 1");
+        } else {
+            NSDateComponents *dateComponents = self.sections.lastObject;
+            [dateComponents setWeekday:1];
+            NSDate *startDate = [[NSCalendar currentCalendar] dateFromComponents:dateComponents];
+            
+            dateComponents = self.sections[section];
+            [dateComponents setWeekday:1];
+            NSDate *endDate = [[NSCalendar currentCalendar] dateFromComponents:dateComponents];
+            
+            NSInteger weekNumber = [[NSCalendar currentCalendar] components:NSCalendarUnitWeekOfYear fromDate:startDate toDate:endDate options:0].weekOfYear++;
+            headerCell.labelWeek.text = [NSLocalizedString(@"Week", @"Week") stringByAppendingFormat:@" %zd", weekNumber];
+        }
+        NSInteger entryCount = ((NSArray *)[self.sectionedLogHistory objectForKey:self.sections[section]]).count;
+        headerCell.labelEntries.text = [NSString stringWithFormat:@"%zd %@", entryCount, NSLocalizedString(@"Entries", @"Entries")];
+        
+        headerView = headerCell;
+    }
     
     return headerView;
 }
 
-- (RKSTStepResult *)result {
+- (void)sectionLogHistory:(NSArray *)logHistory {
+    NSSortDescriptor *sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"createdAt" ascending:NO];
+    logHistory = [logHistory sortedArrayUsingDescriptors:@[sortDescriptor]];
+    
+    NSMutableArray *mutableSections = [NSMutableArray array];
+    NSMutableDictionary *mutableSectionedLogHistory = [NSMutableDictionary dictionary];
+    for (NSInteger i = 0; i < logHistory.count; i++) {
+        APCResult *result = logHistory[i];
+        NSDateComponents *identifyingDateComponents = [[NSCalendar currentCalendar] components:(NSCalendarUnitWeekOfYear | NSCalendarUnitYear) fromDate:result.createdAt];
+        NSMutableArray *mutableSectionLog = nil;
+        if ((mutableSectionLog = [mutableSectionedLogHistory objectForKey:identifyingDateComponents])) {
+            NSMutableArray *mutableSectionLog = [mutableSectionedLogHistory objectForKey:identifyingDateComponents];
+            [mutableSectionLog addObject:result];
+        } else {
+            if ([mutableSections indexOfObject:identifyingDateComponents] == NSNotFound) {
+                [mutableSections addObject:identifyingDateComponents];
+            }
+            mutableSectionLog = [NSMutableArray array];
+            [mutableSectionLog addObject:result];
+            [mutableSectionedLogHistory setObject:mutableSectionLog forKey:identifyingDateComponents];
+        }
+    }
+    
+    self.sections = [NSArray arrayWithArray:mutableSections];
+    self.sectionedLogHistory = [NSDictionary dictionaryWithDictionary:mutableSectionedLogHistory];
+}
+
+- (ORKStepResult *)result {
     
     if (!self.cachedResult) {
-        self.cachedResult = [[RKSTStepResult alloc] initWithIdentifier:self.step.identifier];
+        self.cachedResult = [[ORKStepResult alloc] initWithIdentifier:self.step.identifier];
     }
     
     return self.cachedResult;
