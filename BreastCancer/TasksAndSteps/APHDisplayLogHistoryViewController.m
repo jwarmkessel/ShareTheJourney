@@ -16,31 +16,24 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+    
+    self.textView.text = self.logText;
+    
+    NSDateFormatter  *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateStyle: NSDateFormatterShortStyle];
+    [formatter setTimeStyle: NSDateFormatterNoStyle];
+    
+    self.dateLabel.text = [formatter stringFromDate:self.logDate];
+    self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"bozo" style:UIBarButtonItemStylePlain target:self action:@selector(doneButton:)];
     
 
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 - (void)setTextViewText:(NSString *)text {
     self.textView.text = text;
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
-
 - (IBAction)doneButton:(id)sender {
-     [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
+    [self.navigationController popViewControllerAnimated:YES];
 }
 @end

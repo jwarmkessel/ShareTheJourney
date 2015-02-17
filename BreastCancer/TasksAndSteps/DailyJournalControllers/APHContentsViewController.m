@@ -225,16 +225,10 @@ typedef  enum  _DailyLogType
     APCResult  *model = [self.sectionedLogHistory objectForKey:self.sections[indexPath.section]][indexPath.row];
     APHDisplayLogHistoryViewController  *stenographer = [[APHDisplayLogHistoryViewController alloc] initWithNibName:@"APHDisplayLogHistoryViewController" bundle:[NSBundle mainBundle]];
     
-    NSDateFormatter  *formatter = [[NSDateFormatter alloc] init];
-    [formatter setDateStyle: NSDateFormatterShortStyle];
-    [formatter setTimeStyle: NSDateFormatterNoStyle];
+    stenographer.logText = model.resultSummary;
+    stenographer.logDate = model.createdAt;
     
-    NSDate  *date = model.createdAt;
-    
-    [self presentViewController:stenographer animated:YES completion:nil];
-    
-    [stenographer setTextViewText:model.resultSummary];
-    stenographer.dateLabel.text = [formatter stringFromDate:date];
+    [self.navigationController pushViewController:stenographer animated:YES];
 }
 
 /*********************************************************************************/
