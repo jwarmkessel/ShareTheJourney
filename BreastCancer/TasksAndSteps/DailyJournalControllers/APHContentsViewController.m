@@ -244,6 +244,8 @@ typedef  enum  _DailyLogType
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    self.tabulator.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
