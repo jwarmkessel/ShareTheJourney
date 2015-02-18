@@ -9,9 +9,10 @@
 #import "APHHeartAgeIntroStepViewController.h"
 
 static NSInteger const doneButtonYOffset = 20;
+static NSInteger const kMaximumNumberOfCharacters = 90;
 
 @interface APHCustomSurveyQuestionViewController () <UITextViewDelegate>
-
+@property (weak, nonatomic) IBOutlet UILabel *characterCounterLabel;
 @property (weak, nonatomic) IBOutlet UITextView *textView;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *bottomSpaceConstraint;
 @property  (nonatomic, assign) CGFloat savedContainerSpacing;
@@ -22,7 +23,7 @@ static NSInteger const doneButtonYOffset = 20;
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.edgesForExtendedLayout = UIRectEdgeNone;
+        self.edgesForExtendedLayout = UIRectEdgeNone;
 
     self.title = @"Customize survey question";
     self.navigationController.navigationBar.topItem.title = @"Customize survey question";
@@ -42,10 +43,29 @@ static NSInteger const doneButtonYOffset = 20;
     
     if (customQuestion != nil) {
         self.textView.text = customQuestion;
+        self.characterCounterLabel.text = [NSString     stringWithFormat:@"%lu / %lu", (unsigned long)self.textView.text.length, (unsigned long)kMaximumNumberOfCharacters];
     }
         
 }
 #pragma  mark  -  TextView Delegate Methods   
+
+#pragma  mark  -  Text View Delegate Methods
+
+- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text
+{
+    NSString *updatedText = [self.textView.text stringByReplacingCharactersInRange:range withString:text];
+    
+    BOOL shouldChangeText = NO;
+    
+    if (updatedText.length <= kMaximumNumberOfCharacters) {
+        shouldChangeText = YES;
+        
+        self.characterCounterLabel.text = [NSString stringWithFormat:@"%lu / %lu", (unsigned long)updatedText.length, (unsigned long)kMaximumNumberOfCharacters];
+    }
+    
+    return shouldChangeText;
+}
+
 - (void)textViewDidEndEditing:(UITextView *)textView {
     
     APCAppDelegate * delegate = (APCAppDelegate*)[UIApplication sharedApplication].delegate;

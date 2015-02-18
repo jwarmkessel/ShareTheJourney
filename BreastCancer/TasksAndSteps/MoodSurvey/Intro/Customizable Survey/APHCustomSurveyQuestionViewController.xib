@@ -7,6 +7,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="APHCustomSurveyQuestionViewController">
             <connections>
                 <outlet property="bottomSpaceConstraint" destination="Uql-HR-fpq" id="Pr9-OY-QL2"/>
+                <outlet property="characterCounterLabel" destination="nxi-EL-hBV" id="SZY-oz-8gd"/>
                 <outlet property="doneButton" destination="az1-dl-9Iv" id="MP3-9W-waY"/>
                 <outlet property="textView" destination="TIG-dR-nyV" id="CkG-en-LEv"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
