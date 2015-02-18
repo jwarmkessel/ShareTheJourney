@@ -25,8 +25,7 @@ static NSInteger const kMaximumNumberOfCharacters = 90;
     
         self.edgesForExtendedLayout = UIRectEdgeNone;
 
-    self.title = @"Customize survey question";
-    self.navigationController.navigationBar.topItem.title = @"Customize survey question";
+    self.title = NSLocalizedString(@"Custom Daily Scale", @"");
     
     [self.textView setDelegate:self];
     

@@ -40,7 +40,7 @@ static NSInteger const kNumberOfCompletionsUntilDisplayingCustomSurvey = 6;
     //Check if we have reached the threshold to display customizing a survey question.
     APCAppDelegate * delegate = (APCAppDelegate*)[UIApplication sharedApplication].delegate;
     
-    NSNumber *completedNumberOfTimes = @(0);
+    NSNumber *completedNumberOfTimes = @(2);
     
     if (delegate.dataSubstrate.currentUser.dailyScalesCompletionCounter >= kNumberOfCompletionsUntilDisplayingCustomSurvey && delegate.dataSubstrate.currentUser.customSurveyQuestion != nil)
     {
