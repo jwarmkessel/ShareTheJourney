@@ -32,6 +32,28 @@
     
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    APCAppDelegate * delegate = (APCAppDelegate*)[UIApplication sharedApplication].delegate;
+    
+    NSString *customQuestion = delegate.dataSubstrate.currentUser.customSurveyQuestion;
+    
+    if (customQuestion != nil) {
+        self.textView.text = customQuestion;
+    }
+        
+}
+#pragma  mark  -  TextView Delegate Methods   
+- (void)textViewDidEndEditing:(UITextView *)textView {
+    
+    APCAppDelegate * delegate = (APCAppDelegate*)[UIApplication sharedApplication].delegate;
+    delegate.dataSubstrate.currentUser.customSurveyQuestion = textView.text;
+    
+    if ([textView.text isEqualToString:@""]) {
+        delegate.dataSubstrate.currentUser.customSurveyQuestion = nil;
+    }
+    
+}
+
 #pragma  mark  -  Keyboard Notification Methods
 
 - (void)keyboardWillEmerge:(NSNotification *)notification
