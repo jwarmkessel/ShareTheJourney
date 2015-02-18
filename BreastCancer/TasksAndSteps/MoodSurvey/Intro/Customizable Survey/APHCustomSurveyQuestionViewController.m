@@ -8,8 +8,9 @@
 #import "APHCustomSurveyQuestionViewController.h"
 #import "APHHeartAgeIntroStepViewController.h"
 
-@interface APHCustomSurveyQuestionViewController () <UITextViewDelegate>
+static NSInteger const doneButtonYOffset = 20;
 
+@interface APHCustomSurveyQuestionViewController () <UITextViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UITextView *textView;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *bottomSpaceConstraint;
@@ -20,6 +21,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.edgesForExtendedLayout = UIRectEdgeNone;
 
     self.title = @"Customize survey question";
     self.navigationController.navigationBar.topItem.title = @"Customize survey question";
@@ -62,7 +65,7 @@
 
     double   animationDuration = [notification.userInfo[UIKeyboardAnimationDurationUserInfoKey] doubleValue];
     
-    self.bottomSpaceConstraint.constant = keyboardHeight + 20;
+    self.bottomSpaceConstraint.constant = keyboardHeight - doneButtonYOffset;
     
     [UIView animateWithDuration:animationDuration animations:^{
         
