@@ -189,7 +189,7 @@
                                                         <constraint firstAttribute="height" constant="1" id="4AB-3V-lDR"/>
                                                     </constraints>
                                                 </view>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Can you read and understand English in order to provide informed consent and follow the instructions?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8x6-Dz-K21">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="￼Are you comfortable reading and writing on your iPhone in English?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8x6-Dz-K21">
                                                     <rect key="frame" x="15" y="8" width="290" height="65"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="65" id="OUg-72-Co1"/>

@@ -8,7 +8,7 @@
 #import <UIKit/UIKit.h>
 @import APCAppCore;
 
-@interface APHCustomSurveyQuestionViewController : UIViewController
+@interface APHCustomSurveyQuestionViewController : UIViewController <UITextViewDelegate>
 @property (weak, nonatomic) IBOutlet UIButton *doneButton;
 
 @end

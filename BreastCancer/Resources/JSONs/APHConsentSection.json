@@ -13,10 +13,10 @@
         },
      
          {
-         "sectionType" : "custom",
-         "sectionTitle": "Quick questions coming!",
-         "sectionSummary": "At the end of this walkthrough we will ask you few questions about the details of the study.",
-         "sectionHtmlContent" : "2quiz_headsup"
+             "sectionType" : "custom",
+             "sectionTitle": "Quick questions coming!",
+             "sectionSummary": "At the end of this walkthrough, we will ask you a few questions about the details of the study",
+             "sectionHtmlContent" : "2quiz_headsup"
         
          },
          
