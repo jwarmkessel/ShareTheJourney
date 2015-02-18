@@ -199,7 +199,7 @@ static NSString *const kVideoShownKey = @"VideoShown";
     if (!self.dataSubstrate.currentUser.isSignedIn)
     {
         reviewStep                  = [[ORKConsentReviewStep alloc] initWithIdentifier:@"reviewStep" signature:signature inDocument:consent];
-        reviewStep.reasonForConsent = NSLocalizedString(@"By agreeing you confirm that you have read the terms and conditions, that you understand them and that you wish to take part in this research study.", nil);
+        reviewStep.reasonForConsent = NSLocalizedString(@"By agreeing you confirm that you read the information and that you wish to take part in this research study.", nil);
         
         [consentSteps addObject:reviewStep];
     }
