@@ -150,12 +150,12 @@ typedef  enum  _DailyLogType
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return  self.sections.count;
+    return  MAX(1, self.sections.count);
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return  ((NSArray *)[self.sectionedLogHistory objectForKey:self.sections[section]]).count;
+    return  MAX(1, ((NSArray *)[self.sectionedLogHistory objectForKey:self.sections[section]]).count);
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -165,6 +165,10 @@ typedef  enum  _DailyLogType
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    if (!self.sectionedLogHistory) {
+        return [UITableViewCell new];
+    }
+    
     APCResult  *model = [self.sectionedLogHistory objectForKey:self.sections[indexPath.section]][indexPath.row];
     
     APHNotesContentsTableViewCell  *cell = (APHNotesContentsTableViewCell *)[tableView dequeueReusableCellWithIdentifier:kContentsTableViewCellIdentifier];

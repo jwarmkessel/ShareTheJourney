@@ -1,6 +1,11 @@
 {
 	"sections":
 	[
+     
+         {
+         "sectionType" : "onlyInDocument",
+         "sectionHtmlContent" : "BCS_fullconsent"
+         },
         {
             "sectionType" : "overview",
             "sectionSummary" : "This simple walkthrough will explain the research study, the impact it may have on your life and will allow you to provide your consent to participate.",
@@ -43,7 +48,7 @@
 		{
 			"sectionType" : "privacy",
             "sectionTitle": "Protecting your data",
-            "sectionSummary": "We will replace your name with \na random code. \n\nThe coded data will be encrypted and stored on a secure Cloud server under the control of Sage Bionetworks to prevent improper access.",
+            "sectionSummary": "We will replace your name with a random code. The coded data will be encrypted and stored on a secure Cloud server under the control of Sage Bionetworks to prevent improper access.",
             "sectionHtmlContent" : "6protectingdata"
 		},
 		{
@@ -63,7 +68,7 @@
 		{
 			"sectionType" : "studySurvey",
             "sectionTitle" : "Study Survey",
-            "sectionSummary": "We will ask you to rate your fatigue, thinking, sleep, mood and exercise performance on a scale of 1 to 5 daily.\n\nWe will also ask you to answer brief weekly and monthly surveys about your symptoms to track any changes."
+            "sectionSummary": "We will ask you to rate your fatigue, thinking, sleep, mood and exercise performance on a scale of 1 to 5 daily. We will also ask you to answer brief weekly and monthly surveys about your symptoms to track any changes."
      
 
 		},

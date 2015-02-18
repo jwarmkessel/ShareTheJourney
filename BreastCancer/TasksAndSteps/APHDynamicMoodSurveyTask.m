@@ -44,7 +44,11 @@ typedef NS_ENUM(NSUInteger, APHDynamicMoodSurveyType) {
 
 @property (nonatomic, strong) NSString *customSurveyQuestion;
 
+@property (nonatomic) NSInteger currentState;
 @property (nonatomic) NSInteger currentCount;
+@property (nonatomic, strong) NSDictionary *currentOrderedSteps;
+
+
 @end
 @implementation APHDynamicMoodSurveyTask
 
@@ -384,7 +388,11 @@ typedef NS_ENUM(NSUInteger, APHDynamicMoodSurveyType) {
     [self setFlowState:0];
     
     
-    if (delegate.dataSubstrate.currentUser.customSurveyQuestion)
+    if ([step.identifier isEqualToString:kMoodSurveyStep108] && delegate.dataSubstrate.currentUser.customSurveyQuestion && delegate.dataSubstrate.currentUser.dailyScalesCompletionCounter == kNumberOfCompletionsUntilDisplayingCustomSurvey)
+    {
+        [self setFlowState:4];
+    }
+    else if (delegate.dataSubstrate.currentUser.customSurveyQuestion)
     {
         //Used only if the custom question is already being set in profile.
         [self setFlowState:1];
@@ -460,10 +468,13 @@ typedef NS_ENUM(NSUInteger, APHDynamicMoodSurveyType) {
 
 - (ORKTaskProgress)progressOfCurrentStep:(ORKStep *)step withResult:(ORKTaskResult *)result
 {
-    return ORKTaskProgressMake(self.currentCount, [self.steps count]);
+    
+    return ORKTaskProgressMake([[self.currentOrderedSteps objectForKey:step.identifier] integerValue] - 1, self.currentOrderedSteps.count);
 }
 
 - (void) setFlowState:(NSInteger)state {
+    
+    self.currentState = state;
     
     switch (state) {
         case 0:
@@ -494,6 +505,17 @@ typedef NS_ENUM(NSUInteger, APHDynamicMoodSurveyType) {
                                             kMoodSurveyStep107       : [NSNull null],
                                             kMoodSurveyStep108       : [NSNull null]
                                             };
+            
+            self.currentOrderedSteps    = @{
+                                            kMoodSurveyStep101       : @(1),
+                                            kMoodSurveyStep102       : @(2),
+                                            kMoodSurveyStep103       : @(3),
+                                            kMoodSurveyStep104       : @(4),
+                                            kMoodSurveyStep105       : @(5),
+                                            kMoodSurveyStep106       : @(6),
+                                            kMoodSurveyStep108       : @(7)
+                                            };
+            
         }
             break;
         case 1:
@@ -523,6 +545,17 @@ typedef NS_ENUM(NSUInteger, APHDynamicMoodSurveyType) {
                                             kMoodSurveyStep106       : @(APHDynamicMoodSurveyTypeConclusion),
                                             kMoodSurveyStep107       : @(APHDynamicMoodSurveyTypeClarity),
                                             kMoodSurveyStep108       : [NSNull null]
+                                            };
+            
+            self.currentOrderedSteps    = @{
+                                            kMoodSurveyStep101       : @(1),
+                                            kMoodSurveyStep107       : @(2),
+                                            kMoodSurveyStep102       : @(3),
+                                            kMoodSurveyStep103       : @(4),
+                                            kMoodSurveyStep104       : @(5),
+                                            kMoodSurveyStep105       : @(6),
+                                            kMoodSurveyStep106       : @(7),
+                                            kMoodSurveyStep108       : @(8)
                                             };
 
         }
@@ -555,6 +588,18 @@ typedef NS_ENUM(NSUInteger, APHDynamicMoodSurveyType) {
                                             kMoodSurveyStep107       : @(APHDynamicMoodSurveyTypeClarity),
                                             kMoodSurveyStep108       : [NSNull null]
                                             };
+            
+            self.currentOrderedSteps    = @{
+                                            kMoodSurveyStep101       : @(1),
+                                            kMoodSurveyStep107       : @(2),
+                                            kMoodSurveyStep102       : @(3),
+                                            kMoodSurveyStep103       : @(4),
+                                            kMoodSurveyStep104       : @(5),
+                                            kMoodSurveyStep105       : @(6),
+                                            kMoodSurveyStep106       : @(7),
+                                            kMoodSurveyStep108       : @(8)
+                                            };
+
 
         }
             break;
@@ -586,6 +631,18 @@ typedef NS_ENUM(NSUInteger, APHDynamicMoodSurveyType) {
                                             kMoodSurveyStep106       : @(APHDynamicMoodSurveyTypeConclusion),
                                             kMoodSurveyStep107       : [NSNull null],
                                             kMoodSurveyStep108       : [NSNull null]
+                                            };
+            
+            self.currentOrderedSteps    = @{
+                                            kMoodSurveyStep101       : @(1),
+                                            kCustomMoodSurveyStep101 : @(2),
+                                            kCustomMoodSurveyStep102 : @(3),
+                                            kMoodSurveyStep102       : @(4),
+                                            kMoodSurveyStep103       : @(5),
+                                            kMoodSurveyStep104       : @(6),
+                                            kMoodSurveyStep105       : @(7),
+                                            kMoodSurveyStep106       : @(8),
+                                            kMoodSurveyStep108       : @(9)
                                             };
 
         }
@@ -619,6 +676,19 @@ typedef NS_ENUM(NSUInteger, APHDynamicMoodSurveyType) {
                                             kMoodSurveyStep107       : @(APHDynamicMoodSurveyTypeClarity),
                                             kMoodSurveyStep108       : [NSNull null]
                                             };
+            
+            self.currentOrderedSteps    = @{
+                                            kMoodSurveyStep101       : @(1),
+                                            kCustomMoodSurveyStep101 : @(2),
+                                            kCustomMoodSurveyStep102 : @(3),
+                                            kMoodSurveyStep107       : @(4),
+                                            kMoodSurveyStep102       : @(5),
+                                            kMoodSurveyStep103       : @(6),
+                                            kMoodSurveyStep104       : @(7),
+                                            kMoodSurveyStep105       : @(8),
+                                            kMoodSurveyStep106       : @(9),
+                                            kMoodSurveyStep108       : @(10)
+                                            };
         }
             break;
             
@@ -648,6 +718,16 @@ typedef NS_ENUM(NSUInteger, APHDynamicMoodSurveyType) {
                                             kMoodSurveyStep106       : @(APHDynamicMoodSurveyTypeConclusion),
                                             kMoodSurveyStep107       : [NSNull null],
                                             kMoodSurveyStep108       : [NSNull null]
+                                            };
+            
+            self.currentOrderedSteps    = @{
+                                            kMoodSurveyStep101       : @(1),
+                                            kMoodSurveyStep102       : @(2),
+                                            kMoodSurveyStep103       : @(3),
+                                            kMoodSurveyStep104       : @(4),
+                                            kMoodSurveyStep105       : @(5),
+                                            kMoodSurveyStep106       : @(6),
+                                            kMoodSurveyStep108       : @(7)
                                             };
            
         }
