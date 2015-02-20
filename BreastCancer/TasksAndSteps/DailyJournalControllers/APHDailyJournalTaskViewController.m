@@ -170,10 +170,5 @@ static NSString *kMoodLogNoteText = @"APHMoodLogNoteText";
     }
 }
 
-- (void)taskViewControllerDidComplete: (ORKTaskViewController *)taskViewController
-{
-    [super taskViewControllerDidComplete:taskViewController];
-
-}
 
 @end

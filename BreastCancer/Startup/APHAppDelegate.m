@@ -56,9 +56,7 @@ static NSString *const kVideoShownKey = @"VideoShown";
                                                    @(kAPCUserInfoItemTypeEmail),
                                                    @(kAPCUserInfoItemTypeDateOfBirth),
                                                    @(kAPCUserInfoItemTypeHeight),
-                                                   @(kAPCUserInfoItemTypeWeight),
-                                                   @(kAPCUserInfoItemTypeWakeUpTime),
-                                                   @(kAPCUserInfoItemTypeSleepTime)
+                                                   @(kAPCUserInfoItemTypeWeight)
                                                    ],
                                            kAnalyticsOnOffKey  : @(YES),
                                            kAnalyticsFlurryAPIKeyKey : @"3V2CN572C3R782W2DBBN"
@@ -175,7 +173,8 @@ static NSString *const kVideoShownKey = @"VideoShown";
 
 - (id<ORKTask>)makeConsent
 {
-    NSArray*                sections  = [super consentSections];
+    NSString*               docHtml   = nil;
+    NSArray*                sections  = [super consentSectionsAndHtmlContent:&docHtml];
     ORKConsentDocument*     consent   = [[ORKConsentDocument alloc] init];
     ORKConsentSignature*    signature = [ORKConsentSignature signatureForPersonWithTitle:NSLocalizedString(@"Participant", nil)
                                                                         dateFormatString:nil
@@ -185,6 +184,7 @@ static NSString *const kVideoShownKey = @"VideoShown";
     consent.signaturePageTitle   = NSLocalizedString(@"Consent", nil);
     consent.signaturePageContent = NSLocalizedString(@"I agree to participate in this research Study.", nil);
     consent.sections             = sections;
+    consent.htmlReviewContent    = docHtml;
     
     [consent addSignature:signature];
     
@@ -199,7 +199,7 @@ static NSString *const kVideoShownKey = @"VideoShown";
     if (!self.dataSubstrate.currentUser.isSignedIn)
     {
         reviewStep                  = [[ORKConsentReviewStep alloc] initWithIdentifier:@"reviewStep" signature:signature inDocument:consent];
-        reviewStep.reasonForConsent = NSLocalizedString(@"By agreeing you confirm that you have read the terms and conditions, that you understand them and that you wish to take part in this research study.", nil);
+        reviewStep.reasonForConsent = NSLocalizedString(@"By agreeing you confirm that you read the information and that you wish to take part in this research study.", nil);
         
         [consentSteps addObject:reviewStep];
     }

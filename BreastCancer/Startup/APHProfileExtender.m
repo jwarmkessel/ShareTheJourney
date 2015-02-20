@@ -8,12 +8,15 @@
 #import "APHProfileExtender.h"
 #import "APHCustomSurveyQuestionViewController.h"
 
+static NSInteger const kNumberOfCompletionsUntilDisplayingCustomSurvey = 6;
+
 @implementation APHProfileExtender
 
 - (instancetype) init {
     self = [super init];
 
     if (self) {
+        
         
     }
     
@@ -34,7 +37,21 @@
 //Add to the number of sections
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     
-    return 2;
+    //Check if we have reached the threshold to display customizing a survey question.
+    APCAppDelegate * delegate = (APCAppDelegate*)[UIApplication sharedApplication].delegate;
+    
+    NSNumber *completedNumberOfTimes = @(0);
+    
+    if (delegate.dataSubstrate.currentUser.dailyScalesCompletionCounter >= kNumberOfCompletionsUntilDisplayingCustomSurvey && delegate.dataSubstrate.currentUser.customSurveyQuestion != nil)
+    {
+        completedNumberOfTimes = @(2);
+    }
+    else if (delegate.dataSubstrate.currentUser.dailyScalesCompletionCounter > kNumberOfCompletionsUntilDisplayingCustomSurvey)
+    {
+        completedNumberOfTimes = @(2);
+    }
+    
+    return [completedNumberOfTimes integerValue];
 }
 
 //Add to the number of sections
