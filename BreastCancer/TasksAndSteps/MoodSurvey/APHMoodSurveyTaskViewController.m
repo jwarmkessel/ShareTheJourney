@@ -112,9 +112,9 @@ static NSInteger const kNumberOfCompletionsUntilDisplayingCustomSurvey = 7;
     return controller;
 }
 
-- (void)taskViewControllerDidComplete:(ORKTaskViewController *)taskViewController {
-    [super taskViewControllerDidComplete:taskViewController];
-    
+- (void)taskViewController:(ORKTaskViewController *)taskViewController didFinishWithResult:(ORKTaskViewControllerResult)result error:(NSError *)error
+{
+    [super taskViewController:taskViewController didFinishWithResult:result error:error];
 
     //Here we are keeping a count of the daily scales being completed. We are keeping track only up to 7.
     APCAppDelegate * delegate = (APCAppDelegate*)[UIApplication sharedApplication].delegate;
