@@ -173,7 +173,8 @@ static NSString *const kVideoShownKey = @"VideoShown";
 
 - (id<ORKTask>)makeConsent
 {
-    NSArray*                sections  = [super consentSections];
+    NSString*               docHtml   = nil;
+    NSArray*                sections  = [super consentSectionsAndHtmlContent:&docHtml];
     ORKConsentDocument*     consent   = [[ORKConsentDocument alloc] init];
     ORKConsentSignature*    signature = [ORKConsentSignature signatureForPersonWithTitle:NSLocalizedString(@"Participant", nil)
                                                                         dateFormatString:nil
