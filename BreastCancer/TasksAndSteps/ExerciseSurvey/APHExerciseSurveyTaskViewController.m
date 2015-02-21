@@ -275,11 +275,8 @@ static NSString *kWalkTenThousandSteps = @"Walk 10,000 steps at least 3 times pe
         }
 
         [questionSummaryVC setAnswersInTableview:arrayOfAnswers];
-
-        taskViewController.navigationBar.topItem.title = NSLocalizedString(@"Exercise Goal Review", @"Exercise Goal Review");
         
     } else if (kExerciseSurveyStep101 == stepViewController.step.identifier) {
-        taskViewController.navigationBar.topItem.title = NSLocalizedString(@"Exercise Motivation", @"Exercise Motivation");
         
     } else if (kExerciseSurveyStep102 == stepViewController.step.identifier) {
         self.previousStepIdentifier = kExerciseSurveyStep101;
@@ -290,8 +287,6 @@ static NSString *kWalkTenThousandSteps = @"Walk 10,000 steps at least 3 times pe
         questionVC.currentQuestion.text = [stepQuestions objectForKey:stepViewController.step.identifier];
         
         questionVC.scriptorium.text = self.previousCachedAnswer[kExerciseSurveyStep102];
-        
-        taskViewController.navigationBar.topItem.title = NSLocalizedString(@"Exercise Motivation", @"Exercise Motivation");
         
     } else if (kExerciseSurveyStep103 == stepViewController.step.identifier) {
         self.previousStepIdentifier = kExerciseSurveyStep102;
@@ -304,8 +299,6 @@ static NSString *kWalkTenThousandSteps = @"Walk 10,000 steps at least 3 times pe
         
         questionVC.scriptorium.text = self.previousCachedAnswer[kExerciseSurveyStep103];
         
-        taskViewController.navigationBar.topItem.title = NSLocalizedString(@"Exercise Motivation", @"Exercise Motivation");
-        
     } else if (kExerciseSurveyStep104 == stepViewController.step.identifier) {
         self.previousStepIdentifier = kExerciseSurveyStep103;
         ORKStepResult *stepResult = [taskViewController.result stepResultForStepIdentifier:kExerciseSurveyStep103];
@@ -315,8 +308,6 @@ static NSString *kWalkTenThousandSteps = @"Walk 10,000 steps at least 3 times pe
         questionVC.currentQuestion.text = [stepQuestions objectForKey:stepViewController.step.identifier];
         
         questionVC.scriptorium.text = self.previousCachedAnswer[kExerciseSurveyStep104];
-        
-        taskViewController.navigationBar.topItem.title = NSLocalizedString(@"Exercise Motivation", @"Exercise Motivation");
         
     } else if (kExerciseSurveyStep105 == stepViewController.step.identifier) {
         self.previousStepIdentifier = kExerciseSurveyStep104;
@@ -328,8 +319,6 @@ static NSString *kWalkTenThousandSteps = @"Walk 10,000 steps at least 3 times pe
         
         questionVC.scriptorium.text = self.previousCachedAnswer[kExerciseSurveyStep105];
         
-        taskViewController.navigationBar.topItem.title = NSLocalizedString(@"Exercise Motivation", @"Exercise Motivation");
-        
     } else if (kExerciseSurveyStep106 == stepViewController.step.identifier) {
         self.previousStepIdentifier = kExerciseSurveyStep105;
         ORKStepResult *stepResult = [taskViewController.result stepResultForStepIdentifier:kExerciseSurveyStep105];
@@ -339,8 +328,6 @@ static NSString *kWalkTenThousandSteps = @"Walk 10,000 steps at least 3 times pe
         questionVC.currentQuestion.text = [stepQuestions objectForKey:stepViewController.step.identifier];
 
         questionVC.scriptorium.text = self.previousCachedAnswer[kExerciseSurveyStep106];
-        
-        taskViewController.navigationBar.topItem.title = NSLocalizedString(@"Exercise Motivation", @"Exercise Motivation");
         
     } else if (kExerciseSurveyStep107 == stepViewController.step.identifier) {
         self.previousStepIdentifier = kExerciseSurveyStep106;
@@ -387,8 +374,6 @@ static NSString *kWalkTenThousandSteps = @"Walk 10,000 steps at least 3 times pe
         }
         
         [questionSummaryVC setAnswersInTableview:arrayOfAnswers];
-        
-        taskViewController.navigationBar.topItem.title = NSLocalizedString(@"Exercise Goal Review", @"Exercise Goal Review");
         
         
     } else if (kExerciseSurveyStep108 == stepViewController.step.identifier) {
