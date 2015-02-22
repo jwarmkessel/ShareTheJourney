@@ -16,8 +16,6 @@ static NSString * const kAPCRightDetailTableViewCellIdentifier = @"APCRightDetai
 
 @property (nonatomic, strong) NSMutableArray *rowItemsOrder;
 
-@property (nonatomic, strong) NSDateFormatter *dateFormatter;
-
 @property (nonatomic, strong) APCScoring *stepScoring;
 @property (nonatomic, strong) APCScoring *moodScoring;
 @property (nonatomic, strong) APCScoring *energyScoring;
@@ -55,7 +53,6 @@ static NSString * const kAPCRightDetailTableViewCellIdentifier = @"APCRightDetai
         
         self.title = NSLocalizedString(@"Dashboard", @"Dashboard");
         
-        _dateFormatter = [NSDateFormatter new];
     }
     
     return self;
@@ -102,35 +99,35 @@ static NSString * const kAPCRightDetailTableViewCellIdentifier = @"APCRightDetai
         self.stepScoring= [[APCScoring alloc] initWithHealthKitQuantityType:stepQuantityType unit:[HKUnit countUnit] numberOfDays:-5];
 
         self.moodScoring = [[APCScoring alloc] initWithTask:@"APHMoodSurvey-7259AC18-D711-47A6-ADBD-6CFCECDED1DF"
-                                                numberOfDays:-5
+                                                numberOfDays:-kNumberOfDaysToDisplay
                                                     valueKey:@"moodsurvey103"
                                                     dataKey:nil
                                                     sortKey:nil
                                                  groupBy:APHTimelineGroupDay];
     
         self.energyScoring = [[APCScoring alloc] initWithTask:@"APHMoodSurvey-7259AC18-D711-47A6-ADBD-6CFCECDED1DF"
-                                                  numberOfDays:-5
+                                                  numberOfDays:-kNumberOfDaysToDisplay
                                                       valueKey:@"moodsurvey104"
                                                       dataKey:nil
                                                       sortKey:nil
                                                    groupBy:APHTimelineGroupDay];
     
         self.exerciseScoring = [[APCScoring alloc] initWithTask:@"APHMoodSurvey-7259AC18-D711-47A6-ADBD-6CFCECDED1DF"
-                                                  numberOfDays:-5
+                                                  numberOfDays:-kNumberOfDaysToDisplay
                                                       valueKey:@"moodsurvey106"
                                                         dataKey:nil
                                                         sortKey:nil
                                                      groupBy:APHTimelineGroupDay];
     
         self.sleepScoring = [[APCScoring alloc] initWithTask:@"APHMoodSurvey-7259AC18-D711-47A6-ADBD-6CFCECDED1DF"
-                                                  numberOfDays:-5
+                                                  numberOfDays:-kNumberOfDaysToDisplay
                                                       valueKey:@"moodsurvey105"
                                                      dataKey:nil
                                                      sortKey:nil
                                                   groupBy:APHTimelineGroupDay];
     
         self.cognitiveScoring = [[APCScoring alloc] initWithTask:@"APHMoodSurvey-7259AC18-D711-47A6-ADBD-6CFCECDED1DF"
-                                                  numberOfDays:-5
+                                                  numberOfDays:-kNumberOfDaysToDisplay
                                                       valueKey:@"moodsurvey102"
                                                          dataKey:nil
                                                          sortKey:nil
@@ -152,27 +149,16 @@ static NSString * const kAPCRightDetailTableViewCellIdentifier = @"APCRightDetai
             item.identifier = kAPCDashboardProgressTableViewCellIdentifier;
             item.editable = NO;
             item.progress = (CGFloat)completedScheduledTasks/allScheduledTasks;
+            item.caption = NSLocalizedString(@"Activity Completion", @"Activity Completion");
+            
+#warning Replace Placeholder Values - APPLE-1576
+            item.info = NSLocalizedString(@"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.", @"");
             
             APCTableViewRow *row = [APCTableViewRow new];
             row.item = item;
             row.itemType = kAPCTableViewDashboardItemTypeProgress;
             [rowItems addObject:row];
         }
-        
-        
-        APCTableViewSection *section = [APCTableViewSection new];
-        NSDate *dateToday = [NSDate date];
-        
-        self.dateFormatter.dateFormat = @"MMMM d";
-        
-        section.sectionTitle = [NSString stringWithFormat:@"%@, %@", NSLocalizedString(@"Today", @""), [self.dateFormatter stringFromDate:dateToday]];
-        section.rows = [NSArray arrayWithArray:rowItems];
-        section.rows = [NSArray arrayWithArray:rowItems];
-        [self.items addObject:section];
-    }
-    
-    {
-        NSMutableArray *rowItems = [NSMutableArray new];
         
         for (NSNumber *typeNumber in self.rowItemsOrder) {
             
