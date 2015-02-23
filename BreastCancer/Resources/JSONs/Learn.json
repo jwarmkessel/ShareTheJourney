@@ -41,18 +41,14 @@
                         "details": "lifeaftertreatment",
                         "icon_image": "disease_icon",
                         "tint_color": "appColor"
+                    },
+                    {
+                        "title": "Online Resources",
+                        "details": "online_resources",
+                        "icon_image": "globe_icon",
+                        "tint_color": "gray"
                     }
-            ]
-        },
-        {
-            "section_title": "Resources",
-            "row_items": [
-                {
-                    "title": "Online Resources",
-                    "details": "online_resources",
-                    "icon_image": "globe_icon",
-                    "tint_color": "gray"
-                }
+                          
             ]
         }
     ]
