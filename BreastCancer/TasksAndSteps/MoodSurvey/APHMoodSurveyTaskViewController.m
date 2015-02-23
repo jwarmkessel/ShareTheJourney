@@ -26,6 +26,8 @@ static  NSString  *kMoodSurveyStep108   = @"moodsurvey108";
 static  NSString  *kCustomMoodSurveyStep101   = @"customMoodSurveyStep101";
 static  NSString  *kCustomMoodSurveyStep102   = @"customMoodSurveyStep102";
 
+static NSString   *kLearnMoreString = @"Creating a custom question will help you track something personal to you over time. Think about something you care deeply about and would like to see how your performance in that area changes with your post-treatment evolution.\nSome examples may include:\n- How was your morning run today?\n- My work day today was...\n\nWe will track your question in the dashboard (shown as \"Custom Scale\") over time. Remember that you can always go to your profile and change this question.";
+
 static NSInteger const kNumberOfCompletionsUntilDisplayingCustomSurvey = 7;
 
 @interface APHMoodSurveyTaskViewController () <UIGestureRecognizerDelegate>
@@ -249,12 +251,8 @@ static NSInteger const kNumberOfCompletionsUntilDisplayingCustomSurvey = 7;
                               multiplier:1
                               constant:0.0]];
     
-    textView.text = @"Creating a custom question will help you track something personal to you over time. Think about something you care deeply about and would like to see how your performance in that area changes with your post-treatment evolution.\n"
-        "Some examples may include:\n"
-        "- How was your morning run today?\n"
-        "- My work day today was...\n\n"
-        "We will track your question in the dashboard (shown as \"Custom Scale\") over time. Remember that you can always go to your profile and change this question.";
-    
+    textView.text =NSLocalizedString( kLearnMoreString, kLearnMoreString);
+
     textView.textColor = [UIColor blackColor];
     [textView setFont:[UIFont fontWithName:@"HelveticaNeue" size:17]];
     textView.numberOfLines = 0;
