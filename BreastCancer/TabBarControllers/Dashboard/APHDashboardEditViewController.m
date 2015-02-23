@@ -90,6 +90,16 @@
                     
                 }
                     break;
+                    
+                case kAPHDashboardItemTypeDailyCustom:
+                {
+                    APCTableViewDashboardItem *item = [APCTableViewDashboardItem new];
+                    item.caption = NSLocalizedString(@"Custom Question", @"");
+                    item.tintColor = [UIColor appTertiaryBlueColor];
+                    
+                    [self.items addObject:item];
+                }
+                    break;
 
                 default:
                     break;
