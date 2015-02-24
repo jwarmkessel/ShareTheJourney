@@ -14,8 +14,8 @@
      
          {
              "sectionType" : "custom",
-             "sectionTitle": "Quick questions coming!",
-             "sectionSummary": "At the end of this walkthrough, we will ask you a few questions about the details of the study",
+             "sectionTitle": "We'll Test your Understanding",
+             "sectionSummary": "At the end of this walkthrough, we will ask you a few questions about the details of the study.",
              "sectionHtmlContent" : "2quiz_headsup"
         
          },
@@ -48,7 +48,7 @@
 		},
 		{
 			"sectionType" : "privacy",
-            "sectionTitle": "Protecting your data",
+            "sectionTitle": "Protecting your Data",
             "sectionSummary": "We will replace your name with a random code. The coded data will be encrypted and stored on a secure Cloud server under the control of Sage Bionetworks to prevent improper access.",
             "sectionHtmlContent" : "6protectingdata"
 		},
