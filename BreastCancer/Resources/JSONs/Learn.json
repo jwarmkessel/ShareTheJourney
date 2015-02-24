@@ -18,7 +18,7 @@
                       },
                       
                       {
-                      "title":"Who is Eligible to Participate",
+                      "title":"Who Can Participate",
                       "details":"EligibleToParticipate",
                       "icon_image":"eligibility",
                       "tint_color" : "green"

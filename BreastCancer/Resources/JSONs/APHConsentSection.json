@@ -14,8 +14,8 @@
      
          {
              "sectionType" : "custom",
-             "sectionTitle": "Quick questions coming!",
-             "sectionSummary": "At the end of this walkthrough, we will ask you a few questions about the details of the study",
+             "sectionTitle": "We'll Test your Understanding",
+             "sectionSummary": "At the end of this walkthrough, we will ask you a few questions about the details of the study.",
              "sectionHtmlContent" : "2quiz_headsup"
         
          },
