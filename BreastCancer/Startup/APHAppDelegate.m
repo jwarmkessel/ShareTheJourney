@@ -149,13 +149,13 @@ static NSString *const kVideoShownKey = @"VideoShown";
                                                                           title:NSLocalizedString(@"What is the purpose of this study?", nil)
                                                                          answer:purposeChoice];
     ORKQuestionStep*    question2 = [ORKQuestionStep questionStepWithIdentifier:@"deidentified"
-                                                                          title:NSLocalizedString(@"My name will be stored with my Study data", nil)
+                                                                          title:NSLocalizedString(@"My name will be stored with my study data", nil)
                                                                          answer:[ORKBooleanAnswerFormat new]];
     ORKQuestionStep*    question3 = [ORKQuestionStep questionStepWithIdentifier:@"access"
                                                                           title:NSLocalizedString(@"Many researchers will be able to access my study data", nil)
                                                                          answer:[ORKBooleanAnswerFormat new]];
     ORKQuestionStep*    question4 = [ORKQuestionStep questionStepWithIdentifier:@"skipSurvey"
-                                                                          title:NSLocalizedString(@"I will be albe to skip any survey question", nil)
+                                                                          title:NSLocalizedString(@"I will be able to skip any survey question", nil)
                                                                          answer:[ORKBooleanAnswerFormat new]];
     
     ORKQuestionStep*    question5 = [ORKQuestionStep questionStepWithIdentifier:@"stopParticipating"

@@ -97,6 +97,8 @@ static NSString *kMoodLogNoteText = @"APHMoodLogNoteText";
 
 - (ORKStepViewController *)taskViewController:(ORKTaskViewController *)taskViewController viewControllerForStep:(ORKStep *)step {
     
+    self.showsProgressInNavigationBar = NO;
+    
     NSDictionary  *controllers = @{
                                    kDailyJournalStep101 : [APHContentsViewController class],
                                    kDailyJournalStep102 : [APHNotesViewController class],
@@ -120,6 +122,7 @@ static NSString *kMoodLogNoteText = @"APHMoodLogNoteText";
 }
 
 - (void)taskViewController:(ORKTaskViewController *)taskViewController stepViewControllerWillAppear:(ORKStepViewController *)stepViewController {
+    
 
     if (kDailyJournalStep101 == stepViewController.step.identifier) {
         

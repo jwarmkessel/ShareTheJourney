@@ -11,14 +11,14 @@
                       },
                       
                       {
-                      "title":"How this study works",
+                      "title":"How this Study Works",
                       "details":"howstudyworks",
                       "icon_image":"howitworks",
                       "tint_color" : "purple"
                       },
                       
                       {
-                      "title":"Who is Eligible to Participate",
+                      "title":"Who Can Participate",
                       "details":"EligibleToParticipate",
                       "icon_image":"eligibility",
                       "tint_color" : "green"
@@ -41,18 +41,14 @@
                         "details": "lifeaftertreatment",
                         "icon_image": "disease_icon",
                         "tint_color": "appColor"
+                    },
+                    {
+                        "title": "Online Resources",
+                        "details": "online_resources",
+                        "icon_image": "globe_icon",
+                        "tint_color": "gray"
                     }
-            ]
-        },
-        {
-            "section_title": "Resources",
-            "row_items": [
-                {
-                    "title": "Online Resources",
-                    "details": "online_resources",
-                    "icon_image": "globe_icon",
-                    "tint_color": "gray"
-                }
+                          
             ]
         }
     ]
