@@ -25,6 +25,8 @@ static  NSString  *kCustomMoodSurveyStep103   = @"customMoodSurveyStep103";
 
 static NSInteger const kNumberOfCompletionsUntilDisplayingCustomSurvey = 6;
 
+static NSInteger const kTextAnswerFormatWithMaximumLength = 90;
+
 typedef NS_ENUM(NSUInteger, APHDynamicMoodSurveyType) {
     APHDynamicMoodSurveyTypeIntroduction = 0,
     APHDynamicMoodSurveyTypeCustomInstruction,
@@ -126,8 +128,9 @@ typedef NS_ENUM(NSUInteger, APHDynamicMoodSurveyType) {
         
         step.text = NSLocalizedString(@"Customize your question.", @"");
         
-        ORKAnswerFormat *textAnswerFormat = [ORKAnswerFormat textAnswerFormatWithMaximumLength:100];
         
+        ORKAnswerFormat *textAnswerFormat = [ORKAnswerFormat textAnswerFormatWithMaximumLength:kTextAnswerFormatWithMaximumLength];
+
         [step setAnswerFormat:textAnswerFormat];
         
         [steps addObject:step];
