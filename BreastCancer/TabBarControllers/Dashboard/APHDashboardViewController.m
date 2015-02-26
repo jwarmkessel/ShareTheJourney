@@ -224,7 +224,7 @@ static NSString * const kAPCRightDetailTableViewCellIdentifier = @"APCRightDetai
                     item.tintColor = [UIColor appTertiaryPurpleColor];
                     
                     #warning Replace Placeholder Values - APPLE-1576
-                    item.info = NSLocalizedString(@"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.", @"");
+                    item.info = NSLocalizedString(@"This graph shows the number of steps that you took each day measured by your phone or fitness tracker (if you have one).", @"");
                     
                     APCTableViewRow *row = [APCTableViewRow new];
                     row.item = item;
@@ -248,7 +248,7 @@ static NSString * const kAPCRightDetailTableViewCellIdentifier = @"APCRightDetai
                     item.averageImage = [UIImage imageNamed:[NSString stringWithFormat:@"Breast-Cancer-Mood-%0.0fg", 6 - [[self.moodScoring averageDataPoint] doubleValue]]];
                                          
                     #warning Replace Placeholder Values - APPLE-1576
-                    item.info = NSLocalizedString(@"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.", @"");
+                    item.info = NSLocalizedString(@"This graph shows your answers to the daily check-in questions for mood each day. ", @"");
                     
                     APCTableViewRow *row = [APCTableViewRow new];
                     row.item = item;
@@ -272,7 +272,7 @@ static NSString * const kAPCRightDetailTableViewCellIdentifier = @"APCRightDetai
                     item.averageImage = [UIImage imageNamed:[NSString stringWithFormat:@"Breast-Cancer-Energy-%0.0fg", 6 - [[self.moodScoring averageDataPoint] doubleValue]]];
                     
                     #warning Replace Placeholder Values - APPLE-1576
-                    item.info = NSLocalizedString(@"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.", @"");
+                    item.info = NSLocalizedString(@"This graph shows your answers to the daily check-in questions for energy each day.", @"");
                     
                     APCTableViewRow *row = [APCTableViewRow new];
                     row.item = item;
@@ -296,7 +296,7 @@ static NSString * const kAPCRightDetailTableViewCellIdentifier = @"APCRightDetai
                     item.averageImage = [UIImage imageNamed:[NSString stringWithFormat:@"Breast-Cancer-Exercise-%0.0fg", 6 - [[self.moodScoring averageDataPoint] doubleValue]]];
                     
                     #warning Replace Placeholder Values - APPLE-1576
-                    item.info = NSLocalizedString(@"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.", @"");
+                    item.info = NSLocalizedString(@"This graph shows your answers to the daily check-in questions for exercise each day.", @"");
                     
                     APCTableViewRow *row = [APCTableViewRow new];
                     row.item = item;
@@ -320,7 +320,7 @@ static NSString * const kAPCRightDetailTableViewCellIdentifier = @"APCRightDetai
                     item.averageImage = [UIImage imageNamed:[NSString stringWithFormat:@"Breast-Cancer-Sleep-%0.0fg", [[self.moodScoring averageDataPoint] doubleValue]]];
                     
                     #warning Replace Placeholder Values - APPLE-1576
-                    item.info = NSLocalizedString(@"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.", @"");
+                    item.info = NSLocalizedString(@"This graph shows your answers to the daily check-in questions for sleep each day.", @"");
                     
                     APCTableViewRow *row = [APCTableViewRow new];
                     row.item = item;
@@ -332,7 +332,7 @@ static NSString * const kAPCRightDetailTableViewCellIdentifier = @"APCRightDetai
                 case kAPHDashboardItemTypeDailyCognitive:
                 {
                     APCTableViewDashboardGraphItem *item = [APCTableViewDashboardGraphItem new];
-                    item.caption = NSLocalizedString(@"Cognitive Function", @"");
+                    item.caption = NSLocalizedString(@"Thinking", @"");
                     item.graphData = self.cognitiveScoring;
                     item.detailText = [NSString stringWithFormat:NSLocalizedString(@"Average : ", @"Average: ")];
                     item.identifier = kAPCDashboardGraphTableViewCellIdentifier;
@@ -344,7 +344,7 @@ static NSString * const kAPCRightDetailTableViewCellIdentifier = @"APCRightDetai
                     item.averageImage = [UIImage imageNamed:[NSString stringWithFormat:@"Breast-Cancer-Clarity-%0.0fg", 6 - [[self.moodScoring averageDataPoint] doubleValue]]];
                     
                     #warning Replace Placeholder Values - APPLE-1576
-                    item.info = NSLocalizedString(@"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.", @"");
+                    item.info = NSLocalizedString(@"This graph shows your answers to the daily check-in questions for your thinking each day.", @"");
                     
                     APCTableViewRow *row = [APCTableViewRow new];
                     row.item = item;
@@ -353,11 +353,6 @@ static NSString * const kAPCRightDetailTableViewCellIdentifier = @"APCRightDetai
                     
                 }
                     break;
-                    
-                    
-                    
-                    
-                    
                     
                 case kAPHDashboardItemTypeDailyCustom:
                 {
@@ -374,7 +369,7 @@ static NSString * const kAPCRightDetailTableViewCellIdentifier = @"APCRightDetai
                     item.averageImage = [UIImage imageNamed:[NSString stringWithFormat:@"Breast-Cancer-Custom-%0.0fg", 6 - [[self.moodScoring averageDataPoint] doubleValue]]];
                     
 #warning Replace Placeholder Values - APPLE-1576
-                    item.info = NSLocalizedString(@"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.", @"");
+                    item.info = NSLocalizedString(@"This graph shows your answers the to custom question that you created as part of your daily check-in questions.", @"");
                     
                     APCTableViewRow *row = [APCTableViewRow new];
                     row.item = item;
@@ -384,11 +379,6 @@ static NSString * const kAPCRightDetailTableViewCellIdentifier = @"APCRightDetai
                 }
                     break;
                     
-                    
-                    
-                    
-                    
-
                 default:
                     break;
             }
