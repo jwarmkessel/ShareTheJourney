@@ -23,6 +23,8 @@
 		744174E61A923861004A7CC1 /* APHConsentSection.json in Resources */ = {isa = PBXBuildFile; fileRef = 744174E51A923861004A7CC1 /* APHConsentSection.json */; };
 		748E05231A916BE60016232A /* ResearchKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 748E05221A916BE60016232A /* ResearchKit.framework */; };
 		748E05261A916BEE0016232A /* ResearchKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 748E05251A916BEE0016232A /* ResearchKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		74D75D561A9ED66200078A73 /* BCS_feedback.json in Resources */ = {isa = PBXBuildFile; fileRef = 74D75D551A9ED66200078A73 /* BCS_feedback.json */; };
+		74D75D591A9ED66E00078A73 /* BCS_mythoughts.json in Resources */ = {isa = PBXBuildFile; fileRef = 74D75D581A9ED66E00078A73 /* BCS_mythoughts.json */; };
 		7B0541F71A842B4900B7729D /* APHDynamicMoodSurveyTask.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B0541F61A842B4900B7729D /* APHDynamicMoodSurveyTask.m */; };
 		7B4B18311A8D720400F79C94 /* APHProfileExtender.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B4B18301A8D720400F79C94 /* APHProfileExtender.m */; };
 		7B5A5AB51A83FCF700628D4D /* APHCustomSurveyIntroViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B5A5AB31A83FCF700628D4D /* APHCustomSurveyIntroViewController.m */; };
@@ -155,6 +157,8 @@
 		744174E51A923861004A7CC1 /* APHConsentSection.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = APHConsentSection.json; sourceTree = "<group>"; };
 		748E05221A916BE60016232A /* ResearchKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ResearchKit.framework; path = AppCore/APCAppCore/ResearchKit/ResearchKit.framework; sourceTree = "<group>"; };
 		748E05251A916BEE0016232A /* ResearchKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ResearchKit.framework; path = AppCore/APCAppCore/ResearchKit/ResearchKit.framework; sourceTree = "<group>"; };
+		74D75D551A9ED66200078A73 /* BCS_feedback.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = BCS_feedback.json; sourceTree = "<group>"; };
+		74D75D581A9ED66E00078A73 /* BCS_mythoughts.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = BCS_mythoughts.json; sourceTree = "<group>"; };
 		7B0541F51A842B4900B7729D /* APHDynamicMoodSurveyTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APHDynamicMoodSurveyTask.h; sourceTree = "<group>"; };
 		7B0541F61A842B4900B7729D /* APHDynamicMoodSurveyTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APHDynamicMoodSurveyTask.m; sourceTree = "<group>"; };
 		7B4B182F1A8D720400F79C94 /* APHProfileExtender.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APHProfileExtender.h; sourceTree = "<group>"; };
@@ -535,6 +539,8 @@
 		F534B5CA19E4689D00C3C152 /* JSONs */ = {
 			isa = PBXGroup;
 			children = (
+				74D75D551A9ED66200078A73 /* BCS_feedback.json */,
+				74D75D581A9ED66E00078A73 /* BCS_mythoughts.json */,
 				744174E51A923861004A7CC1 /* APHConsentSection.json */,
 				5B18CED91A2CFFD1001A905E /* TermsAndConditions.json */,
 				5B15DCF21A114F7000BEA0D1 /* Learn.json */,
@@ -741,6 +747,8 @@
 				5BBDAEBB1A33DCDA0047DF87 /* HTMLContent in Resources */,
 				A7D61A5D1A97B2D700637EDA /* 12_IssuesToConside2@2x.m4v in Resources */,
 				A7D61A5C1A97B2D700637EDA /* 11_IssuesToConsider1@2x.m4v in Resources */,
+				74D75D591A9ED66E00078A73 /* BCS_mythoughts.json in Resources */,
+				74D75D561A9ED66200078A73 /* BCS_feedback.json in Resources */,
 				A7D61A5B1A97B2D700637EDA /* 10_PotentialBenifits@2x.m4v in Resources */,
 				7BB24C321A831DC500AAE097 /* APHCustomSurveyTableViewCell.xib in Resources */,
 				F534B68A19E4689D00C3C152 /* APCParameters.json in Resources */,
