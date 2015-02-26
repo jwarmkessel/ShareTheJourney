@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		215C53671A8C5D6F0006F7DC /* APHNotesHeaderTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 215C53651A8C5D6F0006F7DC /* APHNotesHeaderTableViewCell.m */; };
 		215C53681A8C5D6F0006F7DC /* APHNotesHeaderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 215C53661A8C5D6F0006F7DC /* APHNotesHeaderTableViewCell.xib */; };
+		5B1095C01A9FA0B5006631F5 /* consent.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 5B1095BF1A9FA0B5006631F5 /* consent.pdf */; };
 		5B15DCF41A114F7000BEA0D1 /* Learn.json in Resources */ = {isa = PBXBuildFile; fileRef = 5B15DCF21A114F7000BEA0D1 /* Learn.json */; };
 		5B15DCF51A114F7000BEA0D1 /* WithdrawStudy.json in Resources */ = {isa = PBXBuildFile; fileRef = 5B15DCF31A114F7000BEA0D1 /* WithdrawStudy.json */; };
 		5B15DD3B1A114F9000BEA0D1 /* APHInclusionCriteriaViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B15DD281A114F9000BEA0D1 /* APHInclusionCriteriaViewController.m */; };
@@ -139,6 +140,7 @@
 		215C53641A8C5D6F0006F7DC /* APHNotesHeaderTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = APHNotesHeaderTableViewCell.h; path = DailyJournalControllers/APHNotesHeaderTableViewCell.h; sourceTree = "<group>"; };
 		215C53651A8C5D6F0006F7DC /* APHNotesHeaderTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = APHNotesHeaderTableViewCell.m; path = DailyJournalControllers/APHNotesHeaderTableViewCell.m; sourceTree = "<group>"; };
 		215C53661A8C5D6F0006F7DC /* APHNotesHeaderTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = APHNotesHeaderTableViewCell.xib; path = DailyJournalControllers/APHNotesHeaderTableViewCell.xib; sourceTree = "<group>"; };
+		5B1095BF1A9FA0B5006631F5 /* consent.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = consent.pdf; sourceTree = "<group>"; };
 		5B15DCF21A114F7000BEA0D1 /* Learn.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Learn.json; sourceTree = "<group>"; };
 		5B15DCF31A114F7000BEA0D1 /* WithdrawStudy.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = WithdrawStudy.json; sourceTree = "<group>"; };
 		5B15DD271A114F9000BEA0D1 /* APHInclusionCriteriaViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APHInclusionCriteriaViewController.h; sourceTree = "<group>"; };
@@ -271,6 +273,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5B1095BE1A9FA0B5006631F5 /* PDF */ = {
+			isa = PBXGroup;
+			children = (
+				5B1095BF1A9FA0B5006631F5 /* consent.pdf */,
+			);
+			path = PDF;
+			sourceTree = "<group>";
+		};
 		5B15DD241A114F9000BEA0D1 /* Onboarding */ = {
 			isa = PBXGroup;
 			children = (
@@ -528,6 +538,7 @@
 		F534B5C419E4689D00C3C152 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				5B1095BE1A9FA0B5006631F5 /* PDF */,
 				7B8B67D41A6701B10021606D /* Certificates */,
 				5BBDAEBA1A33DCDA0047DF87 /* HTMLContent */,
 				F534B5CA19E4689D00C3C152 /* JSONs */,
@@ -773,6 +784,7 @@
 				A7D61A591A97B2D700637EDA /* 01_Activities_to_SensorData@2x.m4v in Resources */,
 				7B8D703F1A1C4B13003A7A5B /* APHLogSubmissionViewController.xib in Resources */,
 				CF2697EB19EC3E4200525E19 /* APHNotesViewController.xib in Resources */,
+				5B1095C01A9FA0B5006631F5 /* consent.pdf in Resources */,
 				7B5E25D11A20592400A04FEF /* APHHeartAgeIntroStepViewController.xib in Resources */,
 				F534B69C19E4689D00C3C152 /* LaunchScreen.xib in Resources */,
 			);
