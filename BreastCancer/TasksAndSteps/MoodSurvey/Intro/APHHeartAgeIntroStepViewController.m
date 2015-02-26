@@ -171,7 +171,7 @@
         
         [attribString addAttribute:NSForegroundColorAttributeName value:[UIColor blackColor] range:NSMakeRange(0,[attribString length])];
         
-        NSMutableAttributedString * finalString = [[NSMutableAttributedString alloc] initWithString:@"\nThis activity will ask you to assess how you feel on 5 different important areas: Cognition (mental clarity), Mood, Energy level, Sleep quality, and Exercise.  We recommend that you answer these towards the end of the day, reflecting on how you felt on this particular day."];
+        NSMutableAttributedString * finalString = [[NSMutableAttributedString alloc] initWithString:@"\nThis activity will ask you to assess how you feel at this moment in three areas: mental clarity, mood, and energy as well as how well you slept and how much exercise you have done in the last day."];
         
         NSMutableParagraphStyle *paragraphStyle2 = [[NSMutableParagraphStyle alloc] init];
         paragraphStyle2.lineBreakMode = NSLineBreakByWordWrapping;
