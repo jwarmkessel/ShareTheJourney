@@ -152,7 +152,7 @@ static NSString *const kVideoShownKey = @"VideoShown";
 - (NSArray*)quizSteps
 {
     ORKInstructionStep* instruction = [[ORKInstructionStep alloc] initWithIdentifier:@"instruction"];
-    instruction.title = @"Let's Test YOur Understanding";
+    instruction.title = @"Let's Test Your Understanding";
     instruction.text = @"We'll now ask you 5 simple questions about the study information you just read.\nPress Next when you're ready to start.";
 
     ORKTextChoiceAnswerFormat*  purposeChoice   = [[ORKTextChoiceAnswerFormat alloc] initWithStyle:ORKChoiceAnswerStyleSingleChoice
