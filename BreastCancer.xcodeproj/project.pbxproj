@@ -626,6 +626,7 @@
 		F571C9261A2F97450011C270 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				748E05251A916BEE0016232A /* ResearchKit.framework */,
 				748E05221A916BE60016232A /* ResearchKit.framework */,
 				F571C9271A2F97610011C270 /* APCAppCore.xcodeproj */,
 				F571C9341A2F97770011C270 /* BridgeSDK.framework */,
