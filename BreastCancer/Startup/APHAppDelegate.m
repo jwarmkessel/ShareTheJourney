@@ -12,9 +12,10 @@
 /*********************************************************************************/
 #pragma mark - Initializations Options
 /*********************************************************************************/
-static NSString *const kStudyIdentifier = @"BreastCancer";
-static NSString *const kAppPrefix       = @"breastcancer";
-static NSString *const kVideoShownKey = @"VideoShown";
+static NSString* const  kStudyIdentifier            = @"BreastCancer";
+static NSString* const  kAppPrefix                  = @"breastcancer";
+static NSString* const  kVideoShownKey              = @"VideoShown";
+static NSString* const  kConsentPropertiesFileName  = @"APHConsentSection";
 
 // Uncomment this when you uncomment the code in
 // -setUpCollectors, below.
@@ -149,84 +150,13 @@ static NSString *const kVideoShownKey = @"VideoShown";
 #pragma mark - Consent
 /*********************************************************************************/
 
-- (NSArray*)quizSteps
-{
-    ORKInstructionStep* instruction = [[ORKInstructionStep alloc] initWithIdentifier:@"instruction"];
-    instruction.title = @"Let's Test Your Understanding";
-    instruction.text = @"We'll now ask you 5 simple questions about the study information you just read.\nPress Get Started when you're ready to start.";
-
-    ORKTextChoiceAnswerFormat*  purposeChoice   = [[ORKTextChoiceAnswerFormat alloc] initWithStyle:ORKChoiceAnswerStyleSingleChoice
-                                                                                       textChoices:@[NSLocalizedString(@"Understand the symptoms of Breast Cancer recovery", nil),
-                                                                                                     NSLocalizedString(@"Treat Breast Cancer", nil)]];
-    ORKQuestionStep*    question1 = [ORKQuestionStep questionStepWithIdentifier:@"purpose"
-                                                                          title:NSLocalizedString(@"What is the purpose of this study?", nil)
-                                                                         answer:purposeChoice];
-    ORKQuestionStep*    question2 = [ORKQuestionStep questionStepWithIdentifier:@"deidentified"
-                                                                          title:NSLocalizedString(@"My name will be stored with my study data", nil)
-                                                                         answer:[ORKBooleanAnswerFormat new]];
-    ORKQuestionStep*    question3 = [ORKQuestionStep questionStepWithIdentifier:@"access"
-                                                                          title:NSLocalizedString(@"Many researchers will be able to access my study data", nil)
-                                                                         answer:[ORKBooleanAnswerFormat new]];
-    ORKQuestionStep*    question4 = [ORKQuestionStep questionStepWithIdentifier:@"skipSurvey"
-                                                                          title:NSLocalizedString(@"I will be able to skip any survey question", nil)
-                                                                         answer:[ORKBooleanAnswerFormat new]];
-    
-    ORKQuestionStep*    question5 = [ORKQuestionStep questionStepWithIdentifier:@"stopParticipating"
-                                                                          title:NSLocalizedString(@"I will be able to stop participating at any time", nil)
-                                                                         answer:[ORKBooleanAnswerFormat new]];
-    
-    question1.optional = NO;
-    question2.optional = NO;
-    question3.optional = NO;
-    question4.optional = NO;
-    question5.optional = NO;
-    
-    return @[instruction, question1, question2, question3, question4, question5];
-}
-
-- (id<ORKTask>)makeConsent
-{
-    NSString*               docHtml   = nil;
-    NSArray*                sections  = [super consentSectionsAndHtmlContent:&docHtml];
-    ORKConsentDocument*     consent   = [[ORKConsentDocument alloc] init];
-    ORKConsentSignature*    signature = [ORKConsentSignature signatureForPersonWithTitle:NSLocalizedString(@"Participant", nil)
-                                                                        dateFormatString:nil
-                                                                              identifier:@"participant"];
-
-    consent.title                = NSLocalizedString(@"Consent", nil);
-    consent.signaturePageTitle   = NSLocalizedString(@"Consent", nil);
-    consent.signaturePageContent = NSLocalizedString(@"I agree to participate in this research Study.", nil);
-    consent.sections             = sections;
-    consent.htmlReviewContent    = docHtml;
-    
-    [consent addSignature:signature];
-    
-    
-    ORKVisualConsentStep*   step         = [[ORKVisualConsentStep alloc] initWithIdentifier:@"visual" document:consent];
-    ORKConsentReviewStep*   reviewStep   = nil;
-    NSMutableArray*         consentSteps = [NSMutableArray arrayWithObject:step];
-    
-    [consentSteps addObjectsFromArray:[self quizSteps]];
-    
-#warning Reconsider if the the `signedIn` feature for consent is needed.
-    if (!self.dataSubstrate.currentUser.isSignedIn)
-    {
-        reviewStep                  = [[ORKConsentReviewStep alloc] initWithIdentifier:@"reviewStep" signature:signature inDocument:consent];
-        reviewStep.reasonForConsent = NSLocalizedString(@"By agreeing you confirm that you read the information and that you wish to take part in this research study.", nil);
-        
-        [consentSteps addObject:reviewStep];
-    }
-    
-    ORKOrderedTask* task = [[ORKOrderedTask alloc] initWithIdentifier:@"consent" steps:consentSteps];
-    
-    return task;
-}
 
 - (ORKTaskViewController *)consentViewController
 {
-    id<ORKTask> task = [self makeConsent];
-    
-    ORKTaskViewController*  consentVC = [[ORKTaskViewController alloc] initWithTask:task taskRunUUID:[NSUUID UUID]];
+    APCConsentTask*         task = [[APCConsentTask alloc] initWithIdentifier:@"Consent"
+                                                           propertiesFileName:kConsentPropertiesFileName];
+    ORKTaskViewController*  consentVC = [[ORKTaskViewController alloc] initWithTask:task
+                                                                       taskRunUUID:[NSUUID UUID]];
     
     return consentVC;
 }

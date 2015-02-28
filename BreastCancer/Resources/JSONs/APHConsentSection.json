@@ -1,17 +1,74 @@
 {
-	"sections":
+    "documentProperties" :
+    {
+        "htmlDocument" : "BCS_fullconsent",
+        "investigatorShortDescription": "Investigator",
+        "investigatorLongDescription": "Investigator",
+    },
+    "quiz":
+    {
+        "questions":
+        [
+            {
+                "identifier": "instruction",
+                "prompt": "Comprehension",
+                "text": "Let's do a quick and simple test on your understanding of this study.",
+                "type": "instruction"
+            },
+            {
+                "identifier": "purpose",
+                "prompt": "What is the purpose of this study?",
+                "type": "singleChoiceText",
+                "textChoices":
+                [
+                 "Understand the symptoms of Breast Cancer recovery",
+                 "Treat Breast Cancer"
+                ],
+                "expectedAnswer": "0"
+            },
+            {
+                "identifier": "deidentified",
+                "prompt": "My name will be stored with my study data",
+                "type": "boolean",
+                "expectedAnswer": "false"
+            },
+            {
+                "identifier": "access",
+                "prompt": "Many researchers will be able to access my study data",
+                "type": "boolean",
+                "expectedAnswer": "true"
+            },
+            {
+                "identifier": "skipSurvey",
+                "prompt": "I will be able to skip any survey question",
+                "type": "boolean",
+                "expectedAnswer": "true"
+            },
+            {
+                "identifier": "stopParticipating",
+                "prompt": "I will be able to stop participating at any time",
+                "type": "boolean",
+                "expectedAnswer": "true"
+            }
+        ],
+        "failureTitle": "Try again",
+        "failureMessage": "You failed",
+        "successTitle": "Congradulations",
+        "successMessage": "Yay!",
+        "allowedFailures": "1"
+    },
+    "sections":
 	[
      
          {
-         "sectionType" : "onlyInDocument",
-         "sectionHtmlContent" : "BCS_fullconsent"
+             "sectionType" : "onlyInDocument",
+             "sectionHtmlContent" : "BCS_fullconsent"
          },
-        {
+         {
             "sectionType" : "overview",
             "sectionSummary" : "This simple walkthrough will explain the research study, the impact it may have on your life and will allow you to provide your consent to participate.",
             "sectionHtmlContent" : "1welcome"
-        },
-     
+         },
          {
              "sectionType" : "custom",
              "sectionTitle": "We'll Test Your Understanding",
@@ -19,7 +76,6 @@
              "sectionHtmlContent" : "2quiz_headsup"
         
          },
-         
          {
              "sectionType" : "custom",
              "sectionTitle": "Activities",
@@ -28,7 +84,6 @@
              "sectionImage": "00_Blank_to_Activities",
              "sectionAnimationUrl": "00_Blank_to_Activities"
          },
-         
          {
              "sectionType" : "custom",
              "sectionTitle": "Sensor Data",
@@ -37,55 +92,50 @@
              "sectionImage": "01_Activities_to_SensorData",
              "sectionAnimationUrl":"01_Activities_to_SensorData"
          },
-        
-    
-		{
+         {
 			"sectionType" : "dataGathering",
             "sectionTitle": "Data Processing",
             "sectionSummary" : "Your study data (survey, tasks and sensors) will be combined with similar data from other participants.",
             "sectionHtmlContent" : "5dataprocessing",
             "sectionAnimationUrl":"02_SensorData_to_DataGathering"
-		},
-		{
+		 },
+		 {
 			"sectionType" : "privacy",
             "sectionTitle": "Protecting your Data",
             "sectionSummary": "We will replace your name with a random code. The coded data will be encrypted and stored on a secure Cloud server under the control of Sage Bionetworks to prevent improper access.",
             "sectionHtmlContent" : "6protectingdata"
-		},
-		{
+		 },
+		 {
             "sectionType" : "dataUse",
             "sectionTitle": "Data Use",
             "sectionSummary": "Your coded data will be used for research and may be shared with other researchers worldwide.",
             "sectionHtmlContent" : "7datause"
 
-		},
-		{
+		 },
+		 {
 			"sectionType" : "timeCommitment",
 			"sectionTitle" : "Issues to Consider",
             "sectionSummary": "This study will take about 20 minutes per week.",
             "sectionHtmlContent" : "8time"
 
-		},
-		{
+		 },
+		 {
 			"sectionType" : "studySurvey",
             "sectionTitle" : "Study Survey",
             "sectionSummary": "We will ask you to rate your fatigue, thinking, sleep, mood and exercise performance on a scale of 1 to 5 daily. We will also ask you to answer brief weekly and monthly surveys about your symptoms to track any changes."
-     
-
-		},
-		{
+		 },
+		 {
 			"sectionType" : "studyTasks",
              "sectionTitle" : "Your Insight",
              "sectionSummary": "You’ll be able to keep a health diary. You will also be able to track other symptoms of your choice.",
              "sectionHtmlContent" : "10yourinsight"
-		},
-		{
+		 },
+		 {
 			"sectionType" : "withdrawing",
 			"sectionTitle" : "Withdrawing",
              "sectionSummary" : "Your participation is voluntary.  You may withdraw your consent and discontinue participation at any time.",
             "sectionHtmlContent" : "11withdrawing"
-
-		},
+		 },
          {
              "sectionType" : "custom",
              "sectionTitle": "Potential Benefits",
@@ -109,7 +159,6 @@
              "sectionHtmlContent" : "14issues_mood",
              "sectionImage": "12_IssuesToConsider2",
              "sectionAnimationUrl":"12_IssuesToConside2"
-     
          },
          {
              "sectionType" : "custom",
@@ -118,13 +167,6 @@
              "sectionHtmlContent" : "15privacy_risk",
              "sectionImage": "13_RiskToPrivacy",
              "sectionAnimationUrl":"13_RiskToPrivacy"
-     
          }
-
-
-		
-     
-     
-     
      ]
 }
