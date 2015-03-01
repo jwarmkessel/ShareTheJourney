@@ -9,13 +9,13 @@
 /* Begin PBXBuildFile section */
 		215C53671A8C5D6F0006F7DC /* APHNotesHeaderTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 215C53651A8C5D6F0006F7DC /* APHNotesHeaderTableViewCell.m */; };
 		215C53681A8C5D6F0006F7DC /* APHNotesHeaderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 215C53661A8C5D6F0006F7DC /* APHNotesHeaderTableViewCell.xib */; };
+		5A0F98DA1AA2E2A900A2A7EB /* Intro.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 5A0F98D91AA2E2A900A2A7EB /* Intro.mp4 */; };
 		5B1095C01A9FA0B5006631F5 /* consent.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 5B1095BF1A9FA0B5006631F5 /* consent.pdf */; };
 		5B15DCF41A114F7000BEA0D1 /* Learn.json in Resources */ = {isa = PBXBuildFile; fileRef = 5B15DCF21A114F7000BEA0D1 /* Learn.json */; };
 		5B15DCF51A114F7000BEA0D1 /* WithdrawStudy.json in Resources */ = {isa = PBXBuildFile; fileRef = 5B15DCF31A114F7000BEA0D1 /* WithdrawStudy.json */; };
 		5B15DD3B1A114F9000BEA0D1 /* APHInclusionCriteriaViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B15DD281A114F9000BEA0D1 /* APHInclusionCriteriaViewController.m */; };
 		5B15DD3E1A114F9000BEA0D1 /* APHOnboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B15DD2D1A114F9000BEA0D1 /* APHOnboarding.storyboard */; };
 		5B15DD481A11524900BEA0D1 /* APHAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B15DD471A11524900BEA0D1 /* APHAppDelegate.m */; };
-		5B15DD721A118FF900BEA0D1 /* Intro.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 5B15DD711A118FF900BEA0D1 /* Intro.mp4 */; };
 		5B18CEDA1A2CFFD1001A905E /* TermsAndConditions.json in Resources */ = {isa = PBXBuildFile; fileRef = 5B18CED91A2CFFD1001A905E /* TermsAndConditions.json */; };
 		5B1D9D6C1A1BD414000F4AD6 /* APHDashboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B1D9D671A1BD414000F4AD6 /* APHDashboard.storyboard */; };
 		5B1D9D6D1A1BD414000F4AD6 /* APHDashboardEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B1D9D691A1BD414000F4AD6 /* APHDashboardEditViewController.m */; };
@@ -80,7 +80,6 @@
 		F534B59419E4681E00C3C152 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F534B59319E4681E00C3C152 /* Images.xcassets */; };
 		F534B68A19E4689D00C3C152 /* APCParameters.json in Resources */ = {isa = PBXBuildFile; fileRef = F534B5CB19E4689D00C3C152 /* APCParameters.json */; };
 		F534B68B19E4689D00C3C152 /* APHTasksAndSchedules.json in Resources */ = {isa = PBXBuildFile; fileRef = F534B5CC19E4689D00C3C152 /* APHTasksAndSchedules.json */; };
-		F534B68D19E4689D00C3C152 /* sleepSurvey.json in Resources */ = {isa = PBXBuildFile; fileRef = F534B5CE19E4689D00C3C152 /* sleepSurvey.json */; };
 		F534B68E19E4689D00C3C152 /* StudyOverview.json in Resources */ = {isa = PBXBuildFile; fileRef = F534B5CF19E4689D00C3C152 /* StudyOverview.json */; };
 		F534B69C19E4689D00C3C152 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = F534B5E319E4689D00C3C152 /* LaunchScreen.xib */; };
 		F534B69D19E4689D00C3C152 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F534B5E419E4689D00C3C152 /* Main.storyboard */; };
@@ -140,6 +139,7 @@
 		215C53641A8C5D6F0006F7DC /* APHNotesHeaderTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = APHNotesHeaderTableViewCell.h; path = DailyJournalControllers/APHNotesHeaderTableViewCell.h; sourceTree = "<group>"; };
 		215C53651A8C5D6F0006F7DC /* APHNotesHeaderTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = APHNotesHeaderTableViewCell.m; path = DailyJournalControllers/APHNotesHeaderTableViewCell.m; sourceTree = "<group>"; };
 		215C53661A8C5D6F0006F7DC /* APHNotesHeaderTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = APHNotesHeaderTableViewCell.xib; path = DailyJournalControllers/APHNotesHeaderTableViewCell.xib; sourceTree = "<group>"; };
+		5A0F98D91AA2E2A900A2A7EB /* Intro.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = Intro.mp4; sourceTree = "<group>"; };
 		5B1095BF1A9FA0B5006631F5 /* consent.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = consent.pdf; sourceTree = "<group>"; };
 		5B15DCF21A114F7000BEA0D1 /* Learn.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Learn.json; sourceTree = "<group>"; };
 		5B15DCF31A114F7000BEA0D1 /* WithdrawStudy.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = WithdrawStudy.json; sourceTree = "<group>"; };
@@ -148,7 +148,6 @@
 		5B15DD2D1A114F9000BEA0D1 /* APHOnboarding.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = APHOnboarding.storyboard; sourceTree = "<group>"; };
 		5B15DD461A11524900BEA0D1 /* APHAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APHAppDelegate.h; sourceTree = "<group>"; };
 		5B15DD471A11524900BEA0D1 /* APHAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APHAppDelegate.m; sourceTree = "<group>"; };
-		5B15DD711A118FF900BEA0D1 /* Intro.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = Intro.mp4; sourceTree = "<group>"; };
 		5B18CED91A2CFFD1001A905E /* TermsAndConditions.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = TermsAndConditions.json; sourceTree = "<group>"; };
 		5B1D9D671A1BD414000F4AD6 /* APHDashboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = APHDashboard.storyboard; sourceTree = "<group>"; };
 		5B1D9D681A1BD414000F4AD6 /* APHDashboardEditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APHDashboardEditViewController.h; sourceTree = "<group>"; };
@@ -238,7 +237,6 @@
 		F534B59319E4681E00C3C152 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		F534B5CB19E4689D00C3C152 /* APCParameters.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = APCParameters.json; sourceTree = "<group>"; };
 		F534B5CC19E4689D00C3C152 /* APHTasksAndSchedules.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = APHTasksAndSchedules.json; sourceTree = "<group>"; };
-		F534B5CE19E4689D00C3C152 /* sleepSurvey.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = sleepSurvey.json; sourceTree = "<group>"; };
 		F534B5CF19E4689D00C3C152 /* StudyOverview.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = StudyOverview.json; sourceTree = "<group>"; };
 		F534B5E319E4689D00C3C152 /* LaunchScreen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LaunchScreen.xib; sourceTree = "<group>"; };
 		F534B5E419E4689D00C3C152 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
@@ -557,7 +555,6 @@
 				5B15DCF31A114F7000BEA0D1 /* WithdrawStudy.json */,
 				F534B5CB19E4689D00C3C152 /* APCParameters.json */,
 				F534B5CC19E4689D00C3C152 /* APHTasksAndSchedules.json */,
-				F534B5CE19E4689D00C3C152 /* sleepSurvey.json */,
 				F534B5CF19E4689D00C3C152 /* StudyOverview.json */,
 			);
 			path = JSONs;
@@ -566,8 +563,8 @@
 		F534B5D619E4689D00C3C152 /* Videos */ = {
 			isa = PBXGroup;
 			children = (
+				5A0F98D91AA2E2A900A2A7EB /* Intro.mp4 */,
 				A7D61A471A97B2D700637EDA /* Consent */,
-				5B15DD711A118FF900BEA0D1 /* Intro.mp4 */,
 			);
 			path = Videos;
 			sourceTree = "<group>";
@@ -741,7 +738,6 @@
 			files = (
 				7BA3AC111A23DDBC0017B3C8 /* APHExerciseMotivationIntroViewController.xib in Resources */,
 				7B8B67D71A6701B10021606D /* breastcancer-staging.pem in Resources */,
-				5B15DD721A118FF900BEA0D1 /* Intro.mp4 in Resources */,
 				A7D61A5E1A97B2D700637EDA /* 13_RiskToPrivacy@2x.m4v in Resources */,
 				5B15DCF51A114F7000BEA0D1 /* WithdrawStudy.json in Resources */,
 				7B8B67DD1A6711BE0021606D /* APHExerciseMotivationSummaryViewController.storyboard in Resources */,
@@ -755,6 +751,7 @@
 				A7D61A601A97B2D700637EDA /* 01_Activities_to_SensorData@3x.m4v in Resources */,
 				215C53681A8C5D6F0006F7DC /* APHNotesHeaderTableViewCell.xib in Resources */,
 				F534B68E19E4689D00C3C152 /* StudyOverview.json in Resources */,
+				5A0F98DA1AA2E2A900A2A7EB /* Intro.mp4 in Resources */,
 				5BBDAEBB1A33DCDA0047DF87 /* HTMLContent in Resources */,
 				A7D61A5D1A97B2D700637EDA /* 12_IssuesToConside2@2x.m4v in Resources */,
 				A7D61A5C1A97B2D700637EDA /* 11_IssuesToConsider1@2x.m4v in Resources */,
@@ -774,7 +771,6 @@
 				CF5FAB4419F95C8F0006CA71 /* APHNotesContentsTableViewCell.xib in Resources */,
 				5B15DCF41A114F7000BEA0D1 /* Learn.json in Resources */,
 				7BB24C371A831EC900AAE097 /* APHCustomSurveyQuestionViewController.xib in Resources */,
-				F534B68D19E4689D00C3C152 /* sleepSurvey.json in Resources */,
 				7B5A5AB61A83FCF700628D4D /* APHCustomSurveyIntroViewController.xib in Resources */,
 				A7D61A611A97B2D700637EDA /* 02_SensorData_to_DataGathering@3x.m4v in Resources */,
 				A7D61A651A97B2D700637EDA /* 13_RiskToPrivacy@3x.m4v in Resources */,
