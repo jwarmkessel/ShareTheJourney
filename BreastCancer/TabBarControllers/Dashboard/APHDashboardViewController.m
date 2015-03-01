@@ -135,50 +135,62 @@ static NSString * const kAPCRightDetailTableViewCellIdentifier = @"APCRightDetai
 
 - (void)prepareScoringObjects {
     
-        HKQuantityType *stepQuantityType = [HKQuantityType quantityTypeForIdentifier:HKQuantityTypeIdentifierStepCount];
-        self.stepScoring= [[APCScoring alloc] initWithHealthKitQuantityType:stepQuantityType unit:[HKUnit countUnit] numberOfDays:-5];
+    HKQuantityType *stepQuantityType = [HKQuantityType quantityTypeForIdentifier:HKQuantityTypeIdentifierStepCount];
+    self.stepScoring= [[APCScoring alloc] initWithHealthKitQuantityType:stepQuantityType unit:[HKUnit countUnit] numberOfDays:-kNumberOfDaysToDisplay];
 
-        self.moodScoring = [[APCScoring alloc] initWithTask:@"APHMoodSurvey-7259AC18-D711-47A6-ADBD-6CFCECDED1DF"
-                                                numberOfDays:-kNumberOfDaysToDisplay
-                                                    valueKey:@"moodsurvey103"
-                                                    dataKey:nil
-                                                    sortKey:nil
-                                                 groupBy:APHTimelineGroupDay];
+    self.moodScoring = [[APCScoring alloc] initWithTask:@"APHMoodSurvey-7259AC18-D711-47A6-ADBD-6CFCECDED1DF"
+                                            numberOfDays:-kNumberOfDaysToDisplay
+                                                valueKey:@"moodsurvey103"
+                                                dataKey:nil
+                                                sortKey:nil
+                                             groupBy:APHTimelineGroupDay];
+    self.moodScoring.customMinimumPoint = 1.0;
+    self.moodScoring.customMaximumPoint = 5.0;
     
-        self.energyScoring = [[APCScoring alloc] initWithTask:@"APHMoodSurvey-7259AC18-D711-47A6-ADBD-6CFCECDED1DF"
+    self.energyScoring = [[APCScoring alloc] initWithTask:@"APHMoodSurvey-7259AC18-D711-47A6-ADBD-6CFCECDED1DF"
                                                   numberOfDays:-kNumberOfDaysToDisplay
                                                       valueKey:@"moodsurvey104"
                                                       dataKey:nil
                                                       sortKey:nil
                                                    groupBy:APHTimelineGroupDay];
+    self.energyScoring.customMinimumPoint = 1.0;
+    self.energyScoring.customMaximumPoint = 5.0;
     
-        self.exerciseScoring = [[APCScoring alloc] initWithTask:@"APHMoodSurvey-7259AC18-D711-47A6-ADBD-6CFCECDED1DF"
+    self.exerciseScoring = [[APCScoring alloc] initWithTask:@"APHMoodSurvey-7259AC18-D711-47A6-ADBD-6CFCECDED1DF"
                                                   numberOfDays:-kNumberOfDaysToDisplay
                                                       valueKey:@"moodsurvey106"
                                                         dataKey:nil
                                                         sortKey:nil
                                                      groupBy:APHTimelineGroupDay];
+    self.exerciseScoring.customMinimumPoint = 1.0;
+    self.exerciseScoring.customMaximumPoint = 5.0;
     
-        self.sleepScoring = [[APCScoring alloc] initWithTask:@"APHMoodSurvey-7259AC18-D711-47A6-ADBD-6CFCECDED1DF"
+    self.sleepScoring = [[APCScoring alloc] initWithTask:@"APHMoodSurvey-7259AC18-D711-47A6-ADBD-6CFCECDED1DF"
                                                   numberOfDays:-kNumberOfDaysToDisplay
                                                       valueKey:@"moodsurvey105"
                                                      dataKey:nil
                                                      sortKey:nil
                                                   groupBy:APHTimelineGroupDay];
+    self.sleepScoring.customMinimumPoint = 1.0;
+    self.sleepScoring.customMaximumPoint = 5.0;
     
-        self.cognitiveScoring = [[APCScoring alloc] initWithTask:@"APHMoodSurvey-7259AC18-D711-47A6-ADBD-6CFCECDED1DF"
+    self.cognitiveScoring = [[APCScoring alloc] initWithTask:@"APHMoodSurvey-7259AC18-D711-47A6-ADBD-6CFCECDED1DF"
                                                   numberOfDays:-kNumberOfDaysToDisplay
                                                       valueKey:@"moodsurvey102"
                                                          dataKey:nil
                                                          sortKey:nil
                                                       groupBy:APHTimelineGroupDay];
+    self.cognitiveScoring.customMinimumPoint = 1.0;
+    self.cognitiveScoring.customMaximumPoint = 5.0;
     
-        self.customScoring = [[APCScoring alloc] initWithTask:@"APHMoodSurvey-7259AC18-D711-47A6-ADBD-6CFCECDED1DF"
+    self.customScoring = [[APCScoring alloc] initWithTask:@"APHMoodSurvey-7259AC18-D711-47A6-ADBD-6CFCECDED1DF"
                                                     numberOfDays:-kNumberOfDaysToDisplay
                                                         valueKey:@"moodsurvey107"
                                                          dataKey:nil
                                                          sortKey:nil
                                                          groupBy:APHTimelineGroupDay];
+    self.customScoring.customMinimumPoint = 1.0;
+    self.customScoring.customMaximumPoint = 5.0;
 }
 
 - (void)prepareData
@@ -315,8 +327,8 @@ static NSString * const kAPCRightDetailTableViewCellIdentifier = @"APCRightDetai
                     item.editable = YES;
                     item.tintColor = [UIColor appTertiaryPurpleColor];
                     
-                    item.minimumImage = [UIImage imageNamed:@"Breast-Cancer-Sleep-1g"];
-                    item.maximumImage = [UIImage imageNamed:@"Breast-Cancer-Sleep-5g"];
+                    item.minimumImage = [UIImage imageNamed:@"Breast-Cancer-Sleep-5g"];
+                    item.maximumImage = [UIImage imageNamed:@"Breast-Cancer-Sleep-1g"];
                     item.averageImage = [UIImage imageNamed:[NSString stringWithFormat:@"Breast-Cancer-Sleep-%0.0fg", [[self.moodScoring averageDataPoint] doubleValue]]];
                     
                     #warning Replace Placeholder Values - APPLE-1576
