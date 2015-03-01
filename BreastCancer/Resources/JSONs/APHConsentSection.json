@@ -2,8 +2,9 @@
     "documentProperties" :
     {
         "htmlDocument" : "BCS_fullconsent",
-        "investigatorShortDescription": "Investigator",
-        "investigatorLongDescription": "Investigator",
+        "investigatorShortDescription": "Sage Bionetworks",
+        "investigatorLongDescription": "Sage Bionetworks and its partners",
+        "htmlContent": "15sharing_rsch"
     },
     "quiz":
     {
@@ -52,9 +53,9 @@
             }
         ],
         "failureTitle": "Try again",
-        "failureMessage": "You failed",
-        "successTitle": "Congradulations",
-        "successMessage": "Yay!",
+        "failureMessage": "Unfortunately you answered one or more questions incorrectly. You can return at the beginning of the walkthrough to get more information about the study.",
+        "successTitle": "Great Job!",
+        "successMessage": "You answered all of the questions correctly. \nTap Next to continue.",
         "allowedFailures": "1"
     },
     "sections":
@@ -108,7 +109,7 @@
 		 {
             "sectionType" : "dataUse",
             "sectionTitle": "Data Use",
-            "sectionSummary": "Your coded data will be used for research and may be shared with other researchers worldwide.",
+            "sectionSummary": "The data will be used for this research and may be shared with research partners worldwide",
             "sectionHtmlContent" : "7datause"
 
 		 },
