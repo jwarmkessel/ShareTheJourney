@@ -83,7 +83,7 @@
                 case kAPHDashboardItemTypeDailyCognitive:
                 {
                     APCTableViewDashboardItem *item = [APCTableViewDashboardItem new];
-                    item.caption = NSLocalizedString(@"Cognitive Function", @"");
+                    item.caption = NSLocalizedString(@"Thinking", @"");
                     item.tintColor = [UIColor appTertiaryRedColor];
                     
                     [self.items addObject:item];
