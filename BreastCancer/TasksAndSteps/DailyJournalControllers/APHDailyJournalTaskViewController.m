@@ -99,6 +99,7 @@ static NSString *kMoodLogNoteText = @"APHMoodLogNoteText";
     
     self.showsProgressInNavigationBar = NO;
     
+    
     NSDictionary  *controllers = @{
                                    kDailyJournalStep101 : [APHContentsViewController class],
                                    kDailyJournalStep102 : [APHNotesViewController class],
@@ -123,6 +124,7 @@ static NSString *kMoodLogNoteText = @"APHMoodLogNoteText";
 
 - (void)taskViewController:(ORKTaskViewController *)taskViewController stepViewControllerWillAppear:(ORKStepViewController *)stepViewController {
     
+    stepViewController.navigationController.navigationBar.topItem.title = @"Daily Journal";
 
     if (kDailyJournalStep101 == stepViewController.step.identifier) {
         
@@ -150,7 +152,7 @@ static NSString *kMoodLogNoteText = @"APHMoodLogNoteText";
         self.contentDictionary = stepResultJson;
 
     } else if (kDailyJournalStep104 == stepViewController.step.identifier) {
-        
+        stepViewController.navigationController.navigationBar.topItem.title = @"Activity Complete";
     }
 }
 
