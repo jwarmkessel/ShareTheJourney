@@ -327,8 +327,8 @@ static NSString * const kAPCRightDetailTableViewCellIdentifier = @"APCRightDetai
                     item.editable = YES;
                     item.tintColor = [UIColor appTertiaryPurpleColor];
                     
-                    item.minimumImage = [UIImage imageNamed:@"Breast-Cancer-Sleep-1g"];
-                    item.maximumImage = [UIImage imageNamed:@"Breast-Cancer-Sleep-5g"];
+                    item.minimumImage = [UIImage imageNamed:@"Breast-Cancer-Sleep-5g"];
+                    item.maximumImage = [UIImage imageNamed:@"Breast-Cancer-Sleep-1g"];
                     item.averageImage = [UIImage imageNamed:[NSString stringWithFormat:@"Breast-Cancer-Sleep-%0.0fg", [[self.moodScoring averageDataPoint] doubleValue]]];
                     
                     #warning Replace Placeholder Values - APPLE-1576

@@ -32,6 +32,8 @@ static NSString* const  kConsentPropertiesFileName  = @"APHConsentSection";
 
 - (void) setUpInitializationOptions
 {
+    [APCUtilities setRealApplicationName: @"Share the Journey"];
+    
     NSDictionary *permissionsDescriptions = @{
                                               @(kSignUpPermissionsTypeLocation) : NSLocalizedString(@"Using your GPS enables the app to accurately determine distances travelled. Your actual location will never be shared.", @""),
                                               @(kSignUpPermissionsTypeCoremotion) : NSLocalizedString(@"Using the motion co-processor allows the app to determine your activity, helping the study better understand how activity level may influence disease.", @""),

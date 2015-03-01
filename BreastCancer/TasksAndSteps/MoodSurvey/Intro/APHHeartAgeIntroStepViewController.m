@@ -168,10 +168,12 @@
         
         NSMutableAttributedString *attribString = [[NSMutableAttributedString alloc]initWithString:@"Purpose"];
         [attribString addAttribute:NSParagraphStyleAttributeName value:paragraphStyle range:NSMakeRange(0, [@"Purpose" length])];
-        
+        [attribString addAttribute:NSFontAttributeName value:[UIFont fontWithName:@"Helvetica Neue" size:18.0] range:NSMakeRange(0,[attribString length])];
         [attribString addAttribute:NSForegroundColorAttributeName value:[UIColor blackColor] range:NSMakeRange(0,[attribString length])];
         
-        NSMutableAttributedString * finalString = [[NSMutableAttributedString alloc] initWithString:@"\nThis activity will ask you to assess how you feel at this moment in three areas: mental clarity, mood, and energy as well as how well you slept and how much exercise you have done in the last day."];
+        NSMutableAttributedString * finalString = [[NSMutableAttributedString alloc] initWithString:@"\n\nTell us how you feel. We'll ask you to rate your mental clarity, mood and energy level today as well as how well you slept and how much exercise you have done in the last day. You will also have an opportunity to track any activity or thought that you choose yourself."];
+
+        [finalString addAttribute:NSFontAttributeName value:[UIFont fontWithName:@"Helvetica Neue" size:17.0] range:NSMakeRange(0,[attribString length])];
         
         NSMutableParagraphStyle *paragraphStyle2 = [[NSMutableParagraphStyle alloc] init];
         paragraphStyle2.lineBreakMode = NSLineBreakByWordWrapping;
@@ -194,12 +196,14 @@
         [attribString addAttribute:NSParagraphStyleAttributeName value:paragraphStyle range:NSMakeRange(0, [@"Length" length])];
         [attribString addAttribute:NSForegroundColorAttributeName value:[UIColor blackColor] range:NSMakeRange(0,[attribString length])];
         
-        NSMutableAttributedString * finalString = [[NSMutableAttributedString alloc] initWithString:@"\nThis task will take you less than two minutes to complete."];
+        [attribString addAttribute:NSFontAttributeName value:[UIFont fontWithName:@"Helvetica Neue" size:18.0] range:NSMakeRange(0,[attribString length])];
+        
+        NSMutableAttributedString * finalString = [[NSMutableAttributedString alloc] initWithString:@"\n\nThis activity should take less than two minutes to complete."];
         
         NSMutableParagraphStyle *paragraphStyle2 = [[NSMutableParagraphStyle alloc] init];
         paragraphStyle2.lineBreakMode = NSLineBreakByWordWrapping;
         [finalString addAttribute:NSParagraphStyleAttributeName value:paragraphStyle2 range:NSMakeRange(0, [finalString length])];
-        
+        [finalString addAttribute:NSFontAttributeName value:[UIFont fontWithName:@"Helvetica Neue" size:17.0] range:NSMakeRange(0,[attribString length])];
         [finalString addAttribute:NSForegroundColorAttributeName value:[UIColor blackColor] range:NSMakeRange(0,[finalString length])];
 
         [attribString appendAttributedString:finalString];

@@ -59,9 +59,12 @@ typedef NS_ENUM(NSUInteger, APHDynamicMoodSurveyType) {
     NSArray* moodValueForIndex = @[@(5), @(4), @(3), @(2), @(1)];
     
     NSDictionary  *questionAnswerDictionary = @{
+                                                
+                                                
+                                                
                                                 kMoodSurveyStep102 : @[NSLocalizedString(@"perfectly crisp!", @""),
                                                                        NSLocalizedString(@"crisp", @""),
-                                                                       NSLocalizedString(@"not great, but not too bad", @""),
+                                                                       NSLocalizedString(@"\"not great, but not too bad\"", @""),
                                                                        NSLocalizedString(@"foggy", @""),
                                                                        NSLocalizedString(@"poor", @"")
                                                                        ],
@@ -72,7 +75,7 @@ typedef NS_ENUM(NSUInteger, APHDynamicMoodSurveyType) {
                                                                        NSLocalizedString(@"down", @""),
                                                                        NSLocalizedString(@"at my lowest", @"")
                                                                        ],
-
+                                                
                                                 kMoodSurveyStep104 : @[NSLocalizedString(@"ready to take on the world!", @""),
                                                                        NSLocalizedString(@"good energy", @""),
                                                                        NSLocalizedString(@"OK to make it through the day", @""),
@@ -417,7 +420,7 @@ typedef NS_ENUM(NSUInteger, APHDynamicMoodSurveyType) {
     else if (completedNumberOfTimes)
     
     {
-        //This is the daily scales with custom survey question and with custom survey
+        //This is the DAILY CHECK-IN with custom survey question and with custom survey
         [self setFlowState:4];
     }
 

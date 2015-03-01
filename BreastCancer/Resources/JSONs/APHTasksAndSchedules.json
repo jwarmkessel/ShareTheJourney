@@ -1,7 +1,7 @@
 {
     "tasks": [
               {
-              "taskTitle": "Daily Scales",
+              "taskTitle": "DAILY CHECK-IN",
               "taskID": "APHMoodSurvey-7259AC18-D711-47A6-ADBD-6CFCECDED1DF",
               "taskClassName": "APHMoodSurveyTaskViewController"
               },
