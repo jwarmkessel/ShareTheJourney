@@ -46,7 +46,7 @@ static NSString* const  kConsentPropertiesFileName  = @"APHConsentSection";
     [dictionary addEntriesFromDictionary:@{
                                            kStudyIdentifierKey                  : kStudyIdentifier,
                                            kAppPrefixKey                        : kAppPrefix,
-                                           kBridgeEnvironmentKey                : @(SBBEnvironmentStaging),
+                                           kBridgeEnvironmentKey                : @(SBBEnvironmentProd),
                                            kHKReadPermissionsKey                : @[
                                                    HKQuantityTypeIdentifierBodyMass,
                                                    HKQuantityTypeIdentifierHeight,
