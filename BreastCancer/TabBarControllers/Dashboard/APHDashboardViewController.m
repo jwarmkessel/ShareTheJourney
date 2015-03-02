@@ -234,7 +234,6 @@ static NSString * const kAPCRightDetailTableViewCellIdentifier = @"APCRightDetai
                     item.editable = YES;
                     item.tintColor = [UIColor appTertiaryPurpleColor];
                     
-                    #warning Replace Placeholder Values - APPLE-1576
                     item.info = NSLocalizedString(@"This graph shows the number of steps that you took each day measured by your phone or fitness tracker (if you have one).", @"");
                     
                     APCTableViewRow *row = [APCTableViewRow new];
@@ -257,8 +256,7 @@ static NSString * const kAPCRightDetailTableViewCellIdentifier = @"APCRightDetai
                     item.minimumImage = [UIImage imageNamed:@"Breast-Cancer-Mood-5g"];
                     item.maximumImage = [UIImage imageNamed:@"Breast-Cancer-Mood-1g"];
                     item.averageImage = [UIImage imageNamed:[NSString stringWithFormat:@"Breast-Cancer-Mood-%0.0fg", 6 - [[self.moodScoring averageDataPoint] doubleValue]]];
-                                         
-                    #warning Replace Placeholder Values - APPLE-1576
+                    
                     item.info = NSLocalizedString(@"This graph shows your answers to the daily check-in questions for mood each day. ", @"");
                     
                     APCTableViewRow *row = [APCTableViewRow new];
@@ -282,7 +280,6 @@ static NSString * const kAPCRightDetailTableViewCellIdentifier = @"APCRightDetai
                     item.maximumImage = [UIImage imageNamed:@"Breast-Cancer-Energy-1g"];
                     item.averageImage = [UIImage imageNamed:[NSString stringWithFormat:@"Breast-Cancer-Energy-%0.0fg", 6 - [[self.moodScoring averageDataPoint] doubleValue]]];
                     
-                    #warning Replace Placeholder Values - APPLE-1576
                     item.info = NSLocalizedString(@"This graph shows your answers to the daily check-in questions for energy each day.", @"");
                     
                     APCTableViewRow *row = [APCTableViewRow new];
@@ -306,7 +303,6 @@ static NSString * const kAPCRightDetailTableViewCellIdentifier = @"APCRightDetai
                     item.maximumImage = [UIImage imageNamed:@"Breast-Cancer-Exercise-1g"];
                     item.averageImage = [UIImage imageNamed:[NSString stringWithFormat:@"Breast-Cancer-Exercise-%0.0fg", 6 - [[self.moodScoring averageDataPoint] doubleValue]]];
                     
-                    #warning Replace Placeholder Values - APPLE-1576
                     item.info = NSLocalizedString(@"This graph shows your answers to the daily check-in questions for exercise each day.", @"");
                     
                     APCTableViewRow *row = [APCTableViewRow new];
@@ -330,7 +326,6 @@ static NSString * const kAPCRightDetailTableViewCellIdentifier = @"APCRightDetai
                     item.maximumImage = [UIImage imageNamed:@"Breast-Cancer-Sleep-1g"];
                     item.averageImage = [UIImage imageNamed:[NSString stringWithFormat:@"Breast-Cancer-Sleep-%0.0fg", [[self.moodScoring averageDataPoint] doubleValue]]];
                     
-                    #warning Replace Placeholder Values - APPLE-1576
                     item.info = NSLocalizedString(@"This graph shows your answers to the daily check-in questions for sleep each day.", @"");
                     
                     APCTableViewRow *row = [APCTableViewRow new];
@@ -354,7 +349,6 @@ static NSString * const kAPCRightDetailTableViewCellIdentifier = @"APCRightDetai
                     item.maximumImage = [UIImage imageNamed:@"Breast-Cancer-Clarity-1g"];
                     item.averageImage = [UIImage imageNamed:[NSString stringWithFormat:@"Breast-Cancer-Clarity-%0.0fg", 6 - [[self.moodScoring averageDataPoint] doubleValue]]];
                     
-                    #warning Replace Placeholder Values - APPLE-1576
                     item.info = NSLocalizedString(@"This graph shows your answers to the daily check-in questions for your thinking each day.", @"");
                     
                     APCTableViewRow *row = [APCTableViewRow new];
@@ -379,7 +373,6 @@ static NSString * const kAPCRightDetailTableViewCellIdentifier = @"APCRightDetai
                     item.maximumImage = [UIImage imageNamed:@"Breast-Cancer-Custom-1g"];
                     item.averageImage = [UIImage imageNamed:[NSString stringWithFormat:@"Breast-Cancer-Custom-%0.0fg", 6 - [[self.moodScoring averageDataPoint] doubleValue]]];
                     
-#warning Replace Placeholder Values - APPLE-1576
                     item.info = NSLocalizedString(@"This graph shows your answers the to custom question that you created as part of your daily check-in questions.", @"");
                     
                     APCTableViewRow *row = [APCTableViewRow new];
