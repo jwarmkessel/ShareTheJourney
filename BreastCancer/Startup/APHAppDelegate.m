@@ -119,6 +119,23 @@ static NSString* const  kConsentPropertiesFileName  = @"APHConsentSection";
     return [[NSUserDefaults standardUserDefaults] boolForKey:kVideoShownKey];
 }
 
+- (NSArray *)offsetForTaskSchedules
+{
+    return @[
+             @{
+                 kScheduleOffsetTaskIdKey: @"APHDailyJournal-80F09109-265A-49C6-9C5D-765E49AAF5D9",
+                 kScheduleOffsetOffsetKey: @(7)
+                 },
+             /*
+             @{
+                 kScheduleOffsetTaskIdKey: @"Task ID for BCS weekly Survey",
+                 kScheduleOffsetOffsetKey: @(7)
+                 }
+              */
+             ];
+}
+
+
 /*********************************************************************************/
 #pragma mark - Datasubstrate Delegate Methods
 /*********************************************************************************/
