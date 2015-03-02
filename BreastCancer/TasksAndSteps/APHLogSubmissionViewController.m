@@ -28,7 +28,7 @@
     [self.submitButton setTitleColor:[UIColor appPrimaryColor] forState:UIControlStateNormal];
 }
 
-- (IBAction)submitButtonTapped:(id)sender {
+- (IBAction)submitButtonTapped:(id) __unused sender {
     
     [self.submitButton setEnabled:NO];
     
