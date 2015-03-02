@@ -26,6 +26,48 @@
               "taskID": "Feedback-394848ce-ca4f-4abe-b97e-fedbfd7ffb8e",
               "taskFileName" : "BCS_feedback",
               "taskClassName" : "APCGenericSurveyTaskViewController"
+              },
+              {
+              "taskTitle" : "Background Survey",
+              "taskID": "BackgroundSurvey-394848ce-ca4f-4abe-b97e-fedbfd7ffb8e",
+              "taskFileName" : "BCSBackgroundSurvey",
+              "taskClassName" : "APCGenericSurveyTaskViewController"
+              },
+              {
+              "taskTitle" : "BCPT Symptoms Survey",
+              "taskID": "BCPTSymptomsSurvey-394848ce-ca4f-4abe-b97e-fedbfd7ffb8e",
+              "taskFileName" : "BCSBCPTSymptomsSurvey",
+              "taskClassName" : "APCGenericSurveyTaskViewController"
+              },
+              {
+              "taskTitle" : "PAOFI Survey",
+              "taskID": "PAOFI-394848ce-ca4f-4abe-b97e-fedbfd7ffb8e",
+              "taskFileName" : "BCSPAOFISurvey",
+              "taskClassName" : "APCGenericSurveyTaskViewController"
+              },
+              {
+              "taskTitle" : "PHQ8GAD7 Survey",
+              "taskID": "PHQ8GAD7-394848ce-ca4f-4abe-b97e-fedbfd7ffb8e",
+              "taskFileName" : "BCSPHQ8GAD7Survey",
+              "taskClassName" : "APCGenericSurveyTaskViewController"
+              },
+              {
+              "taskTitle" : "PSQI Survey",
+              "taskID": "PSQI-394848ce-ca4f-4abe-b97e-fedbfd7ffb8e",
+              "taskFileName" : "BCSPSQISurvey",
+              "taskClassName" : "APCGenericSurveyTaskViewController"
+              },
+              {
+              "taskTitle" : "SF36 Survey",
+              "taskID": "SF36-394848ce-ca4f-4abe-b97e-fedbfd7ffb8e",
+              "taskFileName" : "BCSSF36Survey",
+              "taskClassName" : "APCGenericSurveyTaskViewController"
+              },
+              {
+              "taskTitle" : "Weekly Survey",
+              "taskID": "Weekly-394848ce-ca4f-4abe-b97e-fedbfd7ffb8e",
+              "taskFileName" : "BCSWeeklySurvey",
+              "taskClassName" : "APCGenericSurveyTaskViewController"
               }
               ],
     "schedules": [
@@ -53,6 +95,41 @@
                   "scheduleType": "recurring",
                   "scheduleString": "0 5 * * *",
                   "taskID": "Feedback-394848ce-ca4f-4abe-b97e-fedbfd7ffb8e"
+                  },
+                  {
+                  "scheduleType": "recurring",
+                  "scheduleString": "0 5 * * *",
+                  "taskID": "BackgroundSurvey-394848ce-ca4f-4abe-b97e-fedbfd7ffb8e"
+                  },
+                  {
+                  "scheduleType": "recurring",
+                  "scheduleString": "0 5 * * *",
+                  "taskID": "BCPTSymptomsSurvey-394848ce-ca4f-4abe-b97e-fedbfd7ffb8e"
+                  },
+                  {
+                  "scheduleType": "recurring",
+                  "scheduleString": "0 5 * * *",
+                  "taskID": "PAOFI-394848ce-ca4f-4abe-b97e-fedbfd7ffb8e"
+                  },
+                  {
+                  "scheduleType": "recurring",
+                  "scheduleString": "0 5 * * *",
+                  "taskID": "PHQ8GAD7-394848ce-ca4f-4abe-b97e-fedbfd7ffb8e"
+                  },
+                  {
+                  "scheduleType": "recurring",
+                  "scheduleString": "0 5 * * *",
+                  "taskID": "PSQI-394848ce-ca4f-4abe-b97e-fedbfd7ffb8e"
+                  },
+                  {
+                  "scheduleType": "recurring",
+                  "scheduleString": "0 5 * * *",
+                  "taskID": "SF36-394848ce-ca4f-4abe-b97e-fedbfd7ffb8e"
+                  },
+                  {
+                  "scheduleType": "recurring",
+                  "scheduleString": "0 5 * * *",
+                  "taskID": "Weekly-394848ce-ca4f-4abe-b97e-fedbfd7ffb8e"
                   }
                   ]
 }

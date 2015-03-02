@@ -7,6 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		083D6AF01AA4ADCF0064AADD /* BCSBackgroundSurvey.json in Resources */ = {isa = PBXBuildFile; fileRef = 083D6AE91AA4ADCF0064AADD /* BCSBackgroundSurvey.json */; };
+		083D6AF11AA4ADCF0064AADD /* BCSBCPTSymptomsSurvey.json in Resources */ = {isa = PBXBuildFile; fileRef = 083D6AEA1AA4ADCF0064AADD /* BCSBCPTSymptomsSurvey.json */; };
+		083D6AF21AA4ADCF0064AADD /* BCSPAOFISurvey.json in Resources */ = {isa = PBXBuildFile; fileRef = 083D6AEB1AA4ADCF0064AADD /* BCSPAOFISurvey.json */; };
+		083D6AF31AA4ADCF0064AADD /* BCSPHQ8GAD7Survey.json in Resources */ = {isa = PBXBuildFile; fileRef = 083D6AEC1AA4ADCF0064AADD /* BCSPHQ8GAD7Survey.json */; };
+		083D6AF41AA4ADCF0064AADD /* BCSPSQISurvey.json in Resources */ = {isa = PBXBuildFile; fileRef = 083D6AED1AA4ADCF0064AADD /* BCSPSQISurvey.json */; };
+		083D6AF51AA4ADCF0064AADD /* BCSSF36Survey.json in Resources */ = {isa = PBXBuildFile; fileRef = 083D6AEE1AA4ADCF0064AADD /* BCSSF36Survey.json */; };
+		083D6AF61AA4ADCF0064AADD /* BCSWeeklySurvey.json in Resources */ = {isa = PBXBuildFile; fileRef = 083D6AEF1AA4ADCF0064AADD /* BCSWeeklySurvey.json */; };
+		083D6AFA1AA4AE130064AADD /* APHBackgroundSurveyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 083D6AF91AA4AE130064AADD /* APHBackgroundSurveyViewController.m */; };
+		083D6AFE1AA4AE430064AADD /* APHSymptomSurveyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 083D6AFD1AA4AE430064AADD /* APHSymptomSurveyViewController.m */; };
+		083D6B011AA4AE5D0064AADD /* APHPaofiSurveyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 083D6B001AA4AE5D0064AADD /* APHPaofiSurveyViewController.m */; };
+		083D6B041AA4AE750064AADD /* APHPhq8gad7ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 083D6B031AA4AE750064AADD /* APHPhq8gad7ViewController.m */; };
+		083D6B071AA4AE880064AADD /* APHPsqiSurveyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 083D6B061AA4AE880064AADD /* APHPsqiSurveyViewController.m */; };
+		083D6B0A1AA4AE990064AADD /* APHSf36SurveyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 083D6B091AA4AE990064AADD /* APHSf36SurveyViewController.m */; };
+		083D6B0D1AA4AEAD0064AADD /* APHWeeklySurveyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 083D6B0C1AA4AEAD0064AADD /* APHWeeklySurveyViewController.m */; };
 		215C53671A8C5D6F0006F7DC /* APHNotesHeaderTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 215C53651A8C5D6F0006F7DC /* APHNotesHeaderTableViewCell.m */; };
 		215C53681A8C5D6F0006F7DC /* APHNotesHeaderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 215C53661A8C5D6F0006F7DC /* APHNotesHeaderTableViewCell.xib */; };
 		5A0F98DA1AA2E2A900A2A7EB /* Intro.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 5A0F98D91AA2E2A900A2A7EB /* Intro.mp4 */; };
@@ -136,6 +150,27 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		083D6AE91AA4ADCF0064AADD /* BCSBackgroundSurvey.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = BCSBackgroundSurvey.json; sourceTree = "<group>"; };
+		083D6AEA1AA4ADCF0064AADD /* BCSBCPTSymptomsSurvey.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = BCSBCPTSymptomsSurvey.json; sourceTree = "<group>"; };
+		083D6AEB1AA4ADCF0064AADD /* BCSPAOFISurvey.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = BCSPAOFISurvey.json; sourceTree = "<group>"; };
+		083D6AEC1AA4ADCF0064AADD /* BCSPHQ8GAD7Survey.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = BCSPHQ8GAD7Survey.json; sourceTree = "<group>"; };
+		083D6AED1AA4ADCF0064AADD /* BCSPSQISurvey.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = BCSPSQISurvey.json; sourceTree = "<group>"; };
+		083D6AEE1AA4ADCF0064AADD /* BCSSF36Survey.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = BCSSF36Survey.json; sourceTree = "<group>"; };
+		083D6AEF1AA4ADCF0064AADD /* BCSWeeklySurvey.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = BCSWeeklySurvey.json; sourceTree = "<group>"; };
+		083D6AF81AA4AE130064AADD /* APHBackgroundSurveyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = APHBackgroundSurveyViewController.h; path = "Generic Surveys/APHBackgroundSurveyViewController.h"; sourceTree = "<group>"; };
+		083D6AF91AA4AE130064AADD /* APHBackgroundSurveyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = APHBackgroundSurveyViewController.m; path = "Generic Surveys/APHBackgroundSurveyViewController.m"; sourceTree = "<group>"; };
+		083D6AFC1AA4AE430064AADD /* APHSymptomSurveyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = APHSymptomSurveyViewController.h; path = "Generic Surveys/APHSymptomSurveyViewController.h"; sourceTree = "<group>"; };
+		083D6AFD1AA4AE430064AADD /* APHSymptomSurveyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = APHSymptomSurveyViewController.m; path = "Generic Surveys/APHSymptomSurveyViewController.m"; sourceTree = "<group>"; };
+		083D6AFF1AA4AE5D0064AADD /* APHPaofiSurveyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = APHPaofiSurveyViewController.h; path = "Generic Surveys/APHPaofiSurveyViewController.h"; sourceTree = "<group>"; };
+		083D6B001AA4AE5D0064AADD /* APHPaofiSurveyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = APHPaofiSurveyViewController.m; path = "Generic Surveys/APHPaofiSurveyViewController.m"; sourceTree = "<group>"; };
+		083D6B021AA4AE750064AADD /* APHPhq8gad7ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = APHPhq8gad7ViewController.h; path = "Generic Surveys/APHPhq8gad7ViewController.h"; sourceTree = "<group>"; };
+		083D6B031AA4AE750064AADD /* APHPhq8gad7ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = APHPhq8gad7ViewController.m; path = "Generic Surveys/APHPhq8gad7ViewController.m"; sourceTree = "<group>"; };
+		083D6B051AA4AE880064AADD /* APHPsqiSurveyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = APHPsqiSurveyViewController.h; path = "Generic Surveys/APHPsqiSurveyViewController.h"; sourceTree = "<group>"; };
+		083D6B061AA4AE880064AADD /* APHPsqiSurveyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = APHPsqiSurveyViewController.m; path = "Generic Surveys/APHPsqiSurveyViewController.m"; sourceTree = "<group>"; };
+		083D6B081AA4AE990064AADD /* APHSf36SurveyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = APHSf36SurveyViewController.h; path = "Generic Surveys/APHSf36SurveyViewController.h"; sourceTree = "<group>"; };
+		083D6B091AA4AE990064AADD /* APHSf36SurveyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = APHSf36SurveyViewController.m; path = "Generic Surveys/APHSf36SurveyViewController.m"; sourceTree = "<group>"; };
+		083D6B0B1AA4AEAD0064AADD /* APHWeeklySurveyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = APHWeeklySurveyViewController.h; path = "Generic Surveys/APHWeeklySurveyViewController.h"; sourceTree = "<group>"; };
+		083D6B0C1AA4AEAD0064AADD /* APHWeeklySurveyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = APHWeeklySurveyViewController.m; path = "Generic Surveys/APHWeeklySurveyViewController.m"; sourceTree = "<group>"; };
 		215C53641A8C5D6F0006F7DC /* APHNotesHeaderTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = APHNotesHeaderTableViewCell.h; path = DailyJournalControllers/APHNotesHeaderTableViewCell.h; sourceTree = "<group>"; };
 		215C53651A8C5D6F0006F7DC /* APHNotesHeaderTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = APHNotesHeaderTableViewCell.m; path = DailyJournalControllers/APHNotesHeaderTableViewCell.m; sourceTree = "<group>"; };
 		215C53661A8C5D6F0006F7DC /* APHNotesHeaderTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = APHNotesHeaderTableViewCell.xib; path = DailyJournalControllers/APHNotesHeaderTableViewCell.xib; sourceTree = "<group>"; };
@@ -271,6 +306,41 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		083D6AE81AA4ADCF0064AADD /* Surveys */ = {
+			isa = PBXGroup;
+			children = (
+				083D6AE91AA4ADCF0064AADD /* BCSBackgroundSurvey.json */,
+				083D6AEA1AA4ADCF0064AADD /* BCSBCPTSymptomsSurvey.json */,
+				083D6AEB1AA4ADCF0064AADD /* BCSPAOFISurvey.json */,
+				083D6AEC1AA4ADCF0064AADD /* BCSPHQ8GAD7Survey.json */,
+				083D6AED1AA4ADCF0064AADD /* BCSPSQISurvey.json */,
+				083D6AEE1AA4ADCF0064AADD /* BCSSF36Survey.json */,
+				083D6AEF1AA4ADCF0064AADD /* BCSWeeklySurvey.json */,
+			);
+			path = Surveys;
+			sourceTree = "<group>";
+		};
+		083D6AFB1AA4AE210064AADD /* Generic Surveys */ = {
+			isa = PBXGroup;
+			children = (
+				083D6AF81AA4AE130064AADD /* APHBackgroundSurveyViewController.h */,
+				083D6AF91AA4AE130064AADD /* APHBackgroundSurveyViewController.m */,
+				083D6AFC1AA4AE430064AADD /* APHSymptomSurveyViewController.h */,
+				083D6AFD1AA4AE430064AADD /* APHSymptomSurveyViewController.m */,
+				083D6AFF1AA4AE5D0064AADD /* APHPaofiSurveyViewController.h */,
+				083D6B001AA4AE5D0064AADD /* APHPaofiSurveyViewController.m */,
+				083D6B021AA4AE750064AADD /* APHPhq8gad7ViewController.h */,
+				083D6B031AA4AE750064AADD /* APHPhq8gad7ViewController.m */,
+				083D6B051AA4AE880064AADD /* APHPsqiSurveyViewController.h */,
+				083D6B061AA4AE880064AADD /* APHPsqiSurveyViewController.m */,
+				083D6B081AA4AE990064AADD /* APHSf36SurveyViewController.h */,
+				083D6B091AA4AE990064AADD /* APHSf36SurveyViewController.m */,
+				083D6B0B1AA4AEAD0064AADD /* APHWeeklySurveyViewController.h */,
+				083D6B0C1AA4AEAD0064AADD /* APHWeeklySurveyViewController.m */,
+			);
+			name = "Generic Surveys";
+			sourceTree = "<group>";
+		};
 		5A0F990F1AA425D100A2A7EB /* Surveys */ = {
 			isa = PBXGroup;
 			children = (
@@ -544,6 +614,7 @@
 		F534B5C419E4689D00C3C152 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				083D6AE81AA4ADCF0064AADD /* Surveys */,
 				5B1095BE1A9FA0B5006631F5 /* PDF */,
 				7B8B67D41A6701B10021606D /* Certificates */,
 				5BBDAEBA1A33DCDA0047DF87 /* HTMLContent */,
@@ -604,6 +675,7 @@
 				7B7953031A22849300AA8039 /* ExerciseSurvey */,
 				7B5E25C71A20454200A04FEF /* Mood Survey */,
 				CF2697DA19EC3E0D00525E19 /* Daily Journal Controllers */,
+				083D6AFB1AA4AE210064AADD /* Generic Surveys */,
 			);
 			path = TasksAndSteps;
 			sourceTree = "<group>";
@@ -751,6 +823,7 @@
 				7B8B67DD1A6711BE0021606D /* APHExerciseMotivationSummaryViewController.storyboard in Resources */,
 				5B15DD3E1A114F9000BEA0D1 /* APHOnboarding.storyboard in Resources */,
 				7B7953151A2288D600AA8039 /* APHQuestionViewController.xib in Resources */,
+				083D6AF41AA4ADCF0064AADD /* BCSPSQISurvey.json in Resources */,
 				5B1D9D6C1A1BD414000F4AD6 /* APHDashboard.storyboard in Resources */,
 				CF5FAB4319F95C8F0006CA71 /* APHContentsViewController.xib in Resources */,
 				A7D61A581A97B2D700637EDA /* 00_Blank_to_Activities@2x.m4v in Resources */,
@@ -768,10 +841,13 @@
 				A7D61A5B1A97B2D700637EDA /* 10_PotentialBenifits@2x.m4v in Resources */,
 				7BB24C321A831DC500AAE097 /* APHCustomSurveyTableViewCell.xib in Resources */,
 				F534B68A19E4689D00C3C152 /* APCParameters.json in Resources */,
+				083D6AF01AA4ADCF0064AADD /* BCSBackgroundSurvey.json in Resources */,
 				A7D61A641A97B2D700637EDA /* 12_IssuesToConside2@3x.m4v in Resources */,
 				A7D61A5F1A97B2D700637EDA /* 00_Blank_to_Activities@3x.m4v in Resources */,
 				F534B68B19E4689D00C3C152 /* APHTasksAndSchedules.json in Resources */,
+				083D6AF51AA4ADCF0064AADD /* BCSSF36Survey.json in Resources */,
 				F534B69D19E4689D00C3C152 /* Main.storyboard in Resources */,
+				083D6AF11AA4ADCF0064AADD /* BCSBCPTSymptomsSurvey.json in Resources */,
 				7B8B67D81A6701B10021606D /* breastcancer.pem in Resources */,
 				A7D61A5A1A97B2D700637EDA /* 02_SensorData_to_DataGathering@2x.m4v in Resources */,
 				5B18CEDA1A2CFFD1001A905E /* TermsAndConditions.json in Resources */,
@@ -784,11 +860,14 @@
 				A7D61A651A97B2D700637EDA /* 13_RiskToPrivacy@3x.m4v in Resources */,
 				CF15F2501A116A5A00D87570 /* APHDailyJournalIntroViewController.xib in Resources */,
 				7BFD567A1A24FAF0001210A2 /* APHDisplayLogHistoryViewController.xib in Resources */,
+				083D6AF21AA4ADCF0064AADD /* BCSPAOFISurvey.json in Resources */,
 				A7D61A631A97B2D700637EDA /* 11_IssuesToConsider1@3x.m4v in Resources */,
 				A7D61A591A97B2D700637EDA /* 01_Activities_to_SensorData@2x.m4v in Resources */,
 				7B8D703F1A1C4B13003A7A5B /* APHLogSubmissionViewController.xib in Resources */,
 				CF2697EB19EC3E4200525E19 /* APHNotesViewController.xib in Resources */,
 				5B1095C01A9FA0B5006631F5 /* consent.pdf in Resources */,
+				083D6AF31AA4ADCF0064AADD /* BCSPHQ8GAD7Survey.json in Resources */,
+				083D6AF61AA4ADCF0064AADD /* BCSWeeklySurvey.json in Resources */,
 				7B5E25D11A20592400A04FEF /* APHHeartAgeIntroStepViewController.xib in Resources */,
 				F534B69C19E4689D00C3C152 /* LaunchScreen.xib in Resources */,
 			);
@@ -819,16 +898,21 @@
 			files = (
 				7B5A5AB51A83FCF700628D4D /* APHCustomSurveyIntroViewController.m in Sources */,
 				CF2697E919EC3E4200525E19 /* APHNotesContentsTableViewCell.m in Sources */,
+				083D6B0A1AA4AE990064AADD /* APHSf36SurveyViewController.m in Sources */,
 				7B0541F71A842B4900B7729D /* APHDynamicMoodSurveyTask.m in Sources */,
 				7BA3AC161A2407D00017B3C8 /* APHExerciseMotivationSummaryViewController.m in Sources */,
 				7B5E25CB1A2045BB00A04FEF /* APHMoodSurveyTaskViewController.m in Sources */,
 				5B15DD3B1A114F9000BEA0D1 /* APHInclusionCriteriaViewController.m in Sources */,
+				083D6AFE1AA4AE430064AADD /* APHSymptomSurveyViewController.m in Sources */,
 				7B8B67E11A671DDC0021606D /* APHExerciseSummaryContainerTableViewController.m in Sources */,
+				083D6B0D1AA4AEAD0064AADD /* APHWeeklySurveyViewController.m in Sources */,
 				F53F27A11A2D30D600A1D725 /* APHScoring.m in Sources */,
 				7B4B18311A8D720400F79C94 /* APHProfileExtender.m in Sources */,
 				CF2697E619EC3E4200525E19 /* APHContentsViewController.m in Sources */,
+				083D6AFA1AA4AE130064AADD /* APHBackgroundSurveyViewController.m in Sources */,
 				CF15F24F1A116A5A00D87570 /* APHDailyJournalIntroViewController.m in Sources */,
 				F534B58919E4681E00C3C152 /* main.m in Sources */,
+				083D6B011AA4AE5D0064AADD /* APHPaofiSurveyViewController.m in Sources */,
 				CF15F24B1A11616500D87570 /* APHDailyJournalTaskViewController.m in Sources */,
 				7BFD56791A24FAF0001210A2 /* APHDisplayLogHistoryViewController.m in Sources */,
 				7B5E25D01A20592400A04FEF /* APHHeartAgeIntroStepViewController.m in Sources */,
@@ -837,6 +921,7 @@
 				7BB24C311A831DC500AAE097 /* APHCustomSurveyTableViewCell.m in Sources */,
 				5B15DD481A11524900BEA0D1 /* APHAppDelegate.m in Sources */,
 				7BB24C361A831EC900AAE097 /* APHCustomSurveyQuestionViewController.m in Sources */,
+				083D6B071AA4AE880064AADD /* APHPsqiSurveyViewController.m in Sources */,
 				CF2697E719EC3E4200525E19 /* APHCustomTextView.m in Sources */,
 				F53F27A01A2D30D600A1D725 /* APHDataPoint.m in Sources */,
 				7B8D703E1A1C4B13003A7A5B /* APHLogSubmissionViewController.m in Sources */,
@@ -844,6 +929,7 @@
 				CF2697EA19EC3E4200525E19 /* APHNotesViewController.m in Sources */,
 				7B7953141A2288D600AA8039 /* APHQuestionViewController.m in Sources */,
 				7BA3AC101A23DDBC0017B3C8 /* APHExerciseMotivationIntroViewController.m in Sources */,
+				083D6B041AA4AE750064AADD /* APHPhq8gad7ViewController.m in Sources */,
 				7B79530E1A22884500AA8039 /* APHExerciseSurveyTaskViewController.m in Sources */,
 				5B1D9D6D1A1BD414000F4AD6 /* APHDashboardEditViewController.m in Sources */,
 			);
