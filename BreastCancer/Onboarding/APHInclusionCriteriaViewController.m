@@ -45,7 +45,7 @@
                        [[APCSegmentedButton alloc] initWithButtons:@[self.question4Option1, self.question4Option2] normalColor:[UIColor appSecondaryColor3] highlightColor:[UIColor appPrimaryColor]],
                        
                        ];
-    [self.questions enumerateObjectsUsingBlock:^(APCSegmentedButton * obj, NSUInteger idx, BOOL *stop) {
+    [self.questions enumerateObjectsUsingBlock:^(APCSegmentedButton * obj, NSUInteger __unused idx, BOOL * __unused stop) {
         obj.delegate = self;
     }];
     [self setUpAppearance];
@@ -103,7 +103,7 @@
     [self.tableView setLayoutMargins:UIEdgeInsetsZero];
 }
 
--(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
+-(void)tableView:(UITableView *) __unused tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *) __unused indexPath
 {
     [cell setSeparatorInset:UIEdgeInsetsZero];
     [cell setLayoutMargins:UIEdgeInsetsZero];
@@ -112,7 +112,7 @@
 /*********************************************************************************/
 #pragma mark - Segmented Button Delegate
 /*********************************************************************************/
-- (void)segmentedButtonPressed:(UIButton *)button selectedIndex:(NSInteger)selectedIndex
+- (void)segmentedButtonPressed:(UIButton *) __unused button selectedIndex:(NSInteger) __unused selectedIndex
 {
     self.navigationItem.rightBarButtonItem.enabled = [self isContentValid];
     
@@ -151,7 +151,7 @@
 - (BOOL)isContentValid
 {
     __block BOOL retValue = YES;
-    [self.questions enumerateObjectsUsingBlock:^(APCSegmentedButton* obj, NSUInteger idx, BOOL *stop) {
+    [self.questions enumerateObjectsUsingBlock:^(APCSegmentedButton* obj, NSUInteger __unused idx, BOOL *stop) {
     if (obj.selectedIndex == -1) {
         retValue = NO;
         *stop = YES;

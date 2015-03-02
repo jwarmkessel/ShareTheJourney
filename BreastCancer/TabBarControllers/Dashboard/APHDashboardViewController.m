@@ -98,7 +98,7 @@ static NSString * const kAPCRightDetailTableViewCellIdentifier = @"APCRightDetai
     
     BOOL hasNoCustomQuestionItem = NO;
     
-    for (int i = 0; i < self.rowItemsOrder.count; i++)
+    for (NSUInteger i = 0; i < self.rowItemsOrder.count; i++)
     {
         if ([self.rowItemsOrder[i]  isEqual: @(kAPHDashboardItemTypeDailyCustom)]) {
             hasNoCustomQuestionItem = YES;
@@ -128,7 +128,7 @@ static NSString * const kAPCRightDetailTableViewCellIdentifier = @"APCRightDetai
 
 #pragma mark - Data
 
-- (void)updateVisibleRowsInTableView:(NSNotification *)notification
+- (void)updateVisibleRowsInTableView:(NSNotification *) __unused notification
 {
     [self prepareData];
 }

@@ -161,7 +161,7 @@ typedef NS_ENUM(NSUInteger, APHDynamicMoodSurveyType) {
         
         NSMutableArray *answerChoices = [NSMutableArray new];
         
-        for (int i = 0; i<[imageChoices count]; i++) {
+        for (NSUInteger i = 0; i<[imageChoices count]; i++) {
             
             ORKImageChoice *answerOption = [ORKImageChoice choiceWithNormalImage:imageChoices[i] selectedImage:selectedImageChoices[i] text:textDescriptionChoice[i] value:[moodValueForIndex objectAtIndex:i]];
             
@@ -196,7 +196,7 @@ typedef NS_ENUM(NSUInteger, APHDynamicMoodSurveyType) {
         
         NSMutableArray *answerChoices = [NSMutableArray new];
         
-        for (int i = 0; i<[imageChoices count]; i++) {
+        for (NSUInteger i = 0; i<[imageChoices count]; i++) {
             
             ORKImageChoice *answerOption = [ORKImageChoice choiceWithNormalImage:imageChoices[i] selectedImage:selectedImageChoices[i] text:textDescriptionChoice[i] value:[moodValueForIndex objectAtIndex:i]];
             
@@ -230,7 +230,7 @@ typedef NS_ENUM(NSUInteger, APHDynamicMoodSurveyType) {
         
         NSMutableArray *answerChoices = [NSMutableArray new];
         
-        for (int i = 0; i<[imageChoices count]; i++) {
+        for (NSUInteger i = 0; i<[imageChoices count]; i++) {
             
             ORKImageChoice *answerOption = [ORKImageChoice choiceWithNormalImage:imageChoices[i] selectedImage:selectedImageChoices[i] text:textDescriptionChoice[i] value:[moodValueForIndex objectAtIndex:i]];
             
@@ -264,7 +264,7 @@ typedef NS_ENUM(NSUInteger, APHDynamicMoodSurveyType) {
         
         NSMutableArray *answerChoices = [NSMutableArray new];
         
-        for (int i = 0; i<[imageChoices count]; i++) {
+        for (NSUInteger i = 0; i<[imageChoices count]; i++) {
             
             ORKImageChoice *answerOption = [ORKImageChoice choiceWithNormalImage:imageChoices[i] selectedImage:selectedImageChoices[i] text:textDescriptionChoice[i] value:[moodValueForIndex objectAtIndex:i]];
             
@@ -298,7 +298,7 @@ typedef NS_ENUM(NSUInteger, APHDynamicMoodSurveyType) {
         
         NSMutableArray *answerChoices = [NSMutableArray new];
         
-        for (int i = 0; i<[imageChoices count]; i++) {
+        for (NSUInteger i = 0; i<[imageChoices count]; i++) {
             
             ORKImageChoice *answerOption = [ORKImageChoice choiceWithNormalImage:imageChoices[i] selectedImage:selectedImageChoices[i] text:textDescriptionChoice[i] value:[moodValueForIndex objectAtIndex:i]];
             
@@ -331,7 +331,7 @@ typedef NS_ENUM(NSUInteger, APHDynamicMoodSurveyType) {
         
         NSMutableArray *answerChoices = [NSMutableArray new];
         
-        for (int i = 0; i<[imageChoices count]; i++) {
+        for (NSUInteger i = 0; i<[imageChoices count]; i++) {
             
             ORKImageChoice *answerOption = [ORKImageChoice choiceWithNormalImage:imageChoices[i] selectedImage:selectedImageChoices[i] text:textDescriptionChoice[i] value:[moodValueForIndex objectAtIndex:i]];
             
@@ -452,7 +452,7 @@ typedef NS_ENUM(NSUInteger, APHDynamicMoodSurveyType) {
     return step;
 }
 
-- (ORKStep *)stepBeforeStep:(ORKStep *)step withResult:(ORKTaskResult *)result
+- (ORKStep *)stepBeforeStep:(ORKStep *)step withResult:(ORKTaskResult *) __unused result
 {
     if ([[self.steps[0] identifier] isEqualToString:step.identifier]) {
         step = nil;
@@ -472,7 +472,7 @@ typedef NS_ENUM(NSUInteger, APHDynamicMoodSurveyType) {
     return step;
 }
 
-- (ORKTaskProgress)progressOfCurrentStep:(ORKStep *)step withResult:(ORKTaskResult *)result
+- (ORKTaskProgress)progressOfCurrentStep:(ORKStep *)step withResult:(ORKTaskResult *) __unused result
 {
     
     return ORKTaskProgressMake([[self.currentOrderedSteps objectForKey:step.identifier] integerValue] - 1, self.currentOrderedSteps.count);
@@ -741,7 +741,7 @@ typedef NS_ENUM(NSUInteger, APHDynamicMoodSurveyType) {
     }
 }
 
-- (ORKQuestionStep *) customQuestionStep:(NSString *)question {
+- (ORKQuestionStep *) customQuestionStep:(NSString *) __unused question {
     
     NSArray* moodValueForIndex = @[@(5), @(4), @(3), @(2), @(1)];
     
@@ -766,7 +766,7 @@ typedef NS_ENUM(NSUInteger, APHDynamicMoodSurveyType) {
     
     NSMutableArray *answerChoices = [NSMutableArray new];
     
-    for (int i = 0; i<[imageChoices count]; i++) {
+    for (NSUInteger i = 0; i<[imageChoices count]; i++) {
         
         ORKImageChoice *answerOption = [ORKImageChoice choiceWithNormalImage:imageChoices[i] selectedImage:selectedImageChoices[i] text:textDescriptionChoice[i] value:[moodValueForIndex objectAtIndex:i]];
         

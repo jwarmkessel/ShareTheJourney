@@ -36,7 +36,7 @@ static NSString* const  kSummaryStepIdentifier                               = @
     }
 }
 
-- (void)doneButtonTapped:(id)sender
+- (void)doneButtonTapped:(id) __unused sender
 {
     if ([self.step.identifier isEqualToString:kSummaryStepIdentifier]) {
         
@@ -46,7 +46,7 @@ static NSString* const  kSummaryStepIdentifier                               = @
     }
 }
 
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id) __unused sender {
     
     if ([segue.identifier isEqualToString:kAPHExerciseSummaryContainerTableViewControllerSegue]) {
         self.childViewController = (APHExerciseSummaryContainerTableViewController *) [segue destinationViewController];

@@ -62,7 +62,7 @@
                                self.walkTenThousandStepsSelectedView
                                ];
     
-    for (int i = 0; i<[buttons count]; i++) {
+    for (NSUInteger i = 0; i<[buttons count]; i++) {
         UILabel *label = (UILabel *) buttons[i];
         APCConfirmationView *selectedView = (APCConfirmationView *)selectedViews[i];
         
@@ -143,7 +143,7 @@
 
 #pragma mark - UINavigation Buttons
 
-- (IBAction)nextButtonTapped:(id)sender {
+- (IBAction)nextButtonTapped:(id) __unused sender {
     [self.nextButton setEnabled:NO];
     self.dict = [NSMutableDictionary new];
     [self.dict setObject:self.selectedGoal forKey:@"result"];

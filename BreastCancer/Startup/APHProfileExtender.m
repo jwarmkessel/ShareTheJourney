@@ -23,7 +23,7 @@ static NSInteger const kNumberOfCompletionsUntilDisplayingCustomSurvey = 6;
     return self;
 }
 
-- (BOOL)willDisplayCell:(NSIndexPath *)indexPath {
+- (BOOL)willDisplayCell:(NSIndexPath *) __unused indexPath {
     return YES;
 }
 
@@ -35,7 +35,7 @@ static NSInteger const kNumberOfCompletionsUntilDisplayingCustomSurvey = 6;
 */
 
 //Add to the number of sections
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+- (NSInteger)numberOfSectionsInTableView:(UITableView *) __unused tableView {
     
     //Check if we have reached the threshold to display customizing a survey question.
     APCAppDelegate * delegate = (APCAppDelegate*)[UIApplication sharedApplication].delegate;
@@ -55,7 +55,7 @@ static NSInteger const kNumberOfCompletionsUntilDisplayingCustomSurvey = 6;
 }
 
 //Add to the number of sections
-- (NSInteger) tableView:(UITableView *)tableView numberOfRowsInAdjustedSection:(NSInteger)section {
+- (NSInteger) tableView:(UITableView *) __unused tableView numberOfRowsInAdjustedSection:(NSInteger)section {
     
     NSInteger count = 0;
     
@@ -93,7 +93,7 @@ static NSInteger const kNumberOfCompletionsUntilDisplayingCustomSurvey = 6;
     return height;
 }
 
-- (void)navigationController:(UINavigationController *)navigationController didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+- (void)navigationController:(UINavigationController *)navigationController didSelectRowAtIndexPath:(NSIndexPath *) __unused indexPath {
     
     APHCustomSurveyQuestionViewController *controller = [[APHCustomSurveyQuestionViewController alloc] init];
     

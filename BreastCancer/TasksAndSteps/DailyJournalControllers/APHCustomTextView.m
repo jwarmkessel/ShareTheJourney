@@ -9,7 +9,7 @@
 
 @implementation APHCustomTextView
 
-- (BOOL)canPerformAction:(SEL)action withSender:(id)sender
+- (BOOL)canPerformAction:(SEL) __unused action withSender:(id) __unused sender
 {
     return  NO;
 }
