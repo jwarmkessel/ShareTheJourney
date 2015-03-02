@@ -102,13 +102,13 @@ static  NSUInteger  kThresholdForLimitWarning   = 140;
 
 #pragma  mark  -  Text View Delegate Methods
 
-- (NSString *) adjustText: (NSString *)text withRange:(NSRange)range {
+- (NSString *) adjustText: (NSString *) __unused text withRange:(NSRange) __unused range {
     
     
     return nil;
 }
 
-- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text
+- (BOOL)textView:(UITextView *) __unused textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text
 {
     //Enable button after text is entered.
     self.doneButton.enabled = YES;
@@ -154,7 +154,7 @@ static  NSUInteger  kThresholdForLimitWarning   = 140;
     return  answer;
 }
 
-- (void)backBarButtonWasTapped:(UIBarButtonItem *)sender
+- (void)backBarButtonWasTapped:(UIBarButtonItem *) __unused sender
 {
     [self dismissViewControllerAnimated:YES completion:nil];
 }
@@ -262,7 +262,7 @@ static  NSUInteger  kThresholdForLimitWarning   = 140;
     [super didReceiveMemoryWarning];
 }
 
-- (IBAction)submitTapped:(id)sender {
+- (IBAction)submitTapped:(id) __unused sender {
     self.doneButton.enabled = NO;
     
     [self.scriptorium resignFirstResponder];

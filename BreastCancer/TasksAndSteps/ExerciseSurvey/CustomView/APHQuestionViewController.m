@@ -63,7 +63,7 @@ static  NSString  *kExerciseSurveyStep106 = @"exercisesurvey106";
 
 #pragma  mark  -  Text View Delegate Methods
 
-- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text
+- (BOOL)textView:(UITextView *) __unused textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text
 {
     NSString *updatedText = [self.scriptorium.text stringByReplacingCharactersInRange:range withString:text];
     
@@ -88,7 +88,7 @@ static  NSString  *kExerciseSurveyStep106 = @"exercisesurvey106";
     return shouldChangeText;
 }
 
-- (void)backBarButtonWasTapped:(UIBarButtonItem *)sender
+- (void)backBarButtonWasTapped:(UIBarButtonItem *) __unused sender
 {
     [self dismissViewControllerAnimated:YES completion:nil];
 }
@@ -175,7 +175,7 @@ static  NSString  *kExerciseSurveyStep106 = @"exercisesurvey106";
     [super didReceiveMemoryWarning];
 }
 
-- (IBAction)submitTapped:(id)sender {
+- (IBAction)submitTapped:(id) __unused sender {
     [self.doneButton setEnabled:NO];
     [self.scriptorium resignFirstResponder];
     

@@ -98,7 +98,7 @@ static NSString * const kAPCRightDetailTableViewCellIdentifier = @"APCRightDetai
     
     BOOL hasNoCustomQuestionItem = NO;
     
-    for (int i = 0; i < self.rowItemsOrder.count; i++)
+    for (NSUInteger i = 0; i < self.rowItemsOrder.count; i++)
     {
         if ([self.rowItemsOrder[i]  isEqual: @(kAPHDashboardItemTypeDailyCustom)]) {
             hasNoCustomQuestionItem = YES;
@@ -128,7 +128,7 @@ static NSString * const kAPCRightDetailTableViewCellIdentifier = @"APCRightDetai
 
 #pragma mark - Data
 
-- (void)updateVisibleRowsInTableView:(NSNotification *)notification
+- (void)updateVisibleRowsInTableView:(NSNotification *) __unused notification
 {
     [self prepareData];
 }
@@ -210,8 +210,7 @@ static NSString * const kAPCRightDetailTableViewCellIdentifier = @"APCRightDetai
             item.progress = (CGFloat)completedScheduledTasks/allScheduledTasks;
             item.caption = NSLocalizedString(@"Activity Completion", @"Activity Completion");
             
-#warning Replace Placeholder Values - APPLE-1576
-            item.info = NSLocalizedString(@"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.", @"");
+            item.info = NSLocalizedString(@"The activity completion indicates the percentage of activities scheduled for today that you have completed.  You can complete more by going to the Activities section and tapping on any incomplete task.", @"");
             
             APCTableViewRow *row = [APCTableViewRow new];
             row.item = item;

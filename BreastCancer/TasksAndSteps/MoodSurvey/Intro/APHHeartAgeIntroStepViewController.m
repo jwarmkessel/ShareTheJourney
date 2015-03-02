@@ -44,7 +44,7 @@
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
 }
 
--(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
+-(void)tableView:(UITableView *) __unused tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *) __unused indexPath
 {
     // Remove seperator inset
     if ([cell respondsToSelector:@selector(setSeparatorInset:)]) {
@@ -62,7 +62,7 @@
     }
 }
 
-- (IBAction)getStartedWasTapped:(id)sender
+- (IBAction)getStartedWasTapped:(id) __unused sender
 {
     [self.getStartedButton setEnabled:NO];
     if ([self.delegate respondsToSelector:@selector(stepViewController:didFinishWithNavigationDirection:)] == YES) {
@@ -80,16 +80,16 @@
 #pragma  mark  - tableView delegates
 /*********************************************************************************/
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+- (NSInteger)tableView:(UITableView *) __unused tableView numberOfRowsInSection:(NSInteger) __unused section {
     
     return 2;
 }
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+- (NSInteger)numberOfSectionsInTableView:(UITableView *) __unused tableView {
     return 1;
 }
 
--(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+-(CGFloat)tableView:(UITableView *) __unused tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
 
     float height = 0;
     
@@ -139,7 +139,7 @@
     
     return cell;
 }
-- (void) showCustomizeSurveyView:(id)sender{
+- (void) showCustomizeSurveyView:(id) __unused sender{
     
     self.questionController = [[APHCustomSurveyQuestionViewController alloc] initWithNibName:@"APHCustomSurveyQuestionViewController" bundle:nil];
 

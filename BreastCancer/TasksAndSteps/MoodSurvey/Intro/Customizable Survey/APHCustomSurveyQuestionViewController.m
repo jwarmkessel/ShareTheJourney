@@ -35,7 +35,7 @@ static NSInteger const kMaximumNumberOfCharacters = 90;
     
 }
 
-- (void)viewWillAppear:(BOOL)animated {
+- (void)viewWillAppear:(BOOL) __unused animated {
     APCAppDelegate * delegate = (APCAppDelegate*)[UIApplication sharedApplication].delegate;
     
     NSString *customQuestion = delegate.dataSubstrate.currentUser.customSurveyQuestion;
@@ -50,7 +50,7 @@ static NSInteger const kMaximumNumberOfCharacters = 90;
 
 #pragma  mark  -  Text View Delegate Methods
 
-- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text
+- (BOOL)textView:(UITextView *) __unused textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text
 {
     NSString *updatedText = [self.textView.text stringByReplacingCharactersInRange:range withString:text];
     
@@ -92,11 +92,11 @@ static NSInteger const kMaximumNumberOfCharacters = 90;
     }];
 }
 
-- (IBAction)doneButtonHandler:(id)sender {
+- (IBAction)doneButtonHandler:(id) __unused sender {
     [self.navigationController popViewControllerAnimated:YES];
 }
 
-- (void) viewWillDisappear:(BOOL)animated {
+- (void) viewWillDisappear:(BOOL) __unused animated {
     [self.textView resignFirstResponder];
 }
 

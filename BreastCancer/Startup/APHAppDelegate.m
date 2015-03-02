@@ -46,7 +46,7 @@ static NSString* const  kConsentPropertiesFileName  = @"APHConsentSection";
     [dictionary addEntriesFromDictionary:@{
                                            kStudyIdentifierKey                  : kStudyIdentifier,
                                            kAppPrefixKey                        : kAppPrefix,
-                                           kBridgeEnvironmentKey                : @(SBBEnvironmentStaging),
+                                           kBridgeEnvironmentKey                : @(SBBEnvironmentProd),
                                            kHKReadPermissionsKey                : @[
                                                    HKQuantityTypeIdentifierBodyMass,
                                                    HKQuantityTypeIdentifierHeight,
@@ -86,8 +86,13 @@ static NSString* const  kConsentPropertiesFileName  = @"APHConsentSection";
 {
     [APCAppearanceInfo setAppearanceDictionary:@{
                                                  kPrimaryAppColorKey : [UIColor colorWithRed:0.937 green:0.004 blue:0.553 alpha:1.000],
-                                                 @"APHMoodSurvey-7259AC18-D711-47A6-ADBD-6CFCECDED1DF": [UIColor colorWithRed:0.937 green:0.004 blue:0.553 alpha:1.000]
-                                                 }];
+                                                 @"APHMoodSurvey-7259AC18-D711-47A6-ADBD-6CFCECDED1DF": [UIColor colorWithRed:0.937 green:0.004 blue:0.553 alpha:1.000],
+                                                 @"APHMoodSurvey-7259AC18-D711-47A6-ADBD-6CFCECDED1DF": [UIColor lightGrayColor],
+                                                 @"Feedback-394848ce-ca4f-4abe-b97e-fedbfd7ffb8e" : [UIColor lightGrayColor],
+                                                 @"MyThoughts-14ffde40-1551-4b48-aae2-8fef38d61b61" : [UIColor colorWithRed:0.937 green:0.004 blue:0.553 alpha:1.000],
+                                                 @"APHDailyJournal-80F09109-265A-49C6-9C5D-765E49AAF5D9" : [UIColor colorWithRed:0.937 green:0.004 blue:0.553 alpha:1.000],
+                                                 @"APHExerciseSurvey-7259AC18-D711-47A6-ADBD-6CFCECDED1DF" : [UIColor colorWithRed:0.937 green:0.004 blue:0.553 alpha:1.000],
+                                                 @"APHMoodSurvey-7259AC18-D711-47A6-ADBD-6CFCECDED1DF" : [UIColor colorWithRed:0.937 green:0.004 blue:0.553 alpha:1.000],                                                 }];
     [[UINavigationBar appearance] setTintColor:[UIColor appPrimaryColor]];
     [[UINavigationBar appearance] setTitleTextAttributes: @{
                                                             NSForegroundColorAttributeName : [UIColor appSecondaryColor2],
@@ -139,7 +144,7 @@ static NSString* const  kConsentPropertiesFileName  = @"APHConsentSection";
 #pragma mark - APCOnboardingDelegate Methods
 /*********************************************************************************/
 
-- (APCScene *)inclusionCriteriaSceneForOnboarding:(APCOnboarding *)onboarding
+- (APCScene *)inclusionCriteriaSceneForOnboarding:(APCOnboarding *) __unused onboarding
 {
     APCScene *scene = [APCScene new];
     scene.name = @"APHInclusionCriteriaViewController";

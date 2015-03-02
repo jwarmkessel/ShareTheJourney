@@ -35,6 +35,8 @@ static NSString* const  kBreastCancerRibbonImageName = @"BreastCancer-Ribbon";
 
 }
 - (void)setAnswers:(NSMutableArray *)answers {
+
+    _answers = answers;
     
     NSArray *answerLabels = @[self.answer1Label,
                               self.answer2Label,
@@ -52,17 +54,17 @@ static NSString* const  kBreastCancerRibbonImageName = @"BreastCancer-Ribbon";
 
 #pragma mark - Table view data source
 
-- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+- (UIView *)tableView:(UITableView *) __unused tableView viewForHeaderInSection:(NSInteger) __unused section {
  
     UIImageView *imgVew = [[UIImageView alloc] initWithImage:[UIImage imageNamed:kBreastCancerRibbonImageName]];
     return imgVew;
 }
 
-- (IBAction)changeYourGoalHandler:(id)sender {
+- (IBAction)changeYourGoalHandler:(id) __unused sender {
     [self.parent changeExerciseGoalAction];
 }
 
-- (void)doneButtonTapped:(id)sender
+- (void)doneButtonTapped:(id) __unused sender
 {
     if ([self.parent.step.identifier isEqualToString:kSummaryStepIdentifier]) {
         
