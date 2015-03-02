@@ -33,7 +33,7 @@
     self.textView.text = text;
 }
 
-- (IBAction)doneButton:(id)sender {
+- (IBAction)doneButton:(id) __unused sender {
     [self.navigationController popViewControllerAnimated:YES];
 }
 @end

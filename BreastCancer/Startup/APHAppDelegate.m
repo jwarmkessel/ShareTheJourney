@@ -139,7 +139,7 @@ static NSString* const  kConsentPropertiesFileName  = @"APHConsentSection";
 #pragma mark - APCOnboardingDelegate Methods
 /*********************************************************************************/
 
-- (APCScene *)inclusionCriteriaSceneForOnboarding:(APCOnboarding *)onboarding
+- (APCScene *)inclusionCriteriaSceneForOnboarding:(APCOnboarding *) __unused onboarding
 {
     APCScene *scene = [APCScene new];
     scene.name = @"APHInclusionCriteriaViewController";

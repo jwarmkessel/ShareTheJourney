@@ -51,7 +51,7 @@ static NSString *kMoodLogNoteText = @"APHMoodLogNoteText";
 #pragma  mark  -  Task Creation Methods
 /*********************************************************************************/
 
-+ (ORKOrderedTask *)createTask:(APCScheduledTask *)scheduledTask
++ (ORKOrderedTask *)createTask:(APCScheduledTask *) __unused scheduledTask
 {
     NSMutableArray *steps = [[NSMutableArray alloc] init];
     
@@ -95,7 +95,7 @@ static NSString *kMoodLogNoteText = @"APHMoodLogNoteText";
 #pragma  mark  - TaskViewController delegates
 /*********************************************************************************/
 
-- (ORKStepViewController *)taskViewController:(ORKTaskViewController *)taskViewController viewControllerForStep:(ORKStep *)step {
+- (ORKStepViewController *)taskViewController:(ORKTaskViewController *) __unused taskViewController viewControllerForStep:(ORKStep *)step {
     
     self.showsProgressInNavigationBar = NO;
     
@@ -156,7 +156,7 @@ static NSString *kMoodLogNoteText = @"APHMoodLogNoteText";
     }
 }
 
-- (void)taskViewController:(ORKTaskViewController *)taskViewController didChangeResult:(ORKTaskResult *)result {
+- (void)taskViewController:(ORKTaskViewController *)taskViewController didChangeResult:(ORKTaskResult *) __unused result {
     NSLog(@"TaskVC didChangeResult");
     
     if([self.currentStepViewController.step.identifier isEqualToString:kDailyJournalStep102]) {
