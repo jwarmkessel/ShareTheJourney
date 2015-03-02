@@ -142,6 +142,7 @@
                                         <constraint firstItem="KDu-vM-5Mp" firstAttribute="leading" secondItem="7Kt-DC-ZYz" secondAttribute="leadingMargin" constant="8" id="sLI-iv-eCV"/>
                                         <constraint firstItem="d8C-rA-avW" firstAttribute="leading" secondItem="7Kt-DC-ZYz" secondAttribute="leading" id="sds-7k-JbZ"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="byp-bS-y8x" secondAttribute="trailing" constant="48" id="sfi-fG-hHi"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="sby-6K-nb7" secondAttribute="bottom" constant="19" id="v7N-eq-bmr"/>
                                         <constraint firstItem="4xK-fZ-zP1" firstAttribute="leading" secondItem="KDu-vM-5Mp" secondAttribute="trailing" id="zEa-id-3lk"/>
                                     </constraints>
                                 </tableViewCellContentView>
@@ -174,6 +175,9 @@
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="19c-eK-UyP" customClass="APCDiscreteGraphView">
                                             <rect key="frame" x="4" y="63" width="371" height="154"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="154" id="uEG-91-v7h"/>
+                                            </constraints>
                                         </view>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fn3-h2-d3O" userLabel="Tint View">
                                             <rect key="frame" x="0.0" y="1" width="4" height="217"/>
@@ -242,6 +246,13 @@
                                                 <action selector="infoTapped:" destination="qzc-EF-HVO" eventType="touchUpInside" id="h4S-Jq-8EY"/>
                                             </connections>
                                         </button>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="34r-p1-WsD">
+                                            <rect key="frame" x="87" y="37" width="25" height="25"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="25" id="TiG-Gs-IRE"/>
+                                                <constraint firstAttribute="height" constant="25" id="jFR-7v-xQQ"/>
+                                            </constraints>
+                                        </imageView>
                                     </subviews>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <constraints>
@@ -261,8 +272,10 @@
                                         <constraint firstAttribute="bottomMargin" secondItem="4Xf-4r-Yt5" secondAttribute="bottom" constant="-8" id="LVV-13-KbO"/>
                                         <constraint firstAttribute="trailing" secondItem="4Xf-4r-Yt5" secondAttribute="trailing" id="MWx-Cw-YfE"/>
                                         <constraint firstAttribute="bottomMargin" secondItem="fn3-h2-d3O" secondAttribute="bottom" constant="-1" id="OfY-CY-Hgj"/>
+                                        <constraint firstItem="CVU-hP-Xp5" firstAttribute="leading" secondItem="34r-p1-WsD" secondAttribute="leading" constant="-70" id="P1X-2I-bso"/>
                                         <constraint firstItem="D4R-mv-tub" firstAttribute="leading" secondItem="Wcx-DF-WGw" secondAttribute="leading" constant="4" id="Rzu-SE-OPV"/>
                                         <constraint firstItem="CVU-hP-Xp5" firstAttribute="top" secondItem="ojs-Cx-KBk" secondAttribute="bottom" constant="4" id="SEg-NC-bQh"/>
+                                        <constraint firstItem="34r-p1-WsD" firstAttribute="top" secondItem="ojs-Cx-KBk" secondAttribute="bottom" constant="3" id="TZt-IZ-VtY"/>
                                         <constraint firstItem="ojs-Cx-KBk" firstAttribute="leading" secondItem="Wcx-DF-WGw" secondAttribute="leadingMargin" constant="8" id="WXU-Ui-fCW"/>
                                         <constraint firstItem="19c-eK-UyP" firstAttribute="leading" secondItem="Wcx-DF-WGw" secondAttribute="leading" constant="4" id="Zrn-p6-nOg"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="Nsm-cP-VsS" secondAttribute="trailing" constant="2" id="cZi-uF-BlE"/>
@@ -277,6 +290,7 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="averageImageView" destination="34r-p1-WsD" id="EM1-do-ayj"/>
                                     <outlet property="discreteGraphView" destination="19c-eK-UyP" id="T2u-47-JEO"/>
                                     <outlet property="infoButton" destination="9pK-eo-cee" id="Wdu-zF-BG2"/>
                                     <outlet property="lineGraphView" destination="D4R-mv-tub" id="xpd-4c-Le3"/>

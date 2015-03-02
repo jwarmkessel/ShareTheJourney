@@ -237,7 +237,7 @@ NSString *const kDatasetValueKey = @"datasetValueKey";
                                                                                         anchorDate:startDate
                                                                                 intervalComponents:interval];
     // set the results handler
-    query.initialResultsHandler = ^(HKStatisticsCollectionQuery *query, HKStatisticsCollection *results, NSError *error) {
+    query.initialResultsHandler = ^(HKStatisticsCollectionQuery * __unused query, HKStatisticsCollection *results, NSError *error) {
         if (error) {
             NSLog(@"Error: %@", error.localizedDescription);
         } else {
@@ -250,7 +250,7 @@ NSString *const kDatasetValueKey = @"datasetValueKey";
             
             [results enumerateStatisticsFromDate:beginDate
                                           toDate:endDate
-                                       withBlock:^(HKStatistics *result, BOOL *stop) {
+                                       withBlock:^(HKStatistics *result, BOOL * __unused stop) {
                                            HKQuantity *quantity = result.sumQuantity;
                                            
                                            if (quantity) {
@@ -352,7 +352,7 @@ NSString *const kDatasetValueKey = @"datasetValueKey";
 
 #pragma mark - Graph Datasource
 
-- (NSInteger)lineGraph:(APCLineGraphView *)graphView numberOfPointsInPlot:(NSInteger)plotIndex
+- (NSInteger)lineGraph:(APCLineGraphView *) __unused graphView numberOfPointsInPlot:(NSInteger)plotIndex
 {
     NSInteger numberOfPoints = 0;
     
@@ -365,7 +365,7 @@ NSString *const kDatasetValueKey = @"datasetValueKey";
     return numberOfPoints;
 }
 
-- (NSInteger)numberOfPlotsInLineGraph:(APCLineGraphView *)graphView
+- (NSInteger)numberOfPlotsInLineGraph:(APCLineGraphView *) __unused graphView
 {
     NSUInteger numberOfPlots = 1;
     
@@ -375,19 +375,19 @@ NSString *const kDatasetValueKey = @"datasetValueKey";
     return numberOfPlots;
 }
 
-- (CGFloat)minimumValueForLineGraph:(APCLineGraphView *)graphView
+- (CGFloat)minimumValueForLineGraph:(APCLineGraphView *) __unused graphView
 {
     NSLog(@"%f", [[self minimumDataPoint] doubleValue]);
     return [[self minimumDataPoint] doubleValue];
 }
 
-- (CGFloat)maximumValueForLineGraph:(APCLineGraphView *)graphView
+- (CGFloat)maximumValueForLineGraph:(APCLineGraphView *) __unused graphView
 {
         NSLog(@"%f", [[self maximumDataPoint] doubleValue]);
     return [[self maximumDataPoint] doubleValue];
 }
 
-- (CGFloat)lineGraph:(APCLineGraphView *)graphView plot:(NSInteger)plotIndex valueForPointAtIndex:(NSInteger)pointIndex
+- (CGFloat)lineGraph:(APCLineGraphView *) __unused graphView plot:(NSInteger)plotIndex valueForPointAtIndex:(NSInteger) __unused pointIndex
 {
     CGFloat value;
     

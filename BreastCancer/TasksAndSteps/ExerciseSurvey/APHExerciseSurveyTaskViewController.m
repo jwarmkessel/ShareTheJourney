@@ -168,7 +168,7 @@ static NSString *kWalkTenThousandSteps = @"Walk 10,000 steps at least 3 times pe
 #pragma  mark  - TaskViewController delegates
 /*********************************************************************************/
 
-- (ORKStepViewController *)taskViewController:(ORKTaskViewController *)taskViewController viewControllerForStep:(ORKStep *)step {
+- (ORKStepViewController *)taskViewController:(ORKTaskViewController *) __unused taskViewController viewControllerForStep:(ORKStep *)step {
     
 
     NSDictionary  *controllers = @{kExerciseSurveyStep100 : [APHExerciseMotivationSummaryViewController class],
@@ -344,8 +344,8 @@ static NSString *kWalkTenThousandSteps = @"Walk 10,000 steps at least 3 times pe
         NSArray *stepIdentifiers = @[kExerciseSurveyStep101, kExerciseSurveyStep102, kExerciseSurveyStep103, kExerciseSurveyStep104, kExerciseSurveyStep105, kExerciseSurveyStep106, kExerciseSurveyStep107, kExerciseSurveyStep108];
         
         NSMutableArray *arrayOfAnswers = [NSMutableArray new];
-        for (int i = 0; i < [summaryLabels count]; i++) {
-            NSString *stringIdentifier = [NSString stringWithFormat:@"exercisesurvey10%d", i+2];
+        for (NSUInteger i = 0; i < [summaryLabels count]; i++) {
+            NSString *stringIdentifier = [NSString stringWithFormat:@"exercisesurvey10%d", (int) i+2];
             ORKStepResult *stepResult = [taskViewController.result stepResultForStepIdentifier:stepIdentifiers[i + 1]];
             NSString *label = (NSString *) summaryLabels[i];
             label = (NSString *) [self extractResult:stepResult withIdentifier:stringIdentifier];
@@ -384,7 +384,7 @@ static NSString *kWalkTenThousandSteps = @"Walk 10,000 steps at least 3 times pe
 }
 
 
-- (void)stepViewControllerResultDidChange:(ORKStepViewController *)stepViewController {
+- (void)stepViewControllerResultDidChange:(ORKStepViewController *) __unused stepViewController {
     NSLog(@"TaskVC didChangeResult");
     
     if (![self.currentStepViewController.step.identifier isEqualToString:kExerciseSurveyStep108]) {

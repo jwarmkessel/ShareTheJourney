@@ -98,7 +98,7 @@ static NSString * const kAPCRightDetailTableViewCellIdentifier = @"APCRightDetai
     
     BOOL hasNoCustomQuestionItem = NO;
     
-    for (int i = 0; i < self.rowItemsOrder.count; i++)
+    for (NSUInteger i = 0; i < self.rowItemsOrder.count; i++)
     {
         if ([self.rowItemsOrder[i]  isEqual: @(kAPHDashboardItemTypeDailyCustom)]) {
             hasNoCustomQuestionItem = YES;
@@ -128,57 +128,69 @@ static NSString * const kAPCRightDetailTableViewCellIdentifier = @"APCRightDetai
 
 #pragma mark - Data
 
-- (void)updateVisibleRowsInTableView:(NSNotification *)notification
+- (void)updateVisibleRowsInTableView:(NSNotification *) __unused notification
 {
     [self prepareData];
 }
 
 - (void)prepareScoringObjects {
     
-        HKQuantityType *stepQuantityType = [HKQuantityType quantityTypeForIdentifier:HKQuantityTypeIdentifierStepCount];
-        self.stepScoring= [[APCScoring alloc] initWithHealthKitQuantityType:stepQuantityType unit:[HKUnit countUnit] numberOfDays:-5];
+    HKQuantityType *stepQuantityType = [HKQuantityType quantityTypeForIdentifier:HKQuantityTypeIdentifierStepCount];
+    self.stepScoring= [[APCScoring alloc] initWithHealthKitQuantityType:stepQuantityType unit:[HKUnit countUnit] numberOfDays:-kNumberOfDaysToDisplay];
 
-        self.moodScoring = [[APCScoring alloc] initWithTask:@"APHMoodSurvey-7259AC18-D711-47A6-ADBD-6CFCECDED1DF"
-                                                numberOfDays:-kNumberOfDaysToDisplay
-                                                    valueKey:@"moodsurvey103"
-                                                    dataKey:nil
-                                                    sortKey:nil
-                                                 groupBy:APHTimelineGroupDay];
+    self.moodScoring = [[APCScoring alloc] initWithTask:@"APHMoodSurvey-7259AC18-D711-47A6-ADBD-6CFCECDED1DF"
+                                            numberOfDays:-kNumberOfDaysToDisplay
+                                                valueKey:@"moodsurvey103"
+                                                dataKey:nil
+                                                sortKey:nil
+                                             groupBy:APHTimelineGroupDay];
+    self.moodScoring.customMinimumPoint = 1.0;
+    self.moodScoring.customMaximumPoint = 5.0;
     
-        self.energyScoring = [[APCScoring alloc] initWithTask:@"APHMoodSurvey-7259AC18-D711-47A6-ADBD-6CFCECDED1DF"
+    self.energyScoring = [[APCScoring alloc] initWithTask:@"APHMoodSurvey-7259AC18-D711-47A6-ADBD-6CFCECDED1DF"
                                                   numberOfDays:-kNumberOfDaysToDisplay
                                                       valueKey:@"moodsurvey104"
                                                       dataKey:nil
                                                       sortKey:nil
                                                    groupBy:APHTimelineGroupDay];
+    self.energyScoring.customMinimumPoint = 1.0;
+    self.energyScoring.customMaximumPoint = 5.0;
     
-        self.exerciseScoring = [[APCScoring alloc] initWithTask:@"APHMoodSurvey-7259AC18-D711-47A6-ADBD-6CFCECDED1DF"
+    self.exerciseScoring = [[APCScoring alloc] initWithTask:@"APHMoodSurvey-7259AC18-D711-47A6-ADBD-6CFCECDED1DF"
                                                   numberOfDays:-kNumberOfDaysToDisplay
                                                       valueKey:@"moodsurvey106"
                                                         dataKey:nil
                                                         sortKey:nil
                                                      groupBy:APHTimelineGroupDay];
+    self.exerciseScoring.customMinimumPoint = 1.0;
+    self.exerciseScoring.customMaximumPoint = 5.0;
     
-        self.sleepScoring = [[APCScoring alloc] initWithTask:@"APHMoodSurvey-7259AC18-D711-47A6-ADBD-6CFCECDED1DF"
+    self.sleepScoring = [[APCScoring alloc] initWithTask:@"APHMoodSurvey-7259AC18-D711-47A6-ADBD-6CFCECDED1DF"
                                                   numberOfDays:-kNumberOfDaysToDisplay
                                                       valueKey:@"moodsurvey105"
                                                      dataKey:nil
                                                      sortKey:nil
                                                   groupBy:APHTimelineGroupDay];
+    self.sleepScoring.customMinimumPoint = 1.0;
+    self.sleepScoring.customMaximumPoint = 5.0;
     
-        self.cognitiveScoring = [[APCScoring alloc] initWithTask:@"APHMoodSurvey-7259AC18-D711-47A6-ADBD-6CFCECDED1DF"
+    self.cognitiveScoring = [[APCScoring alloc] initWithTask:@"APHMoodSurvey-7259AC18-D711-47A6-ADBD-6CFCECDED1DF"
                                                   numberOfDays:-kNumberOfDaysToDisplay
                                                       valueKey:@"moodsurvey102"
                                                          dataKey:nil
                                                          sortKey:nil
                                                       groupBy:APHTimelineGroupDay];
+    self.cognitiveScoring.customMinimumPoint = 1.0;
+    self.cognitiveScoring.customMaximumPoint = 5.0;
     
-        self.customScoring = [[APCScoring alloc] initWithTask:@"APHMoodSurvey-7259AC18-D711-47A6-ADBD-6CFCECDED1DF"
+    self.customScoring = [[APCScoring alloc] initWithTask:@"APHMoodSurvey-7259AC18-D711-47A6-ADBD-6CFCECDED1DF"
                                                     numberOfDays:-kNumberOfDaysToDisplay
                                                         valueKey:@"moodsurvey107"
                                                          dataKey:nil
                                                          sortKey:nil
                                                          groupBy:APHTimelineGroupDay];
+    self.customScoring.customMinimumPoint = 1.0;
+    self.customScoring.customMaximumPoint = 5.0;
 }
 
 - (void)prepareData
@@ -198,8 +210,7 @@ static NSString * const kAPCRightDetailTableViewCellIdentifier = @"APCRightDetai
             item.progress = (CGFloat)completedScheduledTasks/allScheduledTasks;
             item.caption = NSLocalizedString(@"Activity Completion", @"Activity Completion");
             
-#warning Replace Placeholder Values - APPLE-1576
-            item.info = NSLocalizedString(@"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.", @"");
+            item.info = NSLocalizedString(@"The activity completion indicates the percentage of activities scheduled for today that you have completed.  You can complete more by going to the Activities section and tapping on any incomplete task.", @"");
             
             APCTableViewRow *row = [APCTableViewRow new];
             row.item = item;
@@ -223,7 +234,6 @@ static NSString * const kAPCRightDetailTableViewCellIdentifier = @"APCRightDetai
                     item.editable = YES;
                     item.tintColor = [UIColor appTertiaryPurpleColor];
                     
-                    #warning Replace Placeholder Values - APPLE-1576
                     item.info = NSLocalizedString(@"This graph shows the number of steps that you took each day measured by your phone or fitness tracker (if you have one).", @"");
                     
                     APCTableViewRow *row = [APCTableViewRow new];
@@ -246,8 +256,7 @@ static NSString * const kAPCRightDetailTableViewCellIdentifier = @"APCRightDetai
                     item.minimumImage = [UIImage imageNamed:@"Breast-Cancer-Mood-5g"];
                     item.maximumImage = [UIImage imageNamed:@"Breast-Cancer-Mood-1g"];
                     item.averageImage = [UIImage imageNamed:[NSString stringWithFormat:@"Breast-Cancer-Mood-%0.0fg", 6 - [[self.moodScoring averageDataPoint] doubleValue]]];
-                                         
-                    #warning Replace Placeholder Values - APPLE-1576
+                    
                     item.info = NSLocalizedString(@"This graph shows your answers to the daily check-in questions for mood each day. ", @"");
                     
                     APCTableViewRow *row = [APCTableViewRow new];
@@ -271,7 +280,6 @@ static NSString * const kAPCRightDetailTableViewCellIdentifier = @"APCRightDetai
                     item.maximumImage = [UIImage imageNamed:@"Breast-Cancer-Energy-1g"];
                     item.averageImage = [UIImage imageNamed:[NSString stringWithFormat:@"Breast-Cancer-Energy-%0.0fg", 6 - [[self.moodScoring averageDataPoint] doubleValue]]];
                     
-                    #warning Replace Placeholder Values - APPLE-1576
                     item.info = NSLocalizedString(@"This graph shows your answers to the daily check-in questions for energy each day.", @"");
                     
                     APCTableViewRow *row = [APCTableViewRow new];
@@ -295,7 +303,6 @@ static NSString * const kAPCRightDetailTableViewCellIdentifier = @"APCRightDetai
                     item.maximumImage = [UIImage imageNamed:@"Breast-Cancer-Exercise-1g"];
                     item.averageImage = [UIImage imageNamed:[NSString stringWithFormat:@"Breast-Cancer-Exercise-%0.0fg", 6 - [[self.moodScoring averageDataPoint] doubleValue]]];
                     
-                    #warning Replace Placeholder Values - APPLE-1576
                     item.info = NSLocalizedString(@"This graph shows your answers to the daily check-in questions for exercise each day.", @"");
                     
                     APCTableViewRow *row = [APCTableViewRow new];
@@ -315,11 +322,10 @@ static NSString * const kAPCRightDetailTableViewCellIdentifier = @"APCRightDetai
                     item.editable = YES;
                     item.tintColor = [UIColor appTertiaryPurpleColor];
                     
-                    item.minimumImage = [UIImage imageNamed:@"Breast-Cancer-Sleep-1g"];
-                    item.maximumImage = [UIImage imageNamed:@"Breast-Cancer-Sleep-5g"];
+                    item.minimumImage = [UIImage imageNamed:@"Breast-Cancer-Sleep-5g"];
+                    item.maximumImage = [UIImage imageNamed:@"Breast-Cancer-Sleep-1g"];
                     item.averageImage = [UIImage imageNamed:[NSString stringWithFormat:@"Breast-Cancer-Sleep-%0.0fg", [[self.moodScoring averageDataPoint] doubleValue]]];
                     
-                    #warning Replace Placeholder Values - APPLE-1576
                     item.info = NSLocalizedString(@"This graph shows your answers to the daily check-in questions for sleep each day.", @"");
                     
                     APCTableViewRow *row = [APCTableViewRow new];
@@ -343,7 +349,6 @@ static NSString * const kAPCRightDetailTableViewCellIdentifier = @"APCRightDetai
                     item.maximumImage = [UIImage imageNamed:@"Breast-Cancer-Clarity-1g"];
                     item.averageImage = [UIImage imageNamed:[NSString stringWithFormat:@"Breast-Cancer-Clarity-%0.0fg", 6 - [[self.moodScoring averageDataPoint] doubleValue]]];
                     
-                    #warning Replace Placeholder Values - APPLE-1576
                     item.info = NSLocalizedString(@"This graph shows your answers to the daily check-in questions for your thinking each day.", @"");
                     
                     APCTableViewRow *row = [APCTableViewRow new];
@@ -368,7 +373,6 @@ static NSString * const kAPCRightDetailTableViewCellIdentifier = @"APCRightDetai
                     item.maximumImage = [UIImage imageNamed:@"Breast-Cancer-Custom-1g"];
                     item.averageImage = [UIImage imageNamed:[NSString stringWithFormat:@"Breast-Cancer-Custom-%0.0fg", 6 - [[self.moodScoring averageDataPoint] doubleValue]]];
                     
-#warning Replace Placeholder Values - APPLE-1576
                     item.info = NSLocalizedString(@"This graph shows your answers the to custom question that you created as part of your daily check-in questions.", @"");
                     
                     APCTableViewRow *row = [APCTableViewRow new];

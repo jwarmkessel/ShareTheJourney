@@ -81,7 +81,7 @@ static NSInteger const kNumberOfCompletionsUntilDisplayingCustomSurvey = 7;
 #pragma mark - Initialize
 /*********************************************************************************/
 
-+ (id<ORKTask>)createTask:(APCScheduledTask *)scheduledTask
++ (id<ORKTask>)createTask:(APCScheduledTask *) __unused scheduledTask
 {
     APHDynamicMoodSurveyTask *task = [[APHDynamicMoodSurveyTask alloc] init];
     
@@ -93,7 +93,7 @@ static NSInteger const kNumberOfCompletionsUntilDisplayingCustomSurvey = 7;
 /*********************************************************************************/
 
 
-- (ORKStepViewController *)taskViewController:(ORKTaskViewController *)taskViewController viewControllerForStep:(ORKStep *)step {
+- (ORKStepViewController *)taskViewController:(ORKTaskViewController *) __unused taskViewController viewControllerForStep:(ORKStep *)step {
     
     NSDictionary  *controllers = @{
                                    kMoodSurveyStep101 : [APHHeartAgeIntroStepViewController class],
@@ -120,14 +120,14 @@ static NSInteger const kNumberOfCompletionsUntilDisplayingCustomSurvey = 7;
 {
     [super taskViewController:taskViewController didFinishWithResult:result error:error];
 
-    //Here we are keeping a count of the daily scales being completed. We are keeping track only up to 7.
+    //Here we are keeping a count of the DAILY CHECK-IN being completed. We are keeping track only up to 7.
     APCAppDelegate * delegate = (APCAppDelegate*)[UIApplication sharedApplication].delegate;
     if (delegate.dataSubstrate.currentUser.dailyScalesCompletionCounter < kNumberOfCompletionsUntilDisplayingCustomSurvey) {
         delegate.dataSubstrate.currentUser.dailyScalesCompletionCounter++;
     }
 }
 
-- (BOOL)taskViewController:(ORKTaskViewController *)taskViewController hasLearnMoreForStep:(ORKStep *)step {
+- (BOOL)taskViewController:(ORKTaskViewController *) __unused taskViewController hasLearnMoreForStep:(ORKStep *)step {
     
     BOOL hasLearnMore = NO;
     
@@ -138,7 +138,7 @@ static NSInteger const kNumberOfCompletionsUntilDisplayingCustomSurvey = 7;
     return hasLearnMore;
 }
 
-- (void)taskViewController:(ORKTaskViewController *)taskViewController learnMoreForStep:(ORKStepViewController *)stepViewController {
+- (void)taskViewController:(ORKTaskViewController *) __unused taskViewController learnMoreForStep:(ORKStepViewController *)stepViewController {
     
     //[stepViewController.view setUserInteractionEnabled:NO];
     
@@ -262,10 +262,10 @@ static NSInteger const kNumberOfCompletionsUntilDisplayingCustomSurvey = 7;
     
 }
 
-- (void)removeLearnMore:(id)sender {
+- (void)removeLearnMore:(id) __unused sender {
     [UIView animateWithDuration:0.2 animations:^{
         self.customSurveylearnMoreView.alpha = 0;
-    } completion:^(BOOL finished) {
+    } completion:^(BOOL __unused finished) {
         [self.customSurveylearnMoreView removeFromSuperview];
     }];
 }

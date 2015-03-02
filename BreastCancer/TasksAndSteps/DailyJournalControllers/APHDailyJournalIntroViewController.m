@@ -17,14 +17,14 @@
 
 #pragma  mark  -  Button Action Methods
 
-- (IBAction)getStartedWasTapped:(id)sender
+- (IBAction)getStartedWasTapped:(id) __unused sender
 {
     if ([self.delegate respondsToSelector:@selector(stepViewController:didFinishWithNavigationDirection:)] == YES) {
         [self.delegate stepViewController:self didFinishWithNavigationDirection:ORKStepViewControllerNavigationDirectionForward];
     }
 }
 
-- (void)cancelButtonTapped:(id)sender
+- (void)cancelButtonTapped:(id) __unused sender
 {
 //    if ([self.delegate respondsToSelector:@selector(stepViewControllerDidCancel:)] == YES) {
 //        [self.delegate stepViewControllerDidCancel:self];

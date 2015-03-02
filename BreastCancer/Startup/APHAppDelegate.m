@@ -12,9 +12,10 @@
 /*********************************************************************************/
 #pragma mark - Initializations Options
 /*********************************************************************************/
-static NSString *const kStudyIdentifier = @"BreastCancer";
-static NSString *const kAppPrefix       = @"breastcancer";
-static NSString *const kVideoShownKey = @"VideoShown";
+static NSString* const  kStudyIdentifier            = @"BreastCancer";
+static NSString* const  kAppPrefix                  = @"breastcancer";
+static NSString* const  kVideoShownKey              = @"VideoShown";
+static NSString* const  kConsentPropertiesFileName  = @"APHConsentSection";
 
 // Uncomment this when you uncomment the code in
 // -setUpCollectors, below.
@@ -31,6 +32,8 @@ static NSString *const kVideoShownKey = @"VideoShown";
 
 - (void) setUpInitializationOptions
 {
+    [APCUtilities setRealApplicationName: @"Share the Journey"];
+    
     NSDictionary *permissionsDescriptions = @{
                                               @(kSignUpPermissionsTypeLocation) : NSLocalizedString(@"Using your GPS enables the app to accurately determine distances travelled. Your actual location will never be shared.", @""),
                                               @(kSignUpPermissionsTypeCoremotion) : NSLocalizedString(@"Using the motion co-processor allows the app to determine your activity, helping the study better understand how activity level may influence disease.", @""),
@@ -43,7 +46,7 @@ static NSString *const kVideoShownKey = @"VideoShown";
     [dictionary addEntriesFromDictionary:@{
                                            kStudyIdentifierKey                  : kStudyIdentifier,
                                            kAppPrefixKey                        : kAppPrefix,
-                                           kBridgeEnvironmentKey                : @(SBBEnvironmentStaging),
+                                           kBridgeEnvironmentKey                : @(SBBEnvironmentProd),
                                            kHKReadPermissionsKey                : @[
                                                    HKQuantityTypeIdentifierBodyMass,
                                                    HKQuantityTypeIdentifierHeight,
@@ -82,8 +85,14 @@ static NSString *const kVideoShownKey = @"VideoShown";
 - (void) setUpAppAppearance
 {
     [APCAppearanceInfo setAppearanceDictionary:@{
-                                                 kPrimaryAppColorKey : [UIColor colorWithRed:0.937 green:0.004 blue:0.553 alpha:1.000]
-                                                 }];
+                                                 kPrimaryAppColorKey : [UIColor colorWithRed:0.937 green:0.004 blue:0.553 alpha:1.000],
+                                                 @"APHMoodSurvey-7259AC18-D711-47A6-ADBD-6CFCECDED1DF": [UIColor colorWithRed:0.937 green:0.004 blue:0.553 alpha:1.000],
+                                                 @"APHMoodSurvey-7259AC18-D711-47A6-ADBD-6CFCECDED1DF": [UIColor lightGrayColor],
+                                                 @"Feedback-394848ce-ca4f-4abe-b97e-fedbfd7ffb8e" : [UIColor lightGrayColor],
+                                                 @"MyThoughts-14ffde40-1551-4b48-aae2-8fef38d61b61" : [UIColor colorWithRed:0.937 green:0.004 blue:0.553 alpha:1.000],
+                                                 @"APHDailyJournal-80F09109-265A-49C6-9C5D-765E49AAF5D9" : [UIColor colorWithRed:0.937 green:0.004 blue:0.553 alpha:1.000],
+                                                 @"APHExerciseSurvey-7259AC18-D711-47A6-ADBD-6CFCECDED1DF" : [UIColor colorWithRed:0.937 green:0.004 blue:0.553 alpha:1.000],
+                                                 @"APHMoodSurvey-7259AC18-D711-47A6-ADBD-6CFCECDED1DF" : [UIColor colorWithRed:0.937 green:0.004 blue:0.553 alpha:1.000],                                                 }];
     [[UINavigationBar appearance] setTintColor:[UIColor appPrimaryColor]];
     [[UINavigationBar appearance] setTitleTextAttributes: @{
                                                             NSForegroundColorAttributeName : [UIColor appSecondaryColor2],
@@ -110,6 +119,23 @@ static NSString *const kVideoShownKey = @"VideoShown";
     return [[NSUserDefaults standardUserDefaults] boolForKey:kVideoShownKey];
 }
 
+- (NSArray *)offsetForTaskSchedules
+{
+    return @[
+             @{
+                 kScheduleOffsetTaskIdKey: @"APHDailyJournal-80F09109-265A-49C6-9C5D-765E49AAF5D9",
+                 kScheduleOffsetOffsetKey: @(7)
+                 },
+             /*
+             @{
+                 kScheduleOffsetTaskIdKey: @"Task ID for BCS weekly Survey",
+                 kScheduleOffsetOffsetKey: @(7)
+                 }
+              */
+             ];
+}
+
+
 /*********************************************************************************/
 #pragma mark - Datasubstrate Delegate Methods
 /*********************************************************************************/
@@ -135,7 +161,7 @@ static NSString *const kVideoShownKey = @"VideoShown";
 #pragma mark - APCOnboardingDelegate Methods
 /*********************************************************************************/
 
-- (APCScene *)inclusionCriteriaSceneForOnboarding:(APCOnboarding *)onboarding
+- (APCScene *)inclusionCriteriaSceneForOnboarding:(APCOnboarding *) __unused onboarding
 {
     APCScene *scene = [APCScene new];
     scene.name = @"APHInclusionCriteriaViewController";
@@ -149,84 +175,13 @@ static NSString *const kVideoShownKey = @"VideoShown";
 #pragma mark - Consent
 /*********************************************************************************/
 
-- (NSArray*)quizSteps
-{
-    ORKInstructionStep* instruction = [[ORKInstructionStep alloc] initWithIdentifier:@"instruction"];
-    instruction.title = @"Let's Test YOur Understanding";
-    instruction.text = @"We'll now ask you 5 simple questions about the study information you just read.\nPress Next when you're ready to start.";
-
-    ORKTextChoiceAnswerFormat*  purposeChoice   = [[ORKTextChoiceAnswerFormat alloc] initWithStyle:ORKChoiceAnswerStyleSingleChoice
-                                                                                       textChoices:@[NSLocalizedString(@"Understand the symptoms of Breast Cancer recovery", nil),
-                                                                                                     NSLocalizedString(@"Treat Breast Cancer", nil)]];
-    ORKQuestionStep*    question1 = [ORKQuestionStep questionStepWithIdentifier:@"purpose"
-                                                                          title:NSLocalizedString(@"What is the purpose of this study?", nil)
-                                                                         answer:purposeChoice];
-    ORKQuestionStep*    question2 = [ORKQuestionStep questionStepWithIdentifier:@"deidentified"
-                                                                          title:NSLocalizedString(@"My name will be stored with my study data", nil)
-                                                                         answer:[ORKBooleanAnswerFormat new]];
-    ORKQuestionStep*    question3 = [ORKQuestionStep questionStepWithIdentifier:@"access"
-                                                                          title:NSLocalizedString(@"Many researchers will be able to access my study data", nil)
-                                                                         answer:[ORKBooleanAnswerFormat new]];
-    ORKQuestionStep*    question4 = [ORKQuestionStep questionStepWithIdentifier:@"skipSurvey"
-                                                                          title:NSLocalizedString(@"I will be able to skip any survey question", nil)
-                                                                         answer:[ORKBooleanAnswerFormat new]];
-    
-    ORKQuestionStep*    question5 = [ORKQuestionStep questionStepWithIdentifier:@"stopParticipating"
-                                                                          title:NSLocalizedString(@"I will be able to stop participating at any time", nil)
-                                                                         answer:[ORKBooleanAnswerFormat new]];
-    
-    question1.optional = NO;
-    question2.optional = NO;
-    question3.optional = NO;
-    question4.optional = NO;
-    question5.optional = NO;
-    
-    return @[instruction, question1, question2, question3, question4, question5];
-}
-
-- (id<ORKTask>)makeConsent
-{
-    NSString*               docHtml   = nil;
-    NSArray*                sections  = [super consentSectionsAndHtmlContent:&docHtml];
-    ORKConsentDocument*     consent   = [[ORKConsentDocument alloc] init];
-    ORKConsentSignature*    signature = [ORKConsentSignature signatureForPersonWithTitle:NSLocalizedString(@"Participant", nil)
-                                                                        dateFormatString:nil
-                                                                              identifier:@"participant"];
-
-    consent.title                = NSLocalizedString(@"Consent", nil);
-    consent.signaturePageTitle   = NSLocalizedString(@"Consent", nil);
-    consent.signaturePageContent = NSLocalizedString(@"I agree to participate in this research Study.", nil);
-    consent.sections             = sections;
-    consent.htmlReviewContent    = docHtml;
-    
-    [consent addSignature:signature];
-    
-    
-    ORKVisualConsentStep*   step         = [[ORKVisualConsentStep alloc] initWithIdentifier:@"visual" document:consent];
-    ORKConsentReviewStep*   reviewStep   = nil;
-    NSMutableArray*         consentSteps = [NSMutableArray arrayWithObject:step];
-    
-    [consentSteps addObjectsFromArray:[self quizSteps]];
-    
-#warning Reconsider if the the `signedIn` feature for consent is needed.
-    if (!self.dataSubstrate.currentUser.isSignedIn)
-    {
-        reviewStep                  = [[ORKConsentReviewStep alloc] initWithIdentifier:@"reviewStep" signature:signature inDocument:consent];
-        reviewStep.reasonForConsent = NSLocalizedString(@"By agreeing you confirm that you read the information and that you wish to take part in this research study.", nil);
-        
-        [consentSteps addObject:reviewStep];
-    }
-    
-    ORKOrderedTask* task = [[ORKOrderedTask alloc] initWithIdentifier:@"consent" steps:consentSteps];
-    
-    return task;
-}
 
 - (ORKTaskViewController *)consentViewController
 {
-    id<ORKTask> task = [self makeConsent];
-    
-    ORKTaskViewController*  consentVC = [[ORKTaskViewController alloc] initWithTask:task taskRunUUID:[NSUUID UUID]];
+    APCConsentTask*         task = [[APCConsentTask alloc] initWithIdentifier:@"Consent"
+                                                           propertiesFileName:kConsentPropertiesFileName];
+    ORKTaskViewController*  consentVC = [[ORKTaskViewController alloc] initWithTask:task
+                                                                       taskRunUUID:[NSUUID UUID]];
     
     return consentVC;
 }

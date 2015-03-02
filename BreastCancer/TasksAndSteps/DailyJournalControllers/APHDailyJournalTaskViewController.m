@@ -51,7 +51,7 @@ static NSString *kMoodLogNoteText = @"APHMoodLogNoteText";
 #pragma  mark  -  Task Creation Methods
 /*********************************************************************************/
 
-+ (ORKOrderedTask *)createTask:(APCScheduledTask *)scheduledTask
++ (ORKOrderedTask *)createTask:(APCScheduledTask *) __unused scheduledTask
 {
     NSMutableArray *steps = [[NSMutableArray alloc] init];
     
@@ -95,9 +95,10 @@ static NSString *kMoodLogNoteText = @"APHMoodLogNoteText";
 #pragma  mark  - TaskViewController delegates
 /*********************************************************************************/
 
-- (ORKStepViewController *)taskViewController:(ORKTaskViewController *)taskViewController viewControllerForStep:(ORKStep *)step {
+- (ORKStepViewController *)taskViewController:(ORKTaskViewController *) __unused taskViewController viewControllerForStep:(ORKStep *)step {
     
     self.showsProgressInNavigationBar = NO;
+    
     
     NSDictionary  *controllers = @{
                                    kDailyJournalStep101 : [APHContentsViewController class],
@@ -123,6 +124,7 @@ static NSString *kMoodLogNoteText = @"APHMoodLogNoteText";
 
 - (void)taskViewController:(ORKTaskViewController *)taskViewController stepViewControllerWillAppear:(ORKStepViewController *)stepViewController {
     
+    stepViewController.navigationController.navigationBar.topItem.title = @"Daily Journal";
 
     if (kDailyJournalStep101 == stepViewController.step.identifier) {
         
@@ -150,11 +152,11 @@ static NSString *kMoodLogNoteText = @"APHMoodLogNoteText";
         self.contentDictionary = stepResultJson;
 
     } else if (kDailyJournalStep104 == stepViewController.step.identifier) {
-        
+        stepViewController.navigationController.navigationBar.topItem.title = @"Activity Complete";
     }
 }
 
-- (void)taskViewController:(ORKTaskViewController *)taskViewController didChangeResult:(ORKTaskResult *)result {
+- (void)taskViewController:(ORKTaskViewController *)taskViewController didChangeResult:(ORKTaskResult *) __unused result {
     NSLog(@"TaskVC didChangeResult");
     
     if([self.currentStepViewController.step.identifier isEqualToString:kDailyJournalStep102]) {

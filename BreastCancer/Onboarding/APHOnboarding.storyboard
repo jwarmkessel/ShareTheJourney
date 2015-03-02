@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6246"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -33,12 +33,12 @@
                                                         <constraint firstAttribute="height" constant="1" id="cWS-1K-fst"/>
                                                     </constraints>
                                                 </view>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Are you over 18 and under 80 years old?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a7G-y6-FrM">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Are you over 18 and under 80 years old?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.80000000000000004" translatesAutoresizingMaskIntoConstraints="NO" id="a7G-y6-FrM">
                                                     <rect key="frame" x="15" y="8" width="290" height="50"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="50" id="8E6-xk-7Ca"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="19"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -111,12 +111,12 @@
                                                         <constraint firstAttribute="height" constant="1" id="Z8x-W1-7kV"/>
                                                     </constraints>
                                                 </view>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Are you a woman?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ahm-G8-sif">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Are you a woman?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.80000000000000004" translatesAutoresizingMaskIntoConstraints="NO" id="Ahm-G8-sif">
                                                     <rect key="frame" x="15" y="8" width="290" height="50"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="50" id="L5n-WO-4Fq"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="19"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -177,6 +177,84 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="225" id="K0W-DG-uhq">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="K0W-DG-uhq" id="U4W-p6-eab">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nW9-78-X2F">
+                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="1"/>
+                                                    <color key="backgroundColor" red="0.90980392160000001" green="0.90980392160000001" blue="0.90980392160000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="1" id="97q-6m-hUt"/>
+                                                    </constraints>
+                                                </view>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Do you live in the United States of America?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.80000000000000004" translatesAutoresizingMaskIntoConstraints="NO" id="CfY-dt-HcG">
+                                                    <rect key="frame" x="15" y="8" width="290" height="50"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="50" id="o1K-J6-gf0"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="19"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XRa-4E-8pc">
+                                                    <rect key="frame" x="160" y="68" width="1" height="130"/>
+                                                    <color key="backgroundColor" white="0.80000000000000004" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="1" id="wsf-2d-cjb"/>
+                                                        <constraint firstAttribute="height" constant="130" id="yiG-o8-Qge"/>
+                                                    </constraints>
+                                                </view>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yuF-Or-7Nn">
+                                                    <rect key="frame" x="15" y="68" width="132" height="123"/>
+                                                    <state key="normal" title="Yes"/>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ikQ-Tr-Abg">
+                                                    <rect key="frame" x="175" y="68" width="130" height="123"/>
+                                                    <state key="normal" title="No"/>
+                                                </button>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="H8p-bh-sBM">
+                                                    <rect key="frame" x="0.0" y="214" width="320" height="1"/>
+                                                    <color key="backgroundColor" red="0.90980392160000001" green="0.90980392160000001" blue="0.90980392160000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="1" id="IGV-IW-0hL"/>
+                                                    </constraints>
+                                                </view>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zuw-Op-6y6">
+                                                    <rect key="frame" x="0.0" y="215" width="320" height="10"/>
+                                                    <color key="backgroundColor" red="0.97254901959999995" green="0.97254901959999995" blue="0.97254901959999995" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="10" id="VdL-1e-lH6"/>
+                                                    </constraints>
+                                                </view>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="CfY-dt-HcG" firstAttribute="top" secondItem="U4W-p6-eab" secondAttribute="topMargin" id="0qb-K4-OXU"/>
+                                                <constraint firstAttribute="centerX" secondItem="XRa-4E-8pc" secondAttribute="centerX" constant="-0.5" id="33x-yd-Zos"/>
+                                                <constraint firstItem="XRa-4E-8pc" firstAttribute="top" secondItem="CfY-dt-HcG" secondAttribute="bottom" constant="10" id="3BG-gk-GAF"/>
+                                                <constraint firstItem="XRa-4E-8pc" firstAttribute="leading" secondItem="yuF-Or-7Nn" secondAttribute="trailing" constant="13" id="3Vu-9s-hF7"/>
+                                                <constraint firstItem="yuF-Or-7Nn" firstAttribute="top" secondItem="CfY-dt-HcG" secondAttribute="bottom" constant="10" id="ATx-ah-Vdv"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="H8p-bh-sBM" secondAttribute="bottom" constant="2" id="B2O-uy-vdN"/>
+                                                <constraint firstItem="ikQ-Tr-Abg" firstAttribute="leading" secondItem="XRa-4E-8pc" secondAttribute="trailing" constant="14" id="D2d-gw-SP6"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="yuF-Or-7Nn" secondAttribute="bottom" constant="26" id="M7b-kF-H6C"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="zuw-Op-6y6" secondAttribute="trailing" constant="-8" id="R3Q-KS-8Oy"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="ikQ-Tr-Abg" secondAttribute="bottom" constant="26" id="Xsy-r6-YkE"/>
+                                                <constraint firstItem="yuF-Or-7Nn" firstAttribute="leading" secondItem="U4W-p6-eab" secondAttribute="leadingMargin" constant="7" id="YkE-5U-IZz"/>
+                                                <constraint firstItem="H8p-bh-sBM" firstAttribute="leading" secondItem="U4W-p6-eab" secondAttribute="leadingMargin" constant="-8" id="aHJ-jk-iTM"/>
+                                                <constraint firstItem="nW9-78-X2F" firstAttribute="top" secondItem="U4W-p6-eab" secondAttribute="topMargin" constant="-8" id="b8R-Mo-Mp9"/>
+                                                <constraint firstItem="CfY-dt-HcG" firstAttribute="leading" secondItem="U4W-p6-eab" secondAttribute="leadingMargin" constant="7" id="cVH-rt-Pjp"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="zuw-Op-6y6" secondAttribute="bottom" constant="-8" id="gKx-wr-wmu"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="H8p-bh-sBM" secondAttribute="trailing" constant="-8" id="gRe-3K-8Dl"/>
+                                                <constraint firstItem="ikQ-Tr-Abg" firstAttribute="top" secondItem="CfY-dt-HcG" secondAttribute="bottom" constant="10" id="oh7-1b-HzC"/>
+                                                <constraint firstItem="zuw-Op-6y6" firstAttribute="leading" secondItem="U4W-p6-eab" secondAttribute="leadingMargin" constant="-8" id="qdY-gU-TpF"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="ikQ-Tr-Abg" secondAttribute="trailing" constant="7" id="rTR-LE-aRt"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="CfY-dt-HcG" secondAttribute="trailing" constant="7" id="t2U-lw-qns"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="nW9-78-X2F" secondAttribute="trailing" constant="-8" id="tci-PD-505"/>
+                                                <constraint firstItem="nW9-78-X2F" firstAttribute="leading" secondItem="U4W-p6-eab" secondAttribute="leadingMargin" constant="-8" id="yMx-yw-ZyN"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="225" id="IML-Gr-4gB">
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="IML-Gr-4gB" id="XVe-Yf-nP4">
@@ -189,12 +267,12 @@
                                                         <constraint firstAttribute="height" constant="1" id="4AB-3V-lDR"/>
                                                     </constraints>
                                                 </view>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="￼Are you comfortable reading and writing on your iPhone in English?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8x6-Dz-K21">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="￼Are you comfortable reading and writing on your iPhone in English?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.80000000000000004" translatesAutoresizingMaskIntoConstraints="NO" id="8x6-Dz-K21">
                                                     <rect key="frame" x="15" y="8" width="290" height="65"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="65" id="OUg-72-Co1"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="19"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -274,6 +352,9 @@
                         <outlet property="question3Label" destination="8x6-Dz-K21" id="Ps3-IY-g11"/>
                         <outlet property="question3Option1" destination="DaI-me-7nc" id="hvS-aF-3dF"/>
                         <outlet property="question3Option2" destination="62n-eY-m1r" id="3S8-Bl-QOK"/>
+                        <outlet property="question4Label" destination="CfY-dt-HcG" id="42h-aY-9Hw"/>
+                        <outlet property="question4Option1" destination="yuF-Or-7Nn" id="9Bb-tz-kSx"/>
+                        <outlet property="question4Option2" destination="ikQ-Tr-Abg" id="7uo-8F-1lt"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JBW-t1-r2O" userLabel="First Responder" sceneMemberID="firstResponder"/>

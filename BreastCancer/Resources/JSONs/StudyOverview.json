@@ -17,9 +17,9 @@
      },
      
      {
-     "title":"About this App",
-     "details":"consentvideo_intro",
-     
+     "title":"About the App",
+     "details":"Please tap on the image below to watch a short video introduction to Share the Journey.",
+     "video_name" : "Intro",
      },
      
      {
