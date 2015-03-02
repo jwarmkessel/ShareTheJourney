@@ -271,6 +271,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5A0F990F1AA425D100A2A7EB /* Surveys */ = {
+			isa = PBXGroup;
+			children = (
+				74D75D551A9ED66200078A73 /* BCS_feedback.json */,
+				74D75D581A9ED66E00078A73 /* BCS_mythoughts.json */,
+			);
+			name = Surveys;
+			sourceTree = "<group>";
+		};
 		5B1095BE1A9FA0B5006631F5 /* PDF */ = {
 			isa = PBXGroup;
 			children = (
@@ -548,8 +557,7 @@
 			isa = PBXGroup;
 			children = (
 				744174E51A923861004A7CC1 /* APHConsentSection.json */,
-				74D75D551A9ED66200078A73 /* BCS_feedback.json */,
-				74D75D581A9ED66E00078A73 /* BCS_mythoughts.json */,
+				5A0F990F1AA425D100A2A7EB /* Surveys */,
 				5B18CED91A2CFFD1001A905E /* TermsAndConditions.json */,
 				5B15DCF21A114F7000BEA0D1 /* Learn.json */,
 				5B15DCF31A114F7000BEA0D1 /* WithdrawStudy.json */,
