@@ -3,71 +3,82 @@
               {
               "taskTitle": "DAILY CHECK-IN",
               "taskID": "APHMoodSurvey-7259AC18-D711-47A6-ADBD-6CFCECDED1DF",
-              "taskClassName": "APHMoodSurveyTaskViewController"
+              "taskClassName": "APHMoodSurveyTaskViewController",
+              "taskCompletionTimeString" : "2 Minutes"
               },
               {
               "taskTitle": "Exercise Motivator",
               "taskID": "APHExerciseSurvey-7259AC18-D711-47A6-ADBD-6CFCECDED1DF",
-              "taskClassName": "APHExerciseSurveyTaskViewController"
+              "taskClassName": "APHExerciseSurveyTaskViewController",
+              "taskCompletionTimeString" : "2 Minutes"
               },
               {
               "taskTitle" : "My Journal",
               "taskID": "APHDailyJournal-80F09109-265A-49C6-9C5D-765E49AAF5D9",
-              "taskClassName" : "APHDailyJournalTaskViewController"
+              "taskClassName" : "APHDailyJournalTaskViewController",
               },
               {
               "taskTitle" : "My Thoughts",
               "taskID": "MyThoughts-14ffde40-1551-4b48-aae2-8fef38d61b61",
               "taskFileName" : "BCS_mythoughts",
-              "taskClassName" : "APCGenericSurveyTaskViewController"
+              "taskClassName" : "APCGenericSurveyTaskViewController",
+              "taskCompletionTimeString" : "2 Questions"
               },
               {
               "taskTitle" : "Study Feedback",
               "taskID": "Feedback-394848ce-ca4f-4abe-b97e-fedbfd7ffb8e",
               "taskFileName" : "BCS_feedback",
-              "taskClassName" : "APCGenericSurveyTaskViewController"
+              "taskClassName" : "APCGenericSurveyTaskViewController",
+              "taskCompletionTimeString" : "1.5 Minutes"
               },
               {
               "taskTitle" : "Background Survey",
               "taskID": "BackgroundSurvey-394848ce-ca4f-4abe-b97e-fedbfd7ffb8e",
               "taskFileName" : "BCSBackgroundSurvey",
-              "taskClassName" : "APCGenericSurveyTaskViewController"
+              "taskClassName" : "APCGenericSurveyTaskViewController",
+              "taskCompletionTimeString" : "24 Questions"
               },
               {
               "taskTitle" : "BCPT Symptoms Survey",
               "taskID": "BCPTSymptomsSurvey-394848ce-ca4f-4abe-b97e-fedbfd7ffb8e",
               "taskFileName" : "BCSBCPTSymptomsSurvey",
-              "taskClassName" : "APCGenericSurveyTaskViewController"
+              "taskClassName" : "APCGenericSurveyTaskViewController",
+              "taskCompletionTimeString" : "20 Questions"
               },
               {
               "taskTitle" : "PAOFI Survey",
               "taskID": "PAOFI-394848ce-ca4f-4abe-b97e-fedbfd7ffb8e",
               "taskFileName" : "BCSPAOFISurvey",
-              "taskClassName" : "APCGenericSurveyTaskViewController"
+              "taskClassName" : "APCGenericSurveyTaskViewController",
+              "taskCompletionTimeString" : "29 Questions"
               },
               {
               "taskTitle" : "PHQ8GAD7 Survey",
               "taskID": "PHQ8GAD7-394848ce-ca4f-4abe-b97e-fedbfd7ffb8e",
               "taskFileName" : "BCSPHQ8GAD7Survey",
-              "taskClassName" : "APCGenericSurveyTaskViewController"
+              "taskClassName" : "APCGenericSurveyTaskViewController",
+              "taskCompletionTimeString" : "15 Questions"
               },
               {
               "taskTitle" : "PSQI Survey",
               "taskID": "PSQI-394848ce-ca4f-4abe-b97e-fedbfd7ffb8e",
               "taskFileName" : "BCSPSQISurvey",
-              "taskClassName" : "APCGenericSurveyTaskViewController"
+              "taskClassName" : "APCGenericSurveyTaskViewController",
+              "taskCompletionTimeString" : "17 Questions"
               },
               {
               "taskTitle" : "SF36 Survey",
               "taskID": "SF36-394848ce-ca4f-4abe-b97e-fedbfd7ffb8e",
               "taskFileName" : "BCSSF36Survey",
-              "taskClassName" : "APCGenericSurveyTaskViewController"
+              "taskClassName" : "APCGenericSurveyTaskViewController",
+              "taskCompletionTimeString" : "36 Questions"
               },
               {
               "taskTitle" : "Weekly Survey",
               "taskID": "Weekly-394848ce-ca4f-4abe-b97e-fedbfd7ffb8e",
               "taskFileName" : "BCSWeeklySurvey",
-              "taskClassName" : "APCGenericSurveyTaskViewController"
+              "taskClassName" : "APCGenericSurveyTaskViewController",
+              "taskCompletionTimeString" : "28 Questions"
               }
               ],
     "schedules": [
