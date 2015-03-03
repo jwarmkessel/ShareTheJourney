@@ -229,7 +229,11 @@ static NSString * const kAPCRightDetailTableViewCellIdentifier = @"APCRightDetai
                     APCTableViewDashboardGraphItem *item = [APCTableViewDashboardGraphItem new];
                     item.caption = NSLocalizedString(@"Steps", @"");
                     item.graphData = self.stepScoring;
-                    item.detailText = [NSString stringWithFormat:NSLocalizedString(@"Average : %lu", @"Average: {value}"), [[self.stepScoring averageDataPoint] integerValue]];                    
+                    
+                    if ([[self.stepScoring averageDataPoint] doubleValue] > 0) {
+                        item.detailText = [NSString stringWithFormat:NSLocalizedString(@"Average : %lu", @"Average: {value}"), [[self.stepScoring averageDataPoint] integerValue]];
+                    }
+                    
                     item.identifier = kAPCDashboardGraphTableViewCellIdentifier;
                     item.editable = YES;
                     item.tintColor = [UIColor appTertiaryPurpleColor];
@@ -255,7 +259,7 @@ static NSString * const kAPCRightDetailTableViewCellIdentifier = @"APCRightDetai
                     item.minimumImage = [UIImage imageNamed:@"Breast-Cancer-Mood-5g"];
                     item.maximumImage = [UIImage imageNamed:@"Breast-Cancer-Mood-1g"];
                     
-                    if ([self.moodScoring averageDataPoint]>0) {
+                    if ([[self.moodScoring averageDataPoint] doubleValue] > 0) {
                         item.averageImage = [UIImage imageNamed:[NSString stringWithFormat:@"Breast-Cancer-Mood-%0.0fg", 6 - [[self.moodScoring averageDataPoint] doubleValue]]];
                         item.detailText = [NSString stringWithFormat: NSLocalizedString(@"Average : ", @"Average:")];
                     }
@@ -281,7 +285,7 @@ static NSString * const kAPCRightDetailTableViewCellIdentifier = @"APCRightDetai
                     item.minimumImage = [UIImage imageNamed:@"Breast-Cancer-Energy-5g"];
                     item.maximumImage = [UIImage imageNamed:@"Breast-Cancer-Energy-1g"];
                     
-                    if ([self.energyScoring averageDataPoint] > 0) {
+                    if ([[self.energyScoring averageDataPoint] doubleValue] > 0) {
                         item.averageImage = [UIImage imageNamed:[NSString stringWithFormat:@"Breast-Cancer-Energy-%0.0fg", 6 - [[self.energyScoring averageDataPoint] doubleValue]]];
                         item.detailText = [NSString stringWithFormat:NSLocalizedString(@"Average : ", @"")];
                     }
@@ -308,7 +312,7 @@ static NSString * const kAPCRightDetailTableViewCellIdentifier = @"APCRightDetai
                     item.minimumImage = [UIImage imageNamed:@"Breast-Cancer-Exercise-5g"];
                     item.maximumImage = [UIImage imageNamed:@"Breast-Cancer-Exercise-1g"];
                     
-                    if ([self.exerciseScoring averageDataPoint] > 0) {
+                    if ([[self.exerciseScoring averageDataPoint] doubleValue] > 0) {
                         item.averageImage = [UIImage imageNamed:[NSString stringWithFormat:@"Breast-Cancer-Exercise-%0.0fg", 6 - [[self.exerciseScoring averageDataPoint] doubleValue]]];
                         item.detailText = [NSString stringWithFormat:NSLocalizedString(@"Average : ", @"")];
                     }
@@ -335,7 +339,7 @@ static NSString * const kAPCRightDetailTableViewCellIdentifier = @"APCRightDetai
                     item.minimumImage = [UIImage imageNamed:@"Breast-Cancer-Sleep-5g"];
                     item.maximumImage = [UIImage imageNamed:@"Breast-Cancer-Sleep-1g"];
                     
-                    if ([self.sleepScoring averageDataPoint] > 0) {
+                    if ([[self.sleepScoring averageDataPoint] doubleValue] > 0) {
                         item.averageImage = [UIImage imageNamed:[NSString stringWithFormat:@"Breast-Cancer-Sleep-%0.0fg", [[self.sleepScoring averageDataPoint] doubleValue]]];
                         item.detailText = [NSString stringWithFormat:NSLocalizedString(@"Average : ", @"Average: ")];
                     }
@@ -361,7 +365,7 @@ static NSString * const kAPCRightDetailTableViewCellIdentifier = @"APCRightDetai
                     item.minimumImage = [UIImage imageNamed:@"Breast-Cancer-Clarity-5g"];
                     item.maximumImage = [UIImage imageNamed:@"Breast-Cancer-Clarity-1g"];
                     
-                    if ([self.cognitiveScoring averageDataPoint] > 0) {
+                    if ([[self.cognitiveScoring averageDataPoint] doubleValue] > 0) {
                         item.averageImage = [UIImage imageNamed:[NSString stringWithFormat:@"Breast-Cancer-Clarity-%0.0fg", 6 - [[self.cognitiveScoring averageDataPoint] doubleValue]]];
                         item.detailText = [NSString stringWithFormat:NSLocalizedString(@"Average : ", @"Average: ")];
                     }
@@ -389,7 +393,7 @@ static NSString * const kAPCRightDetailTableViewCellIdentifier = @"APCRightDetai
                     item.minimumImage = [UIImage imageNamed:@"Breast-Cancer-Custom-5g"];
                     item.maximumImage = [UIImage imageNamed:@"Breast-Cancer-Custom-1g"];
                     
-                    if ([self.customScoring averageDataPoint] > 0) {
+                    if ([[self.customScoring averageDataPoint] doubleValue] > 0) {
                         item.averageImage = [UIImage imageNamed:[NSString stringWithFormat:@"Breast-Cancer-Custom-%0.0fg", 6 - [[self.customScoring averageDataPoint] doubleValue]]];
                         item.detailText = [NSString stringWithFormat:NSLocalizedString(@"Average : ", @"Average: ")];
                     }
