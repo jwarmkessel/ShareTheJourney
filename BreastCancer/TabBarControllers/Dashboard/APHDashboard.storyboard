@@ -328,25 +328,35 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.97254901959999995" green="0.97254901959999995" blue="0.97254901959999995" alpha="1" colorSpace="calibratedRGB"/>
-                        <view key="tableHeaderView" contentMode="scaleToFill" id="NSx-ms-65A">
+                        <view key="tableHeaderView" contentMode="scaleToFill" id="76L-6P-lGD">
                             <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap and drag to rearrange your graphs" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fn5-mm-6tC">
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap and drag to rearrange your graphs" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IBZ-gm-Vgh">
                                     <rect key="frame" x="15" y="9" width="290" height="25"/>
                                     <constraints>
-                                        <constraint firstAttribute="height" constant="25" id="hHp-YF-zTg"/>
+                                        <constraint firstAttribute="height" constant="25" id="lAR-zx-li6"/>
                                     </constraints>
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="auL-jG-3Qj">
+                                    <rect key="frame" x="0.0" y="43" width="320" height="1"/>
+                                    <color key="backgroundColor" red="0.85098039219999999" green="0.85098039219999999" blue="0.85098039219999999" alpha="1" colorSpace="calibratedRGB"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="1" id="c8w-0k-aTR"/>
+                                    </constraints>
+                                </view>
                             </subviews>
-                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                            <color key="backgroundColor" red="0.97254901959999995" green="0.97254901959999995" blue="0.97254901959999995" alpha="1" colorSpace="calibratedRGB"/>
                             <constraints>
-                                <constraint firstAttribute="trailing" secondItem="Fn5-mm-6tC" secondAttribute="trailing" constant="15" id="FVK-gH-AdU"/>
-                                <constraint firstItem="Fn5-mm-6tC" firstAttribute="leading" secondItem="NSx-ms-65A" secondAttribute="leading" constant="15" id="GSh-1P-mFw"/>
-                                <constraint firstAttribute="centerY" secondItem="Fn5-mm-6tC" secondAttribute="centerY" constant="0.5" id="vGQ-v3-Gvj"/>
+                                <constraint firstAttribute="centerY" secondItem="IBZ-gm-Vgh" secondAttribute="centerY" constant="0.5" id="I65-jL-a5C"/>
+                                <constraint firstItem="IBZ-gm-Vgh" firstAttribute="leading" secondItem="76L-6P-lGD" secondAttribute="leading" constant="15" id="P9I-FC-93W"/>
+                                <constraint firstAttribute="trailing" secondItem="IBZ-gm-Vgh" secondAttribute="trailing" constant="15" id="SVd-cR-PCB"/>
+                                <constraint firstItem="auL-jG-3Qj" firstAttribute="leading" secondItem="76L-6P-lGD" secondAttribute="leading" id="aaX-jP-Xxa"/>
+                                <constraint firstAttribute="trailing" secondItem="auL-jG-3Qj" secondAttribute="trailing" id="lE1-sJ-hzO"/>
+                                <constraint firstAttribute="bottom" secondItem="auL-jG-3Qj" secondAttribute="bottom" id="rSs-09-i0x"/>
                             </constraints>
                         </view>
                         <prototypes>
@@ -388,7 +398,7 @@
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
-                        <outlet property="headerLabel" destination="Fn5-mm-6tC" id="Ry4-KM-l1p"/>
+                        <outlet property="headerLabel" destination="IBZ-gm-Vgh" id="tGR-iw-UOo"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="E0H-r6-qxN" userLabel="First Responder" sceneMemberID="firstResponder"/>
