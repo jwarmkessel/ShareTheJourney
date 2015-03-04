@@ -87,7 +87,7 @@
               "taskCompletionTimeString" : "28 Questions"
               },
               {
-              "taskTitle" : "Physical Activity Readiness",
+              "taskTitle" : "Exercise Readiness Survey",
               "taskID": "parqquiz-1E174061-5B02-11E4-8ED6-0800200C9A77",
               "taskClassName" : "APHParQQuizTaskViewController",
               "taskCompletionTimeString" : "10 Questions"
