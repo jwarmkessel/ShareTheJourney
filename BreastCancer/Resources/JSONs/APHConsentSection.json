@@ -22,8 +22,8 @@
                 "type": "singleChoiceText",
                 "textChoices":
                 [
-                 "Understand the symptoms of Breast Cancer recovery.",
-                 "Treat Breast Cancer"
+                 "Understand the symptoms of breast cancer recovery.",
+                 "Treat breast cancer"
                 ],
                 "expectedAnswer": "0"
             },

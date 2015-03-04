@@ -40,25 +40,25 @@
               "taskClassName" : "APCGenericSurveyTaskViewController"
               },
               {
-              "taskTitle" : "PAOFI Survey",
+              "taskTitle" : "Assessment of Functioning Survey",
               "taskID": "PAOFI-394848ce-ca4f-4abe-b97e-fedbfd7ffb8e",
               "taskFileName" : "BCSPAOFISurvey",
               "taskClassName" : "APCGenericSurveyTaskViewController"
               },
               {
-              "taskTitle" : "PHQ8GAD7 Survey",
+              "taskTitle" : "Personal Health Survey",
               "taskID": "PHQ8GAD7-394848ce-ca4f-4abe-b97e-fedbfd7ffb8e",
               "taskFileName" : "BCSPHQ8GAD7Survey",
               "taskClassName" : "APCGenericSurveyTaskViewController"
               },
               {
-              "taskTitle" : "PSQI Survey",
+              "taskTitle" : "Sleep Quality Survey",
               "taskID": "PSQI-394848ce-ca4f-4abe-b97e-fedbfd7ffb8e",
               "taskFileName" : "BCSPSQISurvey",
               "taskClassName" : "APCGenericSurveyTaskViewController"
               },
               {
-              "taskTitle" : "SF36 Survey",
+              "taskTitle" : "General Health Survey",
               "taskID": "SF36-394848ce-ca4f-4abe-b97e-fedbfd7ffb8e",
               "taskFileName" : "BCSSF36Survey",
               "taskClassName" : "APCGenericSurveyTaskViewController"
@@ -112,8 +112,10 @@
                   "taskID": "PAOFI-394848ce-ca4f-4abe-b97e-fedbfd7ffb8e"
                   },
                   {
+                  
+                  
                   "scheduleType": "recurring",
-                  "scheduleString": "0 5 * * *",
+                  "scheduleString": "0 5 ? * ? ?",
                   "taskID": "PHQ8GAD7-394848ce-ca4f-4abe-b97e-fedbfd7ffb8e"
                   },
                   {
