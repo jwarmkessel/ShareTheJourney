@@ -288,14 +288,10 @@ static  NSTimeInterval  kPassiveLocationDeferredUpdatesTimeout = 1.0 * 60.0;
 	 at the top of this file.
 	 */
 
-    self.dataSubstrate.passiveLocationTracking = [[APCPassiveLocationTracking alloc]
-                                                  initWithDeferredUpdatesTimeout:kPassiveLocationDeferredUpdatesTimeout
-                                                  andHomeLocationStatus:APCPassiveLocationTrackingHomeLocationUnavailable];
-
-    [self.dataSubstrate.passiveLocationTracking start];
-
-    return;
-
+    APCCoreLocationTracker * locationTracker = [[APCCoreLocationTracker alloc] initWithIdentifier: @"locationTracker"
+                                                                           deferredUpdatesTimeout: 60.0 * 60.0
+                                                                            andHomeLocationStatus: APCPassiveLocationTrackingHomeLocationUnavailable];
+    [self.passiveDataCollector addTracker: locationTracker];
 }
 
 /*********************************************************************************/
