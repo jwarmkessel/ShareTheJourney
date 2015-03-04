@@ -9,6 +9,9 @@
 
 @interface APHDisplayLogHistoryViewController ()
 
+@property (weak) UIViewController *previousViewController;
+@property (weak) NSString *previousViewControllerTitle;
+
 - (IBAction)doneButton:(id)sender;
 @end
 
@@ -24,9 +27,19 @@
     [formatter setTimeStyle: NSDateFormatterNoStyle];
     
     self.dateLabel.text = [formatter stringFromDate:self.logDate];
-    self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"bozo" style:UIBarButtonItemStylePlain target:self action:@selector(doneButton:)];
-    
+}
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    NSUInteger previousIndex = ([self.navigationController.viewControllers indexOfObject:self] - 1);
+    self.previousViewController = ((UIViewController *)self.navigationController.viewControllers[previousIndex]);
+    self.previousViewControllerTitle = self.previousViewController.navigationItem.title;
+    self.previousViewController.title = NSLocalizedString(@"Back", @"Text for back bar button item on daily journel entry");
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    self.previousViewController.title = self.previousViewControllerTitle;
 }
 
 - (void)setTextViewText:(NSString *)text {

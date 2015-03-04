@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		08231CB41AA6EB6300E813B1 /* APHDynamicParQQuizTask.m in Sources */ = {isa = PBXBuildFile; fileRef = 08231CB11AA6EB6300E813B1 /* APHDynamicParQQuizTask.m */; };
+		08231CB51AA6EB6300E813B1 /* APHParQQuizTaskViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 08231CB31AA6EB6300E813B1 /* APHParQQuizTaskViewController.m */; };
 		083D6AF01AA4ADCF0064AADD /* BCSBackgroundSurvey.json in Resources */ = {isa = PBXBuildFile; fileRef = 083D6AE91AA4ADCF0064AADD /* BCSBackgroundSurvey.json */; };
 		083D6AF11AA4ADCF0064AADD /* BCSBCPTSymptomsSurvey.json in Resources */ = {isa = PBXBuildFile; fileRef = 083D6AEA1AA4ADCF0064AADD /* BCSBCPTSymptomsSurvey.json */; };
 		083D6AF21AA4ADCF0064AADD /* BCSPAOFISurvey.json in Resources */ = {isa = PBXBuildFile; fileRef = 083D6AEB1AA4ADCF0064AADD /* BCSPAOFISurvey.json */; };
@@ -36,8 +38,6 @@
 		5B1D9D6E1A1BD414000F4AD6 /* APHDashboardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B1D9D6B1A1BD414000F4AD6 /* APHDashboardViewController.m */; };
 		5BBDAEBB1A33DCDA0047DF87 /* HTMLContent in Resources */ = {isa = PBXBuildFile; fileRef = 5BBDAEBA1A33DCDA0047DF87 /* HTMLContent */; };
 		744174E61A923861004A7CC1 /* APHConsentSection.json in Resources */ = {isa = PBXBuildFile; fileRef = 744174E51A923861004A7CC1 /* APHConsentSection.json */; };
-		748E05231A916BE60016232A /* ResearchKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 748E05221A916BE60016232A /* ResearchKit.framework */; };
-		748E05261A916BEE0016232A /* ResearchKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 748E05251A916BEE0016232A /* ResearchKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		74D75D561A9ED66200078A73 /* BCS_feedback.json in Resources */ = {isa = PBXBuildFile; fileRef = 74D75D551A9ED66200078A73 /* BCS_feedback.json */; };
 		74D75D591A9ED66E00078A73 /* BCS_mythoughts.json in Resources */ = {isa = PBXBuildFile; fileRef = 74D75D581A9ED66E00078A73 /* BCS_mythoughts.json */; };
 		7B0541F71A842B4900B7729D /* APHDynamicMoodSurveyTask.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B0541F61A842B4900B7729D /* APHDynamicMoodSurveyTask.m */; };
@@ -101,12 +101,14 @@
 		F534B70B19E4699A00C3C152 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F534B70A19E4699A00C3C152 /* CoreData.framework */; };
 		F534B70D19E469A100C3C152 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F534B70C19E469A000C3C152 /* Security.framework */; };
 		F534B70F19E469A600C3C152 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F534B70E19E469A600C3C152 /* AVFoundation.framework */; };
+		F53C19D81AA588AD0019EEE8 /* BridgeSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F53C19D41AA5888F0019EEE8 /* BridgeSDK.framework */; };
+		F53C19D91AA588AD0019EEE8 /* BridgeSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F53C19D41AA5888F0019EEE8 /* BridgeSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		F53C19DA1AA588AD0019EEE8 /* ResearchKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F53C19D51AA5888F0019EEE8 /* ResearchKit.framework */; };
+		F53C19DB1AA588AD0019EEE8 /* ResearchKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F53C19D51AA5888F0019EEE8 /* ResearchKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		F53F27A01A2D30D600A1D725 /* APHDataPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = F53F279D1A2D30D600A1D725 /* APHDataPoint.m */; };
 		F53F27A11A2D30D600A1D725 /* APHScoring.m in Sources */ = {isa = PBXBuildFile; fileRef = F53F279F1A2D30D600A1D725 /* APHScoring.m */; };
 		F571C9301A2F976C0011C270 /* APCAppCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F571C92D1A2F97610011C270 /* APCAppCore.framework */; };
 		F571C9311A2F976C0011C270 /* APCAppCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F571C92D1A2F97610011C270 /* APCAppCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		F571C9351A2F97770011C270 /* BridgeSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F571C9341A2F97770011C270 /* BridgeSDK.framework */; };
-		F571C9361A2F97770011C270 /* BridgeSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F571C9341A2F97770011C270 /* BridgeSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -140,9 +142,9 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				F571C9361A2F97770011C270 /* BridgeSDK.framework in Embed Frameworks */,
+				F53C19D91AA588AD0019EEE8 /* BridgeSDK.framework in Embed Frameworks */,
 				F571C9311A2F976C0011C270 /* APCAppCore.framework in Embed Frameworks */,
-				748E05261A916BEE0016232A /* ResearchKit.framework in Embed Frameworks */,
+				F53C19DB1AA588AD0019EEE8 /* ResearchKit.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -150,13 +152,17 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		083D6AE91AA4ADCF0064AADD /* BCSBackgroundSurvey.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = BCSBackgroundSurvey.json; sourceTree = "<group>"; };
-		083D6AEA1AA4ADCF0064AADD /* BCSBCPTSymptomsSurvey.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = BCSBCPTSymptomsSurvey.json; sourceTree = "<group>"; };
-		083D6AEB1AA4ADCF0064AADD /* BCSPAOFISurvey.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = BCSPAOFISurvey.json; sourceTree = "<group>"; };
-		083D6AEC1AA4ADCF0064AADD /* BCSPHQ8GAD7Survey.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = BCSPHQ8GAD7Survey.json; sourceTree = "<group>"; };
-		083D6AED1AA4ADCF0064AADD /* BCSPSQISurvey.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = BCSPSQISurvey.json; sourceTree = "<group>"; };
-		083D6AEE1AA4ADCF0064AADD /* BCSSF36Survey.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = BCSSF36Survey.json; sourceTree = "<group>"; };
-		083D6AEF1AA4ADCF0064AADD /* BCSWeeklySurvey.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = BCSWeeklySurvey.json; sourceTree = "<group>"; };
+		08231CB01AA6EB6300E813B1 /* APHDynamicParQQuizTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APHDynamicParQQuizTask.h; sourceTree = "<group>"; };
+		08231CB11AA6EB6300E813B1 /* APHDynamicParQQuizTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APHDynamicParQQuizTask.m; sourceTree = "<group>"; };
+		08231CB21AA6EB6300E813B1 /* APHParQQuizTaskViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APHParQQuizTaskViewController.h; sourceTree = "<group>"; };
+		08231CB31AA6EB6300E813B1 /* APHParQQuizTaskViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APHParQQuizTaskViewController.m; sourceTree = "<group>"; };
+		083D6AE91AA4ADCF0064AADD /* BCSBackgroundSurvey.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = BCSBackgroundSurvey.json; path = ../Surveys/BCSBackgroundSurvey.json; sourceTree = "<group>"; };
+		083D6AEA1AA4ADCF0064AADD /* BCSBCPTSymptomsSurvey.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = BCSBCPTSymptomsSurvey.json; path = ../Surveys/BCSBCPTSymptomsSurvey.json; sourceTree = "<group>"; };
+		083D6AEB1AA4ADCF0064AADD /* BCSPAOFISurvey.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = BCSPAOFISurvey.json; path = ../Surveys/BCSPAOFISurvey.json; sourceTree = "<group>"; };
+		083D6AEC1AA4ADCF0064AADD /* BCSPHQ8GAD7Survey.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = BCSPHQ8GAD7Survey.json; path = ../Surveys/BCSPHQ8GAD7Survey.json; sourceTree = "<group>"; };
+		083D6AED1AA4ADCF0064AADD /* BCSPSQISurvey.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = BCSPSQISurvey.json; path = ../Surveys/BCSPSQISurvey.json; sourceTree = "<group>"; };
+		083D6AEE1AA4ADCF0064AADD /* BCSSF36Survey.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = BCSSF36Survey.json; path = ../Surveys/BCSSF36Survey.json; sourceTree = "<group>"; };
+		083D6AEF1AA4ADCF0064AADD /* BCSWeeklySurvey.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = BCSWeeklySurvey.json; path = ../Surveys/BCSWeeklySurvey.json; sourceTree = "<group>"; };
 		083D6AF81AA4AE130064AADD /* APHBackgroundSurveyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = APHBackgroundSurveyViewController.h; path = "Generic Surveys/APHBackgroundSurveyViewController.h"; sourceTree = "<group>"; };
 		083D6AF91AA4AE130064AADD /* APHBackgroundSurveyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = APHBackgroundSurveyViewController.m; path = "Generic Surveys/APHBackgroundSurveyViewController.m"; sourceTree = "<group>"; };
 		083D6AFC1AA4AE430064AADD /* APHSymptomSurveyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = APHSymptomSurveyViewController.h; path = "Generic Surveys/APHSymptomSurveyViewController.h"; sourceTree = "<group>"; };
@@ -191,8 +197,6 @@
 		5B1D9D6B1A1BD414000F4AD6 /* APHDashboardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APHDashboardViewController.m; sourceTree = "<group>"; };
 		5BBDAEBA1A33DCDA0047DF87 /* HTMLContent */ = {isa = PBXFileReference; lastKnownFileType = folder; path = HTMLContent; sourceTree = "<group>"; };
 		744174E51A923861004A7CC1 /* APHConsentSection.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = APHConsentSection.json; sourceTree = "<group>"; };
-		748E05221A916BE60016232A /* ResearchKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ResearchKit.framework; path = AppCore/APCAppCore/ResearchKit/ResearchKit.framework; sourceTree = "<group>"; };
-		748E05251A916BEE0016232A /* ResearchKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ResearchKit.framework; path = AppCore/APCAppCore/ResearchKit/ResearchKit.framework; sourceTree = "<group>"; };
 		74D75D551A9ED66200078A73 /* BCS_feedback.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = BCS_feedback.json; sourceTree = "<group>"; };
 		74D75D581A9ED66E00078A73 /* BCS_mythoughts.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = BCS_mythoughts.json; sourceTree = "<group>"; };
 		7B0541F51A842B4900B7729D /* APHDynamicMoodSurveyTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APHDynamicMoodSurveyTask.h; sourceTree = "<group>"; };
@@ -280,12 +284,13 @@
 		F534B70A19E4699A00C3C152 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		F534B70C19E469A000C3C152 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		F534B70E19E469A600C3C152 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		F53C19D41AA5888F0019EEE8 /* BridgeSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BridgeSDK.framework; path = AppCore/APCAppCore/BridgeSDK/BridgeSDK.framework; sourceTree = "<group>"; };
+		F53C19D51AA5888F0019EEE8 /* ResearchKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ResearchKit.framework; path = AppCore/APCAppCore/ResearchKit/ResearchKit.framework; sourceTree = "<group>"; };
 		F53F279C1A2D30D600A1D725 /* APHDataPoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APHDataPoint.h; sourceTree = "<group>"; };
 		F53F279D1A2D30D600A1D725 /* APHDataPoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APHDataPoint.m; sourceTree = "<group>"; };
 		F53F279E1A2D30D600A1D725 /* APHScoring.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APHScoring.h; sourceTree = "<group>"; };
 		F53F279F1A2D30D600A1D725 /* APHScoring.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APHScoring.m; sourceTree = "<group>"; };
 		F571C9271A2F97610011C270 /* APCAppCore.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = APCAppCore.xcodeproj; path = AppCore/APCAppCore/APCAppCore.xcodeproj; sourceTree = "<group>"; };
-		F571C9341A2F97770011C270 /* BridgeSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BridgeSDK.framework; path = AppCore/APCAppCore/BridgeSDK.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -295,27 +300,31 @@
 			files = (
 				F534B70F19E469A600C3C152 /* AVFoundation.framework in Frameworks */,
 				F571C9301A2F976C0011C270 /* APCAppCore.framework in Frameworks */,
-				F571C9351A2F97770011C270 /* BridgeSDK.framework in Frameworks */,
+				F53C19DA1AA588AD0019EEE8 /* ResearchKit.framework in Frameworks */,
 				F534B70D19E469A100C3C152 /* Security.framework in Frameworks */,
 				F534B70B19E4699A00C3C152 /* CoreData.framework in Frameworks */,
+				F53C19D81AA588AD0019EEE8 /* BridgeSDK.framework in Frameworks */,
 				F534B6F619E468D400C3C152 /* HealthKit.framework in Frameworks */,
-				748E05231A916BE60016232A /* ResearchKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		08231CAF1AA6EB6300E813B1 /* PARQ Survey */ = {
+			isa = PBXGroup;
+			children = (
+				08231CB01AA6EB6300E813B1 /* APHDynamicParQQuizTask.h */,
+				08231CB11AA6EB6300E813B1 /* APHDynamicParQQuizTask.m */,
+				08231CB21AA6EB6300E813B1 /* APHParQQuizTaskViewController.h */,
+				08231CB31AA6EB6300E813B1 /* APHParQQuizTaskViewController.m */,
+			);
+			path = "PARQ Survey";
+			sourceTree = "<group>";
+		};
 		083D6AE81AA4ADCF0064AADD /* Surveys */ = {
 			isa = PBXGroup;
 			children = (
-				083D6AE91AA4ADCF0064AADD /* BCSBackgroundSurvey.json */,
-				083D6AEA1AA4ADCF0064AADD /* BCSBCPTSymptomsSurvey.json */,
-				083D6AEB1AA4ADCF0064AADD /* BCSPAOFISurvey.json */,
-				083D6AEC1AA4ADCF0064AADD /* BCSPHQ8GAD7Survey.json */,
-				083D6AED1AA4ADCF0064AADD /* BCSPSQISurvey.json */,
-				083D6AEE1AA4ADCF0064AADD /* BCSSF36Survey.json */,
-				083D6AEF1AA4ADCF0064AADD /* BCSWeeklySurvey.json */,
 			);
 			path = Surveys;
 			sourceTree = "<group>";
@@ -344,6 +353,13 @@
 		5A0F990F1AA425D100A2A7EB /* Surveys */ = {
 			isa = PBXGroup;
 			children = (
+				083D6AE91AA4ADCF0064AADD /* BCSBackgroundSurvey.json */,
+				083D6AEA1AA4ADCF0064AADD /* BCSBCPTSymptomsSurvey.json */,
+				083D6AEB1AA4ADCF0064AADD /* BCSPAOFISurvey.json */,
+				083D6AEC1AA4ADCF0064AADD /* BCSPHQ8GAD7Survey.json */,
+				083D6AED1AA4ADCF0064AADD /* BCSPSQISurvey.json */,
+				083D6AEE1AA4ADCF0064AADD /* BCSSF36Survey.json */,
+				083D6AEF1AA4ADCF0064AADD /* BCSWeeklySurvey.json */,
 				74D75D551A9ED66200078A73 /* BCS_feedback.json */,
 				74D75D581A9ED66E00078A73 /* BCS_mythoughts.json */,
 			);
@@ -672,6 +688,7 @@
 		F534B60C19E4689D00C3C152 /* TasksAndSteps */ = {
 			isa = PBXGroup;
 			children = (
+				08231CAF1AA6EB6300E813B1 /* PARQ Survey */,
 				7B7953031A22849300AA8039 /* ExerciseSurvey */,
 				7B5E25C71A20454200A04FEF /* Mood Survey */,
 				CF2697DA19EC3E0D00525E19 /* Daily Journal Controllers */,
@@ -702,10 +719,9 @@
 		F571C9261A2F97450011C270 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				748E05251A916BEE0016232A /* ResearchKit.framework */,
-				748E05221A916BE60016232A /* ResearchKit.framework */,
 				F571C9271A2F97610011C270 /* APCAppCore.xcodeproj */,
-				F571C9341A2F97770011C270 /* BridgeSDK.framework */,
+				F53C19D41AA5888F0019EEE8 /* BridgeSDK.framework */,
+				F53C19D51AA5888F0019EEE8 /* ResearchKit.framework */,
 				F534B70E19E469A600C3C152 /* AVFoundation.framework */,
 				F534B70C19E469A000C3C152 /* Security.framework */,
 				F534B70A19E4699A00C3C152 /* CoreData.framework */,
@@ -761,6 +777,9 @@
 						DevelopmentTeam = NL3PRC58UN;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+							com.apple.DataProtection = {
 								enabled = 1;
 							};
 							com.apple.HealthKit = {
@@ -898,6 +917,7 @@
 			files = (
 				7B5A5AB51A83FCF700628D4D /* APHCustomSurveyIntroViewController.m in Sources */,
 				CF2697E919EC3E4200525E19 /* APHNotesContentsTableViewCell.m in Sources */,
+				08231CB51AA6EB6300E813B1 /* APHParQQuizTaskViewController.m in Sources */,
 				083D6B0A1AA4AE990064AADD /* APHSf36SurveyViewController.m in Sources */,
 				7B0541F71A842B4900B7729D /* APHDynamicMoodSurveyTask.m in Sources */,
 				7BA3AC161A2407D00017B3C8 /* APHExerciseMotivationSummaryViewController.m in Sources */,
@@ -921,6 +941,7 @@
 				7BB24C311A831DC500AAE097 /* APHCustomSurveyTableViewCell.m in Sources */,
 				5B15DD481A11524900BEA0D1 /* APHAppDelegate.m in Sources */,
 				7BB24C361A831EC900AAE097 /* APHCustomSurveyQuestionViewController.m in Sources */,
+				08231CB41AA6EB6300E813B1 /* APHDynamicParQQuizTask.m in Sources */,
 				083D6B071AA4AE880064AADD /* APHPsqiSurveyViewController.m in Sources */,
 				CF2697E719EC3E4200525E19 /* APHCustomTextView.m in Sources */,
 				F53F27A01A2D30D600A1D725 /* APHDataPoint.m in Sources */,
@@ -1005,6 +1026,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/AppCore/APCAppCore/**",
 					"$(PROJECT_DIR)/AppCore/APCAppCore/ResearchKit",
+					"$(PROJECT_DIR)/AppCore/APCAppCore/BridgeSDK",
 				);
 				INFOPLIST_FILE = BreastCancer/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1110,6 +1132,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/AppCore/APCAppCore/**",
 					"$(PROJECT_DIR)/AppCore/APCAppCore/ResearchKit",
+					"$(PROJECT_DIR)/AppCore/APCAppCore/BridgeSDK",
 				);
 				INFOPLIST_FILE = BreastCancer/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1131,6 +1154,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/AppCore/APCAppCore/**",
 					"$(PROJECT_DIR)/AppCore/APCAppCore/ResearchKit",
+					"$(PROJECT_DIR)/AppCore/APCAppCore/BridgeSDK",
 				);
 				INFOPLIST_FILE = BreastCancer/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1197,6 +1221,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/AppCore/APCAppCore/**",
 					"$(PROJECT_DIR)/AppCore/APCAppCore/ResearchKit",
+					"$(PROJECT_DIR)/AppCore/APCAppCore/BridgeSDK",
 				);
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"$(inherited)",
