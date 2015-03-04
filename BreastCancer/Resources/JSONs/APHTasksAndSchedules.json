@@ -45,35 +45,35 @@
               "taskCompletionTimeString" : "24 Questions"
               },
               {
-              "taskTitle" : "BCPT Symptoms Survey",
+              "taskTitle" : "Symptoms Survey",
               "taskID": "BCPTSymptomsSurvey-394848ce-ca4f-4abe-b97e-fedbfd7ffb8e",
               "taskFileName" : "BCSBCPTSymptomsSurvey",
               "taskClassName" : "APCGenericSurveyTaskViewController",
               "taskCompletionTimeString" : "20 Questions"
               },
               {
-              "taskTitle" : "PAOFI Survey",
+              "taskTitle" : "Assessment of Functioning Survey",
               "taskID": "PAOFI-394848ce-ca4f-4abe-b97e-fedbfd7ffb8e",
               "taskFileName" : "BCSPAOFISurvey",
               "taskClassName" : "APCGenericSurveyTaskViewController",
               "taskCompletionTimeString" : "29 Questions"
               },
               {
-              "taskTitle" : "PHQ8GAD7 Survey",
+              "taskTitle" : "Personal Health Survey",
               "taskID": "PHQ8GAD7-394848ce-ca4f-4abe-b97e-fedbfd7ffb8e",
               "taskFileName" : "BCSPHQ8GAD7Survey",
               "taskClassName" : "APCGenericSurveyTaskViewController",
               "taskCompletionTimeString" : "15 Questions"
               },
               {
-              "taskTitle" : "PSQI Survey",
+              "taskTitle" : "Sleep Quality Survey",
               "taskID": "PSQI-394848ce-ca4f-4abe-b97e-fedbfd7ffb8e",
               "taskFileName" : "BCSPSQISurvey",
               "taskClassName" : "APCGenericSurveyTaskViewController",
               "taskCompletionTimeString" : "17 Questions"
               },
               {
-              "taskTitle" : "SF36 Survey",
+              "taskTitle" : "General Health Survey",
               "taskID": "SF36-394848ce-ca4f-4abe-b97e-fedbfd7ffb8e",
               "taskFileName" : "BCSSF36Survey",
               "taskClassName" : "APCGenericSurveyTaskViewController",
@@ -87,7 +87,7 @@
               "taskCompletionTimeString" : "28 Questions"
               },
               {
-              "taskTitle" : "Physical Activity Readiness",
+              "taskTitle" : "Exercise Readiness Survey",
               "taskID": "parqquiz-1E174061-5B02-11E4-8ED6-0800200C9A77",
               "taskClassName" : "APHParQQuizTaskViewController",
               "taskCompletionTimeString" : "10 Questions"
@@ -135,8 +135,10 @@
                   "taskID": "PAOFI-394848ce-ca4f-4abe-b97e-fedbfd7ffb8e"
                   },
                   {
+                  
+                  
                   "scheduleType": "recurring",
-                  "scheduleString": "0 5 * * *",
+                  "scheduleString": "0 5 ? * ? ?",
                   "taskID": "PHQ8GAD7-394848ce-ca4f-4abe-b97e-fedbfd7ffb8e"
                   },
                   {
