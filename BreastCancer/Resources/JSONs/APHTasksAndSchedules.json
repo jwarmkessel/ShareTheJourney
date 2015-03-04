@@ -79,6 +79,12 @@
               "taskFileName" : "BCSWeeklySurvey",
               "taskClassName" : "APCGenericSurveyTaskViewController",
               "taskCompletionTimeString" : "28 Questions"
+              },
+              {
+              "taskTitle" : "Physical Activity Readiness",
+              "taskID": "parqquiz-1E174061-5B02-11E4-8ED6-0800200C9A77",
+              "taskClassName" : "APHParQQuizTaskViewController",
+              "taskCompletionTimeString" : "10 Questions"
               }
               ],
     "schedules": [
@@ -141,6 +147,11 @@
                   "scheduleType": "recurring",
                   "scheduleString": "0 5 * * *",
                   "taskID": "Weekly-394848ce-ca4f-4abe-b97e-fedbfd7ffb8e"
+                  },
+                  {
+                  "scheduleType": "recurring",
+                  "scheduleString": "0 5 * * *",
+                  "taskID": "parqquiz-1E174061-5B02-11E4-8ED6-0800200C9A77"
                   }
                   ]
 }
