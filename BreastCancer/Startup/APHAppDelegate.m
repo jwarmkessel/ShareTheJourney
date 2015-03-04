@@ -271,12 +271,7 @@ static NSInteger const kMonthOfDayObject                = 2;
 
 - (NSArray *)offsetForTaskSchedules
 {
-    return @[
-//             @{
-//                 kScheduleOffsetTaskIdKey: @"APHDailyJournal-80F09109-265A-49C6-9C5D-765E49AAF5D9",
-//                 kScheduleOffsetOffsetKey: @(7)
-//                 }
-             ];
+    return @[];
 }
 
 
@@ -285,11 +280,6 @@ static NSInteger const kMonthOfDayObject                = 2;
 /*********************************************************************************/
 - (void) setUpCollectors
 {
-	/*
-	 NOTE:  when you uncomment this, you'll also have to
-	 uncomment kPassiveLocationDeferredUpdatesTimeout,
-	 at the top of this file.
-	 */
 
     APCCoreLocationTracker * locationTracker = [[APCCoreLocationTracker alloc] initWithIdentifier: @"locationTracker"
                                                                            deferredUpdatesTimeout: 60.0 * 60.0
