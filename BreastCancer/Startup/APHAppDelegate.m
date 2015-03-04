@@ -162,7 +162,7 @@ static NSInteger const kMonthOfDayObject                = 2;
 
             [scheduleObjects replaceObjectAtIndex:kMonthOfDayObject withObject:@([components day])];
 
-            if ([taskIdentifier  isEqualToString: @"SF36-394848ce-ca4f-4abe-b97e-fedbfd7ffb8e"])
+            if ([taskIdentifier  isEqualToString: kWeeklyScheduleTaskId])
             {
                 //Change to every third of the month using /3
                 NSString *newMonthExpression = [NSString stringWithFormat:@"%ld/3", (long)[components month]];
