@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		08231CB41AA6EB6300E813B1 /* APHDynamicParQQuizTask.m in Sources */ = {isa = PBXBuildFile; fileRef = 08231CB11AA6EB6300E813B1 /* APHDynamicParQQuizTask.m */; };
+		08231CB51AA6EB6300E813B1 /* APHParQQuizTaskViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 08231CB31AA6EB6300E813B1 /* APHParQQuizTaskViewController.m */; };
 		083D6AF01AA4ADCF0064AADD /* BCSBackgroundSurvey.json in Resources */ = {isa = PBXBuildFile; fileRef = 083D6AE91AA4ADCF0064AADD /* BCSBackgroundSurvey.json */; };
 		083D6AF11AA4ADCF0064AADD /* BCSBCPTSymptomsSurvey.json in Resources */ = {isa = PBXBuildFile; fileRef = 083D6AEA1AA4ADCF0064AADD /* BCSBCPTSymptomsSurvey.json */; };
 		083D6AF21AA4ADCF0064AADD /* BCSPAOFISurvey.json in Resources */ = {isa = PBXBuildFile; fileRef = 083D6AEB1AA4ADCF0064AADD /* BCSPAOFISurvey.json */; };
@@ -150,6 +152,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		08231CB01AA6EB6300E813B1 /* APHDynamicParQQuizTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APHDynamicParQQuizTask.h; sourceTree = "<group>"; };
+		08231CB11AA6EB6300E813B1 /* APHDynamicParQQuizTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APHDynamicParQQuizTask.m; sourceTree = "<group>"; };
+		08231CB21AA6EB6300E813B1 /* APHParQQuizTaskViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APHParQQuizTaskViewController.h; sourceTree = "<group>"; };
+		08231CB31AA6EB6300E813B1 /* APHParQQuizTaskViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APHParQQuizTaskViewController.m; sourceTree = "<group>"; };
 		083D6AE91AA4ADCF0064AADD /* BCSBackgroundSurvey.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = BCSBackgroundSurvey.json; sourceTree = "<group>"; };
 		083D6AEA1AA4ADCF0064AADD /* BCSBCPTSymptomsSurvey.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = BCSBCPTSymptomsSurvey.json; sourceTree = "<group>"; };
 		083D6AEB1AA4ADCF0064AADD /* BCSPAOFISurvey.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = BCSPAOFISurvey.json; sourceTree = "<group>"; };
@@ -305,6 +311,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		08231CAF1AA6EB6300E813B1 /* PARQ Survey */ = {
+			isa = PBXGroup;
+			children = (
+				08231CB01AA6EB6300E813B1 /* APHDynamicParQQuizTask.h */,
+				08231CB11AA6EB6300E813B1 /* APHDynamicParQQuizTask.m */,
+				08231CB21AA6EB6300E813B1 /* APHParQQuizTaskViewController.h */,
+				08231CB31AA6EB6300E813B1 /* APHParQQuizTaskViewController.m */,
+			);
+			path = "PARQ Survey";
+			sourceTree = "<group>";
+		};
 		083D6AE81AA4ADCF0064AADD /* Surveys */ = {
 			isa = PBXGroup;
 			children = (
@@ -671,6 +688,7 @@
 		F534B60C19E4689D00C3C152 /* TasksAndSteps */ = {
 			isa = PBXGroup;
 			children = (
+				08231CAF1AA6EB6300E813B1 /* PARQ Survey */,
 				7B7953031A22849300AA8039 /* ExerciseSurvey */,
 				7B5E25C71A20454200A04FEF /* Mood Survey */,
 				CF2697DA19EC3E0D00525E19 /* Daily Journal Controllers */,
@@ -899,6 +917,7 @@
 			files = (
 				7B5A5AB51A83FCF700628D4D /* APHCustomSurveyIntroViewController.m in Sources */,
 				CF2697E919EC3E4200525E19 /* APHNotesContentsTableViewCell.m in Sources */,
+				08231CB51AA6EB6300E813B1 /* APHParQQuizTaskViewController.m in Sources */,
 				083D6B0A1AA4AE990064AADD /* APHSf36SurveyViewController.m in Sources */,
 				7B0541F71A842B4900B7729D /* APHDynamicMoodSurveyTask.m in Sources */,
 				7BA3AC161A2407D00017B3C8 /* APHExerciseMotivationSummaryViewController.m in Sources */,
@@ -922,6 +941,7 @@
 				7BB24C311A831DC500AAE097 /* APHCustomSurveyTableViewCell.m in Sources */,
 				5B15DD481A11524900BEA0D1 /* APHAppDelegate.m in Sources */,
 				7BB24C361A831EC900AAE097 /* APHCustomSurveyQuestionViewController.m in Sources */,
+				08231CB41AA6EB6300E813B1 /* APHDynamicParQQuizTask.m in Sources */,
 				083D6B071AA4AE880064AADD /* APHPsqiSurveyViewController.m in Sources */,
 				CF2697E719EC3E4200525E19 /* APHCustomTextView.m in Sources */,
 				F53F27A01A2D30D600A1D725 /* APHDataPoint.m in Sources */,

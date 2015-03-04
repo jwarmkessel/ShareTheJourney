@@ -74,8 +74,9 @@
              "sectionType" : "custom",
              "sectionTitle": "We'll Test Your Understanding",
              "sectionSummary": "At the end of this walkthrough, we will ask you a few questions about the details of the study.",
+             "sectionImage": "quiz_image",
              "sectionHtmlContent" : "2quiz_headsup"
-        
+     
          },
          {
              "sectionType" : "custom",
