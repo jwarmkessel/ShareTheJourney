@@ -39,7 +39,7 @@
               "taskCompletionTimeString" : "24 Questions"
               },
               {
-              "taskTitle" : "BCPT Symptoms Survey",
+              "taskTitle" : "Symptoms Survey",
               "taskID": "BCPTSymptomsSurvey-394848ce-ca4f-4abe-b97e-fedbfd7ffb8e",
               "taskFileName" : "BCSBCPTSymptomsSurvey",
               "taskClassName" : "APCGenericSurveyTaskViewController",
