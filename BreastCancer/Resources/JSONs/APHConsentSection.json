@@ -13,7 +13,7 @@
             {
                 "identifier": "instruction",
                 "prompt": "Comprehension",
-                "text": "Let's do a quick and simple test on your understanding of this study.",
+                "text": "Let's do a quick and simple test of your understanding of this study.",
                 "type": "instruction"
             },
             {
@@ -110,7 +110,7 @@
 		 {
             "sectionType" : "dataUse",
             "sectionTitle": "Data Use",
-            "sectionSummary": "The data will be used for this research and may be shared with research partners worldwide",
+            "sectionSummary": "The data will be used for this research and may be shared with research partners worldwide.",
             "sectionHtmlContent" : "7datause"
 
 		 },
