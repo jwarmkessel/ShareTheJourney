@@ -196,9 +196,6 @@ typedef  enum  _DailyLogType
         [cell setLayoutMargins:UIEdgeInsetsZero];
     }
     
-   // cell.accessoryType = UITableViewCellAccessoryNone;
-   
-    
     return  cell;
 }
 
