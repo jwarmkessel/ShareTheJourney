@@ -273,18 +273,7 @@ static NSInteger const kExpectedNumOfCompInScheduleStr  = 5;
              @{
                  kScheduleOffsetTaskIdKey: @"APHDailyJournal-80F09109-265A-49C6-9C5D-765E49AAF5D9",
                  kScheduleOffsetOffsetKey: @(7)
-                 },
-             
-             @{
-                 kScheduleOffsetTaskIdKey: @"PHQ8GAD7-394848ce-ca4f-4abe-b97e-fedbfd7ffb8e",
-                 kScheduleOffsetOffsetKey: @(1)
-                 },
-
-             @{
-                 kScheduleOffsetTaskIdKey: @"PAOFI-394848ce-ca4f-4abe-b97e-fedbfd7ffb8e",
-                 kScheduleOffsetOffsetKey: @(2)
-                 },
-             
+                 }
              
              /*
              @{
