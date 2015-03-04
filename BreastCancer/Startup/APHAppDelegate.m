@@ -36,9 +36,8 @@ static NSInteger const kGeneralHealthSurveyOffset       = 5;
 static NSInteger const kWeeklyScheduleDayOffset         = 6;
 
 static NSInteger const kExpectedNumOfCompInScheduleStr  = 5;
-// Uncomment this when you uncomment the code in
-// -setUpCollectors, below.
-// static  NSTimeInterval  kPassiveLocationDeferredUpdatesTimeout = 1.0 * 60.0;
+
+static  NSTimeInterval  kPassiveLocationDeferredUpdatesTimeout = 1.0 * 60.0;
 
 @interface APHAppDelegate ()
 
@@ -274,13 +273,6 @@ static NSInteger const kExpectedNumOfCompInScheduleStr  = 5;
                  kScheduleOffsetTaskIdKey: @"APHDailyJournal-80F09109-265A-49C6-9C5D-765E49AAF5D9",
                  kScheduleOffsetOffsetKey: @(7)
                  }
-             
-             /*
-             @{
-                 kScheduleOffsetTaskIdKey: @"Task ID for BCS weekly Survey",
-                 kScheduleOffsetOffsetKey: @(7)
-                 }
-              */
              ];
 }
 
@@ -296,11 +288,11 @@ static NSInteger const kExpectedNumOfCompInScheduleStr  = 5;
 	 at the top of this file.
 	 */
 
-//    self.dataSubstrate.passiveLocationTracking = [[APCPassiveLocationTracking alloc]
-//                                                  initWithDeferredUpdatesTimeout:kPassiveLocationDeferredUpdatesTimeout
-//                                                  andHomeLocationStatus:APCPassiveLocationTrackingHomeLocationUnavailable];
-//
-//    [self.dataSubstrate.passiveLocationTracking start];
+    self.dataSubstrate.passiveLocationTracking = [[APCPassiveLocationTracking alloc]
+                                                  initWithDeferredUpdatesTimeout:kPassiveLocationDeferredUpdatesTimeout
+                                                  andHomeLocationStatus:APCPassiveLocationTrackingHomeLocationUnavailable];
+
+    [self.dataSubstrate.passiveLocationTracking start];
 
     return;
 
