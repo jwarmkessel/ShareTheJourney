@@ -26,6 +26,12 @@
               "taskID": "Feedback-394848ce-ca4f-4abe-b97e-fedbfd7ffb8e",
               "taskFileName" : "BCS_feedback",
               "taskClassName" : "APCGenericSurveyTaskViewController"
+              },
+              {
+              "taskTitle" : "Weekly Survey",
+              "taskID": "Weekly-444848ce-ca4f-4abe-b97e-fedbfd7ffb8e",
+              "taskFileName" : "BCSWeeklySurvey",
+              "taskClassName" : "APHWeekly"
               }
               ],
     "schedules": [
@@ -53,7 +59,13 @@
                   "scheduleType": "recurring",
                   "scheduleString": "0 5 * * *",
                   "taskID": "Feedback-394848ce-ca4f-4abe-b97e-fedbfd7ffb8e"
+                  },
+                  {
+                  "scheduleType": "recurring",
+                  "scheduleString": "0 5 * * *",
+                  "taskID": "Weekly-444848ce-ca4f-4abe-b97e-fedbfd7ffb8e"
                   }
+
                   ]
 }
 
