@@ -229,6 +229,8 @@ typedef  enum  _DailyLogType
     stenographer.logText = model.resultSummary;
     stenographer.logDate = model.createdAt;
     
+    stenographer.navigationItem.rightBarButtonItem = self.cancelButtonItem;
+    
     [self.navigationController pushViewController:stenographer animated:YES];
 }
 
