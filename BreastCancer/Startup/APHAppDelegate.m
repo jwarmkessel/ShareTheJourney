@@ -98,132 +98,132 @@ static NSInteger const kMonthOfDayObject                = 2;
 }
 
 
-//- (NSDictionary *) tasksAndSchedulesWillBeLoaded {
-//    
-//    NSString                    *resource = [[NSBundle mainBundle] pathForResource:self.initializationOptions[kTasksAndSchedulesJSONFileNameKey]
-//                                                                            ofType:@"json"];
-//    
-//    NSData                      *jsonData = [NSData dataWithContentsOfFile:resource];
-//    NSError                     *error;
-//    NSDictionary                *dictionary = [NSJSONSerialization JSONObjectWithData:jsonData
-//                                                                              options:NSJSONReadingMutableContainers
-//                                                                                error:&error];
-//    if (dictionary == nil) {
-//        APCLogError2 (error);
-//    }
-//    
-//    NSArray                     *schedules = [dictionary objectForKey:kJsonSchedulesKey];
-//    NSMutableDictionary         *newDictionary = [dictionary mutableCopy];
-//    NSMutableArray              *newSchedulesArray = [NSMutableArray new];
-//
-//    for (NSDictionary *schedule in schedules) {
-//        
-//        NSString *taskIdentifier = [schedule objectForKey:kJsonScheduleTaskIDKey];
-//        
-//        if ([taskIdentifier isEqualToString:kPersonalHealthSurveyTaskId] || [taskIdentifier  isEqualToString: kAssessmentOfFunctioningTaskId] || [taskIdentifier  isEqualToString: kSleepQualitySurveyTaskId] || [taskIdentifier  isEqualToString: kGeneralHealthSurveyTaskId]) {
-//            
-//            NSDate              *date = [NSDate date];
-//            NSDateComponents    *dateComponent = [[NSDateComponents alloc] init];
-//            
-//            NSInteger daysOffset = 0;
-//            
-//            if ([taskIdentifier  isEqualToString: kPersonalHealthSurveyTaskId])
-//            {
-//                daysOffset = kPersonalHealthSurveyOffset;
-//                
-//            }
-//            else if ([taskIdentifier  isEqualToString: kAssessmentOfFunctioningTaskId])
-//            {
-//                daysOffset = kAssessmentOfFunctioningOffset;
-//            }
-//            else if ([taskIdentifier  isEqualToString: kSleepQualitySurveyTaskId])
-//            {
-//                daysOffset = kSleepQualitySurveyOffset;
-//            }
-//            else if ([taskIdentifier  isEqualToString: kGeneralHealthSurveyTaskId])
-//            {
-//                daysOffset = kGeneralHealthSurveyOffset;
-//                
-//            }
-//            
-//            [dateComponent setDay:daysOffset];
-//            
-//            NSDate              *newDate = [[NSCalendar currentCalendar] dateByAddingComponents:dateComponent
-//                                                                                         toDate:date
-//                                                                                        options:0];
-//            
-//            NSCalendar          *cal = [NSCalendar currentCalendar];
-//            
-//            NSDateComponents    *components = [cal components:(NSCalendarUnitDay | NSCalendarUnitMonth)
-//                                                     fromDate:newDate];
-//            NSString            *scheduleString = [schedule objectForKey:kJsonScheduleStringKey];
-//            NSMutableArray      *scheduleObjects = [[scheduleString componentsSeparatedByString:@" "] mutableCopy];
-//
-//
-//            [scheduleObjects replaceObjectAtIndex:kMonthOfDayObject withObject:@([components day])];
-//
-//            if ([taskIdentifier  isEqualToString: kWeeklyScheduleTaskId])
-//            {
-//                //Change to every third of the month using /3
-//                NSString *newMonthExpression = [NSString stringWithFormat:@"%ld/3", (long)[components month]];
-//                
-//                [scheduleObjects replaceObjectAtIndex:kMonthObject withObject:newMonthExpression];
-//            }
-//            
-//            NSString            *newScheduleString = [scheduleObjects componentsJoinedByString:@" "];
-//            
-//            [schedule setValue:newScheduleString
-//                        forKey:kJsonScheduleStringKey];
-//            
-//            [newSchedulesArray addObject:schedule];
-//            
-//        }
-//        else if ( [taskIdentifier isEqualToString: kWeeklyScheduleTaskId])
-//        {
-//            NSDate              *date = [NSDate date];
-//            NSDateComponents    *dateComponent = [[NSDateComponents alloc] init];
-//            [dateComponent setDay:kWeeklyScheduleDayOffset];
-//            
-//            NSDate              *newDate = [[NSCalendar currentCalendar] dateByAddingComponents:dateComponent
-//                                                                                         toDate:date
-//                                                                                        options:0];
-//            
-//            NSCalendar          *cal = [NSCalendar currentCalendar];
-//            NSDateComponents    *components = [cal components:(NSCalendarUnitWeekday)
-//                                                     fromDate:newDate];
-//            
-//            NSInteger           nonZeroBasedDay = components.weekday;
-//            NSInteger           zeroBasedDay = nonZeroBasedDay - 1;
-//            NSString            *scheduleString = [schedule objectForKey:kJsonScheduleStringKey];
-//            NSMutableArray      *scheduleObjects = [[scheduleString componentsSeparatedByString:@" "] mutableCopy];
-//            
-//            if ([scheduleObjects count] == kExpectedNumOfCompInScheduleStr) {
-//                [scheduleObjects removeLastObject];
-//                
-//                [scheduleObjects addObject:[NSString stringWithFormat:@"%ld", (long)zeroBasedDay]];
-//            }
-//            
-//            NSString            *newScheduleString = [scheduleObjects componentsJoinedByString:@" "];
-//            
-//            [schedule setValue:newScheduleString
-//                        forKey:kJsonScheduleStringKey];
-//            
-//            [newSchedulesArray addObject:schedule];
-//            
-//        }
-//        else {
-//            [newSchedulesArray addObject:schedule];
-//        }
-//    }
-//    
-//    [newDictionary setValue:[dictionary objectForKey:kJsonTasksKey]
-//                     forKey:kJsonTasksKey];
-//    
-//    [newDictionary setValue:newSchedulesArray
-//                     forKey:kJsonSchedulesKey];
-//    
-//    return newDictionary;
-//}
+- (NSDictionary *) tasksAndSchedulesWillBeLoaded {
+    
+    NSString                    *resource = [[NSBundle mainBundle] pathForResource:self.initializationOptions[kTasksAndSchedulesJSONFileNameKey]
+                                                                            ofType:@"json"];
+    
+    NSData                      *jsonData = [NSData dataWithContentsOfFile:resource];
+    NSError                     *error;
+    NSDictionary                *dictionary = [NSJSONSerialization JSONObjectWithData:jsonData
+                                                                              options:NSJSONReadingMutableContainers
+                                                                                error:&error];
+    if (dictionary == nil) {
+        APCLogError2 (error);
+    }
+    
+    NSArray                     *schedules = [dictionary objectForKey:kJsonSchedulesKey];
+    NSMutableDictionary         *newDictionary = [dictionary mutableCopy];
+    NSMutableArray              *newSchedulesArray = [NSMutableArray new];
+
+    for (NSDictionary *schedule in schedules) {
+        
+        NSString *taskIdentifier = [schedule objectForKey:kJsonScheduleTaskIDKey];
+        
+        if ([taskIdentifier isEqualToString:kPersonalHealthSurveyTaskId] || [taskIdentifier  isEqualToString: kAssessmentOfFunctioningTaskId] || [taskIdentifier  isEqualToString: kSleepQualitySurveyTaskId] || [taskIdentifier  isEqualToString: kGeneralHealthSurveyTaskId]) {
+            
+            NSDate              *date = [NSDate date];
+            NSDateComponents    *dateComponent = [[NSDateComponents alloc] init];
+            
+            NSInteger daysOffset = 0;
+            
+            if ([taskIdentifier  isEqualToString: kPersonalHealthSurveyTaskId])
+            {
+                daysOffset = kPersonalHealthSurveyOffset;
+                
+            }
+            else if ([taskIdentifier  isEqualToString: kAssessmentOfFunctioningTaskId])
+            {
+                daysOffset = kAssessmentOfFunctioningOffset;
+            }
+            else if ([taskIdentifier  isEqualToString: kSleepQualitySurveyTaskId])
+            {
+                daysOffset = kSleepQualitySurveyOffset;
+            }
+            else if ([taskIdentifier  isEqualToString: kGeneralHealthSurveyTaskId])
+            {
+                daysOffset = kGeneralHealthSurveyOffset;
+                
+            }
+            
+            [dateComponent setDay:daysOffset];
+            
+            NSDate              *newDate = [[NSCalendar currentCalendar] dateByAddingComponents:dateComponent
+                                                                                         toDate:date
+                                                                                        options:0];
+            
+            NSCalendar          *cal = [NSCalendar currentCalendar];
+            
+            NSDateComponents    *components = [cal components:(NSCalendarUnitDay | NSCalendarUnitMonth)
+                                                     fromDate:newDate];
+            NSString            *scheduleString = [schedule objectForKey:kJsonScheduleStringKey];
+            NSMutableArray      *scheduleObjects = [[scheduleString componentsSeparatedByString:@" "] mutableCopy];
+
+
+            [scheduleObjects replaceObjectAtIndex:kMonthOfDayObject withObject:@([components day])];
+
+            if ([taskIdentifier  isEqualToString: kGeneralHealthSurveyTaskId])
+            {
+                //Change to every third of the month using /3
+                NSString *newMonthExpression = [NSString stringWithFormat:@"%ld/3", (long)[components month]];
+                
+                [scheduleObjects replaceObjectAtIndex:kMonthObject withObject:newMonthExpression];
+            }
+            
+            NSString            *newScheduleString = [scheduleObjects componentsJoinedByString:@" "];
+            
+            [schedule setValue:newScheduleString
+                        forKey:kJsonScheduleStringKey];
+            
+            [newSchedulesArray addObject:schedule];
+            
+        }
+        else if ( [taskIdentifier isEqualToString: kWeeklyScheduleTaskId])
+        {
+            NSDate              *date = [NSDate date];
+            NSDateComponents    *dateComponent = [[NSDateComponents alloc] init];
+            [dateComponent setDay:kWeeklyScheduleDayOffset];
+            
+            NSDate              *newDate = [[NSCalendar currentCalendar] dateByAddingComponents:dateComponent
+                                                                                         toDate:date
+                                                                                        options:0];
+            
+            NSCalendar          *cal = [NSCalendar currentCalendar];
+            NSDateComponents    *components = [cal components:(NSCalendarUnitWeekday)
+                                                     fromDate:newDate];
+            
+            NSInteger           nonZeroBasedDay = components.weekday;
+            NSInteger           zeroBasedDay = nonZeroBasedDay - 1;
+            NSString            *scheduleString = [schedule objectForKey:kJsonScheduleStringKey];
+            NSMutableArray      *scheduleObjects = [[scheduleString componentsSeparatedByString:@" "] mutableCopy];
+            
+            if ([scheduleObjects count] == kExpectedNumOfCompInScheduleStr) {
+                [scheduleObjects removeLastObject];
+                
+                [scheduleObjects addObject:[NSString stringWithFormat:@"%ld", (long)zeroBasedDay]];
+            }
+            
+            NSString            *newScheduleString = [scheduleObjects componentsJoinedByString:@" "];
+            
+            [schedule setValue:newScheduleString
+                        forKey:kJsonScheduleStringKey];
+            
+            [newSchedulesArray addObject:schedule];
+            
+        }
+        else {
+            [newSchedulesArray addObject:schedule];
+        }
+    }
+    
+    [newDictionary setValue:[dictionary objectForKey:kJsonTasksKey]
+                     forKey:kJsonTasksKey];
+    
+    [newDictionary setValue:newSchedulesArray
+                     forKey:kJsonSchedulesKey];
+    
+    return newDictionary;
+}
 
 
 - (id <APCProfileViewControllerDelegate>) profileExtenderDelegate {
@@ -235,13 +235,22 @@ static NSInteger const kMonthOfDayObject                = 2;
 {
     [APCAppearanceInfo setAppearanceDictionary:@{
                                                  kPrimaryAppColorKey : [UIColor colorWithRed:0.937 green:0.004 blue:0.553 alpha:1.000],
-                                                 @"APHMoodSurvey-7259AC18-D711-47A6-ADBD-6CFCECDED1DF": [UIColor colorWithRed:0.937 green:0.004 blue:0.553 alpha:1.000],
-                                                 @"APHMoodSurvey-7259AC18-D711-47A6-ADBD-6CFCECDED1DF": [UIColor lightGrayColor],
-                                                 @"Feedback-394848ce-ca4f-4abe-b97e-fedbfd7ffb8e" : [UIColor lightGrayColor],
-                                                 @"MyThoughts-14ffde40-1551-4b48-aae2-8fef38d61b61" : [UIColor colorWithRed:0.937 green:0.004 blue:0.553 alpha:1.000],
-                                                 @"APHDailyJournal-80F09109-265A-49C6-9C5D-765E49AAF5D9" : [UIColor colorWithRed:0.937 green:0.004 blue:0.553 alpha:1.000],
-                                                 @"APHExerciseSurvey-7259AC18-D711-47A6-ADBD-6CFCECDED1DF" : [UIColor colorWithRed:0.937 green:0.004 blue:0.553 alpha:1.000],
-                                                 @"APHMoodSurvey-7259AC18-D711-47A6-ADBD-6CFCECDED1DF" : [UIColor colorWithRed:0.937 green:0.004 blue:0.553 alpha:1.000],                                                 }];
+
+                                                 @"APHMoodSurvey-7259AC18-D711-47A6-ADBD-6CFCECDED1DF":         [UIColor colorWithRed:0.937 green:0.004 blue:0.553 alpha:1.000],
+                                                 @"APHDailyJournal-80F09109-265A-49C6-9C5D-765E49AAF5D9" :      [UIColor colorWithRed:0.937 green:0.004 blue:0.553 alpha:1.000],
+                                                 @"APHExerciseSurvey-7259AC18-D711-47A6-ADBD-6CFCECDED1DF" :    [UIColor colorWithRed:0.937 green:0.004 blue:0.553 alpha:1.000],
+                                                 @"Feedback-394848ce-ca4f-4abe-b97e-fedbfd7ffb8e" :             [UIColor lightGrayColor],
+                                                 @"MyThoughts-14ffde40-1551-4b48-aae2-8fef38d61b61" :           [UIColor lightGrayColor],
+                                                 @"BCPTSymptomsSurvey-394848ce-ca4f-4abe-b97e-fedbfd7ffb8e" :   [UIColor lightGrayColor],
+                                                 @"PAOFI-394848ce-ca4f-4abe-b97e-fedbfd7ffb8e":                 [UIColor lightGrayColor],
+                                                 @"PHQ8GAD7-394848ce-ca4f-4abe-b97e-fedbfd7ffb8e":              [UIColor lightGrayColor],
+                                                 @"PSQI-394848ce-ca4f-4abe-b97e-fedbfd7ffb8e":                  [UIColor lightGrayColor],
+                                                 @"SF36-394848ce-ca4f-4abe-b97e-fedbfd7ffb8e":                  [UIColor lightGrayColor],
+                                                 @"Weekly-394848ce-ca4f-4abe-b97e-fedbfd7ffb8e":                [UIColor lightGrayColor],
+                                                 @"parqquiz-1E174061-5B02-11E4-8ED6-0800200C9A77":              [UIColor lightGrayColor],
+                                                 @"BackgroundSurvey-394848ce-ca4f-4abe-b97e-fedbfd7ffb8e":      [UIColor lightGrayColor],
+                                                 }];
+    
     [[UINavigationBar appearance] setTintColor:[UIColor appPrimaryColor]];
     [[UINavigationBar appearance] setTitleTextAttributes: @{
                                                             NSForegroundColorAttributeName : [UIColor appSecondaryColor2],
@@ -271,12 +280,7 @@ static NSInteger const kMonthOfDayObject                = 2;
 
 - (NSArray *)offsetForTaskSchedules
 {
-    return @[
-//             @{
-//                 kScheduleOffsetTaskIdKey: @"APHDailyJournal-80F09109-265A-49C6-9C5D-765E49AAF5D9",
-//                 kScheduleOffsetOffsetKey: @(7)
-//                 }
-             ];
+    return @[];
 }
 
 
@@ -285,11 +289,6 @@ static NSInteger const kMonthOfDayObject                = 2;
 /*********************************************************************************/
 - (void) setUpCollectors
 {
-	/*
-	 NOTE:  when you uncomment this, you'll also have to
-	 uncomment kPassiveLocationDeferredUpdatesTimeout,
-	 at the top of this file.
-	 */
 
     APCCoreLocationTracker * locationTracker = [[APCCoreLocationTracker alloc] initWithIdentifier: @"locationTracker"
                                                                            deferredUpdatesTimeout: 60.0 * 60.0

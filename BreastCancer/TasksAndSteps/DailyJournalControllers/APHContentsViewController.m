@@ -229,6 +229,8 @@ typedef  enum  _DailyLogType
     stenographer.logText = model.resultSummary;
     stenographer.logDate = model.createdAt;
     
+    stenographer.navigationItem.rightBarButtonItem = self.cancelButtonItem;
+    
     [self.navigationController pushViewController:stenographer animated:YES];
 }
 
@@ -290,13 +292,17 @@ typedef  enum  _DailyLogType
 - (void) addCustomNoTaskView {
     self.noTasksView = [[UILabel alloc] initWithFrame:CGRectMake(0.0, 0.0, 200.0, 22.0)];
     
-    self.noTasksView.text = kNoTaskText;
-    self.noTasksView.textColor = [UIColor lightGrayColor];
-    self.noTasksView.center = CGPointMake([UIScreen mainScreen].bounds.size.width / 2, self.tabulator.frame.size.height / 2);
-    self.noTasksView.textAlignment = NSTextAlignmentCenter;
-    [self.tabulator addSubview:self.noTasksView];
+    if(![self.noTasksView.text isEqualToString:kNoTaskText])
+    {
+        self.noTasksView.text = kNoTaskText;
+        self.noTasksView.textColor = [UIColor lightGrayColor];
+        self.noTasksView.center = CGPointMake([UIScreen mainScreen].bounds.size.width / 2, self.tabulator.frame.size.height / 2);
+        self.noTasksView.textAlignment = NSTextAlignmentCenter;
+        [self.tabulator addSubview:self.noTasksView];
+        
+        [self.tabulator setSeparatorStyle:UITableViewCellSeparatorStyleNone];
+    }
     
-    [self.tabulator setSeparatorStyle:UITableViewCellSeparatorStyleNone];
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
