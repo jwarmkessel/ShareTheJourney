@@ -156,13 +156,13 @@
 		08231CB11AA6EB6300E813B1 /* APHDynamicParQQuizTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APHDynamicParQQuizTask.m; sourceTree = "<group>"; };
 		08231CB21AA6EB6300E813B1 /* APHParQQuizTaskViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APHParQQuizTaskViewController.h; sourceTree = "<group>"; };
 		08231CB31AA6EB6300E813B1 /* APHParQQuizTaskViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APHParQQuizTaskViewController.m; sourceTree = "<group>"; };
-		083D6AE91AA4ADCF0064AADD /* BCSBackgroundSurvey.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = BCSBackgroundSurvey.json; sourceTree = "<group>"; };
-		083D6AEA1AA4ADCF0064AADD /* BCSBCPTSymptomsSurvey.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = BCSBCPTSymptomsSurvey.json; sourceTree = "<group>"; };
-		083D6AEB1AA4ADCF0064AADD /* BCSPAOFISurvey.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = BCSPAOFISurvey.json; sourceTree = "<group>"; };
-		083D6AEC1AA4ADCF0064AADD /* BCSPHQ8GAD7Survey.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = BCSPHQ8GAD7Survey.json; sourceTree = "<group>"; };
-		083D6AED1AA4ADCF0064AADD /* BCSPSQISurvey.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = BCSPSQISurvey.json; sourceTree = "<group>"; };
-		083D6AEE1AA4ADCF0064AADD /* BCSSF36Survey.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = BCSSF36Survey.json; sourceTree = "<group>"; };
-		083D6AEF1AA4ADCF0064AADD /* BCSWeeklySurvey.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = BCSWeeklySurvey.json; sourceTree = "<group>"; };
+		083D6AE91AA4ADCF0064AADD /* BCSBackgroundSurvey.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = BCSBackgroundSurvey.json; path = ../Surveys/BCSBackgroundSurvey.json; sourceTree = "<group>"; };
+		083D6AEA1AA4ADCF0064AADD /* BCSBCPTSymptomsSurvey.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = BCSBCPTSymptomsSurvey.json; path = ../Surveys/BCSBCPTSymptomsSurvey.json; sourceTree = "<group>"; };
+		083D6AEB1AA4ADCF0064AADD /* BCSPAOFISurvey.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = BCSPAOFISurvey.json; path = ../Surveys/BCSPAOFISurvey.json; sourceTree = "<group>"; };
+		083D6AEC1AA4ADCF0064AADD /* BCSPHQ8GAD7Survey.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = BCSPHQ8GAD7Survey.json; path = ../Surveys/BCSPHQ8GAD7Survey.json; sourceTree = "<group>"; };
+		083D6AED1AA4ADCF0064AADD /* BCSPSQISurvey.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = BCSPSQISurvey.json; path = ../Surveys/BCSPSQISurvey.json; sourceTree = "<group>"; };
+		083D6AEE1AA4ADCF0064AADD /* BCSSF36Survey.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = BCSSF36Survey.json; path = ../Surveys/BCSSF36Survey.json; sourceTree = "<group>"; };
+		083D6AEF1AA4ADCF0064AADD /* BCSWeeklySurvey.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = BCSWeeklySurvey.json; path = ../Surveys/BCSWeeklySurvey.json; sourceTree = "<group>"; };
 		083D6AF81AA4AE130064AADD /* APHBackgroundSurveyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = APHBackgroundSurveyViewController.h; path = "Generic Surveys/APHBackgroundSurveyViewController.h"; sourceTree = "<group>"; };
 		083D6AF91AA4AE130064AADD /* APHBackgroundSurveyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = APHBackgroundSurveyViewController.m; path = "Generic Surveys/APHBackgroundSurveyViewController.m"; sourceTree = "<group>"; };
 		083D6AFC1AA4AE430064AADD /* APHSymptomSurveyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = APHSymptomSurveyViewController.h; path = "Generic Surveys/APHSymptomSurveyViewController.h"; sourceTree = "<group>"; };
@@ -325,13 +325,6 @@
 		083D6AE81AA4ADCF0064AADD /* Surveys */ = {
 			isa = PBXGroup;
 			children = (
-				083D6AE91AA4ADCF0064AADD /* BCSBackgroundSurvey.json */,
-				083D6AEA1AA4ADCF0064AADD /* BCSBCPTSymptomsSurvey.json */,
-				083D6AEB1AA4ADCF0064AADD /* BCSPAOFISurvey.json */,
-				083D6AEC1AA4ADCF0064AADD /* BCSPHQ8GAD7Survey.json */,
-				083D6AED1AA4ADCF0064AADD /* BCSPSQISurvey.json */,
-				083D6AEE1AA4ADCF0064AADD /* BCSSF36Survey.json */,
-				083D6AEF1AA4ADCF0064AADD /* BCSWeeklySurvey.json */,
 			);
 			path = Surveys;
 			sourceTree = "<group>";
@@ -360,6 +353,13 @@
 		5A0F990F1AA425D100A2A7EB /* Surveys */ = {
 			isa = PBXGroup;
 			children = (
+				083D6AE91AA4ADCF0064AADD /* BCSBackgroundSurvey.json */,
+				083D6AEA1AA4ADCF0064AADD /* BCSBCPTSymptomsSurvey.json */,
+				083D6AEB1AA4ADCF0064AADD /* BCSPAOFISurvey.json */,
+				083D6AEC1AA4ADCF0064AADD /* BCSPHQ8GAD7Survey.json */,
+				083D6AED1AA4ADCF0064AADD /* BCSPSQISurvey.json */,
+				083D6AEE1AA4ADCF0064AADD /* BCSSF36Survey.json */,
+				083D6AEF1AA4ADCF0064AADD /* BCSWeeklySurvey.json */,
 				74D75D551A9ED66200078A73 /* BCS_feedback.json */,
 				74D75D581A9ED66E00078A73 /* BCS_mythoughts.json */,
 			);

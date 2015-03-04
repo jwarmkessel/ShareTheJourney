@@ -15,7 +15,7 @@
               {
               "taskTitle" : "My Journal",
               "taskID": "APHDailyJournal-80F09109-265A-49C6-9C5D-765E49AAF5D9",
-              "taskClassName" : "APHDailyJournalTaskViewController",
+              "taskClassName" : "APHDailyJournalTaskViewController"
               },
               {
               "taskTitle" : "My Thoughts",
@@ -34,7 +34,7 @@
               "taskTitle" : "Weekly Survey",
               "taskID": "Weekly-444848ce-ca4f-4abe-b97e-fedbfd7ffb8e",
               "taskFileName" : "BCSWeeklySurvey",
-              "taskClassName" : "APHWeekly"
+              "taskClassName" : "APHWeekly",
               "taskCompletionTimeString" : "1.5 Minutes"
               },
               {
