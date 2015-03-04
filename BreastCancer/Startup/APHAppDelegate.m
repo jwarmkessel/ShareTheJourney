@@ -37,7 +37,9 @@ static NSInteger const kWeeklyScheduleDayOffset         = 6;
 
 static NSInteger const kExpectedNumOfCompInScheduleStr  = 5;
 
-static  NSTimeInterval  kPassiveLocationDeferredUpdatesTimeout = 1.0 * 60.0;
+static NSInteger const kMonthObject                     = 3;
+static NSInteger const kMonthOfDayObject                = 2;
+
 
 @interface APHAppDelegate ()
 
@@ -156,15 +158,16 @@ static  NSTimeInterval  kPassiveLocationDeferredUpdatesTimeout = 1.0 * 60.0;
                                                      fromDate:newDate];
             NSString            *scheduleString = [schedule objectForKey:kJsonScheduleStringKey];
             NSMutableArray      *scheduleObjects = [[scheduleString componentsSeparatedByString:@" "] mutableCopy];
-            
 
-            [scheduleObjects replaceObjectAtIndex:2 withObject:@([components day])];
+
+            [scheduleObjects replaceObjectAtIndex:kMonthOfDayObject withObject:@([components day])];
 
             if ([taskIdentifier  isEqualToString: @"SF36-394848ce-ca4f-4abe-b97e-fedbfd7ffb8e"])
             {
+                //Change to every third of the month using /3
                 NSString *newMonthExpression = [NSString stringWithFormat:@"%ld/3", (long)[components month]];
                 
-                [scheduleObjects replaceObjectAtIndex:3 withObject:newMonthExpression];
+                [scheduleObjects replaceObjectAtIndex:kMonthObject withObject:newMonthExpression];
             }
             
             NSString            *newScheduleString = [scheduleObjects componentsJoinedByString:@" "];
