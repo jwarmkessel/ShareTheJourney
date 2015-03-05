@@ -5,25 +5,13 @@
   "questions" : 
     
     [
-        {
-            "guid": "9a18e81c-963d-4919-8408-fdb9fe84b467",
-            "identifier": "BCPT1",
-            "type": "SurveyQuestion",
-            "prompt": "What is your age in years?",
-            "constraints": {
-                "dataType": "integer",
-                "rules": [],
-                "minValue": 18,
-                "maxValue": 80,
-                "type": "IntegerConstraints"
-            },
-            "uiHint": "slider"
-        },
-        {
+     
+        
+             {
             "guid": "b7a0c639-82fd-4291-8892-d4bec3600fb6",
             "identifier": "BCPT2",
             "type": "SurveyQuestion",
-            "prompt": "What category below best describes your racial/ethnic background? If you are of mixed racial/ethnic background, choose the category with which you most closely identify",
+            "detail": "What category below best describes your racial/ethnic background? If you are of mixed racial/ethnic background, choose the category with which you most closely identify",
             "constraints": {
                 "dataType": "string",
                 "rules": [],
@@ -79,7 +67,7 @@
             "guid": "fa82f020-4b9c-4735-bc41-7631154512fa",
             "identifier": "BCPT3",
             "type": "SurveyQuestion",
-            "prompt": "Are you Hispanic or Latina?",
+            "detail": "Are you Hispanic or Latina?",
             "constraints": {
                 "dataType": "boolean",
                 "rules": [],
@@ -105,7 +93,7 @@
             "guid": "fe9019ae-19e4-4bb0-b310-c1343eb90418",
             "identifier": "BCPT4",
             "type": "SurveyQuestion",
-            "prompt": "What is your current marital/relationship status?",
+            "detail": "What is your current marital/relationship status?",
             "constraints": {
                 "dataType": "string",
                 "rules": [],
@@ -161,7 +149,7 @@
             "guid": "16269a35-a2a2-4e03-8f08-892da9c78495",
             "identifier": "BCPT5",
             "type": "SurveyQuestion",
-            "prompt": "What category below best describes the highest level of formal education you have completed?",
+            "detail": "What category below best describes the highest level of formal education you have completed?",
             "constraints": {
                 "dataType": "string",
                 "rules": [],
@@ -227,7 +215,7 @@
             "guid": "8ce0571a-da27-4b22-a816-4b742de9dd01",
             "identifier": "BCPT6",
             "type": "SurveyQuestion",
-            "prompt": "What is your current employment status?",
+            "detail": "What is your current employment status?",
             "constraints": {
                 "dataType": "string",
                 "rules": [],
@@ -288,7 +276,7 @@
             "guid": "1e6e377f-93f0-49ea-bd5a-253766983cb3",
             "identifier": "BCPT7",
             "type": "SurveyQuestion",
-            "prompt": "Check one income range that best describes your family's total income before taxes for the previous year, including salaries, wages, tips, social security, welfare and any other income.",
+            "detail": "Check one income range that best describes your family's total income before taxes for the previous year, including salaries, wages, tips, social security, welfare and any other income.",
             "constraints": {
                 "dataType": "string",
                 "rules": [],
@@ -329,7 +317,7 @@
             "guid": "a31fde51-e443-4f8b-a6ec-994af17450dd",
             "identifier": "BCPTHealth0",
             "type": "SurveyQuestion",
-            "prompt": "Have you been treated for breast cancer?",
+            "detail": "Have you been treated for breast cancer?",
             "constraints": {
                 "dataType": "boolean",
                 "rules": [
@@ -368,11 +356,11 @@
             "guid": "97f70985-184d-4f6b-8d08-58e14a62750a",
             "identifier": "BCPTHealth1",
             "type": "SurveyQuestion",
-            "prompt": "What was the month and year of your initial breast cancer diagnosis (date of 1st cancer biopsy)?",
+            "detail": "What was the month and year of your initial breast cancer diagnosis (date of 1st cancer biopsy)?",
             "constraints": {
                 "dataType": "date",
                 "rules": [],
-                "allowFuture": false,
+                "allowFuture":false,
                 "type": "DateConstraints"
             },
             "uiHint": "datepicker"
@@ -381,7 +369,7 @@
             "guid": "8c0d66a7-cc20-4ffd-bb8e-7756af2586d8",
             "identifier": "BCPTHealth2",
             "type": "SurveyQuestion",
-            "prompt": "In which breast(s) was your cancer diagnosed?",
+            "detail": "In which breast(s) was your cancer diagnosed?",
             "constraints": {
                 "dataType": "string",
                 "rules": [],
@@ -412,7 +400,7 @@
             "guid": "b4f4adfd-4bc5-4fd4-8794-cae08e2251ba",
             "identifier": "BCPTHealth3",
             "type": "SurveyQuestion",
-            "prompt": "What type(s) of surgery have you had for your breast cancer?",
+            "detail": "What type(s) of surgery have you had for your breast cancer?",
             "constraints": {
                 "dataType": "string",
                 "rules": [],
@@ -488,7 +476,7 @@
             "guid": "199273e5-5a0f-4a30-8529-8a2c78ce57de",
             "identifier": "BCPTHealth4",
             "type": "SurveyQuestion",
-            "prompt": "Did you receive chemotherapy after your breast cancer diagnosis or surgery?",
+            "detail": "Did you receive chemotherapy after your breast cancer diagnosis or surgery?",
             "constraints": {
                 "dataType": "boolean",
                 "rules": [
@@ -527,7 +515,7 @@
             "guid": "b220100f-2c60-4733-867c-8cc3c62ccf1b",
             "identifier": "BCPTHealth4a",
             "type": "SurveyQuestion",
-            "prompt": "When did you last have chemotherapy?",
+            "detail": "When did you last have chemotherapy?",
             "constraints": {
                 "dataType": "date",
                 "rules": [],
@@ -540,7 +528,7 @@
             "guid": "6d6c8953-9c54-4f86-9e53-81711d432404",
             "identifier": "BCPTHealth4b",
             "type": "SurveyQuestion",
-            "prompt": "What kind of chemotherapy treatment did you have?",
+            "detail": "What kind of chemotherapy treatment did you have?",
             "constraints": {
                 "dataType": "string",
                 "rules": [],
@@ -606,7 +594,7 @@
             "guid": "af879e80-45ef-4caf-8302-42e884d1afbe",
             "identifier": "BCPTHealth5",
             "type": "SurveyQuestion",
-            "prompt": "Did you receive or are you currently receiving Herceptin (trastuzumab) or some other form of therapy that targets HER2 overexpression in your tumor?",
+            "detail": "Did you receive or are you currently receiving Herceptin (trastuzumab) or some other form of therapy that targets HER2 overexpression in your tumor?",
             "constraints": {
                 "dataType": "string",
                 "rules": [],
@@ -637,7 +625,7 @@
             "guid": "f179373a-1e8b-4812-ac92-929ff5f8369a",
             "identifier": "BCPTHealth6",
             "type": "SurveyQuestion",
-            "prompt": "Did you receive radiation as part of your breast cancer treatment?",
+            "detail": "Did you receive radiation as part of your breast cancer treatment?",
             "constraints": {
                 "dataType": "boolean",
                 "rules": [
@@ -676,7 +664,7 @@
             "guid": "3b63a3af-ed4a-46a3-b264-c62d699295ac",
             "identifier": "BCPTHealth6a",
             "type": "SurveyQuestion",
-            "prompt": "When did you last have radiation?",
+            "detail": "When did you last have radiation?",
             "constraints": {
                 "dataType": "date",
                 "rules": [],
@@ -689,7 +677,7 @@
             "guid": "571ca107-61f7-4188-b26f-e9a798ceb4bc",
             "identifier": "BCPTHealth7",
             "type": "SurveyQuestion",
-            "prompt": "Did you receive an endocrine therapy in the past for chemoprevention?",
+            "detail": "Did you receive an endocrine therapy in the past for chemoprevention?",
             "constraints": {
                 "dataType": "boolean",
                 "rules": [
@@ -728,7 +716,7 @@
             "guid": "510b2a73-4b7d-4a91-b0a7-1ffe5bba33d5",
             "identifier": "BCPTHealth7a",
             "type": "SurveyQuestion",
-            "prompt": "What drug did you use for chemoprevention?",
+            "detail": "What drug did you use for chemoprevention?",
             "constraints": {
                 "dataType": "string",
                 "rules": [],
@@ -759,7 +747,7 @@
             "guid": "2a86bc73-2c76-49ec-84a9-6604b5914c78",
             "identifier": "BCPTHealth7b",
             "type": "SurveyQuestion",
-            "prompt": "When did you last take a drug for chemoprevention?",
+            "detail": "When did you last take a drug for chemoprevention?",
             "constraints": {
                 "dataType": "date",
                 "rules": [],
@@ -772,7 +760,7 @@
             "guid": "b41154d7-d26f-4cd6-856b-632a50564d07",
             "identifier": "BCPTHealth8",
             "type": "SurveyQuestion",
-            "prompt": "Are you receiving endocrine therapy for breast cancer now (tamoxifen, ovarian suppression, Femara (letrozole), Anastrozole (arimidex), Aromasin (exemestane)?",
+            "detail": "Are you receiving endocrine therapy for breast cancer now (tamoxifen, ovarian suppression, Femara (letrozole), Anastrozole (arimidex), Aromasin (exemestane)?",
             "constraints": {
                 "dataType": "string",
                 "rules": [],
@@ -803,7 +791,7 @@
             "guid": "62231d7e-4a0c-497f-b476-b5d964b6d0b9",
             "identifier": "BCPTHealth9",
             "type": "SurveyQuestion",
-            "prompt": "Have you ever taken hormone replacement therapy (estrogen in any form, other than birth control pills)?",
+            "detail": "Have you ever taken hormone replacement therapy (estrogen in any form, other than birth control pills)?",
             "constraints": {
                 "dataType": "boolean",
                 "rules": [
@@ -842,7 +830,7 @@
             "guid": "de4ac521-981a-48be-baf4-eb5334b068a1",
             "identifier": "BCPTHealth9a",
             "type": "SurveyQuestion",
-            "prompt": "When did you last have hormone replacement therapy?",
+            "detail": "When did you last have hormone replacement therapy?",
             "constraints": {
                 "dataType": "date",
                 "rules": [],
@@ -855,7 +843,7 @@
             "guid": "e41f76c1-6498-4f2a-9d46-6119ee178c0d",
             "identifier": "BCPTHealth12",
             "type": "SurveyQuestion",
-            "prompt": "Do you currently have any of the following conditions?",
+            "detail": "Do you currently have any of the following conditions?",
             "constraints": {
                 "dataType": "string",
                 "rules": [],

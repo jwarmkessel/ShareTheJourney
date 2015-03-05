@@ -1,7 +1,6 @@
 {
     "documentProperties" :
     {
-        "htmlDocument" : "BCS_fullconsent",
         "investigatorShortDescription": "Sage Bionetworks",
         "investigatorLongDescription": "Sage Bionetworks and its partners",
         "htmlContent": "15sharing_rsch"
@@ -13,7 +12,7 @@
             {
                 "identifier": "instruction",
                 "prompt": "Comprehension",
-                "text": "Let's do a quick and simple test on your understanding of this study.",
+                "text": "Let's do a quick and simple test of your understanding of this study.",
                 "type": "instruction"
             },
             {
@@ -22,8 +21,8 @@
                 "type": "singleChoiceText",
                 "textChoices":
                 [
-                 "Understand the symptoms of Breast Cancer recovery.",
-                 "Treat Breast Cancer"
+                 "Understand the symptoms of breast cancer recovery.",
+                 "Treat breast cancer"
                 ],
                 "expectedAnswer": "0"
             },
@@ -74,8 +73,9 @@
              "sectionType" : "custom",
              "sectionTitle": "We'll Test Your Understanding",
              "sectionSummary": "At the end of this walkthrough, we will ask you a few questions about the details of the study.",
+             "sectionImage": "quiz_image",
              "sectionHtmlContent" : "2quiz_headsup"
-        
+     
          },
          {
              "sectionType" : "custom",
@@ -109,7 +109,7 @@
 		 {
             "sectionType" : "dataUse",
             "sectionTitle": "Data Use",
-            "sectionSummary": "The data will be used for this research and may be shared with research partners worldwide",
+            "sectionSummary": "The data will be used for this research and may be shared with research partners worldwide.",
             "sectionHtmlContent" : "7datause"
 
 		 },

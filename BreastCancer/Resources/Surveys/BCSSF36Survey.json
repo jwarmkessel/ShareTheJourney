@@ -7,7 +7,7 @@
             "guid": "9bf331d7-b82f-4b32-979e-8e5237309313",
             "identifier": "SF36-1",
             "type": "SurveyQuestion",
-            "prompt": "In general, would you say your health is: ",
+            "detail": "In general, would you say your health is: ",
             "constraints": {
                 "dataType": "string",
                 "rules": [],
@@ -48,7 +48,7 @@
             "guid": "bfc42a57-ffb0-4f6d-9594-cbd277c95bf2",
             "identifier": "SF36-2",
             "type": "SurveyQuestion",
-            "prompt": "Compared to one year ago, how would you rate your health in general now?",
+            "detail": "Compared to one year ago, how would you rate your health in general now?",
             "constraints": {
                 "dataType": "string",
                 "rules": [],
@@ -89,7 +89,7 @@
             "guid": "1e7a466e-e221-4010-bd30-370f6b2640a6",
             "identifier": "SF36-3",
             "type": "SurveyQuestion",
-            "prompt": "In a typical day, does your health now limit vigorous activities, such as running, lifting heavy objects, participating in strenuous sports?",
+            "detail": "In a typical day, does your health now limit vigorous activities, such as running, lifting heavy objects, participating in strenuous sports?",
             "constraints": {
                 "dataType": "string",
                 "rules": [],
@@ -120,7 +120,7 @@
             "guid": "8b773e58-7a26-46e9-a2e6-83b310e6ca92",
             "identifier": "SF36-4",
             "type": "SurveyQuestion",
-            "prompt": "In a typical day, does your health now limit moderate activities, such as moving a table, pushing a vacuum cleaner, bowling, or playing golf?",
+            "detail": "In a typical day, does your health now limit moderate activities, such as moving a table, pushing a vacuum cleaner, bowling, or playing golf?",
             "constraints": {
                 "dataType": "string",
                 "rules": [],
@@ -151,7 +151,7 @@
             "guid": "32a59b1c-19fd-4325-bdb9-598248f77080",
             "identifier": "SF36-5",
             "type": "SurveyQuestion",
-            "prompt": "In a typical day, does your health now limit lifting or carrying groceries?",
+            "detail": "In a typical day, does your health now limit lifting or carrying groceries?",
             "constraints": {
                 "dataType": "string",
                 "rules": [],
@@ -182,7 +182,7 @@
             "guid": "feaa0a87-85b0-4ca7-b964-bfb732a38e91",
             "identifier": "SF36-6",
             "type": "SurveyQuestion",
-            "prompt": "In a typical day, does your health now limit climbing several flights of stairs?",
+            "detail": "In a typical day, does your health now limit climbing several flights of stairs?",
             "constraints": {
                 "dataType": "string",
                 "rules": [],
@@ -213,7 +213,7 @@
             "guid": "1357492f-7284-4f31-9cd4-c0ddb9871a8c",
             "identifier": "SF36-7",
             "type": "SurveyQuestion",
-            "prompt": "In a typical day, does your health now limit climbing one flight of stairs?",
+            "detail": "In a typical day, does your health now limit climbing one flight of stairs?",
             "constraints": {
                 "dataType": "string",
                 "rules": [],
@@ -244,7 +244,7 @@
             "guid": "fb034be5-4bca-4cf0-bd93-730833e2d576",
             "identifier": "SF36-8",
             "type": "SurveyQuestion",
-            "prompt": "In a typical day, does your health now limit bending, kneeling, or stooping?",
+            "detail": "In a typical day, does your health now limit bending, kneeling, or stooping?",
             "constraints": {
                 "dataType": "string",
                 "rules": [],
@@ -275,7 +275,7 @@
             "guid": "e0acfc83-bf52-47d4-8653-a8a7b1442c1c",
             "identifier": "SF36-9",
             "type": "SurveyQuestion",
-            "prompt": "In a typical day, does your health now limit walking more than a mile?",
+            "detail": "In a typical day, does your health now limit walking more than a mile?",
             "constraints": {
                 "dataType": "string",
                 "rules": [],
@@ -306,7 +306,7 @@
             "guid": "a60032d1-4ae8-4f42-b391-c2f13104aa8d",
             "identifier": "SF36-10",
             "type": "SurveyQuestion",
-            "prompt": "In a typical day, does your health now limit walking several blocks?",
+            "detail": "In a typical day, does your health now limit walking several blocks?",
             "constraints": {
                 "dataType": "string",
                 "rules": [],
@@ -337,7 +337,7 @@
             "guid": "4899efd1-1f0a-4612-8f3b-18ec65893198",
             "identifier": "SF36-11",
             "type": "SurveyQuestion",
-            "prompt": "In a typical day, does your health now limit walking one block?",
+            "detail": "In a typical day, does your health now limit walking one block?",
             "constraints": {
                 "dataType": "string",
                 "rules": [],
@@ -368,7 +368,7 @@
             "guid": "680c5899-3a7d-4093-826d-22e633846cd2",
             "identifier": "SF36-12",
             "type": "SurveyQuestion",
-            "prompt": "In a typical day, does your health now limit bathing or dressing yourself?",
+            "detail": "In a typical day, does your health now limit bathing or dressing yourself?",
             "constraints": {
                 "dataType": "string",
                 "rules": [],
@@ -399,7 +399,7 @@
             "guid": "530603cb-f4c5-414b-b786-10cea2172998",
             "identifier": "SF36-13",
             "type": "SurveyQuestion",
-            "prompt": "During the past 4 weeks, has your PHYSICAL health meant that you cut down the amount of time you spent on work or other activities?",
+            "detail": "During the past 4 weeks, has your PHYSICAL health meant that you cut down the amount of time you spent on work or other activities?",
             "constraints": {
                 "dataType": "boolean",
                 "rules": [],
@@ -425,7 +425,7 @@
             "guid": "11be1a17-3c06-4e67-977c-ce060f20fb64",
             "identifier": "SF36-14",
             "type": "SurveyQuestion",
-            "prompt": "During the past 4 weeks, has your PHYSICAL health meant that you accomplished less than you would like?",
+            "detail": "During the past 4 weeks, has your PHYSICAL health meant that you accomplished less than you would like?",
             "constraints": {
                 "dataType": "boolean",
                 "rules": [],
@@ -451,7 +451,7 @@
             "guid": "6a14418c-6602-449b-8967-f5c5b3a4c798",
             "identifier": "SF36-15",
             "type": "SurveyQuestion",
-            "prompt": "During the past 4 weeks, has your PHYSICAL health meant that you were limited in the kind of work or other activities?",
+            "detail": "During the past 4 weeks, has your PHYSICAL health meant that you were limited in the kind of work or other activities?",
             "constraints": {
                 "dataType": "boolean",
                 "rules": [],
@@ -477,7 +477,7 @@
             "guid": "c6cfb4eb-7bfc-4d08-9c51-1ad6ca3c3fb7",
             "identifier": "SF36-16",
             "type": "SurveyQuestion",
-            "prompt": "During the past 4 weeks, has your PHYSICAL health meant that you had difficulty performing the work or other activities (for example, it took extra effort)?",
+            "detail": "During the past 4 weeks, has your PHYSICAL health meant that you had difficulty performing the work or other activities (for example, it took extra effort)?",
             "constraints": {
                 "dataType": "boolean",
                 "rules": [],
@@ -503,7 +503,7 @@
             "guid": "3775f083-ea55-4ea8-b832-68a75769d896",
             "identifier": "SF36-17",
             "type": "SurveyQuestion",
-            "prompt": "During the past 4 weeks, have EMOTIONAL problems meant that you cut down the amount of time you spent on work or other activities?",
+            "detail": "During the past 4 weeks, have EMOTIONAL problems meant that you cut down the amount of time you spent on work or other activities?",
             "constraints": {
                 "dataType": "boolean",
                 "rules": [],
@@ -529,7 +529,7 @@
             "guid": "a17681ba-28b0-46d0-94f1-d1a09b3326aa",
             "identifier": "SF36-18",
             "type": "SurveyQuestion",
-            "prompt": "During the past 4 weeks, have EMOTIONAL problems meant that you accomplished less than you would like?",
+            "detail": "During the past 4 weeks, have EMOTIONAL problems meant that you accomplished less than you would like?",
             "constraints": {
                 "dataType": "boolean",
                 "rules": [],
@@ -555,7 +555,7 @@
             "guid": "c018d783-3ddf-486f-b556-09154b8926b9",
             "identifier": "SF36-19",
             "type": "SurveyQuestion",
-            "prompt": "During the past 4 weeks, have EMOTIONAL problems meant that you didn't do work or other activities as carefully as usual?",
+            "detail": "During the past 4 weeks, have EMOTIONAL problems meant that you didn't do work or other activities as carefully as usual?",
             "constraints": {
                 "dataType": "boolean",
                 "rules": [],
@@ -581,7 +581,7 @@
             "guid": "708a1c6f-5e6f-4484-86e0-8b837b8a2f40",
             "identifier": "SF36-20",
             "type": "SurveyQuestion",
-            "prompt": "During the past 4 weeks, to what extent has your physical health or emotional problems interfered with your normal social activities with family, friends, neighbors, or groups?",
+            "detail": "During the past 4 weeks, to what extent has your physical health or emotional problems interfered with your normal social activities with family, friends, neighbors, or groups?",
             "constraints": {
                 "dataType": "string",
                 "rules": [],
@@ -622,7 +622,7 @@
             "guid": "e3e09a67-c1f2-4816-8f96-4e1e21a961c9",
             "identifier": "SF36-21",
             "type": "SurveyQuestion",
-            "prompt": "How much bodily pain have you had during the past 4 weeks?",
+            "detail": "How much bodily pain have you had during the past 4 weeks?",
             "constraints": {
                 "dataType": "string",
                 "rules": [],
@@ -668,7 +668,7 @@
             "guid": "c8729ffb-5767-4b86-8d44-652f207e467a",
             "identifier": "SF36-22",
             "type": "SurveyQuestion",
-            "prompt": "During the past 4 weeks, how much did pain interfere with your normal work (including both work outside the home and housework)?",
+            "detail": "During the past 4 weeks, how much did pain interfere with your normal work (including both work outside the home and housework)?",
             "constraints": {
                 "dataType": "string",
                 "rules": [],
@@ -709,7 +709,7 @@
             "guid": "d116e8aa-f370-4ac9-aa28-32d36ed29fde",
             "identifier": "SF36-23",
             "type": "SurveyQuestion",
-            "prompt": "In the past four weeks, how much of the time did you feel full of pep?",
+            "detail": "In the past four weeks, how much of the time did you feel full of pep?",
             "constraints": {
                 "dataType": "string",
                 "rules": [],
@@ -755,7 +755,7 @@
             "guid": "96332f9b-c057-42f6-b2c3-f60a87cf8fdb",
             "identifier": "SF36-24",
             "type": "SurveyQuestion",
-            "prompt": "In the past four weeks, how much of the time have you been a very nervous person?",
+            "detail": "In the past four weeks, how much of the time have you been a very nervous person?",
             "constraints": {
                 "dataType": "string",
                 "rules": [],
@@ -801,7 +801,7 @@
             "guid": "e5c86f4a-297a-4d49-8f8d-d88ea77d243d",
             "identifier": "SF36-25",
             "type": "SurveyQuestion",
-            "prompt": "In the past four weeks, how much of the time have you felt so down in the dumps that nothing could cheer you up?",
+            "detail": "In the past four weeks, how much of the time have you felt so down in the dumps that nothing could cheer you up?",
             "constraints": {
                 "dataType": "string",
                 "rules": [],
@@ -847,7 +847,7 @@
             "guid": "b1d8f63b-9b95-4840-a745-cd6c51627832",
             "identifier": "SF36-26",
             "type": "SurveyQuestion",
-            "prompt": "In the past four weeks, how much of the time have you felt calm and peaceful?",
+            "detail": "In the past four weeks, how much of the time have you felt calm and peaceful?",
             "constraints": {
                 "dataType": "string",
                 "rules": [],
@@ -893,7 +893,7 @@
             "guid": "ebc6071f-9ef5-4b19-a542-98acf91d5931",
             "identifier": "SF36-27",
             "type": "SurveyQuestion",
-            "prompt": "In the past four weeks, how much of the time did you have a lot of energy?",
+            "detail": "In the past four weeks, how much of the time did you have a lot of energy?",
             "constraints": {
                 "dataType": "string",
                 "rules": [],
@@ -939,7 +939,7 @@
             "guid": "54b2c714-2326-4d57-9dd8-a3b808537025",
             "identifier": "SF36-28",
             "type": "SurveyQuestion",
-            "prompt": "In the past four weeks, how much of the time have you felt downhearted and blue?",
+            "detail": "In the past four weeks, how much of the time have you felt downhearted and blue?",
             "constraints": {
                 "dataType": "string",
                 "rules": [],
@@ -985,7 +985,7 @@
             "guid": "53da7261-2a76-4bf7-8b4a-f725d6eb4050",
             "identifier": "SF36-29",
             "type": "SurveyQuestion",
-            "prompt": "In the past four weeks, how much of the time did you feel worn out?",
+            "detail": "In the past four weeks, how much of the time did you feel worn out?",
             "constraints": {
                 "dataType": "string",
                 "rules": [],
@@ -1031,7 +1031,7 @@
             "guid": "ca92e550-b399-4350-a3ab-545dd193734b",
             "identifier": "SF36-30",
             "type": "SurveyQuestion",
-            "prompt": "In the past four weeks, how much of the time have you been a happy person?",
+            "detail": "In the past four weeks, how much of the time have you been a happy person?",
             "constraints": {
                 "dataType": "string",
                 "rules": [],
@@ -1077,7 +1077,7 @@
             "guid": "d3db0ca3-4183-4fc1-87e4-6dd8af20c448",
             "identifier": "SF36-31",
             "type": "SurveyQuestion",
-            "prompt": "In the past four weeks, how much of the time did you feel tired?",
+            "detail": "In the past four weeks, how much of the time did you feel tired?",
             "constraints": {
                 "dataType": "string",
                 "rules": [],
@@ -1123,7 +1123,7 @@
             "guid": "da1e5fd3-51cd-40aa-9f38-8f8770717618",
             "identifier": "SF36-32",
             "type": "SurveyQuestion",
-            "prompt": "During the past 4 weeks, how much of the time have your physical health or emotional problems interfered with your social activities (like visiting with your friends, relatives, etc?)",
+            "detail": "During the past 4 weeks, how much of the time have your physical health or emotional problems interfered with your social activities (like visiting with your friends, relatives, etc?)",
             "constraints": {
                 "dataType": "string",
                 "rules": [],
@@ -1169,7 +1169,7 @@
             "guid": "f2a78cfa-5bf3-43b5-bb0d-e8a18f7c48b3",
             "identifier": "SF36-33",
             "type": "SurveyQuestion",
-            "prompt": "I seem to get sick a little easier than other people.",
+            "detail": "I seem to get sick a little easier than other people.",
             "constraints": {
                 "dataType": "string",
                 "rules": [],
@@ -1210,7 +1210,7 @@
             "guid": "b12cd6b5-35c4-45fe-8797-6f750f0f75a7",
             "identifier": "SF36-34",
             "type": "SurveyQuestion",
-            "prompt": "I am as healthy as anybody I know.",
+            "detail": "I am as healthy as anybody I know.",
             "constraints": {
                 "dataType": "string",
                 "rules": [],
@@ -1251,7 +1251,7 @@
             "guid": "b4a2baf4-5407-4516-b4d2-db4c9c071708",
             "identifier": "SF36-35",
             "type": "SurveyQuestion",
-            "prompt": "I expect my health to get worse.",
+            "detail": "I expect my health to get worse.",
             "constraints": {
                 "dataType": "string",
                 "rules": [],
@@ -1292,7 +1292,7 @@
             "guid": "d201af8f-5230-4e59-a5fb-72e972ae5a91",
             "identifier": "SF36-36",
             "type": "SurveyQuestion",
-            "prompt": "My health is excellent.",
+            "detail": "My health is excellent.",
             "constraints": {
                 "dataType": "string",
                 "rules": [],
