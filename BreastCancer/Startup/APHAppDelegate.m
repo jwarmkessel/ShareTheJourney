@@ -283,6 +283,17 @@ static NSInteger const kMonthOfDayObject                = 2;
     return @[];
 }
 
+- (NSArray *)allSetTextBlocks
+{
+    NSArray *allSetBlockOfText = nil;
+    
+    NSString *activitiesAdditionalText = NSLocalizedString(@"You will be able to log, as often as you like, your mood, energy, sleep, thinking and excercise, and an activity of your choice.",
+                                                           @"You will be able to log, as often as you like, your mood, energy, sleep, thinking and excercise, and an activity of your choice.");
+    allSetBlockOfText = @[@{kAllSetActivitiesTextAdditional: activitiesAdditionalText}];
+    
+    return allSetBlockOfText;
+}
+
 
 /*********************************************************************************/
 #pragma mark - Datasubstrate Delegate Methods
