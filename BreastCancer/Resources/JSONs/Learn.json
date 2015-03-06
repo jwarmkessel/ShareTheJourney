@@ -36,12 +36,7 @@
                         "icon_image": "symptoms",
                         "tint_color": "red"
                     },
-                    {
-                        "title": "Life After Treatment",
-                        "details": "lifeaftertreatment",
-                        "icon_image": "disease_icon",
-                        "tint_color": "appColor"
-                    },
+                    
                     {
                         "title": "Online Resources",
                         "details": "online_resources",
