@@ -300,11 +300,11 @@ static NSInteger const kMonthOfDayObject                = 2;
 /*********************************************************************************/
 - (void) setUpCollectors
 {
-
-    APCCoreLocationTracker * locationTracker = [[APCCoreLocationTracker alloc] initWithIdentifier: @"locationTracker"
-                                                                           deferredUpdatesTimeout: 60.0 * 60.0
-                                                                            andHomeLocationStatus: APCPassiveLocationTrackingHomeLocationUnavailable];
-    [self.passiveDataCollector addTracker: locationTracker];
+//  Turning off location tracking for verison 1.0 release
+//    APCCoreLocationTracker * locationTracker = [[APCCoreLocationTracker alloc] initWithIdentifier: @"locationTracker"
+//                                                                           deferredUpdatesTimeout: 60.0 * 60.0
+//                                                                            andHomeLocationStatus: APCPassiveLocationTrackingHomeLocationUnavailable];
+//    [self.passiveDataCollector addTracker: locationTracker];
 }
 
 /*********************************************************************************/
