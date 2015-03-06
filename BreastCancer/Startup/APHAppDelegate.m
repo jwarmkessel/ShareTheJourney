@@ -22,11 +22,11 @@ static NSString *const kJsonTasksKey                    = @"tasks";
 static NSString *const kJsonScheduleTaskIDKey           = @"taskID";
 static NSString *const kJsonSchedulesKey                = @"schedules";
 
-static NSString *const kPersonalHealthSurveyTaskId      = @"PHQ8GAD7-394848ce-ca4f-4abe-b97e-fedbfd7ffb8e";
-static NSString *const kWeeklyScheduleTaskId            = @"Weekly-394848ce-ca4f-4abe-b97e-fedbfd7ffb8e";
-static NSString *const kAssessmentOfFunctioningTaskId   = @"PAOFI-394848ce-ca4f-4abe-b97e-fedbfd7ffb8e";
-static NSString *const kSleepQualitySurveyTaskId        = @"PSQI-394848ce-ca4f-4abe-b97e-fedbfd7ffb8e";
-static NSString *const kGeneralHealthSurveyTaskId       = @"SF36-394848ce-ca4f-4abe-b97e-fedbfd7ffb8e";
+static NSString *const kPersonalHealthSurveyTaskId      = @"9-PHQ8GAD7-394848ce-ca4f-4abe-b97e-fedbfd7ffb8e";
+static NSString *const kWeeklyScheduleTaskId            = @"c-Weekly-394848ce-ca4f-4abe-b97e-fedbfd7ffb8e";
+static NSString *const kAssessmentOfFunctioningTaskId   = @"e-PAOFI-394848ce-ca4f-4abe-b97e-fedbfd7ffb8e";
+static NSString *const kSleepQualitySurveyTaskId        = @"a-PSQI-394848ce-ca4f-4abe-b97e-fedbfd7ffb8e";
+static NSString *const kGeneralHealthSurveyTaskId       = @"b-SF36-394848ce-ca4f-4abe-b97e-fedbfd7ffb8e";
 
 static NSInteger const kPersonalHealthSurveyOffset      = 2;
 static NSInteger const kAssessmentOfFunctioningOffset   = 3;
@@ -236,19 +236,19 @@ static NSInteger const kMonthOfDayObject                = 2;
     [APCAppearanceInfo setAppearanceDictionary:@{
                                                  kPrimaryAppColorKey : [UIColor colorWithRed:0.937 green:0.004 blue:0.553 alpha:1.000],
 
-                                                 @"APHMoodSurvey-7259AC18-D711-47A6-ADBD-6CFCECDED1DF":         [UIColor colorWithRed:0.937 green:0.004 blue:0.553 alpha:1.000],
-                                                 @"APHDailyJournal-80F09109-265A-49C6-9C5D-765E49AAF5D9" :      [UIColor colorWithRed:0.937 green:0.004 blue:0.553 alpha:1.000],
-                                                 @"APHExerciseSurvey-7259AC18-D711-47A6-ADBD-6CFCECDED1DF" :    [UIColor colorWithRed:0.937 green:0.004 blue:0.553 alpha:1.000],
-                                                 @"Feedback-394848ce-ca4f-4abe-b97e-fedbfd7ffb8e" :             [UIColor lightGrayColor],
-                                                 @"MyThoughts-14ffde40-1551-4b48-aae2-8fef38d61b61" :           [UIColor lightGrayColor],
-                                                 @"BCPTSymptomsSurvey-394848ce-ca4f-4abe-b97e-fedbfd7ffb8e" :   [UIColor lightGrayColor],
-                                                 @"PAOFI-394848ce-ca4f-4abe-b97e-fedbfd7ffb8e":                 [UIColor lightGrayColor],
-                                                 @"PHQ8GAD7-394848ce-ca4f-4abe-b97e-fedbfd7ffb8e":              [UIColor lightGrayColor],
-                                                 @"PSQI-394848ce-ca4f-4abe-b97e-fedbfd7ffb8e":                  [UIColor lightGrayColor],
-                                                 @"SF36-394848ce-ca4f-4abe-b97e-fedbfd7ffb8e":                  [UIColor lightGrayColor],
-                                                 @"Weekly-394848ce-ca4f-4abe-b97e-fedbfd7ffb8e":                [UIColor lightGrayColor],
-                                                 @"parqquiz-1E174061-5B02-11E4-8ED6-0800200C9A77":              [UIColor lightGrayColor],
-                                                 @"BackgroundSurvey-394848ce-ca4f-4abe-b97e-fedbfd7ffb8e":      [UIColor lightGrayColor],
+                                                 @"3-APHMoodSurvey-7259AC18-D711-47A6-ADBD-6CFCECDED1DF":         [UIColor colorWithRed:0.937 green:0.004 blue:0.553 alpha:1.000],
+                                                 @"6-APHDailyJournal-80F09109-265A-49C6-9C5D-765E49AAF5D9" :      [UIColor colorWithRed:0.937 green:0.004 blue:0.553 alpha:1.000],
+                                                 @"4-APHExerciseSurvey-7259AC18-D711-47A6-ADBD-6CFCECDED1DF" :    [UIColor colorWithRed:0.937 green:0.004 blue:0.553 alpha:1.000],
+                                                 @"8-Feedback-394848ce-ca4f-4abe-b97e-fedbfd7ffb8e" :             [UIColor lightGrayColor],
+                                                 @"7-MyThoughts-14ffde40-1551-4b48-aae2-8fef38d61b61" :           [UIColor lightGrayColor],
+                                                 @"2-BCPTSymptomsSurvey-394848ce-ca4f-4abe-b97e-fedbfd7ffb8e" :   [UIColor lightGrayColor],
+                                                 @"e-PAOFI-394848ce-ca4f-4abe-b97e-fedbfd7ffb8e":                 [UIColor lightGrayColor],
+                                                 @"9-PHQ8GAD7-394848ce-ca4f-4abe-b97e-fedbfd7ffb8e":              [UIColor lightGrayColor],
+                                                 @"a-PSQI-394848ce-ca4f-4abe-b97e-fedbfd7ffb8e":                  [UIColor lightGrayColor],
+                                                 @"b-SF36-394848ce-ca4f-4abe-b97e-fedbfd7ffb8e":                  [UIColor lightGrayColor],
+                                                 @"c-Weekly-394848ce-ca4f-4abe-b97e-fedbfd7ffb8e":                [UIColor lightGrayColor],
+                                                 @"5-parqquiz-1E174061-5B02-11E4-8ED6-0800200C9A77":              [UIColor lightGrayColor],
+                                                 @"1-BackgroundSurvey-394848ce-ca4f-4abe-b97e-fedbfd7ffb8e":      [UIColor lightGrayColor],
                                                  }];
     
     [[UINavigationBar appearance] setTintColor:[UIColor appPrimaryColor]];
