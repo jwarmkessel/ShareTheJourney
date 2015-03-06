@@ -138,7 +138,7 @@ static NSString * const kAPCRightDetailTableViewCellIdentifier = @"APCRightDetai
     HKQuantityType *stepQuantityType = [HKQuantityType quantityTypeForIdentifier:HKQuantityTypeIdentifierStepCount];
     self.stepScoring= [[APCScoring alloc] initWithHealthKitQuantityType:stepQuantityType unit:[HKUnit countUnit] numberOfDays:-kNumberOfDaysToDisplay];
 
-    self.moodScoring = [[APCScoring alloc] initWithTask:@"APHMoodSurvey-7259AC18-D711-47A6-ADBD-6CFCECDED1DF"
+    self.moodScoring = [[APCScoring alloc] initWithTask:@"3-APHMoodSurvey-7259AC18-D711-47A6-ADBD-6CFCECDED1DF"
                                             numberOfDays:-kNumberOfDaysToDisplay
                                                 valueKey:@"moodsurvey103"
                                                 dataKey:nil
@@ -147,7 +147,7 @@ static NSString * const kAPCRightDetailTableViewCellIdentifier = @"APCRightDetai
     self.moodScoring.customMinimumPoint = 1.0;
     self.moodScoring.customMaximumPoint = 5.0;
     
-    self.energyScoring = [[APCScoring alloc] initWithTask:@"APHMoodSurvey-7259AC18-D711-47A6-ADBD-6CFCECDED1DF"
+    self.energyScoring = [[APCScoring alloc] initWithTask:@"3-APHMoodSurvey-7259AC18-D711-47A6-ADBD-6CFCECDED1DF"
                                                   numberOfDays:-kNumberOfDaysToDisplay
                                                       valueKey:@"moodsurvey104"
                                                       dataKey:nil
@@ -156,7 +156,7 @@ static NSString * const kAPCRightDetailTableViewCellIdentifier = @"APCRightDetai
     self.energyScoring.customMinimumPoint = 1.0;
     self.energyScoring.customMaximumPoint = 5.0;
     
-    self.exerciseScoring = [[APCScoring alloc] initWithTask:@"APHMoodSurvey-7259AC18-D711-47A6-ADBD-6CFCECDED1DF"
+    self.exerciseScoring = [[APCScoring alloc] initWithTask:@"3-APHMoodSurvey-7259AC18-D711-47A6-ADBD-6CFCECDED1DF"
                                                   numberOfDays:-kNumberOfDaysToDisplay
                                                       valueKey:@"moodsurvey106"
                                                         dataKey:nil
@@ -165,7 +165,7 @@ static NSString * const kAPCRightDetailTableViewCellIdentifier = @"APCRightDetai
     self.exerciseScoring.customMinimumPoint = 1.0;
     self.exerciseScoring.customMaximumPoint = 5.0;
     
-    self.sleepScoring = [[APCScoring alloc] initWithTask:@"APHMoodSurvey-7259AC18-D711-47A6-ADBD-6CFCECDED1DF"
+    self.sleepScoring = [[APCScoring alloc] initWithTask:@"3-APHMoodSurvey-7259AC18-D711-47A6-ADBD-6CFCECDED1DF"
                                                   numberOfDays:-kNumberOfDaysToDisplay
                                                       valueKey:@"moodsurvey105"
                                                      dataKey:nil
@@ -174,7 +174,7 @@ static NSString * const kAPCRightDetailTableViewCellIdentifier = @"APCRightDetai
     self.sleepScoring.customMinimumPoint = 1.0;
     self.sleepScoring.customMaximumPoint = 5.0;
     
-    self.cognitiveScoring = [[APCScoring alloc] initWithTask:@"APHMoodSurvey-7259AC18-D711-47A6-ADBD-6CFCECDED1DF"
+    self.cognitiveScoring = [[APCScoring alloc] initWithTask:@"3-APHMoodSurvey-7259AC18-D711-47A6-ADBD-6CFCECDED1DF"
                                                   numberOfDays:-kNumberOfDaysToDisplay
                                                       valueKey:@"moodsurvey102"
                                                          dataKey:nil
@@ -183,7 +183,7 @@ static NSString * const kAPCRightDetailTableViewCellIdentifier = @"APCRightDetai
     self.cognitiveScoring.customMinimumPoint = 1.0;
     self.cognitiveScoring.customMaximumPoint = 5.0;
     
-    self.customScoring = [[APCScoring alloc] initWithTask:@"APHMoodSurvey-7259AC18-D711-47A6-ADBD-6CFCECDED1DF"
+    self.customScoring = [[APCScoring alloc] initWithTask:@"3-APHMoodSurvey-7259AC18-D711-47A6-ADBD-6CFCECDED1DF"
                                                     numberOfDays:-kNumberOfDaysToDisplay
                                                         valueKey:@"moodsurvey107"
                                                          dataKey:nil
