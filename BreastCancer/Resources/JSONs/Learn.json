@@ -29,6 +29,14 @@
                       "icon_image":"whoisrunning",
                       "tint_color" : "yellow"
                       },
+                      {
+                      "title": "Life After Treatment",
+                      "details": "lifeaftertreatment",
+                      "icon_image": "disease_icon",
+                      "tint_color": "red"
+                      },
+                          
+                          
                           
                     {
                         "title": "Symptoms",
@@ -36,7 +44,7 @@
                         "icon_image": "symptoms",
                         "tint_color": "red"
                     },
-                    
+                  
                     {
                         "title": "Online Resources",
                         "details": "online_resources",
