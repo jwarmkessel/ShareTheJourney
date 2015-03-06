@@ -112,19 +112,25 @@ static NSString *kMoodLogNoteText = @"APHMoodLogNoteText";
     APCStepViewController  *controller = [[aClass alloc] initWithNibName:nil bundle:nil];
     
     if (step.identifier == kDailyJournalStep104 ) {
-        controller = [[aClass alloc] initWithNibName:nil bundle:[NSBundle appleCoreBundle]];
+        APCSimpleTaskSummaryViewController *stepVC = [[APCSimpleTaskSummaryViewController alloc] initWithNibName:nil bundle:[NSBundle appleCoreBundle]];
+        
+        (void)stepVC.view;
+        stepVC.delegate = self;
+        stepVC.step = step;
+        stepVC.youCanCompareMessage.text = nil;
+        
+        controller = stepVC;
+    } else {
+        controller.delegate = self;
+        controller.step = step;
     }
-    
-    controller.delegate = self;
-    controller.step = step;
-    
     
     return controller;
 }
 
 - (void)taskViewController:(ORKTaskViewController *)taskViewController stepViewControllerWillAppear:(ORKStepViewController *)stepViewController {
     
-    stepViewController.navigationController.navigationBar.topItem.title = @"Daily Journal";
+    stepViewController.navigationController.navigationBar.topItem.title = @"My Journal";
 
     if (kDailyJournalStep101 == stepViewController.step.identifier) {
         
@@ -153,6 +159,7 @@ static NSString *kMoodLogNoteText = @"APHMoodLogNoteText";
 
     } else if (kDailyJournalStep104 == stepViewController.step.identifier) {
         stepViewController.navigationController.navigationBar.topItem.title = @"Activity Complete";
+        
     }
 }
 
