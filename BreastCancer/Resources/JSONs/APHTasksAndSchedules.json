@@ -114,7 +114,7 @@
                   "taskID": "8-Feedback-394848ce-ca4f-4abe-b97e-fedbfd7ffb8e"
                   },
                   {
-                  "scheduleType": "recurring",
+                  "scheduleType": "once",
                   "scheduleString": "0 5 * * *",
                   "taskID": "2-BCPTSymptomsSurvey-394848ce-ca4f-4abe-b97e-fedbfd7ffb8e"
                   },
@@ -144,7 +144,7 @@
                   "taskID": "c-Weekly-394848ce-ca4f-4abe-b97e-fedbfd7ffb8e"
                   },
                   {
-                  "scheduleType": "recurring",
+                  "scheduleType": "once",
                   "scheduleString": "0 5 * * *",
                   "taskID": "5-parqquiz-1E174061-5B02-11E4-8ED6-0800200C9A77"
                   },
