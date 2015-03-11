@@ -299,8 +299,8 @@
 		083D6B091AA4AE990064AADD /* APHSf36SurveyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = APHSf36SurveyViewController.m; path = "Generic Surveys/APHSf36SurveyViewController.m"; sourceTree = "<group>"; };
 		083D6B0B1AA4AEAD0064AADD /* APHWeeklySurveyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = APHWeeklySurveyViewController.h; path = "Generic Surveys/APHWeeklySurveyViewController.h"; sourceTree = "<group>"; };
 		083D6B0C1AA4AEAD0064AADD /* APHWeeklySurveyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = APHWeeklySurveyViewController.m; path = "Generic Surveys/APHWeeklySurveyViewController.m"; sourceTree = "<group>"; };
-		085F3F1F1AAF6BA9003A910A /* BreastCancer copy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "BreastCancer copy.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		085F3F201AAF6BA9003A910A /* BreastCancer copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "BreastCancer copy-Info.plist"; path = "/Users/farhan.ahmed/Projects/iOS/Apple/applebreastcancer/BreastCancer copy-Info.plist"; sourceTree = "<absolute>"; };
+		085F3F1F1AAF6BA9003A910A /* BreastCancer_YML.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BreastCancer_YML.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		085F3F201AAF6BA9003A910A /* BreastCancer-YML-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "BreastCancer-YML-Info.plist"; path = "/Users/farhan.ahmed/Projects/iOS/Apple/applebreastcancer/BreastCancer-YML-Info.plist"; sourceTree = "<absolute>"; };
 		215C53641A8C5D6F0006F7DC /* APHNotesHeaderTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = APHNotesHeaderTableViewCell.h; path = DailyJournalControllers/APHNotesHeaderTableViewCell.h; sourceTree = "<group>"; };
 		215C53651A8C5D6F0006F7DC /* APHNotesHeaderTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = APHNotesHeaderTableViewCell.m; path = DailyJournalControllers/APHNotesHeaderTableViewCell.m; sourceTree = "<group>"; };
 		215C53661A8C5D6F0006F7DC /* APHNotesHeaderTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = APHNotesHeaderTableViewCell.xib; path = DailyJournalControllers/APHNotesHeaderTableViewCell.xib; sourceTree = "<group>"; };
@@ -736,7 +736,7 @@
 			isa = PBXGroup;
 			children = (
 				F534B58319E4681E00C3C152 /* BreastCancer.app */,
-				085F3F1F1AAF6BA9003A910A /* BreastCancer copy.app */,
+				085F3F1F1AAF6BA9003A910A /* BreastCancer_YML.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -759,7 +759,7 @@
 		F534B58619E4681E00C3C152 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				085F3F201AAF6BA9003A910A /* BreastCancer copy-Info.plist */,
+				085F3F201AAF6BA9003A910A /* BreastCancer-YML-Info.plist */,
 				F534B6F419E468D400C3C152 /* BreastCancer.entitlements */,
 				F534B58719E4681E00C3C152 /* Info.plist */,
 				F534B58819E4681E00C3C152 /* main.m */,
@@ -899,7 +899,7 @@
 			);
 			name = "BreastCancer - YML";
 			productName = BreastCancer;
-			productReference = 085F3F1F1AAF6BA9003A910A /* BreastCancer copy.app */;
+			productReference = 085F3F1F1AAF6BA9003A910A /* BreastCancer_YML.app */;
 			productType = "com.apple.product-type.application";
 		};
 		F534B58219E4681E00C3C152 /* BreastCancer */ = {
@@ -1270,9 +1270,9 @@
 					"$(PROJECT_DIR)/AppCore/APCAppCore/ResearchKit",
 					"$(PROJECT_DIR)/AppCore/APCAppCore/BridgeSDK",
 				);
-				INFOPLIST_FILE = "BreastCancer copy-Info.plist";
+				INFOPLIST_FILE = "BreastCancer-YML-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_NAME = "BreastCancer copy";
+				PRODUCT_NAME = BreastCancer_YML;
 				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
@@ -1292,9 +1292,9 @@
 					"$(PROJECT_DIR)/AppCore/APCAppCore/ResearchKit",
 					"$(PROJECT_DIR)/AppCore/APCAppCore/BridgeSDK",
 				);
-				INFOPLIST_FILE = "BreastCancer copy-Info.plist";
+				INFOPLIST_FILE = "BreastCancer-YML-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_NAME = "BreastCancer copy";
+				PRODUCT_NAME = BreastCancer_YML;
 				PROVISIONING_PROFILE = "";
 			};
 			name = DebugAndSendToDataVerificationServer;
@@ -1318,9 +1318,9 @@
 					"$(inherited)",
 					"DEVELOPMENT=1",
 				);
-				INFOPLIST_FILE = "BreastCancer copy-Info.plist";
+				INFOPLIST_FILE = "BreastCancer-YML-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_NAME = "BreastCancer copy";
+				PRODUCT_NAME = BreastCancer_YML;
 				PROVISIONING_PROFILE = "";
 			};
 			name = Development;
@@ -1340,9 +1340,9 @@
 					"$(PROJECT_DIR)/AppCore/APCAppCore/ResearchKit",
 					"$(PROJECT_DIR)/AppCore/APCAppCore/BridgeSDK",
 				);
-				INFOPLIST_FILE = "BreastCancer copy-Info.plist";
+				INFOPLIST_FILE = "BreastCancer-YML-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_NAME = "BreastCancer copy";
+				PRODUCT_NAME = BreastCancer_YML;
 				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
