@@ -290,10 +290,13 @@ typedef  enum  _DailyLogType
 }
 
 - (void) addCustomNoTaskView {
-    self.noTasksView = [[UILabel alloc] initWithFrame:CGRectMake(0.0, 0.0, 200.0, 22.0)];
-    
-    if(![self.noTasksView.text isEqualToString:kNoTaskText])
+   
+    //only add this message once
+    if (!self.noTasksView)
     {
+        self.noTasksView = [[UILabel alloc] initWithFrame:CGRectMake(0.0, 0.0, 200.0, 22.0)];
+        
+        
         self.noTasksView.text = kNoTaskText;
         self.noTasksView.textColor = [UIColor lightGrayColor];
         self.noTasksView.center = CGPointMake([UIScreen mainScreen].bounds.size.width / 2, self.tabulator.frame.size.height / 2);
@@ -301,6 +304,7 @@ typedef  enum  _DailyLogType
         [self.tabulator addSubview:self.noTasksView];
         
         [self.tabulator setSeparatorStyle:UITableViewCellSeparatorStyleNone];
+        
     }
     
 }
