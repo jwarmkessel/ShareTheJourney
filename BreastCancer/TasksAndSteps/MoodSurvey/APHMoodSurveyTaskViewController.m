@@ -256,7 +256,7 @@ static NSInteger const kNumberOfCompletionsUntilDisplayingCustomSurvey = 7;
     textView.text =NSLocalizedString( kLearnMoreString, kLearnMoreString);
 
     textView.textColor = [UIColor blackColor];
-    [textView setFont:[UIFont fontWithName:@"HelveticaNeue" size:kFontSize]];
+    [textView setFont:[UIFont appRegularFontWithSize:kFontSize]];
     textView.numberOfLines = 0;
     textView.adjustsFontSizeToFitWidth  = YES;
     
