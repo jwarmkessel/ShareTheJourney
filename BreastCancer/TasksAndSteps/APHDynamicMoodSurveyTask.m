@@ -420,7 +420,7 @@ typedef NS_ENUM(NSUInteger, APHDynamicMoodSurveyType) {
     else if (completedNumberOfTimes)
     
     {
-        //This is the DAILY CHECK-IN with custom survey question and with custom survey
+        //This is the Daily Check-in with custom survey question and with custom survey
         [self setFlowState:4];
     }
 
