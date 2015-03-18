@@ -340,7 +340,7 @@ static NSString * const kAPCRightDetailTableViewCellIdentifier = @"APCRightDetai
                     item.maximumImage = [UIImage imageNamed:@"Breast-Cancer-Sleep-1g"];
                     
                     if ([[self.sleepScoring averageDataPoint] doubleValue] > 0) {
-                        item.averageImage = [UIImage imageNamed:[NSString stringWithFormat:@"Breast-Cancer-Sleep-%0.0fg", [[self.sleepScoring averageDataPoint] doubleValue]]];
+                        item.averageImage = [UIImage imageNamed:[NSString stringWithFormat:@"Breast-Cancer-Sleep-%0.0fg", 6 - [[self.sleepScoring averageDataPoint] doubleValue]]];
                         item.detailText = [NSString stringWithFormat:NSLocalizedString(@"Average : ", @"Average: ")];
                     }
                     
