@@ -259,8 +259,11 @@ static NSString * const kAPCRightDetailTableViewCellIdentifier = @"APCRightDetai
                     item.minimumImage = [UIImage imageNamed:@"Breast-Cancer-Mood-5g"];
                     item.maximumImage = [UIImage imageNamed:@"Breast-Cancer-Mood-1g"];
                     
-                    if ([[self.moodScoring averageDataPoint] doubleValue] > 0) {
-                        item.averageImage = [UIImage imageNamed:[NSString stringWithFormat:@"Breast-Cancer-Mood-%0.0fg", 6 - [[self.moodScoring averageDataPoint] doubleValue]]];
+                    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"datasetValueKey != %@", @(NSNotFound)];
+                    NSArray *scoringObjects = [[self.moodScoring allObjects] filteredArrayUsingPredicate:predicate];
+                    
+                    if ([[self.moodScoring averageDataPoint] doubleValue] > 0 && scoringObjects.count > 1) {
+                        item.averageImage = [UIImage imageNamed:[NSString stringWithFormat:@"Breast-Cancer-Mood-%0.0fg", (double) 6 - [[self.moodScoring averageDataPoint] doubleValue]]];
                         item.detailText = [NSString stringWithFormat: NSLocalizedString(@"Average : ", @"Average:")];
                     }
                     
@@ -285,8 +288,11 @@ static NSString * const kAPCRightDetailTableViewCellIdentifier = @"APCRightDetai
                     item.minimumImage = [UIImage imageNamed:@"Breast-Cancer-Energy-5g"];
                     item.maximumImage = [UIImage imageNamed:@"Breast-Cancer-Energy-1g"];
                     
-                    if ([[self.energyScoring averageDataPoint] doubleValue] > 0) {
-                        item.averageImage = [UIImage imageNamed:[NSString stringWithFormat:@"Breast-Cancer-Energy-%0.0fg", 6 - [[self.energyScoring averageDataPoint] doubleValue]]];
+                    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"datasetValueKey != %@", @(NSNotFound)];
+                    NSArray *scoringObjects = [[self.moodScoring allObjects] filteredArrayUsingPredicate:predicate];
+                    
+                    if ([[self.energyScoring averageDataPoint] doubleValue] > 0 && scoringObjects.count > 1) {
+                        item.averageImage = [UIImage imageNamed:[NSString stringWithFormat:@"Breast-Cancer-Energy-%0.0fg", (double) 6 - [[self.energyScoring averageDataPoint] doubleValue]]];
                         item.detailText = [NSString stringWithFormat:NSLocalizedString(@"Average : ", @"")];
                     }
                     
@@ -312,8 +318,11 @@ static NSString * const kAPCRightDetailTableViewCellIdentifier = @"APCRightDetai
                     item.minimumImage = [UIImage imageNamed:@"Breast-Cancer-Exercise-5g"];
                     item.maximumImage = [UIImage imageNamed:@"Breast-Cancer-Exercise-1g"];
                     
-                    if ([[self.exerciseScoring averageDataPoint] doubleValue] > 0) {
-                        item.averageImage = [UIImage imageNamed:[NSString stringWithFormat:@"Breast-Cancer-Exercise-%0.0fg", 6 - [[self.exerciseScoring averageDataPoint] doubleValue]]];
+                    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"datasetValueKey != %@", @(NSNotFound)];
+                    NSArray *scoringObjects = [[self.moodScoring allObjects] filteredArrayUsingPredicate:predicate];
+                    
+                    if ([[self.exerciseScoring averageDataPoint] doubleValue] > 0 && scoringObjects.count > 1) {
+                        item.averageImage = [UIImage imageNamed:[NSString stringWithFormat:@"Breast-Cancer-Exercise-%0.0fg", (double) 6 - [[self.exerciseScoring averageDataPoint] doubleValue]]];
                         item.detailText = [NSString stringWithFormat:NSLocalizedString(@"Average : ", @"")];
                     }
                     
@@ -339,8 +348,11 @@ static NSString * const kAPCRightDetailTableViewCellIdentifier = @"APCRightDetai
                     item.minimumImage = [UIImage imageNamed:@"Breast-Cancer-Sleep-5g"];
                     item.maximumImage = [UIImage imageNamed:@"Breast-Cancer-Sleep-1g"];
                     
-                    if ([[self.sleepScoring averageDataPoint] doubleValue] > 0) {
-                        item.averageImage = [UIImage imageNamed:[NSString stringWithFormat:@"Breast-Cancer-Sleep-%0.0fg", 6 - [[self.sleepScoring averageDataPoint] doubleValue]]];
+                    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"datasetValueKey != %@", @(NSNotFound)];
+                    NSArray *scoringObjects = [[self.moodScoring allObjects] filteredArrayUsingPredicate:predicate];
+                    
+                    if ([[self.sleepScoring averageDataPoint] doubleValue] > 0 && scoringObjects.count > 1) {
+                        item.averageImage = [UIImage imageNamed:[NSString stringWithFormat:@"Breast-Cancer-Sleep-%0.0fg", (double) 6 - [[self.sleepScoring averageDataPoint] doubleValue]]];
                         item.detailText = [NSString stringWithFormat:NSLocalizedString(@"Average : ", @"Average: ")];
                     }
                     
@@ -365,8 +377,12 @@ static NSString * const kAPCRightDetailTableViewCellIdentifier = @"APCRightDetai
                     item.minimumImage = [UIImage imageNamed:@"Breast-Cancer-Clarity-5g"];
                     item.maximumImage = [UIImage imageNamed:@"Breast-Cancer-Clarity-1g"];
                     
-                    if ([[self.cognitiveScoring averageDataPoint] doubleValue] > 0) {
-                        item.averageImage = [UIImage imageNamed:[NSString stringWithFormat:@"Breast-Cancer-Clarity-%0.0fg", 6 - [[self.cognitiveScoring averageDataPoint] doubleValue]]];
+                    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"datasetValueKey != %@", @(NSNotFound)];
+                    NSArray *moodScoringObjects = [[self.moodScoring allObjects] filteredArrayUsingPredicate:predicate];
+                    
+                    if ([[self.cognitiveScoring averageDataPoint] doubleValue] > 0 && moodScoringObjects.count > 1) {
+                        
+                        item.averageImage = [UIImage imageNamed:[NSString stringWithFormat:@"Breast-Cancer-Clarity-%0.0fg", (double) 6 - [[self.cognitiveScoring averageDataPoint] doubleValue]]];
                         item.detailText = [NSString stringWithFormat:NSLocalizedString(@"Average : ", @"Average: ")];
                     }
                     
@@ -393,8 +409,11 @@ static NSString * const kAPCRightDetailTableViewCellIdentifier = @"APCRightDetai
                     item.minimumImage = [UIImage imageNamed:@"Breast-Cancer-Custom-5g"];
                     item.maximumImage = [UIImage imageNamed:@"Breast-Cancer-Custom-1g"];
                     
-                    if ([[self.customScoring averageDataPoint] doubleValue] > 0) {
-                        item.averageImage = [UIImage imageNamed:[NSString stringWithFormat:@"Breast-Cancer-Custom-%0.0fg", 6 - [[self.customScoring averageDataPoint] doubleValue]]];
+                    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"datasetValueKey != %@", @(NSNotFound)];
+                    NSArray *scoringObjects = [[self.moodScoring allObjects] filteredArrayUsingPredicate:predicate];
+                    
+                    if ([[self.customScoring averageDataPoint] doubleValue] > 0 && scoringObjects.count > 1) {
+                        item.averageImage = [UIImage imageNamed:[NSString stringWithFormat:@"Breast-Cancer-Custom-%0.0fg", (double) 6 - [[self.customScoring averageDataPoint] doubleValue]]];
                         item.detailText = [NSString stringWithFormat:NSLocalizedString(@"Average : ", @"Average: ")];
                     }
                     
