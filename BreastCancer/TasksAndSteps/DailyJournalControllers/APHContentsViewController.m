@@ -35,7 +35,6 @@ typedef  enum  _DailyLogType
 
 @property                                   NSDictionary*   sectionedLogHistory;
 @property                                        NSArray*   weeks;
-@property (nonatomic, strong)                    NSArray*   journalEntries;
 @property  (nonatomic, strong)             ORKStepResult*   cachedResult;
 @property  (nonatomic, strong)                   UILabel*   noTasksView;
 @end
@@ -260,7 +259,7 @@ typedef  enum  _DailyLogType
         NSInteger entryCount = ((NSArray *)[self.sectionedLogHistory objectForKey:key]).count;
         
         headerCell.labelEntries.text =  entryCount == 1 ? [NSString stringWithFormat:@"%zd %@", entryCount, NSLocalizedString(@"Entry", nil)] : [NSString stringWithFormat:@"%zd %@", entryCount, NSLocalizedString(@"Entries", @"Entries")];
-                
+        
         headerView = headerCell;
     }
     
