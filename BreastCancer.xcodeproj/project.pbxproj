@@ -138,6 +138,11 @@
 		744174E61A923861004A7CC1 /* APHConsentSection.json in Resources */ = {isa = PBXBuildFile; fileRef = 744174E51A923861004A7CC1 /* APHConsentSection.json */; };
 		747FB13E1ABDDD1E00345000 /* ResearchKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 747FB1301ABDDCAA00345000 /* ResearchKit.framework */; };
 		747FB13F1ABDDD2500345000 /* APCAppCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 747FB13B1ABDDCBA00345000 /* APCAppCore.framework */; };
+		747FB15B1ABDF02100345000 /* APCAppCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 747FB13B1ABDDCBA00345000 /* APCAppCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		747FB1611ABDF02A00345000 /* APCAppCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 747FB13B1ABDDCBA00345000 /* APCAppCore.framework */; };
+		747FB1621ABDF02A00345000 /* APCAppCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 747FB13B1ABDDCBA00345000 /* APCAppCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		747FB1651ABDF37100345000 /* ResearchKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 747FB1301ABDDCAA00345000 /* ResearchKit.framework */; };
+		747FB1661ABDF37100345000 /* ResearchKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 747FB1301ABDDCAA00345000 /* ResearchKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		74D75D561A9ED66200078A73 /* BCS_feedback.json in Resources */ = {isa = PBXBuildFile; fileRef = 74D75D551A9ED66200078A73 /* BCS_feedback.json */; };
 		74D75D591A9ED66E00078A73 /* BCS_mythoughts.json in Resources */ = {isa = PBXBuildFile; fileRef = 74D75D581A9ED66E00078A73 /* BCS_mythoughts.json */; };
 		7B0541F71A842B4900B7729D /* APHDynamicMoodSurveyTask.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B0541F61A842B4900B7729D /* APHDynamicMoodSurveyTask.m */; };
@@ -257,6 +262,27 @@
 			remoteGlobalIDString = B183A4731A8535D100C76870;
 			remoteInfo = OpenResearchKit;
 		};
+		747FB15C1ABDF02100345000 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 747FB1351ABDDCBA00345000 /* APCAppCore.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = F5179B2819D09128001DCCB7;
+			remoteInfo = APCAppCore;
+		};
+		747FB1631ABDF02A00345000 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 747FB1351ABDDCBA00345000 /* APCAppCore.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = F5179B2819D09128001DCCB7;
+			remoteInfo = APCAppCore;
+		};
+		747FB1671ABDF37100345000 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 747FB1281ABDDCAA00345000 /* ResearchKit.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = B183A4731A8535D100C76870;
+			remoteInfo = OpenResearchKit;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -266,7 +292,9 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				747FB1621ABDF02A00345000 /* APCAppCore.framework in Embed Frameworks */,
 				085F3F161AAF6BA9003A910A /* BridgeSDK.framework in Embed Frameworks */,
+				747FB1661ABDF37100345000 /* ResearchKit.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -277,6 +305,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				747FB15B1ABDF02100345000 /* APCAppCore.framework in Embed Frameworks */,
 				F53C19D91AA588AD0019EEE8 /* BridgeSDK.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -435,8 +464,10 @@
 			files = (
 				085F3ED71AAF6BA9003A910A /* AVFoundation.framework in Frameworks */,
 				085F3EDA1AAF6BA9003A910A /* Security.framework in Frameworks */,
+				747FB1611ABDF02A00345000 /* APCAppCore.framework in Frameworks */,
 				085F3EDB1AAF6BA9003A910A /* CoreData.framework in Frameworks */,
 				085F3EDC1AAF6BA9003A910A /* BridgeSDK.framework in Frameworks */,
+				747FB1651ABDF37100345000 /* ResearchKit.framework in Frameworks */,
 				085F3EDD1AAF6BA9003A910A /* HealthKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -914,6 +945,8 @@
 			buildRules = (
 			);
 			dependencies = (
+				747FB1641ABDF02A00345000 /* PBXTargetDependency */,
+				747FB1681ABDF37100345000 /* PBXTargetDependency */,
 			);
 			name = "BreastCancer - YML";
 			productName = BreastCancer;
@@ -935,6 +968,7 @@
 			dependencies = (
 				747FB1431ABDDE3000345000 /* PBXTargetDependency */,
 				747FB1411ABDDE2B00345000 /* PBXTargetDependency */,
+				747FB15D1ABDF02100345000 /* PBXTargetDependency */,
 			);
 			name = BreastCancer;
 			productName = BreastCancer;
@@ -1296,6 +1330,21 @@
 			name = OpenResearchKit;
 			targetProxy = 747FB1421ABDDE3000345000 /* PBXContainerItemProxy */;
 		};
+		747FB15D1ABDF02100345000 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = APCAppCore;
+			targetProxy = 747FB15C1ABDF02100345000 /* PBXContainerItemProxy */;
+		};
+		747FB1641ABDF02A00345000 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = APCAppCore;
+			targetProxy = 747FB1631ABDF02A00345000 /* PBXContainerItemProxy */;
+		};
+		747FB1681ABDF37100345000 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = OpenResearchKit;
+			targetProxy = 747FB1671ABDF37100345000 /* PBXContainerItemProxy */;
+		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
@@ -1310,8 +1359,6 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/AppCore/APCAppCore/**",
-					"$(PROJECT_DIR)/AppCore/APCAppCore/ResearchKit",
 					"$(PROJECT_DIR)/AppCore/APCAppCore/BridgeSDK",
 				);
 				INFOPLIST_FILE = "BreastCancer-YML-Info.plist";
@@ -1332,8 +1379,6 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/AppCore/APCAppCore/**",
-					"$(PROJECT_DIR)/AppCore/APCAppCore/ResearchKit",
 					"$(PROJECT_DIR)/AppCore/APCAppCore/BridgeSDK",
 				);
 				INFOPLIST_FILE = "BreastCancer-YML-Info.plist";
@@ -1354,8 +1399,6 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/AppCore/APCAppCore/**",
-					"$(PROJECT_DIR)/AppCore/APCAppCore/ResearchKit",
 					"$(PROJECT_DIR)/AppCore/APCAppCore/BridgeSDK",
 				);
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -1380,8 +1423,6 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/AppCore/APCAppCore/**",
-					"$(PROJECT_DIR)/AppCore/APCAppCore/ResearchKit",
 					"$(PROJECT_DIR)/AppCore/APCAppCore/BridgeSDK",
 				);
 				INFOPLIST_FILE = "BreastCancer-YML-Info.plist";
@@ -1449,10 +1490,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/AppCore/APCAppCore/**",
-					"$(PROJECT_DIR)/AppCore/APCAppCore/ResearchKit",
 					"$(PROJECT_DIR)/AppCore/APCAppCore/BridgeSDK",
-					"$(PROJECT_DIR)/researchkit/build/Debug-iphoneos",
-					"$(PROJECT_DIR)/AppCore/APCAppCore/build/Debug-iphoneos",
 				);
 				INFOPLIST_FILE = BreastCancer/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1557,10 +1595,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/AppCore/APCAppCore/**",
-					"$(PROJECT_DIR)/AppCore/APCAppCore/ResearchKit",
 					"$(PROJECT_DIR)/AppCore/APCAppCore/BridgeSDK",
-					"$(PROJECT_DIR)/researchkit/build/Debug-iphoneos",
-					"$(PROJECT_DIR)/AppCore/APCAppCore/build/Debug-iphoneos",
 				);
 				INFOPLIST_FILE = BreastCancer/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1581,10 +1616,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/AppCore/APCAppCore/**",
-					"$(PROJECT_DIR)/AppCore/APCAppCore/ResearchKit",
 					"$(PROJECT_DIR)/AppCore/APCAppCore/BridgeSDK",
-					"$(PROJECT_DIR)/researchkit/build/Debug-iphoneos",
-					"$(PROJECT_DIR)/AppCore/APCAppCore/build/Debug-iphoneos",
 				);
 				INFOPLIST_FILE = BreastCancer/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1650,10 +1682,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/AppCore/APCAppCore/**",
-					"$(PROJECT_DIR)/AppCore/APCAppCore/ResearchKit",
 					"$(PROJECT_DIR)/AppCore/APCAppCore/BridgeSDK",
-					"$(PROJECT_DIR)/researchkit/build/Debug-iphoneos",
-					"$(PROJECT_DIR)/AppCore/APCAppCore/build/Debug-iphoneos",
 				);
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"$(inherited)",
