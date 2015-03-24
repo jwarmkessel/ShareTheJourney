@@ -286,7 +286,7 @@ typedef  enum  _DailyLogType
     for (APCResult *result in logHistory) {
         
         NSDateComponents *identifyingDateComponents = [[NSCalendar currentCalendar] components:(NSCalendarUnitYear | NSCalendarUnitWeekOfYear) fromDate:result.createdAt];
-        NSString *key = [NSString stringWithFormat:@"%li-Week %li", identifyingDateComponents.year, identifyingDateComponents.weekOfYear];
+        NSString *key = [NSString stringWithFormat:@"%li - Week %li", identifyingDateComponents.year, identifyingDateComponents.weekOfYear];
         
         if ([entriesByWeek objectForKey:key]) {
             NSMutableArray *entries = [entriesByWeek objectForKey:key];
