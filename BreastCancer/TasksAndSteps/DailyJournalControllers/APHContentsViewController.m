@@ -254,7 +254,8 @@ typedef  enum  _DailyLogType
     } else {
         APHNotesHeaderTableViewCell *headerCell = [tableView dequeueReusableCellWithIdentifier:kHeaderTableViewCellIdentifier];
     
-        headerCell.labelWeek.text = [NSLocalizedString(@"Week", @"Week") stringByAppendingFormat:@" %@", [self keyForSection:section]];
+        headerCell.labelWeek.text = NSLocalizedString([self keyForSection:section], nil);
+        
         NSString *key = [self keyForSection:section];
         NSInteger entryCount = ((NSArray *)[self.sectionedLogHistory objectForKey:key]).count;
         
@@ -286,7 +287,7 @@ typedef  enum  _DailyLogType
     for (APCResult *result in logHistory) {
         
         NSDateComponents *identifyingDateComponents = [[NSCalendar currentCalendar] components:(NSCalendarUnitYear | NSCalendarUnitWeekOfYear) fromDate:result.createdAt];
-        NSString *key = [NSString stringWithFormat:@"%li/%li", identifyingDateComponents.year, identifyingDateComponents.weekOfYear];
+        NSString *key = [NSString stringWithFormat:@"%li - Week %li", identifyingDateComponents.year, identifyingDateComponents.weekOfYear];
         
         if ([entriesByWeek objectForKey:key]) {
             NSMutableArray *entries = [entriesByWeek objectForKey:key];
