@@ -1,0 +1,548 @@
+{
+    "name" : "PHQ8-GAD7 Surveys",
+    "type" : "Survey",
+  	"identifier" : "BCSPHQ8survey",
+  	"questions" : 
+  	 [
+        {
+            "guid": "6cc2a764-cab1-41d0-ac7e-f63939a57e9d",
+            "identifier": "PHQ8-1",
+            "type": "SurveyQuestion",
+            "detail": "Over the last TWO WEEKS how often have you experienced little interest or pleasure in doing things?",
+            "constraints": {
+                "dataType": "string",
+                "rules": [],
+                "enumeration": [
+                    {
+                        "label": "Not at all",
+                        "value": "0",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Several days",
+                        "value": "1",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "More than half the days",
+                        "value": "2",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Nearly every day",
+                        "value": "3",
+                        "type": "SurveyQuestionOption"
+                    }
+                ],
+                "allowOther": false,
+                "allowMultiple": false,
+                "type": "MultiValueConstraints"
+            },
+            "uiHint": "radiobutton"
+        },
+        {
+            "guid": "ab631e06-6d14-4599-aa0e-815a0c8a2c75",
+            "identifier": "PHQ8-2",
+            "type": "SurveyQuestion",
+            "detail": "Over the last TWO WEEKS how often have you been feeling down, depressed, or hopeless?",
+            "constraints": {
+                "dataType": "string",
+                "rules": [],
+                "enumeration": [
+                    {
+                        "label": "Not at all",
+                        "value": "0",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Several days",
+                        "value": "1",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "More than half the days",
+                        "value": "2",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Nearly every day",
+                        "value": "3",
+                        "type": "SurveyQuestionOption"
+                    }
+                ],
+                "allowOther": false,
+                "allowMultiple": false,
+                "type": "MultiValueConstraints"
+            },
+            "uiHint": "radiobutton"
+        },
+        {
+            "guid": "b50d74ec-5aa0-45e7-8faf-81c15875e964",
+            "identifier": "PHQ8-3",
+            "type": "SurveyQuestion",
+            "detail": "Over the last TWO WEEKS how often have you had trouble falling or staying asleep, or sleeping too much?",
+            "constraints": {
+                "dataType": "string",
+                "rules": [],
+                "enumeration": [
+                    {
+                        "label": "Not at all",
+                        "value": "0",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Several days",
+                        "value": "1",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "More than half the days",
+                        "value": "2",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Nearly every day",
+                        "value": "3",
+                        "type": "SurveyQuestionOption"
+                    }
+                ],
+                "allowOther": false,
+                "allowMultiple": false,
+                "type": "MultiValueConstraints"
+            },
+            "uiHint": "radiobutton"
+        },
+        {
+            "guid": "f59f17d1-6b89-4ba6-9b59-7acbff73ed64",
+            "identifier": "PHQ8-4",
+            "type": "SurveyQuestion",
+            "detail": "Over the last TWO WEEKS how often have felt tired or had little energy?",
+            "constraints": {
+                "dataType": "string",
+                "rules": [],
+                "enumeration": [
+                    {
+                        "label": "Not at all",
+                        "value": "0",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Several days",
+                        "value": "1",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "More than half the days",
+                        "value": "2",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Nearly every day",
+                        "value": "3",
+                        "type": "SurveyQuestionOption"
+                    }
+                ],
+                "allowOther": false,
+                "allowMultiple": false,
+                "type": "MultiValueConstraints"
+            },
+            "uiHint": "radiobutton"
+        },
+        {
+            "guid": "044abf89-e254-4bfb-abb9-60aa9d36eceb",
+            "identifier": "PHQ8-5",
+            "type": "SurveyQuestion",
+            "detail": "Over the last TWO WEEKS how often have you had poor appetite or overeating?",
+            "constraints": {
+                "dataType": "string",
+                "rules": [],
+                "enumeration": [
+                    {
+                        "label": "Not at all",
+                        "value": "0",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Several days",
+                        "value": "1",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "More than half the days",
+                        "value": "2",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Nearly every day",
+                        "value": "3",
+                        "type": "SurveyQuestionOption"
+                    }
+                ],
+                "allowOther": false,
+                "allowMultiple": false,
+                "type": "MultiValueConstraints"
+            },
+            "uiHint": "radiobutton"
+        },
+        {
+            "guid": "d9849d24-8329-406b-89a0-08eced4cbb45",
+            "identifier": "PHQ8-6",
+            "type": "SurveyQuestion",
+            "detail": "Over the last TWO WEEKS how often have felt bad about yourself – or felt that you are a failure or have let yourself or your family down?",
+            "constraints": {
+                "dataType": "string",
+                "rules": [],
+                "enumeration": [
+                    {
+                        "label": "Not at all",
+                        "value": "0",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Several days",
+                        "value": "1",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "More than half the days",
+                        "value": "2",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Nearly every day",
+                        "value": "3",
+                        "type": "SurveyQuestionOption"
+                    }
+                ],
+                "allowOther": false,
+                "allowMultiple": false,
+                "type": "MultiValueConstraints"
+            },
+            "uiHint": "radiobutton"
+        },
+        {
+            "guid": "d10f3d04-b4a2-46f4-9e72-779f10b70b69",
+            "identifier": "PHQ8-7",
+            "type": "SurveyQuestion",
+            "detail": "Over the last TWO WEEKS how often have you had trouble concentrating on things, such as reading the newspaper or watching television?",
+            "constraints": {
+                "dataType": "string",
+                "rules": [],
+                "enumeration": [
+                    {
+                        "label": "Not at all",
+                        "value": "0",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Several days",
+                        "value": "1",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "More than half the days",
+                        "value": "2",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Nearly every day",
+                        "value": "3",
+                        "type": "SurveyQuestionOption"
+                    }
+                ],
+                "allowOther": false,
+                "allowMultiple": false,
+                "type": "MultiValueConstraints"
+            },
+            "uiHint": "radiobutton"
+        },
+        {
+            "guid": "d12d85c2-bdf7-4454-97ba-cdb6aca5e9d0",
+            "identifier": "PHQ8-8",
+            "type": "SurveyQuestion",
+            "detail": "Over the last TWO WEEKS how often have you moved or spoke so slowly that other people could have noticed? Or the opposite – been so fidgety or restless that you have been moving around a lot more than usual?",
+            "constraints": {
+                "dataType": "string",
+                "rules": [],
+                "enumeration": [
+                    {
+                        "label": "Not at all",
+                        "value": "0",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Several days",
+                        "value": "1",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "More than half the days",
+                        "value": "2",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Nearly every day",
+                        "value": "3",
+                        "type": "SurveyQuestionOption"
+                    }
+                ],
+                "allowOther": false,
+                "allowMultiple": false,
+                "type": "MultiValueConstraints"
+            },
+            "uiHint": "radiobutton"
+        },
+        {
+            "guid": "70420a88-b73d-48aa-8d42-733feb13da8c",
+            "identifier": "GAD7-1",
+            "type": "SurveyQuestion",
+            "detail": "Over the last TWO WEEKS how often have you felt nervous, anxious, or on edge?",
+            "constraints": {
+                "dataType": "string",
+                "rules": [],
+                "enumeration": [
+                    {
+                        "label": "Not at all",
+                        "value": "0",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Several days",
+                        "value": "1",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "More than half the days",
+                        "value": "2",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Nearly every day",
+                        "value": "3",
+                        "type": "SurveyQuestionOption"
+                    }
+                ],
+                "allowOther": false,
+                "allowMultiple": false,
+                "type": "MultiValueConstraints"
+            },
+            "uiHint": "radiobutton"
+        },
+        {
+            "guid": "2ae853f9-e87f-46d1-babb-46bdd61a11a8",
+            "identifier": "GAD7-2",
+            "type": "SurveyQuestion",
+            "detail": "Over the last TWO WEEKS how often have you not been able to stop or control worrying?",
+            "constraints": {
+                "dataType": "string",
+                "rules": [],
+                "enumeration": [
+                    {
+                        "label": "Not at all",
+                        "value": "0",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Several days",
+                        "value": "1",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "More than half the days",
+                        "value": "2",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Nearly every day",
+                        "value": "3",
+                        "type": "SurveyQuestionOption"
+                    }
+                ],
+                "allowOther": false,
+                "allowMultiple": false,
+                "type": "MultiValueConstraints"
+            },
+            "uiHint": "radiobutton"
+        },
+        {
+            "guid": "4423ffab-f503-4997-91f0-27aa8667bc7d",
+            "identifier": "GAD7-3",
+            "type": "SurveyQuestion",
+            "detail": "Over the last TWO WEEKS how often have you worried too much about different things?",
+            "constraints": {
+                "dataType": "string",
+                "rules": [],
+                "enumeration": [
+                    {
+                        "label": "Not at all",
+                        "value": "0",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Several days",
+                        "value": "1",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "More than half the days",
+                        "value": "2",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Nearly every day",
+                        "value": "3",
+                        "type": "SurveyQuestionOption"
+                    }
+                ],
+                "allowOther": false,
+                "allowMultiple": false,
+                "type": "MultiValueConstraints"
+            },
+            "uiHint": "radiobutton"
+        },
+        {
+            "guid": "6e29cdd6-2bd9-4697-bc23-f4738095b0e4",
+            "identifier": "GAD7-4",
+            "type": "SurveyQuestion",
+            "detail": "Over the last TWO WEEKS how often have you had trouble relaxing?",
+            "constraints": {
+                "dataType": "string",
+                "rules": [],
+                "enumeration": [
+                    {
+                        "label": "Not at all",
+                        "value": "0",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Several days",
+                        "value": "1",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "More than half the days",
+                        "value": "2",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Nearly every day",
+                        "value": "3",
+                        "type": "SurveyQuestionOption"
+                    }
+                ],
+                "allowOther": false,
+                "allowMultiple": false,
+                "type": "MultiValueConstraints"
+            },
+            "uiHint": "radiobutton"
+        },
+        {
+            "guid": "1ceb7ea8-5384-44a3-b227-254dc18a9a0d",
+            "identifier": "GAD7-5",
+            "type": "SurveyQuestion",
+            "detail": "Over the last TWO WEEKS how often have you been so restless that it's hard to sit still?",
+            "constraints": {
+                "dataType": "string",
+                "rules": [],
+                "enumeration": [
+                    {
+                        "label": "Not at all",
+                        "value": "0",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Several days",
+                        "value": "1",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "More than half the days",
+                        "value": "2",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Nearly every day",
+                        "value": "3",
+                        "type": "SurveyQuestionOption"
+                    }
+                ],
+                "allowOther": false,
+                "allowMultiple": false,
+                "type": "MultiValueConstraints"
+            },
+            "uiHint": "radiobutton"
+        },
+        {
+            "guid": "d7e7aa1f-582a-48a1-aacd-ab5df733fe48",
+            "identifier": "GAD7-6",
+            "type": "SurveyQuestion",
+            "detail": "Over the last TWO WEEKS how often have you become easily annoyed or irritable?",
+            "constraints": {
+                "dataType": "string",
+                "rules": [],
+                "enumeration": [
+                    {
+                        "label": "Not at all",
+                        "value": "0",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Several days",
+                        "value": "1",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "More than half the days",
+                        "value": "2",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Nearly every day",
+                        "value": "3",
+                        "type": "SurveyQuestionOption"
+                    }
+                ],
+                "allowOther": false,
+                "allowMultiple": false,
+                "type": "MultiValueConstraints"
+            },
+            "uiHint": "radiobutton"
+        },
+        {
+            "guid": "0e80d5ec-7756-4271-991e-b83da7c2a19d",
+            "identifier": "GAD7-7",
+            "type": "SurveyQuestion",
+            "detail": "Over the last TWO WEEKS how often have you felt afraid as if something awful might happen?",
+            "constraints": {
+                "dataType": "string",
+                "rules": [],
+                "enumeration": [
+                    {
+                        "label": "Not at all",
+                        "value": "0",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Several days",
+                        "value": "1",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "More than half the days",
+                        "value": "2",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Nearly every day",
+                        "value": "3",
+                        "type": "SurveyQuestionOption"
+                    }
+                ],
+                "allowOther": false,
+                "allowMultiple": false,
+                "type": "MultiValueConstraints"
+            },
+            "uiHint": "radiobutton"
+        }
+    ]
+}

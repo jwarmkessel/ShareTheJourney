@@ -1,0 +1,1333 @@
+{
+   "name" : "SF36 Survey",
+    "type" : "Survey",
+  	"identifier" : "BCSSF36survey",
+  	"questions" : [
+        {
+            "guid": "9bf331d7-b82f-4b32-979e-8e5237309313",
+            "identifier": "SF36-1",
+            "type": "SurveyQuestion",
+            "detail": "In general, would you say your health is: ",
+            "constraints": {
+                "dataType": "string",
+                "rules": [],
+                "enumeration": [
+                    {
+                        "label": "Excellent",
+                        "value": "Excellent",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Very Good",
+                        "value": "Very Good",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Good",
+                        "value": "Good",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Fair",
+                        "value": "Fair",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Poor",
+                        "value": "Poor",
+                        "type": "SurveyQuestionOption"
+                    }
+                ],
+                "allowOther": false,
+                "allowMultiple": false,
+                "type": "MultiValueConstraints"
+            },
+            "uiHint": "radiobutton"
+        },
+        {
+            "guid": "bfc42a57-ffb0-4f6d-9594-cbd277c95bf2",
+            "identifier": "SF36-2",
+            "type": "SurveyQuestion",
+            "detail": "Compared to one year ago, how would you rate your health in general now?",
+            "constraints": {
+                "dataType": "string",
+                "rules": [],
+                "enumeration": [
+                    {
+                        "label": "Much better now than one year ago",
+                        "value": "Much better now than one year ago",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Somewhat better now than one year ago",
+                        "value": "Somewhat better now than one year ago",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "About the same",
+                        "value": "About the same",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Somewhat worse than one year ago",
+                        "value": "Somewhat worse than one year ago",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Much worse than one year ago",
+                        "value": "Much worse than one year ago",
+                        "type": "SurveyQuestionOption"
+                    }
+                ],
+                "allowOther": false,
+                "allowMultiple": false,
+                "type": "MultiValueConstraints"
+            },
+            "uiHint": "radiobutton"
+        },
+        {
+            "guid": "1e7a466e-e221-4010-bd30-370f6b2640a6",
+            "identifier": "SF36-3",
+            "type": "SurveyQuestion",
+            "detail": "In a typical day, does your health now limit vigorous activities, such as running, lifting heavy objects, participating in strenuous sports?",
+            "constraints": {
+                "dataType": "string",
+                "rules": [],
+                "enumeration": [
+                    {
+                        "label": "Yes, limited a lot",
+                        "value": "Yes, limited a lot",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Yes, limited a little",
+                        "value": "Yes, limited a little",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "No, not limited at all",
+                        "value": "No, not limited at all",
+                        "type": "SurveyQuestionOption"
+                    }
+                ],
+                "allowOther": false,
+                "allowMultiple": false,
+                "type": "MultiValueConstraints"
+            },
+            "uiHint": "radiobutton"
+        },
+        {
+            "guid": "8b773e58-7a26-46e9-a2e6-83b310e6ca92",
+            "identifier": "SF36-4",
+            "type": "SurveyQuestion",
+            "detail": "In a typical day, does your health now limit moderate activities, such as moving a table, pushing a vacuum cleaner, bowling, or playing golf?",
+            "constraints": {
+                "dataType": "string",
+                "rules": [],
+                "enumeration": [
+                    {
+                        "label": "Yes, limited a lot",
+                        "value": "Yes, limited a lot",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Yes, limited a little",
+                        "value": "Yes, limited a little",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "No, not limited at all",
+                        "value": "No, not limited at all",
+                        "type": "SurveyQuestionOption"
+                    }
+                ],
+                "allowOther": false,
+                "allowMultiple": false,
+                "type": "MultiValueConstraints"
+            },
+            "uiHint": "radiobutton"
+        },
+        {
+            "guid": "32a59b1c-19fd-4325-bdb9-598248f77080",
+            "identifier": "SF36-5",
+            "type": "SurveyQuestion",
+            "detail": "In a typical day, does your health now limit lifting or carrying groceries?",
+            "constraints": {
+                "dataType": "string",
+                "rules": [],
+                "enumeration": [
+                    {
+                        "label": "Yes, limited a lot",
+                        "value": "Yes, limited a lot",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Yes, limited a little",
+                        "value": "Yes, limited a little",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "No, not limited at all",
+                        "value": "No, not limited at all",
+                        "type": "SurveyQuestionOption"
+                    }
+                ],
+                "allowOther": false,
+                "allowMultiple": false,
+                "type": "MultiValueConstraints"
+            },
+            "uiHint": "radiobutton"
+        },
+        {
+            "guid": "feaa0a87-85b0-4ca7-b964-bfb732a38e91",
+            "identifier": "SF36-6",
+            "type": "SurveyQuestion",
+            "detail": "In a typical day, does your health now limit climbing several flights of stairs?",
+            "constraints": {
+                "dataType": "string",
+                "rules": [],
+                "enumeration": [
+                    {
+                        "label": "Yes, limited a lot",
+                        "value": "Yes, limited a lot",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Yes, limited a little",
+                        "value": "Yes, limited a little",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "No, not limited at all",
+                        "value": "No, not limited at all",
+                        "type": "SurveyQuestionOption"
+                    }
+                ],
+                "allowOther": false,
+                "allowMultiple": false,
+                "type": "MultiValueConstraints"
+            },
+            "uiHint": "radiobutton"
+        },
+        {
+            "guid": "1357492f-7284-4f31-9cd4-c0ddb9871a8c",
+            "identifier": "SF36-7",
+            "type": "SurveyQuestion",
+            "detail": "In a typical day, does your health now limit climbing one flight of stairs?",
+            "constraints": {
+                "dataType": "string",
+                "rules": [],
+                "enumeration": [
+                    {
+                        "label": "Yes, limited a lot",
+                        "value": "Yes, limited a lot",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Yes, limited a little",
+                        "value": "Yes, limited a little",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "No, not limited at all",
+                        "value": "No, not limited at all",
+                        "type": "SurveyQuestionOption"
+                    }
+                ],
+                "allowOther": false,
+                "allowMultiple": false,
+                "type": "MultiValueConstraints"
+            },
+            "uiHint": "radiobutton"
+        },
+        {
+            "guid": "fb034be5-4bca-4cf0-bd93-730833e2d576",
+            "identifier": "SF36-8",
+            "type": "SurveyQuestion",
+            "detail": "In a typical day, does your health now limit bending, kneeling, or stooping?",
+            "constraints": {
+                "dataType": "string",
+                "rules": [],
+                "enumeration": [
+                    {
+                        "label": "Yes, limited a lot",
+                        "value": "Yes, limited a lot",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Yes, limited a little",
+                        "value": "Yes, limited a little",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "No, not limited at all",
+                        "value": "No, not limited at all",
+                        "type": "SurveyQuestionOption"
+                    }
+                ],
+                "allowOther": false,
+                "allowMultiple": false,
+                "type": "MultiValueConstraints"
+            },
+            "uiHint": "radiobutton"
+        },
+        {
+            "guid": "e0acfc83-bf52-47d4-8653-a8a7b1442c1c",
+            "identifier": "SF36-9",
+            "type": "SurveyQuestion",
+            "detail": "In a typical day, does your health now limit walking more than a mile?",
+            "constraints": {
+                "dataType": "string",
+                "rules": [],
+                "enumeration": [
+                    {
+                        "label": "Yes, limited a lot",
+                        "value": "Yes, limited a lot",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Yes, limited a little",
+                        "value": "Yes, limited a little",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "No, not limited at all",
+                        "value": "No, not limited at all",
+                        "type": "SurveyQuestionOption"
+                    }
+                ],
+                "allowOther": false,
+                "allowMultiple": false,
+                "type": "MultiValueConstraints"
+            },
+            "uiHint": "radiobutton"
+        },
+        {
+            "guid": "a60032d1-4ae8-4f42-b391-c2f13104aa8d",
+            "identifier": "SF36-10",
+            "type": "SurveyQuestion",
+            "detail": "In a typical day, does your health now limit walking several blocks?",
+            "constraints": {
+                "dataType": "string",
+                "rules": [],
+                "enumeration": [
+                    {
+                        "label": "Yes, limited a lot",
+                        "value": "Yes, limited a lot",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Yes, limited a little",
+                        "value": "Yes, limited a little",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "No, not limited at all",
+                        "value": "No, not limited at all",
+                        "type": "SurveyQuestionOption"
+                    }
+                ],
+                "allowOther": false,
+                "allowMultiple": false,
+                "type": "MultiValueConstraints"
+            },
+            "uiHint": "radiobutton"
+        },
+        {
+            "guid": "4899efd1-1f0a-4612-8f3b-18ec65893198",
+            "identifier": "SF36-11",
+            "type": "SurveyQuestion",
+            "detail": "In a typical day, does your health now limit walking one block?",
+            "constraints": {
+                "dataType": "string",
+                "rules": [],
+                "enumeration": [
+                    {
+                        "label": "Yes, limited a lot",
+                        "value": "Yes, limited a lot",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Yes, limited a little",
+                        "value": "Yes, limited a little",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "No, not limited at all",
+                        "value": "No, not limited at all",
+                        "type": "SurveyQuestionOption"
+                    }
+                ],
+                "allowOther": false,
+                "allowMultiple": false,
+                "type": "MultiValueConstraints"
+            },
+            "uiHint": "radiobutton"
+        },
+        {
+            "guid": "680c5899-3a7d-4093-826d-22e633846cd2",
+            "identifier": "SF36-12",
+            "type": "SurveyQuestion",
+            "detail": "In a typical day, does your health now limit bathing or dressing yourself?",
+            "constraints": {
+                "dataType": "string",
+                "rules": [],
+                "enumeration": [
+                    {
+                        "label": "Yes, limited a lot",
+                        "value": "Yes, limited a lot",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Yes, limited a little",
+                        "value": "Yes, limited a little",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "No, not limited at all",
+                        "value": "No, not limited at all",
+                        "type": "SurveyQuestionOption"
+                    }
+                ],
+                "allowOther": false,
+                "allowMultiple": false,
+                "type": "MultiValueConstraints"
+            },
+            "uiHint": "radiobutton"
+        },
+        {
+            "guid": "530603cb-f4c5-414b-b786-10cea2172998",
+            "identifier": "SF36-13",
+            "type": "SurveyQuestion",
+            "detail": "During the past 4 weeks, has your PHYSICAL health meant that you cut down the amount of time you spent on work or other activities?",
+            "constraints": {
+                "dataType": "boolean",
+                "rules": [],
+                "enumeration": [
+                    {
+                        "label": "Yes",
+                        "value": "true",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "No",
+                        "value": "false",
+                        "type": "SurveyQuestionOption"
+                    }
+                ],
+                "allowOther": false,
+                "allowMultiple": false,
+                "type": "MultiValueConstraints"
+            },
+            "uiHint": "radiobutton"
+        },
+        {
+            "guid": "11be1a17-3c06-4e67-977c-ce060f20fb64",
+            "identifier": "SF36-14",
+            "type": "SurveyQuestion",
+            "detail": "During the past 4 weeks, has your PHYSICAL health meant that you accomplished less than you would like?",
+            "constraints": {
+                "dataType": "boolean",
+                "rules": [],
+                "enumeration": [
+                    {
+                        "label": "Yes",
+                        "value": "true",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "No",
+                        "value": "false",
+                        "type": "SurveyQuestionOption"
+                    }
+                ],
+                "allowOther": false,
+                "allowMultiple": false,
+                "type": "MultiValueConstraints"
+            },
+            "uiHint": "radiobutton"
+        },
+        {
+            "guid": "6a14418c-6602-449b-8967-f5c5b3a4c798",
+            "identifier": "SF36-15",
+            "type": "SurveyQuestion",
+            "detail": "During the past 4 weeks, has your PHYSICAL health meant that you were limited in the kind of work or other activities?",
+            "constraints": {
+                "dataType": "boolean",
+                "rules": [],
+                "enumeration": [
+                    {
+                        "label": "Yes",
+                        "value": "true",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "No",
+                        "value": "false",
+                        "type": "SurveyQuestionOption"
+                    }
+                ],
+                "allowOther": false,
+                "allowMultiple": false,
+                "type": "MultiValueConstraints"
+            },
+            "uiHint": "radiobutton"
+        },
+        {
+            "guid": "c6cfb4eb-7bfc-4d08-9c51-1ad6ca3c3fb7",
+            "identifier": "SF36-16",
+            "type": "SurveyQuestion",
+            "detail": "During the past 4 weeks, has your PHYSICAL health meant that you had difficulty performing the work or other activities (for example, it took extra effort)?",
+            "constraints": {
+                "dataType": "boolean",
+                "rules": [],
+                "enumeration": [
+                    {
+                        "label": "Yes",
+                        "value": "true",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "No",
+                        "value": "false",
+                        "type": "SurveyQuestionOption"
+                    }
+                ],
+                "allowOther": false,
+                "allowMultiple": false,
+                "type": "MultiValueConstraints"
+            },
+            "uiHint": "radiobutton"
+        },
+        {
+            "guid": "3775f083-ea55-4ea8-b832-68a75769d896",
+            "identifier": "SF36-17",
+            "type": "SurveyQuestion",
+            "detail": "During the past 4 weeks, have EMOTIONAL problems meant that you cut down the amount of time you spent on work or other activities?",
+            "constraints": {
+                "dataType": "boolean",
+                "rules": [],
+                "enumeration": [
+                    {
+                        "label": "Yes",
+                        "value": "true",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "No",
+                        "value": "false",
+                        "type": "SurveyQuestionOption"
+                    }
+                ],
+                "allowOther": false,
+                "allowMultiple": false,
+                "type": "MultiValueConstraints"
+            },
+            "uiHint": "radiobutton"
+        },
+        {
+            "guid": "a17681ba-28b0-46d0-94f1-d1a09b3326aa",
+            "identifier": "SF36-18",
+            "type": "SurveyQuestion",
+            "detail": "During the past 4 weeks, have EMOTIONAL problems meant that you accomplished less than you would like?",
+            "constraints": {
+                "dataType": "boolean",
+                "rules": [],
+                "enumeration": [
+                    {
+                        "label": "Yes",
+                        "value": "true",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "No",
+                        "value": "false",
+                        "type": "SurveyQuestionOption"
+                    }
+                ],
+                "allowOther": false,
+                "allowMultiple": false,
+                "type": "MultiValueConstraints"
+            },
+            "uiHint": "radiobutton"
+        },
+        {
+            "guid": "c018d783-3ddf-486f-b556-09154b8926b9",
+            "identifier": "SF36-19",
+            "type": "SurveyQuestion",
+            "detail": "During the past 4 weeks, have EMOTIONAL problems meant that you didn't do work or other activities as carefully as usual?",
+            "constraints": {
+                "dataType": "boolean",
+                "rules": [],
+                "enumeration": [
+                    {
+                        "label": "Yes",
+                        "value": "true",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "No",
+                        "value": "false",
+                        "type": "SurveyQuestionOption"
+                    }
+                ],
+                "allowOther": false,
+                "allowMultiple": false,
+                "type": "MultiValueConstraints"
+            },
+            "uiHint": "radiobutton"
+        },
+        {
+            "guid": "708a1c6f-5e6f-4484-86e0-8b837b8a2f40",
+            "identifier": "SF36-20",
+            "type": "SurveyQuestion",
+            "detail": "During the past 4 weeks, to what extent has your physical health or emotional problems interfered with your normal social activities with family, friends, neighbors, or groups?",
+            "constraints": {
+                "dataType": "string",
+                "rules": [],
+                "enumeration": [
+                    {
+                        "label": "Not at all",
+                        "value": "Not at all",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Slightly",
+                        "value": "Slightly",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Moderately",
+                        "value": "Moderately",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Quite a bit",
+                        "value": "Quite a bit",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Extremely",
+                        "value": "Extremely",
+                        "type": "SurveyQuestionOption"
+                    }
+                ],
+                "allowOther": false,
+                "allowMultiple": false,
+                "type": "MultiValueConstraints"
+            },
+            "uiHint": "radiobutton"
+        },
+        {
+            "guid": "e3e09a67-c1f2-4816-8f96-4e1e21a961c9",
+            "identifier": "SF36-21",
+            "type": "SurveyQuestion",
+            "detail": "How much bodily pain have you had during the past 4 weeks?",
+            "constraints": {
+                "dataType": "string",
+                "rules": [],
+                "enumeration": [
+                    {
+                        "label": "None",
+                        "value": "None",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Very mild",
+                        "value": "Very mild",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Mild",
+                        "value": "Mild",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Moderate",
+                        "value": "Moderate",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Severe",
+                        "value": "Severe",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Very severe",
+                        "value": "Very severe",
+                        "type": "SurveyQuestionOption"
+                    }
+                ],
+                "allowOther": false,
+                "allowMultiple": false,
+                "type": "MultiValueConstraints"
+            },
+            "uiHint": "radiobutton"
+        },
+        {
+            "guid": "c8729ffb-5767-4b86-8d44-652f207e467a",
+            "identifier": "SF36-22",
+            "type": "SurveyQuestion",
+            "detail": "During the past 4 weeks, how much did pain interfere with your normal work (including both work outside the home and housework)?",
+            "constraints": {
+                "dataType": "string",
+                "rules": [],
+                "enumeration": [
+                    {
+                        "label": "Not at all",
+                        "value": "Not at all",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "A little bit",
+                        "value": "A little bit",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Moderately",
+                        "value": "Moderately",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Quite a bit",
+                        "value": "Quite a bit",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Extremely",
+                        "value": "Extremely",
+                        "type": "SurveyQuestionOption"
+                    }
+                ],
+                "allowOther": false,
+                "allowMultiple": false,
+                "type": "MultiValueConstraints"
+            },
+            "uiHint": "radiobutton"
+        },
+        {
+            "guid": "d116e8aa-f370-4ac9-aa28-32d36ed29fde",
+            "identifier": "SF36-23",
+            "type": "SurveyQuestion",
+            "detail": "In the past four weeks, how much of the time did you feel full of pep?",
+            "constraints": {
+                "dataType": "string",
+                "rules": [],
+                "enumeration": [
+                    {
+                        "label": "All of the time",
+                        "value": "All of the time",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Most of the time",
+                        "value": "Most of the time",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "A good bit of the time",
+                        "value": "A good bit of the time",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Some of the time",
+                        "value": "Some of the time",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "A little of the time",
+                        "value": "A little of the time",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "None of the time",
+                        "value": "None of the time",
+                        "type": "SurveyQuestionOption"
+                    }
+                ],
+                "allowOther": false,
+                "allowMultiple": false,
+                "type": "MultiValueConstraints"
+            },
+            "uiHint": "radiobutton"
+        },
+        {
+            "guid": "96332f9b-c057-42f6-b2c3-f60a87cf8fdb",
+            "identifier": "SF36-24",
+            "type": "SurveyQuestion",
+            "detail": "In the past four weeks, how much of the time have you been a very nervous person?",
+            "constraints": {
+                "dataType": "string",
+                "rules": [],
+                "enumeration": [
+                    {
+                        "label": "All of the time",
+                        "value": "All of the time",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Most of the time",
+                        "value": "Most of the time",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "A good bit of the time",
+                        "value": "A good bit of the time",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Some of the time",
+                        "value": "Some of the time",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "A little of the time",
+                        "value": "A little of the time",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "None of the time",
+                        "value": "None of the time",
+                        "type": "SurveyQuestionOption"
+                    }
+                ],
+                "allowOther": false,
+                "allowMultiple": false,
+                "type": "MultiValueConstraints"
+            },
+            "uiHint": "radiobutton"
+        },
+        {
+            "guid": "e5c86f4a-297a-4d49-8f8d-d88ea77d243d",
+            "identifier": "SF36-25",
+            "type": "SurveyQuestion",
+            "detail": "In the past four weeks, how much of the time have you felt so down in the dumps that nothing could cheer you up?",
+            "constraints": {
+                "dataType": "string",
+                "rules": [],
+                "enumeration": [
+                    {
+                        "label": "All of the time",
+                        "value": "All of the time",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Most of the time",
+                        "value": "Most of the time",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "A good bit of the time",
+                        "value": "A good bit of the time",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Some of the time",
+                        "value": "Some of the time",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "A little of the time",
+                        "value": "A little of the time",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "None of the time",
+                        "value": "None of the time",
+                        "type": "SurveyQuestionOption"
+                    }
+                ],
+                "allowOther": false,
+                "allowMultiple": false,
+                "type": "MultiValueConstraints"
+            },
+            "uiHint": "radiobutton"
+        },
+        {
+            "guid": "b1d8f63b-9b95-4840-a745-cd6c51627832",
+            "identifier": "SF36-26",
+            "type": "SurveyQuestion",
+            "detail": "In the past four weeks, how much of the time have you felt calm and peaceful?",
+            "constraints": {
+                "dataType": "string",
+                "rules": [],
+                "enumeration": [
+                    {
+                        "label": "All of the time",
+                        "value": "All of the time",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Most of the time",
+                        "value": "Most of the time",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "A good bit of the time",
+                        "value": "A good bit of the time",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Some of the time",
+                        "value": "Some of the time",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "A little of the time",
+                        "value": "A little of the time",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "None of the time",
+                        "value": "None of the time",
+                        "type": "SurveyQuestionOption"
+                    }
+                ],
+                "allowOther": false,
+                "allowMultiple": false,
+                "type": "MultiValueConstraints"
+            },
+            "uiHint": "radiobutton"
+        },
+        {
+            "guid": "ebc6071f-9ef5-4b19-a542-98acf91d5931",
+            "identifier": "SF36-27",
+            "type": "SurveyQuestion",
+            "detail": "In the past four weeks, how much of the time did you have a lot of energy?",
+            "constraints": {
+                "dataType": "string",
+                "rules": [],
+                "enumeration": [
+                    {
+                        "label": "All of the time",
+                        "value": "All of the time",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Most of the time",
+                        "value": "Most of the time",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "A good bit of the time",
+                        "value": "A good bit of the time",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Some of the time",
+                        "value": "Some of the time",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "A little of the time",
+                        "value": "A little of the time",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "None of the time",
+                        "value": "None of the time",
+                        "type": "SurveyQuestionOption"
+                    }
+                ],
+                "allowOther": false,
+                "allowMultiple": false,
+                "type": "MultiValueConstraints"
+            },
+            "uiHint": "radiobutton"
+        },
+        {
+            "guid": "54b2c714-2326-4d57-9dd8-a3b808537025",
+            "identifier": "SF36-28",
+            "type": "SurveyQuestion",
+            "detail": "In the past four weeks, how much of the time have you felt downhearted and blue?",
+            "constraints": {
+                "dataType": "string",
+                "rules": [],
+                "enumeration": [
+                    {
+                        "label": "All of the time",
+                        "value": "All of the time",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Most of the time",
+                        "value": "Most of the time",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "A good bit of the time",
+                        "value": "A good bit of the time",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Some of the time",
+                        "value": "Some of the time",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "A little of the time",
+                        "value": "A little of the time",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "None of the time",
+                        "value": "None of the time",
+                        "type": "SurveyQuestionOption"
+                    }
+                ],
+                "allowOther": false,
+                "allowMultiple": false,
+                "type": "MultiValueConstraints"
+            },
+            "uiHint": "radiobutton"
+        },
+        {
+            "guid": "53da7261-2a76-4bf7-8b4a-f725d6eb4050",
+            "identifier": "SF36-29",
+            "type": "SurveyQuestion",
+            "detail": "In the past four weeks, how much of the time did you feel worn out?",
+            "constraints": {
+                "dataType": "string",
+                "rules": [],
+                "enumeration": [
+                    {
+                        "label": "All of the time",
+                        "value": "All of the time",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Most of the time",
+                        "value": "Most of the time",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "A good bit of the time",
+                        "value": "A good bit of the time",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Some of the time",
+                        "value": "Some of the time",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "A little of the time",
+                        "value": "A little of the time",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "None of the time",
+                        "value": "None of the time",
+                        "type": "SurveyQuestionOption"
+                    }
+                ],
+                "allowOther": false,
+                "allowMultiple": false,
+                "type": "MultiValueConstraints"
+            },
+            "uiHint": "radiobutton"
+        },
+        {
+            "guid": "ca92e550-b399-4350-a3ab-545dd193734b",
+            "identifier": "SF36-30",
+            "type": "SurveyQuestion",
+            "detail": "In the past four weeks, how much of the time have you been a happy person?",
+            "constraints": {
+                "dataType": "string",
+                "rules": [],
+                "enumeration": [
+                    {
+                        "label": "All of the time",
+                        "value": "All of the time",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Most of the time",
+                        "value": "Most of the time",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "A good bit of the time",
+                        "value": "A good bit of the time",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Some of the time",
+                        "value": "Some of the time",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "A little of the time",
+                        "value": "A little of the time",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "None of the time",
+                        "value": "None of the time",
+                        "type": "SurveyQuestionOption"
+                    }
+                ],
+                "allowOther": false,
+                "allowMultiple": false,
+                "type": "MultiValueConstraints"
+            },
+            "uiHint": "radiobutton"
+        },
+        {
+            "guid": "d3db0ca3-4183-4fc1-87e4-6dd8af20c448",
+            "identifier": "SF36-31",
+            "type": "SurveyQuestion",
+            "detail": "In the past four weeks, how much of the time did you feel tired?",
+            "constraints": {
+                "dataType": "string",
+                "rules": [],
+                "enumeration": [
+                    {
+                        "label": "All of the time",
+                        "value": "All of the time",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Most of the time",
+                        "value": "Most of the time",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "A good bit of the time",
+                        "value": "A good bit of the time",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Some of the time",
+                        "value": "Some of the time",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "A little of the time",
+                        "value": "A little of the time",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "None of the time",
+                        "value": "None of the time",
+                        "type": "SurveyQuestionOption"
+                    }
+                ],
+                "allowOther": false,
+                "allowMultiple": false,
+                "type": "MultiValueConstraints"
+            },
+            "uiHint": "radiobutton"
+        },
+        {
+            "guid": "da1e5fd3-51cd-40aa-9f38-8f8770717618",
+            "identifier": "SF36-32",
+            "type": "SurveyQuestion",
+            "detail": "During the past 4 weeks, how much of the time have your physical health or emotional problems interfered with your social activities (like visiting with your friends, relatives, etc?)",
+            "constraints": {
+                "dataType": "string",
+                "rules": [],
+                "enumeration": [
+                    {
+                        "label": "All of the time",
+                        "value": "All of the time",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Most of the time",
+                        "value": "Most of the time",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "A good bit of the time",
+                        "value": "A good bit of the time",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Some of the time",
+                        "value": "Some of the time",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "A little of the time",
+                        "value": "A little of the time",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "None of the time",
+                        "value": "None of the time",
+                        "type": "SurveyQuestionOption"
+                    }
+                ],
+                "allowOther": false,
+                "allowMultiple": false,
+                "type": "MultiValueConstraints"
+            },
+            "uiHint": "radiobutton"
+        },
+        {
+            "guid": "f2a78cfa-5bf3-43b5-bb0d-e8a18f7c48b3",
+            "identifier": "SF36-33",
+            "type": "SurveyQuestion",
+            "detail": "I seem to get sick a little easier than other people.",
+            "constraints": {
+                "dataType": "string",
+                "rules": [],
+                "enumeration": [
+                    {
+                        "label": "Definitely True",
+                        "value": "Definitely True",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Mostly True",
+                        "value": "Mostly True",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Don't Know",
+                        "value": "Don't Know",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Mostly False",
+                        "value": "Mostly False",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Definitely False",
+                        "value": "Definitely False",
+                        "type": "SurveyQuestionOption"
+                    }
+                ],
+                "allowOther": false,
+                "allowMultiple": false,
+                "type": "MultiValueConstraints"
+            },
+            "uiHint": "radiobutton"
+        },
+        {
+            "guid": "b12cd6b5-35c4-45fe-8797-6f750f0f75a7",
+            "identifier": "SF36-34",
+            "type": "SurveyQuestion",
+            "detail": "I am as healthy as anybody I know.",
+            "constraints": {
+                "dataType": "string",
+                "rules": [],
+                "enumeration": [
+                    {
+                        "label": "Definitely True",
+                        "value": "Definitely True",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Mostly True",
+                        "value": "Mostly True",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Don't Know",
+                        "value": "Don't Know",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Mostly False",
+                        "value": "Mostly False",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Definitely False",
+                        "value": "Definitely False",
+                        "type": "SurveyQuestionOption"
+                    }
+                ],
+                "allowOther": false,
+                "allowMultiple": false,
+                "type": "MultiValueConstraints"
+            },
+            "uiHint": "radiobutton"
+        },
+        {
+            "guid": "b4a2baf4-5407-4516-b4d2-db4c9c071708",
+            "identifier": "SF36-35",
+            "type": "SurveyQuestion",
+            "detail": "I expect my health to get worse.",
+            "constraints": {
+                "dataType": "string",
+                "rules": [],
+                "enumeration": [
+                    {
+                        "label": "Definitely True",
+                        "value": "Definitely True",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Mostly True",
+                        "value": "Mostly True",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Don't Know",
+                        "value": "Don't Know",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Mostly False",
+                        "value": "Mostly False",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Definitely False",
+                        "value": "Definitely False",
+                        "type": "SurveyQuestionOption"
+                    }
+                ],
+                "allowOther": false,
+                "allowMultiple": false,
+                "type": "MultiValueConstraints"
+            },
+            "uiHint": "radiobutton"
+        },
+        {
+            "guid": "d201af8f-5230-4e59-a5fb-72e972ae5a91",
+            "identifier": "SF36-36",
+            "type": "SurveyQuestion",
+            "detail": "My health is excellent.",
+            "constraints": {
+                "dataType": "string",
+                "rules": [],
+                "enumeration": [
+                    {
+                        "label": "Definitely True",
+                        "value": "Definitely True",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Mostly True",
+                        "value": "Mostly True",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Don't Know",
+                        "value": "Don't Know",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Mostly False",
+                        "value": "Mostly False",
+                        "type": "SurveyQuestionOption"
+                    },
+                    {
+                        "label": "Definitely False",
+                        "value": "Definitely False",
+                        "type": "SurveyQuestionOption"
+                    }
+                ],
+                "allowOther": false,
+                "allowMultiple": false,
+                "type": "MultiValueConstraints"
+            },
+            "uiHint": "radiobutton"
+        }
+    ]
+}
