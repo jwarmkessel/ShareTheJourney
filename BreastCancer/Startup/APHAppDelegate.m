@@ -90,8 +90,6 @@ static NSInteger const kMonthOfDayObject                = 2;
                                                    @(kAPCUserInfoItemTypeHeight),
                                                    @(kAPCUserInfoItemTypeWeight)
                                                    ],
-                                           kAnalyticsOnOffKey  : @(YES),
-                                           kAnalyticsFlurryAPIKeyKey : @"3V2CN572C3R782W2DBBN"
                                            }];
     self.initializationOptions = dictionary;
     self.profileExtender = [[APHProfileExtender alloc] init];
