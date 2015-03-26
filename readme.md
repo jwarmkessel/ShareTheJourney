@@ -1,7 +1,7 @@
 Share the Journey
 =================
 
-Share the Journey is one of the first five apps built using ResearchKit.
+Share the Journey is one of the first five apps built using [ResearchKit](https://github.com/ResearchKit/ResearchKit).
 
 Our goals are to understand the causes of the symptom variations after
 breast cancer treatment; to learn how mobile devices and sensors can
@@ -42,4 +42,4 @@ Other components
 
 The shipping app also uses OpenSSL to add extra data protection, which
 has not been included in the published version of the AppCore
-project. See the AppCore repository for more details.
+project. See the [AppCore repository](https://github.com/researchkit/AppCore) for more details.
