@@ -124,12 +124,6 @@ typedef NS_ENUM(NSUInteger, APHMigrationRecurringKinds)
                                             kMigrationOffsetByDaysKey: @(3),
                                             kMigrationGracePeriodInDaysKey: @(5),
                                             kMigrationRecurringKindKey: @(APHMigrationRecurringKindMonthly)
-                                         },
-                                        @{
-                                            kMigrationTaskIdKey: @"b-SF36-394848ce-ca4f-4abe-b97e-fedbfd7ffb8e",
-                                            kMigrationOffsetByDaysKey: @(4),
-                                            kMigrationGracePeriodInDaysKey: @(5),
-                                            kMigrationRecurringKindKey: @(APHMigrationRecurringKindQuarterly)
                                          }
                                        ];
         
