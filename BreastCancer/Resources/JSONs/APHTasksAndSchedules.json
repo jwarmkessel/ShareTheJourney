@@ -120,27 +120,27 @@
                   },
                   {
                   "scheduleType": "recurring",
-                  "scheduleString": "0 5 28 1/1 *",
+                  "scheduleString": "0 5 29 1/1 *",
                   "taskID": "e-PAOFI-394848ce-ca4f-4abe-b97e-fedbfd7ffb8e"
                   },
                   {
                   "scheduleType": "recurring",
-                  "scheduleString": "0 5 27 1/1 *",
+                  "scheduleString": "0 5 28 1/1 *",
                   "taskID": "9-PHQ8GAD7-394848ce-ca4f-4abe-b97e-fedbfd7ffb8e"
                   },
                   {
                   "scheduleType": "recurring",
-                  "scheduleString": "0 5 29 1/1 *",
+                  "scheduleString": "0 5 30 1/1 *",
                   "taskID": "a-PSQI-394848ce-ca4f-4abe-b97e-fedbfd7ffb8e"
                   },
                   {
-                  "scheduleType": "once",
-                  "scheduleString": "0 5 30 * *",
+                  "scheduleType": "recurring",
+                  "scheduleString": "0 5 31 3 *",
                   "taskID": "b-SF36-394848ce-ca4f-4abe-b97e-fedbfd7ffb8e"
                   },
                   {
                   "scheduleType": "recurring",
-                  "scheduleString": "0 5 * * 1",
+                  "scheduleString": "0 5 * * FRI",
                   "taskID": "c-Weekly-394848ce-ca4f-4abe-b97e-fedbfd7ffb8e"
                   },
                   {
