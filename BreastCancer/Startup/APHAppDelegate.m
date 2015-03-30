@@ -86,7 +86,7 @@ typedef NS_ENUM(NSUInteger, APHMigrationRecurringKinds)
                                                    @(kAPCUserInfoItemTypeHeight),
                                                    @(kAPCUserInfoItemTypeWeight)
                                                    ],
-                                           kShareMessageKey : NSLocalizedString(@"Check out Share the Journey, a research study app about breast cancer survivorship.  Download it for iPhone at http://apple.co/1FO7Bsi", nil)
+                                           kShareMessageKey : NSLocalizedString(@"Check out Share the Journey, a research study app about breast cancer survivorship.  Download it for iPhone at https://appsto.re/i6LF2f6", nil)
                                            }];
     self.initializationOptions = dictionary;
     self.profileExtender = [[APHProfileExtender alloc] init];
