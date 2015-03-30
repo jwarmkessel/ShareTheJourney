@@ -124,6 +124,12 @@ typedef NS_ENUM(NSUInteger, APHMigrationRecurringKinds)
                                             kMigrationOffsetByDaysKey: @(3),
                                             kMigrationGracePeriodInDaysKey: @(5),
                                             kMigrationRecurringKindKey: @(APHMigrationRecurringKindMonthly)
+                                         },
+                                        @{
+                                            kMigrationTaskIdKey: @"b-SF36-394848ce-ca4f-4abe-b97e-fedbfd7ffb8e",
+                                            kMigrationOffsetByDaysKey: @(4),
+                                            kMigrationGracePeriodInDaysKey: @(5),
+                                            kMigrationRecurringKindKey: @(APHMigrationRecurringKindQuarterly)
                                          }
                                        ];
         
@@ -152,6 +158,7 @@ typedef NS_ENUM(NSUInteger, APHMigrationRecurringKinds)
                 
                 if ([taskInfo[kMigrationRecurringKindKey] integerValue] == APHMigrationRecurringKindWeekly) {
                     dayOfWeek = [NSString stringWithFormat:@"%ld", componentForGracePeriodStartOn.weekday];
+                    dayOfMonth = @"*";
                 } else {
                     dayOfWeek = @"*";
                 }
@@ -182,6 +189,18 @@ typedef NS_ENUM(NSUInteger, APHMigrationRecurringKinds)
     }
     
     return migratedTaskAndSchedules;
+}
+
+- (NSDictionary *) tasksAndSchedulesWillBeLoaded
+{
+    NSError *jsonError = nil;
+    NSString *resource = [[NSBundle mainBundle] pathForResource:@"APHTasksAndSchedules" ofType:@"json"];
+    NSData *jsonData = [NSData dataWithContentsOfFile:resource];
+    NSDictionary *tasksAndScheduledFromJSON = [NSJSONSerialization JSONObjectWithData:jsonData options:NSJSONReadingMutableContainers error:&jsonError];
+    
+    NSDictionary *migratedSchedules = [self migrateTasksAndSchedules:tasksAndScheduledFromJSON];
+    
+    return migratedSchedules;
 }
 
 - (void)performMigrationAfterDataSubstrateFrom:(NSInteger) __unused previousVersion currentVersion:(NSInteger) __unused currentVersion
