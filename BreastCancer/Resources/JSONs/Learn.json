@@ -30,6 +30,12 @@
                       "tint_color" : "yellow"
                       },
                       {
+                      "title":"Spread the word",
+                      "details":"share",
+                      "icon_image":"share_icon",
+                      "tint_color" : "yellow"
+                      },
+                      {
                       "title": "Life After Treatment",
                       "details": "lifeaftertreatment",
                       "icon_image": "disease_icon",
