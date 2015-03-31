@@ -38,8 +38,8 @@
 /*********************************************************************************/
 #pragma mark - Initializations Options
 /*********************************************************************************/
-static NSString* const  kStudyIdentifier            = @"BreastCancer";
-static NSString* const  kAppPrefix                  = @"breastcancer";
+static NSString* const  kStudyIdentifier            = @"studyname";
+static NSString* const  kAppPrefix                  = @"studyname";
 static NSString* const  kVideoShownKey              = @"VideoShown";
 static NSString* const  kConsentPropertiesFileName  = @"APHConsentSection";
 
@@ -266,12 +266,7 @@ static NSInteger const kMonthOfDayObject                = 2;
                                                  @"8-Feedback-394848ce-ca4f-4abe-b97e-fedbfd7ffb8e" :             [UIColor lightGrayColor],
                                                  @"7-MyThoughts-14ffde40-1551-4b48-aae2-8fef38d61b61" :           [UIColor lightGrayColor],
                                                  @"2-BCPTSymptomsSurvey-394848ce-ca4f-4abe-b97e-fedbfd7ffb8e" :   [UIColor lightGrayColor],
-                                                 @"e-PAOFI-394848ce-ca4f-4abe-b97e-fedbfd7ffb8e":                 [UIColor lightGrayColor],
-                                                 @"9-PHQ8GAD7-394848ce-ca4f-4abe-b97e-fedbfd7ffb8e":              [UIColor lightGrayColor],
-                                                 @"a-PSQI-394848ce-ca4f-4abe-b97e-fedbfd7ffb8e":                  [UIColor lightGrayColor],
-                                                 @"b-SF36-394848ce-ca4f-4abe-b97e-fedbfd7ffb8e":                  [UIColor lightGrayColor],
                                                  @"c-Weekly-394848ce-ca4f-4abe-b97e-fedbfd7ffb8e":                [UIColor lightGrayColor],
-                                                 @"5-parqquiz-1E174061-5B02-11E4-8ED6-0800200C9A77":              [UIColor lightGrayColor],
                                                  @"1-BackgroundSurvey-394848ce-ca4f-4abe-b97e-fedbfd7ffb8e":      [UIColor lightGrayColor],
                                                  }];
     
@@ -282,6 +277,9 @@ static NSInteger const kMonthOfDayObject                = 2;
                                                             }];
     
     [[UIView appearance] setTintColor:[UIColor appPrimaryColor]];
+    
+    //  Enable server bypass
+    self.dataSubstrate.parameters.bypassServer = YES;
 }
 
 - (void) showOnBoarding

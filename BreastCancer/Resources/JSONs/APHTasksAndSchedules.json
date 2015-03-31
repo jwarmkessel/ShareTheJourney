@@ -46,45 +46,11 @@
               "taskCompletionTimeString" : "20 Questions"
               },
               {
-              "taskTitle" : "Assessment of Functioning Survey",
-              "taskID": "e-PAOFI-394848ce-ca4f-4abe-b97e-fedbfd7ffb8e",
-              "taskFileName" : "BCSPAOFISurvey",
-              "taskClassName" : "APCGenericSurveyTaskViewController",
-              "taskCompletionTimeString" : "29 Questions"
-              },
-              {
-              "taskTitle" : "Personal Health Survey",
-              "taskID": "9-PHQ8GAD7-394848ce-ca4f-4abe-b97e-fedbfd7ffb8e",
-              "taskFileName" : "BCSPHQ8GAD7Survey",
-              "taskClassName" : "APCGenericSurveyTaskViewController",
-              "taskCompletionTimeString" : "15 Questions"
-              },
-              {
-              "taskTitle" : "Sleep Quality Survey",
-              "taskID": "a-PSQI-394848ce-ca4f-4abe-b97e-fedbfd7ffb8e",
-              "taskFileName" : "BCSPSQISurvey",
-              "taskClassName" : "APCGenericSurveyTaskViewController",
-              "taskCompletionTimeString" : "18 Questions"
-              },
-              {
-              "taskTitle" : "General Health Survey",
-              "taskID": "b-SF36-394848ce-ca4f-4abe-b97e-fedbfd7ffb8e",
-              "taskFileName" : "BCSSF36Survey",
-              "taskClassName" : "APCGenericSurveyTaskViewController",
-              "taskCompletionTimeString" : "36 Questions"
-              },
-              {
               "taskTitle" : "Weekly Survey",
               "taskID": "c-Weekly-394848ce-ca4f-4abe-b97e-fedbfd7ffb8e",
               "taskFileName" : "BCSWeeklySurvey",
               "taskClassName" : "APCGenericSurveyTaskViewController",
               "taskCompletionTimeString" : "28 Questions"
-              },
-              {
-              "taskTitle" : "Exercise Readiness Survey",
-              "taskID": "5-parqquiz-1E174061-5B02-11E4-8ED6-0800200C9A77",
-              "taskClassName" : "APHParQQuizTaskViewController",
-              "taskCompletionTimeString" : "10 Questions"
               }
               ],
     "schedules": [
@@ -121,32 +87,7 @@
                   {
                   "scheduleType": "recurring",
                   "scheduleString": "0 5 * * *",
-                  "taskID": "e-PAOFI-394848ce-ca4f-4abe-b97e-fedbfd7ffb8e"
-                  },
-                  {
-                  "scheduleType": "recurring",
-                  "scheduleString": "0 5 ? * ?",
-                  "taskID": "9-PHQ8GAD7-394848ce-ca4f-4abe-b97e-fedbfd7ffb8e"
-                  },
-                  {
-                  "scheduleType": "recurring",
-                  "scheduleString": "0 5 * * *",
-                  "taskID": "a-PSQI-394848ce-ca4f-4abe-b97e-fedbfd7ffb8e"
-                  },
-                  {
-                  "scheduleType": "recurring",
-                  "scheduleString": "0 5 * * *",
-                  "taskID": "b-SF36-394848ce-ca4f-4abe-b97e-fedbfd7ffb8e"
-                  },
-                  {
-                  "scheduleType": "recurring",
-                  "scheduleString": "0 5 * * *",
                   "taskID": "c-Weekly-394848ce-ca4f-4abe-b97e-fedbfd7ffb8e"
-                  },
-                  {
-                  "scheduleType": "once",
-                  "scheduleString": "0 5 * * *",
-                  "taskID": "5-parqquiz-1E174061-5B02-11E4-8ED6-0800200C9A77"
                   },
                   {
                   "scheduleType": "once",
