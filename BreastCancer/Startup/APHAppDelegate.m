@@ -36,6 +36,23 @@
 #import "APHProfileExtender.h"
 
 /*********************************************************************************/
+#pragma mark - Survey Identifiers
+/*********************************************************************************/
+static NSString* const  kDailySurveyIdentifier              = @"3-APHMoodSurvey-7259AC18-D711-47A6-ADBD-6CFCECDED1DF";
+static NSString* const  kDailyJournalSurveyIdentifier       = @"6-APHDailyJournal-80F09109-265A-49C6-9C5D-765E49AAF5D9";
+static NSString* const  kExerciseSurveyIdentifier           = @"4-APHExerciseSurvey-7259AC18-D711-47A6-ADBD-6CFCECDED1DF";
+static NSString* const  kFeedbackSurveyIdentifier           = @"8-Feedback-394848ce-ca4f-4abe-b97e-fedbfd7ffb8e";
+static NSString* const  kMyThoughtsSurveyIdentifier         = @"7-MyThoughts-14ffde40-1551-4b48-aae2-8fef38d61b61";
+static NSString* const  kSymptomsSurveyIdentifier           = @"2-BCPTSymptomsSurvey-394848ce-ca4f-4abe-b97e-fedbfd7ffb8e";
+static NSString* const  kBCSPAOFISurveyIdentifier           = @"e-PAOFI-394848ce-ca4f-4abe-b97e-fedbfd7ffb8e";
+static NSString* const  kPersonalHealthSurveyIdentifier     = @"9-PHQ8GAD7-394848ce-ca4f-4abe-b97e-fedbfd7ffb8e";
+static NSString* const  kSleepQualitySurveyIdentifier       = @"a-PSQI-394848ce-ca4f-4abe-b97e-fedbfd7ffb8e";
+static NSString* const  kGeneralHealthSurveyIdentifier      = @"b-SF36-394848ce-ca4f-4abe-b97e-fedbfd7ffb8e";
+static NSString* const  kWeeklySurveyIdentifier             = @"c-Weekly-394848ce-ca4f-4abe-b97e-fedbfd7ffb8e";
+static NSString* const  kExerciseReadinessSurveyIdentifier  = @"5-parqquiz-1E174061-5B02-11E4-8ED6-0800200C9A77";
+static NSString* const  kBackgroundSurveyIdentifier         = @"1-BackgroundSurvey-394848ce-ca4f-4abe-b97e-fedbfd7ffb8e";
+
+/*********************************************************************************/
 #pragma mark - Initializations Options
 /*********************************************************************************/
 static NSString* const  kStudyIdentifier            = @"BreastCancer";
@@ -116,6 +133,30 @@ typedef NS_ENUM(NSUInteger, APHMigrationRecurringKinds)
                                            }];
     self.initializationOptions = dictionary;
     self.profileExtender = [[APHProfileExtender alloc] init];
+}
+
+-(void)setUpTasksReminder{
+    
+    APCTaskReminder *dailySurveyReminder = [[APCTaskReminder alloc]initWithTaskID:kDailySurveyIdentifier reminderBody:NSLocalizedString(@"Daily Survey", nil)];
+    APCTaskReminder *dailyJournalReminder = [[APCTaskReminder alloc]initWithTaskID:kDailyJournalSurveyIdentifier reminderBody:NSLocalizedString(@"Daily Journal", nil)];
+    APCTaskReminder *exerciseSurveyReminder = [[APCTaskReminder alloc]initWithTaskID:kExerciseSurveyIdentifier reminderBody:NSLocalizedString(@"Exercise Survey", nil)];
+    APCTaskReminder *myThoughtsSurveyReminder = [[APCTaskReminder alloc]initWithTaskID:kMyThoughtsSurveyIdentifier reminderBody:NSLocalizedString(@"My Thoughts Survey", nil)];
+    APCTaskReminder *assessFunctioningSurveyReminder = [[APCTaskReminder alloc]initWithTaskID:kBCSPAOFISurveyIdentifier reminderBody:NSLocalizedString(@"Assessment of Functioning", nil)];
+    APCTaskReminder *personalHealthSurveyReminder = [[APCTaskReminder alloc]initWithTaskID:kPersonalHealthSurveyIdentifier reminderBody:NSLocalizedString(@"Personal Health Survey", nil)];
+    APCTaskReminder *sleepQualitySurveyReminder = [[APCTaskReminder alloc]initWithTaskID:kSleepQualitySurveyIdentifier reminderBody:NSLocalizedString(@"Sleep Quality Survey", nil)];
+    APCTaskReminder *generalHealthSurveyReminder = [[APCTaskReminder alloc]initWithTaskID:kGeneralHealthSurveyIdentifier reminderBody:NSLocalizedString(@"General Health Survey", nil)];
+    APCTaskReminder *weeklySurveyReminder = [[APCTaskReminder alloc]initWithTaskID:kWeeklySurveyIdentifier reminderBody:NSLocalizedString(@"Weekly Survey", nil)];
+    
+    [self.tasksReminder manageTaskReminder:dailySurveyReminder];
+    [self.tasksReminder manageTaskReminder:dailyJournalReminder];
+    [self.tasksReminder manageTaskReminder:exerciseSurveyReminder];
+    [self.tasksReminder manageTaskReminder:myThoughtsSurveyReminder];
+    [self.tasksReminder manageTaskReminder:assessFunctioningSurveyReminder];
+    [self.tasksReminder manageTaskReminder:personalHealthSurveyReminder];
+    [self.tasksReminder manageTaskReminder:sleepQualitySurveyReminder];
+    [self.tasksReminder manageTaskReminder:generalHealthSurveyReminder];
+    [self.tasksReminder manageTaskReminder:weeklySurveyReminder];
+    
 }
 
 - (NSDictionary *)migrateTasksAndSchedules:(NSDictionary *)currentTaskAndSchedules
