@@ -48,28 +48,24 @@ static NSString *const kJsonTasksKey                    = @"tasks";
 static NSString *const kJsonScheduleTaskIDKey           = @"taskID";
 static NSString *const kJsonSchedulesKey                = @"schedules";
 
-static NSString *const kPersonalHealthSurveyTaskId      = @"9-PHQ8GAD7-394848ce-ca4f-4abe-b97e-fedbfd7ffb8e";
-static NSString *const kWeeklyScheduleTaskId            = @"c-Weekly-394848ce-ca4f-4abe-b97e-fedbfd7ffb8e";
-static NSString *const kAssessmentOfFunctioningTaskId   = @"e-PAOFI-394848ce-ca4f-4abe-b97e-fedbfd7ffb8e";
-static NSString *const kSleepQualitySurveyTaskId        = @"a-PSQI-394848ce-ca4f-4abe-b97e-fedbfd7ffb8e";
-static NSString *const kGeneralHealthSurveyTaskId       = @"b-SF36-394848ce-ca4f-4abe-b97e-fedbfd7ffb8e";
+static NSString *const kMigrationTaskIdKey              = @"taskId";
+static NSString *const kMigrationOffsetByDaysKey        = @"offsetByDays";
+static NSString *const kMigrationGracePeriodInDaysKey   = @"gracePeriodInDays";
+static NSString *const kMigrationRecurringKindKey       = @"recurringKind";
 
-static NSInteger const kPersonalHealthSurveyOffset      = 2;
-static NSInteger const kAssessmentOfFunctioningOffset   = 3;
-static NSInteger const kSleepQualitySurveyOffset        = 4;
-static NSInteger const kGeneralHealthSurveyOffset       = 5;
 
-static NSInteger const kWeeklyScheduleDayOffset         = 6;
-
-static NSInteger const kExpectedNumOfCompInScheduleStr  = 5;
-
-static NSInteger const kMonthObject                     = 3;
-static NSInteger const kMonthOfDayObject                = 2;
-
+typedef NS_ENUM(NSUInteger, APHMigrationRecurringKinds)
+{
+    APHMigrationRecurringKindWeekly = 0,
+    APHMigrationRecurringKindMonthly,
+    APHMigrationRecurringKindQuarterly,
+    APHMigrationRecurringKindSemiAnnual,
+    APHMigrationRecurringKindAnnual
+};
 
 @interface APHAppDelegate ()
 
-@property (nonatomic, strong) APHProfileExtender* profileExtender;
+@property (nonatomic, strong) APHProfileExtender *profileExtender;
 
 @end
 
@@ -116,141 +112,162 @@ static NSInteger const kMonthOfDayObject                = 2;
                                                    @(kAPCUserInfoItemTypeHeight),
                                                    @(kAPCUserInfoItemTypeWeight)
                                                    ],
-                                           kAnalyticsOnOffKey  : @(YES),
-                                           kAnalyticsFlurryAPIKeyKey : @"3V2CN572C3R782W2DBBN"
+                                           kShareMessageKey : NSLocalizedString(@"Check out Share the Journey, a research study app about breast cancer survivorship.  Download it for iPhone at https://appsto.re/i6LF2f6", nil)
                                            }];
     self.initializationOptions = dictionary;
     self.profileExtender = [[APHProfileExtender alloc] init];
 }
 
-
-- (NSDictionary *) tasksAndSchedulesWillBeLoaded {
+- (NSDictionary *)migrateTasksAndSchedules:(NSDictionary *)currentTaskAndSchedules
+{
+    NSMutableDictionary *migratedTaskAndSchedules = nil;
     
-    NSString                    *resource = [[NSBundle mainBundle] pathForResource:self.initializationOptions[kTasksAndSchedulesJSONFileNameKey]
-                                                                            ofType:@"json"];
-    
-    NSData                      *jsonData = [NSData dataWithContentsOfFile:resource];
-    NSError                     *error;
-    NSDictionary                *dictionary = [NSJSONSerialization JSONObjectWithData:jsonData
-                                                                              options:NSJSONReadingMutableContainers
-                                                                                error:&error];
-    if (dictionary == nil) {
-        APCLogError2 (error);
+    if (currentTaskAndSchedules == nil) {
+        APCLogError(@"Nothing was loaded from the JSON file. Therefore nothing to migrate.");
+    } else {
+        migratedTaskAndSchedules = [currentTaskAndSchedules mutableCopy];
+        
+        NSArray *schedulesToMigrate = @[
+                                        @{
+                                           kMigrationTaskIdKey: @"9-PHQ8GAD7-394848ce-ca4f-4abe-b97e-fedbfd7ffb8e",
+                                           kMigrationOffsetByDaysKey: @(1),
+                                           kMigrationGracePeriodInDaysKey: @(5),
+                                           kMigrationRecurringKindKey: @(APHMigrationRecurringKindMonthly)
+                                         },
+                                        @{
+                                            kMigrationTaskIdKey: @"c-Weekly-394848ce-ca4f-4abe-b97e-fedbfd7ffb8e",
+                                            kMigrationOffsetByDaysKey: @(6),
+                                            kMigrationGracePeriodInDaysKey: @(5),
+                                            kMigrationRecurringKindKey: @(APHMigrationRecurringKindWeekly)
+                                         },
+                                        @{
+                                            kMigrationTaskIdKey: @"e-PAOFI-394848ce-ca4f-4abe-b97e-fedbfd7ffb8e",
+                                            kMigrationOffsetByDaysKey: @(2),
+                                            kMigrationGracePeriodInDaysKey: @(5),
+                                            kMigrationRecurringKindKey: @(APHMigrationRecurringKindMonthly)
+                                         },
+                                        @{
+                                            kMigrationTaskIdKey: @"a-PSQI-394848ce-ca4f-4abe-b97e-fedbfd7ffb8e",
+                                            kMigrationOffsetByDaysKey: @(3),
+                                            kMigrationGracePeriodInDaysKey: @(5),
+                                            kMigrationRecurringKindKey: @(APHMigrationRecurringKindMonthly)
+                                         },
+                                        @{
+                                            kMigrationTaskIdKey: @"b-SF36-394848ce-ca4f-4abe-b97e-fedbfd7ffb8e",
+                                            kMigrationOffsetByDaysKey: @(4),
+                                            kMigrationGracePeriodInDaysKey: @(5),
+                                            kMigrationRecurringKindKey: @(APHMigrationRecurringKindQuarterly)
+                                         }
+                                       ];
+        
+        NSArray *schedules = migratedTaskAndSchedules[kJsonSchedulesKey];
+        NSMutableArray *migratedSchedules = [NSMutableArray new];
+        NSDate *launchDate = [NSDate date];
+        
+        for (NSDictionary *schedule in schedules) {
+            NSPredicate *predicate = [NSPredicate predicateWithFormat:@"%K == %@", kMigrationTaskIdKey, schedule[kJsonScheduleTaskIDKey]];
+            NSArray *matchedSchedule = [schedulesToMigrate filteredArrayUsingPredicate:predicate];
+            
+            if (matchedSchedule.count > 0) {
+                NSDictionary *taskInfo = [matchedSchedule firstObject];
+                
+                NSMutableDictionary *updatedSchedule = [schedule mutableCopy];
+                
+                NSDate *offsetDate = [launchDate dateByAddingDays:[taskInfo[kMigrationOffsetByDaysKey] integerValue]];
+                
+                NSCalendarUnit units = NSCalendarUnitDay | NSCalendarUnitMonth | NSCalendarUnitYear | NSCalendarUnitWeekday;
+                
+                NSDateComponents *componentForGracePeriodStartOn = [[NSCalendar currentCalendar] components:units
+                                                                                                   fromDate:offsetDate];
+                
+                NSString *dayOfMonth = [NSString stringWithFormat:@"%ld", componentForGracePeriodStartOn.day];
+                NSString *dayOfWeek = nil;
+                
+                if ([taskInfo[kMigrationRecurringKindKey] integerValue] == APHMigrationRecurringKindWeekly) {
+                    dayOfWeek = [NSString stringWithFormat:@"%ld", componentForGracePeriodStartOn.weekday];
+                    dayOfMonth = @"*";
+                } else {
+                    dayOfWeek = @"*";
+                }
+                
+                NSString *months = nil;
+                
+                switch ([taskInfo[kMigrationRecurringKindKey] integerValue]) {
+                    case APHMigrationRecurringKindMonthly:
+                        months = @"1/1";
+                        break;
+                    case APHMigrationRecurringKindQuarterly:
+                        months = @"1/3";
+                        break;
+                    default:
+                        months = @"*";
+                        break;
+                }
+                
+                updatedSchedule[kJsonScheduleStringKey] = [NSString stringWithFormat:@"0 5 %@ %@ %@", dayOfMonth, months, dayOfWeek];
+                
+                [migratedSchedules addObject:updatedSchedule];
+            } else {
+                [migratedSchedules addObject:schedule];
+            }
+        }
+        
+        migratedTaskAndSchedules[kJsonSchedulesKey] = migratedSchedules;
     }
     
-    NSArray                     *schedules = [dictionary objectForKey:kJsonSchedulesKey];
-    NSMutableDictionary         *newDictionary = [dictionary mutableCopy];
-    NSMutableArray              *newSchedulesArray = [NSMutableArray new];
-
-    for (NSDictionary *schedule in schedules) {
-        
-        NSString *taskIdentifier = [schedule objectForKey:kJsonScheduleTaskIDKey];
-        
-        if ([taskIdentifier isEqualToString:kPersonalHealthSurveyTaskId] || [taskIdentifier  isEqualToString: kAssessmentOfFunctioningTaskId] || [taskIdentifier  isEqualToString: kSleepQualitySurveyTaskId] || [taskIdentifier  isEqualToString: kGeneralHealthSurveyTaskId]) {
-            
-            NSDate              *date = [NSDate date];
-            NSDateComponents    *dateComponent = [[NSDateComponents alloc] init];
-            
-            NSInteger daysOffset = 0;
-            
-            if ([taskIdentifier  isEqualToString: kPersonalHealthSurveyTaskId])
-            {
-                daysOffset = kPersonalHealthSurveyOffset;
-                
-            }
-            else if ([taskIdentifier  isEqualToString: kAssessmentOfFunctioningTaskId])
-            {
-                daysOffset = kAssessmentOfFunctioningOffset;
-            }
-            else if ([taskIdentifier  isEqualToString: kSleepQualitySurveyTaskId])
-            {
-                daysOffset = kSleepQualitySurveyOffset;
-            }
-            else if ([taskIdentifier  isEqualToString: kGeneralHealthSurveyTaskId])
-            {
-                daysOffset = kGeneralHealthSurveyOffset;
-                
-            }
-            
-            [dateComponent setDay:daysOffset];
-            
-            NSDate              *newDate = [[NSCalendar currentCalendar] dateByAddingComponents:dateComponent
-                                                                                         toDate:date
-                                                                                        options:0];
-            
-            NSCalendar          *cal = [NSCalendar currentCalendar];
-            
-            NSDateComponents    *components = [cal components:(NSCalendarUnitDay | NSCalendarUnitMonth)
-                                                     fromDate:newDate];
-            NSString            *scheduleString = [schedule objectForKey:kJsonScheduleStringKey];
-            NSMutableArray      *scheduleObjects = [[scheduleString componentsSeparatedByString:@" "] mutableCopy];
-
-
-            [scheduleObjects replaceObjectAtIndex:kMonthOfDayObject withObject:@([components day])];
-
-            if ([taskIdentifier  isEqualToString: kGeneralHealthSurveyTaskId])
-            {
-                //Change to every third of the month using /3
-                NSString *newMonthExpression = [NSString stringWithFormat:@"%ld/3", (long)[components month]];
-                
-                [scheduleObjects replaceObjectAtIndex:kMonthObject withObject:newMonthExpression];
-            }
-            
-            NSString            *newScheduleString = [scheduleObjects componentsJoinedByString:@" "];
-            
-            [schedule setValue:newScheduleString
-                        forKey:kJsonScheduleStringKey];
-            
-            [newSchedulesArray addObject:schedule];
-            
-        }
-        else if ( [taskIdentifier isEqualToString: kWeeklyScheduleTaskId])
-        {
-            NSDate              *date = [NSDate date];
-            NSDateComponents    *dateComponent = [[NSDateComponents alloc] init];
-            [dateComponent setDay:kWeeklyScheduleDayOffset];
-            
-            NSDate              *newDate = [[NSCalendar currentCalendar] dateByAddingComponents:dateComponent
-                                                                                         toDate:date
-                                                                                        options:0];
-            
-            NSCalendar          *cal = [NSCalendar currentCalendar];
-            NSDateComponents    *components = [cal components:(NSCalendarUnitWeekday)
-                                                     fromDate:newDate];
-            
-            NSInteger           nonZeroBasedDay = components.weekday;
-            NSInteger           zeroBasedDay = nonZeroBasedDay - 1;
-            NSString            *scheduleString = [schedule objectForKey:kJsonScheduleStringKey];
-            NSMutableArray      *scheduleObjects = [[scheduleString componentsSeparatedByString:@" "] mutableCopy];
-            
-            if ([scheduleObjects count] == kExpectedNumOfCompInScheduleStr) {
-                [scheduleObjects removeLastObject];
-                
-                [scheduleObjects addObject:[NSString stringWithFormat:@"%ld", (long)zeroBasedDay]];
-            }
-            
-            NSString            *newScheduleString = [scheduleObjects componentsJoinedByString:@" "];
-            
-            [schedule setValue:newScheduleString
-                        forKey:kJsonScheduleStringKey];
-            
-            [newSchedulesArray addObject:schedule];
-            
-        }
-        else {
-            [newSchedulesArray addObject:schedule];
-        }
-    }
-    
-    [newDictionary setValue:[dictionary objectForKey:kJsonTasksKey]
-                     forKey:kJsonTasksKey];
-    
-    [newDictionary setValue:newSchedulesArray
-                     forKey:kJsonSchedulesKey];
-    
-    return newDictionary;
+    return migratedTaskAndSchedules;
 }
 
+- (NSDictionary *) tasksAndSchedulesWillBeLoaded
+{
+    NSError *jsonError = nil;
+    NSString *resource = [[NSBundle mainBundle] pathForResource:@"APHTasksAndSchedules" ofType:@"json"];
+    NSData *jsonData = [NSData dataWithContentsOfFile:resource];
+    NSDictionary *tasksAndScheduledFromJSON = [NSJSONSerialization JSONObjectWithData:jsonData options:NSJSONReadingMutableContainers error:&jsonError];
+    
+    NSDictionary *migratedSchedules = [self migrateTasksAndSchedules:tasksAndScheduledFromJSON];
+    
+    return migratedSchedules;
+}
+
+- (void)performMigrationAfterDataSubstrateFrom:(NSInteger) __unused previousVersion currentVersion:(NSInteger) __unused currentVersion
+{
+    NSDictionary *infoDictionary = [[NSBundle mainBundle] infoDictionary];
+    NSString *majorVersion = [infoDictionary objectForKey:@"CFBundleShortVersionString"];
+    NSString *minorVersion = [infoDictionary objectForKey:@"CFBundleVersion"];
+    
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    
+    NSError *migrationError = nil;
+    
+    if (self.doesPersisteStoreExist == NO)
+    {
+        APCLogEvent(@"This application is being launched for the first time. We know this because there is no persistent store.");
+    }
+    else if ( [defaults objectForKey:@"previousVersion"] == nil)
+    {
+        APCLogEvent(@"The entire data model version %d", kTheEntireDataModelOfTheApp);
+        
+        NSError *jsonError = nil;
+        NSString *resource = [[NSBundle mainBundle] pathForResource:@"APHTasksAndSchedules" ofType:@"json"];
+        NSData *jsonData = [NSData dataWithContentsOfFile:resource];
+        NSDictionary *tasksAndScheduledFromJSON = [NSJSONSerialization JSONObjectWithData:jsonData options:NSJSONReadingMutableContainers error:&jsonError];
+        
+        NSDictionary *migratedSchedules = [self migrateTasksAndSchedules:tasksAndScheduledFromJSON];
+        
+        [APCSchedule updateSchedulesFromJSON:migratedSchedules[kJsonSchedulesKey]
+                                   inContext:self.dataSubstrate.persistentContext];
+    }
+    
+    [defaults setObject:majorVersion forKey:@"shortVersionString"];
+    [defaults setObject:minorVersion forKey:@"version"];
+    
+    if (!migrationError)
+    {
+        [defaults setObject:@(currentVersion) forKey:@"previousVersion"];
+    }
+    
+}
 
 - (id <APCProfileViewControllerDelegate>) profileExtenderDelegate {
     
@@ -326,11 +343,17 @@ static NSInteger const kMonthOfDayObject                = 2;
 /*********************************************************************************/
 - (void) setUpCollectors
 {
-//  Turning off location tracking for verison 1.0 release
-//    APCCoreLocationTracker * locationTracker = [[APCCoreLocationTracker alloc] initWithIdentifier: @"locationTracker"
-//                                                                           deferredUpdatesTimeout: 60.0 * 60.0
-//                                                                            andHomeLocationStatus: APCPassiveLocationTrackingHomeLocationUnavailable];
-//    [self.passiveDataCollector addTracker: locationTracker];
+    //
+    // Set up location tracker
+    //
+    APCCoreLocationTracker * locationTracker = [[APCCoreLocationTracker alloc] initWithIdentifier: @"locationTracker"
+                                                                           deferredUpdatesTimeout: 60.0 * 60.0
+                                                                            andHomeLocationStatus: APCPassiveLocationTrackingHomeLocationUnavailable];
+    
+    if (locationTracker != nil)
+    {
+        [self.passiveDataCollector addTracker: locationTracker];
+    }
 }
 
 /*********************************************************************************/

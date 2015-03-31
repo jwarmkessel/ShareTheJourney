@@ -443,7 +443,7 @@ static NSString * const kAPCRightDetailTableViewCellIdentifier = @"APCRightDetai
                         item.detailText = [NSString stringWithFormat:NSLocalizedString(@"Average : ", @"Average: ")];
                     }
                     
-                    item.info = NSLocalizedString(@"This graph shows your answers the to custom question that you created as part of your daily check-in questions.", @"");
+                    item.info = NSLocalizedString(@"This graph shows your answers to the custom question that you created as part of your daily check-in questions.", nil);
                     
                     APCTableViewRow *row = [APCTableViewRow new];
                     row.item = item;

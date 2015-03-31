@@ -213,7 +213,14 @@ static NSString *kWalkTenThousandSteps = @"Walk 10,000 steps at least 3 times pe
     APCStepViewController  *controller = [[aClass alloc] initWithNibName:nil bundle:nil];
     
     if (step.identifier == kExerciseSurveyStep108 ) {
-        controller = [[aClass alloc] initWithNibName:nil bundle:[NSBundle appleCoreBundle]];
+        APCSimpleTaskSummaryViewController *stepVC = [[APCSimpleTaskSummaryViewController alloc] initWithNibName:nil bundle:[NSBundle appleCoreBundle]];
+        
+        (void)stepVC.view;
+        stepVC.delegate = self;
+        stepVC.step = step;
+        stepVC.youCanCompareMessage.text = nil;
+        
+        controller = stepVC;
     } else if ( step.identifier == kExerciseSurveyStep107 || step.identifier == kExerciseSurveyStep100) {
         
         UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"APHExerciseMotivationSummaryViewController"
