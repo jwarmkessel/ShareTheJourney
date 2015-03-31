@@ -51,7 +51,7 @@ static NSInteger const kMaximumNumberOfCharacters = 90;
     
         self.edgesForExtendedLayout = UIRectEdgeNone;
 
-    self.title = NSLocalizedString(@"Custom Daily Scale", @"");
+    self.title = NSLocalizedString(@"Custom Daily Question", @"");
     
     [self.textView setDelegate:self];
     
