@@ -139,56 +139,44 @@ static NSString * const kAPCRightDetailTableViewCellIdentifier = @"APCRightDetai
     self.stepScoring= [[APCScoring alloc] initWithHealthKitQuantityType:stepQuantityType unit:[HKUnit countUnit] numberOfDays:-kNumberOfDaysToDisplay];
 
     self.moodScoring = [[APCScoring alloc] initWithTask:@"3-APHMoodSurvey-7259AC18-D711-47A6-ADBD-6CFCECDED1DF"
-                                            numberOfDays:-kNumberOfDaysToDisplay
-                                                valueKey:@"moodsurvey103"
-                                                dataKey:nil
-                                                sortKey:nil
-                                             groupBy:APHTimelineGroupDay];
+                                           numberOfDays:-kNumberOfDaysToDisplay
+                                               valueKey:@"moodsurvey103"
+                                             latestOnly:NO];
     self.moodScoring.customMinimumPoint = 1.0;
     self.moodScoring.customMaximumPoint = 5.0;
     
     self.energyScoring = [[APCScoring alloc] initWithTask:@"3-APHMoodSurvey-7259AC18-D711-47A6-ADBD-6CFCECDED1DF"
                                                   numberOfDays:-kNumberOfDaysToDisplay
                                                       valueKey:@"moodsurvey104"
-                                                      dataKey:nil
-                                                      sortKey:nil
-                                                   groupBy:APHTimelineGroupDay];
+                                               latestOnly:NO];
     self.energyScoring.customMinimumPoint = 1.0;
     self.energyScoring.customMaximumPoint = 5.0;
     
     self.exerciseScoring = [[APCScoring alloc] initWithTask:@"3-APHMoodSurvey-7259AC18-D711-47A6-ADBD-6CFCECDED1DF"
-                                                  numberOfDays:-kNumberOfDaysToDisplay
-                                                      valueKey:@"moodsurvey106"
-                                                        dataKey:nil
-                                                        sortKey:nil
-                                                     groupBy:APHTimelineGroupDay];
+                                               numberOfDays:-kNumberOfDaysToDisplay
+                                                   valueKey:@"moodsurvey106"
+                                                 latestOnly:NO];
     self.exerciseScoring.customMinimumPoint = 1.0;
     self.exerciseScoring.customMaximumPoint = 5.0;
     
     self.sleepScoring = [[APCScoring alloc] initWithTask:@"3-APHMoodSurvey-7259AC18-D711-47A6-ADBD-6CFCECDED1DF"
-                                                  numberOfDays:-kNumberOfDaysToDisplay
-                                                      valueKey:@"moodsurvey105"
-                                                     dataKey:nil
-                                                     sortKey:nil
-                                                  groupBy:APHTimelineGroupDay];
+                                            numberOfDays:-kNumberOfDaysToDisplay
+                                                valueKey:@"moodsurvey105"
+                                              latestOnly:NO];
     self.sleepScoring.customMinimumPoint = 1.0;
     self.sleepScoring.customMaximumPoint = 5.0;
     
     self.cognitiveScoring = [[APCScoring alloc] initWithTask:@"3-APHMoodSurvey-7259AC18-D711-47A6-ADBD-6CFCECDED1DF"
-                                                  numberOfDays:-kNumberOfDaysToDisplay
-                                                      valueKey:@"moodsurvey102"
-                                                         dataKey:nil
-                                                         sortKey:nil
-                                                      groupBy:APHTimelineGroupDay];
+                                                numberOfDays:-kNumberOfDaysToDisplay
+                                                    valueKey:@"moodsurvey102"
+                                                  latestOnly:NO];
     self.cognitiveScoring.customMinimumPoint = 1.0;
     self.cognitiveScoring.customMaximumPoint = 5.0;
     
     self.customScoring = [[APCScoring alloc] initWithTask:@"3-APHMoodSurvey-7259AC18-D711-47A6-ADBD-6CFCECDED1DF"
-                                                    numberOfDays:-kNumberOfDaysToDisplay
-                                                        valueKey:@"moodsurvey107"
-                                                         dataKey:nil
-                                                         sortKey:nil
-                                                         groupBy:APHTimelineGroupDay];
+                                             numberOfDays:-kNumberOfDaysToDisplay
+                                                 valueKey:@"moodsurvey107"
+                                               latestOnly:NO];
     self.customScoring.customMinimumPoint = 1.0;
     self.customScoring.customMaximumPoint = 5.0;
 }
@@ -252,6 +240,7 @@ static NSString * const kAPCRightDetailTableViewCellIdentifier = @"APCRightDetai
                     APCTableViewDashboardGraphItem *item = [APCTableViewDashboardGraphItem new];
                     item.caption = NSLocalizedString(@"Mood", @"");
                     item.graphData = self.moodScoring;
+                    item.graphType = kAPCDashboardGraphTypeDiscrete;
                     item.identifier = kAPCDashboardGraphTableViewCellIdentifier;
                     item.editable = YES;
                     item.tintColor = [UIColor appTertiaryYellowColor];
@@ -259,8 +248,11 @@ static NSString * const kAPCRightDetailTableViewCellIdentifier = @"APCRightDetai
                     item.minimumImage = [UIImage imageNamed:@"Breast-Cancer-Mood-5g"];
                     item.maximumImage = [UIImage imageNamed:@"Breast-Cancer-Mood-1g"];
                     
-                    if ([[self.moodScoring averageDataPoint] doubleValue] > 0) {
-                        item.averageImage = [UIImage imageNamed:[NSString stringWithFormat:@"Breast-Cancer-Mood-%0.0fg", 6 - [[self.moodScoring averageDataPoint] doubleValue]]];
+                    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"datasetValueKey != %@", @(NSNotFound)];
+                    NSArray *scoringObjects = [[self.moodScoring allObjects] filteredArrayUsingPredicate:predicate];
+                    
+                    if ([[self.moodScoring averageDataPoint] doubleValue] > 0 && scoringObjects.count > 1) {
+                        item.averageImage = [UIImage imageNamed:[NSString stringWithFormat:@"Breast-Cancer-Mood-%0.0fg", (double) 6 - [[self.moodScoring averageDataPoint] doubleValue]]];
                         item.detailText = [NSString stringWithFormat: NSLocalizedString(@"Average : ", @"Average:")];
                     }
                     
@@ -278,6 +270,7 @@ static NSString * const kAPCRightDetailTableViewCellIdentifier = @"APCRightDetai
                     APCTableViewDashboardGraphItem *item = [APCTableViewDashboardGraphItem new];
                     item.caption = NSLocalizedString(@"Energy Level", @"");
                     item.graphData = self.energyScoring;
+                    item.graphType = kAPCDashboardGraphTypeDiscrete;
                     item.identifier = kAPCDashboardGraphTableViewCellIdentifier;
                     item.editable = YES;
                     item.tintColor = [UIColor appTertiaryGreenColor];
@@ -285,8 +278,11 @@ static NSString * const kAPCRightDetailTableViewCellIdentifier = @"APCRightDetai
                     item.minimumImage = [UIImage imageNamed:@"Breast-Cancer-Energy-5g"];
                     item.maximumImage = [UIImage imageNamed:@"Breast-Cancer-Energy-1g"];
                     
-                    if ([[self.energyScoring averageDataPoint] doubleValue] > 0) {
-                        item.averageImage = [UIImage imageNamed:[NSString stringWithFormat:@"Breast-Cancer-Energy-%0.0fg", 6 - [[self.energyScoring averageDataPoint] doubleValue]]];
+                    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"datasetValueKey != %@", @(NSNotFound)];
+                    NSArray *scoringObjects = [[self.moodScoring allObjects] filteredArrayUsingPredicate:predicate];
+                    
+                    if ([[self.energyScoring averageDataPoint] doubleValue] > 0 && scoringObjects.count > 1) {
+                        item.averageImage = [UIImage imageNamed:[NSString stringWithFormat:@"Breast-Cancer-Energy-%0.0fg", (double) 6 - [[self.energyScoring averageDataPoint] doubleValue]]];
                         item.detailText = [NSString stringWithFormat:NSLocalizedString(@"Average : ", @"")];
                     }
                     
@@ -305,6 +301,7 @@ static NSString * const kAPCRightDetailTableViewCellIdentifier = @"APCRightDetai
                     APCTableViewDashboardGraphItem *item = [APCTableViewDashboardGraphItem new];
                     item.caption = NSLocalizedString(@"Exercise Level", @"");
                     item.graphData = self.exerciseScoring;
+                    item.graphType = kAPCDashboardGraphTypeDiscrete;
                     item.identifier = kAPCDashboardGraphTableViewCellIdentifier;
                     item.editable = YES;
                     item.tintColor = [UIColor appTertiaryYellowColor];
@@ -312,8 +309,11 @@ static NSString * const kAPCRightDetailTableViewCellIdentifier = @"APCRightDetai
                     item.minimumImage = [UIImage imageNamed:@"Breast-Cancer-Exercise-5g"];
                     item.maximumImage = [UIImage imageNamed:@"Breast-Cancer-Exercise-1g"];
                     
-                    if ([[self.exerciseScoring averageDataPoint] doubleValue] > 0) {
-                        item.averageImage = [UIImage imageNamed:[NSString stringWithFormat:@"Breast-Cancer-Exercise-%0.0fg", 6 - [[self.exerciseScoring averageDataPoint] doubleValue]]];
+                    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"datasetValueKey != %@", @(NSNotFound)];
+                    NSArray *scoringObjects = [[self.moodScoring allObjects] filteredArrayUsingPredicate:predicate];
+                    
+                    if ([[self.exerciseScoring averageDataPoint] doubleValue] > 0 && scoringObjects.count > 1) {
+                        item.averageImage = [UIImage imageNamed:[NSString stringWithFormat:@"Breast-Cancer-Exercise-%0.0fg", (double) 6 - [[self.exerciseScoring averageDataPoint] doubleValue]]];
                         item.detailText = [NSString stringWithFormat:NSLocalizedString(@"Average : ", @"")];
                     }
                     
@@ -332,6 +332,7 @@ static NSString * const kAPCRightDetailTableViewCellIdentifier = @"APCRightDetai
                     APCTableViewDashboardGraphItem *item = [APCTableViewDashboardGraphItem new];
                     item.caption = NSLocalizedString(@"Sleep Quality", @"");
                     item.graphData = self.sleepScoring;
+                    item.graphType = kAPCDashboardGraphTypeDiscrete;
                     item.identifier = kAPCDashboardGraphTableViewCellIdentifier;
                     item.editable = YES;
                     item.tintColor = [UIColor appTertiaryPurpleColor];
@@ -339,8 +340,11 @@ static NSString * const kAPCRightDetailTableViewCellIdentifier = @"APCRightDetai
                     item.minimumImage = [UIImage imageNamed:@"Breast-Cancer-Sleep-5g"];
                     item.maximumImage = [UIImage imageNamed:@"Breast-Cancer-Sleep-1g"];
                     
-                    if ([[self.sleepScoring averageDataPoint] doubleValue] > 0) {
-                        item.averageImage = [UIImage imageNamed:[NSString stringWithFormat:@"Breast-Cancer-Sleep-%0.0fg", [[self.sleepScoring averageDataPoint] doubleValue]]];
+                    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"datasetValueKey != %@", @(NSNotFound)];
+                    NSArray *scoringObjects = [[self.moodScoring allObjects] filteredArrayUsingPredicate:predicate];
+                    
+                    if ([[self.sleepScoring averageDataPoint] doubleValue] > 0 && scoringObjects.count > 1) {
+                        item.averageImage = [UIImage imageNamed:[NSString stringWithFormat:@"Breast-Cancer-Sleep-%0.0fg", (double) 6 - [[self.sleepScoring averageDataPoint] doubleValue]]];
                         item.detailText = [NSString stringWithFormat:NSLocalizedString(@"Average : ", @"Average: ")];
                     }
                     
@@ -358,6 +362,7 @@ static NSString * const kAPCRightDetailTableViewCellIdentifier = @"APCRightDetai
                     APCTableViewDashboardGraphItem *item = [APCTableViewDashboardGraphItem new];
                     item.caption = NSLocalizedString(@"Thinking", @"");
                     item.graphData = self.cognitiveScoring;
+                    item.graphType = kAPCDashboardGraphTypeDiscrete;
                     item.identifier = kAPCDashboardGraphTableViewCellIdentifier;
                     item.editable = YES;
                     item.tintColor = [UIColor appTertiaryRedColor];
@@ -365,8 +370,12 @@ static NSString * const kAPCRightDetailTableViewCellIdentifier = @"APCRightDetai
                     item.minimumImage = [UIImage imageNamed:@"Breast-Cancer-Clarity-5g"];
                     item.maximumImage = [UIImage imageNamed:@"Breast-Cancer-Clarity-1g"];
                     
-                    if ([[self.cognitiveScoring averageDataPoint] doubleValue] > 0) {
-                        item.averageImage = [UIImage imageNamed:[NSString stringWithFormat:@"Breast-Cancer-Clarity-%0.0fg", 6 - [[self.cognitiveScoring averageDataPoint] doubleValue]]];
+                    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"datasetValueKey != %@", @(NSNotFound)];
+                    NSArray *moodScoringObjects = [[self.moodScoring allObjects] filteredArrayUsingPredicate:predicate];
+                    
+                    if ([[self.cognitiveScoring averageDataPoint] doubleValue] > 0 && moodScoringObjects.count > 1) {
+                        
+                        item.averageImage = [UIImage imageNamed:[NSString stringWithFormat:@"Breast-Cancer-Clarity-%0.0fg", (double) 6 - [[self.cognitiveScoring averageDataPoint] doubleValue]]];
                         item.detailText = [NSString stringWithFormat:NSLocalizedString(@"Average : ", @"Average: ")];
                     }
                     
@@ -386,6 +395,7 @@ static NSString * const kAPCRightDetailTableViewCellIdentifier = @"APCRightDetai
                     APCTableViewDashboardGraphItem *item = [APCTableViewDashboardGraphItem new];
                     item.caption = NSLocalizedString(@"Custom Question", @"");
                     item.graphData = self.customScoring;
+                    item.graphType = kAPCDashboardGraphTypeDiscrete;
                     item.identifier = kAPCDashboardGraphTableViewCellIdentifier;
                     item.editable = YES;
                     item.tintColor = [UIColor appTertiaryBlueColor];
@@ -393,12 +403,15 @@ static NSString * const kAPCRightDetailTableViewCellIdentifier = @"APCRightDetai
                     item.minimumImage = [UIImage imageNamed:@"Breast-Cancer-Custom-5g"];
                     item.maximumImage = [UIImage imageNamed:@"Breast-Cancer-Custom-1g"];
                     
-                    if ([[self.customScoring averageDataPoint] doubleValue] > 0) {
-                        item.averageImage = [UIImage imageNamed:[NSString stringWithFormat:@"Breast-Cancer-Custom-%0.0fg", 6 - [[self.customScoring averageDataPoint] doubleValue]]];
+                    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"datasetValueKey != %@", @(NSNotFound)];
+                    NSArray *scoringObjects = [[self.moodScoring allObjects] filteredArrayUsingPredicate:predicate];
+                    
+                    if ([[self.customScoring averageDataPoint] doubleValue] > 0 && scoringObjects.count > 1) {
+                        item.averageImage = [UIImage imageNamed:[NSString stringWithFormat:@"Breast-Cancer-Custom-%0.0fg", (double) 6 - [[self.customScoring averageDataPoint] doubleValue]]];
                         item.detailText = [NSString stringWithFormat:NSLocalizedString(@"Average : ", @"Average: ")];
                     }
                     
-                    item.info = NSLocalizedString(@"This graph shows your answers the to custom question that you created as part of your daily check-in questions.", @"");
+                    item.info = NSLocalizedString(@"This graph shows your answers to the custom question that you created as part of your daily check-in questions.", nil);
                     
                     APCTableViewRow *row = [APCTableViewRow new];
                     row.item = item;

@@ -120,7 +120,7 @@ static NSInteger const kNumberOfCompletionsUntilDisplayingCustomSurvey = 7;
 {
     [super taskViewController:taskViewController didFinishWithResult:result error:error];
 
-    //Here we are keeping a count of the DAILY CHECK-IN being completed. We are keeping track only up to 7.
+    //Here we are keeping a count of the Daily Check-IN being completed. We are keeping track only up to 7.
     APCAppDelegate * delegate = (APCAppDelegate*)[UIApplication sharedApplication].delegate;
     if (delegate.dataSubstrate.currentUser.dailyScalesCompletionCounter < kNumberOfCompletionsUntilDisplayingCustomSurvey) {
         delegate.dataSubstrate.currentUser.dailyScalesCompletionCounter++;
@@ -256,7 +256,7 @@ static NSInteger const kNumberOfCompletionsUntilDisplayingCustomSurvey = 7;
     textView.text =NSLocalizedString( kLearnMoreString, kLearnMoreString);
 
     textView.textColor = [UIColor blackColor];
-    [textView setFont:[UIFont fontWithName:@"HelveticaNeue" size:kFontSize]];
+    [textView setFont:[UIFont appRegularFontWithSize:kFontSize]];
     textView.numberOfLines = 0;
     textView.adjustsFontSizeToFitWidth  = YES;
     

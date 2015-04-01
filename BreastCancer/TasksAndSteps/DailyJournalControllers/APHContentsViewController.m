@@ -33,10 +33,8 @@ typedef  enum  _DailyLogType
 @property  (nonatomic, weak)    IBOutlet     UITableView*   tabulator;
 @property  (nonatomic, weak)    IBOutlet        UIButton*   enterDailyLog;
 
-@property  (nonatomic, strong)            NSMutableArray*   contentObjects;
-@property  (nonatomic, strong)            NSMutableArray*   changesObjects;
 @property                                   NSDictionary*   sectionedLogHistory;
-@property                                        NSArray*   sections;
+@property                                        NSArray*   weeks;
 @property  (nonatomic, strong)             ORKStepResult*   cachedResult;
 @property  (nonatomic, strong)                   UILabel*   noTasksView;
 @end
@@ -45,89 +43,12 @@ typedef  enum  _DailyLogType
 
 #pragma  mark  -  Temporary Store and Fetch Methods
 
-- (NSString *)directoryForDailyLogStorage
-{
-    NSArray   *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString  *directoryPath = paths[0];
-    
-    NSFileManager  *theDreadedManager = [NSFileManager defaultManager];
-    BOOL  isDirectory = NO;
-    BOOL  fileExists = [theDreadedManager fileExistsAtPath:directoryPath isDirectory:&isDirectory];
-    if (fileExists == NO) {
-        NSError  *error = nil;
-        BOOL  success = [theDreadedManager createDirectoryAtPath:directoryPath withIntermediateDirectories:YES attributes:nil error:&error];
-        if (success == NO) {
-            NSLog(@"Failed to create directory path at %@", directoryPath);
-        }
-    }
-    return  directoryPath;
-}
-
-- (NSString *)filenameForDailyLogType:(DailyLogType)type
-{
-    NSString  *storageDirectoryPath = [self directoryForDailyLogStorage];
-    
-    NSString  *filename = nil;
-    
-    if (type == DailyLogTypeNotesContent) {
-        filename = kNotesContentStoragePath;
-    } else {
-        filename = kNotesChangesStoragePath;
-    }
-    NSString  *completeFilePath = [storageDirectoryPath stringByAppendingPathComponent:filename];
-    return  completeFilePath;
-}
-
-- (NSDictionary *)fetchDataModelsForType:(DailyLogType)type
-{
-    NSString  *path = [self filenameForDailyLogType:type];
-    NSData    *contents = [NSData dataWithContentsOfFile:path];
-    
-    id  object = nil;
-    if (contents != nil) {
-        NSError  *error = nil;
-        object = [NSJSONSerialization JSONObjectWithData:contents options:0 error:&error];
-        if (error != nil) {
-            NSLog(@"Unable to Read Jason Data: error = %@", error);
-        }
-    }
-    
-    return  object;
-}
-
-- (void)storeDataModelsForType:(DailyLogType)type  withDictionary:(NSDictionary *)jsonObjects
-{
-    NSError  *error = nil;
-    NSData   *data = [NSJSONSerialization dataWithJSONObject:jsonObjects options:0 error:&error];
-    if (error != nil) {
-        NSLog(@"Unable to Write Jason Data: error = %@", error);
-    } else {
-        NSString  *path = [self filenameForDailyLogType:type];
-        [data writeToFile:path atomically:YES];
-    }
-}
-
 /*********************************************************************************/
 #pragma  mark  -  Note Creation Controller Delegate Methods
 /*********************************************************************************/
 
 - (void)notesDidCancel:(APHNotesViewController *) __unused controller
 {
-    [self dismissViewControllerAnimated:YES completion:nil];
-}
-
-- (void)controller:(APHNotesViewController *) __unused controller notesDidCompleteWithNote:(NSDictionary *)note  andChanges:(NSDictionary *)changes
-{
-    [self.contentObjects addObject:note];
-    NSDictionary  *contentCollection = @{ @"items" : self.contentObjects };
-    [self storeDataModelsForType:DailyLogTypeNotesContent withDictionary:contentCollection];
-    
-    [self.changesObjects addObject:changes];
-    NSDictionary  *changesCollection = @{ @"items" : self.changesObjects };
-    [self storeDataModelsForType:DailyLogTypeNotesChanges withDictionary:changesCollection];
-    
-    [self.tabulator reloadData];
-    
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
@@ -149,12 +70,16 @@ typedef  enum  _DailyLogType
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *) __unused tableView
 {
-    return  MAX( (NSUInteger) 1, self.sections.count );
+    return  1 + self.sectionedLogHistory.count ;
 }
 
 - (NSInteger)tableView:(UITableView *) __unused tableView numberOfRowsInSection:(NSInteger)section
 {
-    return  MAX( (NSUInteger) 1, ((NSArray *)[self.sectionedLogHistory objectForKey:self.sections[section]]).count );
+    if (section == 0) {
+        return 0;
+    }else{
+        return  MAX( (NSUInteger) 1, ((NSArray *)[self.sectionedLogHistory objectForKey:self.weeks[section -1]]).count );
+    }
 }
 
 - (CGFloat)tableView:(UITableView *) __unused tableView heightForRowAtIndexPath:(NSIndexPath *) __unused indexPath
@@ -167,8 +92,9 @@ typedef  enum  _DailyLogType
     if (!self.sectionedLogHistory) {
         return [UITableViewCell new];
     }
-    
-    APCResult  *model = [self.sectionedLogHistory objectForKey:self.sections[indexPath.section]][indexPath.row];
+
+    NSString *key = [self keyForSection:indexPath.section];
+    APCResult  *model = [self.sectionedLogHistory objectForKey:key][indexPath.row];
     
     APHNotesContentsTableViewCell  *cell = (APHNotesContentsTableViewCell *)[tableView dequeueReusableCellWithIdentifier:kContentsTableViewCellIdentifier];
     
@@ -217,13 +143,17 @@ typedef  enum  _DailyLogType
 #pragma  mark  -  Table View Delegate Methods
 /*********************************************************************************/
 
-//- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
-//    return [tableView]
-//}
+-(NSString *)keyForSection:(NSInteger)section{
+    
+    return self.weeks[section -1];
+    
+}
 
 - (void)tableView:(UITableView *) __unused tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    APCResult  *model = [self.sectionedLogHistory objectForKey:self.sections[indexPath.section]][indexPath.row];
+    
+    NSString *key = [self keyForSection:indexPath.section];
+    APCResult  *model = [self.sectionedLogHistory objectForKey:key][indexPath.row];
     APHDisplayLogHistoryViewController  *stenographer = [[APHDisplayLogHistoryViewController alloc] initWithNibName:@"APHDisplayLogHistoryViewController" bundle:[NSBundle mainBundle]];
     
     stenographer.logText = model.resultSummary;
@@ -277,9 +207,7 @@ typedef  enum  _DailyLogType
     if (error) {
         APCLogError2(error);
     }
-    
 
-    
     [self.tabulator registerNib:[UINib nibWithNibName:@"APHNotesContentsTableViewCell"
                                                    bundle:[NSBundle mainBundle]] forCellReuseIdentifier:(NSString *)kContentsTableViewCellIdentifier];
     
@@ -290,10 +218,13 @@ typedef  enum  _DailyLogType
 }
 
 - (void) addCustomNoTaskView {
-    self.noTasksView = [[UILabel alloc] initWithFrame:CGRectMake(0.0, 0.0, 200.0, 22.0)];
-    
-    if(![self.noTasksView.text isEqualToString:kNoTaskText])
+   
+    //only add this message once
+    if (!self.noTasksView)
     {
+        self.noTasksView = [[UILabel alloc] initWithFrame:CGRectMake(0.0, 0.0, 200.0, 22.0)];
+        
+        
         self.noTasksView.text = kNoTaskText;
         self.noTasksView.textColor = [UIColor lightGrayColor];
         self.noTasksView.center = CGPointMake([UIScreen mainScreen].bounds.size.width / 2, self.tabulator.frame.size.height / 2);
@@ -301,6 +232,7 @@ typedef  enum  _DailyLogType
         [self.tabulator addSubview:self.noTasksView];
         
         [self.tabulator setSeparatorStyle:UITableViewCellSeparatorStyleNone];
+        
     }
     
 }
@@ -321,22 +253,13 @@ typedef  enum  _DailyLogType
         [headerView addSubview:instructions];
     } else {
         APHNotesHeaderTableViewCell *headerCell = [tableView dequeueReusableCellWithIdentifier:kHeaderTableViewCellIdentifier];
-        if ((NSUInteger) section == [self.sections indexOfObject:self.sections.lastObject]) {
-            headerCell.labelWeek.text = NSLocalizedString(@"Week 1", @"Week 1");
-        } else {
-            NSDateComponents *dateComponents = self.sections.lastObject;
-            [dateComponents setWeekday:1];
-            NSDate *startDate = [[NSCalendar currentCalendar] dateFromComponents:dateComponents];
-            
-            dateComponents = self.sections[section];
-            [dateComponents setWeekday:1];
-            NSDate *endDate = [[NSCalendar currentCalendar] dateFromComponents:dateComponents];
-            
-            NSInteger weekNumber = [[NSCalendar currentCalendar] components:NSCalendarUnitWeekOfYear fromDate:startDate toDate:endDate options:0].weekOfYear++;
-            headerCell.labelWeek.text = [NSLocalizedString(@"Week", @"Week") stringByAppendingFormat:@" %zd", weekNumber];
-        }
-        NSInteger entryCount = ((NSArray *)[self.sectionedLogHistory objectForKey:self.sections[section]]).count;
-        headerCell.labelEntries.text = [NSString stringWithFormat:@"%zd %@", entryCount, NSLocalizedString(@"Entries", @"Entries")];
+    
+        headerCell.labelWeek.text = NSLocalizedString([self keyForSection:section], nil);
+        
+        NSString *key = [self keyForSection:section];
+        NSInteger entryCount = ((NSArray *)[self.sectionedLogHistory objectForKey:key]).count;
+        
+        headerCell.labelEntries.text =  entryCount == 1 ? [NSString stringWithFormat:@"%zd %@", entryCount, NSLocalizedString(@"Entry", nil)] : [NSString stringWithFormat:@"%zd %@", entryCount, NSLocalizedString(@"Entries", @"Entries")];
         
         headerView = headerCell;
     }
@@ -344,31 +267,44 @@ typedef  enum  _DailyLogType
     return headerView;
 }
 
+-(CGFloat)tableView:(UITableView *)__unused tableView heightForHeaderInSection:(NSInteger)__unused section{
+    if (section == 0) {
+        return 90.0;
+    }else{
+        return 44.0;
+    }
+}
+
 - (void)sectionLogHistory:(NSArray *)logHistory {
+    
+    //give me a dictionary of arrays using the week number as a key
+    
     NSSortDescriptor *sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"createdAt" ascending:NO];
     logHistory = [logHistory sortedArrayUsingDescriptors:@[sortDescriptor]];
     
-    NSMutableArray *mutableSections = [NSMutableArray array];
-    NSMutableDictionary *mutableSectionedLogHistory = [NSMutableDictionary dictionary];
-    for (NSUInteger i = 0; i < logHistory.count; i++) {
-        APCResult *result = logHistory[i];
-        NSDateComponents *identifyingDateComponents = [[NSCalendar currentCalendar] components:(NSCalendarUnitWeekOfYear | NSCalendarUnitYear) fromDate:result.createdAt];
-        NSMutableArray *mutableSectionLog = nil;
-        if ((mutableSectionLog = [mutableSectionedLogHistory objectForKey:identifyingDateComponents])) {
-            NSMutableArray *mutableSectionLog = [mutableSectionedLogHistory objectForKey:identifyingDateComponents];
-            [mutableSectionLog addObject:result];
-        } else {
-            if ([mutableSections indexOfObject:identifyingDateComponents] == NSNotFound) {
-                [mutableSections addObject:identifyingDateComponents];
-            }
-            mutableSectionLog = [NSMutableArray array];
-            [mutableSectionLog addObject:result];
-            [mutableSectionedLogHistory setObject:mutableSectionLog forKey:identifyingDateComponents];
+    NSMutableDictionary *entriesByWeek = [NSMutableDictionary dictionary];
+    NSMutableArray *weeks = [NSMutableArray new];
+    for (APCResult *result in logHistory) {
+        
+        NSDateComponents *identifyingDateComponents = [[NSCalendar currentCalendar] components:(NSCalendarUnitYear | NSCalendarUnitWeekOfYear) fromDate:result.createdAt];
+        NSString *key = [NSString stringWithFormat:@"%li - Week %li", identifyingDateComponents.year, identifyingDateComponents.weekOfYear];
+        
+        if ([entriesByWeek objectForKey:key]) {
+            NSMutableArray *entries = [entriesByWeek objectForKey:key];
+            [entries addObject:result];
+            [entriesByWeek setObject:entries forKey:key];
+        }else{
+            //Add the array entry for the week
+            NSMutableArray *entries = [NSMutableArray new];
+            [entries addObject:result];
+            [entriesByWeek setObject:entries forKey:key];
+            [weeks addObject:key];
         }
+        
     }
     
-    self.sections = [NSArray arrayWithArray:mutableSections];
-    self.sectionedLogHistory = [NSDictionary dictionaryWithDictionary:mutableSectionedLogHistory];
+    self.sectionedLogHistory = [NSDictionary dictionaryWithDictionary:entriesByWeek];
+    self.weeks = weeks;
 }
 
 - (ORKStepResult *)result {
