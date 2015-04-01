@@ -86,6 +86,7 @@ typedef NS_ENUM(NSUInteger, APHMigrationRecurringKinds)
                                                    @(kAPCUserInfoItemTypeHeight),
                                                    @(kAPCUserInfoItemTypeWeight)
                                                    ],
+                                           kShareMessageKey : NSLocalizedString(@"Check out Share the Journey, a research study app about breast cancer survivorship.  Download it for iPhone at https://appsto.re/i6LF2f6", nil)
                                            }];
     self.initializationOptions = dictionary;
     self.profileExtender = [[APHProfileExtender alloc] init];
@@ -109,7 +110,7 @@ typedef NS_ENUM(NSUInteger, APHMigrationRecurringKinds)
                                          },
                                         @{
                                             kMigrationTaskIdKey: @"c-Weekly-394848ce-ca4f-4abe-b97e-fedbfd7ffb8e",
-                                            kMigrationOffsetByDaysKey: @(5),
+                                            kMigrationOffsetByDaysKey: @(6),
                                             kMigrationGracePeriodInDaysKey: @(5),
                                             kMigrationRecurringKindKey: @(APHMigrationRecurringKindWeekly)
                                          },
@@ -124,11 +125,18 @@ typedef NS_ENUM(NSUInteger, APHMigrationRecurringKinds)
                                             kMigrationOffsetByDaysKey: @(3),
                                             kMigrationGracePeriodInDaysKey: @(5),
                                             kMigrationRecurringKindKey: @(APHMigrationRecurringKindMonthly)
+                                         },
+                                        @{
+                                            kMigrationTaskIdKey: @"b-SF36-394848ce-ca4f-4abe-b97e-fedbfd7ffb8e",
+                                            kMigrationOffsetByDaysKey: @(4),
+                                            kMigrationGracePeriodInDaysKey: @(5),
+                                            kMigrationRecurringKindKey: @(APHMigrationRecurringKindQuarterly)
                                          }
                                        ];
         
         NSArray *schedules = migratedTaskAndSchedules[kJsonSchedulesKey];
         NSMutableArray *migratedSchedules = [NSMutableArray new];
+        NSDate *launchDate = [NSDate date];
         
         for (NSDictionary *schedule in schedules) {
             NSPredicate *predicate = [NSPredicate predicateWithFormat:@"%K == %@", kMigrationTaskIdKey, schedule[kJsonScheduleTaskIDKey]];
@@ -139,28 +147,38 @@ typedef NS_ENUM(NSUInteger, APHMigrationRecurringKinds)
                 
                 NSMutableDictionary *updatedSchedule = [schedule mutableCopy];
                 
-                NSDate *launchDate = [NSDate date];
-                
                 NSDate *offsetDate = [launchDate dateByAddingDays:[taskInfo[kMigrationOffsetByDaysKey] integerValue]];
                 
-                NSDateComponents *componentForGracePeriodStartOn = [[NSCalendar currentCalendar] components:NSCalendarUnitDay fromDate:offsetDate];
+                NSCalendarUnit units = NSCalendarUnitDay | NSCalendarUnitMonth | NSCalendarUnitYear | NSCalendarUnitWeekday;
                 
-                NSString *gracePeriod = [NSString stringWithFormat:@"%ld", componentForGracePeriodStartOn.day];
-                NSString *recurring = nil;
+                NSDateComponents *componentForGracePeriodStartOn = [[NSCalendar currentCalendar] components:units
+                                                                                                   fromDate:offsetDate];
+                
+                NSString *dayOfMonth = [NSString stringWithFormat:@"%ld", componentForGracePeriodStartOn.day];
+                NSString *dayOfWeek = nil;
+                
+                if ([taskInfo[kMigrationRecurringKindKey] integerValue] == APHMigrationRecurringKindWeekly) {
+                    dayOfWeek = [NSString stringWithFormat:@"%ld", componentForGracePeriodStartOn.weekday];
+                    dayOfMonth = @"*";
+                } else {
+                    dayOfWeek = @"*";
+                }
+                
+                NSString *months = nil;
                 
                 switch ([taskInfo[kMigrationRecurringKindKey] integerValue]) {
                     case APHMigrationRecurringKindMonthly:
-                        recurring = [NSString stringWithFormat:@"1/1"];
+                        months = @"1/1";
                         break;
                     case APHMigrationRecurringKindQuarterly:
-                        recurring = [NSString stringWithFormat:@"1/3"];
+                        months = @"1/3";
                         break;
                     default:
-                        recurring = [NSString stringWithFormat:@"*"];
+                        months = @"*";
                         break;
                 }
                 
-                updatedSchedule[kJsonScheduleStringKey] = [NSString stringWithFormat:@"0 5 %@ %@ *", gracePeriod, recurring];
+                updatedSchedule[kJsonScheduleStringKey] = [NSString stringWithFormat:@"0 5 %@ %@ %@", dayOfMonth, months, dayOfWeek];
                 
                 [migratedSchedules addObject:updatedSchedule];
             } else {
@@ -172,6 +190,18 @@ typedef NS_ENUM(NSUInteger, APHMigrationRecurringKinds)
     }
     
     return migratedTaskAndSchedules;
+}
+
+- (NSDictionary *) tasksAndSchedulesWillBeLoaded
+{
+    NSError *jsonError = nil;
+    NSString *resource = [[NSBundle mainBundle] pathForResource:@"APHTasksAndSchedules" ofType:@"json"];
+    NSData *jsonData = [NSData dataWithContentsOfFile:resource];
+    NSDictionary *tasksAndScheduledFromJSON = [NSJSONSerialization JSONObjectWithData:jsonData options:NSJSONReadingMutableContainers error:&jsonError];
+    
+    NSDictionary *migratedSchedules = [self migrateTasksAndSchedules:tasksAndScheduledFromJSON];
+    
+    return migratedSchedules;
 }
 
 - (void)performMigrationAfterDataSubstrateFrom:(NSInteger) __unused previousVersion currentVersion:(NSInteger) __unused currentVersion
