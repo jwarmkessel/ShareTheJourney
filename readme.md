@@ -40,6 +40,14 @@ Open the project, `BreastCancer.xcodeproj`, and build and run.
 Other components
 ================
 
+Several survey instruments used in the shipping app have been
+removed from the open source version because they are not free
+to use:
+
+* [PAR Q+](http://eparmedx.com) (Exercise Readiness Survey)
+* [PSQI](http://www.sleep.pitt.edu/content.asp?id=1484&subid=2316) (Sleep Quality Survey)
+* [PAOFI](https://www.nntc.org/content/np-battery) (Assessment of Functioning Survey)
+
 The shipping app also uses OpenSSL to add extra data protection, which
 has not been included in the published version of the AppCore
 project. See the [AppCore repository](https://github.com/researchkit/AppCore) for more details.
