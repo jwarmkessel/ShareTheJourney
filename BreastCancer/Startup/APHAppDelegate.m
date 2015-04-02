@@ -177,7 +177,7 @@ typedef NS_ENUM(NSUInteger, APHMigrationRecurringKinds)
                                          },
                                         @{
                                             kMigrationTaskIdKey: @"c-Weekly-394848ce-ca4f-4abe-b97e-fedbfd7ffb8e",
-                                            kMigrationOffsetByDaysKey: @(6),
+                                            kMigrationOffsetByDaysKey: @(5),
                                             kMigrationGracePeriodInDaysKey: @(5),
                                             kMigrationRecurringKindKey: @(APHMigrationRecurringKindWeekly)
                                          },

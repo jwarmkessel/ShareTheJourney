@@ -165,56 +165,44 @@ static NSString * const kAPCRightDetailTableViewCellIdentifier = @"APCRightDetai
     self.stepScoring= [[APCScoring alloc] initWithHealthKitQuantityType:stepQuantityType unit:[HKUnit countUnit] numberOfDays:-kNumberOfDaysToDisplay];
 
     self.moodScoring = [[APCScoring alloc] initWithTask:@"3-APHMoodSurvey-7259AC18-D711-47A6-ADBD-6CFCECDED1DF"
-                                            numberOfDays:-kNumberOfDaysToDisplay
-                                                valueKey:@"moodsurvey103"
-                                                dataKey:nil
-                                                sortKey:nil
-                                             groupBy:APHTimelineGroupDay];
+                                           numberOfDays:-kNumberOfDaysToDisplay
+                                               valueKey:@"moodsurvey103"
+                                             latestOnly:NO];
     self.moodScoring.customMinimumPoint = 1.0;
     self.moodScoring.customMaximumPoint = 5.0;
     
     self.energyScoring = [[APCScoring alloc] initWithTask:@"3-APHMoodSurvey-7259AC18-D711-47A6-ADBD-6CFCECDED1DF"
                                                   numberOfDays:-kNumberOfDaysToDisplay
                                                       valueKey:@"moodsurvey104"
-                                                      dataKey:nil
-                                                      sortKey:nil
-                                                   groupBy:APHTimelineGroupDay];
+                                               latestOnly:NO];
     self.energyScoring.customMinimumPoint = 1.0;
     self.energyScoring.customMaximumPoint = 5.0;
     
     self.exerciseScoring = [[APCScoring alloc] initWithTask:@"3-APHMoodSurvey-7259AC18-D711-47A6-ADBD-6CFCECDED1DF"
-                                                  numberOfDays:-kNumberOfDaysToDisplay
-                                                      valueKey:@"moodsurvey106"
-                                                        dataKey:nil
-                                                        sortKey:nil
-                                                     groupBy:APHTimelineGroupDay];
+                                               numberOfDays:-kNumberOfDaysToDisplay
+                                                   valueKey:@"moodsurvey106"
+                                                 latestOnly:NO];
     self.exerciseScoring.customMinimumPoint = 1.0;
     self.exerciseScoring.customMaximumPoint = 5.0;
     
     self.sleepScoring = [[APCScoring alloc] initWithTask:@"3-APHMoodSurvey-7259AC18-D711-47A6-ADBD-6CFCECDED1DF"
-                                                  numberOfDays:-kNumberOfDaysToDisplay
-                                                      valueKey:@"moodsurvey105"
-                                                     dataKey:nil
-                                                     sortKey:nil
-                                                  groupBy:APHTimelineGroupDay];
+                                            numberOfDays:-kNumberOfDaysToDisplay
+                                                valueKey:@"moodsurvey105"
+                                              latestOnly:NO];
     self.sleepScoring.customMinimumPoint = 1.0;
     self.sleepScoring.customMaximumPoint = 5.0;
     
     self.cognitiveScoring = [[APCScoring alloc] initWithTask:@"3-APHMoodSurvey-7259AC18-D711-47A6-ADBD-6CFCECDED1DF"
-                                                  numberOfDays:-kNumberOfDaysToDisplay
-                                                      valueKey:@"moodsurvey102"
-                                                         dataKey:nil
-                                                         sortKey:nil
-                                                      groupBy:APHTimelineGroupDay];
+                                                numberOfDays:-kNumberOfDaysToDisplay
+                                                    valueKey:@"moodsurvey102"
+                                                  latestOnly:NO];
     self.cognitiveScoring.customMinimumPoint = 1.0;
     self.cognitiveScoring.customMaximumPoint = 5.0;
     
     self.customScoring = [[APCScoring alloc] initWithTask:@"3-APHMoodSurvey-7259AC18-D711-47A6-ADBD-6CFCECDED1DF"
-                                                    numberOfDays:-kNumberOfDaysToDisplay
-                                                        valueKey:@"moodsurvey107"
-                                                         dataKey:nil
-                                                         sortKey:nil
-                                                         groupBy:APHTimelineGroupDay];
+                                             numberOfDays:-kNumberOfDaysToDisplay
+                                                 valueKey:@"moodsurvey107"
+                                               latestOnly:NO];
     self.customScoring.customMinimumPoint = 1.0;
     self.customScoring.customMaximumPoint = 5.0;
 }
@@ -278,6 +266,7 @@ static NSString * const kAPCRightDetailTableViewCellIdentifier = @"APCRightDetai
                     APCTableViewDashboardGraphItem *item = [APCTableViewDashboardGraphItem new];
                     item.caption = NSLocalizedString(@"Mood", @"");
                     item.graphData = self.moodScoring;
+                    item.graphType = kAPCDashboardGraphTypeDiscrete;
                     item.identifier = kAPCDashboardGraphTableViewCellIdentifier;
                     item.editable = YES;
                     item.tintColor = [UIColor appTertiaryYellowColor];
@@ -307,6 +296,7 @@ static NSString * const kAPCRightDetailTableViewCellIdentifier = @"APCRightDetai
                     APCTableViewDashboardGraphItem *item = [APCTableViewDashboardGraphItem new];
                     item.caption = NSLocalizedString(@"Energy Level", @"");
                     item.graphData = self.energyScoring;
+                    item.graphType = kAPCDashboardGraphTypeDiscrete;
                     item.identifier = kAPCDashboardGraphTableViewCellIdentifier;
                     item.editable = YES;
                     item.tintColor = [UIColor appTertiaryGreenColor];
@@ -337,6 +327,7 @@ static NSString * const kAPCRightDetailTableViewCellIdentifier = @"APCRightDetai
                     APCTableViewDashboardGraphItem *item = [APCTableViewDashboardGraphItem new];
                     item.caption = NSLocalizedString(@"Exercise Level", @"");
                     item.graphData = self.exerciseScoring;
+                    item.graphType = kAPCDashboardGraphTypeDiscrete;
                     item.identifier = kAPCDashboardGraphTableViewCellIdentifier;
                     item.editable = YES;
                     item.tintColor = [UIColor appTertiaryYellowColor];
@@ -367,6 +358,7 @@ static NSString * const kAPCRightDetailTableViewCellIdentifier = @"APCRightDetai
                     APCTableViewDashboardGraphItem *item = [APCTableViewDashboardGraphItem new];
                     item.caption = NSLocalizedString(@"Sleep Quality", @"");
                     item.graphData = self.sleepScoring;
+                    item.graphType = kAPCDashboardGraphTypeDiscrete;
                     item.identifier = kAPCDashboardGraphTableViewCellIdentifier;
                     item.editable = YES;
                     item.tintColor = [UIColor appTertiaryPurpleColor];
@@ -396,6 +388,7 @@ static NSString * const kAPCRightDetailTableViewCellIdentifier = @"APCRightDetai
                     APCTableViewDashboardGraphItem *item = [APCTableViewDashboardGraphItem new];
                     item.caption = NSLocalizedString(@"Thinking", @"");
                     item.graphData = self.cognitiveScoring;
+                    item.graphType = kAPCDashboardGraphTypeDiscrete;
                     item.identifier = kAPCDashboardGraphTableViewCellIdentifier;
                     item.editable = YES;
                     item.tintColor = [UIColor appTertiaryRedColor];
@@ -428,6 +421,7 @@ static NSString * const kAPCRightDetailTableViewCellIdentifier = @"APCRightDetai
                     APCTableViewDashboardGraphItem *item = [APCTableViewDashboardGraphItem new];
                     item.caption = NSLocalizedString(@"Custom Question", @"");
                     item.graphData = self.customScoring;
+                    item.graphType = kAPCDashboardGraphTypeDiscrete;
                     item.identifier = kAPCDashboardGraphTableViewCellIdentifier;
                     item.editable = YES;
                     item.tintColor = [UIColor appTertiaryBlueColor];

@@ -606,10 +606,10 @@
 			isa = PBXGroup;
 			children = (
 				5B1D9D671A1BD414000F4AD6 /* APHDashboard.storyboard */,
-				5B1D9D681A1BD414000F4AD6 /* APHDashboardEditViewController.h */,
-				5B1D9D691A1BD414000F4AD6 /* APHDashboardEditViewController.m */,
 				5B1D9D6A1A1BD414000F4AD6 /* APHDashboardViewController.h */,
 				5B1D9D6B1A1BD414000F4AD6 /* APHDashboardViewController.m */,
+				5B1D9D681A1BD414000F4AD6 /* APHDashboardEditViewController.h */,
+				5B1D9D691A1BD414000F4AD6 /* APHDashboardEditViewController.m */,
 			);
 			path = Dashboard;
 			sourceTree = "<group>";
@@ -1043,7 +1043,7 @@
 					};
 					F534B58219E4681E00C3C152 = {
 						CreatedOnToolsVersion = 6.0.1;
-						DevelopmentTeam = KA9Z8R6M6K;
+						DevelopmentTeam = NL3PRC58UN;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 1;
@@ -1571,7 +1571,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = BreastCancer/BreastCancer.entitlements;
-				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1676,7 +1676,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = BreastCancer/BreastCancer.entitlements;
-				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1697,7 +1697,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = BreastCancer/BreastCancer.entitlements;
-				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1763,7 +1763,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = BreastCancer/BreastCancer.entitlements;
-				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
