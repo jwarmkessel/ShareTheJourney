@@ -3,7 +3,7 @@ Share the Journey
 
 Share the Journey is one of the first five apps built using [ResearchKit](https://github.com/ResearchKit/ResearchKit).
 
-Our goals are to understand the causes of the symptom variations after
+Sage Bionetwork’s goal in this study is to understand the causes of the symptom variations after
 breast cancer treatment; to learn how mobile devices and sensors can
 help us to these symptoms and their progression; and to ultimately
 improve the quality of life for people after breast cancer treatment.
