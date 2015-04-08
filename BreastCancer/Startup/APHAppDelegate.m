@@ -2,12 +2,55 @@
 //  APHAppDelegate.m 
 //  Share the Journey 
 // 
-//  Copyright (c) 2014 Apple, Inc. All rights reserved. 
+// Copyright (c) 2015, Sage Bionetworks. All rights reserved. 
+// 
+// Redistribution and use in source and binary forms, with or without modification,
+// are permitted provided that the following conditions are met:
+// 
+// 1.  Redistributions of source code must retain the above copyright notice, this
+// list of conditions and the following disclaimer.
+// 
+// 2.  Redistributions in binary form must reproduce the above copyright notice, 
+// this list of conditions and the following disclaimer in the documentation and/or 
+// other materials provided with the distribution. 
+// 
+// 3.  Neither the name of the copyright holder(s) nor the names of any contributors 
+// may be used to endorse or promote products derived from this software without 
+// specific prior written permission. No license is granted to the trademarks of 
+// the copyright holders even if such marks are included in this software. 
+// 
+// THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" 
+// AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE 
+// IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE 
+// ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE 
+// FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL 
+// DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR 
+// SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER 
+// CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, 
+// OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE 
+// OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE. 
 // 
  
 @import APCAppCore;
 #import "APHAppDelegate.h"
 #import "APHProfileExtender.h"
+
+/*********************************************************************************/
+#pragma mark - Survey Identifiers
+/*********************************************************************************/
+static NSString* const  kDailySurveyIdentifier              = @"3-APHMoodSurvey-7259AC18-D711-47A6-ADBD-6CFCECDED1DF";
+static NSString* const  kDailyJournalSurveyIdentifier       = @"6-APHDailyJournal-80F09109-265A-49C6-9C5D-765E49AAF5D9";
+static NSString* const  kExerciseSurveyIdentifier           = @"4-APHExerciseSurvey-7259AC18-D711-47A6-ADBD-6CFCECDED1DF";
+static NSString* const  kFeedbackSurveyIdentifier           = @"8-Feedback-394848ce-ca4f-4abe-b97e-fedbfd7ffb8e";
+static NSString* const  kMyThoughtsSurveyIdentifier         = @"7-MyThoughts-14ffde40-1551-4b48-aae2-8fef38d61b61";
+static NSString* const  kSymptomsSurveyIdentifier           = @"2-BCPTSymptomsSurvey-394848ce-ca4f-4abe-b97e-fedbfd7ffb8e";
+static NSString* const  kBCSPAOFISurveyIdentifier           = @"e-PAOFI-394848ce-ca4f-4abe-b97e-fedbfd7ffb8e";
+static NSString* const  kPersonalHealthSurveyIdentifier     = @"9-PHQ8GAD7-394848ce-ca4f-4abe-b97e-fedbfd7ffb8e";
+static NSString* const  kSleepQualitySurveyIdentifier       = @"a-PSQI-394848ce-ca4f-4abe-b97e-fedbfd7ffb8e";
+static NSString* const  kGeneralHealthSurveyIdentifier      = @"b-SF36-394848ce-ca4f-4abe-b97e-fedbfd7ffb8e";
+static NSString* const  kWeeklySurveyIdentifier             = @"c-Weekly-394848ce-ca4f-4abe-b97e-fedbfd7ffb8e";
+static NSString* const  kExerciseReadinessSurveyIdentifier  = @"5-parqquiz-1E174061-5B02-11E4-8ED6-0800200C9A77";
+static NSString* const  kBackgroundSurveyIdentifier         = @"1-BackgroundSurvey-394848ce-ca4f-4abe-b97e-fedbfd7ffb8e";
 
 /*********************************************************************************/
 #pragma mark - Initializations Options
@@ -90,6 +133,30 @@ typedef NS_ENUM(NSUInteger, APHMigrationRecurringKinds)
                                            }];
     self.initializationOptions = dictionary;
     self.profileExtender = [[APHProfileExtender alloc] init];
+}
+
+-(void)setUpTasksReminder{
+    
+    APCTaskReminder *dailySurveyReminder = [[APCTaskReminder alloc]initWithTaskID:kDailySurveyIdentifier reminderBody:NSLocalizedString(@"Daily Survey", nil)];
+    APCTaskReminder *dailyJournalReminder = [[APCTaskReminder alloc]initWithTaskID:kDailyJournalSurveyIdentifier reminderBody:NSLocalizedString(@"Daily Journal", nil)];
+    APCTaskReminder *exerciseSurveyReminder = [[APCTaskReminder alloc]initWithTaskID:kExerciseSurveyIdentifier reminderBody:NSLocalizedString(@"Exercise Survey", nil)];
+    APCTaskReminder *myThoughtsSurveyReminder = [[APCTaskReminder alloc]initWithTaskID:kMyThoughtsSurveyIdentifier reminderBody:NSLocalizedString(@"My Thoughts Survey", nil)];
+    APCTaskReminder *assessFunctioningSurveyReminder = [[APCTaskReminder alloc]initWithTaskID:kBCSPAOFISurveyIdentifier reminderBody:NSLocalizedString(@"Assessment of Functioning", nil)];
+    APCTaskReminder *personalHealthSurveyReminder = [[APCTaskReminder alloc]initWithTaskID:kPersonalHealthSurveyIdentifier reminderBody:NSLocalizedString(@"Personal Health Survey", nil)];
+    APCTaskReminder *sleepQualitySurveyReminder = [[APCTaskReminder alloc]initWithTaskID:kSleepQualitySurveyIdentifier reminderBody:NSLocalizedString(@"Sleep Quality Survey", nil)];
+    APCTaskReminder *generalHealthSurveyReminder = [[APCTaskReminder alloc]initWithTaskID:kGeneralHealthSurveyIdentifier reminderBody:NSLocalizedString(@"General Health Survey", nil)];
+    APCTaskReminder *weeklySurveyReminder = [[APCTaskReminder alloc]initWithTaskID:kWeeklySurveyIdentifier reminderBody:NSLocalizedString(@"Weekly Survey", nil)];
+    
+    [self.tasksReminder manageTaskReminder:dailySurveyReminder];
+    [self.tasksReminder manageTaskReminder:dailyJournalReminder];
+    [self.tasksReminder manageTaskReminder:exerciseSurveyReminder];
+    [self.tasksReminder manageTaskReminder:myThoughtsSurveyReminder];
+    [self.tasksReminder manageTaskReminder:assessFunctioningSurveyReminder];
+    [self.tasksReminder manageTaskReminder:personalHealthSurveyReminder];
+    [self.tasksReminder manageTaskReminder:sleepQualitySurveyReminder];
+    [self.tasksReminder manageTaskReminder:generalHealthSurveyReminder];
+    [self.tasksReminder manageTaskReminder:weeklySurveyReminder];
+    
 }
 
 - (NSDictionary *)migrateTasksAndSchedules:(NSDictionary *)currentTaskAndSchedules
