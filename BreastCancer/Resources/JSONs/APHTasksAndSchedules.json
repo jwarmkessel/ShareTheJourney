@@ -39,13 +39,6 @@
               "taskCompletionTimeString" : "(One Time) 23 Questions"
               },
               {
-              "taskTitle" : "Symptoms Survey",
-              "taskID": "2-BCPTSymptomsSurvey-394848ce-ca4f-4abe-b97e-fedbfd7ffb8e",
-              "taskFileName" : "BCSBCPTSymptomsSurvey",
-              "taskClassName" : "APCGenericSurveyTaskViewController",
-              "taskCompletionTimeString" : "20 Questions"
-              },
-              {
               "taskTitle" : "Weekly Survey",
               "taskID": "c-Weekly-394848ce-ca4f-4abe-b97e-fedbfd7ffb8e",
               "taskFileName" : "BCSWeeklySurvey",
@@ -78,11 +71,6 @@
                   "scheduleType": "recurring",
                   "scheduleString": "0 5 * * *",
                   "taskID": "8-Feedback-394848ce-ca4f-4abe-b97e-fedbfd7ffb8e"
-                  },
-                  {
-                  "scheduleType": "once",
-                  "scheduleString": "0 5 * * *",
-                  "taskID": "2-BCPTSymptomsSurvey-394848ce-ca4f-4abe-b97e-fedbfd7ffb8e"
                   },
                   {
                   "scheduleType": "recurring",

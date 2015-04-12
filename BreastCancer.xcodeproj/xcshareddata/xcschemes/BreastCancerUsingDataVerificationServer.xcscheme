@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0620"
+   LastUpgradeVersion = "0610"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "F534B58219E4681E00C3C152"
-               BuildableName = "BreastCancer.app"
-               BlueprintName = "BreastCancer"
+               BlueprintIdentifier = "085F3EAC1AAF6BA9003A910A"
+               BuildableName = "BreastCancer_YML.app"
+               BlueprintName = "BreastCancer - YML"
                ReferencedContainer = "container:BreastCancer.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -26,15 +26,15 @@
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES"
-      buildConfiguration = "Debug">
+      buildConfiguration = "DebugAndSendToDataVerificationServer">
       <Testables>
       </Testables>
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "F534B58219E4681E00C3C152"
-            BuildableName = "BreastCancer.app"
-            BlueprintName = "BreastCancer"
+            BlueprintIdentifier = "085F3EAC1AAF6BA9003A910A"
+            BuildableName = "BreastCancer_YML.app"
+            BlueprintName = "BreastCancer - YML"
             ReferencedContainer = "container:BreastCancer.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -52,9 +52,9 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "F534B58219E4681E00C3C152"
-            BuildableName = "BreastCancer.app"
-            BlueprintName = "BreastCancer"
+            BlueprintIdentifier = "085F3EAC1AAF6BA9003A910A"
+            BuildableName = "BreastCancer_YML.app"
+            BlueprintName = "BreastCancer - YML"
             ReferencedContainer = "container:BreastCancer.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -65,21 +65,21 @@
       shouldUseLaunchSchemeArgsEnv = "YES"
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
-      buildConfiguration = "Release"
+      buildConfiguration = "DebugAndSendToDataVerificationServer"
       debugDocumentVersioning = "YES">
       <BuildableProductRunnable
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "F534B58219E4681E00C3C152"
-            BuildableName = "BreastCancer.app"
-            BlueprintName = "BreastCancer"
+            BlueprintIdentifier = "085F3EAC1AAF6BA9003A910A"
+            BuildableName = "BreastCancer_YML.app"
+            BlueprintName = "BreastCancer - YML"
             ReferencedContainer = "container:BreastCancer.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
    <AnalyzeAction
-      buildConfiguration = "Debug">
+      buildConfiguration = "DebugAndSendToDataVerificationServer">
    </AnalyzeAction>
    <ArchiveAction
       buildConfiguration = "Release"

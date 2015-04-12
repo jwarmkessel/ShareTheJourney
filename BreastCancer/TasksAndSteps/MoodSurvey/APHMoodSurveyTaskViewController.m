@@ -142,9 +142,9 @@ static NSInteger const kNumberOfCompletionsUntilDisplayingCustomSurvey = 7;
     return controller;
 }
 
-- (void)taskViewController:(ORKTaskViewController *)taskViewController didFinishWithReason:(ORKTaskViewControllerFinishReason)result error:(NSError *)error
+- (void)taskViewController:(ORKTaskViewController *)taskViewController didFinishWithReason:(ORKTaskViewControllerFinishReason)reason error:(nullable NSError *)error
 {
-    [super taskViewController:taskViewController didFinishWithReason:result error:error];
+    [super taskViewController:taskViewController didFinishWithReason:reason error:error];
 
     //Here we are keeping a count of the Daily Check-IN being completed. We are keeping track only up to 7.
     APCAppDelegate * delegate = (APCAppDelegate*)[UIApplication sharedApplication].delegate;
