@@ -84,6 +84,7 @@ typedef NS_ENUM(NSUInteger, APHMigrationRecurringKinds)
 
 @property (nonatomic, strong) APHProfileExtender *profileExtender;
 @property  (nonatomic, assign)  NSInteger environment;
+
 @end
 
 @implementation APHAppDelegate
