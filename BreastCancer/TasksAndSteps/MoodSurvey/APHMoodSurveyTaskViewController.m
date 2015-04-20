@@ -83,7 +83,11 @@ static NSInteger const kNumberOfCompletionsUntilDisplayingCustomSurvey = 7;
                 ORKChoiceQuestionResult *questionResult = stepResult.results.firstObject;
                 
                 if (questionResult.choiceAnswers != nil) {
-                    resultCollectionDictionary[stepResult.identifier] = (NSNumber *)[questionResult.choiceAnswers firstObject];
+                    id selectedAnswer = [questionResult.choiceAnswers firstObject];
+                    
+                    if (selectedAnswer) {
+                        resultCollectionDictionary[stepResult.identifier] = (NSNumber *)selectedAnswer;
+                    }
                 }
             }
         }
@@ -142,9 +146,9 @@ static NSInteger const kNumberOfCompletionsUntilDisplayingCustomSurvey = 7;
     return controller;
 }
 
-- (void)taskViewController:(ORKTaskViewController *)taskViewController didFinishWithResult:(ORKTaskViewControllerResult)result error:(NSError *)error
+- (void)taskViewController:(ORKTaskViewController * __nonnull)taskViewController didFinishWithReason:(ORKTaskViewControllerFinishReason)reason error:(nullable NSError *)error
 {
-    [super taskViewController:taskViewController didFinishWithResult:result error:error];
+    [super taskViewController:taskViewController didFinishWithReason:reason error:error];
 
     //Here we are keeping a count of the Daily Check-IN being completed. We are keeping track only up to 7.
     APCAppDelegate * delegate = (APCAppDelegate*)[UIApplication sharedApplication].delegate;
