@@ -35,6 +35,4 @@
 
 @interface APHHeartAgeIntroStepViewController : APCStepViewController
 
-- (void)getStartedWithCustomSurvey;
-
 @end
