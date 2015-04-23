@@ -3,7 +3,7 @@ Share the Journey
 
 Share the Journey is one of the first five apps built using [ResearchKit](https://github.com/ResearchKit/ResearchKit).
 
-Sage Bionetwork’s goal in this study is to understand the causes of the symptom variations after
+Sage Bionetworks' goal in this study is to understand the causes of the symptom variations after
 breast cancer treatment; to learn how mobile devices and sensors can
 help us to these symptoms and their progression; and to ultimately
 improve the quality of life for people after breast cancer treatment.
@@ -29,7 +29,7 @@ Building the App
 First, check out the source, including all the dependencies:
 
 ```
-git clone --recurse-submodules git@github.com:ResearchKit/ShareTheJourney.git
+git clone --recurse-submodules https://github.com/ResearchKit/ShareTheJourney.git
 ```
 
 ###Building it
@@ -52,6 +52,7 @@ The shipping app also uses OpenSSL to add extra data protection, which
 has not been included in the published version of the AppCore
 project. See the [AppCore repository](https://github.com/researchkit/AppCore) for more details.
 
+Data upload to [Bridge](http://sagebase.org/bridge/) has been disabled, the logos of the institutions have been removed, and the consent material has been marked as an example.
 
 License
 =======
