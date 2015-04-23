@@ -95,7 +95,7 @@ static NSInteger const kNumberOfCompletionsUntilDisplayingCustomSurvey = 6;
 - (UITableViewCell *)decorateCell:(UITableViewCell *)cell {
     
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-    cell.textLabel.text = @"Customize your survey question";
+    cell.textLabel.text = NSLocalizedString(@"Customize your survey question", nil);
     return cell;
 }
 
