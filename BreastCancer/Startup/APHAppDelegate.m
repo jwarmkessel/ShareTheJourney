@@ -349,6 +349,8 @@ typedef NS_ENUM(NSUInteger, APHMigrationRecurringKinds)
                                                             }];
     
     [[UIView appearance] setTintColor:[UIColor appPrimaryColor]];
+    
+    self.dataSubstrate.parameters.hideExampleConsent = YES;
 }
 
 - (void) showOnBoarding
