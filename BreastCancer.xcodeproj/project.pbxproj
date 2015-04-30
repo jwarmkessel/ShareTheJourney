@@ -215,26 +215,19 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		08C344431AF1EBF200CFA6F8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 747FB1281ABDDCAA00345000 /* ResearchKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 86CC8E9A1AC09332001CCD89;
+			remoteInfo = ResearchKitTests;
+		};
 		747FB12F1ABDDCAA00345000 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 747FB1281ABDDCAA00345000 /* ResearchKit.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = B183A5951A8535D100C76870;
 			remoteInfo = OpenResearchKit;
-		};
-		747FB1311ABDDCAA00345000 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 747FB1281ABDDCAA00345000 /* ResearchKit.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = B16E339E1A858AFF00A1019B;
-			remoteInfo = ORKDemo;
-		};
-		747FB1331ABDDCAA00345000 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 747FB1281ABDDCAA00345000 /* ResearchKit.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = B16E33B61A858AFF00A1019B;
-			remoteInfo = ORKDemoTests;
 		};
 		747FB13A1ABDDCBA00345000 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -618,8 +611,7 @@
 			isa = PBXGroup;
 			children = (
 				747FB1301ABDDCAA00345000 /* ResearchKit.framework */,
-				747FB1321ABDDCAA00345000 /* ORKDemo.app */,
-				747FB1341ABDDCAA00345000 /* ORKDemoTests.xctest */,
+				08C344441AF1EBF200CFA6F8 /* ResearchKitTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1092,25 +1084,18 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
+		08C344441AF1EBF200CFA6F8 /* ResearchKitTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = ResearchKitTests.xctest;
+			remoteRef = 08C344431AF1EBF200CFA6F8 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 		747FB1301ABDDCAA00345000 /* ResearchKit.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
 			path = ResearchKit.framework;
 			remoteRef = 747FB12F1ABDDCAA00345000 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		747FB1321ABDDCAA00345000 /* ORKDemo.app */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.application;
-			path = ORKDemo.app;
-			remoteRef = 747FB1311ABDDCAA00345000 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		747FB1341ABDDCAA00345000 /* ORKDemoTests.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = ORKDemoTests.xctest;
-			remoteRef = 747FB1331ABDDCAA00345000 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 		747FB13B1ABDDCBA00345000 /* APCAppCore.framework */ = {
