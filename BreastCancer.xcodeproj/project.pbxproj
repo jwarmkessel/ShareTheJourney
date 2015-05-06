@@ -133,6 +133,8 @@
 		5B1D9D6D1A1BD414000F4AD6 /* APHDashboardEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B1D9D691A1BD414000F4AD6 /* APHDashboardEditViewController.m */; };
 		5B1D9D6E1A1BD414000F4AD6 /* APHDashboardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B1D9D6B1A1BD414000F4AD6 /* APHDashboardViewController.m */; };
 		5BBDAEBB1A33DCDA0047DF87 /* HTMLContent in Resources */ = {isa = PBXBuildFile; fileRef = 5BBDAEBA1A33DCDA0047DF87 /* HTMLContent */; };
+		6C8645171AF3F73B00B46C49 /* APHAppDelegate+APHMigration.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C8645161AF3F73B00B46C49 /* APHAppDelegate+APHMigration.m */; };
+		6C8645231AF3F85000B46C49 /* APHAppDelegate+APHMigration.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C8645161AF3F73B00B46C49 /* APHAppDelegate+APHMigration.m */; };
 		744174E61A923861004A7CC1 /* APHConsentSection.json in Resources */ = {isa = PBXBuildFile; fileRef = 744174E51A923861004A7CC1 /* APHConsentSection.json */; };
 		747FB13E1ABDDD1E00345000 /* ResearchKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 747FB1301ABDDCAA00345000 /* ResearchKit.framework */; };
 		747FB13F1ABDDD2500345000 /* APCAppCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 747FB13B1ABDDCBA00345000 /* APCAppCore.framework */; };
@@ -215,7 +217,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		08C344431AF1EBF200CFA6F8 /* PBXContainerItemProxy */ = {
+		6C8645201AF3F73B00B46C49 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 747FB1281ABDDCAA00345000 /* ResearchKit.xcodeproj */;
 			proxyType = 2;
@@ -391,6 +393,8 @@
 		5B1D9D6A1A1BD414000F4AD6 /* APHDashboardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APHDashboardViewController.h; sourceTree = "<group>"; };
 		5B1D9D6B1A1BD414000F4AD6 /* APHDashboardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APHDashboardViewController.m; sourceTree = "<group>"; };
 		5BBDAEBA1A33DCDA0047DF87 /* HTMLContent */ = {isa = PBXFileReference; lastKnownFileType = folder; path = HTMLContent; sourceTree = "<group>"; };
+		6C8645151AF3F73B00B46C49 /* APHAppDelegate+APHMigration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "APHAppDelegate+APHMigration.h"; sourceTree = "<group>"; };
+		6C8645161AF3F73B00B46C49 /* APHAppDelegate+APHMigration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "APHAppDelegate+APHMigration.m"; sourceTree = "<group>"; };
 		744174E51A923861004A7CC1 /* APHConsentSection.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = APHConsentSection.json; sourceTree = "<group>"; };
 		747FB1281ABDDCAA00345000 /* ResearchKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ResearchKit.xcodeproj; path = researchkit/ResearchKit.xcodeproj; sourceTree = "<group>"; };
 		747FB1351ABDDCBA00345000 /* APCAppCore.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = APCAppCore.xcodeproj; path = AppCore/APCAppCore/APCAppCore.xcodeproj; sourceTree = "<group>"; };
@@ -607,11 +611,20 @@
 			path = Dashboard;
 			sourceTree = "<group>";
 		};
+		6C8645221AF3F73F00B46C49 /* Migration */ = {
+			isa = PBXGroup;
+			children = (
+				6C8645151AF3F73B00B46C49 /* APHAppDelegate+APHMigration.h */,
+				6C8645161AF3F73B00B46C49 /* APHAppDelegate+APHMigration.m */,
+			);
+			name = Migration;
+			sourceTree = "<group>";
+		};
 		747FB1291ABDDCAA00345000 /* Products */ = {
 			isa = PBXGroup;
 			children = (
 				747FB1301ABDDCAA00345000 /* ResearchKit.framework */,
-				08C344441AF1EBF200CFA6F8 /* ResearchKitTests.xctest */,
+				6C8645211AF3F73B00B46C49 /* ResearchKitTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -909,6 +922,7 @@
 			children = (
 				5B15DD461A11524900BEA0D1 /* APHAppDelegate.h */,
 				5B15DD471A11524900BEA0D1 /* APHAppDelegate.m */,
+				6C8645221AF3F73F00B46C49 /* Migration */,
 				F534B5E319E4689D00C3C152 /* LaunchScreen.xib */,
 				F534B5E419E4689D00C3C152 /* Main.storyboard */,
 				7B4B182F1A8D720400F79C94 /* APHProfileExtender.h */,
@@ -1035,7 +1049,7 @@
 					};
 					F534B58219E4681E00C3C152 = {
 						CreatedOnToolsVersion = 6.0.1;
-						DevelopmentTeam = KA9Z8R6M6K;
+						DevelopmentTeam = NL3PRC58UN;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 1;
@@ -1084,11 +1098,11 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		08C344441AF1EBF200CFA6F8 /* ResearchKitTests.xctest */ = {
+		6C8645211AF3F73B00B46C49 /* ResearchKitTests.xctest */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.cfbundle;
 			path = ResearchKitTests.xctest;
-			remoteRef = 08C344431AF1EBF200CFA6F8 /* PBXContainerItemProxy */;
+			remoteRef = 6C8645201AF3F73B00B46C49 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 		747FB1301ABDDCAA00345000 /* ResearchKit.framework */ = {
@@ -1307,6 +1321,7 @@
 				085F3EC11AAF6BA9003A910A /* APHPaofiSurveyViewController.m in Sources */,
 				085F3EC21AAF6BA9003A910A /* APHDailyJournalTaskViewController.m in Sources */,
 				085F3EC31AAF6BA9003A910A /* APHDisplayLogHistoryViewController.m in Sources */,
+				6C8645231AF3F85000B46C49 /* APHAppDelegate+APHMigration.m in Sources */,
 				085F3EC41AAF6BA9003A910A /* APHHeartAgeIntroStepViewController.m in Sources */,
 				085F3EC51AAF6BA9003A910A /* APHMoodLogDictionaryKeys.m in Sources */,
 				085F3EC61AAF6BA9003A910A /* APHDashboardViewController.m in Sources */,
@@ -1352,6 +1367,7 @@
 				083D6B011AA4AE5D0064AADD /* APHPaofiSurveyViewController.m in Sources */,
 				CF15F24B1A11616500D87570 /* APHDailyJournalTaskViewController.m in Sources */,
 				7BFD56791A24FAF0001210A2 /* APHDisplayLogHistoryViewController.m in Sources */,
+				6C8645171AF3F73B00B46C49 /* APHAppDelegate+APHMigration.m in Sources */,
 				7B5E25D01A20592400A04FEF /* APHHeartAgeIntroStepViewController.m in Sources */,
 				CF2697E819EC3E4200525E19 /* APHMoodLogDictionaryKeys.m in Sources */,
 				5B1D9D6E1A1BD414000F4AD6 /* APHDashboardViewController.m in Sources */,

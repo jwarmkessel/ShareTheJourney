@@ -34,6 +34,7 @@
 @import APCAppCore;
 #import "APHAppDelegate.h"
 #import "APHProfileExtender.h"
+#import "APHAppDelegate+APHMigration.h"
 
 /*********************************************************************************/
 #pragma mark - Survey Identifiers
@@ -154,6 +155,7 @@ typedef NS_ENUM(NSUInteger, APHMigrationRecurringKinds)
     APCTaskReminder *generalHealthSurveyReminder = [[APCTaskReminder alloc]initWithTaskID:kGeneralHealthSurveyIdentifier reminderBody:NSLocalizedString(@"General Health Survey", nil)];
     APCTaskReminder *weeklySurveyReminder = [[APCTaskReminder alloc]initWithTaskID:kWeeklySurveyIdentifier reminderBody:NSLocalizedString(@"Weekly Survey", nil)];
     
+    [self.tasksReminder.reminders removeAllObjects];
     [self.tasksReminder manageTaskReminder:dailySurveyReminder];
     [self.tasksReminder manageTaskReminder:dailyJournalReminder];
     [self.tasksReminder manageTaskReminder:exerciseSurveyReminder];
@@ -164,6 +166,18 @@ typedef NS_ENUM(NSUInteger, APHMigrationRecurringKinds)
     [self.tasksReminder manageTaskReminder:generalHealthSurveyReminder];
     [self.tasksReminder manageTaskReminder:weeklySurveyReminder];
     
+    if ([self doesPersisteStoreExist] == NO)
+    {
+        APCLogEvent(@"This app is being launched for the first time. Turn all reminders on");
+        for (APCTaskReminder *reminder in self.tasksReminder.reminders) {
+            [[NSUserDefaults standardUserDefaults]setObject:reminder.reminderBody forKey:reminder.reminderIdentifier];
+        }
+        
+        if ([[UIApplication sharedApplication] currentUserNotificationSettings].types != UIUserNotificationTypeNone){
+            [self.tasksReminder setReminderOn:@YES];
+        }
+        [[NSUserDefaults standardUserDefaults]synchronize];
+    }
 }
 
 - (NSDictionary *)migrateTasksAndSchedules:(NSDictionary *)currentTaskAndSchedules
@@ -306,6 +320,14 @@ typedef NS_ENUM(NSUInteger, APHMigrationRecurringKinds)
         [APCSchedule updateSchedulesFromJSON:migratedSchedules[kJsonSchedulesKey]
                                    inContext:self.dataSubstrate.persistentContext];
     }
+    else if ([[defaults objectForKey:@"previousVersion"] isEqual: @3])
+    {
+        APCLogEvent(@"The entire data model version %d", kTheEntireDataModelOfTheApp);
+        if (![self performMigrationFromThreeToFourWithError:&migrationError])
+        {
+            APCLogEvent(@"Migration from version %@ to %@ has failed.", [defaults objectForKey:@"previousVersion"], @(kTheEntireDataModelOfTheApp));
+        }
+    }
     
     [defaults setObject:majorVersion forKey:@"shortVersionString"];
     [defaults setObject:minorVersion forKey:@"version"];
@@ -349,6 +371,8 @@ typedef NS_ENUM(NSUInteger, APHMigrationRecurringKinds)
                                                             }];
     
     [[UIView appearance] setTintColor:[UIColor appPrimaryColor]];
+    
+    self.dataSubstrate.parameters.hideExampleConsent = YES;
 }
 
 - (void) showOnBoarding
