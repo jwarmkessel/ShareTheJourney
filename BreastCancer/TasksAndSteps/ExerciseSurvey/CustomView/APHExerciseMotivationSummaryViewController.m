@@ -55,6 +55,11 @@ static NSString* const  kSummaryStepIdentifier                               = @
     [self.childViewController setAnswers:answers];
 }
 
+- (void)setGoalButtonTitle:(NSString*)title
+{
+    [self.childViewController.changeYourGoalButton setTitle:title forState:UIControlStateNormal];
+}
+
 - (void)changeExerciseGoalAction {
     
     if ([self.delegate respondsToSelector:@selector(stepViewController:didFinishWithNavigationDirection:)] == YES) {

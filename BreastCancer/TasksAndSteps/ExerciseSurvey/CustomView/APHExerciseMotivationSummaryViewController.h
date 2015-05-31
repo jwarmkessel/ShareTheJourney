@@ -43,5 +43,6 @@
 @property (weak, nonatomic) IBOutlet UIImageView *titleImageView;
 - (void)changeExerciseGoalAction;
 - (void) setAnswersInTableview:(NSMutableArray*)answers;
+- (void)setGoalButtonTitle:(NSString*)title;
 
 @end

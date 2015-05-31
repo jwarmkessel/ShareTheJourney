@@ -92,19 +92,11 @@ static NSInteger const kNumberOfCompletionsUntilDisplayingCustomSurvey = 6;
     return count;
 }
 
-- (UITableViewCell *)cellForRowAtAdjustedIndexPath:(NSIndexPath *)indexPath {
+- (UITableViewCell *)decorateCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)__unused indexPath {
     
-    UITableViewCell *cell = nil;
-    
-    if (indexPath.section == 0) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:nil];
-        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-        cell.textLabel.text = @"Customize your survey question";
-        
-    }
-    
-
-
+    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+    cell.textLabel.text = NSLocalizedString(@"Customize your survey question", nil);
+    cell.detailTextLabel.text = @"";
     return cell;
 }
 

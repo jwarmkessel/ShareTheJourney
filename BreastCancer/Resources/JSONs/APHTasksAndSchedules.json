@@ -1,6 +1,12 @@
 {
     "tasks": [
               {
+              "taskTitle": "Weekly Exercise Check-in",
+              "taskID": "a-APHWeeklyExerciseSurvey-1259AC11-A719-17A9-ZDBA-FCFCECDED1D6",
+              "taskClassName": "APHExerciseCheckInTaskViewController",
+              "taskCompletionTimeString" : "1 Minutes"
+              },
+              {
               "taskTitle": "Daily Check-in",
               "taskID": "3-APHMoodSurvey-7259AC18-D711-47A6-ADBD-6CFCECDED1DF",
               "taskClassName": "APHMoodSurveyTaskViewController",
@@ -47,6 +53,11 @@
               }
               ],
     "schedules": [
+                  {
+                  "scheduleType": "recurring",
+                  "scheduleString": "0 5 * * *",
+                  "taskID": "a-APHWeeklyExerciseSurvey-1259AC11-A719-17A9-ZDBA-FCFCECDED1D6",
+                  },
                   {
                   "scheduleType": "recurring",
                   "scheduleString": "0 5 * * *",
